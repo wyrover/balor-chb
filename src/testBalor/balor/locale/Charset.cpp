@@ -1,4 +1,4 @@
-#include <balor/locale/Charset.hpp>
+ï»¿#include <balor/locale/Charset.hpp>
 
 #include <boost/thread.hpp>
 #include <MLang.h>
@@ -26,7 +26,7 @@ using namespace balor::system;
 
 
 namespace {
-const wchar_t testString[] = L"+-\\\\@~012abcABC±²³{|`—‚O‚P‚Q‚‚‚‚ƒ‚`‚a‚bƒAƒCƒE‚ ‚¢‚¤Š¿š";
+const wchar_t testString[] = L"+-\\\\@~012abcABCï½±ï½²ï½³ï¼‹ï¼ï¿¥ï½ï¼ ï¼ï¼‘ï¼’ï½ï½‚ï½ƒï¼¡ï¼¢ï¼£ã‚¢ã‚¤ã‚¦ã‚ã„ã†æ¼¢å­—";
 
 
 string getResourceString(const wchar_t* name) {
@@ -39,26 +39,26 @@ string getResourceString(const wchar_t* name) {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
-	Com::initialize(); // CoInitializeEx ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	Com::initialize(); // CoInitializeEx í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³ , ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤
 	{
-		ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage); // CoCreateInstance ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+		ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage); // CoCreateInstance í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³ , ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤
 	}
 	Com::uninitialize();
 
-	testAssert(SUCCEEDED(CoInitialize(nullptr))); // CoInitialize ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	testAssert(SUCCEEDED(CoInitialize(nullptr))); // CoInitialize í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³ , ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤
 	CoUninitialize();
 
-	IsValidCodePage(0); // IsValidCodePage ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	IsValidCodePage(0); // IsValidCodePage í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³ , ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤
 }
 
 
-testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È‚ç‚È‚¢‚à‚Ì‚©
-	testAssert(!Com::initialized()); // –¢‰Šú‰»‚Ì‚Í‚¸
+testCase(ComInitialize) { // COM ì´ˆê¸°í™” ì½”ë“œì™€ ê³µì¡´. ì‹¤ì œë¡œ ê¹Œë‹¤ë¡­ì§€ë§Œ ì–´ë–»ê²Œ í•  ìˆ˜ ì—†ë‹¤
+	testAssert(!Com::initialized()); // ë¯¸ ì´ˆê¸°í™” ë˜ì—ˆì„ ê²ƒ
 
-	{// Charset ‚ª‚b‚n‚l‚ğg—p‚µ‚È‚¢ƒpƒ^[ƒ“
+	{// Charsetê°€ COMì„ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” íŒ¨í„´
 		{
 			Charset charset = Charset::default();
 			testAssert(charset.encode(L"abc") == "abc");
@@ -66,7 +66,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		}
 		testAssert(!Com::initialized());
 	}
-	{// Charset ‚ª‚b‚n‚l‚ğ‰Šú‰»‚·‚é
+	{// Charsetê°€ COMì„ ì´ˆê¸°í™” í•œë‹¤  
 		{
 			Charset charset(1200);
 			testAssert(charset.name() == L"unicode");
@@ -74,7 +74,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		testAssert(Com::initialized());
 		Com::uninitialize();
 	}
-	{// ‚b‚n‚l‚ğ‚l‚s‚`‚Å‰Šú‰»‚µ‚Ä‚¨‚¢‚ÄCharset‚ğg—p‚·‚é
+	{// COMì„ MTAë¡œ ì´ˆê¸°í™” í•´ ë‘ê³  Charsetì„ ì‚¬ìš©í•œë‹¤.
 		Com::initialize(false);
 		{
 			Charset charset(1200);
@@ -82,7 +82,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		}
 		Com::uninitialize();
 	}
-	{// ‚b‚n‚l‚ğ‚r‚s‚`‚Å‰Šú‰»‚µ‚Ä‚¨‚¢‚ÄCharset‚ğg—p‚·‚é
+	{// COMì„ STAë¡œ ì´ˆê¸°í™” í•´ ë‘ê³  Charsetì„ ì‚¬ìš©í•œë‹¤
 		Com::initialize();
 		{
 			Charset charset(1200);
@@ -90,7 +90,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		}
 		Com::uninitialize();
 	}
-	{// ‚b‚n‚l‚ğ‚l‚s‚`‚Å‰Šú‰»‚µ‚Ä‚¨‚¢‚Ä•ÊƒXƒŒƒbƒh‚ÅCharset‚ğg—p‚·‚é
+	{// COMì„ MTAë¡œ ì´ˆê¸°í™” í•´ ë‘ê³  ë‹¤ë¥¸ ìŠ¤ë ˆë“œì—ì„œ Charsetì„ ì‚¬ìš©í•œë‹¤.
 		Com::initialize(false);
 		thread workor([] () {
 			Charset charset(1200);
@@ -99,7 +99,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		workor.join();
 		Com::uninitialize();
 	}
-	{// ‚b‚n‚l‚ğ‚r‚s‚`‚Å‰Šú‰»‚µ‚Ä‚¨‚¢‚Ä•ÊƒXƒŒƒbƒh‚Å STA ‚Ì Charset ‚ğg—p‚·‚éB
+	{// COMì„ STAë¡œ ì´ˆê¸°í™” í•´ ë‘ê³  ë‹¤ë¥¸ ìŠ¤ë ˆë“œì—ì„œ STAì˜ Charsetì„ ì‚¬ìš©í•œë‹¤.
 		Com::initialize();
 		thread workor([] () {
 			{
@@ -113,7 +113,7 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 		workor.join();
 		Com::uninitialize();
 	}
-	{// Charset ‚ª•ÊƒXƒŒƒbƒh‚ÅMTA ‚Ì ‚b‚n‚l‚ğ‰Šú‰»‚·‚éB
+	{// Charset ì´ ë‹¤ë¥¸ ìŠ¤ë ˆë“œì—ì„œ MTA ì˜ COMì„ ì´ˆê¸°í™” í•œë‹¤ 
 		thread work([] () {
 			Com::initialize(false);
 			{
@@ -130,37 +130,37 @@ testCase(ComInitialize) { // COM‰Šú‰»ƒR[ƒh‚Æ‚Ì‹¤‘¶BÀ‚É‚â‚â‚±‚µ‚¢A‚Ç‚¤‚É‚©‚È
 }
 
 
-testCase(secondStartup) { // ƒnƒ“ƒhƒ‹ƒŠ[ƒNƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚ç‚È‚¢‚æ‚¤‚É‚ ‚ç‚©‚¶‚ß‚b‚n‚l‚Ì‰Šú‰»‚ğ‚·‚Ü‚¹‚Ä‚¨‚­
+testCase(secondStartup) { // í•¸ë“¤ ë¦­ ì²´í¬ì— ê±¸ë¦¬ì§€ ì•Šë„ë¡ ì²˜ìŒë¶€í„° COM ì´ˆê¸°í™”ë¥¼ ëë‚´ë‘”ë‹¤
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 	Charset charset(932);
-	Charset::charsets(); // IEnumCodePage->Next ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	Charset::charsets(); // IEnumCodePage->Next í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³ , ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤
 }
 
 
 testCase(codePageAndIsWindowsCodePageConstruct) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Charset(-1));
 	testAssertionFailed(Charset(65536));
 
-	{// isWindowsCodePage = true ‚Å‚ ‚è‚È‚ª‚ç windows ‚ÌƒR[ƒhƒy[ƒW‚Å‚Í‚È‚¢
+	{// isWindowsCodePage = true ì´ë©´ì„œ windows ì½”ë“œ í˜ì´ì§€ëŠ” ì—†ë‹¤
 		testAssertionFailed(Charset(51932, true));
 		testNoThrow(Charset(932, true));
 	}
 
-	{// mlang ‚ÌƒTƒ|[ƒg”ÍˆÍŠO‚ÌƒR[ƒhƒy[ƒW
+	{// mlang ì˜ ì§€ì› ë²”ìœ„ ì™¸ì˜ ì½”ë“œ í˜ì´ì§€
 		testThrow(Charset(7777), Charset::NotFoundException);
 		testThrow(Charset(1), Charset::NotFoundException);
 		testNoThrow(Charset(51932));
 	}
 
-	{// ³íƒP[ƒX 1
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1
 		Charset shift_jis(932, true);
 		testAssert(shift_jis.codePage() == 932);
 		testAssert(shift_jis.name() == L"shift_jis");
 		testAssert(shift_jis.fallbackChar() == L'?');
 		testAssert(!shift_jis.throwable());
 	}
-	{// ³íƒP[ƒX 2
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2
 		Charset big5(950);
 		testAssert(big5.codePage() == 950);
 		testAssert(big5.name() == L"big5");
@@ -169,11 +169,11 @@ testCase(codePageAndIsWindowsCodePageConstruct) {
 
 
 testCase(nameConstruct) {
-	{// –³Œø‚ÈƒGƒ“ƒR[ƒfƒBƒ“ƒO–¼
+	{// ë¬´íš¨í•œ ì¸ì½”ë”© ì´ë¦„
 		testThrow(Charset(L"unknowncode"), Charset::NotFoundException);
 	}
 
-	{// ³íƒP[ƒX
+	{// ì •ìƒ ì¼€ì´ìŠ¤
 		Charset euc_jp(L"euc-jp");
 		testAssert(euc_jp.codePage() == 51932);
 		testAssert(euc_jp.name() == L"euc-jp");
@@ -219,7 +219,7 @@ testCase(ascii) {
 	testAssert(charset.throwable() == false);
 	testAssert(charset.name() == L"us-ascii");
 
-	String testString = L"abc012‚`‚a‚b‚O‚P‚Q‚ ‚¢‚¤Š¿š";
+	String testString = L"abc012ï¼¡ï¼¢ï¼£ï¼ï¼‘ï¼’ã‚ã„ã†æ¼¢å­—";
 	string bytes;
 	testAssert((bytes = charset.encode(testString)) == "abc012ABC012?????");
 	testAssert(charset.decode(bytes) == L"abc012ABC012?????");
@@ -232,12 +232,12 @@ testCase(ascii) {
 testCase(bigEndianUnicode) {
 	Charset charset = Charset::bigEndianUnicode();
 	testAssert(charset.codePage() == 1201);
-	testAssert(charset.displayName() == L"Unicode (ƒrƒbƒO ƒGƒ“ƒfƒBƒAƒ“)" // .NET‚Í Unicode (Big-Endian)
-			|| charset.displayName() == L"Unicode (Big-Endian)"); // ‚±‚ê‚ÍXP‚Ì•\‹L
+	testAssert(charset.displayName() == L"Unicode (ê¸®ê¸ê¸ ê¸„ê¹›ê¸¢ê·»ê·ºê¹›)" // .NETì€ Unicode (Big-Endian)
+			|| charset.displayName() == L"Unicode (Big-Endian)"); // ì—¬ê¸°ëŠ” XP í‘œê¸°
 	testAssert(charset.fallbackChar() == L'?');
 	testAssert(charset.throwable() == false);
-	testAssert(charset.name() == L"unicodeFEFF" // .NET‚Í "utf-16BE"
-			|| charset.name() == L"unicodeFFFE"); // ‚±‚ê‚ÍXP‚Ì•\‹L
+	testAssert(charset.name() == L"unicodeFEFF" // .NETëŠ” "utf-16BE"
+			|| charset.name() == L"unicodeFFFE"); // ì—¬ê¸°ëŠ” XP í‘œê¸° 
 
 	string temp = charset.encode(ByteStringRange(reinterpret_cast<const char*>(testString), String::getLength(testString) * sizeof(wchar_t)), Charset::unicode());
 	temp        = Charset::unicode().encode(temp, charset);
@@ -258,11 +258,10 @@ testCase(charsets) {
 }
 
 
-//testCase(codePage) {} // ŠeƒGƒ“ƒR[ƒfƒBƒ“ƒOæ“¾‚ÌstaticŠÖ”‚Ì testCase ‚ÅƒeƒXƒgÏ‚İ
 
 
 testCase(decode) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Charset charset(932);
 		testAssertionFailed(charset.decode("012", -1));
 		testAssertionFailed(charset.decode("012",  4));
@@ -275,29 +274,29 @@ testCase(decode) {
 		//testAssertionFailed(Charset::unicode().decode("012",  3, buffer));
 		testNoThrow        (charset.decode("012",  3, buffer));
 	}
-	{// ƒoƒbƒtƒ@‚Ì’·‚³‚ª‘«‚è‚È‚¢iWindowsCode”Åj
+	{// ë²„í¼ ê¸¸ì´ê°€ ë¶€ì¡±í•˜ì§€ ì•Šë‹¤(WindowsCode íŒ)
 		Charset charset(932, true);
 		wchar_t buffer[3];
 		testThrow  (charset.decode("012", 3, buffer), Charset::InsufficientBufferExceptoin);
 		testNoThrow(charset.decode("012", 2, buffer));
 	}
-	{// ƒoƒbƒtƒ@‚Ì’·‚³‚ª‘«‚è‚È‚¢
+	{// ë²„í¼ ê¸¸ì´ê°€ ë¶€ì¡±í•˜ì§€ ì•Šë‹¤
 		Charset charset(932);
 		wchar_t buffer[3];
 		testThrow  (charset.decode("012", 3, buffer), Charset::InsufficientBufferExceptoin);
 		testNoThrow(charset.decode("012", 2, buffer));
 	}
-	{// ³íƒP[ƒX 1iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1(WindowsCode íŒ)
 		Charset charset(932, true);
 		string srcString = getResourceString(L"shift_jis.txt");
 		testAssert(charset.decode(srcString) == testString);
 	}
-	{// ³íƒP[ƒX 1
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1
 		Charset charset(L"shift_jis");
 		string srcBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.decode(srcBytes) == testString);
 	}
-	{// ³íƒP[ƒX 2@‹ó•¶šiWindowsCode”Å)
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2 ë¹ˆ ë¬¸ì(WindowsCode íŒ)
 		Charset charset(932, true);
 		testAssert(charset.decode("") == L"");
 		testAssert(charset.decode("", 0) == L"");
@@ -305,7 +304,7 @@ testCase(decode) {
 		testAssert(charset.decode("", 0, buffer) == 0);
 		testAssert(buffer == String());
 	}
-	{// ³íƒP[ƒX 2@‹ó•¶š
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2 ë¹ˆë¬¸ì
 		Charset charset(L"euc-jp");
 		testAssert(charset.decode("") == L"");
 		testAssert(charset.decode("", 0) == L"");
@@ -313,24 +312,24 @@ testCase(decode) {
 		testAssert(charset.decode("", 0, buffer) == 0);
 		testAssert(buffer == String());
 	}
-	{// ³íƒP[ƒX 3iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 3(WindowsCode íŒ)
 		Charset charset(932, true);
 		string srcBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.decode(srcBytes, 15) == String(testString, 15));
 	}
-	{// ³íƒP[ƒX 3
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 3
 		Charset charset(L"us-ascii");
 		string srcBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.decode(srcBytes, 15) == String(testString, 15));
 	}
-	{// ³íƒP[ƒX 4iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 4(WindowsCode íŒ)
 		Charset charset(65001, true);
 		string srcBytes = getResourceString(L"utf-8.txt");
 		wchar_t buffer[41];
 		testAssert(charset.decode(srcBytes, srcBytes.length(), buffer) == 40);
 		testAssert(buffer == String(testString));
 	}
-	{// ³íƒP[ƒX 4
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 4
 		Charset charset(L"utf-8");
 		string srcBytes = getResourceString(L"utf-8.txt");
 		wchar_t buffer[41];
@@ -343,7 +342,7 @@ testCase(decode) {
 testCase(default) {
 	Charset charset = Charset::default(); // Here is Japan!!
 	testAssert(charset.codePage() == 932);
-	testAssert(charset.displayName() == L"“ú–{Œê (ƒVƒtƒg JIS)");
+	testAssert(charset.displayName() == L"ë³·?ëš­ (ê¸˜ê¸²ê¸£ JIS)");
 	testAssert(charset.fallbackChar() == L'?');
 	testAssert(charset.throwable() == false);
 	testAssert(charset.name() == L"shift_jis");
@@ -357,11 +356,9 @@ testCase(default) {
 }
 
 
-//testCase(displayName) {} // ŠeƒGƒ“ƒR[ƒfƒBƒ“ƒOæ“¾‚ÌstaticŠÖ”‚Ì testCase ‚ÅƒeƒXƒgÏ‚İ
-
 
 testCase(encodeFromByteString) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Charset src(932);
 		Charset dst(51932);
 		testAssertionFailed(dst.encode("012", -1, src));
@@ -373,23 +370,23 @@ testCase(encodeFromByteString) {
 		testAssertionFailed(dst.encode("012",  3, ArrayRange<char>(buffer, 0), src));
 		testNoThrow        (dst.encode("012",  3, buffer, src));
 	}
-	{// ƒoƒbƒtƒ@‚Ì’·‚³‚ª‘«‚è‚È‚¢
+	{// ë²„í¼ ê¸¸ì´ê°€ ë¶€ì¡±í•˜ì§€ ì•Šë‹¤
 		Charset src(932);
 		Charset dst(51932);
 		char buffer[3];
 		testThrow  (dst.encode("012", 3, buffer, src), Charset::InsufficientBufferExceptoin);
 		testNoThrow(dst.encode("012", 2, buffer, src));
 	}
-	{// •s³‚È•¶š‚Ì‹æØ‚èi‹æØ‚ê‚½•¶š‚Í–³‹j
+	{// ë¶€ì •í•œ ë¬¸ì êµ¬ë³„(êµ¬ë³„í•˜ëŠ” ë¬¸ìëŠ” ë¬´ì‹œ)
 		Charset src(L"shift_jis");
 		Charset dst(L"euc-jp");
-		char shift_jisBytes[] = "‚ ‚¢";
+		char shift_jisBytes[] = "ã‚ã„";
 		src.throwable(true);
 		string temp = dst.encode(shift_jisBytes, 3, src);
 		testAssert(temp.length() == 2);
-		testAssert(src.encode(temp, dst) == "‚ ");
+		testAssert(src.encode(temp, dst) == "ã‚");
 	}
-	{// ³íƒP[ƒX 1
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1
 		Charset src(L"shift_jis");
 		Charset dst(L"utf-8");
 		string srcBytes = getResourceString(L"shift_jis.txt");
@@ -397,7 +394,7 @@ testCase(encodeFromByteString) {
 		testAssert(srcBytes != dstBytes);
 		testAssert(dst.encode(srcBytes, src) == dstBytes);
 	}
-	{// ³íƒP[ƒX 2@‹ó•¶š
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2 ë¹ˆ ë¬¸ì
 		Charset src(L"shift_jis");
 		Charset dst(L"euc-jp");
 		testAssert(dst.encode("", src) == "");
@@ -406,7 +403,7 @@ testCase(encodeFromByteString) {
 		testAssert(dst.encode("", 0, buffer, src) == 0);
 		testAssert(buffer == string());
 	}
-	{// ³íƒP[ƒX 3i’¼Ú•ÏŠ·‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢‚ªunicode‚ğ‰î‚µ‚Ä•ÏŠ·j
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 3(ì§ì ‘ ë³€í™˜ì€ ì§€ì› ë˜ì§€ ì•Šì§€ë§Œ unicodeë¥¼ í†µí•´ì„œ ë³€í™˜)
 		Charset src(L"iso-2022-jp");
 		Charset dst(L"euc-jp");
 		string srcBytes = getResourceString(L"jis.txt");
@@ -414,30 +411,30 @@ testCase(encodeFromByteString) {
 		testAssert(srcBytes != dstBytes);
 		testAssert(dst.encode(srcBytes, 10, src) == string(dstBytes.begin(), dstBytes.begin() + 10));
 	}
-	{// ³íƒP[ƒX 4iunicode‚ğ‰î‚µ‚Äfallback‹““®j
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 4(unicodeë¥¼ í†µí•´ì„œ fallback ê±°ë™)
 		Charset src(L"shift_jis");
 		Charset dst(L"us-ascii");
 		char buffer[4];
-		testAssert(dst.encode("a‚¢‚¤", 5, buffer, src) == 3);
+		testAssert(dst.encode("aê¶‹ê¶", 5, buffer, src) == 3);
 		testAssert(buffer == string("a??"));
 	}
-	{// ³íƒP[ƒX 5 Unicode‚Ì¬‚´‚Á‚½•ÏŠ·
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 5 Unicodeê°€ ì©ì¸ ë³€í™˜
 		Charset src(L"shift_jis");
 		Charset dst = Charset::unicode();
-		string temp = dst.encode("abc‚ ‚¢‚¤", src);
+		string temp = dst.encode("abcã‚ã„ã†", src);
 		String result(reinterpret_cast<const wchar_t*>(temp.c_str()), temp.length() / sizeof(wchar_t));
-		testAssert(result == L"abc‚ ‚¢‚¤");
+		testAssert(result == L"abcã‚ã„ã†");
 	}
-	{// ³íƒP[ƒX 6 Unicode‚Ì¬‚´‚Á‚½•ÏŠ·
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 6 Unicodeê°€ ì©ì¸ ë³€í™˜
 		Charset src = Charset::unicode();
 		Charset dst(L"shift_jis");
-		String srcChars = L"abc‚ ‚¢‚¤";
-		testAssert(dst.encode(ByteStringRange(reinterpret_cast<const char*>(srcChars.c_str()), srcChars.length() * sizeof(wchar_t)), src) == "abc‚ ‚¢‚¤");
+		String srcChars = L"abcã‚ã„ã†";
+		testAssert(dst.encode(ByteStringRange(reinterpret_cast<const char*>(srcChars.c_str()), srcChars.length() * sizeof(wchar_t)), src) == "abcê¶‡ê¶‹ê¶");
 	}
-	{// ³íƒP[ƒX 7 Unicode‚Ì¬‚´‚Á‚½•ÏŠ·
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 7 Unicodeê°€ ì©ì¸ ë³€í™˜
 		Charset src = Charset::unicode();
 		Charset dst = Charset::unicode();
-		String srcChars = L"abc‚ ‚¢‚¤";
+		String srcChars = L"abcã‚ã„ã†";
 		string temp = dst.encode(ByteStringRange(reinterpret_cast<const char*>(srcChars.c_str()), srcChars.length() * sizeof(wchar_t)), src);
 		String result(reinterpret_cast<const wchar_t*>(temp.c_str()), temp.length() / sizeof(wchar_t));
 		testAssert(result == srcChars);
@@ -446,7 +443,7 @@ testCase(encodeFromByteString) {
 
 
 testCase(encode) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Charset charset(932);
 		testAssertionFailed(charset.encode(L"012", -1));
 		testAssertionFailed(charset.encode(L"012",  4));
@@ -459,29 +456,29 @@ testCase(encode) {
 		//testAssertionFailed(Charset::unicode().encode(L"012",  3, buffer));
 		testNoThrow        (charset.encode(L"012",  3, buffer));
 	}
-	{// ƒoƒbƒtƒ@‚Ì’·‚³‚ª‘«‚è‚È‚¢iWindowsCode”Åj
+	{// ë²„í¼ ê¸¸ì´ê°€ ë¶€ì¡±í•˜ì§€ ì•Šë‹¤(WindowsCode íŒ)
 		Charset charset(932, true);
 		char buffer[3];
 		testThrow  (charset.encode(L"012", 3, buffer), Charset::InsufficientBufferExceptoin);
 		testNoThrow(charset.encode(L"012", 2, buffer));
 	}
-	{// ƒoƒbƒtƒ@‚Ì’·‚³‚ª‘«‚è‚È‚¢
+	{// ë²„í¼ ê¸¸ì´ê°€ ë¶€ì¡±í•˜ì§€ ì•Šë‹¤
 		Charset charset(932);
 		char buffer[3];
 		testThrow  (charset.encode(L"012", 3, buffer), Charset::InsufficientBufferExceptoin);
 		testNoThrow(charset.encode(L"012", 2, buffer));
 	}
-	{// ³íƒP[ƒX 1iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1(WindowsCode íŒ)
 		Charset charset(932, true);
 		string resultBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.encode(testString) == resultBytes);
 	}
-	{// ³íƒP[ƒX 1
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 1
 		Charset charset(L"shift_jis");
 		string resultBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.encode(testString) == resultBytes);
 	}
-	{// ³íƒP[ƒX 2@‹ó•¶šiWindowsCode”Å)
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2 ë¹ˆ ë¬¸ì(WindowsCode íŒ)
 		Charset charset(932, true);
 		testAssert(charset.encode(L"") == "");
 		testAssert(charset.encode(L"", 0) == "");
@@ -489,7 +486,7 @@ testCase(encode) {
 		testAssert(charset.encode(L"", 0, buffer) == 0);
 		testAssert(buffer == string());
 	}
-	{// ³íƒP[ƒX 2@‹ó•¶š
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 2 ë¹ˆ ë¬¸ì
 		Charset charset(L"euc-jp");
 		testAssert(charset.encode(L"") == "");
 		testAssert(charset.encode(L"", 0) == "");
@@ -497,33 +494,33 @@ testCase(encode) {
 		testAssert(charset.encode(L"", 0, buffer) == 0);
 		testAssert(buffer == string());
 	}
-	{// ³íƒP[ƒX 3iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 3(WindowsCode íŒ)
 		Charset charset(932, true);
 		string resultBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.encode(testString, 15) == string(resultBytes.begin(), resultBytes.begin() + 15));
 	}
-	{// ³íƒP[ƒX 3
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 3
 		Charset charset(L"us-ascii");
 		string resultBytes = getResourceString(L"shift_jis.txt");
 		testAssert(charset.encode(testString, 15) == string(resultBytes.begin(), resultBytes.begin() + 15));
 	}
-	{// ³íƒP[ƒX 4iWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 4(WindowsCode íŒ)
 		Charset charset(65001, true);
 		string resultBytes = getResourceString(L"utf-8.txt");
 		char buffer[91];
 		testAssert(charset.encode(testString, String::getLength(testString), buffer) == 90);
 		testAssert(buffer == resultBytes);
 	}
-	{// ³íƒP[ƒX 4
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 4
 		Charset charset(L"utf-8");
 		string resultBytes = getResourceString(L"utf-8.txt");
 		char buffer[91];
 		testAssert(charset.encode(testString, String::getLength(testString), buffer) == 90);
 		testAssert(buffer == resultBytes);
 	}
-	{// ³íƒP[ƒX 5 fallbackiWindowsCode”Åj
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 5 fallback(WindowsCode íŒ)
 		Charset charset(20127, true);
-		String testString = L"abc012‚`‚a‚b‚O‚P‚Q‚ ‚¢‚¤Š¿š";
+		String testString = L"abc012ï¼¡ï¼¢ï¼£ï¼ï¼‘ï¼’ã‚ã„ã†æ¼¢å­—";
 		testAssert(charset.encode(testString) == "abc012???????????");
 		charset.fallbackChar(L'+');
 		testAssert(charset.fallbackChar() == L'+');
@@ -533,10 +530,10 @@ testCase(encode) {
 		testThrow(charset.encode(testString), Charset::ConversionFailedException);
 		testNoThrow(charset.encode(testString, 6));
 	}
-	{// ³íƒP[ƒX 5 fallback
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 5 fallback
 		Charset charset(L"us-ascii");
-		String testString = L"abc012‚`‚a‚b‚O‚P‚Q‚ ‚¢‚¤Š¿š";
-		testAssert(charset.encode(testString) == "abc012ABC012?????"); // mlang‚Ì‚Ù‚¤‚ª‚«”\I
+		String testString = L"abc012ï¼¡ï¼¢ï¼£ï¼ï¼‘ï¼’ã‚ã„ã†æ¼¢å­—";
+		testAssert(charset.encode(testString) == "abc012ABC012?????"); // mlang ìª½ì´ ê³  ì„±ëŠ¥ 
 		charset.fallbackChar(L'+');
 		testAssert(charset.fallbackChar() == L'+');
 		testAssert(charset.encode(testString) == "abc012ABC012+++++");
@@ -551,7 +548,7 @@ testCase(encode) {
 testCase(eucJp) {
 	Charset charset(L"euc-jp");
 	testAssert(charset.codePage() == 51932);
-	testAssert(charset.displayName() == L"“ú–{Œê (EUC)");
+	testAssert(charset.displayName() == L"ë³·?ëš­ (EUC)");
 	testAssert(charset.fallbackChar() == L'?');
 	testAssert(charset.throwable() == false);
 	testAssert(charset.name() == L"euc-jp");
@@ -563,27 +560,19 @@ testCase(eucJp) {
 }
 
 
-//testCase(fallbackChar) {} // testCase(encode) ‚ÅƒeƒXƒgÏ‚İ
-
-
-//testCase(name) {} // ŠeƒGƒ“ƒR[ƒfƒBƒ“ƒOæ“¾‚ÌstaticŠÖ”‚Ì testCase ‚ÅƒeƒXƒgÏ‚İ
-
-//testCase(shiftJis) {} // testCase(default) ‚ÅƒeƒXƒgÏ‚İ
-
-//testCase(throwable) {} // testCase(encode) ‚ÅƒeƒXƒgÏ‚İ
 
 
 testCase(unicode) {
 	Charset charset = Charset::unicode();
 	testAssert(charset.codePage() == 1200);
-	testAssert(charset.displayName() == L"Unicode"); // .NET‚Í Unicode
+	testAssert(charset.displayName() == L"Unicode"); // .NETì€ Unicode
 	testAssert(charset.fallbackChar() == L'?');
 	testAssert(charset.throwable() == false);
-	testAssert(charset.name() == L"unicode"); // .NET‚Í "utf-16"
+	testAssert(charset.name() == L"unicode"); // .NETì€ "utf-16"
 
 	string temp = charset.encode(L"abc");
 	testAssert(charset.decode(temp) == L"abc");
-	testAssertionFailed(Charset(charset.codePage(), true)); // 1200‚ÍwindowsCodePage‚Æ‚µ‚Ä‚Í•s³‚È–Í—l
+	testAssertionFailed(Charset(charset.codePage(), true)); // 1200ì€ windowsCodePageë¡œì„œëŠ” ë¶€ì •í•œ ì‚¬ì–‘ 
 }
 
 
@@ -621,25 +610,8 @@ testCase(utf8) {
 }
 
 
-testCase(jis) { // ƒIƒ}ƒP‚ÌƒeƒXƒgƒP[ƒX
-	Charset charset(L"csISO2022JP");
-	//Charset charset(L"iso-2022-jp"); // ‚±‚Á‚¿‚¾‚Æ50220‚Ì‚Ù‚¤‚É‚È‚é
-	testAssert(charset.codePage() == 50221);
-	testAssert(charset.displayName() == L"“ú–{Œê (JIS 1 ƒoƒCƒg ƒJƒ^ƒJƒi‰Â)");
-	testAssert(charset.fallbackChar() == L'?');
-	testAssert(charset.throwable() == false);
-	testAssert(charset.name() == L"csISO2022JP");
 
-	string bytes = getResourceString(L"jis.txt");
-	testAssert(charset.encode(testString) == bytes);
-	testAssert(charset.decode(bytes) == testString);
-	charset = Charset(charset.codePage(), true); // windowsCodePage ‚Æ‚µ‚Ä‚Í³‚µ‚¢‚æ‚¤‚¾‚ª
-	testAssertionFailed(charset.encode(testString)); // •ÏŠ·‚É‚Í¸”s‚·‚éB‚È‚º‚¾
-	testAssert(charset.decode(bytes) != String(testString)); // ‘SŠpu|v‚ğ”¼Špu-v‚É•ÏŠ·‚µ‚Ä‚¢‚éB‚Ç‚¤‚¢‚¤‚±‚Á‚¿‚á
-}
-
-
-testCase(cleanup) { // ‚b‚n‚l‚ÌŠJ•ú
+testCase(cleanup) { // COM ê°œì‹œ
 	Com::uninitialize();
 }
 

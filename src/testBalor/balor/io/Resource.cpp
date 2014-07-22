@@ -1,4 +1,4 @@
-#include <balor/io/Resource.hpp>
+ï»¿#include <balor/io/Resource.hpp>
 
 #include <utility>
 
@@ -28,7 +28,7 @@ using namespace balor::system;
 
 
 namespace {
-Bitmap getTestBitmap(Bitmap&& bitmap) { // ‹”F‚µ‚â‚·‚­A‹«ŠE‚Æ”½“]‚Ìƒ`ƒFƒbƒN‚ª‚Å‚«‚é‚æ‚¤‚È‰æ‘œ‚ğ¶¬‚·‚éB–Ú‹‚ÅƒeƒXƒgÏ‚İ
+Bitmap getTestBitmap(Bitmap&& bitmap) { // ì˜ ë³´ì´ê³ , ê²½ê³„ì™€ ë°˜ì „ ì²´í¬ë¥¼ í•  ìˆ˜ ìˆë„ë¡ í™”ìƒì„ ìƒì„±í•œë‹¤.
 	if (bitmap.bitsPerPixel() <= 8) {
 		Color colors[] = {Color::red(), Color::blue(), Color::green(), Color::white(), Color::black(), Color::yellow(), Color::aqua()};
 		bitmap.palette(colors);
@@ -60,12 +60,12 @@ testCase(startup) {
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 	Resource resource(Locale(L"en-US"));
 	auto stream = resource.getRawData(L"balor::io::resource::test00.png");
-	Bitmap bitmap(stream); // XP‚É‚¨‚¢‚Ä‚±‚±‚ç‚Ìˆ—‚ğˆê“x’Ê‚µ‚Ä‚¨‚©‚È‚¢‚Æƒnƒ“ƒhƒ‹ƒŠ[ƒN‚ªŒŸo‚³‚ê‚é
+	Bitmap bitmap(stream); // XPì—ì„œ ì—¬ê¸° ì²˜ë¦¬ë¥¼ í•œë²ˆ í†µê³¼í•´ ë‘ì§€ ì•Šìœ¼ë©´ í•¸ë“¤ ë¦­ì´ ê²€ì¶œ ëœë‹¤.
 }
 
 
 testCase(construct) {
-	{// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	{// ê¸°ë³¸ ìƒì„±ì
 		testNoThrow(Resource resource);
 	}
 }
@@ -74,59 +74,59 @@ testCase(construct) {
 testCase(getBitmap) {
 	Resource resource;
 
-	// Œ©‚Â‚©‚ç‚È‚¢ƒŠƒ\[ƒX
+	// ë°œê²¬ë˜ì§€ ì•Šì€ ë¦¬ì†ŒìŠ¤
 	testThrow(resource.getBitmap(L"balor::io::resource::lajeoiajfo0830203"), Resource::NotFoundException);
 
-	{// RCDATAƒŠƒ\[ƒX
+	{// RCDATA ë¦¬ì†ŒìŠ¤
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test00.png");
 		testAssert(!bitmap.isDDB());
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(30, 40, Bitmap::Format::rgb24bpp))));
 	}
-	{// BITMAPƒŠƒ\[ƒX
+	{// BITMAP ë¦¬ì†ŒìŠ¤
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test01.bmp");
 		testAssert(!bitmap.isDDB());
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(30, 40, Bitmap::Format::palette8bpp))));
 	}
 	resource = Resource(Locale(L"en-US"));
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test02.bmp");
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::palette4bpp))));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test03.bmp");
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::argb32bpp)), true));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒXiRCDATAj
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤(RCDATA)
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test04.png");
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::palette4bpp))));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚¢iRCDATAj
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤(RCDATA)
 		Bitmap bitmap = resource.getBitmap(L"balor::io::resource::test05.png");
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::argb32bpp))));
 	}
 
-	// TODO: DLLƒŠƒ\[ƒX‚É‚Â‚¢‚Ä‚Í–¢ƒeƒXƒg
+	// TODO: DLL ë¦¬ì†ŒìŠ¤ì— ëŒ€í•´ì„œëŠ” ë¯¸ í…ŒìŠ¤íŠ¸ 
 }
 
 
 testCase(getCursor) {
-	balor::test::UnitTest::ignoreHandleLeakCheck(); // ƒJ[ƒ\ƒ‹ƒŠƒ\[ƒX‚Í‚¢‚Á‚½‚ñƒ[ƒh‚³‚ê‚½‚ç‚½‚Æ‚¦ŠJ•ú‚µ‚Ä‚àƒvƒƒZƒX‚Éc‚è‘±‚¯‚é‚æ‚¤‚¾Bd—lH
+	balor::test::UnitTest::ignoreHandleLeakCheck(); // ì½˜ì†” ë¦¬ì†ŒìŠ¤ëŠ” ì¼ë‹¨ ë¡œë“œ ë˜ì—ˆë‹¤ë©´ í•´ì œí•˜ì—¬ë„ í”„ë¡œì„¸ìŠ¤ì— ê³„ì† ë‚¨ëŠ” ê²ƒ ê°™ë‹¤
 	Resource resource;
 
-	// Œ©‚Â‚©‚ç‚È‚¢ƒŠƒ\[ƒX
+	// ì°¾ì„ ìˆ˜ ì—†ëŠ” ë¦¬ì†ŒìŠ¤
 	testThrow(resource.getCursor(L"balor::io::resource::la0r9840avfjoasdjifao0"), Resource::NotFoundException);
 
-	{// ƒ[ƒJƒ‰ƒCƒY‚È‚µ
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ì—†ìŒ
 		Cursor cursor = resource.getCursor(L"balor::io::resource::test08.ico");
 		testAssert(cursor.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(32, 32, Bitmap::Format::argb32bpp))));
 	}
 
 	resource = Resource(Locale(L"en-US"));
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤
 		Cursor cursor = resource.getCursor(L"balor::io::resource::test09.ico");
 		testAssert(cursor.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(32, 32, Bitmap::Format::argb32bpp))));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤
 		Cursor cursor = resource.getCursor(L"balor::io::resource::test08.ico");
 		testAssert(cursor.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(32, 32, Bitmap::Format::argb32bpp))));
 	}
@@ -134,23 +134,23 @@ testCase(getCursor) {
 
 
 testCase(getIcon) {
-	balor::test::UnitTest::ignoreHandleLeakCheck(); // ƒAƒCƒRƒ“ƒŠƒ\[ƒX‚Í‚¢‚Á‚½‚ñƒ[ƒh‚³‚ê‚½‚ç‚½‚Æ‚¦ŠJ•ú‚µ‚Ä‚àƒvƒƒZƒX‚Éc‚è‘±‚¯‚é‚æ‚¤‚¾Bd—lH
+	balor::test::UnitTest::ignoreHandleLeakCheck(); // ì½˜ì†” ë¦¬ì†ŒìŠ¤ëŠ” ì¼ë‹¨ ë¡œë“œ ë˜ì—ˆë‹¤ë©´ í•´ì œí•˜ì—¬ë„ í”„ë¡œì„¸ìŠ¤ì— ê³„ì† ë‚¨ëŠ” ê²ƒ ê°™ë‹¤
 	Resource resource;
 
-	// Œ©‚Â‚©‚ç‚È‚¢ƒŠƒ\[ƒX
+	// ì°¾ì„ ìˆ˜ ì—†ëŠ” ë¦¬ì†ŒìŠ¤
 	testThrow(resource.getIcon(L"balor::io::resource::la0r9840avfjoasdjifao0"), Resource::NotFoundException);
 
-	{// ƒ[ƒJƒ‰ƒCƒY‚È‚µ
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ì—†ìŒ
 		Icon icon = resource.getIcon(L"balor::io::resource::test06.ico");
 		testAssert(icon.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(32, 32, Bitmap::Format::argb32bpp))));
 	}
 
 	resource = Resource(Locale(L"en-US"));
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤
 		Icon icon = resource.getIcon(L"balor::io::resource::test07.ico", 16, 16);
 		testAssert(icon.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(16, 16, Bitmap::Format::argb32bpp))));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤
 		Icon icon = resource.getIcon(L"balor::io::resource::test06.ico");
 		testAssert(icon.bitmap().toDIB().equalsBits(getTestBitmap(Bitmap(32, 32, Bitmap::Format::argb32bpp))));
 	}
@@ -160,22 +160,22 @@ testCase(getIcon) {
 testCase(getRawData) {
 	Resource resource;
 
-	// Œ©‚Â‚©‚ç‚È‚¢ƒŠƒ\[ƒX
+	// ì°¾ì„ ìˆ˜ ì—†ëŠ” ë¦¬ì†ŒìŠ¤
 	testThrow(resource.getRawData(L"balor::io::resource::la0r9840avfjoasdjifao0"), Resource::NotFoundException);
 
-	{// getBitmap‚©‚çƒf[ƒ^‚ğ”qØ
+	{// getBitmapì—ì„œ ë°ì´í„°ë¥¼ ë¹Œë¦°ë‹¤
 		auto stream = resource.getRawData(L"balor::io::resource::test00.png");
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(30, 40, Bitmap::Format::rgb24bpp))));
 	}
 
 	resource = Resource(Locale(L"en-US"));
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤
 		auto stream = resource.getRawData(L"balor::io::resource::test04.png");
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::palette4bpp))));
 	}
-	{// ƒ[ƒJƒ‰ƒCƒYƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	{// ë¡œì»¬ë¼ì´ì¦ˆ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤
 		auto stream = resource.getRawData(L"balor::io::resource::test05.png");
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(getTestBitmap(Bitmap(40, 50, Bitmap::Format::argb32bpp))));

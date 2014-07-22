@@ -1,4 +1,4 @@
-#include <balor/scopeExit.hpp>
+﻿#include <balor/scopeExit.hpp>
 
 #include <balor/test/UnitTest.hpp>
 

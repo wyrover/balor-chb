@@ -1,4 +1,4 @@
-#include <balor/Singleton.hpp>
+ï»¿#include <balor/Singleton.hpp>
 
 #include <balor/testSingleton.hpp> // testBalorDll
 
@@ -17,11 +17,10 @@ using namespace balor::system;
 
 
 testCase(get) {
-	// singleton dll‚Ì‘¶İŠm”F
+	// singleton dll ì¡´ì¬ í™•ì¸
 	testAssert(File::exists(String::refer(Module::current().directory()) + L"\\balor_singleton.dll"));
 
-	// ¦c”O‚È‚ª‚ç balor_singleton.dll –³‚µ‚ÌƒP[ƒX‚ÍƒeƒXƒg‚Å‚«‚Ä‚¢‚È‚¢B•¡”‚ÌƒvƒƒZƒX‚ª•K—v‚¾‚ë‚¤B–Ú‹‚Å‚ÍŠm”FÏ‚İB
-
+	
 	
 	int& exeInt = Singleton<int>::get();
 	exeInt = 5;

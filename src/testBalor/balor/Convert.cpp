@@ -1,4 +1,4 @@
-#include <balor/Convert.hpp>
+ï»¿#include <balor/Convert.hpp>
 
 #include <cmath>
 #include <string>
@@ -25,12 +25,12 @@ using tools::floatEquals;
 
 testCase(startup) {
 	balor::test::UnitTest::ignoreHandleLeakCheck();
-	_wsetlocale(LC_ALL, Locale(L"de-DE").cLocaleName().c_str()); // ƒƒP[ƒ‹‚Ì‰e‹¿‚ğó‚¯‚Ä‚¢‚È‚¢Ø–¾‚Æ‚µ‚ÄƒhƒCƒcŒêƒƒP[ƒ‹‚É‚µ‚Ä‚¨‚­
+	_wsetlocale(LC_ALL, Locale(L"de-DE").cLocaleName().c_str()); // ë¡œì»¬ ì˜í–¥ì„ ë°›ì§€ ì•ŠëŠ” ê²ƒì„ ì¦ëª…ìœ¼ë¡œì„œ ë…ì¼ì–´ë¡œ í•´ë‘”ë‹¤ 
 }
 
 
 testCase(toAnyFromStringLikeType) {
-	// StringRange ‚É•ÏŠ·‰Â”\‚ÈŒ^‚Í‘S‚Ä StringRange ‚É•ÏŠ·‚³‚êAStringRange ”Å‚ªŒÄ‚Î‚ê‚é‚±‚Æ‚ğŠm”F
+	// StringRange ì— ë³€í™˜ ê°€ëŠ¥í•œ í˜•ì€ ëª¨ë‘ StringRange ë¡œ ë³€í™˜ ë˜ê³ , StringRange íŒì´ í˜¸ì¶œë˜ëŠ” ê²ƒì„ í™•ì¸ 
 	{
 		wchar_t* string0 = L"0x100";
 		testAssert(to<int>(string0, 16) == 0x100);
@@ -59,7 +59,7 @@ testCase(toAnyFromStringLikeType) {
 
 
 testCase(to__int64FromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤ 
 		testAssertionFailed(to<__int64>(L"0", 1));
 		testThrow(to<__int64>(L""), Convert::StringFormatException);
 		testThrow(to<__int64>(L"a10"), Convert::StringFormatException);
@@ -74,7 +74,7 @@ testCase(to__int64FromStringRange) {
 		testThrow(to<__int64>(L"9223372036854775808"), Convert::OverflowException);
 		testAssert(to<__int64>(L"9223372036854775807") == 9223372036854775807i64);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦ 
 		testAssert(to<__int64>(L"1000000000000000000000000000000000000000000000000000000000000000", 2) == -9223372036854775808i64);
 		testAssert(to<__int64>(L"111111111111111111111111111111111111111111111111111111111111111", 2) == 9223372036854775807i64);
 		testAssert(to<__int64>(L"1777777777777777777777", 8) == -1i64);
@@ -86,7 +86,7 @@ testCase(to__int64FromStringRange) {
 
 
 testCase(toCharFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<char>(L"0", 1));
 		testThrow(to<char>(L""), Convert::StringFormatException);
 		testThrow(to<char>(L"a10"), Convert::StringFormatException);
@@ -101,7 +101,7 @@ testCase(toCharFromStringRange) {
 		testThrow(to<char>(L"128"), Convert::OverflowException);
 		testAssert(to<char>(L"127") == 127);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<char>(L"10000000", 2) == -128);
 		testAssert(to<char>(L"1111111", 2) == 127);
 		testAssert(to<char>(L"377", 8) == -1);
@@ -113,7 +113,7 @@ testCase(toCharFromStringRange) {
 
 
 testCase(toDoubleFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<double>(L"0", 16));
 		testThrow(to<double>(L""), Convert::StringFormatException);
 		testThrow(to<double>(L"a10"), Convert::StringFormatException);
@@ -126,11 +126,11 @@ testCase(toDoubleFromStringRange) {
 		testThrow(to<double>(L"1.7976931348623159e+308"), Convert::OverflowException);
 		testAssert(floatEquals(to<double>(L"1.7976931348623158e+308"), 1.7976931348623158e+308));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(floatEquals(to<double>(L".0"), 0.));
 		testAssert(floatEquals(to<double>(L"3.14"), 3.14));
 		testAssert(floatEquals(to<double>(L"2.2204460492503131e-016"), 2.2204460492503131e-016));
-		// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv‚ª¬‚è—§‚½‚È‚¢‚ªd—l‚È‚Ì‚Åd•û‚ ‚é‚Ü‚¢
+		// ãƒ©ã‚¦ãƒ³ãƒ‰ãƒˆãƒªãƒƒãƒ—ãŒæˆã‚Šç«‹ãŸãªã„ãŒä»•æ§˜ãªã®ã§ä»•æ–¹ã‚ã‚‹ã¾ã„
 		testAssert(floatEquals(to<double>(L"1.#INF"), 1.0));
 		testAssert(floatEquals(to<double>(L"1.#QNAN"), 1.0));
 	}
@@ -138,7 +138,7 @@ testCase(toDoubleFromStringRange) {
 
 
 testCase(toFloatFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<float>(L"0", 16));
 		testThrow(to<float>(L""), Convert::StringFormatException);
 		testThrow(to<float>(L"a10"), Convert::StringFormatException);
@@ -151,11 +151,11 @@ testCase(toFloatFromStringRange) {
 		testThrow(to<float>(L"3.402823467e+38F"), Convert::OverflowException);
 		testAssert(floatEquals(to<float>(L"3.402823466e+38F"), 3.402823466e+38F));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(floatEquals(to<float>(L".0"), 0.f));
 		testAssert(floatEquals(to<float>(L"3.14"), 3.14f));
 		testAssert(floatEquals(to<float>(L"1.192092896e-07F"), 1.192092896e-07F));
-		// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv‚ª¬‚è—§‚½‚È‚¢‚ªd—l‚È‚Ì‚Åd•û‚ ‚é‚Ü‚¢
+		// ãƒ©ã‚¦ãƒ³ãƒ‰ãƒˆãƒªãƒƒãƒ—ãŒæˆã‚Šç«‹ãŸãªã„ãŒä»•æ§˜ãªã®ã§ä»•æ–¹ã‚ã‚‹ã¾ã„
 		testAssert(floatEquals(to<float>(L"1.#INF"), 1.f));
 		testAssert(floatEquals(to<float>(L"1.#QNAN"), 1.f));
 	}
@@ -163,7 +163,7 @@ testCase(toFloatFromStringRange) {
 
 
 testCase(toIntFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<int>(L"0", 1));
 		testThrow(to<int>(L""), Convert::StringFormatException);
 		testThrow(to<int>(L"a10"), Convert::StringFormatException);
@@ -178,7 +178,7 @@ testCase(toIntFromStringRange) {
 		testThrow(to<int>(L"2147483648"), Convert::OverflowException);
 		testAssert(to<int>(L"2147483647") == 2147483647L);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<int>(L"10000000000000000000000000000000", 2) == -2147483647- 1);
 		testAssert(to<int>(L"1111111111111111111111111111111", 2) == 2147483647);
 		testAssert(to<int>(L"37777777777", 8) == -1);
@@ -190,7 +190,7 @@ testCase(toIntFromStringRange) {
 
 
 testCase(toLongFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<long>(L"0", 1));
 		testThrow(to<long>(L""), Convert::StringFormatException);
 		testThrow(to<long>(L"a10"), Convert::StringFormatException);
@@ -205,7 +205,7 @@ testCase(toLongFromStringRange) {
 		testThrow(to<long>(L"2147483648"), Convert::OverflowException);
 		testAssert(to<long>(L"2147483647") == 2147483647L);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<long>(L"10000000000000000000000000000000", 2) == -2147483647- 1);
 		testAssert(to<long>(L"1111111111111111111111111111111", 2) == 2147483647);
 		testAssert(to<long>(L"37777777777", 8) == -1);
@@ -217,7 +217,7 @@ testCase(toLongFromStringRange) {
 
 
 testCase(toShortFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<short>(L"0", 1));
 		testThrow(to<short>(L""), Convert::StringFormatException);
 		testThrow(to<short>(L"a10"), Convert::StringFormatException);
@@ -232,7 +232,7 @@ testCase(toShortFromStringRange) {
 		testThrow(to<short>(L"32768"), Convert::OverflowException);
 		testAssert(to<short>(L"32767") == 32767);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<short>(L"1000000000000000", 2) == -32768);
 		testAssert(to<short>(L"111111111111111", 2) == 32767);
 		testAssert(to<short>(L"177777", 8) == -1);
@@ -244,7 +244,7 @@ testCase(toShortFromStringRange) {
 
 
 testCase(toUnsigned__int64FromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<unsigned __int64>(L"0", 1));
 		testThrow(to<unsigned __int64>(L""), Convert::StringFormatException);
 		testThrow(to<unsigned __int64>(L"a10"), Convert::StringFormatException);
@@ -257,7 +257,7 @@ testCase(toUnsigned__int64FromStringRange) {
 		testThrow(to<unsigned __int64>(L"18446744073709551616"), Convert::OverflowException);
 		testAssert(to<unsigned __int64>(L"18446744073709551615") == 18446744073709551615ui64);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<unsigned __int64>(L"1111", 2) == 15);
 		testAssert(to<unsigned __int64>(L"100", 8) == 64);
 		testAssert(to<unsigned __int64>(L"100", 10) == 100);
@@ -267,7 +267,7 @@ testCase(toUnsigned__int64FromStringRange) {
 
 
 testCase(toUnsignedCharFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<unsigned char>(L"0", 1));
 		testThrow(to<unsigned char>(L""), Convert::StringFormatException);
 		testThrow(to<unsigned char>(L"a10"), Convert::StringFormatException);
@@ -280,7 +280,7 @@ testCase(toUnsignedCharFromStringRange) {
 		testThrow(to<unsigned char>(L"256"), Convert::OverflowException);
 		testAssert(to<unsigned char>(L"255") == 255);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<unsigned char>(L"1111", 2) == 15);
 		testAssert(to<unsigned char>(L"100", 8) == 64);
 		testAssert(to<unsigned char>(L"100", 10) == 100);
@@ -290,7 +290,7 @@ testCase(toUnsignedCharFromStringRange) {
 
 
 testCase(toUnsignedIntFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<unsigned int>(L"0", 1));
 		testThrow(to<unsigned int>(L""), Convert::StringFormatException);
 		testThrow(to<unsigned int>(L"a10"), Convert::StringFormatException);
@@ -303,7 +303,7 @@ testCase(toUnsignedIntFromStringRange) {
 		testThrow(to<unsigned int>(L"4294967296"), Convert::OverflowException);
 		testAssert(to<unsigned int>(L"4294967295") == 4294967295);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<unsigned int>(L"1111", 2) == 15);
 		testAssert(to<unsigned int>(L"100", 8) == 64);
 		testAssert(to<unsigned int>(L"100", 10) == 100);
@@ -313,7 +313,7 @@ testCase(toUnsignedIntFromStringRange) {
 
 
 testCase(toUnsignedLongFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<unsigned long>(L"0", 1));
 		testThrow(to<unsigned long>(L""), Convert::StringFormatException);
 		testThrow(to<unsigned long>(L"a10"), Convert::StringFormatException);
@@ -326,7 +326,7 @@ testCase(toUnsignedLongFromStringRange) {
 		testThrow(to<unsigned long>(L"4294967296"), Convert::OverflowException);
 		testAssert(to<unsigned long>(L"4294967295") == 4294967295);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<unsigned long>(L"1111", 2) == 15);
 		testAssert(to<unsigned long>(L"100", 8) == 64);
 		testAssert(to<unsigned long>(L"100", 10) == 100);
@@ -336,7 +336,7 @@ testCase(toUnsignedLongFromStringRange) {
 
 
 testCase(toUnsignedShortFromStringRange) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<unsigned short>(L"0", 1));
 		testThrow(to<unsigned short>(L""), Convert::StringFormatException);
 		testThrow(to<unsigned short>(L"a10"), Convert::StringFormatException);
@@ -349,7 +349,7 @@ testCase(toUnsignedShortFromStringRange) {
 		testThrow(to<unsigned short>(L"65536"), Convert::OverflowException);
 		testAssert(to<unsigned short>(L"65535") == 65535);
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<unsigned short>(L"1111", 2) == 15);
 		testAssert(to<unsigned short>(L"100", 8) == 64);
 		testAssert(to<unsigned short>(L"100", 10) == 100);
@@ -359,10 +359,10 @@ testCase(toUnsignedShortFromStringRange) {
 
 
 testCase(toStringFrom__int64) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1i64, 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(-9223372036854775808i64, 2) == L"1000000000000000000000000000000000000000000000000000000000000000");
 		testAssert(to<String>( 9223372036854775807i64, 2) ==  L"111111111111111111111111111111111111111111111111111111111111111");
 		testAssert(to<String>(-1i64, 8) == L"1777777777777777777777");
@@ -376,10 +376,10 @@ testCase(toStringFrom__int64) {
 
 
 testCase(toStringFromChar) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<char>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<char>(-128), 2) == L"10000000");
 		testAssert(to<String>(static_cast<char>( 127), 2) ==  L"1111111");
 		testAssert(to<String>(static_cast<char>(-1), 8) == L"377");
@@ -393,10 +393,10 @@ testCase(toStringFromChar) {
 
 
 testCase(toStringFromDouble) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1.0, 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(to<String>(.0) ==  L"0");
 		testAssert(to<String>(-3.14) == L"-3.14");
 		testAssert(to<String>(2.2250738585072014e-308) == L"2.225073858507201e-308");
@@ -404,17 +404,17 @@ testCase(toStringFromDouble) {
 		testAssert(to<String>(std::numeric_limits<double>::infinity()) == L"1.#INF");
 		testAssert(to<String>(std::numeric_limits<double>::quiet_NaN()) == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		testAssert(floatEquals(to<double>(to<String>(3.14)), 3.14));
 	}
 }
 
 
 testCase(toStringFromFloat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1.f, 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(to<String>(.0f) ==  L"0");
 		testAssert(to<String>(-3.14f) == L"-3.1400001");
 		testAssert(to<String>(1.175494351e-38F) == L"1.1754944e-038");
@@ -422,17 +422,17 @@ testCase(toStringFromFloat) {
 		testAssert(to<String>(std::numeric_limits<float>::infinity()) == L"1.#INF");
 		testAssert(to<String>(std::numeric_limits<float>::quiet_NaN()) == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		testAssert(floatEquals(to<float>(to<String>(3.14f)), 3.14f));
 	}
 }
 
 
 testCase(toStringFromInt) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<int>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<int>(-2147483647- 1), 2) == L"10000000000000000000000000000000");
 		testAssert(to<String>(static_cast<int>( 2147483647   ), 2) ==  L"1111111111111111111111111111111");
 		testAssert(to<String>(static_cast<int>(-1), 8) == L"37777777777");
@@ -446,10 +446,10 @@ testCase(toStringFromInt) {
 
 
 testCase(toStringFromLong) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<long>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<long>(-2147483647- 1), 2) == L"10000000000000000000000000000000");
 		testAssert(to<String>(static_cast<long>( 2147483647   ), 2) ==  L"1111111111111111111111111111111");
 		testAssert(to<String>(static_cast<long>(-1), 8) == L"37777777777");
@@ -463,10 +463,10 @@ testCase(toStringFromLong) {
 
 
 testCase(toStringFromShort) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<short>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<short>(-32768), 2) == L"1000000000000000");
 		testAssert(to<String>(static_cast<short>( 32767), 2) ==  L"111111111111111");
 		testAssert(to<String>(static_cast<short>(-1), 8) == L"177777");
@@ -480,10 +480,10 @@ testCase(toStringFromShort) {
 
 
 testCase(toStringFromUnsigned__int64) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1ui64, 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(18446744073709551615ui64, 2) ==  L"1111111111111111111111111111111111111111111111111111111111111111");
 		testAssert(to<String>(18446744073709551615ui64, 8) == L"1777777777777777777777");
 		testAssert(to<String>(18446744073709551615ui64, 16) == L"ffffffffffffffff");
@@ -493,10 +493,10 @@ testCase(toStringFromUnsigned__int64) {
 
 
 testCase(toStringFromUnsignedChar) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned char>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned char>(255), 2) ==  L"11111111");
 		testAssert(to<String>(static_cast<unsigned char>(255), 8) == L"377");
 		testAssert(to<String>(static_cast<unsigned char>(255), 16) == L"ff");
@@ -506,10 +506,10 @@ testCase(toStringFromUnsignedChar) {
 
 
 testCase(toStringFromUnsignedInt) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned int>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), 2) ==  L"11111111111111111111111111111111");
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), 8) == L"37777777777");
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), 16) == L"ffffffff");
@@ -519,10 +519,10 @@ testCase(toStringFromUnsignedInt) {
 
 
 testCase(toStringFromUnsignedLong) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned long>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), 2) ==  L"11111111111111111111111111111111");
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), 8) == L"37777777777");
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), 16) == L"ffffffff");
@@ -532,10 +532,10 @@ testCase(toStringFromUnsignedLong) {
 
 
 testCase(toStringFromUnsignedShort) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned short>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned short>(65535), 2) ==  L"1111111111111111");
 		testAssert(to<String>(static_cast<unsigned short>(65535), 8) == L"177777");
 		testAssert(to<String>(static_cast<unsigned short>(65535), 16) == L"ffff");
@@ -546,10 +546,10 @@ testCase(toStringFromUnsignedShort) {
 
 testCase(toStringBufferFrom__int64) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1i64, 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, -9223372036854775808i64, 2); testAssert(buffer == L"1000000000000000000000000000000000000000000000000000000000000000");
 		buffer.length(0); to<StringBuffer>(buffer,  9223372036854775807i64, 2); testAssert(buffer ==  L"111111111111111111111111111111111111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, -1i64, 8); testAssert(buffer == L"1777777777777777777777");
@@ -564,10 +564,10 @@ testCase(toStringBufferFrom__int64) {
 
 testCase(toStringBufferFromChar) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<char>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(-128), 2); testAssert(buffer == L"10000000");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>( 127), 2); testAssert(buffer ==  L"1111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(-1), 8); testAssert(buffer == L"377");
@@ -582,10 +582,10 @@ testCase(toStringBufferFromChar) {
 
 testCase(toStringBufferFromDouble) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1.0, 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, .0); testAssert(buffer ==  L"0");
 		buffer.length(0); to<StringBuffer>(buffer, -3.14); testAssert(buffer == L"-3.14");
 		buffer.length(0); to<StringBuffer>(buffer, 2.2250738585072014e-308); testAssert(buffer == L"2.225073858507201e-308");
@@ -593,7 +593,7 @@ testCase(toStringBufferFromDouble) {
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<double>::infinity()); testAssert(buffer == L"1.#INF");
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<double>::quiet_NaN()); testAssert(buffer == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		buffer.length(0); to<StringBuffer>(buffer, 3.14); testAssert(floatEquals(to<double>(buffer), 3.14));
 	}
 }
@@ -601,10 +601,10 @@ testCase(toStringBufferFromDouble) {
 
 testCase(toStringBufferFromFloat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1.f, 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, .0f); testAssert(buffer ==  L"0");
 		buffer.length(0); to<StringBuffer>(buffer, -3.14f); testAssert(buffer == L"-3.1400001");
 		buffer.length(0); to<StringBuffer>(buffer, 1.175494351e-38F); testAssert(buffer == L"1.1754944e-038");
@@ -612,7 +612,7 @@ testCase(toStringBufferFromFloat) {
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<float>::infinity()); testAssert(buffer == L"1.#INF");
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<float>::quiet_NaN()); testAssert(buffer == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		buffer.length(0); to<StringBuffer>(buffer, 3.14f); testAssert(floatEquals(to<float>(buffer), 3.14f));
 	}
 }
@@ -620,10 +620,10 @@ testCase(toStringBufferFromFloat) {
 
 testCase(toStringBufferFromInt) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<int>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(-2147483647- 1), 2); testAssert(buffer == L"10000000000000000000000000000000");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>( 2147483647   ), 2); testAssert(buffer ==  L"1111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(-1), 8); testAssert(buffer == L"37777777777");
@@ -638,10 +638,10 @@ testCase(toStringBufferFromInt) {
 
 testCase(toStringBufferFromLong) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<long>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(-2147483647- 1), 2); testAssert(buffer == L"10000000000000000000000000000000");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>( 2147483647   ), 2); testAssert(buffer ==  L"1111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(-1), 8); testAssert(buffer == L"37777777777");
@@ -656,10 +656,10 @@ testCase(toStringBufferFromLong) {
 
 testCase(toStringBufferFromShort) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<short>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(-32768), 2); testAssert(buffer == L"1000000000000000");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>( 32767), 2); testAssert(buffer ==  L"111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(-1), 8); testAssert(buffer == L"177777");
@@ -674,10 +674,10 @@ testCase(toStringBufferFromShort) {
 
 testCase(toStringBufferFromUnsigned__int64) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1ui64, 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, 2); testAssert(buffer ==  L"1111111111111111111111111111111111111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, 8); testAssert(buffer == L"1777777777777777777777");
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, 16); testAssert(buffer == L"ffffffffffffffff");
@@ -688,10 +688,10 @@ testCase(toStringBufferFromUnsigned__int64) {
 
 testCase(toStringBufferFromUnsignedChar) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned char>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), 2); testAssert(buffer ==  L"11111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), 8); testAssert(buffer == L"377");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), 16); testAssert(buffer == L"ff");
@@ -702,10 +702,10 @@ testCase(toStringBufferFromUnsignedChar) {
 
 testCase(toStringBufferFromUnsignedInt) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned int>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), 2); testAssert(buffer ==  L"11111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), 16); testAssert(buffer == L"ffffffff");
@@ -716,10 +716,10 @@ testCase(toStringBufferFromUnsignedInt) {
 
 testCase(toStringBufferFromUnsignedLong) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned long>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), 2); testAssert(buffer ==  L"11111111111111111111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), 16); testAssert(buffer == L"ffffffff");
@@ -730,10 +730,10 @@ testCase(toStringBufferFromUnsignedLong) {
 
 testCase(toStringBufferFromUnsignedShort) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned short>(1), 1));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), 2); testAssert(buffer ==  L"1111111111111111");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), 8); testAssert(buffer == L"177777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), 16); testAssert(buffer == L"ffff");
@@ -743,11 +743,11 @@ testCase(toStringBufferFromUnsignedShort) {
 
 
 testCase(toStringFrom__int64WithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1i64, L"a"));
 		testAssertionFailed(to<String>(1i64, L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(-1i64, L"", 8) == L"1777777777777777777777");
 		testAssert(to<String>(16i64, L"", 8) == L"20");
 		testAssert(to<String>(-1i64, L"", 16) == L"ffffffffffffffff");
@@ -755,7 +755,7 @@ testCase(toStringFrom__int64WithFormat) {
 		testAssert(to<String>(-9223372036854775808i64, L"") == L"-9223372036854775808");
 		testAssert(to<String>( 9223372036854775807i64, L"") ==  L"9223372036854775807");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<__int64>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<__int64>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<__int64>( 100), L"05") == L"00100");
@@ -769,11 +769,11 @@ testCase(toStringFrom__int64WithFormat) {
 
 
 testCase(toStringFromCharWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<char>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<char>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<char>(-1), L"", 8) == L"377");
 		testAssert(to<String>(static_cast<char>(16), L"", 8) == L"20");
 		testAssert(to<String>(static_cast<char>(-1), L"", 16) == L"ff");
@@ -781,7 +781,7 @@ testCase(toStringFromCharWithFormat) {
 		testAssert(to<String>(static_cast<char>(-128), L"") == L"-128");
 		testAssert(to<String>(static_cast<char>( 127), L"") ==  L"127");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<char>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<char>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<char>( 100), L"05") == L"00100");
@@ -795,11 +795,11 @@ testCase(toStringFromCharWithFormat) {
 
 
 testCase(toStringFromDoubleWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1.0, L"a"));
 		testAssertionFailed(to<String>(1.0, L"", 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(to<String>(.0, L"") ==  L"0");
 		testAssert(to<String>(-3.14, L"") == L"-3.14");
 		testAssert(to<String>(2.2250738585072014e-308, L"") == L"2.22507e-308");
@@ -807,10 +807,10 @@ testCase(toStringFromDoubleWithFormat) {
 		testAssert(to<String>(std::numeric_limits<double>::infinity(), L"") == L"1.#INF");
 		testAssert(to<String>(std::numeric_limits<double>::quiet_NaN(), L"") == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		testAssert(floatEquals(to<double>(to<String>(3.14, L"")), 3.14));
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<double>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<double>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<double>( 100), L"05") == L"00100");
@@ -832,11 +832,11 @@ testCase(toStringFromDoubleWithFormat) {
 
 
 testCase(toStringFromFloatWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1.f, L"a"));
 		testAssertionFailed(to<String>(1.f, L"", 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		testAssert(to<String>(.0f, L"") ==  L"0");
 		testAssert(to<String>(-3.14f, L"") == L"-3.14");
 		testAssert(to<String>(1.175494351e-38F, L"") == L"1.17549e-038");
@@ -844,10 +844,10 @@ testCase(toStringFromFloatWithFormat) {
 		testAssert(to<String>(std::numeric_limits<float>::infinity(), L"") == L"1.#INF");
 		testAssert(to<String>(std::numeric_limits<float>::quiet_NaN(), L"") == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		testAssert(floatEquals(to<float>(to<String>(3.14f, L"")), 3.14f));
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<float>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<float>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<float>( 100), L"05") == L"00100");
@@ -869,11 +869,11 @@ testCase(toStringFromFloatWithFormat) {
 
 
 testCase(toStringFromIntWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<int>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<int>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<int>(-1), L"", 8) == L"37777777777");
 		testAssert(to<String>(static_cast<int>(16), L"", 8) == L"20");
 		testAssert(to<String>(static_cast<int>(-1), L"", 16) == L"ffffffff");
@@ -881,7 +881,7 @@ testCase(toStringFromIntWithFormat) {
 		testAssert(to<String>(static_cast<int>(-2147483647 - 1), L"") == L"-2147483648");
 		testAssert(to<String>(static_cast<int>( 2147483647    ), L"") ==  L"2147483647");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<int>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<int>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<int>( 100), L"05") == L"00100");
@@ -895,11 +895,11 @@ testCase(toStringFromIntWithFormat) {
 
 
 testCase(toStringFromLongWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<long>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<long>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<long>(-1), L"", 8) == L"37777777777");
 		testAssert(to<String>(static_cast<long>(16), L"", 8) == L"20");
 		testAssert(to<String>(static_cast<long>(-1), L"", 16) == L"ffffffff");
@@ -907,7 +907,7 @@ testCase(toStringFromLongWithFormat) {
 		testAssert(to<String>(static_cast<long>(-2147483647 - 1), L"") == L"-2147483648");
 		testAssert(to<String>(static_cast<long>( 2147483647    ), L"") ==  L"2147483647");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<long>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<long>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<long>( 100), L"05") == L"00100");
@@ -921,11 +921,11 @@ testCase(toStringFromLongWithFormat) {
 
 
 testCase(toStringFromShortWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<short>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<short>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<short>(-1), L"", 8) == L"177777");
 		testAssert(to<String>(static_cast<short>(16), L"", 8) == L"20");
 		testAssert(to<String>(static_cast<short>(-1), L"", 16) == L"ffff");
@@ -933,7 +933,7 @@ testCase(toStringFromShortWithFormat) {
 		testAssert(to<String>(static_cast<short>(-32768), L"") == L"-32768");
 		testAssert(to<String>(static_cast<short>( 32767), L"") ==  L"32767");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<short>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<short>( 100), L"+5") == L" +100");
 		testAssert(to<String>(static_cast<short>( 100), L"05") == L"00100");
@@ -947,16 +947,16 @@ testCase(toStringFromShortWithFormat) {
 
 
 testCase(toStringFromUnsigned__int64WithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(1ui64, L"a"));
 		testAssertionFailed(to<String>(1ui64, L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(18446744073709551615ui64, L"", 8) == L"1777777777777777777777");
 		testAssert(to<String>(18446744073709551615ui64, L"", 16) == L"ffffffffffffffff");
 		testAssert(to<String>(18446744073709551615ui64, L"") == L"18446744073709551615");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned __int64>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<unsigned __int64>( 100), L"+") == L"100");
 		testAssert(to<String>(static_cast<unsigned __int64>( 100), L"05") == L"00100");
@@ -969,16 +969,16 @@ testCase(toStringFromUnsigned__int64WithFormat) {
 
 
 testCase(toStringFromUnsignedCharWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned char>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<unsigned char>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned char>(255), L"", 8) == L"377");
 		testAssert(to<String>(static_cast<unsigned char>(255), L"", 16) == L"ff");
 		testAssert(to<String>(static_cast<unsigned char>(255), L"") == L"255");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned char>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<unsigned char>( 100), L"+") == L"100");
 		testAssert(to<String>(static_cast<unsigned char>( 100), L"05") == L"00100");
@@ -991,16 +991,16 @@ testCase(toStringFromUnsignedCharWithFormat) {
 
 
 testCase(toStringFromUnsignedIntWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned int>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<unsigned int>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), L"", 8) == L"37777777777");
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), L"", 16) == L"ffffffff");
 		testAssert(to<String>(static_cast<unsigned int>(4294967295), L"") == L"4294967295");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned int>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<unsigned int>( 100), L"+") == L"100");
 		testAssert(to<String>(static_cast<unsigned int>( 100), L"05") == L"00100");
@@ -1013,16 +1013,16 @@ testCase(toStringFromUnsignedIntWithFormat) {
 
 
 testCase(toStringFromUnsignedLongWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned long>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<unsigned long>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), L"", 8) == L"37777777777");
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), L"", 16) == L"ffffffff");
 		testAssert(to<String>(static_cast<unsigned long>(4294967295), L"") == L"4294967295");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned long>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<unsigned long>( 100), L"+") == L"100");
 		testAssert(to<String>(static_cast<unsigned long>( 100), L"05") == L"00100");
@@ -1035,16 +1035,16 @@ testCase(toStringFromUnsignedLongWithFormat) {
 
 
 testCase(toStringFromUnsignedShortWithFormat) {
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<String>(static_cast<unsigned short>(1), L"a"));
 		testAssertionFailed(to<String>(static_cast<unsigned short>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned short>(65535), L"", 8) == L"177777");
 		testAssert(to<String>(static_cast<unsigned short>(65535), L"", 16) == L"ffff");
 		testAssert(to<String>(static_cast<unsigned short>(65535), L"") == L"65535");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		testAssert(to<String>(static_cast<unsigned short>( 100), L"-5") == L"100  ");
 		testAssert(to<String>(static_cast<unsigned short>( 100), L"+") == L"100");
 		testAssert(to<String>(static_cast<unsigned short>( 100), L"05") == L"00100");
@@ -1058,11 +1058,11 @@ testCase(toStringFromUnsignedShortWithFormat) {
 
 testCase(toStringBufferFrom__int64WithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1i64, L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, 1i64, L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, -1i64, L"", 8); testAssert(buffer == L"1777777777777777777777");
 		buffer.length(0); to<StringBuffer>(buffer, 16i64, L"", 8); testAssert(buffer == L"20");
 		buffer.length(0); to<StringBuffer>(buffer, -1i64, L"", 16); testAssert(buffer == L"ffffffffffffffff");
@@ -1070,7 +1070,7 @@ testCase(toStringBufferFrom__int64WithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, -9223372036854775808i64, L""); testAssert(buffer == L"-9223372036854775808");
 		buffer.length(0); to<StringBuffer>(buffer,  9223372036854775807i64, L""); testAssert(buffer ==  L"9223372036854775807");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<__int64>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<__int64>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<__int64>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1085,11 +1085,11 @@ testCase(toStringBufferFrom__int64WithFormat) {
 
 testCase(toStringBufferFromCharWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<char>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<char>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(-1), L"", 8); testAssert(buffer == L"377");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(16), L"", 8); testAssert(buffer == L"20");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(-1), L"", 16); testAssert(buffer == L"ff");
@@ -1097,7 +1097,7 @@ testCase(toStringBufferFromCharWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>(-128), L""); testAssert(buffer == L"-128");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>( 127), L""); testAssert(buffer ==  L"127");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<char>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1112,11 +1112,11 @@ testCase(toStringBufferFromCharWithFormat) {
 
 testCase(toStringBufferFromDoubleWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1.0, L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, 1.0, L"", 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, .0, L""); testAssert(buffer ==  L"0");
 		buffer.length(0); to<StringBuffer>(buffer, -3.14, L""); testAssert(buffer == L"-3.14");
 		buffer.length(0); to<StringBuffer>(buffer, 2.2250738585072014e-308, L""); testAssert(buffer == L"2.22507e-308");
@@ -1124,10 +1124,10 @@ testCase(toStringBufferFromDoubleWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<double>::infinity(), L""); testAssert(buffer == L"1.#INF");
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<double>::quiet_NaN(), L""); testAssert(buffer == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		buffer.length(0); to<StringBuffer>(buffer, 3.14, L""); testAssert(floatEquals(to<double>(buffer), 3.14));
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<double>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<double>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<double>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1150,11 +1150,11 @@ testCase(toStringBufferFromDoubleWithFormat) {
 
 testCase(toStringBufferFromFloatWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1.f, L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, 1.f, L"", 16));
 	}
-	{// •‚“®­”Œ`®‚ÌŒŸØ
+	{// ë¶€ë™ì†Œìˆ˜ í˜•ì‹ ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, .0f, L""); testAssert(buffer ==  L"0");
 		buffer.length(0); to<StringBuffer>(buffer, -3.14f, L""); testAssert(buffer == L"-3.14");
 		buffer.length(0); to<StringBuffer>(buffer, 1.175494351e-38F, L""); testAssert(buffer == L"1.17549e-038");
@@ -1162,10 +1162,10 @@ testCase(toStringBufferFromFloatWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<float>::infinity(), L""); testAssert(buffer == L"1.#INF");
 		buffer.length(0); to<StringBuffer>(buffer, std::numeric_limits<float>::quiet_NaN(), L""); testAssert(buffer == L"1.#QNAN");
 	}
-	{// ƒ‰ƒEƒ“ƒhƒgƒŠƒbƒv
+	{// ë¼ìš´ë“œíŠ¸ë¦½
 		buffer.length(0); to<StringBuffer>(buffer, 3.14f, L""); testAssert(floatEquals(to<float>(buffer), 3.14f));
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<float>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<float>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<float>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1188,11 +1188,11 @@ testCase(toStringBufferFromFloatWithFormat) {
 
 testCase(toStringBufferFromIntWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<int>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<int>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(-1), L"", 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(16), L"", 8); testAssert(buffer == L"20");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(-1), L"", 16); testAssert(buffer == L"ffffffff");
@@ -1200,7 +1200,7 @@ testCase(toStringBufferFromIntWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>(-2147483647 - 1), L""); testAssert(buffer == L"-2147483648");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>( 2147483647    ), L""); testAssert(buffer ==  L"2147483647");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<int>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1215,11 +1215,11 @@ testCase(toStringBufferFromIntWithFormat) {
 
 testCase(toStringBufferFromLongWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<long>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<long>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(-1), L"", 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(16), L"", 8); testAssert(buffer == L"20");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(-1), L"", 16); testAssert(buffer == L"ffffffff");
@@ -1227,7 +1227,7 @@ testCase(toStringBufferFromLongWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>(-2147483647 - 1), L""); testAssert(buffer == L"-2147483648");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>( 2147483647    ), L""); testAssert(buffer ==  L"2147483647");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<long>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1242,11 +1242,11 @@ testCase(toStringBufferFromLongWithFormat) {
 
 testCase(toStringBufferFromShortWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<short>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<short>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(-1), L"", 8); testAssert(buffer == L"177777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(16), L"", 8); testAssert(buffer == L"20");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(-1), L"", 16); testAssert(buffer == L"ffff");
@@ -1254,7 +1254,7 @@ testCase(toStringBufferFromShortWithFormat) {
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>(-32768), L""); testAssert(buffer == L"-32768");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>( 32767), L""); testAssert(buffer ==  L"32767");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>( 100), L"+5"); testAssert(buffer == L" +100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<short>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1269,16 +1269,16 @@ testCase(toStringBufferFromShortWithFormat) {
 
 testCase(toStringBufferFromUnsigned__int64WithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, 1ui64, L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, 1ui64, L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, L"", 8); testAssert(buffer == L"1777777777777777777777");
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, L"", 16); testAssert(buffer == L"ffffffffffffffff");
 		buffer.length(0); to<StringBuffer>(buffer, 18446744073709551615ui64, L""); testAssert(buffer == L"18446744073709551615");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned __int64>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned __int64>( 100), L"+"); testAssert(buffer == L"100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned __int64>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1292,16 +1292,16 @@ testCase(toStringBufferFromUnsigned__int64WithFormat) {
 
 testCase(toStringBufferFromUnsignedCharWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned char>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned char>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), L"", 8); testAssert(buffer == L"377");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), L"", 16); testAssert(buffer == L"ff");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>(255), L""); testAssert(buffer == L"255");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>( 100), L"+"); testAssert(buffer == L"100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned char>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1315,16 +1315,16 @@ testCase(toStringBufferFromUnsignedCharWithFormat) {
 
 testCase(toStringBufferFromUnsignedIntWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned int>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned int>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), L"", 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), L"", 16); testAssert(buffer == L"ffffffff");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>(4294967295), L""); testAssert(buffer == L"4294967295");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>( 100), L"+"); testAssert(buffer == L"100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned int>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1338,16 +1338,16 @@ testCase(toStringBufferFromUnsignedIntWithFormat) {
 
 testCase(toStringBufferFromUnsignedLongWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned long>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned long>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), L"", 8); testAssert(buffer == L"37777777777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), L"", 16); testAssert(buffer == L"ffffffff");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>(4294967295), L""); testAssert(buffer == L"4294967295");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>( 100), L"+"); testAssert(buffer == L"100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned long>( 100), L"05"); testAssert(buffer == L"00100");
@@ -1361,16 +1361,16 @@ testCase(toStringBufferFromUnsignedLongWithFormat) {
 
 testCase(toStringBufferFromUnsignedShortWithFormat) {
 	StringBuffer buffer;
-	{// ƒGƒ‰[ƒP[ƒX
+	{// ì—ëŸ¬ ì¼€ì´ìŠ¤
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned short>(1), L"a"));
 		testAssertionFailed(to<StringBuffer>(buffer, static_cast<unsigned short>(1), L"", 2));
 	}
-	{// base ‚ÌŒŸØ
+	{// base ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), L"", 8); testAssert(buffer == L"177777");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), L"", 16); testAssert(buffer == L"ffff");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>(65535), L""); testAssert(buffer == L"65535");
 	}
-	{// format ‚ÌŒŸØ
+	{// format ê²€ì¦
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>( 100), L"-5"); testAssert(buffer == L"100  ");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>( 100), L"+"); testAssert(buffer == L"100");
 		buffer.length(0); to<StringBuffer>(buffer, static_cast<unsigned short>( 100), L"05"); testAssert(buffer == L"00100");

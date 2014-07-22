@@ -1,4 +1,4 @@
-// testBalorDll.cpp : DLL ƒAƒvƒŠƒP[ƒVƒ‡ƒ“—p‚ÉƒGƒNƒXƒ|[ƒg‚³‚ê‚éŠÖ”‚ð’è‹`‚µ‚Ü‚·B
+ï»¿// testBalorDll.cpp : DLL ì• í”Œë¦¬ì¼€ì´ì…˜ ìš©ìœ¼ë¡œ ìµìŠ¤í¬íŠ¸ ë˜ëŠ” í•¨ìˆ˜ë¥¼ ì •ì˜í•œë‹¤
 //
 
 

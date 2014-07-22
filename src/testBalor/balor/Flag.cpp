@@ -1,4 +1,4 @@
-#include <balor/Flag.hpp>
+﻿#include <balor/Flag.hpp>
 
 #include <balor/test/UnitTest.hpp>
 

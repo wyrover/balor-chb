@@ -1,4 +1,4 @@
-#include <balor/io/Registry.hpp>
+ï»¿#include <balor/io/Registry.hpp>
 
 
 #include <algorithm>
@@ -78,24 +78,24 @@ testCase(rootKeys) {
 
 
 testCase(constructAndAssignment) {
-	{// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	{// ê¸°ë³¸ ìƒì„±ì
 		Registry emptyKey;
 		testAssert(!emptyKey);
 	}
-	{// rvalue ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	{// rvalue ìƒì„±ì
 		Registry sourceKey = Registry::currentUser();
 		Registry rvalueConstructKey = move(sourceKey);
 		testAssert(!sourceKey);
 		testAssert(rvalueConstructKey.keyCount() == Registry::currentUser().keyCount());
 	}
-	{// rvalue ‘ã“ü‰‰Zq
+	{// rvalue ëŒ€ì… ì—°ì‚°ì
 		Registry sourceKey = Registry::currentUser();
 		Registry rvalueAssignmentKey;
 		rvalueAssignmentKey = move(sourceKey);
 		testAssert(!sourceKey);
 		testAssert(rvalueAssignmentKey.keyCount() == Registry::currentUser().keyCount());
 	}
-	{// ƒRƒ“ƒeƒiŠi”[
+	{// ì»¨í…Œì´ë„ˆ ì €ì¥
 		vector<Registry> keys;
 		keys.push_back(Registry::classesRoot());
 		keys.push_back(Registry::currentConfig());
@@ -110,21 +110,21 @@ testCase(constructAndAssignment) {
 
 
 testCase(constructWithName) {
-	{ // –³Œø‚Èƒ‹[ƒgƒL[–¼
+	{ // ë¬´íš¨í•œ ë£¨íŠ¸ í‚¤ ì´ë¦„
 		testAssertionFailed(Registry(L"\\"));
 		testAssertionFailed(Registry(L""));
 	}
-	{ // ‘¶İ‚µ‚È‚¢ƒTƒuƒL[–¼
+	{ // ì¡´ì¬í•˜ì§€ ì•Šì€ ë£¨íŠ¸ í‚¤ ì´ë¦„
 		testAssert(!Registry(L"HKEY_CLASSES_ROOT\\a\\b\\c\\d\\e0123456"));
 	}
-	// ‚»‚ê‚¼‚ê‚Ìƒ‹[ƒgƒL[‚©‚ç’l‚Ìæ“¾
+	// ê°ê° ë£¨í‹° í‚¤ì—ì„œ ê°’ì„ ì·¨ë“
 	testAssert(findExistKeyAndValue(Registry::classesRoot()));
 	testAssert(findExistKeyAndValue(Registry::currentConfig()));
 	testAssert(findExistKeyAndValue(Registry::currentUser()));
 	testAssert(findExistKeyAndValue(Registry::localMachine()));
 	testAssert(findExistKeyAndValue(Registry::users()));
 
-	{// ŠÂ‹«•Ï”‚Åæ“¾‚µ‚½’l‚Ì“à—e‚ğƒeƒXƒg
+	{// í™˜ê²½ ë³€ìˆ˜ì—ì„œ ì·¨ë“í•œ ë‚´ìš©ì„ í…ŒìŠ¤íŠ¸
 		String path;
 		testNoThrow(path = EnvironmentVariable::get(L"PATH"));
 		auto value = Registry(L"HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment").getString(L"PATH");
@@ -145,77 +145,75 @@ testCase(destruct) {
 
 
 testCase(createKey) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.createKey(L" "));
 	}
-	// ƒTƒuƒL[‚Ìì¬‚ğ‹–‚³‚ê‚È‚¢ƒŒƒWƒXƒgƒŠƒL[
+	// ì„œë¸Œ í‚¤ ì‘ì„±ì„ í—ˆìš©í•˜ì§€ ì•ŠëŠ” ë ˆì§€ìŠ¤íŠ¸ í‚¤
 	testThrow(Registry::localMachine().createKey(testKeyName), Registry::InvalidParameterException);
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(testKey.createKey(L""));
-	// ƒTƒuƒL[‚Ìì¬
+	// ì„œë¸Œ í‚¤ ì‘ì„±
 	Registry subKey;
 	testNoThrow(subKey = testKey.createKey(L"subKey"));
 	testAssert(subKey);
-	// ƒfƒtƒHƒ‹ƒgˆø”‚Å‚Í‘‚«‚İŒ ŒÀ–³‚µ
+	// ê¸°ë³¸ ì´ìˆœì—ì„œëŠ” ì“°ê¸° ê¶Œí•œ ì—†ìŒ
 	testThrow(subKey.setDword(L"dwordValue", std::uint32_t(0)), Registry::AccessDeniedException);
-	// Šù‚É‘¶İ‚·‚éƒL[‚Í‚»‚Ì‚Ü‚ÜŠJ‚­B‚Â‚¢‚Å‚É‘‚«‚İŒ ŒÀ•t—^B
+	// ì´ë¯¸ ì¡´ì¬í•˜ëŠ” í‚¤ë¥¼ ê·¸ ëŒ€ë¡œ ì—´ê³  ë°”ë¡œ ì“°ê¸° ê¶Œí•œ ë¶€ì—¬
 	testNoThrow(subKey = testKey.createKey(L"subKey", true));
 	testAssert(subKey);
-	// ‘‚«‚İŒ ŒÀ—L‚è
+	// ì“°ê¸° ê¶Œí•œë§Œ ìˆìŒ
 	testNoThrow(subKey.setDword(L"dwordValue", std::uint32_t(2)));
 	testAssert(subKey.getDword(L"dwordValue") == 2);
-	// Šù‚Éíœ‚³‚ê‚½ƒŒƒWƒXƒgƒŠƒL[‚Åì¬‚µ‚æ‚¤‚Æ‚µ‚½
+	// ì´ë¯¸ ì‚­ì œëœ ë ˆì§€ìŠ¤íŠ¸ í‚¤ë¡œ ì‘ì„±í•´ë³¸ë‹¤
 	testKey.removeKey(L"subKey");
 	testAssert(!testKey.openKey(L"subKey"));
 	testThrow(subKey.createKey(L"subsubKey"), Registry::KeyDeletedException);
-	// •¡”‚ÌŠK‘w‚ğˆê‹C‚Éì¬
+	// ë³µìˆ˜ì˜ ê³„ì¸µì„ í•œë²ˆì— ì‘ì„±
 	testNoThrow(subKey = testKey.createKey(L"subKey\\subsubKey\\subsubsubKey"));
 	testAssert(testKey.openKey(L"subKey").openKey(L"subsubKey").openKey(L"subsubsubKey"));
-	// “r’†‚Ü‚Å‘¶İ‚·‚é•¡”‚ÌŠK‘w‚ğˆê‹C‚Éì¬
+	// ë„ì¤‘ê¹Œì§€ ì¡´ì¬í•˜ëŠ” ë³µìˆ˜ì˜ ê³„ì¸µì„ í•œë²ˆì— ì‘ì„±
 	testNoThrow(subKey = testKey.createKey(L"subKey\\hogeKey\\hogehogeKey"));
 	testAssert(testKey.openKey(L"subKey").openKey(L"hogeKey").openKey(L"hogehogeKey"));
 
-	// Caution: RegistryOptions::volatileSubTree ‚ÌƒeƒXƒg‚ÍPC‚ÌƒƒOƒIƒt‚âÄ‹N“®‚ª•K—v‚Èˆ×A
-	//          ‰º‹L‚ÌƒTƒuƒL[‚ªì¬‚³‚êAƒƒOƒIƒtŒã‚ÉÁ‚¦‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F‚·‚éB
-	//Registry::currentUser().openKey(L"Software").createKey(L"testBalor", true, RegistryOptions::volatileSubTree);
+	
 }
 
 
 testCase(flush) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.flush());
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
 	testKey.setString(L"value", L"test");
-	testNoThrow(testKey.flush()); // Œø‰Ê‚ğ‚Ç‚¤”»’è‚·‚ê‚Î—Ç‚¢‚Ì‚©”»‚ç‚È‚¢
+	testNoThrow(testKey.flush()); 
 }
 
 
 testCase(getValue) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.getString(L" "));
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
 	testKey.setString(L"string0", L"test");
 	testKey.setDword(L"dword0", 0);
 
-	{// binary‚Ìæ“¾
+	{// binary ì·¨ë“
 		testThrow(testKey.getBinary(L"test"), Registry::ValueNotFoundException);
 		vector<std::uint8_t> binary;
 		testNoThrow(testKey.setBinary(L"binary", binary));
@@ -229,7 +227,7 @@ testCase(getValue) {
 		binary.assign(reinterpret_cast<const unsigned char*>(text), reinterpret_cast<const unsigned char*>(text + 5));
 		testAssert(testKey.getBinary(L"string0") == binary);
 	}
-	{// dword‚Ìæ“¾
+	{// dword ì·¨ë“
 		testThrow(testKey.getDword(L"test"), Registry::ValueNotFoundException);
 		testThrow(testKey.getDword(L"string0"), Registry::ValueKindMismatchException);
 		std::uint32_t dword = 0;
@@ -245,7 +243,7 @@ testCase(getValue) {
 		testNoThrow(testKey.setDword(L"dword2", dword));
 		testAssert(testKey.getDword(L"dword2") == dword);
 	}
-	{// string‚Ìæ“¾
+	{// string ì·¨ë“
 		testThrow(testKey.getString(L"test"), Registry::ValueNotFoundException);
 		testThrow(testKey.getString(L"dword0"), Registry::ValueKindMismatchException);
 		String string;
@@ -256,7 +254,7 @@ testCase(getValue) {
 		testNoThrow(testKey.setString(L"string", string));
 		testAssert(testKey.getString(L"string") == string);
 	}
-	{// expandString‚Ìæ“¾
+	{// expandString ì·¨ë“
 		String expandString;
 		testNoThrow(testKey.setString(L"expandString", expandString, Registry::ValueKind::expandString));
 		testAssert(testKey.getString(L"expandString") == expandString);
@@ -265,7 +263,7 @@ testCase(getValue) {
 		testNoThrow(testKey.setString(L"expandString", expandString, Registry::ValueKind::expandString));
 		testAssert(testKey.getString(L"expandString") == expandString);
 	}
-	{// multiString‚Ìæ“¾
+	{// multiString ì·¨ë“
 		String multiString;
 		testNoThrow(testKey.setString(L"multiString", multiString, Registry::ValueKind::multiString));
 		testAssert(testKey.getString(L"multiString") == multiString);
@@ -274,7 +272,7 @@ testCase(getValue) {
 		testNoThrow(testKey.setString(L"multiString", multiString, Registry::ValueKind::multiString));
 		testAssert(testKey.getString(L"multiString") == multiString);
 	}
-	{// qword‚Ìæ“¾
+	{// qword ì·¨ë“
 		testThrow(testKey.getQword(L"test"), Registry::ValueNotFoundException);
 		testThrow(testKey.getQword(L"string0"), Registry::ValueKindMismatchException);
 		std::uint64_t qword = 0;
@@ -290,13 +288,13 @@ testCase(getValue) {
 		testNoThrow(testKey.setQword(L"qword2", qword));
 		testAssert(testKey.getQword(L"qword2") == qword);
 	}
-	{// Šù’è’l‚Ìæ“¾
+	{// ê¸°ë³¸ ê°’ ì·¨ë“
 		String string = L"test";
 		testNoThrow(testKey.setString(L"", string));
 		testAssert(testKey.getString(L"") == string);
 		testAssert(testKey.getValueKind(L"") == Registry::ValueKind::string);
 	}
-	{// ƒTƒ|[ƒg‚µ‚È‚¢Œ^‚Ì’l‚Ìæ“¾
+	{// ì§€ì›í•˜ì§€ ì•ŠëŠ” í˜•ì˜ ê°’ ì·¨ë“
 		DWORD value = 1;
 		testAssert(RegSetValueExW(testKey, L"unknown", 0, REG_DWORD_BIG_ENDIAN, reinterpret_cast<const BYTE*>(&value), sizeof(value)) == ERROR_SUCCESS);
 		vector<std::uint8_t> binary;
@@ -304,14 +302,14 @@ testCase(getValue) {
 		testAssert(testKey.getBinary(L"unknown") == binary);
 		testAssert(testKey.getValueKind(L"unknown") == Registry::ValueKind::unknown);
 	}
-	{// íœ‚³‚ê‚½ƒL[‚©‚ç’l‚Ìæ“¾
+	{// ì‚­ì œëœ í‚¤ì—ì„œ ê°’ì„ ì·¨ë“
 		Registry subKey = testKey.createKey(L"subKey", true);
 		subKey.setString(L"value", L"testValue");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.getString(L"value"), Registry::KeyDeletedException);
 		testThrow(subKey.getValueKind(L"value"), Registry::KeyDeletedException);
 	}
-	{// ’l‚Ì“Ç‚İæ‚èŒ ŒÀ‚Ì‚È‚¢ƒL[‚©‚ç’l‚ğæ“¾
+	{// ê°’ ì¼ê¸° ê¶Œí•œì´ ì—†ëŠ” í‚¤ì—ì„œ ê°’ ì·¨ë“
 		testKey.createKey(L"subKey", true).setString(L"value", L"test");
 		HKEY handle;
 		testAssert(RegOpenKeyExW(testKey, L"subKey", 0, STANDARD_RIGHTS_READ, &handle) == ERROR_SUCCESS);
@@ -324,53 +322,49 @@ testCase(getValue) {
 
 
 testCase(getValueKind) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.getValueKind(L" "));
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‘¶İ‚µ‚È‚¢’l
+	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê°’
 	testAssert(testKey.getValueKind(L"value") == Registry::ValueKind::notFound);
-	// ŠeŒ^‚ÌƒeƒXƒg‚Í testCase(getValue) ‚É‚ÄƒeƒXƒgÏ‚İ
-
-	// íœ‚³‚ê‚½ƒL[‚©‚ç’l‚ÌŒ^‚Ìæ“¾‚Í testCase(getValue) ‚É‚ÄƒeƒXƒgÏ‚İ
-
-	// ’l‚Ì“Ç‚İæ‚èŒ ŒÀ‚Ì‚È‚¢ƒL[‚©‚çŒ^‚Ìæ“¾‚Í testCase(getValue) ‚É‚ÄƒeƒXƒgÏ‚İ
+	
 }
 
 
 testCase(name) {
-	// testCase(createKey)‚É‚ÄƒeƒXƒgÏ‚İ
+	// testCase(createKey) í…ŒìŠ¤íŠ¸ ì™„ë£Œ
 }
 
 
 testCase(keyCount) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.keyCount());
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ƒTƒuƒL[‚Ì”
+	// ê¸–ê¸³ê¸Œ?ê¶»ë¦¶
 	testAssert(testKey.keyCount() == 0);
 	testKey.createKey(L"subKey0");
 	testKey.createKey(L"subKey1");
 	testKey.createKey(L"subKey2");
 	testAssert(testKey.keyCount() == 3);
 
-	{// íœ‚³‚ê‚½ƒŒƒWƒXƒgƒŠƒL[‚©‚çƒTƒuƒL[‚Ì”‚ğæ“¾
+	{// ì‚­ì œëœ ë ˆì§€ìŠ¤íŠ¸ í‚¤ì—ì„œ ì„œë¸Œ í‚¤ ìˆ˜ë¥¼ ì·¨ë“
 		Registry subKey = testKey.createKey(L"subKey");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.keyCount(), Registry::KeyDeletedException);
 	}
-	{// Œ ŒÀ‚Ì–³‚¢ƒL[‚Å‚ÌƒTƒuƒL[‚Ì”‚Ìæ“¾
+	{// ê¶Œí•œ ì—†ëŠ” í‚¤ì—ì„œ ì„œë¸Œ í‚¤ ìˆ˜ ì·¨ë“
 		testKey.createKey(L"subKey");
 		HKEY handle;
 		testAssert(RegOpenKeyExW(testKey, L"subKey", 0, STANDARD_RIGHTS_READ, &handle) == ERROR_SUCCESS);
@@ -382,18 +376,18 @@ testCase(keyCount) {
 
 
 testCase(keyNamesIterator) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.keyNamesIterator());
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‹ó‚ÌƒTƒuƒL[–¼ƒŠƒXƒg‚Ìæ“¾
+	// ë¹ˆ ì„œë¸Œ í‚¤ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 	testAssert(!testKey.keyNamesIterator());
-	{// ƒTƒuƒL[–¼ƒŠƒXƒg‚Ìæ“¾
+	{// ì„œë¸Œ í‚¤ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 		wchar_t names[][8] = {L"subKey0", L"subKey1", L"subKey2"};
 		for (int i = 0; i < 3; ++i) {
 			testKey.createKey(names[i]);
@@ -411,12 +405,12 @@ testCase(keyNamesIterator) {
 		}
 		testAssert(!subKeyNames);
 	}
-	{// íœ‚³‚ê‚½ƒŒƒWƒXƒgƒŠƒL[‚©‚çƒTƒuƒL[–¼ƒŠƒXƒg‚Ìæ“¾
+	{// ì‚­ì œëœ ë ˆì§€ìŠ¤íŠ¸ í‚¤ì—ì„œ ì„œë¹„ í‚¤ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 		Registry subKey = testKey.createKey(L"subKey");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.keyNamesIterator(), Registry::KeyDeletedException);
 	}
-	{// ƒTƒuƒL[–¼‚Ì—ñ‹“Œ ŒÀ‚Ì–³‚¢ƒL[‚Å‚Ì—ñ‹“
+	{// ì„œë¸Œ í‚¤ ì´ë¦„ ì—´ê±° ê¶Œí•œ ì—†ëŠ” í‚¤ë¡œ ì—´ê±°
 		testKey.createKey(L"subKey");
 		HKEY handle;
 		testAssert(RegOpenKeyExW(testKey, L"subKey", 0, STANDARD_RIGHTS_READ, &handle) == ERROR_SUCCESS);
@@ -428,69 +422,69 @@ testCase(keyNamesIterator) {
 
 
 testCase(openKey) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.openKey(L" "));
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(testKey.openKey(L""));
-	// ‘¶İ‚µ‚È‚¢ƒTƒuƒL[
+	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì„œë¸Œ í‚¤
 	testAssert(!testKey.openKey(L"subKey"));
-	{// ‘¶İ‚·‚éƒTƒuƒL[
+	{// ì¡´ì¬í•˜ëŠ” ì„œë¸Œ í‚¤
 		Registry createdSubKey = testKey.createKey(L"subKey");
 		Registry subKey = testKey.openKey(L"subKey");
 		testAssert(subKey);
 	}
-	// ‘‚«‚İŒ ŒÀ‚È‚µ
+	// ì“°ê¸° ê¶Œí•œ ì—†ìŒ
 	testThrow(testKey.openKey(L"subKey").setString(L"value", L"test"), Registry::AccessDeniedException);
-	// ‘‚«‚İŒ ŒÀ‚ ‚è
+	// ì“°ê¸° ê¶Œí•œ ìˆìŒ
 	testNoThrow(testKey.openKey(L"subKey", true).setString(L"value", L"test"));
-	{// íœ‚³‚ê‚½ƒL[‚ÅƒTƒuƒL[‚ğƒI[ƒvƒ“
+	{// ì‚­ì œëœ í‚¤ì—ì„œ ì„œë¸Œ í‚¤ë¥¼ ì˜¤í”ˆ
 		Registry subKey = testKey.openKey(L"subKey");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.openKey(L"subsubKey"), Registry::KeyDeletedException);
 	}
-	// Caution: Œ»İ‚Ìƒ†[ƒU‚Ì“Ç‚İæ‚è‚ğ‹‘”Û‚µ‚½ƒL[‚ğì¬‚µAƒI[ƒvƒ“‚·‚é‚ÆRegistry::AccessDeniedException‚ğ“Š‚°‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
+	// Caution: í˜„ì¬ ìœ ì €ì˜ ì½ê¸°ë¥¼ ê±°ë¶€í•œ í‚¤ë¥¼ ë§Œë“¤ê³ , ì˜¤í”ˆí•˜ë©´ Registry::AccessDeniedExceptionì„ ë˜ì§€ëŠ” ê²ƒì„ ëˆˆìœ¼ë¡œ í™•ì¸
 	//Registry::currentUser().openKey(L"Software\\balor_test");
 }
 
 
 testCase(removeKey) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.removeKey(L" "));
 	}
 
-	// íœ‚ª‹–‚³‚ê‚È‚¢ƒL[
+	// ì‚­ì œê°€ í—ˆë½ë˜ì§€ ì•ŠëŠ” í‚¤
 	testThrow(Registry::localMachine().removeKey(L"SECURITY"), Registry::AccessDeniedException);
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(testKey.removeKey(L""));
-	// ‘¶İ‚µ‚È‚¢ƒTƒuƒL[‚Ìíœ
+	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì„œë¸Œ í‚¤ ì‚­ì œ
 	testNoThrow(testKey.removeKey(L"subKey"));
-	// ‘¶İ‚·‚éƒTƒuƒL[‚Ìíœ
+	// ì¡´ì¬í•˜ëŠ” ì„œë¸Œ í‚¤ ì‚­ì œ
 	testKey.createKey(L"subKey");
 	testNoThrow(testKey.removeKey(L"subKey"));
 	testAssert(!testKey.openKey(L"subKey"));
-	// ƒTƒuƒL[‚ª‘¶İ‚·‚éƒL[‚Ìíœ
+	// ì„œë¸Œ í‚¤ê°€ ì¡´ì¬í•˜ëŠ” í‚¤ ì‚­ì œ
 	Registry subKey = testKey.createKey(L"subKey");
 	Registry subsubKey = subKey.createKey(L"subsubKey", true);
 	testThrow(testKey.removeKey(L"subKey"), Registry::AccessDeniedException);
 	testAssert(testKey.openKey(L"subKey"));
-	// ’l‚Í‚ ‚Á‚Ä‚àíœ‚Å‚«‚é
+	// ê°’ì´ ìˆì–´ë„ ì‚­ì œí•  ìˆ˜ ìˆë‹¤
 	subsubKey.setString(L"value", L"test");
 	testNoThrow(subKey.removeKey(L"subsubKey"));
 	testAssert(!subKey.openKey(L"subsubKey"));
-	// íœ‚³‚ê‚½ƒL[‚Åíœ‚ğÀs
+	// ì‚­ì œëœ í‚¤ì—ì„œ ì‚­ì œë¥¼ ì‹¤í–‰ 
 	subsubKey = subKey.createKey(L"subsubKey");
 	testKey.removeKey(L"subKey", true);
 	testAssert(!testKey.openKey(L"subKey"));
@@ -499,13 +493,13 @@ testCase(removeKey) {
 
 
 testCase(removeKeyRecursive) {
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‘¶İ‚µ‚È‚¢ƒTƒuƒL[‚Ìíœ
+	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì„œë¸Œ í‚¤ ì‚­ì œ
 	testNoThrow(testKey.removeKey(L"subKey", true));
-	// ‘¶İ‚·‚éƒTƒuƒL[‚Ìíœ
+	// ì¡´ì¬í•˜ëŠ” ì„œë¸Œ í‚¤ ì‚­ì œ
 	Registry subKey = testKey.createKey(L"subKey");
 	subKey.createKey(L"subsubKey");
 	subKey.createKey(L"subsubKey2");
@@ -518,34 +512,34 @@ testCase(removeKeyRecursive) {
 
 
 testCase(removeValue) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.removeValue(L" "));
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‘¶İ‚µ‚È‚¢’l‚Ìíœ
+	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê°’ ì‚­ì œ
 	testNoThrow(testKey.removeValue(L"value"));
-	// ‘¶İ‚·‚é’l‚Ìíœ
+	// ì¡´ì¬í•˜ëŠ” ê°’ ì‚­ì œ
 	Registry subKey = testKey.createKey(L"subKey", true);
 	subKey.setString(L"value", L"test");
 	testAssert(subKey.getString(L"value") == L"test");
 	testNoThrow(subKey.removeValue(L"value"));
 	testThrow(subKey.getString(L"value"), Registry::ValueNotFoundException);
-	// Šù’è’l‚Ìíœ
+	// ê¸°ë³¸ ê°’ ì‚­ì œ
 	subKey.setString(L"", L"default");
 	testAssert(subKey.getString(L"") == L"default");
 	testNoThrow(subKey.removeValue(L""));
 	testThrow(subKey.getString(L""), Registry::ValueNotFoundException);
-	// ‘‚«‚İŒ ŒÀ‚Ì–³‚¢ƒL[‚Å’l‚Ìíœ
+	// ì“°ê¸° ê¶Œí•œ ì—†ëŠ” í‚¤ë¡œ ê°’ ì‚­ì œ
 	subKey.setString(L"value", L"test");
 	subKey = testKey.openKey(L"subKey");
 	testThrow(subKey.removeValue(L"value"), Registry::AccessDeniedException);
 	testAssert(subKey.getString(L"value") == L"test");
-	// íœ‚³‚ê‚½ƒL[‚Å’l‚Ìíœ
+	// ì‚­ì œëœ í‚¤ë¡œ ê°’ ì‚­ì œ
 	subKey = testKey.openKey(L"subKey", true);
 	testKey.removeKey(L"subKey");
 	testThrow(subKey.removeValue(L"value"), Registry::KeyDeletedException);
@@ -553,7 +547,7 @@ testCase(removeValue) {
 
 
 testCase(setValue) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.setString(L"", L""));
 		testAssertionFailed(emptyKey.setBinary(L"", vector<std::uint8_t>()));
@@ -561,23 +555,23 @@ testCase(setValue) {
 		testAssertionFailed(emptyKey.setQword(L"", uint64_t()));
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‘¶İ‚µ‚È‚¢’l‚Íì¬‚³‚ê‚é
+	// ì¡´ì¬í•˜ì§€ ì•Šì€ ê°’ì„ ë§Œë“ ë‹¤
 	testKey.setString(L"value", L"test");
 	testAssert(testKey.getString(L"value") == L"test");
-	// ‘¶İ‚·‚é’l‚Íã‘‚«‚³‚ê‚é
+	// ì¡´ì¬í•˜ëŠ” ê°’ì„ ë®ì–´ì’¸ìš´ë‹¤
 	testKey.setString(L"value", L"test2");
 	testAssert(testKey.getString(L"value") == L"test2");
 
-	// ’l‚ÆŒ^‚Ìƒ~ƒXƒ}ƒbƒ`
+	// ê°’ê³¼ í˜•ì„ ë¯¸ìŠ¤ë§¤ì¹˜
 	testAssertionFailed(testKey.setString(L"value", String(), Registry::ValueKind::binary));
 
-	// ‚±‚êˆÈŠO‚ÌŠeŒ^‚Ì’l‚Ìİ’è‚ÌƒeƒXƒg‚Í testCase(getValue) ‚É‚ÄƒeƒXƒgÏ‚İ
+	// ì´ ì´ìƒ ê° í˜•ì˜ ê°’ì„ ì„¤ì • í…ŒìŠ¤íŠ¸ëŠ” testCase(getValue) ì—ì„œ í…ŒìŠ¤íŠ¸ ì™„ë£Œ
 
-	{// íœ‚³‚ê‚½ƒL[‚É’l‚Ìİ’è
+	{// ì‚­ì œëœ í‚¤ì— ê°’ì„ ì„¤ì •
 		Registry subKey = testKey.createKey(L"subKey", true);
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.setString(L"value", L""), Registry::KeyDeletedException);
@@ -586,7 +580,7 @@ testCase(setValue) {
 		testThrow(subKey.setQword(L"value", uint64_t()), Registry::KeyDeletedException);
 	}
 
-	{// ‘‚«‚İŒ ŒÀ‚Ì‚È‚¢ƒL[‚É’l‚Ìİ’è
+	{// ì“°ê¸° ê¶Œí•œì´ ì—†ëŠ” í‚¤ì— ê°’ ì„¤ì • 
 		Registry subKey = testKey.createKey(L"subKey");
 		testThrow(subKey.setString(L"value", L""), Registry::AccessDeniedException);
 		testThrow(subKey.setBinary(L"value", vector<std::uint8_t>()), Registry::AccessDeniedException);
@@ -597,31 +591,31 @@ testCase(setValue) {
 
 
 testCase(valueCount) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.valueCount());
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ’l‚Ì”
+	// ê°’ ìˆ˜
 	testAssert(testKey.valueCount() == 0);
 	testKey.setString(L"value0", L"test");
 	testKey.setString(L"value1", L"test");
 	testKey.setString(L"value2", L"test");
 	testAssert(testKey.valueCount() == 3);
-	// ‹K’è’l
+	// ê·œì • ê°’
 	testKey.setString(L"", L"test");
 	testAssert(testKey.valueCount() == 4);
 
-	{// íœ‚³‚ê‚½ƒŒƒWƒXƒgƒŠƒL[‚©‚ç’l‚Ì”‚ğæ“¾
+	{// ì‚­ì œëœ ë ˆì§€ìŠ¤íŠ¸ë¦¬ í‚¤ì—ì„œ ê°’ ìˆ˜ë¥¼ ì·¨ë“
 		Registry subKey = testKey.createKey(L"subKey");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.valueCount(), Registry::KeyDeletedException);
 	}
-	{// Œ ŒÀ‚Ì–³‚¢ƒL[‚Å‚Ì’l‚Ìæ“¾
+	{// ê¶Œí•œ ì—†ëŠ” í‚¤ë¡œ ê°’ ì·¨ë“
 		testKey.createKey(L"subKey");
 		HKEY handle;
 		testAssert(RegOpenKeyExW(testKey, L"subKey", 0, STANDARD_RIGHTS_READ, &handle) == ERROR_SUCCESS);
@@ -633,18 +627,18 @@ testCase(valueCount) {
 
 
 testCase(valueNamesIterator) {
-	{// ‹ó‚ÌƒŒƒWƒXƒgƒŠƒL[
+	{// ë¹ˆ ë ˆì§€ìŠ¤íŠ¸ í‚¤
 		Registry emptyKey;
 		testAssertionFailed(emptyKey.valueNamesIterator());
 	}
 
-	// ƒeƒXƒg—pƒŒƒWƒXƒgƒŠƒL[‚Ì€”õ
+	// í…ŒìŠ¤íŠ¸ ìš© ë ˆì§€ìŠ¤íŠ¸ í‚¤ ì¤€ë¹„
 	Registry testKey = getTestKey();
 	scopeExit(&testKeyDeleteFunction);
 
-	// ‹ó‚Ì’l–¼ƒŠƒXƒg‚Ìæ“¾
+	// ë¹ˆ ê°’ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 	testAssert(!testKey.valueNamesIterator());
-	{// ’l–¼ƒŠƒXƒg‚Ìæ“¾
+	{// ê°’ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 		wchar_t names[][8] = {L"value0", L"value1", L""};
 		for (int i = 0; i < 3; ++i) {
 			testKey.setString(names[i], L"test");
@@ -662,12 +656,12 @@ testCase(valueNamesIterator) {
 		}
 		testAssert(!valueNames);
 	}
-	{// íœ‚³‚ê‚½ƒŒƒWƒXƒgƒŠƒL[‚©‚ç’l–¼ƒŠƒXƒg‚Ìæ“¾
+	{// ì‚­ì œëœ ë ˆì§€ìŠ¤íŠ¸ í‚¤ì—ì„œ ê°’ ì´ë¦„ ë¦¬ìŠ¤íŠ¸ ì·¨ë“
 		Registry subKey = testKey.createKey(L"subKey");
 		testKey.removeKey(L"subKey");
 		testThrow(subKey.valueNamesIterator(), Registry::KeyDeletedException);
 	}
-	{// ƒTƒuƒL[–¼‚Ì—ñ‹“Œ ŒÀ‚Ì–³‚¢ƒL[‚Å‚Ì—ñ‹“
+	{// ì„œë¸Œí‚¤ ì´ë¦„ ì—´ê±° ê¶Œí•œ ì—†ëŠ” í‚¤ë¡œ ì—´ê±° 
 		testKey.createKey(L"subKey");
 		HKEY handle;
 		testAssert(RegOpenKeyExW(testKey, L"subKey", 0, STANDARD_RIGHTS_READ, &handle) == ERROR_SUCCESS);

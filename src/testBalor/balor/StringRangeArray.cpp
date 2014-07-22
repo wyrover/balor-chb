@@ -1,4 +1,4 @@
-#include <balor/StringRangeArray.hpp>
+ï»¿#include <balor/StringRangeArray.hpp>
 
 #include <array>
 #include <cassert>
@@ -52,7 +52,7 @@ template<typename T> void makeStringBuffer(T& array) {
 
 
 testCase(all) {
-	// •¶š—ñƒ|ƒCƒ“ƒ^
+	// ë¬¸ìì—´ í¬ì¸í„°
 	wchar_t* charArray[] = {L"abc", L"def", L"ghi"};
 	const wchar_t* ccharArray[] = {L"abc", L"def", L"ghi"};
 

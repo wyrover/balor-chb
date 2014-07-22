@@ -1,4 +1,4 @@
-#include <functional>
+ï»¿#include <functional>
 
 #include <balor/gui/MessageBox.hpp>
 #include <balor/io/File.hpp>
@@ -23,12 +23,12 @@ using namespace balor;
 void se_translator_function(unsigned int /*code*/, struct _EXCEPTION_POINTERS* ep)
 {
 	Debug::createDumpFile(ep);
-	throw UnhandledException(); //•W€C++‚Ì—áŠO‚ğ”­¶‚³‚¹‚é
+	throw UnhandledException(); // í‘œì¤€ C++ ì˜ˆì™¸ë¥¼ ë°œìƒì‹œí‚¨ë‹¤
 }
 
 
 int debugReportHook(int /*reportType*/, char* message, int* /*returnValue*/) {
-	// ƒƒ‚ƒŠƒŠ[ƒN‚ª•ñ‚³‚ê‚Ä‚±‚±‚É—ˆ‚é‚Æ‚«‚É‚ÍƒOƒ[ƒoƒ‹•Ï”‚ÍŠù‚ÉƒfƒXƒgƒ‰ƒNƒg‚³‚ê‚Ä‚¢‚é‰Â”\«‚ª‚‚¢‚Ì‚ÅƒOƒ[ƒoƒ‹•Ï”‚Íg‚¦‚È‚¢B
+	// ë©”ëª¨ë¦¬ ë¦­ì´ ë³´ê³ ë˜ì–´ì„œ ì—¬ê¸°ì— ì˜¬ ë•Œì—ëŠ” ì „ì—­ ë³€ìˆ˜ëŠ” ì´ë¯¸ ì†Œë©¸ ë˜ì–´ ìˆì„ ê°€ëŠ¥ì„±ì´ ë†’ìœ¼ë¯€ë¡œ ì „ì—­ ë³€ìˆ˜ëŠ” ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤
 	File(Module::current().directory(), L"testBalorLog.txt").openAppend().write(message, 0, String::getLength(message));
 	return FALSE;
 }
@@ -41,8 +41,8 @@ int APIENTRY _tWinMain(HINSTANCE //instance
 					  ) {
 	Debug::enableMemoryLeakCheck();
 	Debug::enableCrashDumpHandler(L"", false);
-	_set_se_translator(&se_translator_function); // \‘¢‰»—áŠO‚ğ C++ —áŠO‚É•ÏŠ·‚µ‚ÄƒfƒXƒgƒ‰ƒNƒ^‚ğ‹N“®‚·‚éB
-	_CrtSetReportHook(debugReportHook); // enableMemoryLeakCheck ‚ÌŒ‹‰Ê‚ğE‚¦‚é‚æ‚¤‚ÉƒŒƒ|[ƒgŠÖ”‚ğƒtƒbƒN‚·‚éB
+	_set_se_translator(&se_translator_function); // êµ¬ì¡°í™” ì˜ˆì™¸ë¥¼ C++ ì˜ˆì™¸ë¡œ ë³€í™˜í•˜ì—¬ ì†Œë©¸ìë¥¼ ì‹¤í–‰í•œë‹¤
+	_CrtSetReportHook(debugReportHook); // enableMemoryLeakCheckì˜ ê²°ê³¼ë¥¼ ì¤ë„ë¡ ë¦¬í¬íŠ¸ í•¨ìˆ˜ë¥¼ í›…í•œë‹¤
 
 	Console::open();
 
@@ -58,7 +58,7 @@ int APIENTRY _tWinMain(HINSTANCE //instance
 	} catch (UnhandledException& ) {
 	}
 
-	gui::MsgBox::show(L"ƒeƒXƒgI—¹");
+	gui::MsgBox::show(L"í…ŒìŠ¤íŠ¸ ì¢…ë£Œ");
 
 	return 0;
 }

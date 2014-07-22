@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <algorithm>
 #include <cmath>
@@ -9,14 +9,14 @@ namespace tools {
 
 
 
-/// •‚“®­”“_”‚ÌŒë·‚ğl—¶‚µ‚½“™’l”»’è
+/// ë¶€ë™ì†ŒìŠ¤ì  ì˜¤ì°¨ë¥¼ ê³ ë ¤í•œ ë“±ê°€ íŒì •
 inline bool floatEquals(float lhs, float rhs) {
 	float d = std::max(std::abs(lhs), std::abs(rhs));
 	return (d == 0.0f ? 0.0f : std::abs(lhs - rhs) / d) <= std::numeric_limits<float>::epsilon();
 }
 
 
-/// •‚“®­”“_”‚ÌŒë·‚ğl—¶‚µ‚½“™’l”»’è
+/// ë¶€ë™ì†Œìˆ˜ì  ì˜¤ì°¨ë¥¼ ê³ ë ¤í•œ ë“±ê°€ íŒì •
 inline bool floatEquals(double lhs, double rhs) {
 	double d = std::max(std::abs(lhs), std::abs(rhs));
 	return (d == 0.0 ? 0.0 : std::abs(lhs - rhs) / d) <= std::numeric_limits<double>::epsilon();

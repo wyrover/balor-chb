@@ -1,4 +1,4 @@
-#include <balor/system/ComPtr.hpp>
+ï»¿#include <balor/system/ComPtr.hpp>
 
 #include <utility>
 #include <boost/thread.hpp>
@@ -18,29 +18,29 @@ using boost::thread;
 
 
 testCase(construct) {
-	balor::test::UnitTest::ignoreHandleLeakCheck(); // CLSID_CMLangConvertCharset ‚Æ‚¢‚¤V‚½‚È CLSID ‚É‚æ‚Á‚Äƒnƒ“ƒhƒ‹Š„‚è“–‚Ä‚ª‘‰Á‚µ‚Ä‚¢‚é
+	balor::test::UnitTest::ignoreHandleLeakCheck(); // CLSID_CMLangConvertCharset ë¼ëŠ” ìƒˆë¡œìš´ CLSID ì— ì˜í•´ì„œ í•¸ë“¤ í• ë‹¹ì´ ì¦ê°€í•˜ê³  ìˆë‹¤
 	{
 		ComPtr<IMultiLanguage> ptr;
 		testAssert(!ptr);
 	}
 
-	{// COM ‚ª–¢‰Šú‰»
+	{// COM ì„ ë¯¸ ì´ˆê¸°í™”
 		testAssert(!Com::initialized());
 		testNoThrow(ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage));
 		testAssert(Com::initialized());
 	}
 
-	{// ”ñƒƒCƒ“ƒXƒŒƒbƒh‚Å COM ‚ª–¢‰Šú‰»
+	{// ë¹„ ë©”ì¸ ìŠ¤ë ˆë“œë¡œ COM ì„ ë¯¸ ì´ˆê¸°í™”
 		thread work([&] () {
 			testThrow(ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage), Com::UninitializedException);
 		});
 		work.join();
 	}
 
-	{// ƒNƒ‰ƒX‚ª“o˜^‚³‚ê‚Ä‚¢‚È‚¢
+	{// í´ë˜ìŠ¤ë¥¼ ë“±ë¡í•˜ì§€ ì•Šì•˜ë‹¤
 		testThrow(ComPtr<IMultiLanguage2> ptr(CLSID_CMLangConvertCharset), Com::InterfaceNotFoundException);
 	}
-	{// ³íƒP[ƒX
+	{// ì •ìƒ ì¼€ì´ìŠ¤ 
 		ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage);
 		testAssert(ptr != nullptr);
 		MIMECPINFO info;
@@ -66,12 +66,6 @@ testCase(rvalueConstruct) {
 }
 
 
-//testCase(destruct) { // ƒnƒ“ƒhƒ‹“I‚È‚È‚É‚©‚ÅƒŠ[ƒN‚ğŒŸo‚Å‚«‚Ê‚à‚Ì‚©H
-//	ComPtr<IMultiLanguage2> ptr(CLSID_CMultiLanguage);
-//	testAssert(ptr != nullptr);
-//	ptr.~ComPtr<IMultiLanguage2>();
-//	testAssert(!ptr);
-//}
 
 
 testCase(assignment) {
@@ -101,11 +95,11 @@ testCase(rvalueAssignment) {
 testCase(queryInterface) {
 	ComPtr<IMultiLanguage> source(CLSID_CMultiLanguage);
 
-	// Œ©‚Â‚©‚ç‚È‚¢
+	// ì°¾ì§€ ëª»í•¨
 	ComPtr<IMLangConvertCharset> charset;
 	testThrow(source.queryInterface(charset), Com::InterfaceNotFoundException);
 
-	// ³íƒP[ƒX
+	// ì •ìƒ ì¼€ì´ìŠ¤ 
 	ComPtr<IMultiLanguage2> ptr;
 	source.queryInterface(ptr);
 	testAssert(ptr != nullptr);
@@ -131,7 +125,7 @@ testCase(operators) {
 		testAssert(SUCCEEDED(source->QueryInterface(__uuidof(IMultiLanguage2), reinterpret_cast<void**>(&ptr))));
 		testAssert(ptr != nullptr);
 	}
-	{// operator-> Šù‚Ég‚Á‚ÄŒ©‚¹‚½
+	{// operator-> ì´ë¯¸ ì‚¬ìš©ì„ ë³´ì—¬ì—ˆë‹¤
 	}
 }
 

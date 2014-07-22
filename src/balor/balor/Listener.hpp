@@ -12,28 +12,28 @@ namespace balor {
 
 
 /**
- * Event ‚ðˆø”‚ÉŽæ‚é•Ô’l‚Ì–³‚¢ŠÖ”‚âŠÖ”ƒIƒuƒWƒFƒNƒg‚ð‘ã“üA’Ç‰Á‚Å‚«‚éŠÖ”ƒIƒuƒWƒFƒNƒgB
+ * Event ‚ðˆø”‚ÉŽæ‚é•Ô’l‚Ì–³‚¢ŠÖ”‚âŠÖ”ƒIƒuƒWƒFƒNƒg‚ð´ëÀÔA’Ç‰Á‚Å‚«‚éŠÖ”ƒIƒuƒWƒFƒNƒgB
  *
- * std::function<void (Event)> ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ª .NET ‚ÌƒfƒŠƒQ[ƒg‚Ì‚æ‚¤‚É operator+= ‚É‚æ‚é•¡”‚ÌŠÖ”’Ç‰Á‚ðƒTƒ|[ƒg‚·‚éB
- * operator-= ‚É‚æ‚éŠÖ”‚Ìíœ‚ÍŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì”äŠr•û–@‚ª–³‚¢‚½‚ß–¢ŽÀ‘•‚Å operator= ‚Åã‘‚«‚·‚é‚© pop ŠÖ”‚Å––”ö‚©‚çíœ‚·‚é‚µ‚©‚È‚¢B
- * std::function “¯—lAˆø”‚ª•ÏŠ·‰Â”\‚Å‚ ‚ê‚Îˆø”‚ªˆá‚¤Œ^‚ÌŠÖ”‚à“o˜^‚Å‚«‚éBi—á‚¦‚ÎŒp³ŠÖŒW‚Ì‚ ‚éŽQÆŒ^“¯Žm‚È‚Çj
- * ƒ‰ƒ€ƒ_Ž®‚ð‘ã“ü‚·‚éê‡‚Íƒ|ƒCƒ“ƒ^ˆêŒÂ•ª‚Ü‚Å‚ÌƒLƒƒƒvƒ`ƒƒ‚È‚ç‚Îƒƒ‚ƒŠŠ„‚è“–‚Ä‚Í”­¶‚µ‚È‚¢B
+ * std::function<void (Event)> ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ª .NET ‚ÌƒfƒŠƒQ?ƒg‚Ì‚æ‚¤‚É operator+= ‚É‚æ‚é•¡”‚ÌŠÖ”’Ç‰Á‚ðƒT??ƒg‚·‚éB
+ * operator-= ‚É‚æ‚éŠÖ”‚Ìíœ‚ÍŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì”äŠr•û?‚ª–³‚¢‚½‚ß–¢ŽÀ‘•‚Å operator= ‚Åã‘‚«‚·‚é‚© pop ŠÖ”‚Å––”ö‚©‚çíœ‚·‚é‚µ‚©‚È‚¢B
+ * std::function “¯—lAˆø”‚ª•ÏŠ·‰Â?‚Å‚ ‚ê‚Îˆø”‚ªˆá‚¤?‚ÌŠÖ”‚à“o?‚Å‚«‚éBi—á‚¦‚ÎŒp³ŠÖŒW‚Ì‚ ‚éŽQÆ?“¯Žm‚È‚Çj
+ * ƒ‰??Ž®‚ð´ëÀÔ‚·‚éê‡‚Í?ƒCƒ“?ˆêŒÂ•ª‚Ü‚Å‚ÌƒLƒƒƒv?ƒƒ‚È‚ç‚Îƒƒ‚ƒŠŠ„‚è“–‚Ä‚Í”­¶‚µ‚È‚¢B
  * 
- * <h3>EŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”äŠr‚ÉŠÖ‚·‚é–â‘è</h3>
- * ŠÖ”ƒ|ƒCƒ“ƒ^‚âƒƒ“ƒoŠÖ”ƒ|ƒCƒ“ƒ^‚Ì”äŠr‚ð‚·‚éê‡ADLL ƒvƒƒWƒFƒNƒg‚ð‚Ü‚½‚¢‚ÅŽg‚¤‚Æ“¯‚¶ŠÖ”‚Å‚àƒAƒhƒŒƒX‚ªˆÙ‚È‚éê‡‚ª‚ ‚éB
- * SymGetSymFromAddrŠÖ”‚É‚æ‚éƒVƒ“ƒ{ƒ‹–¼‚ÌŽæ“¾‚ÍA•K‚¸ pdb ƒtƒ@ƒCƒ‹‚ð“Y•t‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢‚Ì‚Å‚ ‚Ü‚èŽÀ—p“I‚Å‚Í‚È‚¢B
- * ‚±‚Ì–â‘è‚Í balor ‚ðƒXƒ^ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚Å‚Í‚È‚­ DLL ‚É‚µ‚Ä‚µ‚Ü‚¦‚Î­‚È‚­‚Æ‚à balor “à•”‚Å‚Í‰ðŒˆ‚·‚é‚ª
- * ƒ†[ƒUŠÖ”‚É‚Â‚¢‚Ä‚ÍˆË‘R‚Æ‚µ‚ÄŠÖ”‚ðDLL“à‚Å’è‹`‚µ‚È‚¢ŒÀ‚è–â‘è‚ª”­¶‚·‚éB
+ * <h3>EŠÖ”?ƒCƒ“?‚Ì”äŠr‚ÉŠÖ‚·‚é–â‘è</h3>
+ * ŠÖ”?ƒCƒ“?‚âƒƒ“ƒoŠÖ”?ƒCƒ“?‚Ì”äŠr‚ð‚·‚éê‡ADLL ƒvƒƒWƒFƒNƒg‚ð‚Ü‚½‚¢‚ÅŽg‚¤‚Æ“¯‚¶ŠÖ”‚Å‚àƒAƒhƒŒƒX‚ªˆÙ‚È‚éê‡‚ª‚ ‚éB
+ * SymGetSymFromAddrŠÖ”‚É‚æ‚éƒVƒ“?ƒ‹–¼‚ÌŽæ“¾‚ÍA•K‚¸ pdb ƒt?ƒCƒ‹‚ð“Y•t‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢‚Ì‚Å‚ ‚Ü‚èŽÀ—p“I‚Å‚Í‚È‚¢B
+ * ‚±‚Ì–â‘è‚Í balor ‚ðƒX?ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚Å‚Í‚È‚­ DLL ‚É‚µ‚Ä‚µ‚Ü‚¦‚Î­‚È‚­‚Æ‚à balor “à•”‚Å‚Í‰ðŒˆ‚·‚é‚ª
+ * ƒ†?ƒUŠÖ”‚É‚Â‚¢‚Ä‚ÍˆË‘R‚Æ‚µ‚ÄŠÖ”‚ðDLL“à‚Å’è?‚µ‚È‚¢ŒÀ‚è–â‘è‚ª”­¶‚·‚éB
  */
 #pragma warning(push)
-#pragma warning(disable : 4521) // '::balor::Listener<Sender, Event>' : •¡”‚ÌƒRƒs[ ƒRƒ“ƒXƒgƒ‰ƒNƒ^[‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
-#pragma warning(disable : 4522) // '::balor::Listener<Sender, Event>' : •¡”‚Ì‘ã“ü‰‰ŽZŽq‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4521) // '::balor::Listener<Sender, Event>' : •¡”‚ÌƒRƒs? ƒRƒ“ƒXƒgƒ‰ƒN??‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4522) // '::balor::Listener<Sender, Event>' : •¡”‚Ì´ëÀÔ‰‰ŽZŽq‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
 template<typename Event>
 class Listener {
 public:
-	/// ŠÖ”“o˜^–³‚µ‚Å‰Šú‰»B
+	/// ŠÖ”“o?–³‚µ‚Å‰Šú‰»B
 	Listener() { new (function()) Function(); }
-	/// ŠÖ”ƒ|ƒCƒ“ƒ^‚Å‰Šú‰»B
+	/// ŠÖ”?ƒCƒ“?‚Å‰Šú‰»B
 	template<typename EventType>
 	Listener(void (*pointer)(EventType)) {
 #if !defined(NDEBUG)
@@ -53,20 +53,20 @@ public:
 			new (function()) AllocatedFunctionObject<std::remove_reference<T>::type>(std::forward<T>(functionObject));
 		}
 	}
-	Listener(Listener& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–hŽ~
+	Listener(Listener& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
 	Listener(const Listener& value) { value.function()->clone(*function()); }
 	Listener(Listener&& value) { value.function()->moveTo(*function()); }
-	Listener(const Listener&& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–hŽ~
+	Listener(const Listener&& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
 	~Listener() { function()->~Function(); }
 
-	/// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‘ã“üB
+	/// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì´ëÀÔB
 	template<typename T>
 	Listener& operator=(T&& functionObject) {
 		this->~Listener();
 		new (this) Listener(std::forward<T>(functionObject));
 		return *this;
 	}
-	Listener& operator=(Listener& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–hŽ~
+	Listener& operator=(Listener& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
 		if (&value != this) {
 			function()->~Function();
 			value.function()->clone(*function());
@@ -87,7 +87,7 @@ public:
 		}
 		return *this;
 	}
-	Listener& operator=(const Listener&& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–hŽ~
+	Listener& operator=(const Listener&& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
 		if (&value != this) {
 			function()->~Function();
 			value.function()->clone(*function());
@@ -120,9 +120,9 @@ private:
 	typedef void (Listener::*SafeBool)();
 	void safeBoolTrueValue() {}
 public:
-	/// ŠÖ”‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ŠÖ”‚ª“o?‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
 	operator SafeBool() const { return function()->type() != nullFunctionType ? &Listener::safeBoolTrueValue : nullptr; }
-	/// ŠÖ”ŒÄ‚Ño‚µBŠÖ”‚ª“o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢B
+	/// ŠÖ”ŒÄ‚Ño‚µBŠÖ”‚ª“o?‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢B
 	void operator() (Event event) const { (*function())(event); }
 	/// ŠÖ”‚Ì’Ç‰ÁB
 	template<typename T>

@@ -1,4 +1,4 @@
-#include <balor/system/Version.hpp>
+﻿#include <balor/system/Version.hpp>
 
 #include <balor/test/UnitTest.hpp>
 

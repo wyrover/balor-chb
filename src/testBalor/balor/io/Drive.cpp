@@ -1,4 +1,4 @@
-#include <balor/io/Drive.hpp>
+ï»¿#include <balor/io/Drive.hpp>
 
 #include <vector>
 
@@ -43,7 +43,7 @@ Drive getNotReadyDrive() {
 			return move(*i);
 		}
 	}
-	balor::test::Debug::write("not ready‚ÈCDƒhƒ‰ƒCƒu‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½BCDƒhƒ‰ƒCƒu‚ÉCD‚ª“ü‚Á‚Ä‚¢‚éê‡‚ÍCD‚ğo‚µ‚Ä‚­‚¾‚³‚¢\n");
+	balor::test::Debug::write("not readyí•œ CD ë“œë¼ì´ë¸Œë¥¼ ì°¾ì§€ ëª»í–ˆë‹¤. CD ë“œë¼ì´ë¸Œì— CDê°€ ë“¤ì–´ê°€ ìˆëŠ” ê²½ìš°ëŠ” CDë¥¼ ë¹¼ë‚´ì£¼ì„¸ìš”\n");
 	throw Drive::NotFoundException();
 }
 
@@ -65,10 +65,10 @@ bool isValidDriveType(Drive::Type type) {
 
 
 testCase(constructAndAssignment) {
-	{// ‹ó‚Ìƒhƒ‰ƒCƒu
+	{// ë¹ˆ ë“œë¼ì´ë¸Œ
 		testAssertionFailed(Drive(L""));
 	}
-	{// ³‚µ‚­‚È‚¢Œ`®
+	{// ì˜¬ë°”ë¥´ì§€ ì•Šì€ í˜•ì‹
 		testAssertionFailed(Drive(L' '));
 		testAssertionFailed(Drive(L"abc"));
 		testAssertionFailed(Drive(L"c::\\"));
@@ -90,14 +90,14 @@ testCase(availableFreeBytes) {
 	testThrow(getNotFoundDrive().availableFreeBytes(), Drive::NotFoundException);
 	testThrow(getNotReadyDrive().availableFreeBytes(), Drive::NotReadyException);
 
-	// Caution: g—p‰Â”\—Ìˆæ‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ì‚¬ìš© ê°€ëŠ¥ ì˜ì—­ì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(drivesBeginAndEnd) {
-	//testCase(type) ‚É‚ÄƒeƒXƒgB
+	//testCase(type) ì—ì„œ í…ŒìŠ¤íŠ¸
 
-	// Caution: ˆê——‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ì¼ëŒì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸ 
 }
 
 
@@ -110,7 +110,7 @@ testCase(fileSystem) {
 	StringBuffer buffer;
 	testNoThrow(getReadyDrive().fileSystemToBuffer(buffer));
 
-	// Caution: ƒtƒH[ƒ}ƒbƒg•¶š—ñ‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: í¬ë§· ë¬¸ìì—´ì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
@@ -136,7 +136,7 @@ testCase(ready) {
 	testAssert(getReadyDrive().ready());
 	testAssert(!getNotFoundDrive().ready());
 
-	// Caution: CD‚ğ“ü‚ê‚½‚èo‚µ‚½‚è‚µ‚Ä ready ‚ÌŒ‹‰Ê‚Ì•Ï‰»‚ğ–Ú‹‚ÅŠm”F
+	// Caution: CDë¥¼ ë„£ê±°ë‚˜ ë¹¼ì„œ ready ê²°ê³¼ì˜ ë³€í™”ë¥¼ ëˆˆìœ¼ë¡œ í™•ì¸ 
 }
 
 
@@ -146,7 +146,7 @@ testCase(totalFreeBytes) {
 	testThrow(getNotFoundDrive().totalFreeBytes(), Drive::NotFoundException);
 	testThrow(getNotReadyDrive().totalFreeBytes(), Drive::NotReadyException);
 
-	// Caution: ‹ó‚«—Ìˆæ‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ë¹ˆ ì˜ì—­ì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
@@ -156,7 +156,7 @@ testCase(totalBytes) {
 	testThrow(getNotFoundDrive().totalBytes(), Drive::NotFoundException);
 	testThrow(getNotReadyDrive().totalBytes(), Drive::NotReadyException);
 
-	// Caution: ƒfƒBƒXƒN‡Œv—Ìˆæ‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ë””ìŠ¤í¬ í•©ê³„ ì˜ì—­ì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
@@ -169,7 +169,7 @@ testCase(type) {
 	}
 	testAssert(result);
 
-	// Caution: Šeƒhƒ‰ƒCƒu‚Ìí—Ş‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ê° ë“œë¼ì´ë¸Œ ì¢…ë¥˜ê°€ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
@@ -183,8 +183,8 @@ testCase(volumeLabel) {
 	StringBuffer buffer;
 	testNoThrow(getReadyDrive().volumeLabelToBuffer(buffer));
 
-	// Caution: ƒ{ƒŠƒ…[ƒ€ƒ‰ƒxƒ‹‚ª³‚µ‚¢‚±‚Æ‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
-	//          ƒ{ƒŠƒ…[ƒ€ƒ‰ƒxƒ‹‚Ì‘‚«Š·‚¦‚ğŠeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é
+	// Caution: ë³¼ë¥¨ ë¼ë²¨ì´ ì˜¬ë°”ë¥¸ ê²ƒì„ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
+	//          ë³¼ë¥¨ ë¼ë²¨ ë‹¤ì‹œ ì“°ê¸°ë¥¼ ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 

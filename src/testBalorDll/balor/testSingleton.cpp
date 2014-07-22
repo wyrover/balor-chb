@@ -1,4 +1,4 @@
-#include "testSingleton.hpp"
+﻿#include "testSingleton.hpp"
 
 #include <balor/Singleton.hpp>
 

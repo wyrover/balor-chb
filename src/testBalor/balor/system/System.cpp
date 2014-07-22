@@ -1,4 +1,4 @@
-#include <balor/system/System.hpp>
+ï»¿#include <balor/system/System.hpp>
 
 #include <balor/io/File.hpp>
 #include <balor/system/Module.hpp>
@@ -13,10 +13,10 @@ namespace balor {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
-	System::userName(); // GetUserNameW ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	System::userName(); // GetUserNameW í•¨ìˆ˜ëŠ” í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í•™ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•œë‹¤ 
 }
 
 
@@ -28,7 +28,7 @@ testCase(commandLineArgCount) {
 testCase(computerName) {
 	testAssert(0 < System::computerName().length());
 
-	// Caution: Šeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° ë¨¸ì‹ ì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸ 
 }
 
 
@@ -40,49 +40,49 @@ testCase(getCommandLineArg) {
 testCase(is64BitOs) {
 	testNoThrow(System::is64BitOs());
 
-	// Caution: Še‚n‚r‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸ 
 }
 
 
 testCase(is64BitProcess) {
 	testNoThrow(System::is64BitProcess());
 
-	// Caution: Še‚n‚r‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(osKind) {
 	testAssert(System::osKind() != System::OsKind::unknown);
 
-	// Caution: Še‚n‚r‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(osServicePack) {
 	testAssert(0 < System::osServicePack().length());
 
-	// Caution: Še‚n‚r‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(osVersion) {
-	testAssert(Version(5, 1) <= System::osVersion()); // XPˆÈ~
+	testAssert(Version(5, 1) <= System::osVersion()); // XP ì´í›„
 
-	// Caution: Še‚n‚r‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(processorCount) {
 	testAssert(0 < System::processorCount());
 
-	// Caution: Šeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 
 testCase(userName) {
 	testAssert(0 < System::userName().length());
 
-	// Caution: Šeƒ}ƒVƒ“‚Å–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê° OSì—ì„œ ëˆˆìœ¼ë¡œ í™•ì¸
 }
 
 

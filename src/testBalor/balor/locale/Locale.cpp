@@ -1,4 +1,4 @@
-#include <balor/locale/Locale.hpp>
+ï»¿#include <balor/locale/Locale.hpp>
 
 #include <vector>
 
@@ -12,21 +12,21 @@ namespace balor {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 	Locale locale(1041);
-	locale.displayName(); // GetLocaleInfoW ŠÖ”‚ğ LOCALE_SLOCALIZEDDISPLAYNAME ‚ÅŒÄ‚Ño‚·‚Æ“à•”‚Åƒnƒ“ƒhƒ‹‚ğ•Û‚µ‘±‚¯‚é
-	Locale::locales(); // EnumSystemLocalesW ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚é
+	locale.displayName(); // GetLocaleInfoW í•¨ìˆ˜ë¥¼ LOCALE_SLOCALIZEDDISPLAYNAME ë¡œ í˜¸ì¶œí•˜ë©´ ë‚´ë¶€ì—ì„œ í•¸ë“¤ì„ ê³„ì† ìœ ì§€í•œë‹¤
+	Locale::locales(); // EnumSystemLocalesW í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 }
 
 
 testCase(constructWithLcid) {
-	// –³Œø‚ÈLCID
+	// ë¬´íš¨í•œ LCID
 	testThrow(Locale(-1), Locale::NotFoundException);
 
 	{// ja-JP
 		Locale locale(1041);
-		testAssert(locale.displayName() == L"“ú–{Œê (“ú–{)" || locale.displayName() == L"“ú–{Œê");
+		testAssert(locale.displayName() == L"æ—¥æœ¬èª (æ—¥æœ¬)" || locale.displayName() == L"æ—¥æœ¬èª");
 		testAssert(locale.englishCountryName() == L"Japan");
 		testAssert(locale.englishLanguageName() == L"Japanese");
 		testAssert(locale.id() == 1041);
@@ -38,7 +38,7 @@ testCase(constructWithLcid) {
 
 	{// en-US
 		Locale locale(1033);
-		testAssert(locale.displayName() == L"‰pŒê (•Ä‘)");
+		testAssert(locale.displayName() == L"è‹±èª (ç±³å›½)");
 		testAssert(locale.englishCountryName() == L"United States");
 		testAssert(locale.englishLanguageName() == L"English");
 		testAssert(locale.id() == 1033);
@@ -50,7 +50,7 @@ testCase(constructWithLcid) {
 
 	{// invaliant
 		Locale locale(127);
-		testAssert(locale.displayName() == L"ƒƒP[ƒ‹‚ÉˆË‘¶‚µ‚È‚¢Œ¾Œê (ƒƒP[ƒ‹‚ÉˆË‘¶‚µ‚È‚¢‘)" || locale.displayName() == L"Invariant Language (Invariant Country)");
+		testAssert(locale.displayName() == L"ë¡œì¼€ì¼ì´ ì˜ì¡´í•˜ì§€ ì•ŠëŠ” ì–¸ì–´(ë¡œì¼€ì¼ì— ì˜ì¡´í•˜ì§€ ì•ŠëŠ” ë‚˜ë¼)" || locale.displayName() == L"Invariant Language (Invariant Country)");
 		testAssert(locale.englishCountryName() == L"Invariant Country");
 		testAssert(locale.englishLanguageName() == L"Invariant Language");
 		testAssert(locale.id() == 127);
@@ -63,7 +63,7 @@ testCase(constructWithLcid) {
 
 
 testCase(constructWithName) {
-	// –³Œø‚ÈƒJƒ‹ƒ`ƒƒ–¼
+	// ë¬´íš¨í•œ ì»¬ì³ ì´ë¦„ 
 	testThrow(Locale(L"invalid culture name"), Locale::NotFoundException);
 
 	{// ja-JP
@@ -107,14 +107,6 @@ testCase(locales) {
 }
 
 
-//testCase(cLocaleName) {} // testCase(lcidConstruct) ‚É‚ÄƒeƒXƒgÏ‚İ
-//testCase(countryName) {}
-//testCase(displayName) {}
-//testCase(englishCountryName) {}
-//testCase(englishLanguageName) {}
-//testCase(id) {}
-//testCase(languageName) {}
-//testCase(name) {}
 
 
 

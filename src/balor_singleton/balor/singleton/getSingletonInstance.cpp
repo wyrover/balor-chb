@@ -27,8 +27,8 @@ struct Instance {
 
 typedef vector<Instance> Instances;
 
-Instances instances; // DLL궕긵깓긜긚궸귺?긞?궠귢귡멟궸룊딖돸궠귢귡궼궦?http://msdn.microsoft.com/ja-jp/library/988ye33t(VS.80).aspx
-recursive_mutex instancesMutex; // DLL궕긵깓긜긚궸귺?긞?궠귢귡멟궸룊딖돸궠귢귡궼궦
+Instances instances; // DLL이 프로세스에 attach 되기 전에 초기화 되어야 한다 http://msdn.microsoft.com/ja-jp/library/988ye33t(VS.80).aspx
+recursive_mutex instancesMutex; // DLL이 프로세스에 attatch 되기 전에 초기화 되어햐 한다
 } // namespace
 
 
@@ -36,12 +36,12 @@ recursive_mutex instancesMutex; // DLL궕긵깓긜긚궸귺?긞?궠귢귡멟궸�
 BALOR_SINGLETON_API void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction)()) {
 	recursive_mutex::scoped_lock lock(instancesMutex);
 	for (auto i = instances.begin(), end = instances.end(); i != end; ++i) {
-		//if (info.hash_code() == i->hashCode) { // 뱋?띙귒귽깛긚?깛긚궕뙥궰궔궯궫
-		if (info == *(i->info)) { // 뱋?띙귒귽깛긚?깛긚궕뙥궰궔궯궫
+		//if (info.hash_code() == i->hashCode) { // 이미 등록된 인스턴스를 발견하였다
+		if (info == *(i->info)) { // 이미 등록된 인스턴스를 발견하였다
 			return i->pointer;
 		}
 	}
-	// 뙥궰궔귞궶궔궯궫궻궳륷궢궋귽깛긚?깛긚귩뱋?
+	// 발견하지 못해서 새로운 인스턴스 등록 
 	void* newInstance = (*createInstanceFunction)();
 	instances.push_back(Instance(newInstance, info));
 	return newInstance;

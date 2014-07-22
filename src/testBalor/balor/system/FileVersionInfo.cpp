@@ -1,4 +1,4 @@
-#include <balor/system/FileVersionInfo.hpp>
+ï»¿#include <balor/system/FileVersionInfo.hpp>
 
 #include <vector>
 
@@ -23,21 +23,21 @@ using namespace balor::system;
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
-	Locale::locales(); // EnumSystemLocalesW ŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	Locale::locales(); // EnumSystemLocalesW í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 }
 
 
 testCase(constructAndProperties) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(FileVersionInfo(L""));
 
-	// Œ©‚Â‚©‚ç‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	// ì°¾ì§€ ëª»í•œ íŒŒì¼ ì´ë¦„ 
 	testThrow(FileVersionInfo(File(Module::current().directory(), L"eliajlfre098faljeoijalfjalheiothjali")), File::NotFoundException);
 
-	{// ƒo[ƒWƒ‡ƒ“î•ñ‚Ì‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹
+	{// ë²„ì „ ì •ë³´ì˜ ì¡´ì¬í•˜ì§€ ì•Šì€ íŒŒì¼ 
 		FileVersionInfo info(File(Module::current().directory(), L"balor_singleton.dll"));
 		testAssertionFailed(info.comments());
 		testAssertionFailed(info.companyName());
@@ -60,20 +60,20 @@ testCase(constructAndProperties) {
 		testAssertionFailed(info.specialBuild());
 	}
 
-	{// “ú–{Œê
+	{// í•œêµ­ì–´
 		Locale backup = Locale::current();
-		Locale current(L"ja-JP");
+		Locale current(L"kor");
 		Locale::current(current);
 		scopeExit([&] () {
 			Locale::current(backup);
 		});
 		FileVersionInfo info(Module::current().file());
-		testAssert(info.comments() == L"ƒRƒƒ“ƒg");
-		testAssert(info.companyName() == L"ƒJƒ“ƒpƒj[ƒl[ƒ€");
-		testAssert(info.fileDescription() == L"ƒtƒ@ƒCƒ‹ƒfƒXƒNƒŠƒvƒVƒ‡ƒ“");
+		testAssert(info.comments() == L"ì„¤ëª…");
+		testAssert(info.companyName() == L"íšŒì‚¬ ì´ë¦„");
+		testAssert(info.fileDescription() == L"íŒŒì¼ ë””ìŠ¤í¬ë¦½ì…˜");
 		testAssert(info.fileVersion() == Version(1, 2, 3, REVISION));
-		testAssert(info.fileVersionText() == L"ƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“");
-		testAssert(info.internalName() == L"ƒCƒ“ƒ^[ƒiƒ‹ƒl[ƒ€");
+		testAssert(info.fileVersionText() == L"íŒŒì¼ ë²„ì „");
+		testAssert(info.internalName() == L"ì¸í„°ë„ ë„¤ì„");
 #ifdef _DEBUG
 		testAssert(info.isDebug() == true);
 		testAssert(info.isPatched() == true);
@@ -86,17 +86,17 @@ testCase(constructAndProperties) {
 		testAssert(info.isSpecialBuild() == true);
 #endif
 		testAssert(info.languageCode() == 0x411);
-		testAssert(info.legalCopyright() == L"ƒŠ[ƒKƒ‹ƒRƒs[ƒ‰ƒCƒg");
-		testAssert(info.legalTrademarks() == L"ƒŠ[ƒKƒ‹ƒgƒŒ[ƒhƒ}[ƒN");
-		testAssert(info.originalFileName() == L"ƒIƒŠƒWƒiƒ‹ƒtƒ@ƒCƒ‹ƒl[ƒ€");
-		testAssert(info.privateBuild() == L"ƒvƒ‰ƒCƒx[ƒgƒrƒ‹ƒh");
-		testAssert(info.productName() == L"ƒvƒƒ_ƒNƒgƒl[ƒ€");
+		testAssert(info.legalCopyright() == L"ê¹?ê¸Šê¹‘ê¸“ê¸¯?ê¹‹ê·½ê¸£");
+		testAssert(info.legalTrademarks() == L"ê¹?ê¸Šê¹‘ê¸£ê¹’?ê¸¤??ê¸");
+		testAssert(info.originalFileName() == L"ê¸†ê¹ê¸™ê¸¥ê¹‘ê¸²?ê·½ê¹‘ê¸¨??");
+		testAssert(info.privateBuild() == L"ê¸µê¹‹ê·½ê¸¹?ê¸£ê¸®ê¹‘ê¸¤");
+		testAssert(info.productName() == L"ê¸µê¹“?ê¸ê¸£ê¸¨??");
 		testAssert(info.productVersion() == Version(5, 6, 7, 8));
-		testAssert(info.productVersionText() == L"ƒvƒƒ_ƒNƒgƒo[ƒWƒ‡ƒ“");
-		testAssert(info.specialBuild() == L"ƒXƒyƒVƒƒƒ‹ƒrƒ‹ƒh");
+		testAssert(info.productVersionText() == L"ê¸µê¹“?ê¸ê¸£ê¸«?ê¸™ê¹ˆê¹›");
+		testAssert(info.specialBuild() == L"ê¸šê¸»ê¸˜ê¸¿ê¹‘ê¸®ê¹‘ê¸¤");
 	}
 
-	{// ‰pŒê
+	{// ì˜ì–´
 		Locale backup = Locale::current();
 		Locale::current(Locale(L"en-US"));
 		scopeExit([&] () {
@@ -131,7 +131,7 @@ testCase(constructAndProperties) {
 		testAssert(info.specialBuild() == L"specialBuild");
 	}
 
-	{// —pˆÓ‚³‚ê‚Ä‚¢‚È‚¢ƒJƒ‹ƒ`ƒƒiƒfƒtƒHƒ‹ƒgƒJƒ‹ƒ`ƒƒ‚É‚È‚éj
+	{// ì¤€ë¹„ ë˜ì§€ ì•Ÿã„´ì€ ì»¬ì³(default ì»¬ì³ê°€ ëœë‹¤)
 		Locale backup = Locale::current();
 		Locale::current(Locale(L"it-CH"));
 		scopeExit([&] () {
@@ -151,7 +151,7 @@ testCase(rvalueConstruct) {
 	testAssert(!source);
 	testAssert(info);
 	testAssertionFailed(source.comments());
-	testAssert(info.comments() == L"ƒRƒƒ“ƒg");
+	testAssert(info.comments() == L"ì»¤ë§¨íŠ¸");
 }
 
 
@@ -164,11 +164,11 @@ testCase(rvalueAssignment) {
 	testAssert(!source);
 	testAssert(info);
 	testAssertionFailed(source.comments());
-	testAssert(info.comments() == L"ƒRƒƒ“ƒg");
+	testAssert(info.comments() == L"ì»¤ë§¨íŠ¸");
 
 	info = move(info);
 	testAssert(info);
-	testAssert(info.comments() == L"ƒRƒƒ“ƒg");
+	testAssert(info.comments() == L"ì»¤ë§¨íŠ¸");
 }
 
 

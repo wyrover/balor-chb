@@ -1,4 +1,4 @@
-#include <balor/test/Debug.hpp>
+ï»¿#include <balor/test/Debug.hpp>
 
 #include <utility>
 
@@ -48,16 +48,16 @@ bool raiseExceptionAndCreateDumpFile(const wchar_t* fileName) {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	Debug::createDumpFile(nullptr, File(dir, L"file.dmp")); // MiniDumpWriteDump ŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	Debug::createDumpFile(nullptr, File(dir, L"file.dmp")); // MiniDumpWriteDump í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 }
 
 
-//testCase(crashDumpFilePath) { // testCase(enableCrashDumpHandler) ‚É‚ÄƒeƒXƒg
+//testCase(crashDumpFilePath) { // testCase(enableCrashDumpHandler) ì—ì„œ í…ŒìŠ¤íŠ¸
 //}
 
 
@@ -65,25 +65,25 @@ testCase(createDumpFile) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	{// ƒfƒBƒŒƒNƒgƒŠ‚ª‚İ‚Â‚©‚ç‚¸¸”s
+	{// ë””ë ‰í† ë¦¬ë¥¼ ì°¾ì§€ ëª»í•´ì„œ ì‹¤íŒ¨
 		File file0(dir, L"not_exist_dir\\file0.dmp");
 		testAssert(!Debug::createDumpFile(nullptr, file0.path()));
 		testAssert(!file0.exists());
 	}
-	{// —áŠOw’è–³‚µ‚Åì¬
+	{// ì˜ˆì™¸ ì§€ì • ì—†ìŒìœ¼ë¡œ ì‘ì„±
 		File file1(dir, L"file1.dmp");
 		testAssert(Debug::createDumpFile(nullptr, file1.path()));
 		testAssert(file1.exists());
 		testAssert(0 < file1.openRead().length());
 	}
-	{// —áŠOw’è‚ ‚è‚Åì¬
+	{// ì˜ˆì™¸ ì§€ì • ìˆìŒìœ¼ë¡œ ì‘ì„±
 		File file2(dir, L"file2.dmp");
 		testAssert(raiseExceptionAndCreateDumpFile(file2.path()));
 		testAssert(file2.exists());
 		testAssert(0 < file2.openRead().length());
 	}
 
-	// Caution: ƒ_ƒ“ƒvƒtƒ@ƒCƒ‹‚ªVC‚Å³í‚ÉŠJ‚¯‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
+	// Caution: ë¤í”„ íŒŒì¼ì´ VC ì—ì„œ ì •ìƒìœ¼ë¡œ ì—´ë¦¬ëŠ” ê²ƒì„ í™•ì¸ 
 }
 
 
@@ -94,15 +94,15 @@ testCase(enableCrashDumpHandler) {
 	File file0(dir, L"not_exist_dir\\file0.dmp");
 	Debug::enableCrashDumpHandler(file0.path(), false, L"message", L"failedMessage");
 
-	if (IsDebuggerPresent() == 0) { // ƒfƒoƒbƒK‚ğg‚¤ŒÀ‚èƒnƒ“ƒhƒ‰‚Í‹N“®‚³‚ê‚È‚¢
-		{// ƒfƒBƒŒƒNƒgƒŠ‚ª‚İ‚Â‚©‚ç‚¸¸”s
+	if (IsDebuggerPresent() == 0) { // ë””ë²„ê±°ë¥¼ ì‚¬ìš©í•˜ëŠ”í•œ í•¸ë“¤ëŸ¬ëŠ” ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤
+		{// ë””ë ‰í† ë¦¬ë¥¼ ì°¾ì§€ ëª»í•´ì„œ ì‹¤íŒ¨
 			try {
 				throw 0;
 			} catch (UnhandledException& ) {
 			}
 			testAssert(!file0.exists());
 		}
-		{// ƒNƒ‰ƒbƒVƒ…ƒ_ƒ“ƒvo—Íi‚b{{—áŠOj
+		{// í¬ë˜ì‰¬ ë¤í”„ ì¶œë ¥(c++ ì˜ˆì™¸)
 			File file1(dir, L"file1.dmp");
 			Debug::enableCrashDumpHandler(file1.path(), false, L"message", L"failedMessage");
 			bool destructed = false;
@@ -117,7 +117,7 @@ testCase(enableCrashDumpHandler) {
 			testAssert(0 < file1.openRead().length());
 			testAssert(destructed);
 		}
-		{// ƒNƒ‰ƒbƒVƒ…ƒ_ƒ“ƒvo—Íi\‘¢‰»—áŠOj
+		{// í¬ë˜ì‰¬ë¤í”„ ì¶œë ¥(êµ¬ì¡°í™” ì˜ˆì™¸)
 			File file2(dir, L"file2.dmp");
 			Debug::enableCrashDumpHandler(file2.path(), false, L"message", L"failedMessage");
 			bool destructed = false;
@@ -132,7 +132,7 @@ testCase(enableCrashDumpHandler) {
 			testAssert(0 < file2.openRead().length());
 			testAssert(destructed);
 		}
-	} else { // ƒeƒXƒgŒ”‚Í‡‚í‚¹‚é
+	} else { // í…ŒìŠ¤íŠ¸ ê±´ìˆ˜ë¥¼ ë§ì¶˜ë‹¤
 		testAssert(true);
 		testAssert(true);
 		testAssert(true);
@@ -144,14 +144,14 @@ testCase(enableCrashDumpHandler) {
 
 	Debug::enableCrashDumpHandler();
 
-	// Caution: ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ª•\¦‚³‚ê‚éƒpƒ^[ƒ“‚Å¬Œ÷^¸”sƒƒbƒZ[ƒW‚ğ–Ú‹‚ÅŠm”F
+	// Caution: ë©”ì‹œì§€ ë°•ìŠ¤ê°€ í‘œì‹œ ë˜ëŠ” íŒ¨í„´ìœ¼ë¡œ ì„±ê³µ/ì‹¤íŒ¨ ë©”ì‹œì§€ë¥¼ í™•ì¸
 }
 
 
 testCase(enableMemoryLeakCheck) {
 	testNoThrow(Debug::enableMemoryLeakCheck());
 
-	// Caution: ÀÛ‚ÉƒŠ[ƒN‚ª•ñ‚³‚ê‚é‚©”Û‚©–Ú‹‚ÅŠm”F
+	// Caution: ì‹¤ì œ ë¦­ì´ ë³´ê³ ë˜ì—ˆì§€ë§Œ ì•„ë‹Œ ê²ƒì„ ì§ì ‘ í™•ì¸
 }
 
 
@@ -169,7 +169,7 @@ testCase(write) {
 	testNoThrow(Debug::write(L""));
 	testNoThrow(Debug::write(L"test Debug::write"));
 
-	// Caution: ÀÛ‚ÉƒfƒoƒbƒOo—Í‚³‚ê‚é‚©”Û‚©–Ú‹‚ÅŠm”F
+	// Caution: ì‹¤ì œ ë””ë²„ê·¸ê°€ ì¶œë ¥ë˜ì§€ë§Œ ì•„ë‹Œ ê²ƒì„ ì§ì ‘ í™•ì¸ 
 }
 
 
@@ -179,7 +179,7 @@ testCase(writeLine) {
 	testNoThrow(Debug::writeLine(L""));
 	testNoThrow(Debug::writeLine(L"test Debug::writeLine"));
 
-	// Caution: ÀÛ‚ÉƒfƒoƒbƒOo—Í‚³‚ê‚é‚©”Û‚©–Ú‹‚ÅŠm”F
+	// Caution: ì‹¤ì œ ë””ë²„ê·¸ê°€ ì¶œë ¥ë˜ì§€ë§Œ ì•„ë‹Œ ê²ƒì„ ì§ì ‘ í™•ì¸
 }
 
 

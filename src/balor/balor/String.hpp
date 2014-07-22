@@ -126,12 +126,12 @@ public:
 
 	String& operator=(const String& value);
 	String& operator=(String&& value);
-	/// StringBuffer ‚ð‘ã“üB
+	/// StringBuffer ‚ð´ëÀÔB
 	String& operator=(const StringBuffer& value);
 	String& operator=(StringBuffer&& value);
-	/// std::wstring ‚ð‘ã“üB
+	/// std::wstring ‚ð´ëÀÔB
 	String& operator=(const wstring& value);
-	/// •¶Žš—ñ?ƒCƒ“?‚ð‘ã“üB
+	/// •¶Žš—ñ?ƒCƒ“?‚ð´ëÀÔB
 	String& operator=(const wchar_t* value);
 
 public:

@@ -1,4 +1,4 @@
-#include <balor/system/EnvironmentVariable.hpp>
+ο»Ώ#include <balor/system/EnvironmentVariable.hpp>
 
 #include <balor/io/Registry.hpp>
 #include <balor/test/UnitTest.hpp>
@@ -21,15 +21,15 @@ testCase(expandStrings) {
 
 
 testCase(get) {
-	// –³ψ‚Θƒpƒ‰ƒ[ƒ^
+	// λ¬΄ν¨ν• νλΌλ―Έν„°
 	testAssertionFailed(EnvironmentVariable::get(L""));
 	testAssert(EnvironmentVariable::get(L"jldfjaldjfaldjalkdja01841978943") == L"");
-	testAssert(EnvironmentVariable::get(L"PATH") == EnvironmentVariable::expandStrings(L"%PATH%")); // ƒP[ƒX‚ª‚©‚Τ‚Α‚Δ‚ι‚ª‚ά‚‚Ά‚Ά‚Ύ‚λ‚¤
+	testAssert(EnvironmentVariable::get(L"PATH") == EnvironmentVariable::expandStrings(L"%PATH%")); // 
 }
 
 
 testCase(set) {
-	// –³ψ‚Θƒpƒ‰ƒ[ƒ^
+	// λ¬΄ν¨ν• νλΌλ―Έν„°
 	testAssertionFailed(EnvironmentVariable::remove(L""));
 
 	testAssertionFailed(EnvironmentVariable::set(L"", L""));
@@ -54,7 +54,7 @@ testCase(updateAllProcess) {
 	//auto registry = EnvironmentVariable::userRegistry();
 	testNoThrow(EnvironmentVariable::updateAllProcess());
 
-	// TODO: ”½‰f‚³‚κ‚ι‚±‚Ζ‚ªƒeƒXƒg‚Ε‚«‚Δ‚Ά‚Θ‚Ά
+	// TODO: λ°μλμ—μ§€λ§ ν…μ¤νΈ ν•  μ μ—†μ—λ‹¤ 
 }
 
 

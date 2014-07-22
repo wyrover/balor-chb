@@ -1,4 +1,4 @@
-#include <balor/StringRange.hpp>
+ï»¿#include <balor/StringRange.hpp>
 
 #include <string>
 
@@ -22,42 +22,42 @@ string rangeToString(ByteStringRange range) {
 
 
 testCase(constructAndAccess) {
-	{ // assetƒeƒXƒg
+	{ // assetí…ŒìŠ¤íŠ¸
 		testAssertionFailed(const ByteStringRange range(nullptr));
 		testNoThrow        (const ByteStringRange range(""));
 		testAssertionFailed(const ByteStringRange range(nullptr, -1));
 		testAssertionFailed(const ByteStringRange range("", -2));
 		testNoThrow        (const ByteStringRange range("", -1));
 	}
-	{ // ƒ|ƒCƒ“ƒ^ˆêŒÂƒo[ƒWƒ‡ƒ“
+	{ // í¬ì¸í„° 1ê°œ ë²„ì „ 
 		const char* string = "abc";
 		const ByteStringRange range = string;
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // ƒTƒCƒYw’èƒo[ƒWƒ‡ƒ“
+	{ // ì‚¬ì´ì¦ˆ ì§€ì • ë²„ì „ 
 		const char* string = "abc";
 		const ByteStringRange range(string, 3);
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == 3);
 		testAssert(range.length() == 3);
 	}
-	{ // ”z—ñƒo[ƒWƒ‡ƒ“
+	{ // ë°°ì—´ ë²„ì „ 
 		char string[5] = "abc";
 		const ByteStringRange range = string;
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // •¶š—ñƒŠƒeƒ‰ƒ‹ƒo[ƒWƒ‡ƒ“
+	{ // ë¬¸ìì—´ ë¦¬í„°ëŸ´ ë²„ì „ 
 		const char string[] = "abc";
 		const ByteStringRange range = string;
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // stringƒo[ƒWƒ‡ƒ“
+	{ // string ë²„ì „ 
 		const string string = "abc";
 		const ByteStringRange range = string;
 		testAssert(range.c_str() == string.c_str());
@@ -68,32 +68,32 @@ testCase(constructAndAccess) {
 
 
 testCase(empty) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const char* string = "abc";
 		const ByteStringRange range = string;
 		testAssert(!range.empty());
 	}
-	{ // ‹óƒŠƒeƒ‰ƒ‹
+	{ // ë¹ˆ ë¦¬í„°ëŸ´
 		const char* string = "";
 		const ByteStringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´
 		const char* string = "\0abc";
 		const ByteStringRange range(string);
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹‚ğƒTƒCƒYw’è‚Å‰Šú‰»
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´ì„ ì‚¬ì´ì¦ˆë¡œ ì´ˆê¸°í™”
 		const char* string = "\0abc";
 		const ByteStringRange range(string, 4);
 		testAssert(range.empty());
 	}
-	{ // ‹óstring
+	{ // ë¹ˆ string
 		const string string;
 		const ByteStringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢string
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¹„ì§€ ì•Šì€ string
 		const string string("\0abc", 4);
 		const ByteStringRange range = string;
 		testAssert(range.empty());
@@ -102,32 +102,32 @@ testCase(empty) {
 
 
 testCase(length) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const char* string = "abc";
 		const ByteStringRange range = string;
 		testAssert(range.length() == 3);
 	}
-	{ // ‹óƒŠƒeƒ‰ƒ‹
+	{ // ë¹ˆ ë¦¬í„°ëŸ´
 		const char* string = "";
 		const ByteStringRange range = string;
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´
 		const char* string = "\0abc";
 		const ByteStringRange range(string);
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹‚ğƒTƒCƒYw’è‚Å‰Šú‰»
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´ì„ ì‚¬ì´ì¦ˆë¡œ ì§€ì •í•˜ì—¬ ì´ˆê¸°í™”
 		const char* string = "\0abc";
 		const ByteStringRange range(string, 4);
 		testAssert(range.length() == 4);
 	}
-	{ // ‹óstring
+	{ // ë¹ˆ string
 		const string string;
 		const ByteStringRange range = string;
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢string
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¹„ì§€ ì•Šì€ string
 		const string string("\0abc", 4);
 		const ByteStringRange range = string;
 		testAssert(range.length() == 4);
@@ -135,7 +135,7 @@ testCase(length) {
 }
 
 
-//testCase(rawLength) { // constructAndAccess ‚ÅƒeƒXƒgÏ‚İ
+//testCase(rawLength) { // constructAndAccess í…ŒìŠ¤íŠ¸ ë
 //}
 
 

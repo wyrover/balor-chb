@@ -57,23 +57,23 @@ class Scaler;
  * Control ƒNƒ‰ƒX‚ðŒp³‚µ‚½”h¶ƒNƒ‰ƒX‚ÍƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ðì¬‚µ‚Ä attachHandle ŠÖ”‚Å Control ‚É•R‚Â‚¯AprocessMessage ŠÖ”‚ðƒI?ƒo?ƒ‰ƒCƒh‚µ‚ÄƒEƒCƒ“ƒhƒEƒvƒƒV?ƒWƒƒ‚ðŠg’£‚·‚éB
  * ‚Å‚«‚é‚¾‚¯ƒfƒXƒgƒ‰ƒN?‚Å destoryHandle ŠÖ”‚ðŒÄ‚ÔB‚³‚à‚È‚­‚Î Control ƒNƒ‰ƒX‚ÌƒfƒXƒgƒ‰ƒN?‚©‚çŒÄ‚Î‚ê‚é‚ªA‚±‚ÌŽž?‚Å”h¶ƒNƒ‰ƒX‚ÌƒfƒXƒgƒ‰ƒN?‚ÍŠù‚ÉŒÄ‚Î‚ê‚Ä‚¢‚é‚Ì‚Å
  * Control ƒNƒ‰ƒX‚Ì processMessage ŠÖ”‚ªŒÄ‚Î‚ê‚Ä‚µ‚Ü‚¤B‚ ‚é‚¢‚Í”h¶ƒNƒ‰ƒX‚ÉŒöŠJ‚³‚ê‚Ä‚¢‚é _handle, _defaultProcedure ƒƒ“ƒo•Ï”‚ð?ì‚µ‚Ä‰Šú‰»AI—¹ˆ—‚ðs‚¤B
- * Control ‚ÍƒRƒs?‹Ö?ƒNƒ‰ƒX‚È‚Ì‚ÅˆêŽžƒIƒuƒWƒFƒNƒg‚ð‘ã“ü‚µ‚½‚èAŠÖ”‚Ì–ß‚è’l‚Æ‚µ‚½‚èASTL ƒRƒ“ƒeƒi‚ÉŠi?‚·‚é‚½‚ß‚É‚Í‰E•Ó’lƒRƒs?ƒRƒ“ƒXƒgƒ‰ƒN?A‰E•Ó’l‘ã“ü‰‰ŽZŽq‚ð’è?‚·‚éB
+ * Control ‚ÍƒRƒs?‹Ö?ƒNƒ‰ƒX‚È‚Ì‚ÅˆêŽžƒIƒuƒWƒFƒNƒg‚ð´ëÀÔ‚µ‚½‚èAŠÖ”‚Ì–ß‚è’l‚Æ‚µ‚½‚èASTL ƒRƒ“ƒeƒi‚ÉŠi?‚·‚é‚½‚ß‚É‚Í‰E•Ó’lƒRƒs?ƒRƒ“ƒXƒgƒ‰ƒN?A¿ìÃø°ª´ëÀÔ‰‰ŽZŽq‚ð’è?‚·‚éB
  * ‚»‚Ì’è?‚Í Control ‹¤’Ê‚ÌŒˆ‚ßŽ–‚É‚µ‚½‚ª‚Á‚ÄŽÀ‘•‚·‚é•K—v‚ª‚ ‚éBˆÈ‰º‚Í Button ƒNƒ‰ƒX‚ðŒp³‚µ‚½ƒR?ƒh‚Ì—áB
  * <pre><code>
  * class MyButton : public Button {
  * public:
  *	MyButton() {}
  *	MyButton(MyButton&& value, bool checkSlicing = true)
- *		: Button(std::move(value), false) // Button ƒNƒ‰ƒX‚Ì”h¶ƒNƒ‰ƒX‘ã“ü?ƒFƒbƒN‚É•K‚¸‚Ð‚Á‚©‚©‚é‚Ì‚Å false ‚ðŽw’è‚·‚éB
+ *		: Button(std::move(value), false) // Button ƒNƒ‰ƒX‚Ì”h¶ƒNƒ‰ƒX´ëÀÔ?ƒFƒbƒN‚É•K‚¸‚Ð‚Á‚©‚©‚é‚Ì‚Å false ‚ðŽw’è‚·‚éB
  *		, myMember(std::move(value.myMember)) {
- *		if (checkSlicing) { // MyButton ‚Ì”h¶ƒNƒ‰ƒX‚Ì‘ã“ü‚ð?ƒFƒbƒN
+ *		if (checkSlicing) { // MyButton ‚Ì”h¶ƒNƒ‰ƒX‚Ì´ëÀÔ‚ð?ƒFƒbƒN
  *			assert("Object sliced" && typeid(*this) == typeid(value));
  *		}
  *	}
  *	MyButton(Control& parent, int x, int y) : Button(parent, x, y, 200, 100, L"myButton") {}
  *	MyButton& operator=(MyButton&& value) {
  *		if (this != &value) {
- *			this->~MyButton(); // ƒƒ“ƒo‚ÌˆÚ“®‚â”h¶ƒNƒ‰ƒX‚Ì‘ã“ü?ƒFƒbƒN‚ðƒRƒ“ƒXƒgƒ‰ƒN?‚É‚Ü‚Æ‚ß‚éˆ×‚ÉƒfƒXƒgƒ‰ƒN?‚Æ new ‚ðŽg‚¤
+ *			this->~MyButton(); // ƒƒ“ƒo‚ÌˆÚ“®‚â”h¶ƒNƒ‰ƒX‚Ì´ëÀÔ?ƒFƒbƒN‚ðƒRƒ“ƒXƒgƒ‰ƒN?‚É‚Ü‚Æ‚ß‚éˆ×‚ÉƒfƒXƒgƒ‰ƒN?‚Æ new ‚ðŽg‚¤
  *			new (this) MyButton(std::move(value));
  *		}
  *		return *this;

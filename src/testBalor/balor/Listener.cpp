@@ -1,4 +1,4 @@
-#include <balor/Listener.hpp>
+ï»¿#include <balor/Listener.hpp>
 
 #include <string>
 #include <utility>
@@ -92,7 +92,7 @@ bool checkCallCount(const Listener<int>& listener) {
 
 
 testCase(nullFunction) {
-	{// ‹ó‚ÌListener
+	{// ë¹ˆ Listener
 		Listener<int> empty;
 		testAssert(!empty);
 		testNoThrow(empty(0));
@@ -129,7 +129,7 @@ testCase(nullFunction) {
 		testAssert(!empty);
 		testNoThrow(empty(0));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> empty;
 		Listener<int> listener = [](int) {};
 		testAssert(listener);
@@ -141,7 +141,7 @@ testCase(nullFunction) {
 		testAssert(!empty);
 		testNoThrow(empty(0));
 	}
-	{// const ‘ã“ü
+	{// const ëŒ€ì…
 		const Listener<int> empty;
 		Listener<int> listener = [](int) {};
 		Listener<int>& result = listener = empty;
@@ -151,7 +151,7 @@ testCase(nullFunction) {
 		testAssert(!empty);
 		testNoThrow(empty(0));
 	}
-	{// ‰E•Ó’l‘ã“ü
+	{// ìš°ì¸¡ê°’ëŒ€ì…
 		Listener<int> empty;
 		Listener<int> listener = [](int) {};
 		Listener<int>& result = listener = move(empty);
@@ -161,7 +161,7 @@ testCase(nullFunction) {
 		testAssert(!empty);
 		testNoThrow(empty(0));
 	}
-	{// const ‰E•Ó’l‘ã“ü
+	{// const ìš°ì¸¡ê°’ëŒ€ì…
 		const Listener<int> empty;
 		Listener<int> listener = [](int) {};
 		Listener<int>& result = listener = move(empty);
@@ -177,27 +177,27 @@ testCase(nullFunction) {
 testCase(functionPointer) {
 	typedef void (*FunctionPointer)(int);
 
-	{// ƒkƒ‹ŠÖ”ƒ|ƒCƒ“ƒ^‚Å‰Šú‰»
+	{// ë„ í•¨ìˆ˜ í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 #if !defined(NDEBUG)
 		typedef Listener<int> ListenerType;
 		testAssertionFailed(ListenerType listener = (FunctionPointer)nullptr);
 #else
-		testAssert(true); // ƒeƒXƒgŒ”‚ ‚í‚¹
+		testAssert(true); 
 #endif
 	}
-	{// ŠÖ”ƒ|ƒCƒ“ƒ^‚Å‰Šú‰»
+	{// í•¨ìˆ˜ í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 		Listener<int> listener = function;
 		testAssert(checkCallCount(listener));
 	}
-	{// ƒkƒ‹ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì‘ã“ü
+	{// ë„ í•¨ìˆ˜ í¬ì¸í„° ëŒ€ì…
 		Listener<int> listener;
 #if !defined(NDEBUG)
 		testAssertionFailed(listener = (FunctionPointer)nullptr);
 #else
-		testAssert(true); // ƒeƒXƒgŒ”‚ ‚í‚¹
+		testAssert(true); 
 #endif
 	}
-	{// ŠÖ”ƒ|ƒCƒ“ƒ^‚Ì‘ã“ü
+	{// í•¨ìˆ˜ í¬ì¸í„° ëŒ€ì… 
 		Listener<int> listener;
 		listener = function;
 		testAssert(checkCallCount(listener));
@@ -226,28 +226,28 @@ testCase(functionPointer) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = function;
 		Listener<int> listener;
 		listener = source;
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// const ‘ã“ü
+	{// const ëŒ€ì…
 		const Listener<int> source = function;
 		Listener<int> listener;
 		listener = source;
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‰E•Ó’l‘ã“ü
+	{// ìš°ì¸¡ê°’ëŒ€ì…
 		Listener<int> source = function;
 		Listener<int> listener;
 		listener = move(source);
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// const ‰E•Ó’l‘ã“ü
+	{// const ìš°ì¸¡ê°’ëŒ€ì…
 		const Listener<int> source = function;
 		Listener<int> listener;
 		listener = move(source);
@@ -258,7 +258,7 @@ testCase(functionPointer) {
 
 
 testCase(functionObject) {
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Å‰Šú‰»
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ë¡œ ì´ˆê¸°í™”
 		TracedFunction tracedFunction;
 		{
 			InstanceTracer::clearAllCount();
@@ -266,16 +266,16 @@ testCase(functionObject) {
 			testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 			testAssert(checkCallCount(listener));
 		}
-		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 1)); // ƒfƒXƒgƒ‰ƒNƒ^ŒÄ‚Ño‚µ‚àƒ`ƒFƒbƒN
+		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 1)); // ì†Œë©¸ì í˜¸ì¶œë„ ì²´í¬
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‰E•Ó’l‚Å‰Šú‰»
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ì˜ ìš°ì¸¡ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 		TracedFunction tracedFunction;
 		InstanceTracer::clearAllCount();
 		Listener<int> listener = move(tracedFunction);
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‘ã“ü
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ëŒ€ì…
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -283,7 +283,7 @@ testCase(functionObject) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‰E•Ó’l‚Ì‘ã“ü
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ìš°ì¸¡ê°’ ëŒ€ì…
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -291,7 +291,7 @@ testCase(functionObject) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ã‘‚«‚ÅƒfƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚é–‚ÌŠm”F
+	{// ë®ì–´ì“°ê¸°ë¡œ ì†Œë©¸ìê°€ í˜¸ì¶œ ë˜ëŠ” ê²ƒì„ í™•ì¸ 
 		Listener<int> listener = TracedFunction();
 		InstanceTracer::clearAllCount();
 		listener = Listener<int>();
@@ -330,7 +330,7 @@ testCase(functionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -339,10 +339,10 @@ testCase(functionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 		InstanceTracer::clearAllCount();
-		listener = listener; // ©ŒÈ‘ã“ü‚Ìƒ`ƒFƒbƒN
+		listener = listener; // ì°¨ê¸° ëŒ€ì… ì²´í¬
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 	}
-	{// const ‘ã“ü
+	{// const ëŒ€ì…
 		const Listener<int> source = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -352,10 +352,10 @@ testCase(functionObject) {
 		testAssert(checkCallCount(source));
 		const Listener<int>& constListener = listener;
 		InstanceTracer::clearAllCount();
-		listener = constListener; // ©ŒÈ‘ã“ü‚Ìƒ`ƒFƒbƒN
+		listener = constListener; // ìê¸° ëŒ€ì… ì²´í¬
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 	}
-	{// ‰E•Ó’l‘ã“ü
+	{// ìš°ì¸¡ê°’ëŒ€ì…
 		Listener<int> source = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -364,10 +364,10 @@ testCase(functionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 		InstanceTracer::clearAllCount();
-		listener = move(listener); // ©ŒÈ‘ã“ü‚Ìƒ`ƒFƒbƒN
+		listener = move(listener); // ìê¸° ëŒ€ì… ì²´í¬ 
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 	}
-	{// const ‰E•Ó’l‘ã“ü
+	{// const ìš°ì¸¡ê°’ëŒ€ì…
 		const Listener<int> source = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -377,17 +377,17 @@ testCase(functionObject) {
 		testAssert(checkCallCount(source));
 		const Listener<int>& constListener = listener;
 		InstanceTracer::clearAllCount();
-		listener = move(constListener); // ©ŒÈ‘ã“ü‚Ìƒ`ƒFƒbƒN
+		listener = move(constListener); // ìê¸° ëŒ€ì… ì²´í¬
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 	}
 }
 
 
 testCase(allocatedFunctionObject) {
-	// AllocatedFunctionObject‚ªŠ„‚è“–‚Ä‚ç‚ê‚éğŒ‚ğƒ`ƒFƒbƒN
+	// AllocatedFunctionObjectê°€ í• ë‹¹ ë˜ëŠ” ì¡°ê±´ì„ ì²´í¬
 	testAssert(sizeof(void*) < sizeof(BigTracedFunction));
 
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Å‰Šú‰»
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ë¡œ ì´ˆê¸°í™” 
 		BigTracedFunction tracedFunction;
 		{
 			InstanceTracer::clearAllCount();
@@ -395,16 +395,16 @@ testCase(allocatedFunctionObject) {
 			testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 			testAssert(checkCallCount(listener));
 		}
-		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 1)); // ƒfƒXƒgƒ‰ƒNƒ^ŒÄ‚Ño‚µ‚àƒ`ƒFƒbƒN
+		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 1)); // ì†Œë©¸ìê°€ í˜¸ì¶œë˜ëŠ”ì§€ë„ ì²´í¬ 
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‰E•Ó’l‚Å‰Šú‰»
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ì˜ ìš°ì¸¡ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 		BigTracedFunction tracedFunction;
 		InstanceTracer::clearAllCount();
 		Listener<int> listener = move(tracedFunction);
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‘ã“ü
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ëŒ€ì…
 		BigTracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -412,7 +412,7 @@ testCase(allocatedFunctionObject) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì‰E•Ó’l‚Ì‘ã“ü
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ì˜ ìš°ì¸¡ê°’ëŒ€ì… 
 		BigTracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -420,7 +420,7 @@ testCase(allocatedFunctionObject) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ã‘‚«‚ÅƒfƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚é–‚ÌŠm”F
+	{// ë®ì–´ì“°ê¸°ë¡œ ì†Œë©¸ìê°€ ë¶ˆëŸ¬ì§€ëŠ”ì§€ í™•ì¸ 
 		Listener<int> listener = BigTracedFunction();
 		InstanceTracer::clearAllCount();
 		listener = Listener<int>();
@@ -447,7 +447,7 @@ testCase(allocatedFunctionObject) {
 		Listener<int> source = BigTracedFunction();
 		InstanceTracer::clearAllCount();
 		Listener<int> listener = move(source);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // ƒ|ƒCƒ“ƒ^ˆÚ“®‚Ì‚İ
+		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // í¬ì¸í„° ì´ë™ë§Œ
 		testAssert(checkCallCount(listener));
 		testAssert(!source);
 	}
@@ -459,7 +459,7 @@ testCase(allocatedFunctionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = BigTracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -468,7 +468,7 @@ testCase(allocatedFunctionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// const ‘ã“ü
+	{// const ëŒ€ì…
 		const Listener<int> source = BigTracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -477,16 +477,16 @@ testCase(allocatedFunctionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‰E•Ó’l‘ã“ü
+	{// ìš°ì¸¡ê°’ëŒ€ì…
 		Listener<int> source = BigTracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
 		listener = move(source);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // ƒ|ƒCƒ“ƒ^ˆÚ“®‚Ì‚İ
+		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // í¬ì¸í„° ì´ë™ë§Œ
 		testAssert(checkCallCount(listener));
 		testAssert(!source);
 	}
-	{// const ‰E•Ó’l‘ã“ü
+	{// const ìš°ì¸¡ê°’ëŒ€ì…
 		const Listener<int> source = BigTracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -500,11 +500,11 @@ testCase(allocatedFunctionObject) {
 
 testCase(lambdaFunctionObject) {
 	auto lambda = [](int) { ++callCount; };
-	{// lambda‚Å‰Šú‰»
+	{// lambdaë¡œ ì´ˆê¸°í™”
 		Listener<int> listener = lambda;
 		testAssert(checkCallCount(listener));
 	}
-	{// lambda‚Ì‘ã“ü
+	{// lambda ëŒ€ì…
 		Listener<int> listener;
 		listener = lambda;
 		testAssert(checkCallCount(listener));
@@ -515,7 +515,7 @@ testCase(lambdaFunctionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = lambda;
 		Listener<int> listener;
 		listener = source;
@@ -529,14 +529,14 @@ testCase(bigLambdaFunctionObject) {
 	int a = 11;
 	int b = 21;
 	auto lambda = [&](int) { callCount = callCount + (a * 2) - b; };
-	// AllocatedFunctionObject‚ªŠ„‚è“–‚Ä‚ç‚ê‚éğŒ‚Ìƒ`ƒFƒbƒN
+	// AllocatedFunctionObject í• ë‹¹ ë˜ì–´ì§€ëŠ” ì¡°ê±´ ì²´í¬ 
 	testAssert(sizeof(void*) < sizeof(lambda));
 
-	{// lambda‚Å‰Šú‰»
+	{// lambdaë¡œ ì´ˆê¸°í™”
 		Listener<int> listener = lambda;
 		testAssert(checkCallCount(listener));
 	}
-	{// lambda‚Ì‘ã“ü
+	{// lambda ëŒ€ì…
 		Listener<int> listener;
 		listener = lambda;
 		testAssert(checkCallCount(listener));
@@ -547,7 +547,7 @@ testCase(bigLambdaFunctionObject) {
 		testAssert(checkCallCount(listener));
 		testAssert(checkCallCount(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = lambda;
 		Listener<int> listener;
 		listener = source;
@@ -560,7 +560,7 @@ testCase(bigLambdaFunctionObject) {
 testCase(listenerChain) {
 	auto dummyFunction = [](int) {};
 
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰Á
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -568,7 +568,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰Ái“ñ”Ô–Új
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€(ë‘ ë²ˆì§¸)
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -577,7 +577,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰ÁiO”Ô–Új
+	{// í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€(ì„¸ ë²ˆì§¸)
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -587,7 +587,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ‰E•Ó’lŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰Á
+	{// ìš°ì¸¡ê°’ í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€ 
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -595,7 +595,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ‰E•Ó’lŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰Ái“ñ”Ô–Új
+	{// ìš°ì¸¡ê°’ í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€(ë‘ ë²ˆì§¸)
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -604,7 +604,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ‰E•Ó’lŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì’Ç‰ÁiO”Ô–Új
+	{// ìš°ì¸¡ê°’ í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€(ì„¸ ë²ˆì§¸)
 		TracedFunction tracedFunction;
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -614,7 +614,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ƒCƒxƒ“ƒg‚Ì’Ç‰Á
+	{// ì´ë²¤íŠ¸ ì¶”ê°€
 		Listener<int> add = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -622,7 +622,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ƒCƒxƒ“ƒg‚Ì’Ç‰Ái“ñ”Ô–Új
+	{// ì´ë²¤íŠ¸ ì¶”ê°€(ë‘ ë²ˆì§¸)
 		Listener<int> add = TracedFunction();
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -631,7 +631,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ƒCƒxƒ“ƒg‚Ì’Ç‰ÁiO”Ô–Új
+	{// ì´ë²¤íŠ¸ ì¶”ê°€(ì„¸ ë²ˆì§¸)
 		Listener<int> add = TracedFunction();
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -641,7 +641,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ‰E•Ó’lƒCƒxƒ“ƒg‚Ì’Ç‰Á
+	{// ìš°ì¸¡ê°’ ì´ë²¤íŠ¸ ì¶”ê°€
 		Listener<int> add = TracedFunction();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -649,17 +649,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ‰E•Ó’lƒCƒxƒ“ƒg‚Ì’Ç‰Ái“ñ”Ô–Új
-		Listener<int> add = TracedFunction();
-		Listener<int> listener;
-		listener += dummyFunction;
-		listener += dummyFunction;
-		InstanceTracer::clearAllCount();
-		listener += move(add);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
-		testAssert(checkCallCount(listener));
-	}
-	{// ‰E•Ó’lƒCƒxƒ“ƒg‚Ì’Ç‰ÁiO”Ô–Új
+	{// ìš°ì¸¡ê°’ ì´ë²¤íŠ¸ ì¶”ê°€(ë‘ ë²ˆì§¸)
 		Listener<int> add = TracedFunction();
 		Listener<int> listener;
 		listener += dummyFunction;
@@ -669,7 +659,17 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
 		testAssert(checkCallCount(listener));
 	}
-	{// ŠÖ”’Ç‰Á‚Ìˆ—
+	{// ìš°ì¸¡ê°’ ì´ë²¤íŠ¸ ì¶”ê°€(ì„¸ ë²ˆì§¸)
+		Listener<int> add = TracedFunction();
+		Listener<int> listener;
+		listener += dummyFunction;
+		listener += dummyFunction;
+		InstanceTracer::clearAllCount();
+		listener += move(add);
+		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 0));
+		testAssert(checkCallCount(listener));
+	}
+	{// í•¨ìˆ˜ ì¶”ê°€ ì‹œ ì²˜ë¦¬
 		Listener<int> listener = TracedFunction();;
 		InstanceTracer::clearAllCount();
 		listener += dummyFunction;
@@ -679,7 +679,7 @@ testCase(listenerChain) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 1, 1));
 		testAssert(checkCallCount(listener));
 	}
-	{// ã‘‚«‚ÅƒfƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚é–‚ÌŠm”F
+	{// ë®ì–´ì“°ê¸°ë¡œ ì†Œë©¸ìê°€ ë¶ˆëŸ¬ì§€ëŠ” ê²ƒì„ í™•ì¸
 		Listener<int> listener = TracedFunction();
 		listener += dummyFunction;
 		InstanceTracer::clearAllCount();
@@ -726,7 +726,7 @@ testCase(listenerChain) {
 		Listener<int> source = getTestListener();
 		InstanceTracer::clearAllCount();
 		Listener<int> listener = move(source);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // ƒ|ƒCƒ“ƒ^ˆÚ“®‚Ì‚İ
+		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // í¬ì¸í„°ë§Œ ì´ë™
 		testAssert(checkCallChain(listener));
 		testAssert(!source);
 	}
@@ -738,7 +738,7 @@ testCase(listenerChain) {
 		testAssert(checkCallChain(listener));
 		testAssert(checkCallChain(source));
 	}
-	{// ‘ã“ü
+	{// ëŒ€ì…
 		Listener<int> source = getTestListener();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -747,7 +747,7 @@ testCase(listenerChain) {
 		testAssert(checkCallChain(listener));
 		testAssert(checkCallChain(source));
 	}
-	{// const ‘ã“ü
+	{// const ëŒ€ì…
 		const Listener<int> source = getTestListener();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -756,16 +756,16 @@ testCase(listenerChain) {
 		testAssert(checkCallChain(listener));
 		testAssert(checkCallChain(source));
 	}
-	{// ‰E•Ó’l‘ã“ü
+	{// ìš°ì¸¡ê°’ëŒ€ì…
 		Listener<int> source = getTestListener();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
 		listener = move(source);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // ƒ|ƒCƒ“ƒ^ˆÚ“®‚Ì‚İ
+		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // í¬ì¸í„°ë§Œ ì´ë™
 		testAssert(checkCallChain(listener));
 		testAssert(!source);
 	}
-	{// const ‰E•Ó’l‘ã“ü
+	{// const ìš°ì¸¡ê°’ëŒ€ì…
 		const Listener<int> source = getTestListener();
 		Listener<int> listener;
 		InstanceTracer::clearAllCount();
@@ -778,14 +778,14 @@ testCase(listenerChain) {
 
 
 testCase(pop) {
-	{// ‹ó‚Ì Listener
+	{// ë¹ˆ Listener
 		Listener<int> listener;
 		callCount = 0;
 		listener.pop();
 		listener(0);
 		testAssert(callCount == 0);
 	}
-	{// ŠÖ”ˆêŒÂ‚Ì Listener
+	{// í•¨ìˆ˜ 1ê°œì˜ Listener
 		Listener<int> listener;
 		listener += [&] (int ) { ++callCount; };
 		callCount = 0;
@@ -793,7 +793,7 @@ testCase(pop) {
 		listener(0);
 		testAssert(callCount == 0);
 	}
-	{// •¡”ŠÖ”‚Ì Listener
+	{// ë³µìˆ˜ í•¨ìˆ˜ì˜ Listener
 		Listener<int> listener;
 		listener += [&] (int ) { ++callCount; };
 		listener += [&] (int ) { ++callCount; };
@@ -802,7 +802,7 @@ testCase(pop) {
 		listener(0);
 		testAssert(callCount == 1);
 	}
-	{// •¡”ŠÖ”‚ğ‹ó‚É‚µ‚½ Listener
+	{// ë³µìˆ˜ í•¨ìˆ˜ë¥¼ ë¹„ê°œ í•œ Listener
 		Listener<int> listener;
 		listener += [&] (int ) { ++callCount; };
 		listener += [&] (int ) { ++callCount; };

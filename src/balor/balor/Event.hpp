@@ -8,16 +8,16 @@ namespace balor {
 /**
  * すべてのイベントクラスの親クラス。
  *
- * Event の参照を引数にとる関数オブジェクトは Event クラスの派生クラスの参照を引数にとるあらゆるイベントリスナーに登録することが出来る。
+ * Event の参照を引数にとる関数オブジェクトは Event クラスの派生クラスの参照を引数にとるあらゆるイベントリスナ?に登?することが出来る。
  *
- * <h3>・サンプルコード</h3>
+ * <h3>・サンプルコ?ド</h3>
  * <pre><code>
 	Frame frame(L"Event Sample");
 
-	Button button(frame, 20, 10, 0, 0, L"ボタン");
-	CheckBox check(frame, 20, 50, 0, 0, L"チェック");
+	Button button(frame, 20, 10, 0, 0, L"??ン");
+	CheckBox check(frame, 20, 50, 0, 0, L"?ェック");
 
-	// Event& を引数に取る関数オブジェクトはあらゆるイベントに代入できる。
+	// Event& を引数に取る関数オブジェクトはあらゆるイベントにｴ�ﾀﾔできる。
 	auto onAny = [&] (Event& ) {
 		MsgBox::show(L"something event");
 	};
@@ -38,7 +38,7 @@ public:
 	/// イベント発生源を指定して作成。
 	EventWithSender(Sender& sender) : _sender(sender) {}
 
-private: // 複製の禁止。
+private: // 複製の禁?。
 	EventWithSender(const EventWithSender& );
 	EventWithSender& operator=(const EventWithSender& );
 

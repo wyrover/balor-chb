@@ -1,4 +1,4 @@
-#include <balor/system/Com.hpp>
+ï»¿#include <balor/system/Com.hpp>
 
 #include <boost/thread.hpp>
 #include <MLang.h>
@@ -67,13 +67,13 @@ bool oleCheck() {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	test::UnitTest::ignoreHandleLeakCheck();
 	Com::initialize();
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
 	Com::oleInitialize();
-	testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 	Com::oleUninitialize();
 
 	Com::uninitialize();
@@ -81,168 +81,151 @@ testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ
 
 
 testCase(initializeAndInitializedAndUninitialize) {
-	// STA ‚Å‰Šú‰»
+	// STA ë¡œ ì´ˆê¸°í™” 
 	testAssert(!Com::initialized());
-	testAssert(!comCheck()); // –¢‰Šú‰»
+	testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 	testNoThrow(Com::initialize());
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// MTA ‚Ö‚Ì•ÏX•s‰Â
+	// MTA ë¡œ ë³€ê²½ ê°€ëŠ¥
 	testAssertionFailed(Com::initialize(false));
 
-	{// ‘¼ƒXƒŒƒbƒh‚Í–¢‰Šú‰»ó‘Ô
+	{// ë‹¤ë¥¸ ìŠ¤ë ˆë“œëŠ” ë¯¸ ì´ˆê¸°í™” ìƒíƒœ 
 		thread work([&] () {
-			// initialized ŒÄ‚Ño‚µ•s‰Â
+			// initialized í˜¸ì¶œ ë¶ˆê°€
 			testAssertionFailed(Com::initialized());
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
-			// STA ‚Å‰Šú‰»
+			// STA ë¡œ ì´ˆê¸°í™” 
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
-			// MTA ‚Å‰Šú‰»
+			// MTA ë¡œ ì´ˆê¸°í™”
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
 		});
 		work.join();
 		testAssert(Com::initialized());
-		testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+		testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 	}
 
-	// ‰Šú‰»‚Ìd•¡
+	// ì´ˆê¸°í™” ì¤‘ë³µ
 	testNoThrow(Com::initialize());
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// ’iŠK“I‚ÈI—¹ˆ—
+	// ë‹¨ê³„ì  ì¢…ë£Œ ì²˜ë¦¬
 	Com::uninitialize();
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 	Com::uninitialize();
 	testAssert(!Com::initialized());
-	testAssert(!comCheck()); // –¢‰Šú‰»
+	testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
 
-	// MTA ‚Å‰Šú‰»
+	// MTA ë¡œ ì´ˆê¸°í™”
 	testAssert(!Com::initialized());
-	testAssert(!comCheck()); // –¢‰Šú‰»
+	testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 	testNoThrow(Com::initialize(false));
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// STA ‚Ö‚Ì•ÏX•s‰Â
+	// STA ë¡œ ë³€ê²½ ë¶ˆê°€
 	testAssertionFailed(Com::initialize(true));
 
-	{// ‘¼ƒXƒŒƒbƒh‚Í MTA ‰Šú‰»ó‘Ô
+	{// ë‹¤ë¥¸ ìŠ¤ë ˆë“œëŠ” MTA ì´ˆê¸°í™” ìƒíƒœ
 		thread work([&] () {
-			// initialized ŒÄ‚Ño‚µ•s‰Â
+			// initialized í˜¸ì¶œ ë¶ˆê°€ 
 			testAssertionFailed(Com::initialized());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-			// STA ‚Å‰Šú‰»
+			// STA ë¡œ ì´ˆê¸°í™”
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-			// MTA ‚Å‰Šú‰»
+			// MTA ë¡œ ì´ˆê¸°í™”
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
 		});
 		work.join();
 		testAssert(Com::initialized());
-		testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+		testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 	}
 
-	// ‰Šú‰»‚Ìd•¡
+	// ì´ˆê¸°í™” ì¤‘ë³µ
 	testNoThrow(Com::initialize(false));
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// ’iŠK“I‚ÈI—¹ˆ—
+	// ë‹¨ê³„ì  ì¢…ë£Œ ì²˜ë¦¬ 
 	Com::uninitialize();
 	testAssert(Com::initialized());
-	testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 	Com::uninitialize();
 	testAssert(!Com::initialized());
-	testAssert(!comCheck()); // –¢‰Šú‰»
+	testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
 
-	//// OLE ‚Å‰ŠúÏ‚İ
-	//testNoThrow(Com::oleInitialize());
-	//testAssert(Com::initialized());
-	//testAssert(comCheck()); // ‰Šú‰»Ï‚İ
-
-	//// ‰Šú‰»‚Ìd•¡
-	//testNoThrow(Com::initialize());
-	//testAssert(Com::initialized());
-	//testAssert(comCheck()); // ‰Šú‰»Ï‚İ
-
-	//// ’iŠK“I‚ÈI—¹ˆ—
-	//Com::uninitialize();
-	//testAssert(Com::initialized());
-	//testAssert(comCheck()); // ‰Šú‰»Ï‚İ
-	//Com::oleUninitialize();
-	//testAssert(!Com::initialized());
-	//testAssert(!comCheck()); // –¢‰Šú‰»
+	
 
 
-
-	{// –¢‰Šú‰»ó‘Ô‚Å‘¼ƒXƒŒƒbƒh
+	{// ë¯¸ ì´ˆê¸°í™” ìƒíƒœë¡œ ë‹¤ë¥¸ ìŠ¤ë ˆë“œ
 		thread work([&] () {
-			// initialized ŒÄ‚Ño‚µ•s‰Â
+			// initialized í˜¸ì¶œ ë¶ˆê°€
 			testAssertionFailed(Com::initialized());
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
-			// STA ‚Å‰Šú‰»
+			// STA ë¡œ ì´ˆê¸°í™”
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize());
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
-			// MTA ‚Å‰Šú‰»
+			// MTA ë¡œ ì´ˆê¸°í™”
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::initialize(false));
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(comCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(comCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::uninitialize();
-			testAssert(!comCheck()); // –¢‰Šú‰»
+			testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 
 		});
 		work.join();
 		testAssert(!Com::initialized());
-		testAssert(!comCheck()); // –¢‰Šú‰»
+		testAssert(!comCheck()); // ë¯¸ ì´ˆê¸°í™”
 	}
 }
 
@@ -257,79 +240,79 @@ testCase(isMainThread) {
 
 
 testCase(oleInitializeAndOleInitializedAndOleUninitialize) {
-	// COM STA ‰Šú‰»ó‘Ô‚©‚ç
+	// COM STA ì´ˆê¸°í™” ìƒíƒœì—ì„œ
 	testNoThrow(Com::initialize());
 	testAssert(!Com::oleInitialized());
-	//testAssert(!oleCheck()); // –¢‰Šú‰» ¦ˆê“x‚Å‚à OLE ‚ğ‰Šú‰»‚·‚é‚Æ‚ ‚Æ‚Í COM ‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©‚¾‚¯‚Å”»’f‚³‚ê‚é‚æ‚¤‚¾
+	//testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”. í•œë²ˆì´ë¼ë„ OLE ì„ ì´ˆê¸°í™” í•œ í›„ëŠ” COM ì´ ì´ˆê¸°í™” ë˜ì—ˆëŠ”ì§€ ì–´ë–¤ì§€ë§Œì„ íŒëœ í•˜ë„ë¡
 	testNoThrow(Com::oleInitialize());
 	testAssert(Com::oleInitialized());
-	testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// ’iŠK“I‚ÈI—¹ˆ—
+	// ë‹¨ê³„ì  ì¢…ë£Œ ì²˜ë¦¬
 	Com::oleUninitialize();
 	testAssert(!Com::oleInitialized());
-	//testAssert(!oleCheck()); // –¢‰Šú‰»
-	testAssert(comCheck()); // COM ‰Šú‰»Ï‚İ
+	//testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
+	testAssert(comCheck()); // COM ì´ˆê¸°í™” ëë‚¨
 	Com::uninitialize();
 	testAssert(!Com::initialized());
-	testAssert(!oleCheck()); // –¢‰Šú‰»
-	testAssert(!comCheck()); // COM –¢‰Šú‰»
+	testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
+	testAssert(!comCheck()); // COM ë¯¸ ì´ˆê¸°í™”
 
 
-	// COM MTA ‰Šú‰»ó‘Ô‚©‚ç
+	// COM MTA ì´ˆê¸°í™” ìƒíƒœì—ì„œ
 	testNoThrow(Com::initialize(false));
 	testAssert(!Com::oleInitialized());
-	//testAssert(!oleCheck()); // –¢‰Šú‰»
-	testAssertionFailed(Com::oleInitialize()); // MTA ‚©‚ç‚Í‰Šú‰»‚Å‚«‚È‚¢
+	//testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
+	testAssertionFailed(Com::oleInitialize()); // MTA ë¶€í„°ëŠ” ì´ˆê¸°í™” í•  ìˆ˜ ì—†ìŒ
 	testAssert(!Com::oleInitialized());
-	//testAssert(!oleCheck()); // –¢‰Šú‰»
+	//testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 	Com::uninitialize();
-	testAssert(!oleCheck()); // –¢‰Šú‰»
+	testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 
 
-	// COM –¢‰Šú‰»ó‘Ô‚©‚ç
+	// COM ë¯¸ ì´ˆê¸°í™” ìƒíƒœì—ì„œ
 	testAssert(!Com::oleInitialized());
-	testAssert(!oleCheck()); // –¢‰Šú‰»
+	testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 	testNoThrow(Com::oleInitialize());
 	testAssert(Com::oleInitialized());
-	testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// MTA ‚Ö‚Ì•ÏX•s‰Â
+	// MTA ë¡œ ë³€ê²½ ë¶ˆê°€
 	testAssertionFailed(Com::initialize(false));
 
-	{// ‘¼ƒXƒŒƒbƒh‚Í–¢‰Šú‰»ó‘Ô
+	{// ë‹¤ë¥¸ ìŠ¤ë ˆë“œ ë¯¸ ì´ˆê¸°í™” ìƒíƒœ 
 		thread work([&] () {
-			// initialized ŒÄ‚Ño‚µ•s‰Â
+			// initialized í˜¸ì¶œ ë¶ˆê°€
 			testAssertionFailed(Com::oleInitialized());
-			testAssert(!oleCheck()); // –¢‰Šú‰»
+			testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 
-			// OLE ‰Šú‰»
+			// OLE ì´ˆê¸°í™”
 			testNoThrow(Com::oleInitialize());
-			testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 			testNoThrow(Com::oleInitialize());
-			testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::oleUninitialize();
-			testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+			testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 			Com::oleUninitialize();
-			testAssert(!oleCheck()); // –¢‰Šú‰»
+			testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 		});
 		work.join();
 		testAssert(Com::oleInitialized());
-		testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+		testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 	}
 
-	// ‰Šú‰»‚Ìd•¡
+	// ì´ˆê¸°í™” ì¤‘ë³µ 
 	testNoThrow(Com::oleInitialize());
 	testAssert(Com::oleInitialized());
-	testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 
-	// ’iŠK“I‚ÈI—¹ˆ—
+	// ë‹¨ê³„ì  ì¢…ë£Œ ì²˜ë¦¬ 
 	Com::oleUninitialize();
 	testAssert(Com::oleInitialized());
-	testAssert(oleCheck()); // ‰Šú‰»Ï‚İ
+	testAssert(oleCheck()); // ì´ˆê¸°í™” ëë‚¨
 	Com::oleUninitialize();
 	testAssert(!Com::oleInitialized());
-	testAssert(!oleCheck()); // –¢‰Šú‰»
+	testAssert(!oleCheck()); // ë¯¸ ì´ˆê¸°í™”
 }
 
 

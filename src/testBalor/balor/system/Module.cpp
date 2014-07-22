@@ -1,4 +1,4 @@
-#include <balor/system/Module.hpp>
+ï»¿#include <balor/system/Module.hpp>
 
 #include <utility>
 #include <balor/system/testModule.hpp> // testBalorDll
@@ -18,24 +18,24 @@ using std::move;
 
 
 testCase(construct) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Module(L""));
 
-	{// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒg
+	{// ê¸°ë³¸ ìƒì„±ì
 		Module module;
 		testAssert(!module);
 	}
 
-	{// Œ©‚Â‚©‚ç‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	{// ì°¾ì§€ ëª»í•œ íŒŒì¼ ì´ë¦„ 
 		Module module(L"balor_utility_testModule_390afjldagad09udfalohnfad.dll");
 		testAssert(!module);
 	}
 
-	{// DLL‚Ìƒ[ƒh‚Æƒ[ƒh‚µ‚½DLL‚Ö‚ÌƒAƒNƒZƒXƒeƒXƒg
+	{// DLL ë¡œë“œì™€ ë¡œë“œí•œ DLLë¡œì˜ ì ‘ê·¼ í…ŒìŠ¤íŠ¸ 
 		Module module(L"testBalorDll.dll");
 		testAssert(module);
 
-		{// ŠÖ”‚Ìæ“¾‚ÆŒÄ‚Ño‚µ
+		{// í•¨ìˆ˜ ì·¨ë“ê³¼ í…ŒìŠ¤íŠ¸ 
 			auto function0 = module.getFunction<decltype(return100)>("return100");
 			testAssert(function0 != nullptr);
 			testAssert((*function0)() == 100);
@@ -50,7 +50,7 @@ testCase(construct) {
 			testAssert(finded);
 			testAssert(finded.file() == module.file());
 		}
-		{// find ƒtƒ‹ƒpƒX‚Å
+		{// find í’€ íŒ¨ìŠ¤ë¡œ 
 			Module finded = Module::find(module.file());
 			testAssert(finded);
 			testAssert(finded.file() == module.file());
@@ -66,27 +66,27 @@ testCase(construct) {
 		}
 	}
 
-	{// ƒAƒ“ƒ[ƒh‚³‚ê‚½DLL‚ÌŒŸõ
+	{// ì–¸ë¡œë“œëœ DLL ê²€ìƒ‰
 		Module module = Module::find(L"testBalorDll.dll");
 		testAssert(!module);
 	}
 }
 
 
-//testCase(find) { // testCase(construct)‚É‚ÄƒeƒXƒgÏ‚İ
+//testCase(find) { // testCase(construct)
 //}
 
 
 testCase(getFunction) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Module().getFunction<void*>("function"));
 
-	// ‚»‚Ì‘¼‚ÌƒP[ƒX‚ÍtestCase(construct)‚É‚ÄƒeƒXƒgÏ‚İ
+	
 }
 
 
 testCase(path) {
-	// ‚»‚Ì‘¼‚ÌƒP[ƒX‚ÍtestCase(construct)‚É‚ÄƒeƒXƒgÏ‚İ
+	
 }
 
 

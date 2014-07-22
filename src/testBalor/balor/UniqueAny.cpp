@@ -1,4 +1,4 @@
-#include <balor/UniqueAny.hpp>
+ï»¿#include <balor/UniqueAny.hpp>
 
 #include <balor/testUniqueAny.hpp> // testBalorDll
 
@@ -48,13 +48,13 @@ testCase(defaultConstruct) {
 
 
 testCase(rvalueConstruct) {
-	{// ‹ó‚Ì UniqueAny
+	{// ë¹ˆ UniqueAny
 		UniqueAny source;
 		UniqueAny any = move(source);
 		testAssert(any.empty());
 		testAssert(source.empty());
 	}
-	{// ’l‚Ì‚ ‚é UniqueAny
+	{// ê°’ì´ ìˆëŠ” UniqueAny
 		UniqueAny source = InstanceTracer();
 		InstanceTracer::clearAllCount();
 		UniqueAny any = move(source);
@@ -67,7 +67,7 @@ testCase(rvalueConstruct) {
 
 
 testCase(anyTypeConstruct) {
-	{// ‰E•Ó’lQÆ
+	{// ìš°ì¸¡ê°’ì°¸ì¡°
 		InstanceTracer source;
 		InstanceTracer::clearAllCount();
 		UniqueAny any = move(source);
@@ -75,7 +75,7 @@ testCase(anyTypeConstruct) {
 		testAssert(!any.empty());
 		testNoThrow(any_cast<InstanceTracer&>(any));
 	}
-	{// ƒRƒs[‹Ö~ƒIƒuƒWƒFƒNƒg‚Ì‘ã“ü
+	{// ë³µì‚¬ ê¸ˆì§€ ì˜¤ë¸Œì íŠ¸ ëŒ€ì…
 		Noncopyable source;
 		InstanceTracer::clearAllCount();
 		UniqueAny any = move(source);
@@ -102,24 +102,24 @@ testCase(destruct) {
 
 
 testCase(assignmentOperator) {
-	{// ‰E•Ó’lQÆ‚Ì‘ã“ü
+	{// ìš°ì¸¡ê°’ì°¸ì¡° ëŒ€ì…
 		UniqueAny source = InstanceTracer();
 		UniqueAny any;
 		InstanceTracer::clearAllCount();
 		UniqueAny& result = any = move(source);
 		testAssert(&result == &any);
-		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // ƒ|ƒCƒ“ƒ^ˆÚ“®‚Ì‚İ
+		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0)); // í¬ì¸í„° ì´ë™ë§Œ
 		testAssert(!any.empty());
 		testNoThrow(any_cast<InstanceTracer>(move(any)));
 		testAssert(source.empty());
 		any = InstanceTracer();
 		InstanceTracer::clearAllCount();
-		any = move(any); // ©ŒÈ‘ã“ü‚Ìƒ`ƒFƒbƒN
+		any = move(any); // ìê¸° ëŒ€ì… ì¡°ì‚¬
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 		testAssert(!any.empty());
 		testNoThrow(any_cast<InstanceTracer>(move(any)));
 	}
-	{// ”CˆÓŒ^‚Ì‰E•Ó’l‘ã“ü
+	{// ì„ì˜ í˜• ìš°ì¸¡ê°’ëŒ€ì… 
 		InstanceTracer source;
 		UniqueAny any;
 		InstanceTracer::clearAllCount();
@@ -157,36 +157,36 @@ testCase(type) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4189) // 'temp0' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning(disable : 4189) // 'temp0' : ë¡œì»¬ ë³€ìˆ˜ê°€ ì´ˆê¸°í™” ë˜ì—ˆì§€ë§Œ ì°¸ì¡° ë˜ì§€ ì•Šì•˜ë‹¤
 testCase(any_castFunction) {
 	{
-		// ‹ó‚Ì UniqueAny
+		// ë¹ˆ UniqueAny
 		UniqueAny any;
 		testThrow(any_cast<InstanceTracer>(any), UniqueAny::BadCastException);
 		testThrow(any_cast<InstanceTracer>(static_cast<const UniqueAny&>(any)), UniqueAny::BadCastException);
-		/// Œ^‚Ìƒ~ƒXƒ}ƒbƒ`
+		/// í˜•(type) ë¯¸ìŠ¤ ì²´í¬
 		any = InstanceTracer();
 		testThrow(any_cast<int>(any), UniqueAny::BadCastException);
 		testThrow(any_cast<int>(static_cast<const UniqueAny&>(any)), UniqueAny::BadCastException);
-		// À’l
+		// ì‹¤ì œ ê°’
 		InstanceTracer::clearAllCount();
 		InstanceTracer temp0 = any_cast<InstanceTracer>(any);
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		InstanceTracer::clearAllCount();
 		InstanceTracer temp1 = any_cast<InstanceTracer>(static_cast<const UniqueAny&>(any));
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
-		// const À’l
+		// const ì‹¤ì œ ê°’
 		InstanceTracer::clearAllCount();
 		InstanceTracer temp2 = any_cast<const InstanceTracer>(any);
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
 		InstanceTracer::clearAllCount();
 		InstanceTracer temp3 = any_cast<const InstanceTracer>(static_cast<const UniqueAny&>(any));
 		testAssert(InstanceTracer::checkAllCount(0, 1, 0, 0));
-		//  QÆ
+		//  ì°¸ì¡°
 		InstanceTracer::clearAllCount();
 		InstanceTracer& temp4 = any_cast<InstanceTracer&>(any);
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
-		// const QÆ
+		// const ì°¸ì¡°
 		InstanceTracer::clearAllCount();
 		const InstanceTracer& temp5 = any_cast<const InstanceTracer&>(any);
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
@@ -195,7 +195,7 @@ testCase(any_castFunction) {
 		testAssert(InstanceTracer::checkAllCount(0, 0, 0, 0));
 	}
 
-	// boost ‚Æ‚Ì‹¤‘¶
+	// boost ì™€ ê³µì¡´
 	boost::any boostany;
 	boostany = int(5);
 	int i = any_cast<int>(boostany);
@@ -211,13 +211,13 @@ testCase(dynamic_castInDll) {
 	auto setStringAnyPtr = module.getFunction<decltype(setStringAny)>("setStringAny");
 	auto setListenerAnyPtr = module.getFunction<decltype(setListenerAny)>("setListenerAny");
 
-	// DLL ‚Åì‚Á‚½ UniqueAny ‚ğ dynamic_cast
+	// DLLì—ì„œ ë§Œë“  UniqueAnyë¥¼ dynamic_cast
 	testAssert(any_cast<String>((*getStringAnyPtr)()) == L"getStringAny");
 	String string;
 	any_cast<Listener<String&>>((*getListenerAnyPtr)())(string);
 	testAssert(string == L"getListenerAny");
 
-	// ‚±‚±‚Åì‚Á‚Ä Dll ‚Ì’†‚Å dynamic_cast
+	// ì—¬ê¸°ì—ì„œ ë§Œë“  Dll ì¤‘ì—ì„œ dynamic_cast
 	UniqueAny stringAny(String(L"setStringAny"));
 	testNoThrow((*setStringAnyPtr)(stringAny));
 	UniqueAny listenerAny(Listener<String&>([&] (String& value) { value = L"setListenerAny"; }));

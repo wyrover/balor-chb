@@ -1,4 +1,4 @@
-#include <balor/io/FileStream.hpp>
+ï»¿#include <balor/io/FileStream.hpp>
 
 #include <utility>
 
@@ -42,7 +42,7 @@ void removeTestDirectory() {
 testCase(construct) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -51,24 +51,24 @@ testCase(construct) {
 	File file1(dir, L"file1.txt");
 	File file2(dir, L"sub0\\file2.txt");
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(FileStream(L"", FileStream::Mode::createAlways));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::write, FileStream::Share::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::write, FileStream::Share::write, FileStream::Options::_enum(-1)));
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘
 	testThrow(FileStream(file1.path(), FileStream::Mode::open), FileStream::NotFoundException);
 	testThrow(FileStream(file1.path(), FileStream::Mode::truncate), FileStream::NotFoundException);
 
-	// ‘¶İ‚µ‚È‚¢ƒfƒBƒŒƒNƒgƒŠ
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹
 	testThrow(FileStream(file2.path(), FileStream::Mode::openAlways), FileStream::NotFoundException);
 
-	{// Šù‚Éƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é
+	{// ë”“ê¶¸ê¸²?ê·½ê¹‘ê¶•ë«”ëªê¶¥ê·¡
 		testThrow(FileStream(file0.path(), FileStream::Mode::create), FileStream::AlreadyExistsException);
 	}
-	{// ƒAƒNƒZƒXŒ ŒÀ‚ª–³‚¢
+	{// ê·ºê¸ê¸œê¸šë™›ë™½ê¶•ë¼°ê¶‹
 		file0.attributes(file0.attributes() | File::Attributes::readOnly);
 		testThrow(FileStream(file0.path(), FileStream::Mode::append, FileStream::Access::write), FileStream::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~File::Attributes::readOnly);
@@ -76,7 +76,7 @@ testCase(construct) {
 		testThrow(FileStream(file0.path(), FileStream::Mode::createAlways), FileStream::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~ File::Attributes::hidden);
 	}
-	{// ƒAƒNƒZƒX‹¤—L‚ª‚Å‚«‚È‚¢
+	{// ê·ºê¸ê¸œê¸šë–ë¾ê¶•ê¶³ê¶–ê¶¶ê¶‹
 		FileStream stream0(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::read), FileStream::SharingViolationException);
 	}
@@ -90,7 +90,7 @@ testCase(construct) {
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::write), FileStream::SharingViolationException);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::write, FileStream::Share::read), FileStream::SharingViolationException);
 	}
-	{// ‘å–{‚ÌFileAccess‚ÆFileShare‚Íˆê’v‚³‚¹‚È‚¢‚Æ‚¤‚Ü‚­‚¢‚©‚È‚¢‚æ‚¤‚¾
+	{// ë¬ˆ?ê¶»FileAccessê¶´FileShareê¶¼ë‡ë­­ê¶ ê¶§ê¶¶ê¶‹ê¶´ê¶ê·ê¶˜ê¶‹ê¶”ê¶¶ê¶‹ê·ê¶ê¶¬
 		FileStream stream0(file0.path(), FileStream::Mode::open, FileStream::Access::readWrite, FileStream::Share::read);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::read), FileStream::SharingViolationException);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::write, FileStream::Share::read), FileStream::SharingViolationException);
@@ -109,7 +109,7 @@ testCase(construct) {
 		file1.remove();
 	}
 	{// FileStream::Mode::createAlways
-		{// ‘¶İ‚·‚éƒtƒ@ƒCƒ‹‚Ìã‘‚«
+		{// ë«”ëªê¶¥ê·¡ê¸²?ê·½ê¹‘ê¶»ë¤µë£•ê¶–
 			testAssert(file0.openRead().length() == 3);
 			FileStream stream(file0.path(), FileStream::Mode::createAlways);
 			testAssert(stream.position() == 0);
@@ -117,7 +117,7 @@ testCase(construct) {
 			stream.write("abc", 0, 3);
 			testAssert(stream.length() == 3);
 		}
-		{// ƒtƒ@ƒCƒ‹‚ÌV‹Kì¬
+		{// ê¸²?ê·½ê¹‘ê¶»ë¥·ë”®ë¿ë§Ÿ
 			testAssert(!file1.exists());
 			FileStream stream(file1.path(), FileStream::Mode::createAlways);
 			testAssert(file1.exists());
@@ -167,7 +167,7 @@ testCase(construct) {
 		testAssert(stream.length() == 3);
 	}
 	{// FileStream::Mode::append
-		{// ’Ç‰Á
+		{// ë¯ë¿
 			testAssert(file0.openRead().length() == 3);
 			FileStream stream(file0.path(), FileStream::Mode::append);
 			testAssert(stream.position() == 3);
@@ -175,7 +175,7 @@ testCase(construct) {
 			stream.write("abc", 0, 3);
 			testAssert(stream.length() == 6);
 		}
-		{// V‹K
+		{// ë¥·ë”®
 			testAssert(!file1.exists());
 			FileStream stream(file1.path(), FileStream::Mode::append);
 			testAssert(file1.exists());
@@ -249,7 +249,7 @@ testCase(construct) {
 testCase(moveConstructAndAssignment) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	file0.create();
 	File file1(dir, L"file1.txt");
@@ -278,7 +278,7 @@ testCase(moveConstructAndAssignment) {
 testCase(destruct) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 
 	balor::test::HandleLeakChecker checker;
@@ -293,7 +293,7 @@ testCase(destruct) {
 testCase(flush) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	file0.create();
 
@@ -308,7 +308,7 @@ testCase(flush) {
 testCase(lengthAndPosition) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -324,7 +324,7 @@ testCase(lengthAndPosition) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openRead();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.length());
 	testAssertionFailed(stream0.position());
 	testAssertionFailed(stream0.position(0));
@@ -346,7 +346,7 @@ testCase(lengthAndPosition) {
 testCase(lock) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -357,30 +357,30 @@ testCase(lock) {
 		auto stream0 = file0.openRead();
 		auto stream1 = move(stream0);
 		
-		// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+		// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 		testAssertionFailed(stream0.lock(0, 2));
 		testAssertionFailed(stream1.lock(-1, 2));
 		testAssertionFailed(stream1.lock(0, -1));
 		testNoThrow        (stream1.lock(0, 0));
 
 		auto stream2 = file0.openRead();
-		{// ƒƒbƒN
+		{// ê¹“ê¸ê¸
 			auto lock = stream1.lock(0, 2);
 			char buffer[3] = {0};
 			stream1.read(buffer, 0, 2);
 			testAssert(String::equals(buffer, "01"));
 
-			// ƒƒbƒN”ÍˆÍ‚Ìd•¡
+			// ê¹“ê¸ê¸ë¶ëŒªê¶»ë¢£ë¸¸
 			testThrow(stream1.lock(1, 2), FileStream::LockViolationException);
 
-			// ƒƒbƒN”ÍˆÍ‚Ì“Ç‚İo‚µ
+			// ê¹“ê¸ê¸ë¶ëŒªê¶»ë²¶ê·’ë¢¯ê¶¢
 			char buffer2[3] = {0};
 			testThrow(stream2.read(buffer2, 0, 2), FileStream::LockViolationException);
 			stream2.position(2);
 			stream2.read(buffer2, 0, 2);
 			testAssert(String::equals(buffer2, "23"));
 		}
-		{// ƒƒbƒN‰ğœ
+		{// ê¹“ê¸ê¸ë¶ë££
 			stream2.position(0);
 			char buffer2[3] = {0};
 			stream2.read(buffer2, 0, 2);
@@ -393,7 +393,7 @@ testCase(lock) {
 testCase(read) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -406,7 +406,7 @@ testCase(read) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openWrite();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	char buffer[5] = {0};
 	testAssertionFailed(stream0.read(buffer, 0, 4));
 	testAssertionFailed(stream1.read(nullptr, 0, 4));
@@ -416,13 +416,13 @@ testCase(read) {
 	testNoThrow        (stream1.read(buffer, 0, 0));
 	testAssertionFailed(stream2.read(buffer, 0, 4));
 
-	{// ƒƒbƒN”ÍˆÍ‚Ì“Ç‚İo‚µ
+	{// ê¹“ê¸ê¸ë¶ëŒªê¶»ë²¶ê·’ë¢¯ê¶¢
 		auto stream3 = file0.openRead();
 		auto lock = stream3.lock(0, 4);
 		testThrow(stream1.read(buffer, 0, 4), FileStream::LockViolationException);
 	}
 
-	// “Ç‚İo‚µ
+	// ë²¶ê·’ë¢¯ê¶¢
 	testAssert(stream1.read(buffer, 0, 4) == 4);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "0123"));
@@ -437,7 +437,7 @@ testCase(read) {
 	testAssert(stream1.position() == 2);
 	testAssert(String::equals(buffer, "0013"));
 
-	// ”ÍˆÍŠO“Ç‚İo‚µ
+	// ë¶ëŒªë‘–ë²¶ê·’ë¢¯ê¶¢
 	testAssert(stream1.read(buffer, 0, 4) == 2);
 	testAssert(String::equals(buffer, "2313"));
 
@@ -448,14 +448,14 @@ testCase(read) {
 }
 
 
-//testCase(readable) { // testCase(construct) ‚É‚ÄƒeƒXƒgÏ‚İ
+//testCase(readable) { // testCase(construct) ê¶¸ê¶²ê¸¡ê¸šê¸£ë™ê·’
 //}
 
 
 testCase(skip) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -465,14 +465,14 @@ testCase(skip) {
 	auto stream0 = file0.openRead();
 	auto stream1 = move(stream0);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.skip(1));
 
-	// •‰‚ÌˆÊ’u‚Ö‚ÌƒV[ƒN
+	// ë¸ ê¶»ëŒ§ë­«ê·‰ê¶»ê¸˜?ê¸
 	stream1.position(0);
 	testAssert(stream1.skip(-1) == 0);
 
-	// ƒV[ƒNƒeƒXƒg
+	// ê¸˜?ê¸ê¸¡ê¸šê¸£
 	char buffer[2] = {0};
 	stream1.position(0);
 	testAssert(stream1.skip(1) == 1);
@@ -485,7 +485,7 @@ testCase(skip) {
 	stream1.read(buffer, 0, 1);
 	stream1.position(0);
 
-	// ”ÍˆÍŠO‚Ö‚ÌƒV[ƒN
+	// ë¶ëŒªë‘–ê·‰ê¶»ê¸˜?ê¸
 	testAssert(stream1.skip(5) == 5);
 	testAssert(stream1.length() == 4);
 	stream1.position(4);
@@ -496,7 +496,7 @@ testCase(skip) {
 testCase(write) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -509,7 +509,7 @@ testCase(write) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openRead();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.write("0123", 0, 4));
 	testAssertionFailed(stream1.write(nullptr, 0, 4));
 	testAssertionFailed(stream1.write("0123", -1, 4));
@@ -517,13 +517,13 @@ testCase(write) {
 	testNoThrow        (stream1.write("0123", 0, 0));
 	testAssertionFailed(stream2.write("0123", 0, 4));
 
-	{// ƒƒbƒN”ÍˆÍ‚Ì‘‚«‚İ
+	{// ê¹“ê¸ê¸ë¶ëŒªê¶»ë£•ê¶–ëœ›ê·’
 		FileStream stream3(file0, FileStream::Mode::open, FileStream::Access::readWrite, FileStream::Share::read | FileStream::Share::write);
 		auto lock = stream3.lock(0, 4);
 		testThrow(stream1.write("0123", 0, 4), FileStream::LockViolationException);
 	}
 
-	// ‘‚«‚İ
+	// ë£•ê¶–ëœ›ê·’
 	char buffer[10] = {0};
 	stream1.write("abcd", 0, 4);
 	testAssert(stream1.length() == 4);
@@ -546,7 +546,7 @@ testCase(write) {
 	stream1.read(buffer, 0, 6);
 	testAssert(String::equals(buffer, "abcd12"));
 
-	// ”ÍˆÍŠO‘‚«‚İ
+	// ë¶ëŒªë‘–ë£•ê¶–ëœ›ê·’
 	stream1.position(7);
 	stream1.write("+", 0, 1);
 	testAssert(stream1.length() == 8);
@@ -556,7 +556,7 @@ testCase(write) {
 }
 
 
-//testCase(writable) { // testCase(construct) ‚É‚ÄƒeƒXƒgÏ‚İ
+//testCase(writable) { // testCase(construct) ê¶¸ê¶²ê¸¡ê¸šê¸£ë™ê·’
 //}
 
 

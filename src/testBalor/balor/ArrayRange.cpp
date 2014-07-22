@@ -1,4 +1,4 @@
-#include <balor/ArrayRange.hpp>
+ï»¿#include <balor/ArrayRange.hpp>
 
 #include <vector>
 
@@ -31,21 +31,21 @@ vector<wchar_t> rangeToVector(ArrayRange<const wchar_t> range) {
 
 
 testCase(constructAndAccess) {
-	{ // ƒ|ƒCƒ“ƒ^ˆêŒÂƒo[ƒWƒ‡ƒ“
+	{ // í¬ì¸í„° 1ê°œ ë²„ì „
 		wchar_t array[] = L"abc";
 		ArrayRange<wchar_t> range = array;
 		testAssert(range.begin() == array);
 		testAssert(range.end() == (array + 4));
 		testNoThrow(*range.begin() = L'0');
 	}
-	{ // ƒ|ƒCƒ“ƒ^‚Æ’·‚³ƒo[ƒWƒ‡ƒ“
+	{ // í¬ì¸í„°ì™€ ê¸¸ì´ ë²„ì „
 		wchar_t array[] = L"abc";
 		ArrayRange<wchar_t> range(array, 4);
 		testAssert(range.begin() == array);
 		testAssert(range.end() == (array + 4));
 		testNoThrow(*range.begin() = L'0');
 	}
-	{ // vector<wchar_t>ƒo[ƒWƒ‡ƒ“
+	{ // vector<wchar_t> ë²„ì „
 		vector<wchar_t> array = stringToVector(L"abc");
 		ArrayRange<wchar_t> range = array;
 		testAssert(range.begin() == &array.front());
@@ -53,20 +53,20 @@ testCase(constructAndAccess) {
 		testNoThrow(*range.begin() = L'0');
 	}
 
-	// const ”Å
-	{ // ƒ|ƒCƒ“ƒ^ˆêŒÂƒo[ƒWƒ‡ƒ“
+	// const íŒ
+	{ // í¬ì¸í„° 1ê°œ ë²„ì „
 		const wchar_t array[] = L"abc";
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.begin() == array);
 		testAssert(range.end() == (array + 4));
 	}
-	{ // ƒ|ƒCƒ“ƒ^‚Æ’·‚³ƒo[ƒWƒ‡ƒ“
+	{ // í¬ì¸í„°ì™€ ê¸¸ì´ ë²„ì „
 		const wchar_t array[] = L"abc";
 		const ArrayRange<const wchar_t> range(array, 4);
 		testAssert(range.begin() == array);
 		testAssert(range.end() == (array + 4));
 	}
-	{ // vector<wchar_t>ƒo[ƒWƒ‡ƒ“
+	{ // vector<wchar_t> ë²„ì „
 		const vector<wchar_t> array = stringToVector(L"abc");
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.begin() == &array.front());
@@ -76,21 +76,21 @@ testCase(constructAndAccess) {
 
 
 testCase(empty) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const wchar_t array[] = L"abc";
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(!range.empty());
 	}
-	{ // ƒ|ƒCƒ“ƒ^‚Æ 0 ‚Å‰Šú‰»
+	{ // í¬ì¸í„°ì™€ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		const ArrayRange<const wchar_t> range(nullptr, 0);
 		testAssert(range.empty());
 	}
-	{ // ‹óvector<wchar_t>
+	{ // ë¹ˆ vector<wchar_t>
 		const vector<wchar_t> array;
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.empty());
 	}
-	{ // ‹ó‚Å‚Í‚È‚¢vector<wchar_t>
+	{ // ë¹„ì§€ ì•Šì€ vector<wchar_t>
 		const vector<wchar_t> array = stringToVector(L"abc");
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(!range.empty());
@@ -99,21 +99,21 @@ testCase(empty) {
 
 
 testCase(length) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const wchar_t array[] = L"abc";
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.length() == 4);
 	}
-	{ // ƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»
+	{ // í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 		const ArrayRange<const wchar_t> range(nullptr, 0);
 		testAssert(range.length() == 0);
 	}
-	{ // ‹óvector<wchar_t>
+	{ // ë¹ˆ vector<wchar_t>
 		const vector<wchar_t> array;
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.length() == 0);
 	}
-	{ // ‹ó‚Å‚Í‚È‚¢vector<wchar_t>
+	{ // ë¹„ì§€ ì•Šì€ vector<wchar_t>
 		const vector<wchar_t> array = stringToVector(L"abc");;
 		const ArrayRange<const wchar_t> range = array;
 		testAssert(range.length() == 4);

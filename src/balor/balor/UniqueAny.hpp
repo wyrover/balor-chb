@@ -12,13 +12,13 @@ namespace balor {
 
 
 /**
- * ”CˆÓ‚ÌŒ^‚Ì’l‚ð‘ã“ü‚Å‚«‚éƒNƒ‰ƒXB
+ * ”CˆÓ‚Ì?‚Ì’l‚ð´ëÀÔ‚Å‚«‚éƒNƒ‰ƒXB
  * 
- * boost::any ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ªAƒRƒs[‚ð‹ÖŽ~‚µ‚Ä‚¢‚é‚Ì‚ÅƒRƒs[‚Å‚«‚È‚¢Œ^‚à‘ã“ü‚Å‚«‚éB
- * Œ»ó‚Å‚Í‚Ç‚ñ‚ÈƒTƒCƒY‚ÌŒ^‚Å‚ ‚ë‚¤‚Æ‘ã“ü‚·‚é‚Æƒƒ‚ƒŠŠ„‚è“–‚Ä‚ð”º‚¤B¡ŒãÅ“K‰»‚Ì—]’n‚Í‚ ‚é‚©‚à‚µ‚ê‚È‚¢‚ª
- * ƒNƒ‰ƒX‚ÌƒTƒCƒY‚Íí‚Éƒ|ƒCƒ“ƒ^ˆêŒÂ•ª‚Å‚ ‚èAbalor::gui::ListBox ‚â balor::gui::ListView ‚â balor::gui::TreeView “™‚ÌƒNƒ‰ƒX‚Í‚±‚ê‚ð—˜—p‚µ‚ÄŽÀ‘•‚µ‚Ä‚¢‚éB
+ * boost::any ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ªAƒRƒs?‚ð‹Ö?‚µ‚Ä‚¢‚é‚Ì‚ÅƒRƒs?‚Å‚«‚È‚¢?‚à´ëÀÔ‚Å‚«‚éB
+ * Œ»ó‚Å‚Í‚Ç‚ñ‚ÈƒTƒCƒY‚Ì?‚Å‚ ‚ë‚¤‚Æ´ëÀÔ‚·‚é‚Æƒƒ‚ƒŠŠ„‚è“–‚Ä‚ð”º‚¤B¡ŒãÅ“K‰»‚Ì?’n‚Í‚ ‚é‚©‚à‚µ‚ê‚È‚¢‚ª
+ * ƒNƒ‰ƒX‚ÌƒTƒCƒY‚Íí‚É?ƒCƒ“?ˆêŒÂ•ª‚Å‚ ‚èAbalor::gui::ListBox ‚â balor::gui::ListView ‚â balor::gui::TreeView “™‚ÌƒNƒ‰ƒX‚Í‚±‚ê‚ð—˜—p‚µ‚ÄŽÀ‘•‚µ‚Ä‚¢‚éB
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
  * <pre><code>
 	UniqueAny any;
 
@@ -32,18 +32,18 @@ namespace balor {
  * </code></pre>
  */
 #pragma warning(push)
-#pragma warning(disable : 4521) // '::balor::Any' : •¡”‚ÌƒRƒs[ ƒRƒ“ƒXƒgƒ‰ƒNƒ^[‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
-#pragma warning(disable : 4522) // '::balor::Any' : •¡”‚Ì‘ã“ü‰‰ŽZŽq‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4521) // '::balor::Any' : •¡”‚ÌƒRƒs? ƒRƒ“ƒXƒgƒ‰ƒN??‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4522) // '::balor::Any' : •¡”‚Ì´ëÀÔ‰‰ŽZŽq‚ªŽw’è‚³‚ê‚Ä‚¢‚Ü‚·B
 class UniqueAny : private NonCopyable {
 public:
-	/// any_cast ‚µ‚½ Any ‚Ì“à—e‚ª‹ó‚¾‚Á‚½‚èAŒ^‚ªŠÔˆá‚Á‚Ä‚¢‚½ê‡‚É“Š‚°‚ç‚ê‚é—áŠOB
+	/// any_cast ‚µ‚½ Any ‚Ì“à—e‚ª‹ó‚¾‚Á‚½‚èA?‚ªŠÔˆá‚Á‚Ä‚¢‚½ê‡‚É“Š‚°‚ç‚ê‚é—áŠOB
 	class BadCastException : public Exception {};
 
 public:
 	/// ‹ó‚Ìó‘Ô‚Åì¬B
 	UniqueAny() : _holder(nullptr) {}
 	UniqueAny(UniqueAny&& value) : _holder(value._holder) { value._holder = nullptr; }
-	/// ”CˆÓ‚ÌŒ^‚Ì’l‚©‚çì¬B
+	/// ”CˆÓ‚Ì?‚Ì’l‚©‚çì¬B
 	template<typename T>
 	UniqueAny(T&& value) : _holder(new ConcreteHolder<std::remove_const<std::remove_reference<T>::type>::type>(std::forward<T>(value))) {}
 	~UniqueAny() {
@@ -55,7 +55,7 @@ public:
 		std::swap(_holder, value._holder);
 		return *this;
 	}
-	/// ”CˆÓ‚ÌŒ^‚Ì’l‚ð‘ã“üB
+	/// ”CˆÓ‚Ì?‚Ì’l‚ð´ëÀÔB
 	template<typename T>
 	UniqueAny& operator=(T&& value) {
 		UniqueAny temp(std::forward<T>(value));
@@ -64,19 +64,19 @@ public:
 	}
 
 public:
-	/// ƒeƒ“ƒvƒŒ[ƒgˆø”‚ÅŽw’è‚µ‚½Œ^‚ÅƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒg‚µ‚Ä‚»‚ÌŽQÆ‚ð•Ô‚·BƒRƒs[‚âˆÚ“®‚ª’è‹`‚³‚ê‚È‚¢Œ^—pB
+	/// ƒeƒ“ƒvƒŒ?ƒgˆø”‚ÅŽw’è‚µ‚½?‚ÅƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒg‚µ‚Ä‚»‚ÌŽQÆ‚ð•Ô‚·BƒRƒs?‚âˆÚ“®‚ª’è?‚³‚ê‚È‚¢?—pB
 	template<typename T>
 	T& assign() {
 		delete _holder;
 		_holder = new ConcreteHolder<T>();
 		return static_cast<ConcreteHolder<T>*>(_holder)->content;
 	}
-	///	’l‚ª‘ã“ü‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	///	’l‚ª´ëÀÔ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
 	bool empty() const { return _holder == nullptr; }
-	/// ‘ã“ü‚³‚ê‚Ä‚¢‚é’l‚ÌŒ^î•ñB‘ã“ü‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í void ‚ÌŒ^î•ñ‚ð•Ô‚·B
+	/// ´ëÀÔ‚³‚ê‚Ä‚¢‚é’l‚Ì?î•ñB´ëÀÔ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í void ‚Ì?î•ñ‚ð•Ô‚·B
 	const type_info& type() const { return _holder ? _holder->type() : typeid(void); }
 
-	/// ’l‚ðŒ^‚ðŽw’è‚µ‚ÄŽæ“¾‚·‚éB‘ã“ü‚³‚ê‚Ä‚¢‚È‚¢ê‡‚âŒ^‚ªŠÔˆá‚Á‚Ä‚¢‚éê‡‚Í UniqueAny::BadCastException ‚ð“Š‚°‚éB
+	/// ’l‚ð?‚ðŽw’è‚µ‚ÄŽæ“¾‚·‚éB´ëÀÔ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚â?‚ªŠÔˆá‚Á‚Ä‚¢‚éê‡‚Í UniqueAny::BadCastException ‚ð“Š‚°‚éB
 	template<typename T>
 	friend T any_cast(UniqueAny& any) {
 		typedef std::remove_const<std::remove_reference<T>::type>::type PureT;

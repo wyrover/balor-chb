@@ -1,4 +1,4 @@
-#include <balor/io/File.hpp>
+ï»¿#include <balor/io/File.hpp>
 
 #include <utility>
 #include <vector>
@@ -89,12 +89,12 @@ File::Special folders[] = {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // ê¸ªê¹›ê¸¤ê¹‘ê·©ëë£Šê¶»ëšê·‚ë¢¯ê¶¢ê¶³ë‘´ëºê¶¢ê°‚ë³™ë¸«ê¶³ëºë ƒê¶¢ë«ê¶šê·¡ê±ë‡ë™¥ê¹?ê¸ê¶¸ë™¥ê¶‘ê·¡ê±‚ë“«ë¦¶ê·©ê¶‡ê·ê¶”ê¶£ê·•ëšê·ªê¶³ê¶“ê¶˜
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -107,24 +107,24 @@ testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ
 	}
 	File file2(dir, L"file2.txt");
 
-	file0.replace(file1, file2); // XP‚É‚¨‚¢‚Ä‚±‚Ìˆ—‚ğˆê“x’Ê‚µ‚Ä‚¨‚©‚È‚¢‚Æƒnƒ“ƒhƒ‹ƒŠ[ƒN‚ªŒŸo‚³‚ê‚é
+	file0.replace(file1, file2); // XPê¶¸ê¶“ê¶‹ê¶²ê¶ê¶»ë£‰ë¿šê·©ë‡ë±—ë¯…ê¶¢ê¶²ê¶“ê¶”ê¶¶ê¶‹ê¶´ê¸ªê¹›ê¸¤ê¹‘ê¹?ê¸ê¶•ë™šë¢¯ê¶ ê·¢ê·¡
 
 	for (int i = 0, end = sizeof(folders) / sizeof(folders[0]); i < end; ++i) {
-		testNoThrow(File::getSpecial(folders[i], File::SpecialOption::none);); // SHGetFolderPathW ŠÖ”‚Íƒnƒ“ƒhƒ‹‚ğ‘‰Á‚³‚¹‚é‚æ‚¤‚¾
+		testNoThrow(File::getSpecial(folders[i], File::SpecialOption::none);); // SHGetFolderPathW ë“«ë¦¶ê¶¼ê¸ªê¹›ê¸¤ê¹‘ê·©ëªµë¿ê¶ ê¶§ê·¡ê·ê¶ê¶¬
 	}
 
 }
 
 
 testCase(constructAndAssignment) {
-	{// ‹ó‚ÌƒpƒX
+	{// ë—´ê¶»ê¸¬ê¸š
 		File file(L"");
 		testAssert(!file.exists());
 	}
-	{// ’·‚·‚¬‚éƒpƒX
+	{// ë®®ê¶¥ê¶—ê·¡ê¸¬ê¸š
 		testThrow(File file(String(L'a', MAX_PATH)), File::PathTooLongException);
 	}
-	{// ƒpƒX‚Ì move
+	{// ê¸¬ê¸šê¶» move
 		File file(L"c:\\abc");
 		testAssert(file == L"c:\\abc");
 		File file2 = move(file);
@@ -143,7 +143,7 @@ testCase(attributes) {
 	scopeExit(&removeTestDirectory);
 	
 	File dir = getTestDirectory();
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -153,19 +153,19 @@ testCase(attributes) {
 	File file2(dir, L"hoge\\file2.txt");
 	File file3(L"c::\\abc");
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘
 	testThrow(file1.attributes(), File::NotFoundException);
 	testThrow(file1.attributes(File::Attributes::normal), File::NotFoundException);
 
-	// ‘¶İ‚µ‚È‚¢ƒfƒBƒŒƒNƒgƒŠŠK‘w
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë‘ëª
 	testThrow(file2.attributes(), File::NotFoundException);
 	testThrow(file2.attributes(File::Attributes::normal), File::NotFoundException);
 
-	// –³Œø‚ÈƒpƒX
+	// ë¼°ëš¼ê¶¶ê¸¬ê¸š
 	testThrow(file3.attributes(), File::InvalidPathException);
 	testThrow(file3.attributes(File::Attributes::none), File::InvalidPathException);
 
-	{// ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚Æ•ÏX
+	{// ê¸²?ê·½ê¹‘ê¶”ê·ë¡¦ë²¦ê¶´ë¹¾ë››
 		auto attributes = file0.attributes();
 		testAssert((attributes & File::Attributes::archive) != 0);
 		file0.attributes(attributes | File::Attributes::readOnly);
@@ -176,7 +176,7 @@ testCase(attributes) {
 		testThrow(file0.remove(), File::AccessDeniedException);
 	}
 
-	{// ƒfƒBƒŒƒNƒgƒŠ‚©‚çæ“¾‚Æ•ÏX
+	{// ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶”ê·ë¡¦ë²¦ê¶´ë¹¾ë››
 		File sub0(dir, L"sub0");
 		sub0.createDirectory();
 		auto attributes = sub0.attributes();
@@ -190,7 +190,7 @@ testCase(attributes) {
 	}
 
 
-	// Caution: ‘®«‚Ìæ“¾A•ÏXŒ ŒÀ‚Ì‚È‚¢ƒfƒBƒŒƒNƒgƒŠ‚ÉƒAƒNƒZƒX‚µ‚Ä File::AccessDeniedException ‚ª”­¶‚·‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
+	// Caution: ë«Œë§œ ì·¨ë“ê°‚ë¹¾ë››ë™›ë™½ê¶»ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶¸ê·ºê¸ê¸œê¸šê¶¢ê¶² File::AccessDeniedException ê¶•ëµ¯ë§¯ê¶¥ê·¡ê¶ê¶´ê·©ë½ëŸ¨ê¶³ë‘´ë´ƒ
 }
 
 
@@ -198,7 +198,7 @@ testCase(copyTo) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -212,22 +212,22 @@ testCase(copyTo) {
 	File file2(dir, L"file2.txt");
 	File file3(dir, L"file3.txt");
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(file0.copyTo(L""));
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘ë¼¹
 	testThrow(file2.copyTo(file3), File::NotFoundException);
 
-	// ƒRƒs[æ‚ªŠù‚É‘¶İ‚·‚éiã‘‚«w’è‚È‚µj
+	// ê¸“ê¸¯?ë¨©ê¶•ë”“ê¶¸ë«”ëªê¶¥ê·¡ê±ë¤µë£•ê¶–ëŸšë¯¦ê¶¶ê¶¢ê±‚
 	testThrow(file0.copyTo(file1), File::AlreadyExistsException);
 
-	{// ƒAƒNƒZƒXŒ ŒÀ‚ª–³‚¢
+	{// ê·ºê¸ê¸œê¸šë™›ë™½ê¶•ë¼°ê¶‹
 		file1.attributes(file1.attributes() | File::Attributes::readOnly);
 		testThrow(file0.copyTo(file1, true), File::AccessDeniedException);
 		file1.attributes(file1.attributes() & ~File::Attributes::readOnly);
 	}
 
-	{// ‘¶İ‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[
+	{// ë«”ëªê¶¥ê·¡ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶¸ê¸“ê¸¯?
 		auto sub0(dir, L"sub0");
 		auto sub2(dir, L"sub2");
 		sub0.createDirectory();
@@ -235,7 +235,7 @@ testCase(copyTo) {
 		testThrow(sub0.copyTo(sub2), File::AlreadyExistsException);
 	}
 
-	{// ƒfƒBƒŒƒNƒgƒŠ‚ÌƒRƒs[
+	{// ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶»ê¸“ê¸¯?
 		auto sub0(dir, L"sub0");
 		auto subsub0(sub0, L"subsub0");
 		auto file4(sub0, L"file4");
@@ -254,23 +254,23 @@ testCase(copyTo) {
 		testAssert(subsub01.exists());
 	}
 
-	{// ƒtƒ@ƒCƒ‹‚ğƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[‚µ‚æ‚¤‚Æ‚µ‚½
+	{// ê¸²?ê·½ê¹‘ê·©ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶¸ê¸“ê¸¯?ê¶¢ê·ê¶ê¶´ê¶¢ê¶«
 		testThrow(file0.copyTo(File(dir, L"sub0")), File::AccessDeniedException);
 	}
 
-	// ƒpƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	// ê¸¬ê¸šê¶•ì°¾ì„ ìˆ˜ ì—†ëŠ”
 	testThrow(File(dir, L"hoge\\file4.txt").copyTo(file0), File::NotFoundException);
 	testThrow(file0.copyTo(File(dir, L"hoge\\file4.txt")), File::NotFoundException);
 
-	{// ‹¤—LƒAƒNƒZƒX‚Å‚«‚È‚¢
+	{// ë–ë¾ê·ºê¸ê¸œê¸šê¶³ê¶–ê¶¶ê¶‹
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.copyTo(file2), File::SharingViolationException);
 	}
 
-	// •s³‚Èƒtƒ@ƒCƒ‹ƒpƒX
+	// ë¸‰ë§«ê¶¶ê¸²?ê·½ê¹‘ê¸¬ê¸š
 	testThrow(file0.copyTo(L"c::\\hoge.txt"), File::InvalidPathException);
 
-	{// ³íƒP[ƒXiã‘‚«‚È‚µj
+	{// ë§«ë¥‚ê¸‘?ê¸šê±ë¤µë£•ê¶–ê¶¶ê¶¢ê±‚
 		file0.copyTo(file2);
 		testAssert(file2.openRead().length() == 3);
 		char buffer[4] = {0};
@@ -279,7 +279,7 @@ testCase(copyTo) {
 		testAssert(file0.exists());
 	}
 
-	{// ³íƒP[ƒXiã‘‚«‚ ‚èj
+	{// ë§«ë¥‚ê¸‘?ê¸šê±ë¤µë£•ê¶–ê¶‡ê·Ÿê±‚
 		file0.copyTo(file1, true);
 		auto stream = file1.openRead();
 		testAssert(stream.length() == 3);
@@ -291,7 +291,7 @@ testCase(copyTo) {
 }
 
 
-//testCase(create) { // testCase(open) ‚ÅƒeƒXƒg
+//testCase(create) { // testCase(open) ê¶³ê¸¡ê¸šê¸£
 //}
 
 
@@ -299,41 +299,41 @@ testCase(createDirectory) {
 	scopeExit(&removeTestDirectory);
 	auto dir = getTestDirectory();
 
-	{// ƒtƒ@ƒCƒ‹‚ªŠù‚É‘¶İ‚µ‚Ä‚¢‚é
+	{// ê¸²?ê·½ê¹‘ê¶•ë”“ê¶¸ë«”ëªê¶¢ê¶²ê¶‹ê·¡
 		auto file(dir, L"file0");
 		file.create();
 		testThrow(file.createDirectory(), File::AlreadyExistsException);
 	}
-	{// Šù‚ÉƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚é‚È‚ç‰½‚à‚µ‚È‚¢
+	{// ë”“ê¶¸ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶•ë«”ëªê¶¥ê·¡ê¶¶ê·ëºê·–ê¶¢ê¶¶ê¶‹
 		testAssert(dir.exists());
 		testNoThrow(dir.createDirectory());
 		testAssert(dir.exists());
 	}
-	{// ‘¶İ‚µ‚È‚¢ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚Åì¬
+	{// ë«”ëªê¶¢ê¶¶ê¶‹ê¹‘?ê¸£ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶³ë¿ë§Ÿ
 		auto last = *(--Drive::drivesEnd());
 		File dir(String(last.letter() + 1, 1) + L":\\sub0\\subsub0");
 		testAssert(!dir.exists());
 		testThrow(dir.createDirectory(), File::NotFoundException);
 	}
-	{// –³Œø‚ÈƒpƒX
+	{// ë¼°ëš¼ê¶¶ê¸¬ê¸š
 		testThrow(File(dir, L"a?b").createDirectory(), File::InvalidPathException);
 		testThrow(File(L"c::\\test").createDirectory(), File::InvalidPathException);
 	}
-	{// •’Ê‚Éì¬
+	{// ë¸•ë¯…ê¶¸ë¿ë§Ÿ
 		auto sub0(dir, L"sub0");
 		testAssert(!sub0.exists());
 		sub0.createDirectory();
 		testAssert(sub0.exists());
 	}
-	{// ŠK‘w‚ğˆê‹C‚Éì¬
+	{// ë‘ëªê·©ë‡ë” ê¶¸ë¿ë§Ÿ
 		auto sub1(dir, L"sub1\\subsub1\\subsubsub1");
 		testAssert(!sub1.exists());
 		sub1.createDirectory();
 		testAssert(sub1.exists());
 	}
 
-	// Caution: Œ»İ‚Ìƒ†[ƒU‚ÌƒfƒBƒŒƒNƒgƒŠì¬Œ ŒÀ‚ğ‹‘”Û‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚µA‚»‚ÌƒfƒBƒŒƒNƒgƒŠã‚Å createDirectory ‚ğÀs‚µ‚Ä
-	//          UnauthorizedAccessException‚ª”­¶‚·‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
+	// Caution: ë™¸ëªê¶»ê¹‡?ê¸—ê¶»ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë¿ë§Ÿë™›ë™½ê·©ë•»ë¶¬ê¶¢ê¶«ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê·©ë¿ë§Ÿê¶¢ê°‚ê¶©ê¶»ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë¤µê¶³ createDirectory ê·©ë ³ë›±ê¶¢ê¶²
+	//          UnauthorizedAccessExceptionê¶•ëµ¯ë§¯ê¶¥ê·¡ê¶ê¶´ê·©ë½ëŸ¨ê¶³ë‘´ë´ƒ
 }
 
 
@@ -375,7 +375,7 @@ testCase(exists) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -429,7 +429,7 @@ testCase(getFiles) {
 	scopeExit(&removeTestDirectory);
 
 	File dir = getTestDirectory();
-	// ƒeƒXƒg—pƒfƒBƒŒƒNƒgƒŠŠK‘w‚Ìì¬
+	// ê¸¡ê¸šê¸£ë¾­ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë‘ëªê¶»ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	File file1(dir, L"file1.doc");
 	File sub0(dir, L"sub0");
@@ -453,17 +453,17 @@ testCase(getFiles) {
 	file3.create();
 	file4.create();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssert(!dir.getFilesIterator(L"c:\\"));
 	testThrow(dir.getFiles(String(L'a', MAX_PATH)), File::PathTooLongException);
 	testThrow(File(L"c::\\hoge").getFiles(), File::NotFoundException);
 	testThrow(dir.getFiles(L"sub*\\subsub*"), File::InvalidPathException);
 
-	// ŒŸõğŒ‚È‚µ‚È‚ç‚ÎŒŸõŒ‹‰Ê‚È‚µ
+	// ë™šëŠë¥†ë™Šê¶¶ê¶¢ê¶¶ê·ê¶½ë™šëŠë™…ëˆê¶¶ê¶¢
 	testAssert(dir.getFiles(L"").empty());
 	testAssert(!dir.getFilesIterator(L""));
 
-	{// Ä‹A‚È‚µ‘SŒŸõ
+	{// ë‹ë”ê¶¶ê¶¢ë©£ë™šëŠ
 		auto files = dir.getFiles();
 		testAssert(files.size() == 5);
 		testAssert(files[0] == file0.path());
@@ -472,7 +472,7 @@ testCase(getFiles) {
 		testAssert(files[3] == sub1.path());
 		testAssert(files[4] == sub2.path());
 	}
-	{// Ä‹A‚ ‚è‘SŒŸõ
+	{// ë‹ë”ê¶‡ê·Ÿë©£ë™šëŠ
 		auto files = dir.getFiles(L"?*", true);
 		testAssert(files.size() == 11);
 		testAssert(files[ 0] == file2.path());
@@ -487,26 +487,26 @@ testCase(getFiles) {
 		testAssert(files[ 9] == sub1.path());
 		testAssert(files[10] == sub2.path());
 	}
-	{// ŒŸõƒpƒ^[ƒ“w’èŒŸõ
+	{// ë™šëŠê¸¬??ê¹›ëŸšë¯¦ë™šëŠ
 		auto files = dir.getFiles(L"*.doc", true);
 		testAssert(files.size() == 2);
 		testAssert(files[0] == file3.path());
 		testAssert(files[1] == file1.path());
 	}
-	{// ŒŸõƒpƒ^[ƒ“w’è‹óŒŸõ
+	{// ë™šëŠê¸¬??ê¹›ëŸšë¯¦ë—´ë™šëŠ
 		auto files = dir.getFiles(L"hoge?", true);
 		testAssert(files.empty());
 	}
-	{// ‹óƒfƒBƒŒƒNƒgƒŠŒŸõ
+	{// ë—´ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë™šëŠ
 		auto files = sub1.getFiles(L"?*", true);
 		testAssert(files.empty());
 	}
-	{// •¡”ŠK‘wŒŸõƒpƒ^[ƒ“w’èŒŸõ
+	{// ë¸¸ë¦¶ë‘ëªë™šëŠê¸¬??ê¹›ëŸšë¯¦ë™šëŠ
 		auto files = dir.getFiles(L"sub0\\subsub2\\*.txt");
 		testAssert(files.size() == 1);
 		testAssert(files[0] == file2.path());
 	}
-	{// •¡”ŠK‘wŒŸõƒpƒ^[ƒ“w’èŒŸõ Ä‹A‚ ‚è
+	{// ë¸¸ë¦¶ë‘ëªë™šëŠê¸¬??ê¹›ëŸšë¯¦ë™šëŠ ë‹ë”ê¶‡ê·Ÿ
 		auto files = dir.getFiles(L"subsub2\\?*.txt", true);
 		testAssert(files.size() == 1);
 		testAssert(files[0] == file2.path());
@@ -515,7 +515,7 @@ testCase(getFiles) {
 
 
 testCase(getSpecial) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(File::getSpecial(File::Special::_enum(-1)));
 	testAssertionFailed(File::getSpecial(File::Special::adminTools, File::SpecialOption::_enum(-1)));
 
@@ -534,8 +534,8 @@ testCase(getSpecial) {
 	//	dir.remove();
 	//}
 
-	// Caution: ƒVƒXƒeƒ€‚ÌƒtƒHƒ‹ƒ_‚ğíœ‚µ‚Äì¬‚³‚ê‚é‚Ì‚ğƒeƒXƒg‚·‚é‚Ì‚Í”E‚Ñ‚È‚¢B
-	//       File::SpecialOption::doNotVerify ‚¨‚æ‚Ñ File::SpecialOption::create ‚ÌƒP[ƒX‚ğ‰Â”\‚Å‚ ‚ê‚Î–Ú‹‚ÅŠm”F‚·‚é‚±‚Æ
+	// Caution: ê¸˜ê¸šê¸¡?ê¶»ê¸²ê¸…ê¹‘?ê·©ëë££ê¶¢ê¶²ë¿ë§Ÿê¶ ê·¢ê·¡ê¶»ê·©ê¸¡ê¸šê¸£ê¶¥ê·¡ê¶»ê¶¼ë´‚ê·‚ê¶¶ê¶‹ê°ƒ
+	//       File::SpecialOption::doNotVerify ê¶“ê·ê·‚ File::SpecialOption::create ê¶»ê¸‘?ê¸šê·©ë€?ê¶³ê¶‡ê·¢ê¶½ë½ëŸ¨ê¶³ë‘´ë´ƒê¶¥ê·¡ê¶ê¶´
 }
 
 
@@ -560,7 +560,7 @@ testCase(moveTo) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 	File file0(dir, L"file0.txt");
@@ -575,34 +575,34 @@ testCase(moveTo) {
 	File file2(dir, L"file2.txt");
 	File file3(dir, L"file3.txt");
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(file0.moveTo(L""));
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘ë¼¹
 	testThrow(file2.moveTo(file3), File::NotFoundException);
 
-	// ƒRƒs[æ‚ªŠù‚É‘¶İ‚·‚é
+	// ê¸“ê¸¯?ë¨©ê¶•ë”“ê¶¸ë«”ëªê¶¥ê·¡
 	testThrow(file0.moveTo(file1), File::AlreadyExistsException);
 
-	// ‘¶İ‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ÉˆÚ“®‚µ‚æ‚¤‚Æ‚µ‚½
+	// ë«”ëªê¶¥ê·¡ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶¸ëŒ·ë²ê¶¢ê·ê¶ê¶´ê¶¢ê¶«
 	testThrow(file0.moveTo(sub0), File::AlreadyExistsException);
 
-	{// ƒAƒNƒZƒXŒ ŒÀ‚ª–³‚¢
+	{// ê·ºê¸ê¸œê¸šë™›ë™½ê¶•ë¼°ê¶‹
 	}
 
-	// ƒpƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	// ê¸¬ê¸šê¶•ì°¾ì„ ìˆ˜ ì—†ëŠ”
 	testThrow(File(dir, L"hoge\\file4.txt").moveTo(file0), File::NotFoundException);
 	testThrow(file0.moveTo(File(dir, L"hoge\\file4.txt")), File::NotFoundException);
 
-	{// ‹¤—LƒAƒNƒZƒX‚Å‚«‚È‚¢
+	{// ë–ë¾ê·ºê¸ê¸œê¸šê¶³ê¶–ê¶¶ê¶‹
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.moveTo(file2), File::SharingViolationException);
 	}
 
-	// •s³‚Èƒtƒ@ƒCƒ‹ƒpƒX
+	// ë¸‰ë§«ê¶¶ê¸²?ê·½ê¹‘ê¸¬ê¸š
 	testThrow(file0.moveTo(L"c::\\hoge.txt"), File::InvalidPathException);
 
-	{// ³íƒP[ƒXiã‘‚«‚È‚µj
+	{// ë§«ë¥‚ê¸‘?ê¸šê±ë¤µë£•ê¶–ê¶¶ê¶¢ê±‚
 		file0.moveTo(file2);
 		testAssert(!file0.exists());
 		testAssert(file2.exists());
@@ -618,7 +618,7 @@ testCase(moveToDirectory) {
 	scopeExit(&removeTestDirectory);
 	
 	File dir = getTestDirectory();
-	// ƒeƒXƒg—pƒfƒBƒŒƒNƒgƒŠŠK‘w‚Ìì¬
+	// ê¸¡ê¸šê¸£ë¾­ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë‘ëªê¶»ë¿ë§Ÿ
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 	File file0(sub0, L"file0.txt");
@@ -630,39 +630,39 @@ testCase(moveToDirectory) {
 	File sub2(dir, L"sub2");
 	sub2.createDirectory();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(dir.moveTo(L""));
 
-	// ‘¶İ‚µ‚È‚¢ƒfƒBƒŒƒNƒgƒŠ
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹
 	testThrow(sub1.moveTo(sub0), File::NotFoundException);
 
-	// ‘¶İ‚µ‚È‚¢ƒfƒBƒŒƒNƒgƒŠŠK‘w‚Ö‚ÌˆÚ“®
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹ë‘ëªê·‰ê¶»ëŒ·ë²
 	testThrow(sub0.moveTo(File(dir, L"subUnknown\\subsub0")), File::NotFoundException);
 
-	// ˆÚ“®æ‚ÌƒoƒbƒeƒBƒ“ƒO
+	// ëŒ·ë²ë¨©ê¶»ê¸«ê¸ê¸¡ê·»ê¹›ê¸
 	testThrow(sub0.moveTo(sub2), File::AlreadyExistsException);
 	testThrow(sub2.moveTo(file0), File::AlreadyExistsException);
 
-	// ©•ª‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚Ö‚ÌˆÚ“®
+	// ë ”ë¹ê¶»ê¸–ê¸³ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê·‰ê¶»ëŒ·ë²
 	testThrow(sub0.moveTo(subsub1), File::SharingViolationException);
 
-	// –³Œø‚ÈƒpƒX
+	// ë¼°ëš¼ê¶¶ê¸¬ê¸š
 	testThrow(sub0.moveTo(L"c:\\a?c"), File::InvalidPathException);
 	testThrow(sub0.moveTo(L"c::\\abc"), File::InvalidPathException);
 
-	{// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌˆÚ“®
+	{// ê¸²?ê·½ê¹‘ê¸†?ê¸µê¹›ê¶ ê·¢ê¶«ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶»ëŒ·ë²
 		auto stream = file0.openRead();
 		testThrow(sub0.moveTo(sub1), File::AccessDeniedException);
 	}
-	{// ³íƒP[ƒX
+	{// ë§«ë¥‚ê¸‘?ê¸š
 		testNoThrow(sub0.moveTo(sub1));
 		testAssert(!sub0.exists());
 		testAssert(sub1.exists());
 		testAssert(sub1.getFiles(L"?*", true).size() == 4);
 	}
 
-	// Caution: ƒfƒBƒŒƒNƒgƒŠ‚ÌˆÚ“®Œ ŒÀ‚Ì–³‚¢ƒ†[ƒU‚Å moveTo ‚ğÀs‚µAFile::AccessDeniedException ‚ª”­¶‚·‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
-	// Caution: ˆÙ‚È‚éƒfƒBƒXƒNƒ{ƒŠƒ…[ƒ€‚Ö‚Ì moveTo ‚ğÀs‚µAFile::AccessDeniedException ‚ª”­¶‚·‚é‚±‚Æ‚ğ–Ú‹‚ÅŠm”F
+	// Caution: ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶»ëŒ·ë²ë™›ë™½ê¶»ë¼°ê¶‹ê¹‡?ê¸—ê¶³ moveTo ê·©ë ³ë›±ê¶¢ê°‚File::AccessDeniedException ê¶•ëµ¯ë§¯ê¶¥ê·¡ê¶ê¶´ê·©ë½ëŸ¨ê¶³ë‘´ë´ƒ
+	// Caution: ëŒ¶ê¶¶ê·¡ê¸¢ê·»ê¸šê¸?ê¹ê¹„??ê·‰ê¶» moveTo ê·©ë ³ë›±ê¶¢ê°‚File::AccessDeniedException ê¶•ëµ¯ë§¯ê¶¥ê·¡ê¶ê¶´ê·©ë½ëŸ¨ê¶³ë‘´ë´ƒ
 }
 
 
@@ -688,12 +688,12 @@ testCase(nameWithoutExtension) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4189) // 'buffer' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning(disable : 4189) // 'buffer' : ê¹“?ê¸‡ê¹‘ë¹¾ë¦¶ê¶•ë£Šë”–ë¸ê¶ ê·¢ê·ê¶¢ê¶«ê¶•ê°‚ë·ë¤–ê¶ ê·¢ê¶²ê¶‹ê·ê¶§ê·ª
 testCase(open) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 
 	{// create
@@ -760,41 +760,41 @@ testCase(remove) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
 	}
 	File file2(dir, L"file2.txt");
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘ë¼¹
 	testNoThrow(file2.remove());
 
-	{// ƒAƒNƒZƒXŒ ŒÀ‚ª–³‚¢
+	{// ê·ºê¸ê¸œê¸šë™›ë™½ê¶•ë¼°ê¶‹
 		file0.attributes(file0.attributes() | File::Attributes::readOnly);
 		testThrow(file0.remove(), File::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~File::Attributes::readOnly);
 	}
 
-	// ƒpƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	// ê¸¬ê¸šê¶•ì°¾ì„ ìˆ˜ ì—†ëŠ”
 	testThrow(File(dir, L"hoge\\file4.txt").remove(), File::NotFoundException);
 
-	{// ‹¤—LƒAƒNƒZƒX‚Å‚«‚È‚¢
+	{// ë–ë¾ê·ºê¸ê¸œê¸šê¶³ê¶–ê¶¶ê¶‹
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.remove(), File::SharingViolationException);
 	}
 
-	// •s³‚Èƒtƒ@ƒCƒ‹ƒpƒX
+	// ë¸‰ë§«ê¶¶ê¸²?ê·½ê¹‘ê¸¬ê¸š
 	testThrow(File(L"c::\\hoge.txt").remove(), File::InvalidPathException);
 
-	{// ³íƒP[ƒX
+	{// ë§«ë¥‚ê¸‘?ê¸š
 		testAssert(file0.exists());
 		file0.remove();
 		testAssert(!file0.exists());
 	}
 
 
-	{// Á‚·Œ ŒÀ‚Ì–³‚¢ƒfƒBƒŒƒNƒgƒŠ‚Æ’P‘ÌƒfƒBƒŒƒNƒgƒŠíœ
+	{// ë¤‘ê¶¥ë™›ë™½ê¶»ë¼°ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶´ë­ë«¬ê¸¢ê·»ê¹’ê¸ê¸£ê¹ëë££
 		File sub1(dir, L"sub1");
 		sub1.createDirectory();
 		sub1.attributes(sub1.attributes() | File::Attributes::readOnly);
@@ -803,7 +803,7 @@ testCase(remove) {
 		testNoThrow(sub1.remove());
 		testAssert(!sub1.exists());
 	}
-	{// ‹ó‚Å‚Í‚È‚¢ƒfƒBƒŒƒNƒgƒŠ‚ÆÄ‹Aíœ
+	{// ë—´ê¶³ê¶¼ê¶¶ê¶‹ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê¶´ë‹ë”ëë££
 		File sub0(dir, L"sub0");
 		sub0.createDirectory();
 		{
@@ -826,7 +826,7 @@ testCase(replace) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// ƒeƒXƒgƒf[ƒ^ì¬
+	// ê¸¡ê¸šê¸£ê¸¢??ë¿ë§Ÿ
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -847,36 +847,36 @@ testCase(replace) {
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(file0.replace(L"", L" "));
 
-	// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼
+	// ë«”ëªê¶¢ê¶¶ê¶‹ê¸²?ê·½ê¹‘ë¼¹
 	testThrow(file2.replace(file0, L""), File::NotFoundException);
 	testThrow(file0.replace(file2, L""), File::NotFoundException);
 
-	// ƒfƒBƒŒƒNƒgƒŠ‚ğ’u‚«Š·‚¦‚µ‚æ‚¤‚Æ‚µ‚½
+	// ê¸¢ê·»ê¹’ê¸ê¸£ê¹ê·©ë­«ê¶–ë“‚ê¶‘ê¶¢ê·ê¶ê¶´ê¶¢ê¶«
 	testThrow(sub0.replace(file0, L""), File::AccessDeniedException);
 	testThrow(file0.replace(sub0, L""), File::AccessDeniedException);
 	testThrow(file0.replace(file1, sub0), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 
-	// ƒpƒX‚ªŒ©‚Â‚©‚ç‚È‚¢
+	// ê¸¬ê¸šê¶•ì°¾ì„ ìˆ˜ ì—†ëŠ”
 	testThrow(file4.replace(file0, L""), File::NotFoundException);
 	testThrow(file0.replace(file4, L""), File::NotFoundException);
 	testThrow(file0.replace(file1, file4), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 
-	{// ‹¤—LƒAƒNƒZƒX‚Å‚«‚È‚¢
+	{// ë–ë¾ê·ºê¸ê¸œê¸šê¶³ê¶–ê¶¶ê¶‹
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.replace(file1, L""), File::SharingViolationException);
 		testThrow(file1.replace(file0, L""), File::SharingViolationException);
 		testThrow(file1.replace(file3, file0), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 	}
 
-	// •s³‚Èƒtƒ@ƒCƒ‹ƒpƒX
+	// ë¸‰ë§«ê¶¶ê¸²?ê·½ê¹‘ê¸¬ê¸š
 	testThrow(file5.replace(file0, L""), File::InvalidPathException);
 	testThrow(file0.replace(file5, L""), File::InvalidPathException);
 	testThrow(file0.replace(file0, file5), File::SharingViolationException);
 
-	{// ³íƒP[ƒXiƒoƒbƒNƒAƒbƒv‚ ‚èj
+	{// ë§«ë¥‚ê¸‘?ê¸šê±ê¸«ê¸ê¸ê·ºê¸ê¸µê¶‡ê·Ÿê±‚
 		file0.replace(file1, file2);
 		testAssert(!file0.exists());
 		testAssert(file1.openRead().length() == 3);
@@ -894,7 +894,7 @@ testCase(replace) {
 			testAssert(String::equals(buffer, "0123"));
 		}
 	}
-	{// ³íƒP[ƒXiƒoƒbƒNƒAƒbƒv–³‚µj
+	{// ë§«ë¥‚ê¸‘?ê¸šê±ê¸«ê¸ê¸ê·ºê¸ê¸µë¼°ê¶¢ê±‚
 		file1.replace(file2, L"");
 		testAssert(!file1.exists());
 		testAssert(file2.openRead().length() == 3);

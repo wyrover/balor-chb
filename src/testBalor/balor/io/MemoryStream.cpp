@@ -1,4 +1,4 @@
-#include <balor/io/MemoryStream.hpp>
+ï»¿#include <balor/io/MemoryStream.hpp>
 
 #include <limits>
 #include <utility>
@@ -18,7 +18,7 @@ using namespace balor::io;
 
 
 testCase(construct) {
-	{// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	{// ê¸¢ê¸²ê¸…ê¹‘ê¸£ìƒì„±ì
 		MemoryStream stream;
 		testAssert(stream.capacity() == 256);
 		testAssert(stream.length() == 0);
@@ -29,8 +29,8 @@ testCase(construct) {
 		testAssert(stream.length() == 512);
 		testAssert(stream.buffer() != nullptr);
 	}
-	{// ƒLƒƒƒpƒVƒeƒBw’è
-		// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ê¸Œê¸¿ê¸¬ê¸˜ê¸¡ê·»ëŸšë¯¦
+		// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 		testAssertionFailed(MemoryStream(0));
 		testNoThrow        (MemoryStream(1));
 
@@ -44,7 +44,7 @@ testCase(construct) {
 		testAssert(stream.length() == 512);
 		testAssert(stream.buffer() != nullptr);
 	}
-	{// ƒƒ‚ƒŠ”z—ñw’è
+	{// ê¸½ê¸¾ê¹ë´¹ì€±ëŸšë¯¦
 		wchar_t buffer[5] = L"0123";
 
 		{
@@ -68,10 +68,10 @@ testCase(construct) {
 			testAssert(stream.buffer() == buffer);
 		}
 	}
-	{// ƒƒ‚ƒŠƒ|ƒCƒ“ƒ^w’è
+	{// ê¸½ê¸¾ê¹?ê·½ê¹›?ëŸšë¯¦
 		char buffer[5] = "0123";
 
-		// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+		// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 		testAssertionFailed(MemoryStream(nullptr, 0, 4));
 		testAssertionFailed(MemoryStream(buffer, -1, 4));
 		testAssertionFailed(MemoryStream(buffer, 0, -1));
@@ -158,11 +158,11 @@ testCase(buffer) {
 	const MemoryStream& constStream = stream;
 	testAssert(constStream.buffer() == buffer);
 
-	// c‚è‚ÌƒP[ƒX‚Í testCase(construct) ‚ÅƒeƒXƒgÏ‚İ
+	// ëŸ„ê·Ÿê¶»ê¸‘?ê¸šê¶¼ testCase(construct) ê¶³ê¸¡ê¸šê¸£ë™ê·’
 }
 
 
-//testCase(capacity) { // testCase(length) ‚É‚ÄƒeƒXƒgÏ‚İ
+//testCase(capacity) { // testCase(length) ê¶¸ê¶²ê¸¡ê¸šê¸£ë™ê·’
 //}
 
 
@@ -178,13 +178,13 @@ testCase(length) {
 	MemoryStream stream2(source, 0, 4, false);
 	MemoryStream stream3(4);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.length(0));
 	testAssertionFailed(stream1.length(-1));
 	testNoThrow        (stream1.length(0));
 	testAssertionFailed(stream2.length(0));
 
-	// ƒTƒCƒY•ÏX
+	// ê¸–ê·½ê¸›ë¹¾ë››
 	testAssert(stream1.length() == 0);
 	stream1.length(2);
 	testAssert(stream1.length() == 2);
@@ -192,7 +192,7 @@ testCase(length) {
 	testAssert(stream1.length() == 4);
 	testAssertionFailed(stream1.length(5));
 
-	// ƒLƒƒƒpƒVƒeƒB•ÏX‚ğ”º‚¤ƒTƒCƒY•ÏX
+	// ê¸Œê¸¿ê¸¬ê¸˜ê¸¡ê·»ë¹¾ë››ê·©ëµ¼ê¶ê¸–ê·½ê¸›ë¹¾ë››
 	testAssert(stream3.capacity() == 4);
 	testAssert(stream3.length() == 0);
 	stream3.write("0123", 0, 4);
@@ -213,13 +213,13 @@ testCase(position) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.position(1));
 	testAssertionFailed(stream1.position(-1));
 	testAssertionFailed(stream1.position(std::numeric_limits<int>::max() + static_cast<__int64>(1)));
 	testNoThrow        (stream1.position(std::numeric_limits<int>::max()));
 
-	// ƒV[ƒNƒeƒXƒg
+	// ê¸˜?ê¸ê¸¡ê¸šê¸£
 	char buffer[2] = {0};
 	stream1.position(1);
 	testAssert(stream1.position() == 1);
@@ -227,7 +227,7 @@ testCase(position) {
 	testAssert(buffer[0] == L'1');
 	testAssert(stream1.position() == 2);
 
-	// ”ÍˆÍŠO‚Ö‚ÌƒV[ƒN
+	// ë¶ëŒªë‘–ê·‰ê¶»ê¸˜?ê¸
 	stream1.position(5);
 	testAssert(stream1.position() == 5);
 	testAssert(stream1.length() == 4);
@@ -241,7 +241,7 @@ testCase(read) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	char buffer[5] = {0};
 	testAssertionFailed(stream0.read(buffer, 0, 4));
 	testAssertionFailed(stream1.read(nullptr, 0, 4));
@@ -250,7 +250,7 @@ testCase(read) {
 	testAssertionFailed(stream1.read("abcd", 0, 4));
 	testNoThrow        (stream1.read(buffer, 0, 0));
 
-	// “Ç‚İo‚µ
+	// ë²¶ê·’ë¢¯ê¶¢
 	testAssert(stream1.read(buffer, 0, 4) == 4);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "0123"));
@@ -266,7 +266,7 @@ testCase(read) {
 	testAssert(stream1.position() == 2);
 	testAssert(String::equals(buffer, "0013"));
 
-	// ”ÍˆÍŠO“Ç‚İo‚µ
+	// ë¶ëŒªë‘–ë²¶ê·’ë¢¯ê¶¢
 	testAssert(stream1.read(buffer, 0, 4) == 2);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "2313"));
@@ -277,7 +277,7 @@ testCase(read) {
 }
 
 
-//testCase(readable) { // testCase(construct) ‚É‚ÄƒeƒXƒgÏ‚İ
+//testCase(readable) { // testCase(construct) ê¶¸ê¶²ê¸¡ê¸šê¸£ë™ê·’
 //}
 
 
@@ -286,12 +286,12 @@ testCase(skip) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.skip(1));
 	testAssertionFailed(stream1.skip(std::numeric_limits<int>::max() + static_cast<__int64>(1)));
 	testNoThrow        (stream1.skip(std::numeric_limits<int>::max()));
 
-	// ƒV[ƒNƒeƒXƒg
+	// ê¸˜?ê¸ê¸¡ê¸šê¸£
 	char buffer[2] = {0};
 	stream1.position(0);
 	testAssert(stream1.skip(1) == 1);
@@ -301,7 +301,7 @@ testCase(skip) {
 	testAssert(stream1.skip(0) == 0);
 	testAssert(stream1.skip(-2) == 0);
 
-	// ”ÍˆÍŠO‚Ö‚ÌƒV[ƒN
+	// ë¶ëŒªë‘–ê·‰ê¶»ê¸˜?ê¸
 	testAssert(stream1.skip(5) == 5);
 	testAssert(stream1.length() == 4);
 	stream1.position(4);
@@ -316,7 +316,7 @@ testCase(write) {
 	MemoryStream stream2(source, 0, 4, false);
 	MemoryStream stream3(4);
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¼°ëš¼ê¶¶ê¸¬ê¹‹ê¸½??
 	testAssertionFailed(stream0.write("0123", 0, 4));
 	testAssertionFailed(stream1.write(nullptr, 0, 4));
 	testAssertionFailed(stream1.write("0123", -1, 4));
@@ -324,7 +324,7 @@ testCase(write) {
 	testNoThrow        (stream1.write("0123", 0, 0));
 	testAssertionFailed(stream2.write("0123", 0, 4));
 
-	// ‘‚«‚İ
+	// ë£•ê¶–ëœ›ê·’
 	char buffer[10] = {0};
 	stream1.write("abcd", 0, 4);
 	testAssert(stream1.length() == 4);
@@ -347,7 +347,7 @@ testCase(write) {
 	testAssert(String::equals(buffer, "ab12"));
 	testThrow(stream1.write("3", 0, 1), MemoryStream::BufferOverrunException);
 
-	// ”ÍˆÍŠO‘‚«‚İ
+	// ë¶ëŒªë‘–ë£•ê¶–ëœ›ê·’
 	testAssert(stream3.length() == 0);
 	stream3.write("0123", 0, 4);
 	testAssert(stream3.length() == 4);

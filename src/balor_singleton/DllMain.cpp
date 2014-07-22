@@ -1,26 +1,26 @@
-// DllMain.cpp : DLL ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ð’è‹`‚µ‚Ü‚·B
+ï»¿// DllMain.cpp : DLL ì• í”Œë¦¬ì¼€ì´ì…˜ ì—”íŠ¸ë¦¬ í¬ì¸íŠ¸ ì •ì˜
 //
 
-// ‰º‚ÅŽw’è‚³‚ê‚½’è‹`‚Ì‘O‚É‘ÎÛƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ðŽw’è‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢ê‡AˆÈ‰º‚Ì’è‹`‚ð•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
-// ˆÙ‚È‚éƒvƒ‰ƒbƒgƒtƒH[ƒ€‚É‘Î‰ž‚·‚é’l‚ÉŠÖ‚·‚éÅVî•ñ‚É‚Â‚¢‚Ä‚ÍAMSDN ‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
-#ifndef WINVER				// Windows XP ˆÈ~‚Ìƒo[ƒWƒ‡ƒ“‚ÉŒÅ—L‚Ì‹@”\‚ÌŽg—p‚ð‹–‰Â‚µ‚Ü‚·B
-#define WINVER 0x0501		// ‚±‚ê‚ð Windows ‚Ì‘¼‚Ìƒo[ƒWƒ‡ƒ“Œü‚¯‚É“KØ‚È’l‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+// ì•„ëž˜ì— ì •ì˜ëœ ì •ì˜ ì•žì— ëŒ€ìƒ í”Œëž«í¼ì„ ì •ì˜í•˜ì§€ ì•Šìœ¼ë©´ ì•ˆë˜ëŠ” ê²½ìš° ì•„ëž˜ ì •ì˜ ë³€ê²½í•˜ì„¸ìš”
+// ì„œë¡œ ë‹¤ë¥¸ í”Œëž«í¼ì— ëŒ€ì‘í•˜ëŠ” ê°’ ê´€í•œ ìµœì‹  ì •ë³´ì— ëŒ€í•´ì„œëŠ” MSDNì„ ì°¸ì¡°í•˜ì„¸ìš”
+#ifndef WINVER				
+#define WINVER 0x0501		
 #endif
 
-#ifndef _WIN32_WINNT		// Windows XP ˆÈ~‚Ìƒo[ƒWƒ‡ƒ“‚ÉŒÅ—L‚Ì‹@”\‚ÌŽg—p‚ð‹–‰Â‚µ‚Ü‚·B                   
-#define _WIN32_WINNT 0x0501	// ‚±‚ê‚ð Windows ‚Ì‘¼‚Ìƒo[ƒWƒ‡ƒ“Œü‚¯‚É“KØ‚È’l‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+#ifndef _WIN32_WINNT		
+#define _WIN32_WINNT 0x0501	
 #endif						
 
-#ifndef _WIN32_WINDOWS		// Windows 98 ˆÈ~‚Ìƒo[ƒWƒ‡ƒ“‚ÉŒÅ—L‚Ì‹@”\‚ÌŽg—p‚ð‹–‰Â‚µ‚Ü‚·B
-#define _WIN32_WINDOWS 0x0410 // ‚±‚ê‚ð Windows Me ‚Ü‚½‚Í‚»‚êˆÈ~‚Ìƒo[ƒWƒ‡ƒ“Œü‚¯‚É“KØ‚È’l‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+#ifndef _WIN32_WINDOWS		
+#define _WIN32_WINDOWS 0x0410 
 #endif
 
-#ifndef _WIN32_IE			// IE 6.0 ˆÈ~‚Ìƒo[ƒWƒ‡ƒ“‚ÉŒÅ—L‚Ì‹@”\‚ÌŽg—p‚ð‹–‰Â‚µ‚Ü‚·B
-#define _WIN32_IE 0x0600	// ‚±‚ê‚ð IE. ‚Ì‘¼‚Ìƒo[ƒWƒ‡ƒ“Œü‚¯‚É“KØ‚È’l‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+#ifndef _WIN32_IE			
+#define _WIN32_IE 0x0600	
 #endif
 
-#define WIN32_LEAN_AND_MEAN		// Windows ƒwƒbƒ_[‚©‚çŽg—p‚³‚ê‚Ä‚¢‚È‚¢•”•ª‚ðœŠO‚µ‚Ü‚·B
-// Windows ƒwƒbƒ_[ ƒtƒ@ƒCƒ‹:
+#define WIN32_LEAN_AND_MEAN		
+
 #include <windows.h>
 
 

@@ -1,4 +1,4 @@
-#include <balor/StringRange.hpp>
+ï»¿#include <balor/StringRange.hpp>
 
 #include <string>
 
@@ -22,49 +22,49 @@ wstring rangeToString(StringRange range) {
 
 
 testCase(constructAndAccess) {
-	{ // assetƒeƒXƒg
+	{ // asset í…ŒìŠ¤íŠ¸
 		testAssertionFailed(const StringRange range(nullptr));
 		testNoThrow        (const StringRange range(L""));
 		testAssertionFailed(const StringRange range(nullptr, -1));
 		testAssertionFailed(const StringRange range(L"", -2));
 		testNoThrow        (const StringRange range(L"", -1));
 	}
-	{ // ƒ|ƒCƒ“ƒ^ˆêŒÂƒo[ƒWƒ‡ƒ“
+	{ // í¬ì¸í„° 1ê°œ ë²„ì „
 		const wchar_t* string = L"abc";
 		const StringRange range = string;
 		testAssert(range == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // ƒTƒCƒYw’èƒo[ƒWƒ‡ƒ“
+	{ // ì‚¬ì´ì¦ˆ ì§€ì • ë²„ì „
 		const wchar_t* string = L"abc";
 		const StringRange range(string, 3);
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == 3);
 		testAssert(range.length() == 3);
 	}
-	{ // ”z—ñƒo[ƒWƒ‡ƒ“
+	{ // ë°°ì—´ ë²„ì „
 		wchar_t string[5] = L"abc";
 		const StringRange range = string;
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // •¶š—ñƒŠƒeƒ‰ƒ‹ƒo[ƒWƒ‡ƒ“
+	{ // ë¬¸ìì—´ ë¦¬í„°ëŸ´ ë²„ì „
 		const wchar_t string[] = L"abc";
 		const StringRange range = string;
 		testAssert(range.c_str() == string);
 		testAssert(range.rawLength() == -1);
 		testAssert(range.length() == 3);
 	}
-	{ // wstringƒo[ƒWƒ‡ƒ“
+	{ // wstring ë²„ì „
 		const wstring string = L"abc";
 		const StringRange range = string;
 		testAssert(range.c_str() == string.c_str());
 		testAssert(range.rawLength() == static_cast<int>(string.length()));
 		testAssert(range.length() == static_cast<int>(string.length()));
 	}
-	{ // Stringƒo[ƒWƒ‡ƒ“
+	{ // String ë²„ì „
 		const String string = L"abc";
 		const StringRange range = string;
 		testAssert(range.c_str() == string.c_str());
@@ -75,42 +75,42 @@ testCase(constructAndAccess) {
 
 
 testCase(empty) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const wchar_t* string = L"abc";
 		const StringRange range = string;
 		testAssert(!range.empty());
 	}
-	{ // ‹óƒŠƒeƒ‰ƒ‹
+	{ // ë¹ˆ ë¦¬í„°ëŸ´
 		const wchar_t* string = L"";
 		const StringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´
 		const wchar_t* string = L"\0abc";
 		const StringRange range(string);
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹‚ğƒTƒCƒYw’è‚Å‰Šú‰»
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´ë¥¼ ì‚¬ì´ì¦ˆ ì§€ì •ìœ¼ë¡œ ì´ˆê¸°í™”
 		const wchar_t* string = L"\0abc";
 		const StringRange range(string, 4);
 		testAssert(range.empty());
 	}
-	{ // ‹ówstring
+	{ // ë¹ˆ wstring
 		const wstring string;
 		const StringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢wstring
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¹„ì§€ ì•Šì€ wstring
 		const wstring string(L"\0abc", 4);
 		const StringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // ‹óString
+	{ // ë¹ˆ String
 		const String string;
 		const StringRange range = string;
 		testAssert(range.empty());
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢String
+	{ // \0ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¹„ì§€ ì•Šì€ String
 		const String string(L"\0abc", 4);
 		const StringRange range = string;
 		testAssert(range.empty());
@@ -119,42 +119,42 @@ testCase(empty) {
 
 
 testCase(length) {
-	{ // ‹ó‚Å‚Í‚È‚¢ƒŠƒeƒ‰ƒ‹
+	{ // ë¹„ì§€ ì•Šì€ ë¦¬í„°ëŸ´
 		const wchar_t* string = L"abc";
 		const StringRange range = string;
 		testAssert(range.length() == 3);
 	}
-	{ // ‹óƒŠƒeƒ‰ƒ‹
+	{ // ë¹ˆ ë¦¬í„°ëŸ´
 		const wchar_t* string = L"";
 		const StringRange range = string;
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹
+	{ // \0 ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´
 		const wchar_t* string = L"\0abc";
 		const StringRange range(string);
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚éƒŠƒeƒ‰ƒ‹‚ğƒ|ƒCƒ“ƒ^“ñŒÂ‚Å‰Šú‰»
+	{ // \0 ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¦¬í„°ëŸ´ë¥¼ í¬ì¸í„° 2ê°œë¡œ ì´ˆê¸°í™”
 		const wchar_t* string = L"\0abc";
 		const StringRange range(string, 4);
 		testAssert(range.length() == 4);
 	}
-	{ // ‹ówstring
+	{ // ë¹ˆ wstring
 		const wstring string;
 		const StringRange range = string;
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢wstring
+	{ // \0 ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¹„ì§€ ì•Šì€ wstring
 		const wstring string(L"\0abc", 4);
 		const StringRange range = string;
 		testAssert(range.length() == 4);
 	}
-	{ // ‹óString
+	{ // ë¹ˆ String
 		const String string;
 		const StringRange range = string;
 		testAssert(range.length() == 0);
 	}
-	{ // \0‚Ån‚Ü‚é‹ó‚Å‚Í‚È‚¢String
+	{ // \0 ìœ¼ë¡œ ì‹œì‘í•˜ëŠ” ë¯¸ì§€ ì•Šì€ String
 		const String string(L"\0abc", 4);
 		const StringRange range = string;
 		testAssert(range.length() == 4);
@@ -162,7 +162,7 @@ testCase(length) {
 }
 
 
-//testCase(rawLength) { // constructAndAccess ‚ÅƒeƒXƒgÏ‚İ
+//testCase(rawLength) { // constructAndAccess ë¡œ ë°ìŠ¤íŠ¸ ë
 //}
 
 

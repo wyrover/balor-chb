@@ -1,4 +1,4 @@
-#include <balor/io/Stream.hpp>
+﻿#include <balor/io/Stream.hpp>
 
 #include <utility>
 

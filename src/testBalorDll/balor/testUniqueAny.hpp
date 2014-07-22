@@ -1,4 +1,4 @@
-#pragma once
+ο»Ώ#pragma once
 
 #include <api.hpp>
 
@@ -10,7 +10,7 @@ namespace balor {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4190) // 'getStringAny' ‚Ν C ƒƒ“ƒP[ƒWw’θ‚Ε‚·‚ªAC ‚Ζέ·«‚Μ‚Θ‚Άƒ†[ƒU[’θ‹`‚Μ^ 'balor::UniqueAny' ‚π•Τ‚µ‚Δ‚Ά‚ά‚·B
+#pragma warning(disable : 4190) // 'getStringAny'λ” C λ§μΌ€μ΄μ§€ μ§€μ •μ΄μ§€λ§ C μ™€ νΈν™μ„± μ—†λ” μ μ € μ •μ ν• 'balor::UniqueAny'λ¥Ό λ°ν™ν•κ³  μλ‹¤.
 extern "C" TESTBALORDLL_API UniqueAny getStringAny();
 
 extern "C" TESTBALORDLL_API UniqueAny getListenerAny();
