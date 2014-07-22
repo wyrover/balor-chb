@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="balor">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="balor\system">
+      <UniqueIdentifier>{5f03b8aa-621d-4c16-acea-84f93a3e9b1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="api.hpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="balor\testSingleton.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\testModule.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\testUniqueAny.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="balor\testSingleton.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\testModule.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\testUniqueAny.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="balor">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="balor\graphics">
+      <UniqueIdentifier>{47e1a5d6-2cfd-4562-a4a8-c7c5beded88d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\io">
+      <UniqueIdentifier>{cc4e66c0-e86d-4920-becb-0852fdbb9206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\locale">
+      <UniqueIdentifier>{e44992b4-dec7-4b11-86d1-5644b7bd0bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\test">
+      <UniqueIdentifier>{d3024c87-819c-430c-97a4-315fe2671f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tools">
+      <UniqueIdentifier>{f2e66005-3ed8-4740-bfc7-3db79d917458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\system">
+      <UniqueIdentifier>{ab1328c7-7038-4c69-8835-7314f97a5efd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="testBalor.cpp" />
+    <ClCompile Include="balor\ArrayRange.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\ByteStringRange.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Convert.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Flag.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\scopeExit.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Singleton.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\String.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\StringRange.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Bitmap.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Color.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Font.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Drive.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\File.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\FileStream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\MemoryStream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Registry.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Stream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\Debug.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\ComPtr.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\FileVersionInfo.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Module.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Version.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\locale\Locale.cpp">
+      <Filter>balor\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\locale\Charset.cpp">
+      <Filter>balor\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\System.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Listener.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Resource.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\EnvironmentVariable.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\UniqueAny.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Com.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\StringRangeArray.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="testBalor.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tools\floatEquals.hpp">
+      <Filter>tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

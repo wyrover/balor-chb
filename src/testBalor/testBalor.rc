@@ -1,0 +1,112 @@
+balor::graphics::bitmap::test0.png RCDATA "balor\\graphics\\bitmap\\test0.png"
+balor::graphics::bitmap::test1.bmp RCDATA "balor\\graphics\\bitmap\\test1.bmp"
+
+balor::graphics::font::test00.png RCDATA "balor\\graphics\\font\\test00.png"
+balor::graphics::font::test01.png RCDATA "balor\\graphics\\font\\test01.png"
+balor::graphics::font::test02.png RCDATA "balor\\graphics\\font\\test02.png"
+balor::graphics::font::test03.png RCDATA "balor\\graphics\\font\\test03.png"
+balor::graphics::font::test04.png RCDATA "balor\\graphics\\font\\test04.png"
+balor::graphics::font::test05.png RCDATA "balor\\graphics\\font\\test05.png"
+balor::graphics::font::test06.png RCDATA "balor\\graphics\\font\\test06.png"
+balor::graphics::font::test07.png RCDATA "balor\\graphics\\font\\test07.png"
+balor::graphics::font::test08.png RCDATA "balor\\graphics\\font\\test08.png"
+balor::graphics::font::test09.png RCDATA "balor\\graphics\\font\\test09.png"
+balor::graphics::font::test10.png RCDATA "balor\\graphics\\font\\test10.png"
+balor::graphics::font::test11.png RCDATA "balor\\graphics\\font\\test11.png"
+
+balor::io::resource::test00.png       RCDATA "balor\\io\\resource\\test00.png"
+balor::io::resource::test01.bmp       BITMAP "balor\\io\\resource\\test01.bmp"
+balor::io::resource::test02.bmp.en-US BITMAP "balor\\io\\resource\\test02.bmp"
+balor::io::resource::test03.bmp       BITMAP "balor\\io\\resource\\test03.bmp"
+balor::io::resource::test04.png.en-US RCDATA "balor\\io\\resource\\test04.png"
+balor::io::resource::test05.png       RCDATA "balor\\io\\resource\\test05.png"
+balor::io::resource::test06.ico       ICON   "balor\\io\\resource\\test06.ico"
+balor::io::resource::test07.ico.en-US ICON   "balor\\io\\resource\\test07.ico"
+balor::io::resource::test08.ico       CURSOR "balor\\io\\resource\\test08.cur"
+balor::io::resource::test09.ico.en-US CURSOR "balor\\io\\resource\\test09.cur"
+
+balor::locale::charset::euc-jp.txt     RCDATA "balor\\locale\\charset\\euc-jp.txt"
+balor::locale::charset::jis.txt        RCDATA "balor\\locale\\charset\\jis.txt"
+balor::locale::charset::shift_jis.txt  RCDATA "balor\\locale\\charset\\shift_jis.txt"
+balor::locale::charset::unicode.txt    RCDATA "balor\\locale\\charset\\unicode.txt"
+balor::locale::charset::unicodebom.txt RCDATA "balor\\locale\\charset\\unicodebom.txt"
+balor::locale::charset::utf-7.txt      RCDATA "balor\\locale\\charset\\utf-7.txt"
+balor::locale::charset::utf-8.txt      RCDATA "balor\\locale\\charset\\utf-8.txt"
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#include "Revision.h"
+
+#define VS_VERSION_INFO 1
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,2,3,REVISION
+ PRODUCTVERSION 5,6,7,8
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x05L
+#else
+ FILEFLAGS 0x22L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "コメント"
+            VALUE "CompanyName", "カンパニーネーム"
+            VALUE "FileDescription", "ファイルデスクリプション"
+            VALUE "FileVersion", "ファイルバージョン"
+            VALUE "InternalName", "インターナルネーム"
+            VALUE "LegalCopyright", "リーガルコピーライト"
+            VALUE "LegalTrademarks", "リーガルトレードマーク"
+            VALUE "OriginalFilename", "オリジナルファイルネーム"
+            VALUE "PrivateBuild", "プライベートビルド"
+            VALUE "ProductName", "プロダクトネーム"
+            VALUE "ProductVersion", "プロダクトバージョン"
+            VALUE "SpecialBuild", "スペシャルビルド"
+        END
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "comments"
+            VALUE "CompanyName", "companyName"
+            VALUE "FileDescription", "fileDescription"
+            VALUE "FileVersion", "fileVersion"
+            VALUE "InternalName", "internalName"
+            VALUE "LegalCopyright", "legalCopyright"
+            VALUE "LegalTrademarks", "legalTrademarks"
+            VALUE "OriginalFilename", "originalFilename"
+            VALUE "PrivateBuild", "privateBuild"
+            VALUE "ProductName", "productName"
+            VALUE "ProductVersion", "productVersion"
+            VALUE "SpecialBuild", "specialBuild"
+        END
+        BLOCK "080004b0"
+        BEGIN
+            VALUE "Comments", "default comments"
+            VALUE "CompanyName", "companyName"
+            VALUE "FileDescription", "fileDescription"
+            VALUE "FileVersion", "fileVersion"
+            VALUE "InternalName", "internalName"
+            VALUE "LegalCopyright", "legalCopyright"
+            VALUE "LegalTrademarks", "legalTrademarks"
+            VALUE "OriginalFilename", "originalFilename"
+            VALUE "PrivateBuild", "privateBuild"
+            VALUE "ProductName", "productName"
+            VALUE "ProductVersion", "productVersion"
+            VALUE "SpecialBuild", "specialBuild"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200, 0x409, 1200, 0x800, 1200
+    END
+END
