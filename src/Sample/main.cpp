@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE //instance
 		sample::Sample sample;
 		sample.main();
 	} catch (balor::test::UnhandledException& ) {
-		//throw; // 긢긚긣깋긏?딳벍궻댴궸긌긿긞?궬궚궥귡
+		//throw; // 소멸자가 실행되는 것을 위해서 캐치
 	}
 
 	return 0;

@@ -1,4 +1,4 @@
-﻿	//// FontDialog 긡긚긣
+﻿	//// FontDialog 테스트 
 	//FontDialog dialog;
 	////dialog.charsetUI(false);
 	////dialog.color(Color::red());
@@ -25,13 +25,13 @@
 	//	}
 	//	g.textColor(dialog.color());
 	//	g.backTransparent(true);
-	//	g.drawText(L"aBc굙괶굛궇궋궎궑궓듌럻", 10, 200);
+	//	g.drawText(L"aBc 가나다라마바사 興培", 10, 200);
 	//};
 
 
 
 
-	//// ColorDialog 긡긚긣
+	//// ColorDialog 테스트
 	//ColorDialog dialog;
 	////dialog.createColorUI(false);
 	//dialog.onInit() = [&] (ColorDialog::Init& e) {
@@ -49,7 +49,7 @@
 
 
 
-	//// Splitter 긡긚긣
+	//// Splitter 테스트
 	//Button b0(frame, 0, 0, 100, 800, L"b0");
 	//Button b1(frame, 110, 410, 890, 390, L"b1");
 	//Splitter s2(frame, 110, 400, 890, 10);
@@ -74,47 +74,47 @@
 
 
 
-	//// Rebar 긡긚긣
+	//// Rebar 테스트
 
 	////typedef MenuBar::ItemInfo Item;
 	////Item fileMenuItems[] = {
-	////	Item(L"둎궘(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
-	////	Item(L"뺎뫔(&S)\tCtrl+S", Key::Modifier::ctrl | Key::s),
+	////	Item(L"열기(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
+	////	Item(L"저장(&S)\tCtrl+S", Key::Modifier::ctrl | Key::s),
 	////	Item(),
-	////	Item(L"뢎뿹(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
+	////	Item(L"종료(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
 	////};
 	////auto onSubMenuClick = [&] (Menu::Click& e) {
 	////	e.sender().checked(!e.sender().checked());
 	////};
 	////Item subMenuItems[] = {
-	////	Item(L"?긃긞긏0", onSubMenuClick),
-	////	Item(L"?긃긞긏1", onSubMenuClick),
-	////	Item(L"?긃긞긏2", onSubMenuClick)
+	////	Item(L"체크0", onSubMenuClick),
+	////	Item(L"체크1", onSubMenuClick),
+	////	Item(L"체크2", onSubMenuClick)
 	////};
 	////Item editMenuItems[] = {
-	////	Item(L"긖긳긽긦깄?(&S)", subMenuItems),
-	////	Item(L"긽긦깄?귩뷄?렑(&H)", [&] (Menu::Click& ) {
+	////	Item(L"서브메뉴(&S)", subMenuItems),
+	////	Item(L"메뉴를 비표시(&H)", [&] (Menu::Click& ) {
 	////		frame.menuBar(nullptr);
 	////	})
 	////};
 	////Item menuItems[] = {
-	////	Item(L"긲?귽깑(&F)", fileMenuItems),
-	////	Item(L"뺂뢜(&E)", editMenuItems)
+	////	Item(L"파일(&F)", fileMenuItems),
+	////	Item(L"편집(&E)", editMenuItems)
 	////};
 	////MenuBar menuBar(menuItems);
 	////frame.menuBar(&menuBar);
 
 	//layout.startPosition(0, 0);
 
-	//// Rebar::ItemInfo 봹쀱궻띿맟
+	//// Rebar::ItemInfo 배열 만들기
 	//typedef ToolBar::ButtonInfo Info;
 	//Info infos[] = {
-	//	Info(ImageList::StandardImage::cut, L"먛귟롦귟", [&] (ToolBar::Click& ) { MsgBox::show(L"먛귟롦궯궫"); }),
-	//	Info(ImageList::StandardImage::copy, L"긓긯?", [&] (ToolBar::Click& ) { MsgBox::show(L"긓긯?궢궫"); }),
-	//	Info(ImageList::StandardImage::paste, L"?귟븊궚", [&] (ToolBar::Click& ) { MsgBox::show(L"?귟븊궚궫"); }),
-	//	Info(ImageList::StandardImage::properties, L"긵깓긬긡귻"),
-	//	Info(ImageList::StandardImage::fileNew, L"륷딮띿맟"),
-	//	Info(ImageList::StandardImage::fileOpen, L"긲?귽깑귩둎궘"),
+	//	Info(ImageList::StandardImage::cut, L"잘라내기", [&] (ToolBar::Click& ) { MsgBox::show(L"잘라냈다"); }),
+	//	Info(ImageList::StandardImage::copy, L"복사", [&] (ToolBar::Click& ) { MsgBox::show(L"복사하였다"); }),
+	//	Info(ImageList::StandardImage::paste, L"붙이기", [&] (ToolBar::Click& ) { MsgBox::show(L"붙여넣었다"); }),
+	//	Info(ImageList::StandardImage::properties, L"프로퍼티"),
+	//	Info(ImageList::StandardImage::fileNew, L"신규 작성"),
+	//	Info(ImageList::StandardImage::fileOpen, L"파일 열기"),
 	//};
 	//ImageList imageList(ImageList::SystemResource::largeStandardImages);
 	//ToolBar tool(frame, 0, 0, 0, 0, imageList, infos);
@@ -135,7 +135,7 @@
 
 	//Rebar::ItemInfo itemInfos[] = {
 	//	Rebar::ItemInfo(tool, 250),
-	//	Rebar::ItemInfo(combo, 0, L"궞귪귍"),
+	//	Rebar::ItemInfo(combo, 0, L"콤보"),
 	//	Rebar::ItemInfo(edit),
 	//	Rebar::ItemInfo(),
 	//};
@@ -162,7 +162,7 @@
 
 	//Rebar c(frame, itemInfos);
 
-	//// Rebar::ItemInfo 궻긡긚긣
+	//// Rebar::ItemInfo 테스트
 	//struct Compare {
 	//	static bool equal(const Rebar::ItemInfo& lhs, const Rebar::ItemInfo& rhs) {
 	//		return lhs.bitmap() == rhs.bitmap()
@@ -314,7 +314,7 @@
 	//});
 	//Button insert(frame, 0, 0, 0, 0, L"insert", [&] (Button::Click& ) {
 	//	Rebar::ItemInfo info;
-	//	info.text(L"귌궛귌궛");
+	//	info.text(L"ㅋㅋㅋㅋ");
 	//	c.insert(to<int>(itemIndex.text()), info);
 	//});
 	//Button doubleClickToggle(frame, 0, 0, 0, 0, L"doubleClickToggle", [&] (Button::Click& ) {
@@ -336,7 +336,7 @@
 
 
 
-	//// SelectDirectoryDialog 긡긚긣
+	//// SelectDirectoryDialog 테스트 
 	//SelectDirectoryDialog dialog;
 	//frame.brush(nullptr);
 
@@ -372,8 +372,8 @@
 	//dialog.onInit() = [&] (SelectDirectoryDialog::Init& e) {
 	//	e.position(0, 0);
 	//	//e.hideControl(SelectDirectoryDialog::ControlId::filePathLabel);
-	//	e.setControlText(SelectDirectoryDialog::ControlId::filePathLabel, L"긢귻깒긏긣깏");
-	//	e.setControlText(SelectDirectoryDialog::ControlId::acceptButton, L"랷뤖");
+	//	e.setControlText(SelectDirectoryDialog::ControlId::filePathLabel, L"디렉토리");
+	//	e.setControlText(SelectDirectoryDialog::ControlId::acceptButton, L"참조");
 
 	//	auto size = e.clientSize();
 	//	panel = Panel::fromParentHandle(e.sender(), 0, size.height, 300, 100);
@@ -387,7 +387,7 @@
 	//dialog.onAccept() = [&] (SelectDirectoryDialog::Accept& e) {
 	//	Debug::writeLine(L"path:" + e.filePath());
 	//	Debug::writeLine(L"dir:" + e.directory());
-	//	e.cancel(MsgBox::show(e.sender(), L"궓굥갎", L"궓굥", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
+	//	e.cancel(MsgBox::show(e.sender(), L"OK", L"OK", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
 	//};
 
 	//dialog.onHelpRequest() = [&] (SelectDirectoryDialog::HelpRequest& e) {
@@ -397,7 +397,7 @@
 
 
 
-	//// SaveFileDialog 긡긚긣
+	//// SaveFileDialog 테스트 
 	//SaveFileDialog dialog;
 	//frame.brush(nullptr);
 
@@ -447,7 +447,7 @@
 	//	dialog.placesBar(placesBar.checked());
 	//	dialog.title(title.text());
 
-	//	dialog.filter(L"멣궲궻긲?귽깑\n*.*\ndll긲?귽깑\n*.dll\n깋귽긳깋깏긲?귽깑\n*.lib\n\n");
+	//	dialog.filter(L"모든 파일\n*.*\ndll파일\n*.dll\n라이브러리파일\n*.lib\n\n");
 	//	
 	//	if (dialog.show(frame)) {
 	//		filePath.text(dialog.filePath());
@@ -463,8 +463,8 @@
 	//dialog.onInit() = [&] (SaveFileDialog::Init& e) {
 	//	e.position(0, 0);
 	//	e.hideControl(SaveFileDialog::ControlId::filePathLabel);
-	//	e.setControlText(SaveFileDialog::ControlId::filterLabel, L"긲귻깑??궬귝");
-	//	e.setControlText(SaveFileDialog::ControlId::cancelButton, L"귘귕귡갎궭귛궯궴뮮궋빒럻쀱귩볺귢궲귒귡갃");
+	//	e.setControlText(SaveFileDialog::ControlId::filterLabel, L"필터다");
+	//	e.setControlText(SaveFileDialog::ControlId::cancelButton, L"중단? 좀 긴 문자를 넣어 보았다");
 
 	//	auto size = e.size();
 	//	e.size(size.width, size.height + 200);
@@ -478,7 +478,7 @@
 	////dialog.onAccept() = [&] (SaveFileDialog::Accept& e) {
 	////	Debug::writeLine(L"path:" + e.filePath());
 	////	Debug::writeLine(L"dir:" + e.directory());
-	////	e.cancel(MsgBox::show(e.sender(), L"궓굥갎", L"궓굥", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
+	////	e.cancel(MsgBox::show(e.sender(), L"OK", L"OK", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
 	////};
 
 	//dialog.onHelpRequest() = [&] (SaveFileDialog::HelpRequest& e) {
@@ -496,7 +496,7 @@
 
 
 
-	//// OpenFileDialog 긡긚긣
+	//// OpenFileDialog 테스트 
 	//OpenFileDialog dialog;
 	//frame.brush(nullptr);
 
@@ -558,7 +558,7 @@
 	//	dialog.readOnlyCheckBox(readOnlyCheckBox.checked());
 	//	dialog.title(title.text());
 
-	//	dialog.filter(L"멣궲궻긲?귽깑\n*.*\ndll긲?귽깑\n*.dll\n깋귽긳깋깏긲?귽깑\n*.lib\n\n");
+	//	dialog.filter(L"모든 파일\n*.*\ndll파일\n*.dll\n라이브러리 파일\n*.lib\n\n");
 	//	
 	//	if (dialog.show(frame)) {
 	//		filePath.text(dialog.filePath());
@@ -575,8 +575,8 @@
 	//dialog.onInit() = [&] (OpenFileDialog::Init& e) {
 	//	e.position(0, 0);
 	//	e.hideControl(OpenFileDialog::ControlId::filePathLabel);
-	//	e.setControlText(OpenFileDialog::ControlId::filterLabel, L"긲귻깑??궬귝");
-	//	e.setControlText(OpenFileDialog::ControlId::cancelButton, L"귘귕귡갎궭귛궯궴뮮궋빒럻쀱귩볺귢궲귒귡갃");
+	//	e.setControlText(OpenFileDialog::ControlId::filterLabel, L"필터");
+	//	e.setControlText(OpenFileDialog::ControlId::cancelButton, L"중단? 좀 긴 문자열을 넣어 보았다");
 
 	//	auto size = e.size();
 	//	e.size(size.width, size.height + 200);
@@ -590,7 +590,7 @@
 	//dialog.onAccept() = [&] (OpenFileDialog::Accept& e) {
 	//	Debug::writeLine(L"path:" + e.filePath());
 	//	Debug::writeLine(L"dir:" + e.directory());
-	//	e.cancel(MsgBox::show(e.sender(), L"궓굥갎", L"궓굥", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
+	//	e.cancel(MsgBox::show(e.sender(), L"OK", L"OK", MsgBox::Buttons::okCancel) != MsgBox::Result::ok);
 	//};
 
 	//dialog.onHelpRequest() = [&] (OpenFileDialog::HelpRequest& e) {
@@ -607,7 +607,7 @@
 
 
 
-	//// Tab 긡긚긣
+	//// Tab 테스트 
 	//Tab c(frame, 0, 0, 500, 200);
 
 	//Panel page0(c, 0, 0, 0, 0);
@@ -619,18 +619,18 @@
 	//RadioButton r12(page1, 10, 60, 0, 0, L"r12");
 
 	//typedef Tab::ItemInfo Info;
-	//Info infos[] = {Info(L"?긳0", page0, 0)
-	//			   ,Info(L"?긳1귌궛", page1, 1)
-	//			   ,Info(L"?긳2", 2)
+	//Info infos[] = {Info(L"탭0", page0, 0)
+	//			   ,Info(L"탭1", page1, 1)
+	//			   ,Info(L"탭2", 2)
 	//};
 	//c.itemInfos(infos);
 
 
 
-	//// ToolBar 긡긚긣
+	//// ToolBar 테스트
 	//layout.startPosition(0, 0);
 
-	//// ??깛긢??
+	//// 버튼 데이터
 	//typedef ToolBar::ButtonInfo Info;
 	//typedef ToolBar::ButtonStyle Style;
 	//typedef ToolBar::Click Click;
@@ -653,53 +653,53 @@
 	//{
 	//	typedef Menu::ItemInfo Item;
 	//	Item items[] = {
-	//		 Item(L"긤깓긞긵괥", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
-	//		,Item(L"긤깓긞긵괦", [&] (Menu::Event& ) { MsgBox::show(L"긤깓긞긵괦"); })
-	//		,Item(L"긤깓긞긵괧", [&] (Menu::Event& ) { MsgBox::show(L"긤깓긞긵괧"); })
+	//		 Item(L"드랍 0", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
+	//		,Item(L"드랍 1", [&] (Menu::Event& ) { MsgBox::show(L"드랍 1"); })
+	//		,Item(L"드랍 2", [&] (Menu::Event& ) { MsgBox::show(L"드랍 2"); })
 	//	};
 	//	dropDownMenu = PopupMenu(items);
 	//}
-	//Info infos[] = {Info(0, L"?뽞00??깛&A", [&] (Click& ) { MsgBox::show(L"?뽞00"); })
+	//Info infos[] = {Info(0, L"항목 00 버튼&A", [&] (Click& ) { MsgBox::show(L"항목00"); })
 	//			   ,Info()
-	//			   ,Info(1, L"?뽞02?긃긞긏&B", Style::checkBox, [&] (Click& ) { Debug::writeLine(L"?뽞02"); })
-	//			   ,Info(2, L"?뽞03?긃긞긏", Style::checkBox, [&] (Click& ) { Debug::writeLine(L"?뽞03"); })
-	//			   ,Info(3, L"?뽞04깋긙긆", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"?뽞04"); })
-	//			   ,Info(4, L"?뽞05깋긙긆", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"?뽞05"); })
-	//			   ,Info(5, L"?뽞06깋긙긆", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"?뽞06"); })
-	//			   ,Info(6, L"?뽞07긤깓긞긵", Style::dropDown, [&] (Click& e) {
+	//			   ,Info(1, L"항목02체크&B", Style::checkBox, [&] (Click& ) { Debug::writeLine(L"항목02"); })
+	//			   ,Info(2, L"항목03체크", Style::checkBox, [&] (Click& ) { Debug::writeLine(L"항목03"); })
+	//			   ,Info(3, L"항목04라디오", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"항목04"); })
+	//			   ,Info(4, L"항목05라디오", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"항목05"); })
+	//			   ,Info(5, L"항목06라디오", Style::radioButton, [&] (Click& ) { Debug::writeLine(L"항목06"); })
+	//			   ,Info(6, L"항목07드랍", Style::dropDown, [&] (Click& e) {
 	//					if (e.dropDown()) {
 	//						dropDownMenu.show(e.sender(), e.button().bounds().bottomLeft());
 	//					}
-	//					Debug::writeLine(L"?뽞07");
+	//					Debug::writeLine(L"항목07");
 	//				})
 	//			   ,Info(7, L"?뽞08긤깓긞긵??깛", Style::dropDownButton, [&] (Click& e) {
 	//					if (e.dropDown()) {
 	//						dropDownMenu.show(e.sender(), e.button().bounds().bottomLeft());
 	//					} else {
-	//						MsgBox::show(L"?뽞괥괰");
+	//						MsgBox::show(L"항목08");
 	//					}
 	//				})
-	//			   ,Info(8, L"?뽞&09", [&] (Click& ) { MsgBox::show(L"?뽞09"); })
-	//			   ,Info(9, L"?뽞10", [&] (Click& ) { MsgBox::show(L"?뽞10"); })
-	//			   ,Info(10, L"?뽞&11", [&] (Click& ) { MsgBox::show(L"?뽞11"); })
+	//			   ,Info(8, L"항목&09", [&] (Click& ) { MsgBox::show(L"항목09"); })
+	//			   ,Info(9, L"항목10", [&] (Click& ) { MsgBox::show(L"항목10"); })
+	//			   ,Info(10, L"항목&11", [&] (Click& ) { MsgBox::show(L"항목11"); })
 	//			   ,Info()
-	//			   ,Info(11, L"?뽞13", [&] (Click& ) { MsgBox::show(L"?뽞13"); })
+	//			   ,Info(11, L"항목13", [&] (Click& ) { MsgBox::show(L"항목13"); })
 	//			   };
 
 	//infos[2].checked(true);
 	//infos[2].onButtonTipPopup() = [&] (ToolBar::ButtonTipPopup& e) {
-	//	e.setText(L"?뽞괥괧?긞긵");
+	//	e.setText(L"항목02 체크");
 	//};
 	//infos[5].checked(true);
 	////infos[8].enabled(false);
 	//infos[9].rightText(true);
 	//infos[10].style(Style::radioButton);
 	//infos[10].noPrefix(true);
-	//infos[10].text(L"?뽞&10");
+	//infos[10].text(L"항목&10");
 	//infos[11].visible(false);
 	//infos[12].separatorSize(100);
 
-	//// 귽긽?긙깏긚긣
+	//// 이미지 리스트 
 	//ImageList list = ImageList::fromSystemResource(ImageList::SystemResource::largeStandardImages);
 	////ImageList list(100, 100);
 	////Bitmap bm0(400, 100);
@@ -724,26 +724,26 @@
 
 	//ToolBar c(frame, 0, 0, 0, 0, list, infos);
 
-	//// 긟?깑긫?뤵궸긓깛긣깓?깑귩뭫궘
+	//// 틀 바 위에 컨트롤을 놓는다
 	//Edit editOnToolBar(c, 0, 0, 0, 0);
 	//editOnToolBar.bounds(c[12].bounds());
 
 	//c.onMouseDown() = [&] (Control::MouseDown& e) {
 	//	if (e.lButton()) {
 	//		auto index = c.getIndexAt(e.position());
-	//		if (0 <= index) { // pushed() 궻긡긚긣
+	//		if (0 <= index) { // pushed() 테스트
 	//			for (int i = 0; i < c.count(); ++i) {
 	//				if (c[i].style() != ToolBar::ButtonStyle::dropDown && c[i].style() != ToolBar::ButtonStyle::dropDownButton) {
 	//					assert(c[i].pushed() == (c[i].enabled() && i == index));
 	//				}
 	//			}
 	//		}
-	//	} else if (e.mButton()) { // getIndexAt 궻긡긚긣
+	//	} else if (e.mButton()) { // getIndexAt 테스트
 	//		Debug::writeLine(String() + L"button index = " + c.getIndexAt(e.position()));
 	//	}
 	//};
 
-	//// buttonInfos갂??깛봹쀱륃뺪궻롦벦궴뵿뎕궻긡긚긣
+	//// buttonInfos 버튼 배열 정보 취득과 반영 테스트 
 	//{
 	//	auto infos2 = c.buttonInfos();
 	//	assert(infos2.size() == sizeof(infos) / sizeof(infos[0]));
@@ -752,8 +752,8 @@
 	//	}
 	//}
 
-	//Info infosB[] = {Info(0, L"괧?뽞00??깛", Style::checkBox, [&] (Click& ) { MsgBox::show(L"괧?뽞00"); })
-	//			   ,Info(1, L"괧?뽞02?긃긞긏", [&] (Click& ) { Debug::writeLine(L"괧?뽞02"); })
+	//Info infosB[] = {Info(0, L"2항목 00버튼", Style::checkBox, [&] (Click& ) { MsgBox::show(L"2항목00"); })
+	//			   ,Info(1, L"2항목 02체크", [&] (Click& ) { Debug::writeLine(L"2항목02"); })
 	//			   ,Info()
 	//			   };
 	//c.buttonInfos(infosB);
@@ -773,7 +773,7 @@
 	//	}
 	//}
 
-	//// ??깛긡긚긣UI
+	//// 버튼 테스트 UI
 	//Edit buttonIndexEdit(frame, 0, 0, 0, 0, 2);
 	//buttonIndexEdit.text(L"0");
 
@@ -856,7 +856,7 @@
 	//	button.style(buttonStyles[buttonStyleCombo.selectedIndex()]);
 	//});
 	//Edit buttonTextEdit(frame, 0, 0, 0, 0, 10);
-	//buttonTextEdit.text(L"text긡긚긣");
+	//buttonTextEdit.text(L"text 테스트");
 	//Button buttonText(frame, 0, 0, 0, 0, L"buttonText", [&] (Button::Click& ) {
 	//	MsgBox::show(String() + c[to<int>(buttonIndexEdit.text())].text());
 	//});
@@ -890,7 +890,7 @@
 
 
 
-	//// ToolBar ?뫬긡긚긣굏괿
+	//// ToolBar 본체 테스트 UI
 	//Button add(frame, 0, 0, 0, 0, L"add", [&] (Button::Click& ) {
 	//	c.add(Info(to<int>(buttonImageIndexEdit.text()), buttonTextEdit.text(), buttonStyles[buttonStyleCombo.selectedIndex()]
 	//	, [&] (Click& ) {
@@ -944,7 +944,7 @@
 	//});
 	//assert(c.hotImageList() == nullptr);
 	//Button hotImageListChange(frame,0, 0, 0, 0, L"hotImageListChange", [&] (Button::Event& ) {
-	//	c.hotImageList(disabledImageList); // 럊궋귏귦궢
+	//	c.hotImageList(disabledImageList); 
 	//});
 	//assert(c.imageList() == (ImageList::HIMAGELIST)list);
 	//Button imageListUpdate(frame,0, 0, 0, 0, L"imageListUpdate", [&] (Button::Event& ) {
@@ -956,11 +956,11 @@
 	//		case 2 : icon = Icon::asterisk(); index = -1; break;
 	//	}
 	//	list.replace(0, icon);
-	//	c.invalidate(); // 뷠?갏
+	//	c.invalidate(); // 필수
 	//});
 	//Button imageListChangeSmall(frame,0, 0, 0, 0, L"imageListChangeSmall", [&] (Button::Event& ) {
 	//	list = ImageList::fromSystemResource(ImageList::SystemResource::smallStandardImages);
-	//	c.imageList(list); // 덇뱗 clear() 궢궲 add() 궢궲 resize() 궢궶궋궴묈궖궠궼빾귦귞궶궋갃
+	//	c.imageList(list); // 한번 clear() 하고 add() 하고 resize() 하지 않으면 크기는 변하지 않는다 
 	//});
 	//Button imageListChange(frame,0, 0, 0, 0, L"imageListChange", [&] (Button::Event& ) {
 	//	list = ImageList::fromSystemResource(ImageList::SystemResource::largeViewImages);
@@ -1009,7 +1009,7 @@
 
 
 
-	//// UpDown 긡긚긣
+	//// UpDown 테스트 
 	//Button b0(frame, 0, 0, 0, 0, L"b0");
 	//Edit edit(frame, 200, 200, 150, 30, 10, 1);
 	////edit.margin(10, 10, 10, 10);
@@ -1073,7 +1073,7 @@
 
 
 
-	///// IME 듫쁀긡긚긣
+	///// IME 관련 테스트 
 	//Edit edit0(frame, 0, 0, 0, 0);
 	//Edit edit1(frame, 0, 0, 0, 0);
 
@@ -1133,14 +1133,14 @@
 
 
 
-	//// TreeView 긡긚긣
+	//// TreeView 테스트
 	//typedef TreeView::ItemInfo Item;
 
-	//Item items02[] = {Item(L"?뽞괧괥"), Item(L"?뽞괧괦"), Item(L"?뽞괧괧")};
+	//Item items02[] = {Item(L"항목 20"), Item(L"항목 21"), Item(L"항목 22")};
 
-	//Item items0[] = {Item(L"?뽞괥", 0, 0, 0)
-	//				,Item(L"?뽞괦", 1, 1, 1)
-	//				,Item(L"?뽞괧", items02, 2, 2, 2)
+	//Item items0[] = {Item(L"항목 0", 0, 0, 0)
+	//				,Item(L"항목 1", 1, 1, 1)
+	//				,Item(L"항목 2", items02, 2, 2, 2)
 	//				};
 	////items0[0].bold(true);
 	////items0[0].state(0);
@@ -1238,21 +1238,21 @@
 
 
 
-	///// ListView 긡긚긣걁믁돿뢇맫빁궻귒걂
+	///// ListView 테스트(추가 수정분만)
 	//typedef ListView::ColumnInfo Column;
 	//typedef ListView::ItemInfo Item;
 	//typedef ListView::Align Align;
-	//Column columns[] = {Column(L"?뽞괥긶긞??", 0, Align::center, 0, true)
-	//				  , Column(L"?뽞괦긶긞??", 0, Align::center, 1, true)
-	//				  , Column(L"?뽞괧긶긞??", 0, Align::left  , 2, false)};
-	//wstring texts[] = {L"?뽞괥괥", L"?뽞괥괦", L"?뽞괥괧"};
+	//Column columns[] = {Column(L"항목 0 헤더", 0, Align::center, 0, true)
+	//				  , Column(L"항목 1 헤더", 0, Align::center, 1, true)
+	//				  , Column(L"항목 2 헤더", 0, Align::left  , 2, false)};
+	//wstring texts[] = {L"항목 00", L"항목 01", L"항목 02"};
 	//Item items[] = {Item(texts, 0)
-	//			  , Item(L"?뽞괦", 1)
-	//			  , Item(L"?뽞괧", 2)
-	//			  , Item(L"?뽞괨", 2)
-	//			  , Item(L"?뽞괪", 2)
-	//			  , Item(L"?뽞괫", 2)
-	//			  , Item(L"?뽞괮", 2)
+	//			  , Item(L"항목 1", 1)
+	//			  , Item(L"항목 2", 2)
+	//			  , Item(L"항목 3", 2)
+	//			  , Item(L"항목 4", 2)
+	//			  , Item(L"항목 5", 2)
+	//			  , Item(L"항목 6", 2)
 	//			  };
 	////ListView c(frame, 0, 0, 0, 0, columns, items, ListView::Style::details);
 	//ListView c(frame, 0, 0, 400, 200, ListView::Style::details, ListView::Options::checkBoxes);
@@ -1282,7 +1282,7 @@
 	//	source.doDragDrop(e.item().text(), DragDrop::Effect::move//, list, 0);
 	//		, c.smallImageList(), e.item().imageIndex(), 8, 8);
 	//};
-	//c[0].userData(String(L"긡긚긣궬귊궏"));
+	//c[0].userData(String(L"테스트에요"));
 	////c.clear();
 
 	//Font font2;
@@ -1435,7 +1435,7 @@
 
 
 
-	///// ToolTip 긡긚긣
+	///// ToolTip 테스트
 	//frame.onPaint() = [&] (Frame::Paint& e) {
 	//	typedef Graphics::TextFormat TF;
 	//	auto& g = e.graphics();
@@ -1455,21 +1455,21 @@
 	//c2.set(frame, 2, Rectangle(400, 200, 300, 300));
 	//c2.onGetText() = [&] (ToolTip::GetText& e) {
 	//	switch (e.id()) {
-	//		case 1 : e.text(L"괦붥뽞궬궓갏"); break;
-	//		case 2 : e.text(L"괧붥뽞궬궓갏"); break;
+	//		case 1 : e.text(L"첫 번째!"); break;
+	//		case 2 : e.text(L"두 번째!!"); break;
 	//	}
 	//};
 	//c2.onPop() = [&] (ToolTip::Pop& e) {
 	//	switch (e.id()) {
-	//		case 1 : Debug::writeLine(L"괦붥뽞pop궬궓갏"); break;
-	//		case 2 : Debug::writeLine(L"괧붥뽞pop궬궓갏"); break;
+	//		case 1 : Debug::writeLine(L"첫 번째 pop !"); break;
+	//		case 2 : Debug::writeLine(L"두 번째 pop !!"); break;
 	//	}
 	//};
 	//c2.onPopup() = [&] (ToolTip::Popup& e) {
 	//	e.position(e.position() + Point(100, 0));
 	//	switch (e.id()) {
-	//		case 1 : Debug::writeLine(L"괦붥뽞show궬궓갏"); break;
-	//		case 2 : Debug::writeLine(L"괧붥뽞show궬궓갏"); break;
+	//		case 1 : Debug::writeLine(L"첫 번째 show !"); break;
+	//		case 2 : Debug::writeLine(L"두 번째 show !!"); break;
 	//	}
 	//	//e.position(0, 0);
 	//	//e.position(e.position().x, e.position().y - 300);
@@ -1609,15 +1609,15 @@
 	//});
 
 	////c.maxTextWidth(5000);
-	//c.set(button, L"&긟?깑\t?긞긵궬궓");
-	//c.set(trackBar, L"궓??????귪");
+	//c.set(button, L"&툴\t팁");
+	//c.set(trackBar, L"응~~~~~~");
 	////c.textFormat(Graphics::TextFormat::expandTabs);
 
 
 
 
-	//// ComboBox 긡긚긣
-	//const wchar_t* strings[] = {L"\t0궇궋궎궑궓", L"012345678궔궖궘궚궞", L"2궠궢궥궧궩", L"3궠궢궥궧궩궇궓궓궓궓궓aaaaaa", L"4궠궢궥궧궩", L"5궠궢궥궧궩", L"6궠궢궥궧궩"};
+	//// ComboBox 테스트
+	//const wchar_t* strings[] = {L"\t0가가가", L"012345678나나나", L"2다다다", L"3라라라aaaaaa", L"4마마마", L"5바바바", L"6사사사"};
 	//ComboBox cc(frame, 0, 0, 0, 0, strings, ComboBox::Style::dropDown);
 	//ComboBox c(move(cc));
 	//cc = move(c);
@@ -1730,9 +1730,9 @@
 	////list.onMouseDown() = [&] (Control::MouseDown& e) {
 	////	Debug::writeLine(String() + list.getIndexAt(e.position()));
 	////};
-	////list.setItemData(0, String(L"궇궯궼?귪"));
+	////list.setItemData(0, String(L"아~항"));
 	////Edit item(frame, 0, 0, 0, 0, 20);
-	////item.text(L"?뽞믁돿괥");
+	////item.text(L"항목 추가 0");
 	////item.brush(Brush::black());
 	////item.textColor(Color::yellow());
 	////Edit index(frame, 0, 0, 0, 0, 3);
@@ -1912,12 +1912,12 @@
 	////};
 
 	//std::wregex cRegex(L"-?[0-9]*\\.?[0-9]*");
-	////std::wregex cRegex(L"[0-9a-zA-Z궇-귪]*");
+	////std::wregex cRegex(L"[0-9a-zA-Z아-자]*");
 	//c.edit().onTextChange() = [&] (Edit::TextChange& e) {
 	//	//StringBuffer buffer(e.newText());
 	//	//for (auto i = buffer.begin(), end = buffer.end(); i != end; ++i) {
-	//	//	if (L'궆' <= *i && *i <= L'귪') {
-	//	//		*i += L'?' - L'궆';
+	//	//	if (L'아' <= *i && *i <= L'자') {
+	//	//		*i += L'ㅇ' - L'ㅈ';
 	//	//	}
 	//	//}
 	//	//e.newText(buffer);
@@ -1927,8 +1927,8 @@
 	//	}
 	//};
 	////c.edit().onKeyPress() = [&] (Edit::KeyPress& e) {
-	////	if (L'궆' <= e.charCode() && e.charCode() <= L'귪') {
-	////		e.charCode(e.charCode() + L'?' - L'궆');
+	////	if (L'ㅇ' <= e.charCode() && e.charCode() <= L'ㅈ') {
+	////		e.charCode(e.charCode() + L'?' - L'ㅇ');
 	////	}
 	////};
 	////c.edit().onPaste() = [&] (Edit::Paste& e) {
@@ -1945,7 +1945,7 @@
 	//	}
 	//};
 
-	////String items[] = {L"귺귽긂", L"귺귺긂", L"012", L"abc", L"abd", L"abcdef"};
+	////String items[] = {L"가나다", L"가가다", L"012", L"abc", L"abd", L"abcdef"};
 	////AutoComplete acc(c.edit(), AutoComplete::Mode::appendAndSuggest, items);
 	////AutoComplete acc(c.edit(), AutoComplete::Mode::appendAndSuggest, AutoComplete::SystemItems::fileSystem);
 
@@ -2027,8 +2027,8 @@
 	//	Debug::writeLine(String() + c.edit().firstVisibleLine());
 	//});
 	//Button cueBanner(frame, frame.firstBounds().x, frame.lastBounds().bottom() + 20, 0, 0, L"cueBanner", [&] (Button::Event& ) {
-	//	c.edit().cueBanner(L"룊딖?렑");
-	//	assert(c.edit().cueBanner() == L"룊딖?렑");
+	//	c.edit().cueBanner(L"초기 표시");
+	//	assert(c.edit().cueBanner() == L"초기 표시");
 	//});
 	//Button noKeyPress(frame, frame.lastBounds().right() + 20, frame.lastBounds().y, 0, 0, L"noKeyPress", [&] (Button::Event& ) {
 	//	auto s = toFlag(c.edit().imeStatus());
@@ -2155,8 +2155,8 @@
 
 
 
-	//// ListBox 긡긚긣
-	//const wchar_t* strings[] = {L"\t0궇궋궎궑궓", L"012345678궔궖궘궚궞", L"2궠궢궥궧궩", L"3궠궢궥궧궩궇궓궓궓궓궓aaaaaa", L"4궠궢궥궧궩", L"5궠궢궥궧궩", L"6궠궢궥궧궩"};
+	//// ListBox 테스트
+	//const wchar_t* strings[] = {L"\t0가가가", L"012345678나나나", L"2다다다", L"3라라라aaaaaa", L"4마마마", L"5바바바", L"6사사사"};
 	//ListBox cc(frame, 0, 0, 0, 0, strings, ListBox::SelectMode::multipleExtended, ListBox::Options::scrollBarFixed | ListBox::Options::noVScroll);
 	//ListBox c(move(cc));
 	//cc = move(c);
@@ -2166,9 +2166,9 @@
 	//c.onMouseDown() = [&] (Control::MouseDown& e) {
 	//	Debug::writeLine(String() + c.getIndexAt(e.position()));
 	//};
-	//c.setItemData(0, String(L"궇궯궼?귪"));
+	//c.setItemData(0, String(L"아~항"));
 	//Edit item(frame, 0, 0, 0, 0, 20);
-	//item.text(L"?뽞믁돿괥");
+	//item.text(L"항목추가 0");
 	//item.brush(Brush::black());
 	//item.textColor(Color::yellow());
 	//Edit index(frame, 0, 0, 0, 0, 3);
@@ -2334,7 +2334,7 @@
 
 
 
-	//// TrackBar 긡긚긣
+	//// TrackBar 테스트 
 	//TrackBar cc(frame, 0, 0, 0, 0, 0, 100, TrackBar::Options::valueTip);
 	//TrackBar c(move(cc));
 	//cc = move(c);
@@ -2465,7 +2465,7 @@
 
 
 
-	//// ScrollBar 긡긚긣
+	//// ScrollBar 테스트 
 	//ScrollBar cc(frame, 0, 0, 0, 0, 0, 100, 10);
 	//ScrollBar c(move(cc));
 	//cc = move(c);
@@ -2508,7 +2508,7 @@
 
 
 
-	//// ProgressBar 긡긚긣
+	//// ProgressBar 테스트 
 	//ProgressBar cc(frame, 10, 10, 0, 0, 0, 100);
 	//ProgressBar c(move(cc));
 	//cc = move(c);
@@ -2548,7 +2548,7 @@
 
 
 
-	//// Monitor 긡긚긣
+	//// Monitor 테스트 
 	//Debug::writeLine(String() + L"monitorsCount;" + Monitor::monitors().size());
 	//Debug::writeLine(String() + L"monitorsHasSameBitsPerPixel;" + Monitor::monitorsHasSameBitsPerPixel());
 	//Debug::writeLine(String() + L"virtualMonitorBounds;" + toStr(Monitor::virtualMonitorBounds()));
@@ -2573,7 +2573,7 @@
 
 
 
-	//// DragDrop 긡긚긣
+	//// DragDrop 테스트 
 	//Bitmap bm;
 	//CheckBox blend(frame, 0, 0, 0, 0, L"blend");
 	//CheckBox dib(frame, 0, 0, 0, 0, L"dib");
@@ -2585,7 +2585,7 @@
 	//	}
 	//};
 	//Edit setBitmap1(frame, 0, 0, 0, 0, 50);
-	//setBitmap1.text(L"C:\\Users\\syanji\\Desktop\\뗢긚?귽깑0.bmp");
+	//setBitmap1.text(L"C:\\Users\\syanji\\Desktop\\은스마일0.bmp");
 	//DragDrop::Source source(frame);
 	//DragDrop::Target target(frame);
 	//frame.onMouseMove() = [&] (Frame::MouseMove& e) {
@@ -2654,7 +2654,7 @@
 
 
 
-	//// Clipboard 긡긚긣
+	//// Clipboard 테스트 
 	//Bitmap bm;
 	//Button clear(frame, 0, 0, 0, 0, L"clear", [&] (Button::Event& ) {
 	//	Clipboard::clear();
@@ -2676,7 +2676,7 @@
 	//			}
 	//			frame.invalidate();
 	//		} else {
-	//			MsgBox::show(L"롦벦렪봲");
+	//			MsgBox::show(L"취득 실패");
 	//		}
 	//	}
 	//	MsgBox::show(String() + Clipboard::containsBitmap());
@@ -2690,7 +2690,7 @@
 	//			}
 	//			frame.invalidate();
 	//		} else {
-	//			MsgBox::show(L"롦벦렪봲");
+	//			MsgBox::show(L"취득 실패");
 	//		}
 	//	}
 	//	MsgBox::show(String() + Clipboard::containsDIB());
@@ -2729,7 +2729,7 @@
 	//});
 	//Button containsText(frame, 0, 0, 0, 0, L"containsText", [&] (Button::Event& ) {
 	//	if (Clipboard::containsText()) {
-	//		MsgBox::show(L"걏" + Clipboard::getText() + L"걐");
+	//		MsgBox::show(L"[" + Clipboard::getText() + L"]");
 	//	} else {
 	//		MsgBox::show(String() + Clipboard::containsText());
 	//	}
@@ -2738,7 +2738,7 @@
 	//	MsgBox::show(String() + Clipboard::registerMemoryFormat(L"memoryTest"));
 	//});
 	//Edit setBitmap1(frame, 0, 0, 0, 0, 50);
-	//setBitmap1.text(L"C:\\Users\\syanji\\Desktop\\뗢긚?귽깑0.bmp");
+	//setBitmap1.text(L"C:\\Users\\syanji\\Desktop\\은스마일0.bmp");
 	//Button setBitmap(frame, 0, 0, 0, 0, L"setBitmap", [&] (Button::Event& ) {
 	//	Bitmap bitmap;
 	//	if (setBitmap1.text().empty()) {
@@ -2798,7 +2798,7 @@
 
 
 
-	//// Edit 긡긚긣
+	//// Edit 테스트
 	//Edit cc(frame, 0, 0, 0, 0, 10, 1);// 3, Edit::Options::multiline | Edit::Options::noHScroll);
 	//Edit c(move(cc));
 	//cc = move(c);
@@ -2851,7 +2851,7 @@
 	//	}
 	//};
 
-	//String items[] = {L"귺귽긂", L"귺귺긂", L"012", L"abc", L"abd", L"abcdef"};
+	//String items[] = {L"가나다", L"가가다", L"012", L"abc", L"abd", L"abcdef"};
 	//AutoComplete acc(c, items);
 	////AutoComplete acc(c, AutoComplete::SystemItems::fileSystem);
 
@@ -2939,8 +2939,8 @@
 	//	Debug::writeLine(String() + c.firstVisibleLine());
 	//});
 	//Button cueBanner(frame, 0, 0, 0, 0, L"cueBanner", [&] (Button::Event& ) {
-	//	c.cueBanner(L"룊딖?렑");
-	//	assert(c.cueBanner() == L"룊딖?렑");
+	//	c.cueBanner(L"초기 표시");
+	//	assert(c.cueBanner() == L"초기 표시");
 	//});
 	//Button noKeyPress(frame, 0, 0, 0, 0, L"noKeyPress", [&] (Button::Event& ) {
 	//	auto s = toFlag(c.imeStatus());
@@ -3072,7 +3072,7 @@
 
 
 
-	////Label 긡긚긣
+	////Label 테스트 
 	//int width = 0;
 	//Bitmap bitmap2(200, 200);
 	//{
@@ -3142,7 +3142,7 @@
 
 
 
-	//// Panel 긡긚긣
+	//// Panel 테스트 
 	//Panel cc(frame, 0, 0, 150, 150, Control::Edge::client);
 	//Panel c(move(cc));
 	//cc = move(c);
@@ -3180,7 +3180,7 @@
 
 
 
-	//// GroupBox 긡긚긣
+	//// GroupBox 테스트 
 	//GroupBox cc(frame, 10, 40, 150, 60, L"control");
 	//GroupBox c(move(cc));
 	//cc = move(c);
@@ -3232,7 +3232,7 @@
 
 
 
-	//// RadioButton 긡긚긣
+	//// RadioButton 테스트
 	//RadioButton cc(frame, 0, 0, 0, 0, L"control\n2line");
 	//RadioButton c(move(cc));
 	//cc = move(c);
@@ -3336,7 +3336,7 @@
 
 
 
-	//// CheckBox 긡긚긣
+	//// CheckBox 테스트
 	//CheckBox cc(frame, 0, 0, 0, 0, L"control\n2line");
 	//CheckBox c(move(cc));
 	//cc = move(c);
@@ -3433,7 +3433,7 @@
 
 
 
-	//// Button 긡긚긣
+	//// Button 테스트 
 	//Button cc(frame, 10, 20, 0, 0, L"control\nunko");
 	//Button c(move(cc));
 	//cc = move(c);

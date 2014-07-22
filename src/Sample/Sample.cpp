@@ -65,19 +65,19 @@ void Sample::main() {
 	{
 		typedef Menu::ItemInfo Item;
 		Item itemsSub[] = {
-			Item(L"sframe?긃긞긏궥귡궨궏", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
-			,Item(L"sframe뺂뢜", [&] (Menu::Event& ) { MsgBox::show(L"s뺂뢜"); })
+			Item(L"sframe체크하기", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
+			,Item(L"sframe편집", [&] (Menu::Event& ) { MsgBox::show(L"s편집"); })
 			,Item()
-			,Item(L"sframe???", [&] (Menu::Event& ) { MsgBox::show(L"s???"); })
+			,Item(L"sframe더미", [&] (Menu::Event& ) { MsgBox::show(L"s더미"); })
 		};
 		Item items[] = {
-			 Item(L"frame?긃긞긏궥귡궨궏", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
-			,Item(L"frame뺂뢜", [&] (Menu::Event& ) { MsgBox::show(L"뺂뢜"); })
-			,Item(L"frame???", itemsSub)
+			 Item(L"frame체크하기", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
+			,Item(L"frame편집", [&] (Menu::Event& ) { MsgBox::show(L"편집"); })
+			,Item(L"frame더미", itemsSub)
 		};
 		framePopupMenu.itemInfos(items);
 		framePopupMenu[0].uncheckedMark(bitmap0);
-		framePopupMenu[2].userData(String(L"귪?"));
+		framePopupMenu[2].userData(String(L"응?"));
 		frame.onPopupMenu() = [&] (Control::PopupMenu& e) {
 			framePopupMenu.show(frame, e.position());
 		};
@@ -125,20 +125,20 @@ void Sample::main() {
 
 	typedef Tab::ItemInfo Info;
 	Info infos[] = {
-		Info(L"?긳0", page0),
-		Info(L"?긳1", page1),
-		Info(L"?긳2"),
+		Info(L"탭0", page0),
+		Info(L"탭1", page1),
+		Info(L"탭2"),
 	};
 	Tab tab(frame, 20, 10, 400, 300, infos);
 	//tab.itemInfos(infos);
 
 
-	auto& cparent = frame;
+	//auto& cparent = frame;
 
 	{
 	//layout.perform();
 
-	//// 떎믅긡긚긣깑??깛
+	//// 공통 테스트 루틴 
 	//Bitmap drawTo(c.size());
 	//Panel panel(cparent, 0, 0, 30 + c.bounds().width, 60 + c.bounds().height * 2, Control::Edge::client);
 	//{// bounds
@@ -190,7 +190,7 @@ void Sample::main() {
 	//	verify(c.focused());
 	//});
 	//// font
-	//Font bigFont(L"긽귽깏긆", 40);
+	//Font bigFont(L"메이리오", 40);
 	//Button font(cparent, 0, 0, 0, 0, L"font", [&] (Button::Event& ) {
 	//	c.font(c.font() == bigFont ? (Font::HFONT)Control::defaultFont() : (Font::HFONT)bigFont);
 	//	c.resize();
@@ -267,10 +267,10 @@ void Sample::main() {
 	//// text
 	//String textBackup;
 	//Button text(cparent, 0, 0, 0, 0, L"text", [&] (Button::Event& ) {
-	//	if (c.text() !=  L"text빾뛛갏") {
+	//	if (c.text() !=  L"text갱신") {
 	//		textBackup = c.text();
 	//	}
-	//	c.text(c.text() != L"text빾뛛갏" ? L"text빾뛛갏" : textBackup);
+	//	c.text(c.text() != L"text갱신" ? L"text갱신" : textBackup);
 	//});
 	//// update
 	//Button update(cparent, 0, 0, 0, 0, L"update", [&] (Button::Event& ) {
@@ -332,9 +332,9 @@ void Sample::main() {
 	//{
 	//	typedef Menu::ItemInfo Item;
 	//	Item items[] = {
-	//		 Item(L"?긃긞긏궥귡궨궏", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
-	//		,Item(L"뺂뢜", [&] (Menu::Event& ) { MsgBox::show(L"뺂뢜"); })
-	//		,Item(L"???", [&] (Menu::Event& ) { MsgBox::show(L"???"); })
+	//		 Item(L"체크하기", [&] (Menu::Event& e) { e.sender().checked(!e.sender().checked()); })
+	//		,Item(L"편집", [&] (Menu::Event& ) { MsgBox::show(L"편집"); })
+	//		,Item(L"더미", [&] (Menu::Event& ) { MsgBox::show(L"더미"); })
 	//	};
 	//	popupMenu = PopupMenu(items);
 	//}
