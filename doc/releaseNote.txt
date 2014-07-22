@@ -1,0 +1,17 @@
+●2011/08/15  ver1.0.1 リリース
+
+・balor::gui::ColorDialog を追加。
+・balor::gui::FontDialog を追加。
+・balor::gui::Splitter を追加。
+・balor::gui::Control::zOrder の数字の意味を逆順に変更。
+　　子コントロールを追加するたびに zOrder が変化するのは使いにくい為。
+・イベント名が現在進行形、現在形、過去形の３種類あったのを過去形を現在形に統合して２種類に変更。
+　　balor::gui::Frame、balor::gui::ListView、balor::gui::Tab、balor::gui::TreeView に影響。
+・balor::gui::Tab のコンストラクタに項目情報配列を指定できるように変更。
+　　この修正に伴い、Tab::Item::page をタブに追加する時に親コントロールをタブコントロールに変更するようにした。
+・balor::gui::ToolBar::Button を balor::gui::ToolBar::Item に変更。
+　　それに伴って関連する名前を全て変更。
+
+
+
+●2011/07/30  ver1.0.0 初版リリース

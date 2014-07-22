@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListView.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListView.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/graphics/Color.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/StringRangeArray.hpp&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">struct </span>_IMAGELIST;
+<a name="l00010"></a>00010 <span class="keyword">struct </span>tagNMLVCUSTOMDRAW;
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>std {
+<a name="l00013"></a>00013     <span class="keyword">namespace </span>tr1 {
+<a name="l00014"></a>00014 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span>function;
+<a name="l00015"></a>00015     }
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>balor {
+<a name="l00019"></a>00019     <span class="keyword">namespace </span>graphics {
+<a name="l00020"></a>00020 <span class="keyword">class </span>ImageList;
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022 }
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keyword">namespace </span>balor {
+<a name="l00026"></a>00026     <span class="keyword">namespace </span>gui {
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">class </span>Edit;
+<a name="l00029"></a>00029 <span class="keyword">class </span>ToolTip;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00066"></a><a class="code" href="classbalor_1_1gui_1_1_list_view.html">00066</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00067"></a>00067 <span class="keyword">public</span>:
+<a name="l00068"></a>00068     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00069"></a>00069     typedef ::balor::graphics::ImageList <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>;
+<a name="l00070"></a>00070 
+<a name="l00072"></a><a class="code" href="classbalor_1_1gui_1_1_list_view.html#a9b2e37997e49717ee9df428258b2049b">00072</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a9b2e37997e49717ee9df428258b2049b" title="項目の文字列の終端文字を含めた最大長。">maxTextLength</a> = 512;
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 
+<a name="l00076"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html">00076</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">Align</a> {
+<a name="l00077"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4">00077</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4">_enum</a> {
+<a name="l00078"></a>00078             left   = 0x0000, 
+<a name="l00079"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4a0320da2e8733fe840deabdcebc381b3b">00079</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4a0320da2e8733fe840deabdcebc381b3b" title="左揃え。">right</a>  = 0x0001, 
+<a name="l00080"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4a3b80db06735cdb6e5dac1321a2c7a055">00080</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html#aa6890a6dcf43846fd67c9e1e6335c9f4a3b80db06735cdb6e5dac1321a2c7a055" title="右揃え。">center</a> = 0x0002, 
+<a name="l00081"></a>00081         };
+<a name="l00082"></a>00082         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">Align</a>);
+<a name="l00083"></a>00083     };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 
+<a name="l00087"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html">00087</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html" title="項目の部分。">ItemPortion</a> {
+<a name="l00088"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35">00088</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35">_enum</a> {
+<a name="l00089"></a>00089             whole        = 0x0000, 
+<a name="l00090"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a4d8ef0633bb1a114de5dce5ec69f954d">00090</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a4d8ef0633bb1a114de5dce5ec69f954d" title="項目全体。">icon</a>         = 0x0001, 
+<a name="l00091"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a16c08871dee15884259d1a33b9819047">00091</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a16c08871dee15884259d1a33b9819047" title="アイコン部分。">text</a>         = 0x0002, 
+<a name="l00092"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a4ad25ffddb0edfb8552f641d26b5e118">00092</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#a9c2a07d9c9db4002dbec442d773c3d35a4ad25ffddb0edfb8552f641d26b5e118" title="文字列部分。">selectBounds</a> = 0x0003, 
+<a name="l00093"></a>00093         };
+<a name="l00094"></a>00094         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html" title="項目の部分。">ItemPortion</a>);
+<a name="l00095"></a>00095     };
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00099"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">00099</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00100"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html#a107ca7953aab72c0cb0a1e4c3e509df8">00100</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html#a107ca7953aab72c0cb0a1e4c3e509df8">_enum</a> {
+<a name="l00101"></a>00101             none          = 0     , 
+<a name="l00102"></a>00102             checkBoxes    = 0x0004, 
+<a name="l00103"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html#a107ca7953aab72c0cb0a1e4c3e509df8a215aadb9016d509d39b1ba95a41084c6">00103</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html#a107ca7953aab72c0cb0a1e4c3e509df8a215aadb9016d509d39b1ba95a41084c6" title="項目ごとにチェックボックスを表示する。stateImageList() を操作してチェック画像を変更できる。画像を追加するとチェック状態が増える。">noHeaderClick</a> = 0x8000, 
+<a name="l00104"></a>00104         };
+<a name="l00105"></a>00105         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00106"></a>00106     };
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00110"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">00110</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">Style</a> {
+<a name="l00111"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17">00111</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17">_enum</a> {
+<a name="l00112"></a>00112             largeIcon = 0x0000, 
+<a name="l00113"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed">00113</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">details</a>   = 0x0001, 
+<a name="l00114"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aeee6d5962c117e17689846a48135e22f">00114</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aeee6d5962c117e17689846a48135e22f" title="詳細表示。">smallIcon</a> = 0x0002, 
+<a name="l00115"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17ab9ccb332b94ca57ecb8fe9ab1c3bac81">00115</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17ab9ccb332b94ca57ecb8fe9ab1c3bac81" title="小さなアイコン表示。">list</a>      = 0x0003, 
+<a name="l00116"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17a7d76a4e3fd2df663e45a78226b524621">00116</a>             <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17a7d76a4e3fd2df663e45a78226b524621" title="一覧表示。">tile</a>      = 0x0004, 
+<a name="l00117"></a>00117         };
+<a name="l00118"></a>00118         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">Style</a>);
+<a name="l00119"></a>00119     };
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123     <span class="keyword">class </span>ColumnInfo;
+<a name="l00124"></a>00124 
+<a name="l00126"></a><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html">00126</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a> {
+<a name="l00127"></a>00127     <span class="keyword">public</span>:
+<a name="l00128"></a>00128         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#ab0bd574b5ff532d398fefd2db6843952" title="リストビューのハンドル。">ownerHandle</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a7897f4f9e70ce39d5ab4dc02e48d9170" title="縦の行のインデックス。">index</a>);
+<a name="l00130"></a>00130         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#ade128fe1720e5c5f017e09b2933cbcb4" title="縦の行の情報反映。">operator=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>&amp; columnInfo);
+<a name="l00131"></a>00131 
+<a name="l00133"></a>00133         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#ad6e4f5765e70bbb81999ad3ee56018f4" title="縦の行の文字列配置。最初の行は ListView::Align::left で固定される。">align</a>() <span class="keyword">const</span>;
+<a name="l00134"></a>00134         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#ad6e4f5765e70bbb81999ad3ee56018f4" title="縦の行の文字列配置。最初の行は ListView::Align::left で固定される。">align</a>(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> value);
+<a name="l00136"></a>00136         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a287481f51629002542b2957a0616a654" title="幅をヘッダーの文字列幅に合わせる。項目の文字列幅以下にはならない。">fitWidthToHeader</a>();
+<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a82d416f2b01387e1eff49e12d0d8a8ba" title="幅を項目の文字列幅に合わせる。">fitWidthToItem</a>();
+<a name="l00140"></a>00140         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#af1dde6df74f012794c68a632adae0459" title="ヘッダの画像リスト（ListView::smallImageList()）のインデックス。-1 なら表示しない。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00141"></a>00141         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#af1dde6df74f012794c68a632adae0459" title="ヘッダの画像リスト（ListView::smallImageList()）のインデックス。-1 なら表示しない。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00143"></a>00143         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a7897f4f9e70ce39d5ab4dc02e48d9170" title="縦の行のインデックス。">index</a>() <span class="keyword">const</span>;
+<a name="l00145"></a>00145         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a539e49ef0525bbce5bfda569863f1e1a" title="表示順序。">order</a>() <span class="keyword">const</span>;
+<a name="l00146"></a>00146         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a539e49ef0525bbce5bfda569863f1e1a" title="表示順序。">order</a>(<span class="keywordtype">int</span> value);
+<a name="l00148"></a>00148         HWND <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#ab0bd574b5ff532d398fefd2db6843952" title="リストビューのハンドル。">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00150"></a>00150         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a72625b31e4c0910af437afda98c66375" title="画像を文字列の右に表示するかどうか。最初の行は false で固定される。">rightImage</a>() <span class="keyword">const</span>;
+<a name="l00151"></a>00151         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a72625b31e4c0910af437afda98c66375" title="画像を文字列の右に表示するかどうか。最初の行は false で固定される。">rightImage</a>(<span class="keywordtype">bool</span> value);
+<a name="l00153"></a>00153         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#af43806113e92361a5918912ffcee4cf9" title="選択されているように表示するかどうか。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。">selected</a>() <span class="keyword">const</span>;
+<a name="l00154"></a>00154         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#af43806113e92361a5918912ffcee4cf9" title="選択されているように表示するかどうか。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。">selected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00156"></a>00156         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#aba51d0e2741fc8d011f6f7f3e62bc905" title="ヘッダの文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00157"></a>00157         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#aba51d0e2741fc8d011f6f7f3e62bc905" title="ヘッダの文字列。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00159"></a>00159         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#aa5a7e07eb772653c6db19a0bb3aee01c" title="縦の行の幅。">width</a>() <span class="keyword">const</span>;
+<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#aa5a7e07eb772653c6db19a0bb3aee01c" title="縦の行の幅。">width</a>(<span class="keywordtype">int</span> value);
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162     <span class="keyword">private</span>:
+<a name="l00163"></a>00163         HWND _ownerHandle;
+<a name="l00164"></a>00164         <span class="keywordtype">int</span> _index;
+<a name="l00165"></a>00165     };
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 
+<a name="l00169"></a><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html">00169</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a> {
+<a name="l00170"></a>00170     <span class="keyword">public</span>:
+<a name="l00171"></a>00171         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>&amp;&amp; value);
+<a name="l00173"></a>00173         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>&amp; column);
+<a name="l00175"></a>00175         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#ae8a2156758cb32300c7edc4a7f8c4c20" title="ヘッダの文字列。">text</a> = L<span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a6741a517dba1b66749ca6d400f202ba3" title="縦の行の幅。">width</a> = 0, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a382e1b9e83bc01f71af70f8bcb47984d" title="縦の行の文字列配置。最初の行は ListView::Align::left で固定される。">align</a> = Align::left, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a5a5b12bccb6d0a69a8ed9db560b82bed" title="ヘッダの画像リスト（ListView::smallImageList）のインデックス。-1 なら表示しない。">imageIndex</a> = -1, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a927340532aa65fe7fafe918f76a576e1" title="画像を文字列の右に表示するかどうか。最初の行は false で固定される。">rightImage</a> = <span class="keyword">false</span>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#aa762d1d2fe8494efe362b280aad7281c" title="表示順序。-1 なら追加した順。">order</a> = -1);
+<a name="l00176"></a>00176         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ColumnInfo</a>&amp;&amp; value);
+<a name="l00177"></a>00177 
+<a name="l00179"></a>00179         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a382e1b9e83bc01f71af70f8bcb47984d" title="縦の行の文字列配置。最初の行は ListView::Align::left で固定される。">align</a>() <span class="keyword">const</span>;
+<a name="l00180"></a>00180         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a382e1b9e83bc01f71af70f8bcb47984d" title="縦の行の文字列配置。最初の行は ListView::Align::left で固定される。">align</a>(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> value);
+<a name="l00182"></a>00182         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a5a5b12bccb6d0a69a8ed9db560b82bed" title="ヘッダの画像リスト（ListView::smallImageList）のインデックス。-1 なら表示しない。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00183"></a>00183         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a5a5b12bccb6d0a69a8ed9db560b82bed" title="ヘッダの画像リスト（ListView::smallImageList）のインデックス。-1 なら表示しない。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00185"></a>00185         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#aa762d1d2fe8494efe362b280aad7281c" title="表示順序。-1 なら追加した順。">order</a>() <span class="keyword">const</span>;
+<a name="l00186"></a>00186         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#aa762d1d2fe8494efe362b280aad7281c" title="表示順序。-1 なら追加した順。">order</a>(<span class="keywordtype">int</span> value);
+<a name="l00188"></a>00188         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a927340532aa65fe7fafe918f76a576e1" title="画像を文字列の右に表示するかどうか。最初の行は false で固定される。">rightImage</a>() <span class="keyword">const</span>;
+<a name="l00189"></a>00189         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a927340532aa65fe7fafe918f76a576e1" title="画像を文字列の右に表示するかどうか。最初の行は false で固定される。">rightImage</a>(<span class="keywordtype">bool</span> value);
+<a name="l00191"></a>00191         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#ae8a2156758cb32300c7edc4a7f8c4c20" title="ヘッダの文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00192"></a>00192         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#ae8a2156758cb32300c7edc4a7f8c4c20" title="ヘッダの文字列。">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00194"></a>00194         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a6741a517dba1b66749ca6d400f202ba3" title="縦の行の幅。">width</a>() <span class="keyword">const</span>;
+<a name="l00195"></a>00195         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#a6741a517dba1b66749ca6d400f202ba3" title="縦の行の幅。">width</a>(<span class="keywordtype">int</span> value);
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197     <span class="keyword">private</span>:
+<a name="l00198"></a>00198         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _text;
+<a name="l00199"></a>00199         <span class="keywordtype">int</span> _width;
+<a name="l00200"></a>00200         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_align.html" title="項目の文字列の配置。">ListView::Align</a> _align;
+<a name="l00201"></a>00201         <span class="keywordtype">int</span> _imageIndex;
+<a name="l00202"></a>00202         <span class="keywordtype">bool</span> _rightImage;
+<a name="l00203"></a>00203         <span class="keywordtype">int</span> _order;
+<a name="l00204"></a>00204     };
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>;
+<a name="l00208"></a>00208 
+<a name="l00210"></a><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html">00210</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a> {
+<a name="l00211"></a>00211     <span class="keyword">public</span>:
+<a name="l00212"></a>00212         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a5d740759c79c32a2172d9394d8e66bcb" title="リストビューのハンドル。">ownerHandle</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4bb57f13deed64c2e6f345bbd02aa902" title="項目のインデックス。">index</a>);
+<a name="l00214"></a>00214         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ae7f3d6467dfcc4701c8d6b068d604e02" title="項目情報を反映。">operator=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00215"></a>00215 
+<a name="l00217"></a>00217         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aa656810d9afd21a344a3b0c5174987ed" title="チェックボックスがチェックされているかどうか。チェックのオンとオフは state() の 1 と 0 に該当する。">checked</a>() <span class="keyword">const</span>;
+<a name="l00218"></a>00218         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aa656810d9afd21a344a3b0c5174987ed" title="チェックボックスがチェックされているかどうか。チェックのオンとオフは state() の 1 と 0 に該当する。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00220"></a>00220         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a6e2d0155967cb91dcb57e337f126dcdd" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>() <span class="keyword">const</span>;
+<a name="l00221"></a>00221         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a6e2d0155967cb91dcb57e337f126dcdd" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>(<span class="keywordtype">bool</span> value);
+<a name="l00223"></a>00223         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ae2813922a2342735db9c65aade37243c" title="項目が見えるようにスクロールする。">ensureVisible</a>();
+<a name="l00225"></a>00225         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ad9881eba66824c021c49ab776c778b4a" title="リストビュー内での項目の全体または部分領域。">getBounds</a>(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html" title="項目の部分。">ListView::ItemPortion</a> portion = ListView::ItemPortion::whole) <span class="keyword">const</span>;
+<a name="l00227"></a>00227         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a356dd2c6df40c2139d4fc0b1e146fe5a" title="リストビュー内でのサブ項目の領域。columnIndex が 0 の場合は項目全体の領域。">getSubBounds</a>(<span class="keywordtype">int</span> columnIndex) <span class="keyword">const</span>;
+<a name="l00229"></a>00229         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ae62ed5fbeb19decae5a200ef84dd0830" title="文字列を取得する。">getText</a>(<span class="keywordtype">int</span> columnIndex) <span class="keyword">const</span>;
+<a name="l00230"></a>00230         <span class="keywordtype">void</span> getTextToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer, <span class="keywordtype">int</span> columnIndex) <span class="keyword">const</span>;
+<a name="l00232"></a>00232         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4fd38d8759dcdd1d23d4b2a8960e1535" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>() <span class="keyword">const</span>;
+<a name="l00233"></a>00233         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4fd38d8759dcdd1d23d4b2a8960e1535" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>(<span class="keywordtype">bool</span> value);
+<a name="l00235"></a>00235         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a215ca1c0f07d94c39bb08fd1ef3189c4" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00236"></a>00236         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a215ca1c0f07d94c39bb08fd1ef3189c4" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00238"></a>00238         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4735e422a6f377d77083e8bd6ca22860" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a>() <span class="keyword">const</span>;
+<a name="l00239"></a>00239         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4735e422a6f377d77083e8bd6ca22860" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a>(<span class="keywordtype">int</span> value);
+<a name="l00241"></a>00241         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4bb57f13deed64c2e6f345bbd02aa902" title="項目のインデックス。">index</a>() <span class="keyword">const</span>;
+<a name="l00243"></a>00243         HWND <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a5d740759c79c32a2172d9394d8e66bcb" title="リストビューのハンドル。">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00245"></a>00245         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4ea6e660a060aeec392619b5f22aa807" title="項目の位置。">position</a>() <span class="keyword">const</span>;
+<a name="l00246"></a>00246         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4ea6e660a060aeec392619b5f22aa807" title="項目の位置。">position</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00247"></a>00247         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a4ea6e660a060aeec392619b5f22aa807" title="項目の位置。">position</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00249"></a>00249         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aac7189d75c8a367acdbc7b444706d19e" title="選択されているかどうか。">selected</a>() <span class="keyword">const</span>;
+<a name="l00250"></a>00250         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aac7189d75c8a367acdbc7b444706d19e" title="選択されているかどうか。">selected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00252"></a>00252         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#afd959dc95cf689218ff462e35b68c77a" title="文字列を設定する。ListView::maxTextLength 文字以上は設定できない。">setText</a>(<span class="keywordtype">int</span> columnIndex, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a161bd7ebe7ab6a6844a09ad012ddd446" title="０番目の文字列。">text</a>);
+<a name="l00254"></a>00254         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a0f9bb619737469960b454c981bcf43e6" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a>() <span class="keyword">const</span>;
+<a name="l00255"></a>00255         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a0f9bb619737469960b454c981bcf43e6" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a>(<span class="keywordtype">int</span> value);
+<a name="l00257"></a>00257         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a161bd7ebe7ab6a6844a09ad012ddd446" title="０番目の文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00258"></a>00258         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#a161bd7ebe7ab6a6844a09ad012ddd446" title="０番目の文字列。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00260"></a>00260         std::vector&lt;String&gt; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aff94feeef517dc627d5cbdcb96825ac1" title="文字列配列。">texts</a>() <span class="keyword">const</span>;
+<a name="l00261"></a>00261         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#aff94feeef517dc627d5cbdcb96825ac1" title="文字列配列。">texts</a>(<a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> value);
+<a name="l00263"></a><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ac10aae31d35a2a305c7ac6c088a1e780">00263</a>         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ac10aae31d35a2a305c7ac6c088a1e780" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>() {
+<a name="l00264"></a>00264             <span class="keyword">auto</span> data = _userData();
+<a name="l00265"></a>00265             <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00266"></a>00266         }
+<a name="l00267"></a>00267         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ac10aae31d35a2a305c7ac6c088a1e780" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>()<span class="keyword"> const </span>{
+<a name="l00268"></a>00268             <span class="keyword">auto</span> data = _userData();
+<a name="l00269"></a>00269             <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00270"></a>00270         }
+<a name="l00271"></a>00271         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html#ac10aae31d35a2a305c7ac6c088a1e780" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>(<a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>&amp;&amp; value);
+<a name="l00272"></a>00272         <span class="keywordtype">bool</span> userDataIsEmpty() <span class="keyword">const</span>;
+<a name="l00273"></a>00273 
+<a name="l00274"></a>00274     <span class="keyword">private</span>:
+<a name="l00275"></a>00275         <span class="keywordtype">void</span>* _userData() <span class="keyword">const</span>;
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277         HWND _ownerHandle;
+<a name="l00278"></a>00278         <span class="keywordtype">int</span> _index;
+<a name="l00279"></a>00279     };
+<a name="l00280"></a>00280 
+<a name="l00281"></a>00281 
+<a name="l00283"></a><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">00283</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a> {
+<a name="l00284"></a>00284     <span class="keyword">public</span>:
+<a name="l00285"></a>00285         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00287"></a>00287         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a>&amp; item);
+<a name="l00289"></a>00289         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a9b8718d169579d78760c2294e51f6aaf" title="項目の文字列。">text</a> = L<span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a65508de22a39176341cd0146957a8ffa" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a> = 0, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aa04ef94f4d622a2f38ac36cc3a0bdbc9" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a> = -1, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad501c976311962f3a335a29e80ebefce" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a> = 0);
+<a name="l00291"></a>00291         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ac982e6ec6ac72dee76a895c3884ab98d" title="項目の文字列配列。">texts</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a65508de22a39176341cd0146957a8ffa" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a> = 0, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aa04ef94f4d622a2f38ac36cc3a0bdbc9" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a> = -1, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad501c976311962f3a335a29e80ebefce" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a> = 0);
+<a name="l00292"></a>00292         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00293"></a>00293 
+<a name="l00295"></a>00295         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a23aa342a05c96395d7293099a70232cd" title="切り取りされた状態かどうか。アイコンが薄く表示される。初期値は false。">cut</a>() <span class="keyword">const</span>;
+<a name="l00296"></a>00296         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a23aa342a05c96395d7293099a70232cd" title="切り取りされた状態かどうか。アイコンが薄く表示される。初期値は false。">cut</a>(<span class="keywordtype">bool</span> value);
+<a name="l00298"></a>00298         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad63149f2f08a9aeab9c63ed87c6c610e" title="ハイライト表示かどうか。選択状態と同じ表示。初期値は false。">highlight</a>() <span class="keyword">const</span>;
+<a name="l00299"></a>00299         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad63149f2f08a9aeab9c63ed87c6c610e" title="ハイライト表示かどうか。選択状態と同じ表示。初期値は false。">highlight</a>(<span class="keywordtype">bool</span> value);
+<a name="l00301"></a>00301         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a65508de22a39176341cd0146957a8ffa" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00302"></a>00302         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a65508de22a39176341cd0146957a8ffa" title="アイコンの画像リスト（ListView::smallImageList() または ListView::largeImageList()）のインデックス。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00304"></a>00304         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad501c976311962f3a335a29e80ebefce" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a>() <span class="keyword">const</span>;
+<a name="l00305"></a>00305         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ad501c976311962f3a335a29e80ebefce" title="インデント。1 につき状態アイコンの幅ほどインデントする。">indent</a>(<span class="keywordtype">int</span> value);
+<a name="l00307"></a>00307         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aafc519b6982ae4199827513958064897" title="選択されているかどうか。">selected</a>() <span class="keyword">const</span>;
+<a name="l00308"></a>00308         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aafc519b6982ae4199827513958064897" title="選択されているかどうか。">selected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00310"></a>00310         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aa04ef94f4d622a2f38ac36cc3a0bdbc9" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a>() <span class="keyword">const</span>;
+<a name="l00311"></a>00311         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#aa04ef94f4d622a2f38ac36cc3a0bdbc9" title="状態。状態画像リスト（ListView::stateImageList()）のインデックスで、-1 なら表示しない。">state</a>(<span class="keywordtype">int</span> value);
+<a name="l00313"></a>00313         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a9b8718d169579d78760c2294e51f6aaf" title="項目の文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00314"></a>00314         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#a9b8718d169579d78760c2294e51f6aaf" title="項目の文字列。">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00316"></a>00316         std::vector&lt;String&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ac982e6ec6ac72dee76a895c3884ab98d" title="項目の文字列配列。">texts</a>();
+<a name="l00317"></a>00317         <span class="keyword">const</span> std::vector&lt;String&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ac982e6ec6ac72dee76a895c3884ab98d" title="項目の文字列配列。">texts</a>() <span class="keyword">const</span>;
+<a name="l00318"></a>00318         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#ac982e6ec6ac72dee76a895c3884ab98d" title="項目の文字列配列。">texts</a>(<a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> value);
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320     <span class="keyword">private</span>:
+<a name="l00321"></a>00321         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>;
+<a name="l00322"></a>00322         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a>;
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324         std::vector&lt;String&gt; _texts;
+<a name="l00325"></a>00325         <span class="keywordtype">int</span> _imageIndex;
+<a name="l00326"></a>00326         <span class="keywordtype">int</span> _itemDataState;
+<a name="l00327"></a>00327         <span class="keywordtype">int</span> _indent;
+<a name="l00328"></a>00328     };
+<a name="l00329"></a>00329 
+<a name="l00330"></a>00330 
+<a name="l00331"></a>00331 
+<a name="l00333"></a><a class="code" href="classbalor_1_1gui_1_1_list_view.html#acd263d03dd7583cdef9491175f5b9f10">00333</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;ListView, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#acd263d03dd7583cdef9491175f5b9f10" title="リストビューのイベントの親クラス。">Event</a>;
+<a name="l00334"></a>00334 
+<a name="l00335"></a>00335 
+<a name="l00337"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html">00337</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html" title="ヘッダをクリックしたイベント。">HeaderClick</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00338"></a>00338         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html" title="ヘッダをクリックしたイベント。">HeaderClick</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html#a59dda731a76885193163e2d6fd81b6a9" title="クリックされた縦の行インデックス。">columnIndex</a>);
+<a name="l00339"></a>00339 
+<a name="l00341"></a>00341         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html#a59dda731a76885193163e2d6fd81b6a9" title="クリックされた縦の行インデックス。">columnIndex</a>() <span class="keyword">const</span>;
+<a name="l00342"></a>00342 
+<a name="l00343"></a>00343     <span class="keyword">private</span>:
+<a name="l00344"></a>00344         <span class="keywordtype">int</span> _columnIndex;
+<a name="l00345"></a>00345     };
+<a name="l00346"></a>00346 
+<a name="l00347"></a>00347 
+<a name="l00349"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html">00349</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00350"></a>00350         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex);
+<a name="l00351"></a>00351 
+<a name="l00353"></a>00353         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">ListView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html#ae6da887efda47beb8b7933d68654c565" title="イベントの発生した項目。">item</a>();
+<a name="l00354"></a>00354 
+<a name="l00355"></a>00355     <span class="keyword">private</span>:
+<a name="l00356"></a>00356         <span class="keywordtype">int</span> _itemIndex;
+<a name="l00357"></a>00357     };
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 
+<a name="l00361"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">00361</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemClick</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00362"></a>00362         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemClick</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html#a139565cb97b59cac17076535f897ec05" title="縦の行のインデックス。">columnIndex</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html#a9f5c9df7df75bc91da39a7b1e0b7ba57" title="イベントの発生した座標。">occurredPoint</a>);
+<a name="l00363"></a>00363 
+<a name="l00365"></a>00365         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html#a139565cb97b59cac17076535f897ec05" title="縦の行のインデックス。">columnIndex</a>() <span class="keyword">const</span>;
+<a name="l00367"></a>00367         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html#a9f5c9df7df75bc91da39a7b1e0b7ba57" title="イベントの発生した座標。">occurredPoint</a>() <span class="keyword">const</span>;
+<a name="l00368"></a>00368 
+<a name="l00369"></a>00369     <span class="keyword">private</span>:
+<a name="l00370"></a>00370         <span class="keywordtype">int</span> _columnIndex;
+<a name="l00371"></a>00371         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> _occurredPoint;
+<a name="l00372"></a>00372     };
+<a name="l00373"></a>00373 
+<a name="l00374"></a>00374     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemClick</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemDoubleClick</a>;
+<a name="l00375"></a>00375     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemClick</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html" title="項目をクリックしたイベント。">ItemRightClick</a>;
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377 
+<a name="l00379"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html">00379</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html" title="項目が変化したイベント。">ItemChange</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00380"></a>00380         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html" title="項目が変化したイベント。">ItemChange</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">int</span> oldStates, <span class="keywordtype">int</span> newStates);
+<a name="l00381"></a>00381 
+<a name="l00383"></a>00383         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#a905e73fcf56ace83eae7104b12a11e5d" title="新しいフォーカス状態。">newFocused</a>() <span class="keyword">const</span>;
+<a name="l00385"></a>00385         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#ac7ef525b748a2d474155338abcc599ff" title="新しい選択状態。">newSelected</a>() <span class="keyword">const</span>;
+<a name="l00387"></a>00387         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#a9bd947926324332bd652d003d0b815f3" title="新しい状態。">newState</a>() <span class="keyword">const</span>;
+<a name="l00389"></a>00389         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#a5cbc262cce3355e784754d7e78e5f946" title="古いフォーカス状態。">oldFocused</a>() <span class="keyword">const</span>;
+<a name="l00391"></a>00391         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#adc1de5c52751e5fcd75708fcc1d5d970" title="古い選択状態。">oldSelected</a>() <span class="keyword">const</span>;
+<a name="l00393"></a>00393         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#abf980a2cf82063be81b2e5872ea04969" title="古い状態。">oldState</a>() <span class="keyword">const</span>;
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395     <span class="keyword">private</span>:
+<a name="l00396"></a>00396         <span class="keywordtype">int</span> _oldStates;
+<a name="l00397"></a>00397         <span class="keywordtype">int</span> _newStates;
+<a name="l00398"></a>00398     };
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 
+<a name="l00402"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html">00402</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html" title="項目が変化しようとしているイベント。">ItemChanging</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html" title="項目が変化したイベント。">ItemChange</a> {
+<a name="l00403"></a>00403         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html" title="項目が変化しようとしているイベント。">ItemChanging</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">int</span> oldStates, <span class="keywordtype">int</span> newStates);
+<a name="l00404"></a>00404 
+<a name="l00406"></a>00406         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html#a48ce9bf1def316b721618096cbf95434" title="変化をキャンセルするかどうか。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00407"></a>00407         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html#a48ce9bf1def316b721618096cbf95434" title="変化をキャンセルするかどうか。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00408"></a>00408 
+<a name="l00409"></a>00409     <span class="keyword">private</span>:
+<a name="l00410"></a>00410         <span class="keywordtype">bool</span> _cancel;
+<a name="l00411"></a>00411     };
+<a name="l00412"></a>00412 
+<a name="l00413"></a>00413 
+<a name="l00415"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html">00415</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html" title="項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。">ItemDrag</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00416"></a>00416         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html" title="項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。">ItemDrag</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html#a0d5ee2ed57c5176bfe2ddd7795119ab4" title="右ボタンドラッグかどうか。">rButton</a>);
+<a name="l00417"></a>00417 
+<a name="l00419"></a>00419         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html#a0d5ee2ed57c5176bfe2ddd7795119ab4" title="右ボタンドラッグかどうか。">rButton</a>() <span class="keyword">const</span>;
+<a name="l00420"></a>00420 
+<a name="l00421"></a>00421     <span class="keyword">private</span>:
+<a name="l00422"></a>00422         <span class="keywordtype">bool</span> _rButton;
+<a name="l00423"></a>00423     };
+<a name="l00424"></a>00424 
+<a name="l00425"></a>00425 
+<a name="l00427"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html">00427</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html" title="項目を描画する直前のイベント。選択行の色を変えるには selected() を false に設定する。">ItemPrePaint</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00428"></a>00428         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html" title="項目を描画する直前のイベント。選択行の色を変えるには selected() を false に設定する。">ItemPrePaint</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, ::tagNMLVCUSTOMDRAW* info);
+<a name="l00429"></a>00429 
+<a name="l00431"></a>00431         <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a7b73e9292eab1c86f1ab2a5a8a354d9a" title="項目の背景の色。ListView::brush 関数で画像ブラシを指定した場合は無効。selected() が true の場合も無効。">backColor</a>() <span class="keyword">const</span>;
+<a name="l00432"></a>00432         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a7b73e9292eab1c86f1ab2a5a8a354d9a" title="項目の背景の色。ListView::brush 関数で画像ブラシを指定した場合は無効。selected() が true の場合も無効。">backColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00434"></a>00434         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#afd2a0c9b8270efb28c8dd6ac4b479754" title="項目のクライアント座標領域。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00436"></a>00436         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aba053ebfbcd653357588beb880f979d4" title="縦の行のインデックス。">columnIndex</a>() <span class="keyword">const</span>;
+<a name="l00438"></a>00438         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a48eb74e736c4fdb7bca86a999955f48e" title="フォーカスがあるように描画するかどうか。">focused</a>() <span class="keyword">const</span>;
+<a name="l00439"></a>00439         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a48eb74e736c4fdb7bca86a999955f48e" title="フォーカスがあるように描画するかどうか。">focused</a>(<span class="keywordtype">bool</span> value);
+<a name="l00441"></a>00441         <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a380279ee417e59bc87fcceee553e4f7c" title="項目の文字列のフォント。">font</a>() <span class="keyword">const</span>;
+<a name="l00442"></a>00442         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a380279ee417e59bc87fcceee553e4f7c" title="項目の文字列のフォント。">font</a>(HFONT value);
+<a name="l00444"></a>00444         <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">ListView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aea0ed69f7d4636731770bb334a75a406" title="イベントの発生した項目。">item</a>();
+<a name="l00446"></a>00446         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81" title="選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。">selected</a>() <span class="keyword">const</span>;
+<a name="l00447"></a>00447         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81" title="選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。">selected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00449"></a>00449         <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a9cca9c49e33f40ebff81d1c17cd2f0de" title="項目の文字列の色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00450"></a>00450         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a9cca9c49e33f40ebff81d1c17cd2f0de" title="項目の文字列の色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452     <span class="keyword">private</span>:
+<a name="l00453"></a>00453         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>;
+<a name="l00454"></a>00454 
+<a name="l00455"></a>00455         ::tagNMLVCUSTOMDRAW* _info;
+<a name="l00456"></a>00456         <span class="keywordtype">bool</span> _fontChanged;
+<a name="l00457"></a>00457     };
+<a name="l00458"></a>00458 
+<a name="l00459"></a>00459 
+<a name="l00461"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html">00461</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html" title="項目のツールチップが表示されるイベント。">ItemTipPopup</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00462"></a>00462         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html" title="項目のツールチップが表示されるイベント。">ItemTipPopup</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">wchar_t</span>* buffer, <span class="keywordtype">int</span> bufferSize);
+<a name="l00463"></a>00463 
+<a name="l00465"></a>00465         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html#ae486a545be891326e93c904d7ff8d4d0" title="表示する文字列を設定する。文字列の長さには上限があって切り捨てられる。">setText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00466"></a>00466 
+<a name="l00467"></a>00467     <span class="keyword">private</span>:
+<a name="l00468"></a>00468         <span class="keywordtype">wchar_t</span>* _buffer;
+<a name="l00469"></a>00469         <span class="keywordtype">int</span> _bufferSize;
+<a name="l00470"></a>00470     };
+<a name="l00471"></a>00471 
+<a name="l00472"></a>00472 
+<a name="l00474"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html">00474</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html" title="項目の文字列編集が終わって反映する直前のイベント。">TextEdit</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00475"></a>00475         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html" title="項目の文字列編集が終わって反映する直前のイベント。">TextEdit</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af18027cb733ce8ff0668a08ea186c12d" title="編集テキスト。">itemText</a>);
+<a name="l00476"></a>00476 
+<a name="l00478"></a>00478         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af8ce8bbcaf0de9de98438c13761a40fa" title="編集結果を反映しないかどうか。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00479"></a>00479         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af8ce8bbcaf0de9de98438c13761a40fa" title="編集結果を反映しないかどうか。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00481"></a>00481         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af18027cb733ce8ff0668a08ea186c12d" title="編集テキスト。">itemText</a>() <span class="keyword">const</span>;
+<a name="l00482"></a>00482         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af18027cb733ce8ff0668a08ea186c12d" title="編集テキスト。">itemText</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00483"></a>00483 
+<a name="l00484"></a>00484     <span class="keyword">private</span>:
+<a name="l00485"></a>00485         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _itemText;
+<a name="l00486"></a>00486         <span class="keywordtype">bool</span> _cancel;
+<a name="l00487"></a>00487     };
+<a name="l00488"></a>00488 
+<a name="l00489"></a>00489 
+<a name="l00491"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html">00491</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html" title="項目の文字列編集が始まる直前のイベント。">TextEditing</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html" title="項目の文字列編集が終わって反映する直前のイベント。">TextEdit</a> {
+<a name="l00492"></a>00492         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html" title="項目の文字列編集が始まる直前のイベント。">TextEditing</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#af18027cb733ce8ff0668a08ea186c12d" title="編集テキスト。">itemText</a>);
+<a name="l00493"></a>00493 
+<a name="l00496"></a>00496         <a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html#ac0fd7b0e5a507b74bc380194a8caeb68" title="編集をするエディットコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。 ある程度 ListView が制御しているので動作しない設定もある。">edit</a>();
+<a name="l00497"></a>00497     };
+<a name="l00498"></a>00498 
+<a name="l00499"></a>00499 
+<a name="l00501"></a><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html">00501</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html" title="ヒットテストの結果。">HitTestInfo</a> {
+<a name="l00502"></a>00502         <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html" title="ヒットテストの結果。">HitTestInfo</a>(<span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#a108c52225af7ee83b78de91f17d7d5d0" title="項目インデックス。当たってない場合は -1。">itemIndex</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#ac06b82e97ad9e4e811633ca1f5851e09" title="縦の行のインデックス。当たってない場合は -1。">columnIndex</a>, <span class="keywordtype">int</span> flags);
+<a name="l00503"></a>00503 
+<a name="l00505"></a>00505         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#ac06b82e97ad9e4e811633ca1f5851e09" title="縦の行のインデックス。当たってない場合は -1。">columnIndex</a>() <span class="keyword">const</span>;
+<a name="l00507"></a>00507         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#a108c52225af7ee83b78de91f17d7d5d0" title="項目インデックス。当たってない場合は -1。">itemIndex</a>() <span class="keyword">const</span>;
+<a name="l00509"></a>00509         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#a12e19d4a22a1baea2e6f101d0bda78d1" title="アイコン画像の上。">onImage</a>() <span class="keyword">const</span>;
+<a name="l00511"></a>00511         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#a143166b8a388acdc6478a59fbe3a5fef" title="状態画像の上。">onStateImage</a>() <span class="keyword">const</span>;
+<a name="l00513"></a>00513         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#a452db198b6883abfc3df6a4f9727508f" title="文字列の上。">onText</a>() <span class="keyword">const</span>;
+<a name="l00514"></a>00514 
+<a name="l00515"></a>00515     <span class="keyword">private</span>:
+<a name="l00516"></a>00516         <span class="keywordtype">int</span> _itemIndex;
+<a name="l00517"></a>00517         <span class="keywordtype">int</span> _columnIndex;
+<a name="l00518"></a>00518         <span class="keywordtype">int</span> _flags;
+<a name="l00519"></a>00519     };
+<a name="l00520"></a>00520 
+<a name="l00521"></a>00521 
+<a name="l00522"></a>00522 <span class="keyword">public</span>:
+<a name="l00524"></a>00524     <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2" title="ヌルポインタで作成。">ListView</a>();
+<a name="l00525"></a>00525     <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2" title="ヌルポインタで作成。">ListView</a>(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00527"></a>00527     <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2" title="ヌルポインタで作成。">ListView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">ListView::Style</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">Style::details</a>, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a7a6cd312df27cbb0deb88911a79a68c8" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00529"></a>00529     <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2" title="ヌルポインタで作成。">ListView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a36cc643c08efa6162830f00cab19e534" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">ListView::Style</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">Style::details</a>, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a7a6cd312df27cbb0deb88911a79a68c8" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00531"></a>00531     <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2" title="ヌルポインタで作成。">ListView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ColumnInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a92c97b5e50dfdb3bab4bc0d9b3adf168" title="縦の行の情報配列を一括で取得、設定する。ColumnInfo::width() が 0 の場合は Column::fitWidthToHeader 関数で幅を求める。">columnInfos</a>, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a36cc643c08efa6162830f00cab19e534" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">ListView::Style</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">Style::details</a>, <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a7a6cd312df27cbb0deb88911a79a68c8" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00532"></a>00532     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>();
+<a name="l00533"></a>00533     <a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a>&amp;&amp; value);
+<a name="l00534"></a>00534 
+<a name="l00535"></a>00535 <span class="keyword">public</span>:
+<a name="l00537"></a>00537     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab83f8debaa98bd62538122e844de16fd" title="項目を追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00539"></a>00539     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa6209561c5c2aa7e896a9235c9f689b5" title="フォーカスが外れても選択状態を表示するかどうか。初期値は false。">alwaysSelected</a>() <span class="keyword">const</span>;
+<a name="l00540"></a>00540     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa6209561c5c2aa7e896a9235c9f689b5" title="フォーカスが外れても選択状態を表示するかどうか。初期値は false。">alwaysSelected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00542"></a>00542     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ad1276288a06ac92e0b8b976b720c205c" title="アイコンを整列する。style() が ListView::Style::largeIcon, smallIcon, tile の場合のみ有効。snapToGrid が true の場合は項目を一番近い...">arrange</a>(<span class="keywordtype">bool</span> snapToGrid = <span class="keyword">false</span>);
+<a name="l00544"></a>00544     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa27e6c72801bc09469ce0395a190c311" title="アイコンを自動整列するかどうか。初期値は true。">autoArrange</a>() <span class="keyword">const</span>;
+<a name="l00545"></a>00545     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa27e6c72801bc09469ce0395a190c311" title="アイコンを自動整列するかどうか。初期値は true。">autoArrange</a>(<span class="keywordtype">bool</span> value);
+<a name="l00547"></a>00547     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a4f71cc38af59cf7e51f90621d175eea8" title="項目の文字列の編集を始める。強制的にフォーカスを得る。">beginEdit</a>(<span class="keywordtype">int</span> index);
+<a name="l00549"></a>00549     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#ae5a194462e6a194577f8b4be9b195d7b" title="背景ブラシ。ブラシハンドルは参照されるので破棄しないよう注意。 ラジオボタン、チェックボックス、グループボックス、ボタン等のように親コントロールと地続きな子コントロールの為に、親コントロールは背景ブラシ...">Control::brush</a>;
+<a name="l00550"></a>00550     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#ae5a194462e6a194577f8b4be9b195d7b" title="背景ブラシ。ブラシハンドルは参照されるので破棄しないよう注意。 ラジオボタン、チェックボックス、グループボックス、ボタン等のように親コントロールと地続きな子コントロールの為に、親コントロールは背景ブラシ...">brush</a>(HBRUSH value);
+<a name="l00552"></a>00552     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a2074e4fd1a0488ddbe59657b79d8444e" title="背景ブラシの原点。">Control::brushOrigin</a>;
+<a name="l00553"></a>00553     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a2074e4fd1a0488ddbe59657b79d8444e" title="背景ブラシの原点。">brushOrigin</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00555"></a>00555     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac5857312f46ffa490fd2313add5e93c9" title="項目を全て削除する。">clear</a>();
+<a name="l00557"></a>00557     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a2591c7d48b8d154b2ea3788172220fc5" title="縦の行の数。">columnCount</a>() <span class="keyword">const</span>;
+<a name="l00559"></a>00559     std::vector&lt;ListView::ColumnInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a92c97b5e50dfdb3bab4bc0d9b3adf168" title="縦の行の情報配列を一括で取得、設定する。ColumnInfo::width() が 0 の場合は Column::fitWidthToHeader 関数で幅を求める。">columnInfos</a>() <span class="keyword">const</span>;
+<a name="l00560"></a>00560     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a92c97b5e50dfdb3bab4bc0d9b3adf168" title="縦の行の情報配列を一括で取得、設定する。ColumnInfo::width() が 0 の場合は Column::fitWidthToHeader 関数で幅を求める。">columnInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ListView::ColumnInfo&gt;</a> value);
+<a name="l00562"></a>00562     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a64f476404c138e793be52a6b869f5ac6" title="項目数。">count</a>() <span class="keyword">const</span>;
+<a name="l00564"></a>00564     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a37cbd7e500789a86fe8565858947b03e" title="リストビュー内に表示できる項目数。style() が ListView::Style::details か list の場合のみ有効。">countPerPage</a>() <span class="keyword">const</span>;
+<a name="l00566"></a>00566     <a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a4c23702832aa4d8f578954a2b7c814c9" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>() <span class="keyword">const</span>;
+<a name="l00567"></a>00567     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a4c23702832aa4d8f578954a2b7c814c9" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>(<a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> value);
+<a name="l00569"></a>00569     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8afd723946dfabfef5eceb6a139697e1" title="項目の文字列の編集を終了する。">endEdit</a>();
+<a name="l00571"></a>00571     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a7cb7ec1ad6076320ee920caeeb6b7c54" title="項目を削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00573"></a>00573     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a011d61f146d14bb402c0e48ba662bfc1" title="指定したインデックス以降で指定した文字列をもつ項目を見つける。サブ項目の文字列は検索されない。見つからない場合は -1。">findIndex</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>, <span class="keywordtype">int</span> startIndex = 0, <span class="keywordtype">bool</span> prefixSearch = <span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00575"></a>00575     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a0b119c9cdf90a06f2ea532043e38db2f" title="フォーカスされている項目インデックス。無い場合は -1。">focusedIndex</a>() <span class="keyword">const</span>;
+<a name="l00576"></a>00576     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a0b119c9cdf90a06f2ea532043e38db2f" title="フォーカスされている項目インデックス。無い場合は -1。">focusedIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00578"></a>00578     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a2ccebbb1495276b4bae47466be8c270c" title="横の行を全て選択状態にするかどうか。初期値は false。">fullRowSelect</a>() <span class="keyword">const</span>;
+<a name="l00579"></a>00579     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a2ccebbb1495276b4bae47466be8c270c" title="横の行を全て選択状態にするかどうか。初期値は false。">fullRowSelect</a>(<span class="keywordtype">bool</span> value);
+<a name="l00581"></a>00581     <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">ListView::Column</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aac2563f4a4408a1a9f94237d5beff8b2" title="縦の行を取得する。">getColumn</a>(<span class="keywordtype">int</span> index);
+<a name="l00583"></a>00583     <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html" title="ヒットテストの結果。">ListView::HitTestInfo</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#af920696c3cb8014d4401ddadef86accb" title="指定したクライアント座標のヒットテストを行って情報を取得する。">getHitTestInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00584"></a>00584     <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html" title="ヒットテストの結果。">ListView::HitTestInfo</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#af920696c3cb8014d4401ddadef86accb" title="指定したクライアント座標のヒットテストを行って情報を取得する。">getHitTestInfo</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00586"></a>00586     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa33b33d79e574eed5c8f174064916bc7" title="指定したクライアント座標にある項目のインデックスを取得する。無い場合は -1。">getIndexAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00587"></a>00587     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa33b33d79e574eed5c8f174064916bc7" title="指定したクライアント座標にある項目のインデックスを取得する。無い場合は -1。">getIndexAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00589"></a>00589     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aca605833d07718b222e02bf2f81e3086" title="適切なコントロールサイズ。font(), count() 等の値によって最適なサイズを返す。style() が ListView::Style::details の場合のみ正確なサイズを計算できる。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00592"></a>00592     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ada2d723015882198752b820d00c6b280" title="指定したインデックス以降で選択されている項目のインデックスを取得する。 引数に前回取得したインデックス + 1 を指定すれば次のインデックスを見つけられる。見つからない場合は -1 を返す。...">getSelectedIndex</a>(<span class="keywordtype">int</span> startIndex = 0) <span class="keyword">const</span>;
+<a name="l00594"></a>00594     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a40184448c2c6e2df45978173e36d8a28" title="項目境界線を表示するかどうか。初期値は false。">gridLines</a>() <span class="keyword">const</span>;
+<a name="l00595"></a>00595     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a40184448c2c6e2df45978173e36d8a28" title="項目境界線を表示するかどうか。初期値は false。">gridLines</a>(<span class="keywordtype">bool</span> value);
+<a name="l00597"></a>00597     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#af9c4873c423f8c962a5d908cd1c4db6b" title="ヘッダをドラッグ＆ドロップで移動できるかどうか。初期値は false。">headerDragDrop</a>() <span class="keyword">const</span>;
+<a name="l00598"></a>00598     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#af9c4873c423f8c962a5d908cd1c4db6b" title="ヘッダをドラッグ＆ドロップで移動できるかどうか。初期値は false。">headerDragDrop</a>(<span class="keywordtype">bool</span> value);
+<a name="l00600"></a>00600     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac0e74573345dec8ef358991ffc7d925d" title="ヘッダを表示するかどうか。初期値は true。">headerVisible</a>() <span class="keyword">const</span>;
+<a name="l00601"></a>00601     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac0e74573345dec8ef358991ffc7d925d" title="ヘッダを表示するかどうか。初期値は true。">headerVisible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00603"></a>00603     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8f5ff718c9b8d807e4fe524f3f6d93c5" title="項目にカーソルを合わせるとカーソルが Cursor::hand() になって文字列にアンダーラインが表示されるかどうか。初期値は false。">hotTracking</a>() <span class="keyword">const</span>;
+<a name="l00604"></a>00604     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8f5ff718c9b8d807e4fe524f3f6d93c5" title="項目にカーソルを合わせるとカーソルが Cursor::hand() になって文字列にアンダーラインが表示されるかどうか。初期値は false。">hotTracking</a>(<span class="keywordtype">bool</span> value);
+<a name="l00606"></a>00606     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a1247faa218d27a51a381517319ccae95" title="項目にカーソルを合わせてしばらくすると項目が選択されるかどうか。初期値は false。">hotTrackSelection</a>() <span class="keyword">const</span>;
+<a name="l00607"></a>00607     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a1247faa218d27a51a381517319ccae95" title="項目にカーソルを合わせてしばらくすると項目が選択されるかどうか。初期値は false。">hotTrackSelection</a>(<span class="keywordtype">bool</span> value);
+<a name="l00609"></a>00609     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab96a1ba017161267263708d9d9408a92" title="項目同士の距離。Size(-1, -1) を指定するとデフォルトに戻る。style() が ListView::Style::largeIcon の場合のみ有効。縦幅が変わらない模様。">iconSpacing</a>() <span class="keyword">const</span>;
+<a name="l00610"></a>00610     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab96a1ba017161267263708d9d9408a92" title="項目同士の距離。Size(-1, -1) を指定するとデフォルトに戻る。style() が ListView::Style::largeIcon の場合のみ有効。縦幅が変わらない模様。">iconSpacing</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00612"></a>00612     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a320ef2ec697378c2e27e3c49a52ad431" title="項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00614"></a>00614     std::vector&lt;ListView::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a36cc643c08efa6162830f00cab19e534" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00615"></a>00615     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a36cc643c08efa6162830f00cab19e534" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ListView::ItemInfo&gt;</a> value);
+<a name="l00617"></a>00617     <a class="code" href="classbalor_1_1gui_1_1_tool_tip.html" title="ツールチップコントロール。">ToolTip</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a26db3cb98b8735f9e245205dee3a7a46" title="項目ごとに表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 ListView が制御しているので動作しない設定もある。">itemTip</a>();
+<a name="l00619"></a>00619     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8b5106ecb1df1b6ead5cc1210d630c4f" title="項目ごとにツールチップを表示するかどうか。onItemTipPopup() イベントで表示する文字列を指定する。初期値は false。">itemTipEnabled</a>() <span class="keyword">const</span>;
+<a name="l00620"></a>00620     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8b5106ecb1df1b6ead5cc1210d630c4f" title="項目ごとにツールチップを表示するかどうか。onItemTipPopup() イベントで表示する文字列を指定する。初期値は false。">itemTipEnabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00622"></a>00622     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8b08af8820ec9374595d93225e2483ca" title="大きいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。">largeImageList</a>() <span class="keyword">const</span>;
+<a name="l00623"></a>00623     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8b08af8820ec9374595d93225e2483ca" title="大きいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。">largeImageList</a>(HIMAGELIST value);
+<a name="l00625"></a>00625     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a04d79a39d02f8cd19c17b9adc20120a8" title="アイコンを左上から下に整列するかどうか。false の場合は左上から右に整列する。初期値は false。">leftArrange</a>() <span class="keyword">const</span>;
+<a name="l00626"></a>00626     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a04d79a39d02f8cd19c17b9adc20120a8" title="アイコンを左上から下に整列するかどうか。false の場合は左上から右に整列する。初期値は false。">leftArrange</a>(<span class="keywordtype">bool</span> value);
+<a name="l00628"></a>00628     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab157e0c8264daef2adfe0c1f44f5a72a" title="アイテムを複数選択できるかどうか。初期値は true。">multiselect</a>() <span class="keyword">const</span>;
+<a name="l00629"></a>00629     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ab157e0c8264daef2adfe0c1f44f5a72a" title="アイテムを複数選択できるかどうか。初期値は true。">multiselect</a>(<span class="keywordtype">bool</span> value);
+<a name="l00631"></a>00631     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::HeaderClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ae128d2965f56a05647c05a64d8b967e7" title="ヘッダをクリックしたイベント。">onHeaderClick</a>();
+<a name="l00633"></a>00633     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemChange&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#af05ed3f131b5556e5f1a771fd1e5e77d" title="項目が変化したイベント。">onItemChange</a>();
+<a name="l00635"></a>00635     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemChanging&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a2e018d14482415c0c188da23ab32e103" title="項目が変化しようとしているイベント。">onItemChanging</a>();
+<a name="l00637"></a>00637     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ae88237808c927ce2f91b4e8a6e10b478" title="項目をクリックしたイベント。">onItemClick</a>();
+<a name="l00639"></a>00639     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemDoubleClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a883a3c91a8e4eae1ee0f6744bf8750e5" title="項目をダブルクリックしたイベント。">onItemDoubleClick</a>();
+<a name="l00641"></a>00641     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemDrag&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8f4933b841fff0fddb0ad3456af9c924" title="項目をマウス左ボタンまたは右ボタンでドラッグしたイベント。">onItemDrag</a>();
+<a name="l00643"></a>00643     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemPrePaint&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aa8c95fe0cdc6aca512236e0696f1c706" title="項目を描画する直前のイベント。">onItemPrePaint</a>();
+<a name="l00645"></a>00645     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemRightClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a5a05988db141c271880e07b8fd8d1975" title="項目を右クリックしたイベント。">onItemRightClick</a>();
+<a name="l00647"></a>00647     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemTipPopup&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a0f2cf3bf7a72583e22b79a9c70994fd3" title="項目のツールチップを表示するイベント。">onItemTipPopup</a>();
+<a name="l00649"></a>00649     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::TextEdit&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a3f990b5eb32ec0e34bcdda4145496a82" title="項目の文字列編集が終わって反映する直前のイベント。">onTextEdit</a>();
+<a name="l00651"></a>00651     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::TextEditing&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a972785f9ef53e344a0238f7fdffba023" title="項目の文字列編集が始まる直前のイベント。">onTextEditing</a>();
+<a name="l00653"></a>00653     <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a7a6cd312df27cbb0deb88911a79a68c8" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00656"></a>00656     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac72ec6074d1ea259007f2e5c9cfac0e2" title="項目を表示し切れない時にスクロールバーを表示するかどうか。初期値は true。 項目、位置、サイズや style を設定する前に設定しないとうまく動作しない。">scrollable</a>() <span class="keyword">const</span>;
+<a name="l00657"></a>00657     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac72ec6074d1ea259007f2e5c9cfac0e2" title="項目を表示し切れない時にスクロールバーを表示するかどうか。初期値は true。 項目、位置、サイズや style を設定する前に設定しないとうまく動作しない。">scrollable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00659"></a>00659     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a67852264f85fb6298b336f5939ac31f3" title="選択されている項目の数。">selectedCount</a>() <span class="keyword">const</span>;
+<a name="l00661"></a>00661     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a343aa18b939eb3bf38a0a41e06751fe0" title="小さいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。">smallImageList</a>() <span class="keyword">const</span>;
+<a name="l00662"></a>00662     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a343aa18b939eb3bf38a0a41e06751fe0" title="小さいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。">smallImageList</a>(HIMAGELIST value);
+<a name="l00664"></a>00664     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a18a7f2fe22e29f94182557c3aa856a29" title="項目を文字列順にソートする。">sort</a>(<span class="keywordtype">bool</span> ascending = <span class="keyword">true</span>, <span class="keywordtype">int</span> columnIndex = 0);
+<a name="l00666"></a>00666     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a18a7f2fe22e29f94182557c3aa856a29" title="項目を文字列順にソートする。">sort</a>(<span class="keyword">const</span> std::tr1::function&lt;<span class="keywordtype">int</span> (<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt;&amp; compareFunction);
+<a name="l00668"></a>00668     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a18a7f2fe22e29f94182557c3aa856a29" title="項目を文字列順にソートする。">sort</a>(<span class="keyword">const</span> std::tr1::function&lt;<span class="keywordtype">int</span> (<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp;, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp;)&gt;&amp; compareFunction, <span class="keywordtype">int</span> columnIndex);
+<a name="l00671"></a>00671     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8bf089b5e45256ec69e6bfee9a8051a4" title="状態アイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場合は checkBoxes()...">stateImageList</a>() <span class="keyword">const</span>;
+<a name="l00672"></a>00672     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a8bf089b5e45256ec69e6bfee9a8051a4" title="状態アイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場合は checkBoxes()...">stateImageList</a>(HIMAGELIST value);
+<a name="l00674"></a>00674     <a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">ListView::Style</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style</a>() <span class="keyword">const</span>;
+<a name="l00675"></a>00675     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style</a>(<a class="code" href="structbalor_1_1gui_1_1_list_view_1_1_style.html" title="表示スタイル。">ListView::Style</a> value);
+<a name="l00677"></a>00677     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ae7757be659dd219527fe6364235f7c91" title="文字色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00678"></a>00678     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ae7757be659dd219527fe6364235f7c91" title="文字色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00680"></a>00680     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a51bae7d8c0b188a40949127f609a1bc9" title="クリックで項目の文字列を編集できるかどうか。編集できるのは項目の最初の文字列のみ。初期値は false。">textEditable</a>() <span class="keyword">const</span>;
+<a name="l00681"></a>00681     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a51bae7d8c0b188a40949127f609a1bc9" title="クリックで項目の文字列を編集できるかどうか。編集できるのは項目の最初の文字列のみ。初期値は false。">textEditable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00683"></a>00683     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a9f323ff6ea8af4f5d99acc799db70213" title="項目文字列を表示するかどうか。非表示になるのは style() が ListView::Style::largeIcon または smallIcon の場合のみ。この関数の使用には EnableVisu...">textVisible</a>() <span class="keyword">const</span>;
+<a name="l00684"></a>00684     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a9f323ff6ea8af4f5d99acc799db70213" title="項目文字列を表示するかどうか。非表示になるのは style() が ListView::Style::largeIcon または smallIcon の場合のみ。この関数の使用には EnableVisu...">textVisible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00686"></a>00686     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a08d17cdd3ef7fdafecf0b3b6e3794fa1" title="アイコン表示の項目の文字列が長い場合に改行するかどうか。初期値は true。">textWrap</a>() <span class="keyword">const</span>;
+<a name="l00687"></a>00687     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a08d17cdd3ef7fdafecf0b3b6e3794fa1" title="アイコン表示の項目の文字列が長い場合に改行するかどうか。初期値は true。">textWrap</a>(<span class="keywordtype">bool</span> value);
+<a name="l00689"></a>00689     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac3045d2b770b328d64b144520603a216" title="最初に表示されている項目のインデックス。style() が ListView::Style::details か ListView::Style::list の場合のみ有効。">topIndex</a>() <span class="keyword">const</span>;
+<a name="l00690"></a>00690     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#ac3045d2b770b328d64b144520603a216" title="最初に表示されている項目のインデックス。style() が ListView::Style::details か ListView::Style::list の場合のみ有効。">topIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00691"></a>00691 
+<a name="l00692"></a>00692 <span class="keyword">public</span>:
+<a name="l00694"></a>00694     <a class="code" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">ListView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#aae65113c5ccb96db522521607dd21048" title="index 番目の項目。">operator[]</a>(<span class="keywordtype">int</span> index);
+<a name="l00695"></a>00695 
+<a name="l00696"></a>00696 <span class="keyword">protected</span>:
+<a name="l00698"></a>00698     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_view.html#a155ddebd96122c55445c9eb35fbfac7f" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00699"></a>00699 
+<a name="l00700"></a>00700 <span class="keyword">protected</span>:
+<a name="l00701"></a>00701     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::HeaderClick&amp;&gt;</a> _onHeaderClick;
+<a name="l00702"></a>00702     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemChange&amp;&gt;</a> _onItemChange;
+<a name="l00703"></a>00703     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemChanging&amp;&gt;</a> _onItemChanging;
+<a name="l00704"></a>00704     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemClick&amp;&gt;</a> _onItemClick;
+<a name="l00705"></a>00705     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemDoubleClick&amp;&gt;</a> _onItemDoubleClick;
+<a name="l00706"></a>00706     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemDrag&amp;&gt;</a> _onItemDrag;
+<a name="l00707"></a>00707     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemPrePaint&amp;&gt;</a> _onItemPrePaint;
+<a name="l00708"></a>00708     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemRightClick&amp;&gt;</a> _onItemRightClick;
+<a name="l00709"></a>00709     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::ItemTipPopup&amp;&gt;</a> _onItemTipPopup;
+<a name="l00710"></a>00710     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::TextEdit&amp;&gt;</a> _onTextEdit;
+<a name="l00711"></a>00711     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListView::TextEditing&amp;&gt;</a> _onTextEditing;
+<a name="l00712"></a>00712 };
+<a name="l00713"></a>00713 
+<a name="l00714"></a>00714 
+<a name="l00715"></a>00715 
+<a name="l00716"></a>00716     }
+<a name="l00717"></a>00717 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

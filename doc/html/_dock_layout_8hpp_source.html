@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/DockLayout.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/DockLayout.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/gui/Padding.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>balor {
+<a name="l00011"></a>00011     <span class="keyword">namespace </span>gui {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00053"></a><a class="code" href="classbalor_1_1gui_1_1_dock_layout.html">00053</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00054"></a>00054 <span class="keyword">public</span>:
+<a name="l00056"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html">00056</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html" title="どこにドッキングするか。">Style</a> {
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1f">00057</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1f">_enum</a> {
+<a name="l00058"></a>00058             none  , 
+<a name="l00059"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fab97598f6679b86951c9bd8fcfc5b014b">00059</a>             <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fab97598f6679b86951c9bd8fcfc5b014b" title="何もしない。">left</a>  , 
+<a name="l00060"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa194c9ac07e5fd7a0193a7bac5be6ea44">00060</a>             <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa194c9ac07e5fd7a0193a7bac5be6ea44" title="左にドッキング。">top</a>   , 
+<a name="l00061"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa68707ed38bd5cae457f4736fc84270eb">00061</a>             <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa68707ed38bd5cae457f4736fc84270eb" title="上部にドッキング。">right</a> , 
+<a name="l00062"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1faf00324f67c780520a61dad4ab6d2d253">00062</a>             <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1faf00324f67c780520a61dad4ab6d2d253" title="右にドッキング。">bottom</a>, 
+<a name="l00063"></a><a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa95fd10c6c098c9d538df22826e90e306">00063</a>             <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html#a098d8e0c48e6dc8375bcebc1c40b6f1fa95fd10c6c098c9d538df22826e90e306" title="下部にドッキング。">fill</a>  , 
+<a name="l00064"></a>00064         };
+<a name="l00065"></a>00065         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html" title="どこにドッキングするか。">Style</a>);
+<a name="l00066"></a>00066     };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="keyword">public</span>:
+<a name="l00069"></a>00069     <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>();
+<a name="l00070"></a>00070     <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>(<a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>&amp;&amp; value);
+<a name="l00071"></a>00071     <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a3aaa8f4d30dff34a61b43b78adfed5b5" title="レイアウト対象の親コントロール。">target</a>);
+<a name="l00072"></a>00072     ~<a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>();
+<a name="l00073"></a>00073     <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_dock_layout.html" title="子コントロールを親の枠にドッキングさせるレイアウト。">DockLayout</a>&amp;&amp; value);
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="keyword">public</span>:
+<a name="l00077"></a>00077     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a7c204dc2e198c5bd4f77db6f7c892ba8" title="子の最小の大きさ。初期値は Size(0, 0)。">getMinimumSize</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; child) <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html" title="どこにドッキングするか。">DockLayout::Style</a> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#ad6a3d89ff1946e5f528fe17e279db01a" title="子のドッキング位置。初期値は DockLayout::Style::none。">getStyle</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; child) <span class="keyword">const</span>;
+<a name="l00081"></a>00081     <a class="code" href="classbalor_1_1gui_1_1_padding.html" title="上下左右の余白を表す。">Padding</a> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a3856f607533c475e66d6f2de56087d89" title="親の枠と子コントロールの間の隙間の大きさ。初期値は Padding(0, 0, 0, 0)。">padding</a>() <span class="keyword">const</span>;
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a3856f607533c475e66d6f2de56087d89" title="親の枠と子コントロールの間の隙間の大きさ。初期値は Padding(0, 0, 0, 0)。">padding</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_padding.html" title="上下左右の余白を表す。">Padding</a>&amp; value);
+<a name="l00083"></a>00083     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a3856f607533c475e66d6f2de56087d89" title="親の枠と子コントロールの間の隙間の大きさ。初期値は Padding(0, 0, 0, 0)。">padding</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> top, <span class="keywordtype">int</span> right, <span class="keywordtype">int</span> bottom);
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#acec4299ee27293988cc7460e90a59532" title="レイアウトを更新する。">perform</a>();
+<a name="l00087"></a>00087     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a38a641880901d7c56cc743f5e78da12b" title="全ての子コントロールが表示でき、ドッキングする子コントロールとその他のコントロールが重ならない最低限の大きさ。">preferredSize</a>() <span class="keyword">const</span>;
+<a name="l00089"></a>00089     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#aeda58fe946256f196b566d1de2d057f7" title="Scaler を使ってレイアウト設定をスケーリングする。コントロールは別途スケーリングが必要。">scale</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_scaler.html" title="数値のスケーリングを行う。">Scaler</a>&amp; scaler);
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a1fb0ef22334c1c2c4a2f102dc3d878f9" title="子の最小の大きさを設定する。">setMinimumSize</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; child, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> value);
+<a name="l00092"></a>00092     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a1fb0ef22334c1c2c4a2f102dc3d878f9" title="子の最小の大きさを設定する。">setMinimumSize</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; child, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a20a145c12fe0d4aa964ed3fea5a4567c" title="子のドッキング位置を設定する。">setStyle</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; child, <a class="code" href="structbalor_1_1gui_1_1_dock_layout_1_1_style.html" title="どこにドッキングするか。">DockLayout::Style</a> value);
+<a name="l00096"></a>00096     <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_dock_layout.html#a3aaa8f4d30dff34a61b43b78adfed5b5" title="レイアウト対象の親コントロール。">target</a>();
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">private</span>:
+<a name="l00099"></a>00099     <span class="keyword">struct </span>ChildInfo {
+<a name="l00100"></a>00100         ChildInfo();
+<a name="l00101"></a>00101         <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Control&gt;</a> child;
+<a name="l00102"></a>00102         Style style;
+<a name="l00103"></a>00103         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> minimumSize;
+<a name="l00104"></a>00104     };
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     <span class="keyword">const</span> ChildInfo* _findInfo(Control&amp; child) <span class="keyword">const</span>;
+<a name="l00107"></a>00107     ChildInfo&amp; _getInfo(Control&amp; child);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109     <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Control&gt;</a> _target;
+<a name="l00110"></a>00110     Padding _padding;
+<a name="l00111"></a>00111     std::vector&lt;ChildInfo&gt; _childInfos;
+<a name="l00112"></a>00112 };
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116     }
+<a name="l00117"></a>00117 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

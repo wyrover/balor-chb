@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/FileStream.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/FileStream.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/io/Stream.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>io {
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00017"></a><a class="code" href="classbalor_1_1io_1_1_file_stream.html">00017</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a> {
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00019"></a>00019     <span class="keyword">typedef</span> <span class="keywordtype">void</span>* HANDLE;
+<a name="l00020"></a>00020 
+<a name="l00022"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html">00022</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html" title="ファイルのオープンモード。">Mode</a> {
+<a name="l00023"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2">00023</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2">_enum</a> {
+<a name="l00024"></a>00024             create       = 1, 
+<a name="l00025"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a11e285b8c3f642eb05b8ceb0af99cbb7">00025</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a11e285b8c3f642eb05b8ceb0af99cbb7" title="ファイルの新規作成。既に存在していた場合は AlreadyExistsException を投げる。">createAlways</a> = 2, 
+<a name="l00026"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2af445aec54130a31d886c5c74d8e770a9">00026</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2af445aec54130a31d886c5c74d8e770a9" title="ファイルの新規作成。既に存在していた場合は消してから作成。">open</a>         = 3, 
+<a name="l00027"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a5b152f805ddbe5b3572aa39700c1a355">00027</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a5b152f805ddbe5b3572aa39700c1a355" title="ファイルを開く。存在しない場合は NotFoundException を投げる。">openAlways</a>   = 4, 
+<a name="l00028"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a0100bf07757998fed0ee3e1df553e89a">00028</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2a0100bf07757998fed0ee3e1df553e89a" title="ファイルを開く。存在しない場合は新規作成する。">truncate</a>     = 5, 
+<a name="l00029"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2ae76a1ac12ffa6050160ffd8d9466fe26">00029</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html#a9a5c3b35af60b1378c098b93166208f2ae76a1ac12ffa6050160ffd8d9466fe26" title="ファイルを開き、サイズを０にする。存在しない場合は NotFoundException を投げる。">append</a>       = 6, 
+<a name="l00030"></a>00030         };
+<a name="l00031"></a>00031         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html" title="ファイルのオープンモード。">Mode</a>);
+<a name="l00032"></a>00032     };
+<a name="l00033"></a>00033 
+<a name="l00035"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html">00035</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html" title="ファイルへのアクセス権。">Access</a> {
+<a name="l00036"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34">00036</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34">_enum</a> {
+<a name="l00037"></a>00037             read      = 0x80000000L, 
+<a name="l00038"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34a608d54cee1f0d9a8c9f3e59fed882a48">00038</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34a608d54cee1f0d9a8c9f3e59fed882a48" title="読み取りアクセス。">write</a>     = 0x40000000L, 
+<a name="l00039"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34a33d7847c14477d4f7d79a21c38faee99">00039</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34a33d7847c14477d4f7d79a21c38faee99" title="書き込みアクセス。">readWrite</a> = 0xc0000000L, 
+<a name="l00040"></a>00040         };
+<a name="l00041"></a>00041         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html" title="ファイルへのアクセス権。">Access</a>);
+<a name="l00042"></a>00042     };
+<a name="l00043"></a>00043 
+<a name="l00045"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html">00045</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html" title="ファイルへの共有方式。組み合わせで指定する。">Share</a> {
+<a name="l00046"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1e">00046</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1e">_enum</a> {
+<a name="l00047"></a>00047             none      = 0x00000000, 
+<a name="l00048"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea9356736c2d60bd08cb3afdae959a223b">00048</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea9356736c2d60bd08cb3afdae959a223b" title="他スレッド、プロセスの一切のアクセスを禁じる。">read</a>      = 0x00000001, 
+<a name="l00049"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea645bb1d484faef656d73825cfd1cf76c">00049</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea645bb1d484faef656d73825cfd1cf76c" title="読み取りの共有。">write</a>     = 0x00000002, 
+<a name="l00050"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea12a43f8cebb90947499667bdcd0a2917">00050</a>             <span class="keyword">remove</span>    = 0x00000004, 
+<a name="l00051"></a>00051         };
+<a name="l00052"></a>00052         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html" title="ファイルへの共有方式。組み合わせで指定する。">Share</a>);
+<a name="l00053"></a>00053     };
+<a name="l00054"></a>00054 
+<a name="l00056"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html">00056</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html" title="ファイルオープンのオプション。組み合わせで指定する。">Options</a> {
+<a name="l00057"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58">00057</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58">_enum</a> {
+<a name="l00058"></a>00058             none           = 0         , 
+<a name="l00059"></a>00059             writeThrough   = 0x80000000, 
+<a name="l00060"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58a30b222885f064e3fb03bf1160ebeb3d0">00060</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58a30b222885f064e3fb03bf1160ebeb3d0" title="キャッシュせずに直接ディスクに書き込む。">randomAccess</a>   = 0x10000000, 
+<a name="l00061"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58a544069cc307d7863c63084ed91d6a329">00061</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58a544069cc307d7863c63084ed91d6a329" title="ランダムアクセスすることをシステムに指示する。">removeOnClose</a>  = 0x04000000, 
+<a name="l00062"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58aa4b6e12fbc22298136fddc6e504e89d0">00062</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58aa4b6e12fbc22298136fddc6e504e89d0" title="ファイルを閉じた時に削除する。">sequentialScan</a> = 0x08000000, 
+<a name="l00063"></a><a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58aba47219cfebf060e557706e42c927932">00063</a>             <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html#a35acc113289d4fefdf566edc261a3e58aba47219cfebf060e557706e42c927932" title="シーケンシャルにアクセスすることをシステムに指示する。">encrypted</a>      = 0x00004000, 
+<a name="l00064"></a>00064         };
+<a name="l00065"></a>00065         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html" title="ファイルオープンのオプション。組み合わせで指定する。">Options</a>);
+<a name="l00066"></a>00066     };
+<a name="l00067"></a>00067 
+<a name="l00069"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_access_denied_exception.html">00069</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_access_denied_exception.html" title="アクセス権がなかった。">AccessDeniedException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00070"></a>00070 
+<a name="l00072"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_already_exists_exception.html">00072</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_already_exists_exception.html" title="ファイルが既に存在していた。">AlreadyExistsException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00073"></a>00073 
+<a name="l00075"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock_violation_exception.html">00075</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock_violation_exception.html" title="ロックされていて読み書きできなかった。">LockViolationException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00076"></a>00076 
+<a name="l00078"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_not_found_exception.html">00078</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_not_found_exception.html" title="ファイルが見つからなかった。">NotFoundException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00079"></a>00079 
+<a name="l00081"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_sharing_violation_exception.html">00081</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_sharing_violation_exception.html" title="共有方式に反する競合があった。">SharingViolationException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="comment">// オーバーロード関数のオーバーライド用</span>
+<a name="l00084"></a>00084     <span class="keyword">using</span> <a class="code" href="classbalor_1_1io_1_1_stream.html#a4e54d6067a742df42a17999c07a59ba0" title="１バイト読み出して返す。ファイルの終わりに達していたら -1 を返す。">Stream::read</a>;
+<a name="l00085"></a>00085     <span class="keyword">using</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ad53583afb5096dfb1ed53e6269743b45" title="指定したバイト数書き込む。">Stream::write</a>;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="keyword">public</span>:
+<a name="l00091"></a><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html">00091</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a> {
+<a name="l00092"></a>00092         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a>;
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>(HANDLE handle, __int64 position, __int64 length);
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096     <span class="keyword">public</span>:
+<a name="l00097"></a>00097         <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>(<a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>&amp;&amp; <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ad1365c45c5871e536e5cba3b41dc87d4" title="指定した領域の他のハンドルの読み書きを禁止する。戻り値の Lock オブジェクトが存在している間だけ有効。">lock</a>);
+<a name="l00098"></a>00098         ~<a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>();
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100     <span class="keyword">private</span>:
+<a name="l00101"></a>00101         <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>&amp; );
+<a name="l00102"></a>00102         <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a>&amp; );
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104         HANDLE handle;
+<a name="l00105"></a>00105         __int64 position;
+<a name="l00106"></a>00106         __int64 length;
+<a name="l00107"></a>00107     };
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keyword">public</span>:
+<a name="l00111"></a>00111     <a class="code" href="classbalor_1_1io_1_1_file_stream.html#adc33b84fb3efd96902e898723e463e83" title="ヌルハンドルで作成する。">FileStream</a>();
+<a name="l00113"></a>00113     <a class="code" href="classbalor_1_1io_1_1_file_stream.html#adc33b84fb3efd96902e898723e463e83" title="ヌルハンドルで作成する。">FileStream</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> path, <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_mode.html" title="ファイルのオープンモード。">FileStream::Mode</a> mode, <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html" title="ファイルへのアクセス権。">FileStream::Access</a> access = <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_access.html#a0f99e93965c5a99de529d5aa2acc7a34a33d7847c14477d4f7d79a21c38faee99" title="書き込みアクセス。">Access::readWrite</a>, <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html" title="ファイルへの共有方式。組み合わせで指定する。">FileStream::Share</a> share = <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_share.html#ada14ee032b5843751132c0da70fa7a1ea9356736c2d60bd08cb3afdae959a223b" title="他スレッド、プロセスの一切のアクセスを禁じる。">Share::read</a>, <a class="code" href="structbalor_1_1io_1_1_file_stream_1_1_options.html" title="ファイルオープンのオプション。組み合わせで指定する。">FileStream::Options</a> options = Options::none);
+<a name="l00114"></a>00114     <a class="code" href="classbalor_1_1io_1_1_file_stream.html#adc33b84fb3efd96902e898723e463e83" title="ヌルハンドルで作成する。">FileStream</a>(<a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a>&amp;&amp; value);
+<a name="l00116"></a>00116     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a013368542d7634e085f52c272af568c2" title="ファイルをクローズする。">~FileStream</a>();
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118     <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a>&amp; operator=(<a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a>&amp;&amp; value);
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="keyword">public</span>:
+<a name="l00121"></a>00121     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#aa16f813cadd18b0922af02f8cb03e8a3" title="ストリームのバッファをフラッシュ（同期）する。">flush</a>();
+<a name="l00122"></a>00122     <span class="keyword">virtual</span> __int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a880b61711ef9ced4c9738f1aa2462eb3" title="ストリームの長さ。">length</a>() <span class="keyword">const</span>;
+<a name="l00124"></a>00124     <a class="code" href="classbalor_1_1io_1_1_file_stream_1_1_lock.html" title="ファイルの自動ロック解除用オブジェクト。 MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、 ロック解除を行わずにファイルハンドルを...">Lock</a> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ad1365c45c5871e536e5cba3b41dc87d4" title="指定した領域の他のハンドルの読み書きを禁止する。戻り値の Lock オブジェクトが存在している間だけ有効。">lock</a>(__int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a62f7a97ef6266fa13835145d44048ee6" title="現在位置。">position</a>, __int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a880b61711ef9ced4c9738f1aa2462eb3" title="ストリームの長さ。">length</a>);
+<a name="l00125"></a>00125     <span class="keyword">virtual</span> __int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a62f7a97ef6266fa13835145d44048ee6" title="現在位置。">position</a>() <span class="keyword">const</span>;
+<a name="l00126"></a>00126     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a62f7a97ef6266fa13835145d44048ee6" title="現在位置。">position</a>(__int64 value);
+<a name="l00127"></a>00127     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1io_1_1_stream.html#a4e54d6067a742df42a17999c07a59ba0" title="１バイト読み出して返す。ファイルの終わりに達していたら -1 を返す。">read</a>(<span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> count);
+<a name="l00128"></a>00128     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ace07bf6958d89f14070ada989d45f1cd" title="読み出し可能かどうか。">readable</a>() <span class="keyword">const</span>;
+<a name="l00129"></a>00129     <span class="keyword">virtual</span> __int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ab317a35b39d84a15377bd36f77dbf1b2" title="現在位置から指定したバイト数分移動する。">skip</a>(__int64 offset);
+<a name="l00131"></a>00131     <span class="keyword">virtual</span> __int64 <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ae52ec0a9bef91c2bd0eb979221586587" title="ファイルの終端に移動する。">skipToEnd</a>();
+<a name="l00132"></a>00132     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ad53583afb5096dfb1ed53e6269743b45" title="指定したバイト数書き込む。">write</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> count);
+<a name="l00133"></a>00133     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file_stream.html#a5c9d0c2c90a36f3b14843da3498a68e7" title="書き込み可能かどうか。">writable</a>() <span class="keyword">const</span>;
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="keyword">public</span>:
+<a name="l00137"></a><a class="code" href="classbalor_1_1io_1_1_file_stream.html#ae5631e7644d9d1f8596f5542d415ba04">00137</a>     <a class="code" href="classbalor_1_1io_1_1_file_stream.html#ae5631e7644d9d1f8596f5542d415ba04" title="HANDLE への自動変換 ＆ null チェック用">operator HANDLE</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139 <span class="keyword">private</span>:
+<a name="l00140"></a>00140     HANDLE _handle;
+<a name="l00141"></a>00141     Access _access;
+<a name="l00142"></a>00142 };
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146     }
+<a name="l00147"></a>00147 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

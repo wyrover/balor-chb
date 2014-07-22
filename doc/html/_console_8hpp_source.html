@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/Console.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/Console.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>system {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00016"></a><a class="code" href="classbalor_1_1system_1_1_console.html">00016</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_console.html" title="コンソールウインドウの表示や文字の出力。">Console</a> {
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00019"></a>00019     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#a8130aad91fe1e304e8e23e095f0012f9" title="開いていたコンソールを閉じる。">close</a>();
+<a name="l00021"></a>00021     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#a062cc0f2eb0a2b585ad38fb27ac954b5" title="コンソールを開く。">open</a>();
+<a name="l00023"></a>00023     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#adbb92d9a8ea08d729a096413a7155997" title="文字列を書き込む。">write</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> text);
+<a name="l00024"></a>00024     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#adbb92d9a8ea08d729a096413a7155997" title="文字列を書き込む。">write</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">ByteStringRange</a> text);
+<a name="l00026"></a>00026     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#ae67c63d1741d8b6333597feabb657f86" title="文字列を書き込んで改行する。">writeLine</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> text);
+<a name="l00027"></a>00027     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_console.html#ae67c63d1741d8b6333597feabb657f86" title="文字列を書き込んで改行する。">writeLine</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">ByteStringRange</a> text);
+<a name="l00028"></a>00028 };
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032     }
+<a name="l00033"></a>00033 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/ImageList.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/ImageList.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">struct </span>_IMAGELIST;
+<a name="l00007"></a>00007 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00008"></a>00008 <span class="keyword">struct </span>HICON__;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>balor {
+<a name="l00011"></a>00011     <span class="keyword">class </span>Size;
+<a name="l00012"></a>00012 }
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>balor {
+<a name="l00016"></a>00016     <span class="keyword">namespace </span>graphics {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">class </span>Bitmap;
+<a name="l00019"></a>00019 <span class="keyword">class </span>Color;
+<a name="l00020"></a>00020 <span class="keyword">class </span>Icon;
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 
+<a name="l00029"></a><a class="code" href="classbalor_1_1graphics_1_1_image_list.html">00029</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00030"></a>00030 <span class="keyword">public</span>:
+<a name="l00031"></a>00031     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00032"></a>00032     typedef ::HBITMAP__* HBITMAP;
+<a name="l00033"></a>00033     typedef ::HICON__* HICON;
+<a name="l00034"></a>00034 
+<a name="l00036"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html">00036</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">Format</a> {
+<a name="l00037"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59">00037</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59">_enum</a> {
+<a name="l00038"></a>00038             palette4bpp = 0x00000004, 
+<a name="l00039"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59aaf60ca6db385e6c1a33bfda7dbfda8d9">00039</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59aaf60ca6db385e6c1a33bfda7dbfda8d9" title="１６色パレット。">palette8bpp</a> = 0x00000008, 
+<a name="l00040"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a49204d029ea4d4c6ba72362bd15fb4ac">00040</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a49204d029ea4d4c6ba72362bd15fb4ac" title="２５６色パレット。">rgb16bpp</a>    = 0x00000010, 
+<a name="l00041"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a405642564e73d61f055623b18ed1c2b1">00041</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a405642564e73d61f055623b18ed1c2b1" title="１６ビットカラー画像。">rgb24bpp</a>    = 0x00000018, 
+<a name="l00042"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a31517b53a297e47062e27c79e805ab2f">00042</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a31517b53a297e47062e27c79e805ab2f" title="２４ビットカラー画像。">argb32bpp</a>   = 0x00000020, 
+<a name="l00043"></a>00043         };
+<a name="l00044"></a>00044         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">Format</a>);
+<a name="l00045"></a>00045     };
+<a name="l00046"></a>00046 
+<a name="l00048"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html">00048</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html" title="画像の描画状態。Graphics::drawImageList 関数の引数に使う。">State</a> {
+<a name="l00049"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8">00049</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8">_enum</a> {
+<a name="l00050"></a>00050             normal    = 0x00000000, 
+<a name="l00051"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8ad55217bc3f7f62e102836c5b91e908bd">00051</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8ad55217bc3f7f62e102836c5b91e908bd" title="マスクを使って描画。">drawMask</a>  = 0x00000010, 
+<a name="l00052"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8aee5b9fd8ef8fcf8bf2fc153ba4e9d501">00052</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8aee5b9fd8ef8fcf8bf2fc153ba4e9d501" title="マスク画像を描画。">unmasked</a>  = 0x00000020, 
+<a name="l00053"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8acf4decc1268bf2432cf0968106b91b8e">00053</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8acf4decc1268bf2432cf0968106b91b8e" title="マスクを使わずに描画。ただしマスクを持たないアルファチャンネル画像には無効。">focused</a>   = 0x00000002, 
+<a name="l00054"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8ac6e122a1cc1caf466bb1c88b555a7ed6">00054</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html#af4e37e187cdf287fe985a51ba0cf8dc8ac6e122a1cc1caf466bb1c88b555a7ed6" title="フォーカス状態で描画。">selected</a>  = 0x00000004, 
+<a name="l00055"></a>00055         };
+<a name="l00056"></a>00056         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html" title="画像の描画状態。Graphics::drawImageList 関数の引数に使う。">State</a>);
+<a name="l00057"></a>00057     };
+<a name="l00058"></a>00058 
+<a name="l00060"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html">00060</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html" title="システムリソースの画像リストの種類。fromSystemResource 関数の引数に使う。">SystemResource</a> {
+<a name="l00061"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4">00061</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4">_enum</a> {
+<a name="l00062"></a>00062             smallStandardImages = 0, 
+<a name="l00063"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4acb09f76aacc66774e2f1f7099d256823">00063</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4acb09f76aacc66774e2f1f7099d256823" title="標準的なアプリケーションで使用される小さなアイコンの画像リスト。">largeStandardImages</a> = 1, 
+<a name="l00064"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4aa0fef0c24682c65a607186d016ef5300">00064</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4aa0fef0c24682c65a607186d016ef5300" title="標準的なアプリケーションで使用される大きなアイコンの画像リスト。">smallViewImages</a>     = 4, 
+<a name="l00065"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4abc9d54a4c22b6eac40d76ed108c403cb">00065</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4abc9d54a4c22b6eac40d76ed108c403cb" title="リストビューの操作を表す小さなアイコンの画像リスト。">largeViewImages</a>     = 5, 
+<a name="l00066"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4ae87978190bfa17b386d2b29cef067f16">00066</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4ae87978190bfa17b386d2b29cef067f16" title="リストビューの操作を表す大きなアイコンの画像リスト。">smallExplorerImages</a> = 8, 
+<a name="l00067"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4ad420146d82a4e7365bf6408cedaea438">00067</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html#a5b93d896a72c48af940e2771034a54b4ad420146d82a4e7365bf6408cedaea438" title="ウインドウズエクスプローラで使用される小さなアイコンの画像リスト。">largeExplorerImages</a> = 9, 
+<a name="l00068"></a>00068         };
+<a name="l00069"></a>00069         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html" title="システムリソースの画像リストの種類。fromSystemResource 関数の引数に使う。">SystemResource</a>);
+<a name="l00070"></a>00070     };
+<a name="l00071"></a>00071 
+<a name="l00073"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html">00073</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html" title="システムリソースの画像リスト（smallStandardImages、largeStandardImages）の画像インデックス。">StandardImage</a> {
+<a name="l00074"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920">00074</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920">_enum</a> {
+<a name="l00075"></a>00075             cut          =  0, 
+<a name="l00076"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a32249ee709b4e0a1a19dc7834aaebb36">00076</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a32249ee709b4e0a1a19dc7834aaebb36" title="切り取り。">copy</a>         =  1, 
+<a name="l00077"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ad6e50e1859f392cbbc50db0367a2f23a">00077</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ad6e50e1859f392cbbc50db0367a2f23a" title="コピー。">paste</a>        =  2, 
+<a name="l00078"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ad3c33a31401e0bca0a27bd33cede5693">00078</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ad3c33a31401e0bca0a27bd33cede5693" title="貼り付け。">undo</a>         =  3, 
+<a name="l00079"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a2d49ec198c8d7065f22a28cff8d47a90">00079</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a2d49ec198c8d7065f22a28cff8d47a90" title="元に戻す。">redo</a>         =  4, 
+<a name="l00080"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a3fbc3130b8e2e9454575367feac44e1e">00080</a>             <span class="keyword">remove</span>       =  5, 
+<a name="l00081"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a6e84cf183d42ea28d90e025308b0d29e">00081</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a6e84cf183d42ea28d90e025308b0d29e" title="削除。">fileNew</a>      =  6, 
+<a name="l00082"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a3eca3ea52dd81e3796860f3dfd7a02c9">00082</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a3eca3ea52dd81e3796860f3dfd7a02c9" title="ファイルの新規作成。">fileOpen</a>     =  7, 
+<a name="l00083"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a44424b80504b07bd1d4192b160afcaa3">00083</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a44424b80504b07bd1d4192b160afcaa3" title="ファイルを開く。">fileSave</a>     =  8, 
+<a name="l00084"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a3e9977dcc35ac1052cccccf90a712dde">00084</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a3e9977dcc35ac1052cccccf90a712dde" title="ファイルの保存。">printPreview</a> =  9, 
+<a name="l00085"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ab229aea19bcb9a45aa389279634c7406">00085</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ab229aea19bcb9a45aa389279634c7406" title="印刷プレビュー。">properties</a>   = 10, 
+<a name="l00086"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ae6de3d7654e2e8eefbd7a483f99ddd70">00086</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920ae6de3d7654e2e8eefbd7a483f99ddd70" title="プロパティ。">help</a>         = 11, 
+<a name="l00087"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920aca8c930dcca99a4636395337ae6da93a">00087</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920aca8c930dcca99a4636395337ae6da93a" title="ヘルプ。">find</a>         = 12, 
+<a name="l00088"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a0bb27c6a15d505f04e5e6adb487b1651">00088</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a0bb27c6a15d505f04e5e6adb487b1651" title="検索。">replace</a>      = 13, 
+<a name="l00089"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a8164fc9dfd7c5205baa4c107bbb666e6">00089</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html#aab32191364ca3ed47b7430046282c920a8164fc9dfd7c5205baa4c107bbb666e6" title="置換。">print</a>        = 14, 
+<a name="l00090"></a>00090         };
+<a name="l00091"></a>00091         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_standard_image.html" title="システムリソースの画像リスト（smallStandardImages、largeStandardImages）の画像インデックス。">StandardImage</a>);
+<a name="l00092"></a>00092     };
+<a name="l00093"></a>00093 
+<a name="l00095"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html">00095</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html" title="システムリソースの画像リスト（smallViewImages、largeViewImages）の画像インデックス。">ViewImage</a> {
+<a name="l00096"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008">00096</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008">_enum</a> {
+<a name="l00097"></a>00097             largeIcons    =  0, 
+<a name="l00098"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a4e64d8994ab3ce861914f9790130540e">00098</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a4e64d8994ab3ce861914f9790130540e" title="大きなアイコン。">smallIcons</a>    =  1, 
+<a name="l00099"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008acd76a68c164914d38643e878ad0edf6a">00099</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008acd76a68c164914d38643e878ad0edf6a" title="小さなアイコン。">list</a>          =  2, 
+<a name="l00100"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a049c0649e0f3cdfbadf6b898be04b9d0">00100</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a049c0649e0f3cdfbadf6b898be04b9d0" title="一覧。">details</a>       =  3, 
+<a name="l00101"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ac8e3b66244b3d8dc4cbf1ad00e9384da">00101</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ac8e3b66244b3d8dc4cbf1ad00e9384da" title="詳細。">sortName</a>      =  4, 
+<a name="l00102"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ad27966a68ea46e0dee19ffaf6d21953a">00102</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ad27966a68ea46e0dee19ffaf6d21953a" title="名前順でソート。">sortSize</a>      =  5, 
+<a name="l00103"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a184b0502305408c9b1eacb5b0ecbbfe6">00103</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a184b0502305408c9b1eacb5b0ecbbfe6" title="大きさ順でソート。">sortDate</a>      =  6, 
+<a name="l00104"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a1b4be606f8b2a3d07d0e5b94cd132952">00104</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a1b4be606f8b2a3d07d0e5b94cd132952" title="日付順でソート。">sortType</a>      =  7, 
+<a name="l00105"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a604530bd7fa1e53991c1e3119170e7d8">00105</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a604530bd7fa1e53991c1e3119170e7d8" title="種類でソート。">parentFolder</a>  =  8, 
+<a name="l00106"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ae810b393196bb6305644ada18e2195b6">00106</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ae810b393196bb6305644ada18e2195b6" title="親フォルダへ移動。">netConnect</a>    =  9, 
+<a name="l00107"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ae468dbaadc37c6d94202b7ad905e309c">00107</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008ae468dbaadc37c6d94202b7ad905e309c" title="ネットワークドライブに接続。">netDisconnect</a> = 10, 
+<a name="l00108"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a47728085e5eca851c461980a2910c3ad">00108</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008a47728085e5eca851c461980a2910c3ad" title="ネットワークドライブから切断。">newFolder</a>     = 11, 
+<a name="l00109"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008afeb3ff48c989f44bf4025eac0719435d">00109</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html#a72086a6813f92d39875b8b85ec4b1008afeb3ff48c989f44bf4025eac0719435d" title="新しいフォルダ。">viewMenu</a>      = 12, 
+<a name="l00110"></a>00110         };
+<a name="l00111"></a>00111         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_view_image.html" title="システムリソースの画像リスト（smallViewImages、largeViewImages）の画像インデックス。">ViewImage</a>);
+<a name="l00112"></a>00112     };
+<a name="l00113"></a>00113 
+<a name="l00115"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html">00115</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html" title="システムリソースの画像リスト（smallExplorerImages、largeExplorerImages）の画像インデックス。">ExplorerImage</a> {
+<a name="l00116"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4">00116</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4">_enum</a> {
+<a name="l00117"></a>00117             back           =  0, 
+<a name="l00118"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a847d81c07b04195d373da0ab6cad2f53">00118</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a847d81c07b04195d373da0ab6cad2f53" title="戻る。">forward</a>        =  1, 
+<a name="l00119"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a353ceb8c39b741c6c5a7663fce742a74">00119</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a353ceb8c39b741c6c5a7663fce742a74" title="進む。">favorites</a>      =  2, 
+<a name="l00120"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a2bca6ce3e206ca4ee262a3df7f734f5c">00120</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a2bca6ce3e206ca4ee262a3df7f734f5c" title="お気に入り。">addToFavorites</a> =  3, 
+<a name="l00121"></a><a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a18e90360cc9aeebd92b53742ac0d9f59">00121</a>             <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html#a2049f1876846d469df0fd262c19980c4a18e90360cc9aeebd92b53742ac0d9f59" title="お気に入りに追加。">viewTree</a>       =  4, 
+<a name="l00122"></a>00122         };
+<a name="l00123"></a>00123         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_explorer_image.html" title="システムリソースの画像リスト（smallExplorerImages、largeExplorerImages）の画像インデックス。">ExplorerImage</a>);
+<a name="l00124"></a>00124     };
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 <span class="keyword">public</span>:
+<a name="l00128"></a>00128     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>();
+<a name="l00129"></a>00129     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>(<a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>&amp;&amp; value);
+<a name="l00131"></a>00131     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>(HIMAGELIST handle, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#abb906eb17256fa9f80f1a631675dd4fd" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a> = <span class="keyword">false</span>);
+<a name="l00133"></a>00133     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a847e8bb032bd97d16ed6cb1f811f1a05" title="リスト内の画像のサイズ。">imageSize</a>, <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">ImageList::Format</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ac5c7a4a35655c3cd96157fd898d73493" title="画像フォーマット。">format</a> = <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a31517b53a297e47062e27c79e805ab2f" title="２４ビットカラー画像。">Format::argb32bpp</a>, <span class="keywordtype">bool</span> masked = <span class="keyword">true</span>);
+<a name="l00134"></a>00134     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">ImageList::Format</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ac5c7a4a35655c3cd96157fd898d73493" title="画像フォーマット。">format</a> = <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html#a49a52f2ca4547e41c46189658ca14b59a31517b53a297e47062e27c79e805ab2f" title="２４ビットカラー画像。">Format::argb32bpp</a>, <span class="keywordtype">bool</span> masked = <span class="keyword">true</span>);
+<a name="l00136"></a>00136     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a1f7314eb2d78f94ba03a496f70e5e7bc" title="ヌルハンドルで作成。">ImageList</a>(<a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_system_resource.html" title="システムリソースの画像リストの種類。fromSystemResource 関数の引数に使う。">ImageList::SystemResource</a> systemResource);
+<a name="l00137"></a>00137     ~<a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>();
+<a name="l00138"></a>00138     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>&amp;&amp; value);
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 <span class="keyword">public</span>:
+<a name="l00145"></a>00145     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ae16fe8cb0d0e263e01cb0cad031d781a" title="画像をリストの末尾に追加する。画像の幅は imageSize().width 以上でなければならない。画像の幅が imageSize().width の n 倍である場合は n 個の画像を追加する。 マ...">add</a>(HBITMAP bitmap, HBITMAP mask = <span class="keyword">nullptr</span>);
+<a name="l00146"></a>00146     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ae16fe8cb0d0e263e01cb0cad031d781a" title="画像をリストの末尾に追加する。画像の幅は imageSize().width 以上でなければならない。画像の幅が imageSize().width の n 倍である場合は n 個の画像を追加する。 マ...">add</a>(HBITMAP bitmap, <span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; colorKey);
+<a name="l00150"></a>00150     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ae16fe8cb0d0e263e01cb0cad031d781a" title="画像をリストの末尾に追加する。画像の幅は imageSize().width 以上でなければならない。画像の幅が imageSize().width の n 倍である場合は n 個の画像を追加する。 マ...">add</a>(HICON icon);
+<a name="l00152"></a>00152     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a80b08bf249db44c1a7f2a847bc4bf2c2" title="画像リストを空にする。">clear</a>();
+<a name="l00154"></a>00154     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a9fd89077cb96739063995f8fe51108f2" title="画像リストを複製する。">clone</a>() <span class="keyword">const</span>;
+<a name="l00155"></a>00155     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a9fd89077cb96739063995f8fe51108f2" title="画像リストを複製する。">clone</a>(HIMAGELIST handle);
+<a name="l00157"></a>00157     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#addd68a637197bfe5a9c122040f970638" title="画像の数。">count</a>() <span class="keyword">const</span>;
+<a name="l00159"></a>00159     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a13b0571826580dd7733104c8089550c6" title="画像をリストから削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00161"></a>00161     <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">ImageList::Format</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#ac5c7a4a35655c3cd96157fd898d73493" title="画像フォーマット。">format</a>();
+<a name="l00162"></a>00162     <span class="comment">/*/// システムアイコンの画像リスト。編集したりハンドルを削除すると大変な事になるので注意。</span>
+<a name="l00163"></a>00163 <span class="comment">    //static ImageList fromSystemIcons();*/</span>
+<a name="l00165"></a>00165     <span class="keyword">static</span> <a class="code" href="structbalor_1_1graphics_1_1_image_list_1_1_format.html" title="画像リストのフォーマット。">ImageList::Format</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#aa1a366216ed3a2eb66b95e2bef324e88" title="１ピクセルあたりのビット数から画像リストのフォーマットに変換する。">getFormatFromBitsPerPixel</a>(<span class="keywordtype">int</span> bitsPerPixel);
+<a name="l00167"></a>00167     <a class="code" href="classbalor_1_1graphics_1_1_icon.html" title="アイコンを表す。">Icon</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#acf2dc4c2ff0b06973074e6f0b09e0cca" title="画像をアイコンにして取得する。">getIcon</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00169"></a>00169     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#a847e8bb032bd97d16ed6cb1f811f1a05" title="リスト内の画像のサイズ。">imageSize</a>() <span class="keyword">const</span>;
+<a name="l00171"></a>00171     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#abb906eb17256fa9f80f1a631675dd4fd" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>() <span class="keyword">const</span>;
+<a name="l00172"></a>00172     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#abb906eb17256fa9f80f1a631675dd4fd" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>(<span class="keywordtype">bool</span> value);
+<a name="l00174"></a>00174     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#afa47ba722f5ce9405739328e49f6e585" title="指定したインデックスの画像を置き換える。インデックス以外の引数は add 関数と同じ。置き換え後に引数のビットマップハンドル、アイコンハンドルは参照されない。">replace</a>(<span class="keywordtype">int</span> index, HBITMAP bitmap, HBITMAP mask = <span class="keyword">nullptr</span>);
+<a name="l00175"></a>00175     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#afa47ba722f5ce9405739328e49f6e585" title="指定したインデックスの画像を置き換える。インデックス以外の引数は add 関数と同じ。置き換え後に引数のビットマップハンドル、アイコンハンドルは参照されない。">replace</a>(<span class="keywordtype">int</span> index, HBITMAP bitmap, <span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; colorKey);
+<a name="l00176"></a>00176     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#afa47ba722f5ce9405739328e49f6e585" title="指定したインデックスの画像を置き換える。インデックス以外の引数は add 関数と同じ。置き換え後に引数のビットマップハンドル、アイコンハンドルは参照されない。">replace</a>(<span class="keywordtype">int</span> index, HICON icon);
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178 <span class="keyword">public</span>:
+<a name="l00180"></a><a class="code" href="classbalor_1_1graphics_1_1_image_list.html#adccb7a32e77069544869114ff4a6fd51">00180</a>     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html#adccb7a32e77069544869114ff4a6fd51" title="HIMAGELIST への自動変換 ＆ null チェック用">operator HIMAGELIST</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182 <span class="keyword">private</span>:
+<a name="l00183"></a>00183     HIMAGELIST _handle;
+<a name="l00184"></a>00184     <span class="keywordtype">bool</span> _owned;
+<a name="l00185"></a>00185 };
+<a name="l00186"></a>00186 
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189     }
+<a name="l00190"></a>00190 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

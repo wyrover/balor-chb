@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ScrollableControl.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ScrollableControl.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00023"></a><a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html">00023</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00024"></a>00024 <span class="keyword">public</span>:
+<a name="l00026"></a><a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#af6eba547afa6183b8e525916b6d10e50">00026</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;ScrollableControl, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#af6eba547afa6183b8e525916b6d10e50" title="ScrollableControl のイベントの親クラス。">Event</a>;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00030"></a><a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html">00030</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html" title="スクロール位置が変化したイベント。">Scroll</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00031"></a>00031         <a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html" title="スクロール位置が変化したイベント。">Scroll</a>(<a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html#a7f88f13df4f340bad4cdff8e4b7e2e53" title="古いスクロール位置。">oldPosition</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html#ac8a5b6567c3da59b5b5213c7daf9c622" title="新しいスクロール位置。">newPosition</a>);
+<a name="l00032"></a>00032 
+<a name="l00034"></a>00034         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html#ac8a5b6567c3da59b5b5213c7daf9c622" title="新しいスクロール位置。">newPosition</a>() <span class="keyword">const</span>;
+<a name="l00036"></a>00036         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_scrollable_control_1_1_scroll.html#a7f88f13df4f340bad4cdff8e4b7e2e53" title="古いスクロール位置。">oldPosition</a>() <span class="keyword">const</span>;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keyword">private</span>:
+<a name="l00039"></a>00039         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> _oldPosition;
+<a name="l00040"></a>00040         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> _newPosition;
+<a name="l00041"></a>00041     };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">protected</span>: <span class="comment">// コントロールの生成と破棄</span>
+<a name="l00045"></a>00045     <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>();
+<a name="l00046"></a>00046     <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>(<a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>&amp;&amp; value);
+<a name="l00047"></a>00047     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a>() = 0;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">public</span>:
+<a name="l00051"></a>00051     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a164487130f93987e53161346f295a74e" title="クライアント領域の大きさ。">Control::clientSize</a>;
+<a name="l00052"></a>00052     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a164487130f93987e53161346f295a74e" title="クライアント領域の大きさ。">clientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00054"></a>00054     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a4f1315af79436559ef2843c049ae7120" title="スクロール位置やスクロール範囲を考慮した仮想的なコントロールのクライアント座標と大きさ。">displayRectangle</a>() <span class="keyword">const</span>;
+<a name="l00056"></a>00056     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a368eb8a5da483a635a81b8c2b2f5a8be" title="水平スクロールバーが表示されているかどうか。">hScrollBar</a>() <span class="keyword">const</span>;
+<a name="l00058"></a>00058     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#aae8f8f19021f5b016f791c5856220320" title="水平スクロールバーを常に表示するかどうか。初期値は false。動的に変更すると挙動がおかしくなることがあるので最初に一度だけ設定すること。">hScrollBarFixed</a>() <span class="keyword">const</span>;
+<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#aae8f8f19021f5b016f791c5856220320" title="水平スクロールバーを常に表示するかどうか。初期値は false。動的に変更すると挙動がおかしくなることがあるので最初に一度だけ設定すること。">hScrollBarFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00061"></a>00061     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ScrollableControl::Scroll&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#ab90acae3d60e7db75becbe62587e5913" title="スクロール位置が変化したイベント。">onScroll</a>();
+<a name="l00063"></a>00063     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a9610be9d93a294ce976433c63ec743fc" title="Scaler を使ってコントロールをスケーリングする。">scale</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_scaler.html" title="数値のスケーリングを行う。">Scaler</a>&amp; scaler);
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a073adb0f7832b78d9c89bde843eec3bd" title="control が表示されるようにスクロールする。recursive が true ならスクロール可能なコントロールが入れ子になっている場合にすべての階層でスクロールする。">scrollControlIntoView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; control, <span class="keywordtype">bool</span> recursive = <span class="keyword">false</span>);
+<a name="l00067"></a>00067     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a5b96f3dc254c5955c6207c7bc965f845" title="コントロールの大きさがこれ以下ならスクロールバーを表示する大きさ。0 ならばスクロールバーは表示されない。初期値は Size(0, 0)。">scrollMinSize</a>() <span class="keyword">const</span>;
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a5b96f3dc254c5955c6207c7bc965f845" title="コントロールの大きさがこれ以下ならスクロールバーを表示する大きさ。0 ならばスクロールバーは表示されない。初期値は Size(0, 0)。">scrollMinSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a5b96f3dc254c5955c6207c7bc965f845" title="コントロールの大きさがこれ以下ならスクロールバーを表示する大きさ。0 ならばスクロールバーは表示されない。初期値は Size(0, 0)。">scrollMinSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00071"></a>00071     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a14c7686e7ff3596b5e8d53f9e7a1f5be" title="スクロール位置。スクロールしていれば負数になる。">scrollPosition</a>() <span class="keyword">const</span>;
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a14c7686e7ff3596b5e8d53f9e7a1f5be" title="スクロール位置。スクロールしていれば負数になる。">scrollPosition</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a14c7686e7ff3596b5e8d53f9e7a1f5be" title="スクロール位置。スクロールしていれば負数になる。">scrollPosition</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00075"></a>00075     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a97761104f65bb051c19ac554c423311f" title="現在のスクロール範囲の大きさ。">scrollSize</a>() <span class="keyword">const</span>;
+<a name="l00077"></a>00077     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#aa4ad1c661526013d061e3e0b2e2bcb69" title="垂直スクロールバーが表示されているかどうか。">vScrollBar</a>() <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#accfae846cf8c38b0d047817c490c4990" title="垂直スクロールバーを常に表示するかどうか。初期値は false。動的に変更すると挙動がおかしくなることがあるので最初に一度だけ設定すること。">vScrollBarFixed</a>() <span class="keyword">const</span>;
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#accfae846cf8c38b0d047817c490c4990" title="垂直スクロールバーを常に表示するかどうか。初期値は false。動的に変更すると挙動がおかしくなることがあるので最初に一度だけ設定すること。">vScrollBarFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="keyword">protected</span>:
+<a name="l00084"></a>00084     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#aa83e3d2cdc0a7618d4252e9e596d1af8" title="スクロールバーの状態を更新する。">updateScrollBars</a>();
+<a name="l00085"></a>00085     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html#a43f06c381c0953d8bbc1acdb3854399b" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="keyword">protected</span>:
+<a name="l00088"></a>00088     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _scrollMinSize;
+<a name="l00089"></a>00089     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _scrollSize;
+<a name="l00090"></a>00090     <span class="keywordtype">bool</span> _hScrollBarFixed;
+<a name="l00091"></a>00091     <span class="keywordtype">bool</span> _vScrollBarFixed;
+<a name="l00092"></a>00092     <span class="keywordtype">bool</span> _updating;
+<a name="l00093"></a>00093     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ScrollableControl::Scroll&amp;&gt;</a> _onScroll;
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098     }
+<a name="l00099"></a>00099 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Menu.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Menu.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/ArrayRange.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/Event.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/Listener.hpp&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;balor/Point.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;balor/String.hpp&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;balor/UniqueAny.hpp&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00014"></a>00014 <span class="keyword">struct </span>HMENU__;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>balor {
+<a name="l00017"></a>00017     <span class="keyword">namespace </span>graphics {
+<a name="l00018"></a>00018         <span class="keyword">class </span>Bitmap;
+<a name="l00019"></a>00019         <span class="keyword">class </span>Font;
+<a name="l00020"></a>00020     }
+<a name="l00021"></a>00021     <span class="keyword">class </span>Rectangle;
+<a name="l00022"></a>00022     <span class="keyword">class </span>Size;
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">namespace </span>balor {
+<a name="l00027"></a>00027     <span class="keyword">namespace </span>gui {
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keyword">class </span>Control;
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00040"></a><a class="code" href="classbalor_1_1gui_1_1_menu.html">00040</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00041"></a>00041 <span class="keyword">public</span>:
+<a name="l00042"></a>00042     typedef ::HBITMAP__* HBITMAP;
+<a name="l00043"></a>00043     typedef ::HMENU__* HMENU;
+<a name="l00044"></a>00044     typedef ::balor::graphics::Bitmap <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a>;
+<a name="l00045"></a>00045     typedef ::balor::graphics::Font <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a>;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Click</a>;
+<a name="l00051"></a>00051     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">PopupBegin</a>;
+<a name="l00052"></a>00052     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">PopupEnd</a>;
+<a name="l00053"></a>00053     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">RightClick</a>;
+<a name="l00054"></a>00054     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Select</a>;
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html" title="メニュー項目でドラッグを開始したイベント。">Drag</a>;
+<a name="l00057"></a>00057     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>;
+<a name="l00058"></a>00058     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html" title="全ての子孫を列挙するイテレータ。列挙し終えるとヌルを返すようになり、以降は操作できない。">DescendantsIterator</a>;
+<a name="l00059"></a>00059 
+<a name="l00061"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html">00061</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00062"></a>00062         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>();
+<a name="l00065"></a>00065         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>(<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp;&amp; value);
+<a name="l00066"></a>00066         ~<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>();
+<a name="l00067"></a>00067         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp;&amp; value);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="keyword">public</span>:
+<a name="l00071"></a>00071         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     <span class="keyword">public</span>:
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a98ab40962cc7d30af03c8f9fa6153cdc" title="子項目を追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00077"></a>00077         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a099b8da91d2cd680539074de169a1110" title="間に線を引いてメニューを改行するかどうか。メニューバーの場合は線は引かない。">barBreak</a>() <span class="keyword">const</span>;
+<a name="l00078"></a>00078         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a099b8da91d2cd680539074de169a1110" title="間に線を引いてメニューを改行するかどうか。メニューバーの場合は線は引かない。">barBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00080"></a>00080         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a407df3680efc935c99380ca0b66af3cf" title="間に線を引かずにメニューを改行するかどうか。barBreak() のほうが優先される。">lineBreak</a>() <span class="keyword">const</span>;
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a407df3680efc935c99380ca0b66af3cf" title="間に線を引かずにメニューを改行するかどうか。barBreak() のほうが優先される。">lineBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00083"></a>00083         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aca8316f33886cfcc079e594f959f21be" title="チェックされているかどうか。">checked</a>() <span class="keyword">const</span>;
+<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aca8316f33886cfcc079e594f959f21be" title="チェックされているかどうか。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00086"></a>00086         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aef6588cf7752b37caee7addac9cb0701" title="チェックされた状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。">checkedMark</a>() <span class="keyword">const</span>;
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aef6588cf7752b37caee7addac9cb0701" title="チェックされた状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。">checkedMark</a>(HBITMAP value);
+<a name="l00089"></a>00089         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aee750c959d2b133c7fe8c5df236ab4e1" title="子項目を全て削除する。">clear</a>();
+<a name="l00091"></a>00091         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a7e5971a80e2d47b62a11fad9eb215d9d" title="子項目の数。">count</a>() <span class="keyword">const</span>;
+<a name="l00093"></a>00093         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html" title="全ての子孫を列挙するイテレータ。列挙し終えるとヌルを返すようになり、以降は操作できない。">Menu::DescendantsIterator</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a6bf67621fe8c3c09246ff07d673d9a7f" title="全ての子孫項目を列挙するイテレータ。">descendantsBegin</a>();
+<a name="l00095"></a>00095         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#afa98bbbbd1756b2888c94cc68011cdc9" title="選択可能かどうか。">enabled</a>() <span class="keyword">const</span>;
+<a name="l00096"></a>00096         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#afa98bbbbd1756b2888c94cc68011cdc9" title="選択可能かどうか。">enabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aa33a8150686ac09592afd32b585ff47d" title="子項目を削除する。">erase</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#acbef415ac1a82bcefc9fb6517d477346" title="項目のインデックス。">index</a>);
+<a name="l00100"></a>00100         <span class="keyword">static</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Menu::Item</a>* <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a7c8b2f305884f16f39a0a0119abade32" title="メニューハンドルから項目を取得する。見つからない場合は nullptr を返す。">fromHandle</a>(HMENU handle);
+<a name="l00102"></a>00102         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a38170b03d6f79fc065becc74a8b19cea" title="オーナーコントロール上での項目のスクリーン座標系での表示位置を取得する。表示されていない場合は大きさが０になる。">getBounds</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; owner) <span class="keyword">const</span>;
+<a name="l00104"></a>00104         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#acbef415ac1a82bcefc9fb6517d477346" title="項目のインデックス。">index</a>() <span class="keyword">const</span>;
+<a name="l00106"></a>00106         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a865d3c5e7df027b98dc0de901f4fe5c4" title="子項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00108"></a>00108         std::vector&lt;Menu::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a240195f9b41f53c9b988a50ffc3e67bf" title="子項目の情報構造体配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a240195f9b41f53c9b988a50ffc3e67bf" title="子項目の情報構造体配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Menu::ItemInfo&gt;</a> value);
+<a name="l00111"></a>00111         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a6f907556e9581ada4f599b90620a39bd" title="クリックした時のイベント。shortcut() が設定されている場合は発生しない。">onClick</a>();
+<a name="l00113"></a>00113         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Drag&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#ab179fe0fd2e797eac05c2be6b22713f8" title="この項目をドラッグした時のイベント。">onDrag</a>();
+<a name="l00115"></a>00115         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a706c2679090dfc6d8b7ed1828f4831d6" title="ポップアップメニューを表示する直前のイベント。">onPopupBegin</a>();
+<a name="l00117"></a>00117         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#ad47d3645fa0764a648832b8cdfefc1bc" title="ポップアップメニューを表示し終わったイベント。">onPopupEnd</a>();
+<a name="l00119"></a>00119         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::RightClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a6113e41a57e2fc1c8086e08f55ab5bd0" title="右クリックをしたイベント。">onRightClick</a>();
+<a name="l00121"></a>00121         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a155ea8135d834b7c69c6cd2b93bcaa12" title="マウスカーソルが上に来たイベント。">onSelect</a>();
+<a name="l00123"></a>00123         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Menu::Item</a>* <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aea17bcee01db513036517a4ce617515e" title="親項目。ない場合は nullptr。">parent</a>();
+<a name="l00125"></a>00125         HMENU <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#ac7bf1e4cacb46ae06c99f6be69d22975" title="親項目のハンドル。ない場合は nullptr。">parentHandle</a>() <span class="keyword">const</span>;
+<a name="l00127"></a>00127         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a27b5a4e116088a46d2807d0f3a2b9e09" title="ラジオボタンスタイルのチェックマークを表示するかどうか。">radioCheck</a>() <span class="keyword">const</span>;
+<a name="l00128"></a>00128         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a27b5a4e116088a46d2807d0f3a2b9e09" title="ラジオボタンスタイルのチェックマークを表示するかどうか。">radioCheck</a>(<span class="keywordtype">bool</span> value);
+<a name="l00130"></a>00130         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#ae2619436e45aadcd90617c83fd0e470b" title="セパレータかどうか。">separator</a>() <span class="keyword">const</span>;
+<a name="l00131"></a>00131         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#ae2619436e45aadcd90617c83fd0e470b" title="セパレータかどうか。">separator</a>(<span class="keywordtype">bool</span> value);
+<a name="l00134"></a>00134         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#adca4f599d6a8fc5486e7cde6d4dc741f" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a>() <span class="keyword">const</span>;
+<a name="l00135"></a>00135         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#adca4f599d6a8fc5486e7cde6d4dc741f" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a>(<span class="keywordtype">int</span> value);
+<a name="l00137"></a>00137         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a63e54d11ea20ae43af1a8f823a9816b8" title="メニュー文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a63e54d11ea20ae43af1a8f823a9816b8" title="メニュー文字列。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00139"></a>00139         <span class="keywordtype">void</span> textToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00141"></a>00141         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aa848a887854e741289e260472eab9259" title="チェックされていない状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。">uncheckedMark</a>() <span class="keyword">const</span>;
+<a name="l00142"></a>00142         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#aa848a887854e741289e260472eab9259" title="チェックされていない状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。">uncheckedMark</a>(HBITMAP value);
+<a name="l00144"></a>00144         <a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a6d28c0e9ee116b4d714d703721f9b1da" title="ユーザが自由に使える任意のデータ。">userData</a>();
+<a name="l00145"></a>00145         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a6d28c0e9ee116b4d714d703721f9b1da" title="ユーザが自由に使える任意のデータ。">userData</a>(<a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>&amp;&amp; value);
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147     <span class="keyword">public</span>:
+<a name="l00149"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a2426f4853ce109a34a1d6b51d47ca635">00149</a>         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a2426f4853ce109a34a1d6b51d47ca635" title="HMENU への自動変換 &amp; null チェック。">operator HMENU</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00151"></a>00151         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a1b2506a4cf59d944e610a2dbde545a6c" title="子項目を取得する。">operator[]</a>(<span class="keywordtype">int</span> index);
+<a name="l00152"></a>00152         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html#a1b2506a4cf59d944e610a2dbde545a6c" title="子項目を取得する。">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154     <span class="keyword">private</span>:
+<a name="l00155"></a>00155         <span class="keywordtype">void</span> _attachHandle();
+<a name="l00156"></a>00156         <span class="keywordtype">void</span> _setIndex(<span class="keywordtype">int</span> value);
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158         HMENU _parent;
+<a name="l00159"></a>00159         HMENU _handle;
+<a name="l00160"></a>00160         <span class="keywordtype">int</span> _index;
+<a name="l00161"></a>00161         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>* _items; <span class="comment">// vector だと friend 宣言が沢山必要で面倒。</span>
+<a name="l00162"></a>00162         <span class="keywordtype">int</span> _itemsCapacity;
+<a name="l00163"></a>00163         <span class="keywordtype">int</span> _shortcut;
+<a name="l00164"></a>00164         <a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a> _userData;
+<a name="l00165"></a>00165         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Click&amp;&gt;</a> _onClick;
+<a name="l00166"></a>00166         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Drag&amp;&gt;</a> _onDrag;
+<a name="l00167"></a>00167         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a> _onPopupBegin;
+<a name="l00168"></a>00168         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a> _onPopupEnd;
+<a name="l00169"></a>00169         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::RightClick&amp;&gt;</a> _onRightClick;
+<a name="l00170"></a>00170         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Select&amp;&gt;</a> _onSelect;
+<a name="l00171"></a>00171     };
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 
+<a name="l00175"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html">00175</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a> {
+<a name="l00176"></a>00176     <span class="keyword">public</span>:
+<a name="l00178"></a>00178         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>();
+<a name="l00179"></a>00179         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00181"></a>00181         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; item);
+<a name="l00183"></a>00183         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a34dcb20214de2332ecd2128472e9ab53" title="メニュー文字列。">text</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af1c4141638cc5a5f4727f5109f68c26b" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a> = 0);
+<a name="l00185"></a>00185         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, <a class="code" href="classbalor_1_1_listener.html" title="Event を引数に取る返値の無い関数や関数オブジェクトを代入、追加できる関数オブジェクト。">Listener&lt;Menu::Event&amp;&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af8c63e75a51297adfecaddfa18e9175a" title="クリックした時のイベント。shortcut() が設定されている場合は発生しない。">onClick</a>);
+<a name="l00187"></a>00187         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, std::vector&lt;Menu::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a348557d1429cc7df380810858123081b" title="子項目の情報構造体配列。">itemInfos</a>);
+<a name="l00188"></a>00188         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, <span class="keyword">const</span> std::tr1::array&lt;Menu::ItemInfo, Size&gt;&amp; itemInfos) : _text(std::move(text)), _itemInfos(itemInfos.begin(), itemInfos.end()) { _initialize(); }
+<a name="l00189"></a>00189         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">Menu::ItemInfo</a> (&amp;itemInfos)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _text(std::move(text)), _itemInfos(itemInfos, itemInfos + Size) { _initialize(); }
+<a name="l00191"></a>00191         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a83d9d0294df9f7193b20e067d2196455" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad95adcee04a2a71cead4b88f303c7224" title="間に線を引いてメニューを改行するかどうか。メニューバーの場合は線は引かない。初期値は false。">barBreak</a>, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#addbf50f755493f691b019c03142628b9" title="間に線を引かずにメニューを改行するかどうか。初期値は false。">lineBreak</a>, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad2a19c3a7c19f614a8579d0e37e12b58" title="ラジオボタンスタイルのチェックマークを表示するかどうか。初期値は false。">radioCheck</a>
+<a name="l00192"></a>00192             , <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af0b432475040b6e0f8189453eba9441a" title="チェックされているかどうか。初期値は false。">checked</a> = <span class="keyword">false</span>, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ab0b5279a7969f81fa4bd4deebccc6aca" title="選択可能かどうか。初期値は true。">enabled</a> = <span class="keyword">true</span>, HBITMAP <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#afc2c77d3c0870aae8ac577327c9bae7e" title="チェックされた状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">checkedMark</a> = <span class="keyword">nullptr</span>, HBITMAP <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a64a6c4701aacfd2f5210f89b71368df7" title="チェックされていない状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">uncheckedMark</a> = <span class="keyword">nullptr</span>
+<a name="l00193"></a>00193             , <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af1c4141638cc5a5f4727f5109f68c26b" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a> = 0, <a class="code" href="classbalor_1_1_listener.html" title="Event を引数に取る返値の無い関数や関数オブジェクトを代入、追加できる関数オブジェクト。">Listener&lt;Menu::Event&amp;&gt;</a> onClick = [&amp;] (<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a>&amp; ) {});
+<a name="l00194"></a>00194         ItemInfo&amp; operator=(ItemInfo&amp;&amp; value);
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196     <span class="keyword">public</span>:
+<a name="l00198"></a>00198         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad95adcee04a2a71cead4b88f303c7224" title="間に線を引いてメニューを改行するかどうか。メニューバーの場合は線は引かない。初期値は false。">barBreak</a>() <span class="keyword">const</span>;
+<a name="l00199"></a>00199         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad95adcee04a2a71cead4b88f303c7224" title="間に線を引いてメニューを改行するかどうか。メニューバーの場合は線は引かない。初期値は false。">barBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00201"></a>00201         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#addbf50f755493f691b019c03142628b9" title="間に線を引かずにメニューを改行するかどうか。初期値は false。">lineBreak</a>() <span class="keyword">const</span>;
+<a name="l00202"></a>00202         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#addbf50f755493f691b019c03142628b9" title="間に線を引かずにメニューを改行するかどうか。初期値は false。">lineBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00204"></a>00204         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af0b432475040b6e0f8189453eba9441a" title="チェックされているかどうか。初期値は false。">checked</a>() <span class="keyword">const</span>;
+<a name="l00205"></a>00205         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af0b432475040b6e0f8189453eba9441a" title="チェックされているかどうか。初期値は false。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00207"></a>00207         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#afc2c77d3c0870aae8ac577327c9bae7e" title="チェックされた状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">checkedMark</a>() <span class="keyword">const</span>;
+<a name="l00208"></a>00208         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#afc2c77d3c0870aae8ac577327c9bae7e" title="チェックされた状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">checkedMark</a>(HBITMAP value);
+<a name="l00210"></a>00210         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ab0b5279a7969f81fa4bd4deebccc6aca" title="選択可能かどうか。初期値は true。">enabled</a>() <span class="keyword">const</span>;
+<a name="l00211"></a>00211         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ab0b5279a7969f81fa4bd4deebccc6aca" title="選択可能かどうか。初期値は true。">enabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00213"></a>00213         std::vector&lt;Menu::ItemInfo&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a348557d1429cc7df380810858123081b" title="子項目の情報構造体配列。">itemInfos</a>();
+<a name="l00214"></a>00214         <span class="keyword">const</span> std::vector&lt;Menu::ItemInfo&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a348557d1429cc7df380810858123081b" title="子項目の情報構造体配列。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00215"></a>00215         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a348557d1429cc7df380810858123081b" title="子項目の情報構造体配列。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Menu::ItemInfo&gt;</a> value);
+<a name="l00217"></a>00217         <span class="keywordtype">wchar_t</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ab528daf03b69ea1b2e14f4513a1d9dd4" title="ニーモニック文字。無い場合は L&#39;\0&#39; が返る。">mnemonic</a>() <span class="keyword">const</span>;
+<a name="l00219"></a>00219         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af8c63e75a51297adfecaddfa18e9175a" title="クリックした時のイベント。shortcut() が設定されている場合は発生しない。">onClick</a>();
+<a name="l00220"></a>00220         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af8c63e75a51297adfecaddfa18e9175a" title="クリックした時のイベント。shortcut() が設定されている場合は発生しない。">onClick</a>() <span class="keyword">const</span>;
+<a name="l00222"></a>00222         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Drag&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#aed2f6745446d00afe8c1c9a9c51da1d0" title="この項目をドラッグした時のイベント。。">onDrag</a>();
+<a name="l00223"></a>00223         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Drag&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#aed2f6745446d00afe8c1c9a9c51da1d0" title="この項目をドラッグした時のイベント。。">onDrag</a>() <span class="keyword">const</span>;
+<a name="l00225"></a>00225         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#aec3cb06f05d60cfe1aa1f2811dc8b28c" title="ポップアップメニューを表示する直前のイベント。">onPopupBegin</a>();
+<a name="l00226"></a>00226         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#aec3cb06f05d60cfe1aa1f2811dc8b28c" title="ポップアップメニューを表示する直前のイベント。">onPopupBegin</a>() <span class="keyword">const</span>;
+<a name="l00228"></a>00228         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a2e3924f71ddaf4db6e99a3d7818be5ca" title="ポップアップメニューを表示し終わったイベント。">onPopupEnd</a>();
+<a name="l00229"></a>00229         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a2e3924f71ddaf4db6e99a3d7818be5ca" title="ポップアップメニューを表示し終わったイベント。">onPopupEnd</a>() <span class="keyword">const</span>;
+<a name="l00231"></a>00231         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::RightClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a1dad633e5ef06c42c9fca98f5f9c2e97" title="右クリックをしたイベント。">onRightClick</a>();
+<a name="l00232"></a>00232         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::RightClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a1dad633e5ef06c42c9fca98f5f9c2e97" title="右クリックをしたイベント。">onRightClick</a>() <span class="keyword">const</span>;
+<a name="l00234"></a>00234         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a8782deabf2018b2541f9cfa5ffe2a114" title="マウスカーソルが上に来たイベント。">onSelect</a>();
+<a name="l00235"></a>00235         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a8782deabf2018b2541f9cfa5ffe2a114" title="マウスカーソルが上に来たイベント。">onSelect</a>() <span class="keyword">const</span>;
+<a name="l00237"></a>00237         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad2a19c3a7c19f614a8579d0e37e12b58" title="ラジオボタンスタイルのチェックマークを表示するかどうか。初期値は false。">radioCheck</a>() <span class="keyword">const</span>;
+<a name="l00238"></a>00238         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ad2a19c3a7c19f614a8579d0e37e12b58" title="ラジオボタンスタイルのチェックマークを表示するかどうか。初期値は false。">radioCheck</a>(<span class="keywordtype">bool</span> value);
+<a name="l00240"></a>00240         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ae2f82cf352c297421aa90abf96c58178" title="セパレータかどうか。デフォルトコンストラクタで作成した場合は true。">separator</a>() <span class="keyword">const</span>;
+<a name="l00241"></a>00241         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#ae2f82cf352c297421aa90abf96c58178" title="セパレータかどうか。デフォルトコンストラクタで作成した場合は true。">separator</a>(<span class="keywordtype">bool</span> value);
+<a name="l00244"></a>00244         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af1c4141638cc5a5f4727f5109f68c26b" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a>() <span class="keyword">const</span>;
+<a name="l00245"></a>00245         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#af1c4141638cc5a5f4727f5109f68c26b" title="Key と Key::Modifier を組み合わせたショートカットコマンド。 設定されている場合は onClick() イベントの代わりにオーナーコントロールの onShortcutKey() イベン...">shortcut</a>(<span class="keywordtype">int</span> value);
+<a name="l00247"></a>00247         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a34dcb20214de2332ecd2128472e9ab53" title="メニュー文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00248"></a>00248         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a34dcb20214de2332ecd2128472e9ab53" title="メニュー文字列。">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00250"></a>00250         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a64a6c4701aacfd2f5210f89b71368df7" title="チェックされていない状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">uncheckedMark</a>() <span class="keyword">const</span>;
+<a name="l00251"></a>00251         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html#a64a6c4701aacfd2f5210f89b71368df7" title="チェックされていない状態のビットマップ画像。ビットマップハンドルは参照されるので破棄しないこと。初期値は nullptr。">uncheckedMark</a>(HBITMAP value);
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253     <span class="keyword">private</span>:
+<a name="l00254"></a>00254         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>;
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256         <span class="keywordtype">void</span> _initialize();
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _text;
+<a name="l00259"></a>00259         <span class="keywordtype">int</span> _type;
+<a name="l00260"></a>00260         <span class="keywordtype">int</span> _state;
+<a name="l00261"></a>00261         HBITMAP _checkedMark;
+<a name="l00262"></a>00262         HBITMAP _uncheckedMark;
+<a name="l00263"></a>00263         std::vector&lt;ItemInfo&gt; _itemInfos;
+<a name="l00264"></a>00264         <span class="keywordtype">int</span> _shortcut;
+<a name="l00265"></a>00265         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Click&amp;&gt;</a> _onClick;
+<a name="l00266"></a>00266         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Drag&amp;&gt;</a> _onDrag;
+<a name="l00267"></a>00267         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a> _onPopupBegin;
+<a name="l00268"></a>00268         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a> _onPopupEnd;
+<a name="l00269"></a>00269         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::RightClick&amp;&gt;</a> _onRightClick;
+<a name="l00270"></a>00270         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::Select&amp;&gt;</a> _onSelect;
+<a name="l00271"></a>00271     };
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273 
+<a name="l00275"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html">00275</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">EventWithSender</a>&lt;Menu::Item&gt; {
+<a name="l00276"></a>00276     <span class="keyword">public</span>:
+<a name="l00277"></a>00277         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a>(<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1_event_with_sender.html#aa11f5b1855b67b45760c30d64e14989d" title="イベント発生源。">sender</a>, <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html#aba0d4ee4938521ea603caa6800e12d83" title="メニューを表示しているオーナーコントロール。">owner</a>);
+<a name="l00278"></a>00278 
+<a name="l00280"></a>00280         <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html#aba0d4ee4938521ea603caa6800e12d83" title="メニューを表示しているオーナーコントロール。">owner</a>();
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282     <span class="keyword">private</span>:
+<a name="l00283"></a>00283         <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; _owner;
+<a name="l00284"></a>00284     };
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 
+<a name="l00288"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html">00288</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html" title="メニュー項目でドラッグを開始したイベント。">Drag</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html" title="メニュー項目で発生するイベント。">Event</a> {
+<a name="l00289"></a>00289     <span class="keyword">public</span>:
+<a name="l00290"></a>00290         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html" title="メニュー項目でドラッグを開始したイベント。">Drag</a>(<a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1_event_with_sender.html#aa11f5b1855b67b45760c30d64e14989d" title="イベント発生源。">sender</a>, <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_event.html#aba0d4ee4938521ea603caa6800e12d83" title="メニューを表示しているオーナーコントロール。">owner</a>);
+<a name="l00291"></a>00291 
+<a name="l00293"></a>00293         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html#aea90e0b9722e979ca30ba8d2ef024252" title="ドラッグイベント後にメニューを閉じるかどうか。ただし値にかかわらずメニューの外でマウスボタンを離すとメニューは閉じる。初期値は false。">endMenu</a>() <span class="keyword">const</span>;
+<a name="l00294"></a>00294         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_drag.html#aea90e0b9722e979ca30ba8d2ef024252" title="ドラッグイベント後にメニューを閉じるかどうか。ただし値にかかわらずメニューの外でマウスボタンを離すとメニューは閉じる。初期値は false。">endMenu</a>(<span class="keywordtype">bool</span> value);
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296     <span class="keyword">private</span>:
+<a name="l00297"></a>00297         <span class="keywordtype">bool</span> _endMenu;
+<a name="l00298"></a>00298     };
+<a name="l00299"></a>00299 
+<a name="l00300"></a>00300 
+<a name="l00302"></a><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html">00302</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html" title="全ての子孫を列挙するイテレータ。列挙し終えるとヌルを返すようになり、以降は操作できない。">DescendantsIterator</a> {
+<a name="l00303"></a>00303     <span class="keyword">public</span>:
+<a name="l00305"></a>00305         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html#a656779b46f9c3c760657d8f10d8730a9" title="親項目から作成。">DescendantsIterator</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>&amp; parent);
+<a name="l00306"></a>00306 
+<a name="l00308"></a>00308         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html" title="全ての子孫を列挙するイテレータ。列挙し終えるとヌルを返すようになり、以降は操作できない。">DescendantsIterator</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html#a33a47d85d89ac5fbceaf7622cd15f478" title="次の子孫へ。">operator ++</a>();
+<a name="l00310"></a>00310         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html#a4cab4a345a43103bf58bfb438c9c25d9" title="列挙した Item ポインタの取得。">operator Menu::Item*</a>() <span class="keyword">const</span>;
+<a name="l00312"></a>00312         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Menu::Item</a>* <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html#a309b656bd8054c04632c61fa5963bde6" title="列挙した Item ポインタへのアクセス。">operator-&gt;</a>();
+<a name="l00313"></a>00313 
+<a name="l00314"></a>00314     <span class="keyword">private</span>:
+<a name="l00315"></a>00315         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>* _parent;
+<a name="l00316"></a>00316         <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Item</a>* _current;
+<a name="l00317"></a>00317     };
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320 <span class="keyword">protected</span>:
+<a name="l00321"></a>00321     <a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>();
+<a name="l00322"></a>00322     <a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>(<a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>&amp;&amp; value);
+<a name="l00323"></a>00323     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>() = 0;
+<a name="l00324"></a>00324     <a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a>&amp;&amp; value);
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 <span class="keyword">public</span>:
+<a name="l00328"></a>00328     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#af0e7c8811f6c6ee75b5f3ad78cdf46d2" title="子項目を追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00330"></a>00330     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_menu.html#a28d4a6ec279394d46d1eb82cd3c464b6" title="項目がチェックされた状態の画像の大きさ。">checkedMarkSize</a>();
+<a name="l00332"></a>00332     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#aa304fb66ce94a15324404d6adea86d9d" title="子項目を全て削除する。">clear</a>();
+<a name="l00334"></a>00334     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#a34b7ddaaca43be41350a7f07362b9863" title="現在のスレッドのアクティブなメニューを閉じる。">close</a>();
+<a name="l00336"></a>00336     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#a7cfd25fbaa0f4bbd79bda07d1becf265" title="子項目の数。">count</a>() <span class="keyword">const</span>;
+<a name="l00338"></a>00338     <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_descendants_iterator.html" title="全ての子孫を列挙するイテレータ。列挙し終えるとヌルを返すようになり、以降は操作できない。">Menu::DescendantsIterator</a> <a class="code" href="classbalor_1_1gui_1_1_menu.html#a5f297b6b5f9a07eff992a323560b0b88" title="全ての子孫項目を列挙するイテレータ。">descendantsBegin</a>();
+<a name="l00340"></a>00340     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#aa4d0412886ecf762c43c0ce00e2fddd7" title="子項目を削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00342"></a>00342     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="classbalor_1_1gui_1_1_menu.html#acb4549eb0ff7857518366d6e565bfe74" title="メニューで使用するフォント。">font</a>();
+<a name="l00344"></a>00344     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#a1780b71421f96b9abaa13ef736e69631" title="子項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item_info.html" title="メニュー項目情報構造体。情報を持つだけでメニューは一切操作しない。Menu::itemInfos 関数または Menu::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00346"></a>00346     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#ac0eee5625a3915c1777c409409013219" title="項目の高さ。">itemHeight</a>();
+<a name="l00348"></a>00348     std::vector&lt;Menu::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_menu.html#ae2f6559be9058456f70dc199a3d69cb2" title="子項目の情報配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00349"></a>00349     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html#ae2f6559be9058456f70dc199a3d69cb2" title="子項目の情報配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Menu::ItemInfo&gt;</a> value);
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351 <span class="keyword">public</span>:
+<a name="l00353"></a><a class="code" href="classbalor_1_1gui_1_1_menu.html#ab90429801cfa12bfdb44892f3b5ba441">00353</a>     <a class="code" href="classbalor_1_1gui_1_1_menu.html#ab90429801cfa12bfdb44892f3b5ba441" title="メニューハンドルへの自動変換 &amp; ヌルチェック用。">operator HMENU</a>() { <span class="keywordflow">return</span> _root._handle; }
+<a name="l00355"></a>00355     <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Menu::Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu.html#ac302c0f3cf7a5548c0067b3270457102" title="子項目を取得する。">operator[]</a>(<span class="keywordtype">int</span> index);
+<a name="l00356"></a>00356     <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_menu_1_1_item.html" title="メニュー項目。Menu::operator[] または Menu::Item::operator[] で取得できる。">Menu::Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_menu.html#ac302c0f3cf7a5548c0067b3270457102" title="子項目を取得する。">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00357"></a>00357 
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 <span class="keyword">protected</span>:
+<a name="l00360"></a>00360     <span class="keywordtype">void</span> _attachHandle(HMENU handle);
+<a name="l00361"></a>00361 
+<a name="l00362"></a>00362     Item _root;
+<a name="l00363"></a>00363 };
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365 
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367     }
+<a name="l00368"></a>00368 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

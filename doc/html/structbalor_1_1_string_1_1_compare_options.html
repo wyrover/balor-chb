@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: 構造体 balor::String::CompareOptions</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1_string.html">String</a>      </li>
+      <li class="navelem"><a class="el" href="structbalor_1_1_string_1_1_compare_options.html">CompareOptions</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">構造体 balor::String::CompareOptions</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::String::CompareOptions" -->
+<p>文字列比較のオプション。組み合わせで指定する。 文字列を検索する関数（indexOf, lastIndexOf, startsWith, endsWith等）では ignoreNonSpace, ignoreSymbols は指定できない。  
+ <a href="structbalor_1_1_string_1_1_compare_options.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_string_8hpp_source.html">String.hpp</a>&gt;</code></p>
+
+<p><a href="structbalor_1_1_string_1_1_compare_options-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfec">_enum</a> { <br/>
+&#160;&#160;<b>none</b> =  0, 
+<b>ignoreCase</b> =  0x00000001, 
+<a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfeca9a76eae5a5d32279cfd29afa3e6e708b">ignoreNonSpace</a> =  0x00000002, 
+<a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfecac45d35e53c46d19f0eee209f56031e04">ignoreSymbols</a> =  0x00000004, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfecaaaa03578589a2785b62224b8aa14263e">ignoreKanaType</a> =  0x00010000, 
+<a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfeca7cf7ec9e32fb2e87de884b33d8746fa2">ignoreWidth</a> =  0x00020000, 
+<a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfecaf11ccc6abfe0aca32c6caa5cb2fba490">stringSort</a> =  0x00001000
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6225316d5b1d63c21d73ede1b4b38592"></a><!-- doxytag: member="balor::String::CompareOptions::BALOR_NAMED_LOGICAL_ENUM_MEMBERS" ref="a6225316d5b1d63c21d73ede1b4b38592" args="(CompareOptions)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>BALOR_NAMED_LOGICAL_ENUM_MEMBERS</b> (<a class="el" href="structbalor_1_1_string_1_1_compare_options.html">CompareOptions</a>)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>文字列比較のオプション。組み合わせで指定する。 文字列を検索する関数（indexOf, lastIndexOf, startsWith, endsWith等）では ignoreNonSpace, ignoreSymbols は指定できない。 </p>
+</div><hr/><h2>列挙型</h2>
+<a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfec"></a><!-- doxytag: member="balor::String::CompareOptions::_enum" ref="af18a20eb4bab30cdf5114d1043c1bfec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structbalor_1_1_string_1_1_compare_options.html#af18a20eb4bab30cdf5114d1043c1bfec">balor::String::CompareOptions::_enum</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>列挙型の値: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfeca9a76eae5a5d32279cfd29afa3e6e708b"></a><!-- doxytag: member="ignoreNonSpace" ref="af18a20eb4bab30cdf5114d1043c1bfeca9a76eae5a5d32279cfd29afa3e6e708b" args="" -->ignoreNonSpace</em>&nbsp;</td><td>
+<p>大文字と小文字を区別しない。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfecac45d35e53c46d19f0eee209f56031e04"></a><!-- doxytag: member="ignoreSymbols" ref="af18a20eb4bab30cdf5114d1043c1bfecac45d35e53c46d19f0eee209f56031e04" args="" -->ignoreSymbols</em>&nbsp;</td><td>
+<p>場所を取らない結合文字を無視する。無視した結果が等しいか合成した結果が等しい場合を等しいとする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfecaaaa03578589a2785b62224b8aa14263e"></a><!-- doxytag: member="ignoreKanaType" ref="af18a20eb4bab30cdf5114d1043c1bfecaaaa03578589a2785b62224b8aa14263e" args="" -->ignoreKanaType</em>&nbsp;</td><td>
+<p>記号を無視する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfeca7cf7ec9e32fb2e87de884b33d8746fa2"></a><!-- doxytag: member="ignoreWidth" ref="af18a20eb4bab30cdf5114d1043c1bfeca7cf7ec9e32fb2e87de884b33d8746fa2" args="" -->ignoreWidth</em>&nbsp;</td><td>
+<p>ひらがなとカタカナを区別しない。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="af18a20eb4bab30cdf5114d1043c1bfecaf11ccc6abfe0aca32c6caa5cb2fba490"></a><!-- doxytag: member="stringSort" ref="af18a20eb4bab30cdf5114d1043c1bfecaf11ccc6abfe0aca32c6caa5cb2fba490" args="" -->stringSort</em>&nbsp;</td><td>
+<p>全角と半角を区別しない。 </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/>この構造体の説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/<a class="el" href="_string_8hpp_source.html">String.hpp</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:29に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

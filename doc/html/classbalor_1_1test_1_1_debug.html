@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::test::Debug</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1test.html">test</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1test_1_1_debug.html">Debug</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::test::Debug</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::test::Debug" -->
+<p>デバッグ出力、メモリーリーク検出、クラッシュダンプ出力、スタックトレースといったデバッグに使う関数をサポートする。  
+ <a href="classbalor_1_1test_1_1_debug.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_debug_8hpp_source.html">Debug.hpp</a>&gt;</code></p>
+
+<p><a href="classbalor_1_1test_1_1_debug-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadacdf85b9218eb98d32bc70239dd643"></a><!-- doxytag: member="balor::test::Debug::EXCEPTION_POINTERS" ref="aadacdf85b9218eb98d32bc70239dd643" args="" -->
+typedef ::_EXCEPTION_POINTERS&#160;</td><td class="memItemRight" valign="bottom"><b>EXCEPTION_POINTERS</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8292dcf999f73ad8d138f6151a3fadf"></a><!-- doxytag: member="balor::test::Debug::createDumpFile" ref="ae8292dcf999f73ad8d138f6151a3fadf" args="(EXCEPTION_POINTERS *exceptions=nullptr, StringRange filePath=L&quot;&quot;, bool showMessageBox=false, StringRange message=L&quot;&quot;, StringRange failedMessage=L&quot;&quot;)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#ae8292dcf999f73ad8d138f6151a3fadf">createDumpFile</a> (EXCEPTION_POINTERS *exceptions=nullptr, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> filePath=L&quot;&quot;, bool showMessageBox=false, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> message=L&quot;&quot;, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> failedMessage=L&quot;&quot;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ミニダンプファイルを作成する。 ファイル名やメッセージを指定しなかった場合は enableCrashDumpHandler 関数で設定された値が使用される。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03f95fcb15f9939565af41dad3306788"></a><!-- doxytag: member="balor::test::Debug::debugBreak" ref="a03f95fcb15f9939565af41dad3306788" args="()" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#a03f95fcb15f9939565af41dad3306788">debugBreak</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デバッガ上で実行している場合は実行を中断してデバッガに制御を移す。デバッガ上ではない場合は構造化例外を発生させる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#a5a82ddef51a326c36139bd021793f16d">enableMemoryLeakCheck</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デバッグビルド時のみ、メモリリークのチェックを有効にする。 実行終了時にデバッグ出力にリークしたメモリを報告する。この設定はスレッド、DLLを超えて有効。&lt;br&gt;<br/>
+ ・メモリリークしたソースコード位置の特定<br/>
+ まずデバッグウインドウのメモリリークレポートを確認し、例えば下記のように報告されたとすると<br/>
+ {1873} normal block at 0x00B64868, 4 bytes long.  <a href="#a5a82ddef51a326c36139bd021793f16d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86c3f328ee8f5800d22900f0e0c29945"></a><!-- doxytag: member="balor::test::Debug::isDebuggerPresent" ref="a86c3f328ee8f5800d22900f0e0c29945" args="()" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#a86c3f328ee8f5800d22900f0e0c29945">isDebuggerPresent</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のプロセスがデバッガ上で動いているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6c46082e635e82313befe5d5775f425"></a><!-- doxytag: member="balor::test::Debug::onWrite" ref="aa6c46082e635e82313befe5d5775f425" args="()" -->
+static <a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#aa6c46082e635e82313befe5d5775f425">onWrite</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デバッグ出力イベント。設定しない場合は単にデバッグ出力を行う。この関数はスレッドセーフではないので注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43748d3c2c3405cd945c3920e3b144c2"></a><!-- doxytag: member="balor::test::Debug::stackTrace" ref="a43748d3c2c3405cd945c3920e3b144c2" args="()" -->
+static <a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#a43748d3c2c3405cd945c3920e3b144c2">stackTrace</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">スタックトレースを返す。 開発環境以外で使用する場合は exe ファイルと共に pdf ファイルも配布する必要がある。 ソースコード情報を取り除いた pdf ファイルの配布が一般的。（リンカー＞デバッグ＞プライベートシンボルの削除） この関数を使う場合、Dbghelp.dll は VS2010EE に付属のものでは他 OS 環境でうまく動作しないので注意。最新版をダウンロードしてアプリケーションといっしょに配布する必要がある。 準備が面倒なので開発環境以外ではクラッシュダンプを使うほうが良い。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ef86c9202e04e19c88ae98bbd545bff"></a><!-- doxytag: member="balor::test::Debug::write" ref="a0ef86c9202e04e19c88ae98bbd545bff" args="(ByteStringRange message)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#a0ef86c9202e04e19c88ae98bbd545bff">write</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> message)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デバッグ出力をする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e872dd5efeb5f19bd9c5d55ca544037"></a><!-- doxytag: member="balor::test::Debug::write" ref="a1e872dd5efeb5f19bd9c5d55ca544037" args="(StringRange message)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> message)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8946c668e3ac8a2e6525df1d0274578"></a><!-- doxytag: member="balor::test::Debug::writeLine" ref="af8946c668e3ac8a2e6525df1d0274578" args="(ByteStringRange message)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1test_1_1_debug.html#af8946c668e3ac8a2e6525df1d0274578">writeLine</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> message)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">改行を追加してデバッグ出力をする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabdf62ea19d6d6992053ba6f3bdfa9c3"></a><!-- doxytag: member="balor::test::Debug::writeLine" ref="aabdf62ea19d6d6992053ba6f3bdfa9c3" args="(StringRange message)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>writeLine</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> message)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>デバッグ出力、メモリーリーク検出、クラッシュダンプ出力、スタックトレースといったデバッグに使う関数をサポートする。 </p>
+</div><hr/><h2>関数</h2>
+<a class="anchor" id="a5a82ddef51a326c36139bd021793f16d"></a><!-- doxytag: member="balor::test::Debug::enableMemoryLeakCheck" ref="a5a82ddef51a326c36139bd021793f16d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void balor::test::Debug::enableMemoryLeakCheck </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static, read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>デバッグビルド時のみ、メモリリークのチェックを有効にする。 実行終了時にデバッグ出力にリークしたメモリを報告する。この設定はスレッド、DLLを超えて有効。&lt;br&gt;<br/>
+ ・メモリリークしたソースコード位置の特定<br/>
+ まずデバッグウインドウのメモリリークレポートを確認し、例えば下記のように報告されたとすると<br/>
+ {1873} normal block at 0x00B64868, 4 bytes long. </p>
+<p><br/>
+{1873} というのがメモリ割り当てに割り振られた番号になるで、デバッガを起動してプログラムの最初で止めてウォッチウインドウに下記の名前を追加する。<br/>
+ {,,msvcr100d.dll}_crtBreakAlloc <br/>
+※ msvcr100d.dll という DLL 名は Visual Studio 2010 用のものなので、使用している Visual Studio にあった DLL 名に変更が必要。<br/>
+ ただし、プロジェクトの設定（構成プロパティ＞C/C++＞コード生成＞ランタイムライブラリ）を「マルチスレッドデバッグ(/MTd)」に変更しているなら<br/>
+ _crtBreakAlloc <br/>
+という名前にする。そして値に 1873 と入力して実行すると、レポートされたメモリを割り当てた時点でブレイク（実行中断）する。 </p>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/test/<a class="el" href="_debug_8hpp_source.html">Debug.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/test/Debug.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:34に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

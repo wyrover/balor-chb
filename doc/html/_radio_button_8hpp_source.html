@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/RadioButton.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/RadioButton.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Button.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00041"></a><a class="code" href="classbalor_1_1gui_1_1_radio_button.html">00041</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_radio_button.html" title="ラジオボタン。">RadioButton</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_button_base.html" title="Button, CheckBox, RadioButton の共通処理をまとめた基底クラス。">ButtonBase</a> {
+<a name="l00042"></a>00042 <span class="keyword">public</span>:
+<a name="l00044"></a><a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a5d247d974c5960dcf204817d5a42cd37">00044</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;RadioButton, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a5d247d974c5960dcf204817d5a42cd37" title="RadioButton のイベントの親クラス。">Event</a>;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Check</a>;
+<a name="l00047"></a>00047     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html" title="描画するイベントのテンプレート。派生クラスで使用する。">PaintEvent&lt;RadioButton, Event&gt;</a> <a class="code" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html" title="描画するイベントのテンプレート。派生クラスで使用する。">Paint</a>;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">public</span>:
+<a name="l00052"></a>00052     <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ad50af378158e081dc2d7f8a352e72443" title="ヌルハンドルで作成。">RadioButton</a>();
+<a name="l00053"></a>00053     <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ad50af378158e081dc2d7f8a352e72443" title="ヌルハンドルで作成。">RadioButton</a>(<a class="code" href="classbalor_1_1gui_1_1_radio_button.html" title="ラジオボタン。">RadioButton</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00055"></a>00055     <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ad50af378158e081dc2d7f8a352e72443" title="ヌルハンドルで作成。">RadioButton</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#abe7d86b2b8347ce94e7db948b3047352" title="ラジオボタングループの開始コントロールかどうか。 グループ内の一つをクリックするとそれまで同じグループ内でチェックされていたものからチェック状態が移る。 他のラジオボタングループが祖先にも兄弟にも子孫に...">firstOfGroup</a> = <span class="keyword">false</span>);
+<a name="l00057"></a>00057     <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ad50af378158e081dc2d7f8a352e72443" title="ヌルハンドルで作成。">RadioButton</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>, <a class="code" href="classbalor_1_1_listener.html">Listener&lt;RadioButton::Check&amp;&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ac1f2aad02b545d08ac4a2cb4555e52cb" title="チェック状態が変化した、あるいは autoCheck() が false の場合は変化が要求されたイベント。">onCheck</a>, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#abe7d86b2b8347ce94e7db948b3047352" title="ラジオボタングループの開始コントロールかどうか。 グループ内の一つをクリックするとそれまで同じグループ内でチェックされていたものからチェック状態が移る。 他のラジオボタングループが祖先にも兄弟にも子孫に...">firstOfGroup</a> = <span class="keyword">false</span>);
+<a name="l00058"></a>00058     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_radio_button.html" title="ラジオボタン。">RadioButton</a>();
+<a name="l00059"></a>00059     <a class="code" href="classbalor_1_1gui_1_1_radio_button.html" title="ラジオボタン。">RadioButton</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_radio_button.html" title="ラジオボタン。">RadioButton</a>&amp;&amp; value);
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keyword">public</span>:
+<a name="l00063"></a>00063     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a126746dc91b272826ed722b5473290d2" title="チェック状態を自動的に更新するかどうか。初期値は true。">autoCheck</a>() <span class="keyword">const</span>;
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a126746dc91b272826ed722b5473290d2" title="チェック状態を自動的に更新するかどうか。初期値は true。">autoCheck</a>(<span class="keywordtype">bool</span> value);
+<a name="l00066"></a>00066     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#af2ae3cbbc7057ecf89985341712b2b3f" title="チェックされているかどうか。">checked</a>() <span class="keyword">const</span>;
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#af2ae3cbbc7057ecf89985341712b2b3f" title="チェックされているかどうか。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00069"></a>00069     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#aa50e1f67847beb261d3b8899e1e24021" title="現在の文字列やフォント等から最適な大きさを求める。multiline() が true の場合 width を固定すると最適な height が求まる。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00071"></a>00071     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;RadioButton::Check&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ac1f2aad02b545d08ac4a2cb4555e52cb" title="チェック状態が変化した、あるいは autoCheck() が false の場合は変化が要求されたイベント。">onCheck</a>();
+<a name="l00073"></a>00073     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;RadioButton::Paint&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a0eb174603989203a1c4d92c326e11233" title="描画するイベント。">onPaint</a>();
+<a name="l00075"></a>00075     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a77aee311c0335000ca25217b0d4d6a45" title="トグルボタンのような外見を持つかどうか。初期値は false。">pushLike</a>() <span class="keyword">const</span>;
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a77aee311c0335000ca25217b0d4d6a45" title="トグルボタンのような外見を持つかどうか。初期値は false。">pushLike</a>(<span class="keywordtype">bool</span> value);
+<a name="l00078"></a>00078     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ab57a959ff963d7349645bf62d09a93df" title="ボタンが文字列の右に表示されるかどうか。初期値は false。">rightButton</a>() <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#ab57a959ff963d7349645bf62d09a93df" title="ボタンが文字列の右に表示されるかどうか。初期値は false。">rightButton</a>(<span class="keywordtype">bool</span> value);
+<a name="l00084"></a>00084     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#abe7d86b2b8347ce94e7db948b3047352" title="ラジオボタングループの開始コントロールかどうか。 グループ内の一つをクリックするとそれまで同じグループ内でチェックされていたものからチェック状態が移る。 他のラジオボタングループが祖先にも兄弟にも子孫に...">firstOfGroup</a>() <span class="keyword">const</span>;
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#abe7d86b2b8347ce94e7db948b3047352" title="ラジオボタングループの開始コントロールかどうか。 グループ内の一つをクリックするとそれまで同じグループ内でチェックされていたものからチェック状態が移る。 他のラジオボタングループが祖先にも兄弟にも子孫に...">firstOfGroup</a>(<span class="keywordtype">bool</span> value);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="keyword">protected</span>:
+<a name="l00089"></a>00089     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_radio_button.html#a48cb8ad919182fb3eb695d4d75cc6b66" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="keyword">protected</span>:
+<a name="l00092"></a>00092     <span class="keywordtype">bool</span> _checkedChanging;
+<a name="l00093"></a>00093     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;RadioButton::Check&amp;&gt;</a> _onCheck;
+<a name="l00094"></a>00094     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;RadioButton::Paint&amp;&gt;</a> _onPaint;
+<a name="l00095"></a>00095 };
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     }
+<a name="l00100"></a>00100 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/TreeView.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/TreeView.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/ArrayRange.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">struct </span>_IMAGELIST;
+<a name="l00009"></a>00009 <span class="keyword">struct </span>_TREEITEM;
+<a name="l00010"></a>00010 <span class="keyword">struct </span>tagNMTVCUSTOMDRAW;
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>balor {
+<a name="l00013"></a>00013     <span class="keyword">namespace </span>graphics {
+<a name="l00014"></a>00014 <span class="keyword">class </span>ImageList;
+<a name="l00015"></a>00015     }
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">namespace </span>balor {
+<a name="l00020"></a>00020     <span class="keyword">namespace </span>gui {
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">class </span>Edit;
+<a name="l00023"></a>00023 <span class="keyword">class </span>ToolTip;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00059"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view.html">00059</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00060"></a>00060 <span class="keyword">public</span>:
+<a name="l00061"></a>00061     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00062"></a>00062     typedef ::_TREEITEM* HTREEITEM;
+<a name="l00063"></a>00063     typedef ::balor::graphics::ImageList <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>;
+<a name="l00064"></a>00064 
+<a name="l00066"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7c6d2e79f782f52a3388ca5d7e18f9b9">00066</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7c6d2e79f782f52a3388ca5d7e18f9b9" title="項目の文字列の終端文字を含めた最大長。">maxTextLength</a> = 260;
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00070"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html">00070</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00071"></a>00071         <span class="keyword">enum</span> _enum {
+<a name="l00072"></a>00072             none       = 0      ,
+<a name="l00073"></a>00073             checkBoxes = 0x0100L, <span class="comment">// 項目ごとにチェックボックスを表示する。stateImageList() を操作してチェック画像を変更できる。画像を追加するとチェック状態が増える。</span>
+<a name="l00074"></a>00074         };
+<a name="l00075"></a>00075         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00076"></a>00076     };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>;
+<a name="l00080"></a>00080     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html" title="項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。">ItemDescendantsIterator</a>;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 
+<a name="l00084"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html">00084</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> {
+<a name="l00085"></a>00085     <span class="keyword">public</span>:
+<a name="l00086"></a>00086         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a9a5f1b73063711c7b9d32b56916092f7" title="ツリービューのハンドル">ownerHandle</a>, HTREEITEM item);
+<a name="l00088"></a>00088         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#aaa166ab128f95b5dfe80dbfb71b0cb18" title="項目情報を反映。">operator=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00089"></a>00089 
+<a name="l00091"></a>00091         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ad50300779637ff45c379e43b7c8c93f8" title="子項目を末尾に追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00093"></a>00093         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5c56c5f39bc7ab7beeee2d8a11e4413c" title="最後の子項目。無い場合はヌルの項目を返す。">back</a>();
+<a name="l00094"></a>00094         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5c56c5f39bc7ab7beeee2d8a11e4413c" title="最後の子項目。無い場合はヌルの項目を返す。">back</a>() <span class="keyword">const</span>;
+<a name="l00096"></a>00096         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#aaa7723e5ae956a80e2499fbd753798c0" title="文字列の編集を始める。強制的にフォーカスを移す。">beginEdit</a>();
+<a name="l00098"></a>00098         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a31f5b514ff39b32441170dbb9a0ce5bb" title="文字列が太字かどうか。">bold</a>() <span class="keyword">const</span>;
+<a name="l00099"></a>00099         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a31f5b514ff39b32441170dbb9a0ce5bb" title="文字列が太字かどうか。">bold</a>(<span class="keywordtype">bool</span> value);
+<a name="l00101"></a>00101         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ac0b6d28564c27dddb4870dda72778b12" title="ツりービュー内での項目の領域。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00103"></a>00103         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a3a0c8346413fa4782b4e283551ec6b5e" title="ツりービュー内での子項目も含む項目の領域。">boundsWithChildren</a>() <span class="keyword">const</span>;
+<a name="l00105"></a>00105         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a05cb325549eb8b76f633985b7f98db1c" title="チェックボックスがチェックされているかどうか。チェックのオンとオフは state() の 1 と 0 に該当する。">checked</a>() <span class="keyword">const</span>;
+<a name="l00106"></a>00106         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a05cb325549eb8b76f633985b7f98db1c" title="チェックボックスがチェックされているかどうか。チェックのオンとオフは state() の 1 と 0 に該当する。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00108"></a>00108         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#aea9f41cdc2aea0eb7f73b9096aaf8245" title="全ての子項目を削除する。">clear</a>();
+<a name="l00110"></a>00110         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5155197792f63dcaf248b91344ce9d6f" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>() <span class="keyword">const</span>;
+<a name="l00111"></a>00111         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5155197792f63dcaf248b91344ce9d6f" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>(<span class="keywordtype">bool</span> value);
+<a name="l00113"></a>00113         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html" title="項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。">TreeView::ItemDescendantsIterator</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#af81e1a3ea590395db18721f9bd51ae64" title="項目の子孫を列挙するイテレータ。">descendantsBegin</a>();
+<a name="l00115"></a>00115         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a033d32c31ddafc91b6410e43b252c27b" title="文字列の編集を終える。">endEdit</a>(<span class="keywordtype">bool</span> cancel = <span class="keyword">false</span>);
+<a name="l00117"></a>00117         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ab42b8f52329244d91ce40277a929eadb" title="項目が見えるようにスクロールする。">ensureVisible</a>();
+<a name="l00119"></a>00119         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a4007e6040facb353ab09e2e128451354" title="子項目を削除する。">erase</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>&amp; item);
+<a name="l00121"></a>00121         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ab88691f00f5db40f647fd55af48430c9" title="この項目の子項目が表示されているかどうか。">expanded</a>() <span class="keyword">const</span>;
+<a name="l00122"></a>00122         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ab88691f00f5db40f647fd55af48430c9" title="この項目の子項目が表示されているかどうか。">expanded</a>(<span class="keywordtype">bool</span> value);
+<a name="l00124"></a>00124         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ab2dd0ca44ea03454d7b1178223e1b9c7" title="全ての子孫項目を表示または非表示にする。">expandAll</a>(<span class="keywordtype">bool</span> value);
+<a name="l00126"></a>00126         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a4d6f24cc7b3bd43d70c680e1f138a0e9" title="最初の子項目。無い場合はヌルの項目を返す。">front</a>();
+<a name="l00127"></a>00127         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a4d6f24cc7b3bd43d70c680e1f138a0e9" title="最初の子項目。無い場合はヌルの項目を返す。">front</a>() <span class="keyword">const</span>;
+<a name="l00129"></a>00129         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae828da96fd2a0132d74cbeb262b44f2f" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>() <span class="keyword">const</span>;
+<a name="l00130"></a>00130         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae828da96fd2a0132d74cbeb262b44f2f" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>(<span class="keywordtype">bool</span> value);
+<a name="l00132"></a>00132         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a302cd3d4bea0944006935eb2a914a195" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00133"></a>00133         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a302cd3d4bea0944006935eb2a914a195" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00135"></a>00135         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5db9200436a6ba48bc49c1a24d83d962" title="指定した子項目の前に子項目を追加する。">insert</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>&amp; nextItem, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00137"></a>00137         std::vector&lt;TreeView::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae6e90f6c1a841bef4f797e9549145334" title="子項目の情報配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae6e90f6c1a841bef4f797e9549145334" title="子項目の情報配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> value);
+<a name="l00140"></a>00140         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae2731c59893ec696339cf9e71a9534a3" title="次の兄弟項目。無い場合はヌルの項目を返す。">next</a>();
+<a name="l00141"></a>00141         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#ae2731c59893ec696339cf9e71a9534a3" title="次の兄弟項目。無い場合はヌルの項目を返す。">next</a>() <span class="keyword">const</span>;
+<a name="l00143"></a>00143         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a690c39944b148501616e55da68b17ced" title="次の表示されている項目。無い場合はヌルの項目を返す。">nextVisible</a>();
+<a name="l00144"></a>00144         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a690c39944b148501616e55da68b17ced" title="次の表示されている項目。無い場合はヌルの項目を返す。">nextVisible</a>() <span class="keyword">const</span>;
+<a name="l00146"></a>00146         HWND <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a9a5f1b73063711c7b9d32b56916092f7" title="ツリービューのハンドル">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00148"></a>00148         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#acdc10c203c2321cc33b9411317ebfdf6" title="親項目。ルート項目かどうかは ListView::root() と == 比較して判断できる。">parent</a>();
+<a name="l00149"></a>00149         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#acdc10c203c2321cc33b9411317ebfdf6" title="親項目。ルート項目かどうかは ListView::root() と == 比較して判断できる。">parent</a>() <span class="keyword">const</span>;
+<a name="l00151"></a>00151         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5dcde9dc21f03e417396cd388e2a7b93" title="前の兄弟項目。無い場合はヌルの項目を返す。">prev</a>();
+<a name="l00152"></a>00152         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a5dcde9dc21f03e417396cd388e2a7b93" title="前の兄弟項目。無い場合はヌルの項目を返す。">prev</a>() <span class="keyword">const</span>;
+<a name="l00154"></a>00154         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#af4e4dcada5ed837de71cbf0cb3435730" title="前の表示されている項目。無い場合はヌルの項目を返す。">prevVisible</a>();
+<a name="l00155"></a>00155         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#af4e4dcada5ed837de71cbf0cb3435730" title="前の表示されている項目。無い場合はヌルの項目を返す。">prevVisible</a>() <span class="keyword">const</span>;
+<a name="l00157"></a>00157         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a3678c88350a095988a202b8ceb05d4e5" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。">selectedImageIndex</a>() <span class="keyword">const</span>;
+<a name="l00158"></a>00158         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a3678c88350a095988a202b8ceb05d4e5" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。">selectedImageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00160"></a>00160         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a9866499a46b32977924e90f532e8cb6b" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a>() <span class="keyword">const</span>;
+<a name="l00161"></a>00161         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a9866499a46b32977924e90f532e8cb6b" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a>(<span class="keywordtype">int</span> value);
+<a name="l00163"></a>00163         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#abd8582629f0731b37cf14e374ee13f51" title="項目の文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#abd8582629f0731b37cf14e374ee13f51" title="項目の文字列。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> textToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00167"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a0922bb2d704d7e04d72ac573a57576ef">00167</a>         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a0922bb2d704d7e04d72ac573a57576ef" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>() {
+<a name="l00168"></a>00168             <span class="keyword">auto</span> data = _userData();
+<a name="l00169"></a>00169             <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00170"></a>00170         }
+<a name="l00171"></a>00171         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a0922bb2d704d7e04d72ac573a57576ef" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>()<span class="keyword"> const </span>{
+<a name="l00172"></a>00172             <span class="keyword">auto</span> data = _userData();
+<a name="l00173"></a>00173             <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00174"></a>00174         }
+<a name="l00175"></a>00175         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#a0922bb2d704d7e04d72ac573a57576ef" title="ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。">userData</a>(<a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>&amp;&amp; value);
+<a name="l00176"></a>00176         <span class="keywordtype">bool</span> userDataIsEmpty() <span class="keyword">const</span>;
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178     <span class="keyword">public</span>:
+<a name="l00180"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#abc8c3ccf7a7ba50a6419c9e33eaec7f5">00180</a>         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html#abc8c3ccf7a7ba50a6419c9e33eaec7f5" title="アイテムハンドルへの自動変換、 null チェック、同じ項目かどうかの == 比較用。">operator HTREEITEM</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _item; }
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182     <span class="keyword">private</span>:
+<a name="l00183"></a>00183         <span class="keywordtype">void</span>* _userData() <span class="keyword">const</span>;
+<a name="l00184"></a>00184 
+<a name="l00185"></a>00185         HWND _ownerHandle;
+<a name="l00186"></a>00186         HTREEITEM _item;
+<a name="l00187"></a>00187     };
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189 
+<a name="l00191"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html">00191</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a> {
+<a name="l00192"></a>00192     <span class="keyword">public</span>:
+<a name="l00193"></a>00193         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00195"></a>00195         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>&amp; item);
+<a name="l00197"></a>00197         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a9a7926f5755aa89142545b9421c8bedf" title="項目の文字列。">text</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a8ff08cebf59e67d9d428a0b2393bcbfc" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a> = 0, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a029f2abc7ed81166ecbc3f4f750c42cf" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。-1 なら imageIndex() と同じ。">selectedImageIndex</a> = -1, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae9828cd60b97a55365b9a153deb683e1" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a> = -1);
+<a name="l00199"></a>00199         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> text, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a5b82282ba31b6f834e6f1ca8da9f8cb3" title="子項目の情報構造体配列。">itemInfos</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a8ff08cebf59e67d9d428a0b2393bcbfc" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a> = 0, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a029f2abc7ed81166ecbc3f4f750c42cf" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。-1 なら imageIndex() と同じ。">selectedImageIndex</a> = -1, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae9828cd60b97a55365b9a153deb683e1" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a> = -1);
+<a name="l00200"></a>00200         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00201"></a>00201 
+<a name="l00203"></a>00203         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a4d009fff5abaaec075c3ed85dc5dd6f0" title="文字列が太字かどうか。">bold</a>() <span class="keyword">const</span>;
+<a name="l00204"></a>00204         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a4d009fff5abaaec075c3ed85dc5dd6f0" title="文字列が太字かどうか。">bold</a>(<span class="keywordtype">bool</span> value);
+<a name="l00206"></a>00206         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a26253032bfbb48b02354692e44048828" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>() <span class="keyword">const</span>;
+<a name="l00207"></a>00207         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a26253032bfbb48b02354692e44048828" title="切り取りされた状態かどうか。アイコンが薄く表示される。">cut</a>(<span class="keywordtype">bool</span> value);
+<a name="l00209"></a>00209         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae469aed8fe89599ed7d58476bdde9c84" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>() <span class="keyword">const</span>;
+<a name="l00210"></a>00210         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae469aed8fe89599ed7d58476bdde9c84" title="ハイライト表示かどうか。選択状態と同じ表示。">highlight</a>(<span class="keywordtype">bool</span> value);
+<a name="l00212"></a>00212         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a8ff08cebf59e67d9d428a0b2393bcbfc" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00213"></a>00213         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a8ff08cebf59e67d9d428a0b2393bcbfc" title="アイコンの画像リスト（TreeView::imageList()）のインデックス。">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00215"></a>00215         std::vector&lt;TreeView::ItemInfo&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a5b82282ba31b6f834e6f1ca8da9f8cb3" title="子項目の情報構造体配列。">itemInfos</a>();
+<a name="l00216"></a>00216         <span class="keyword">const</span> std::vector&lt;TreeView::ItemInfo&gt;&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a5b82282ba31b6f834e6f1ca8da9f8cb3" title="子項目の情報構造体配列。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00218"></a>00218         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a029f2abc7ed81166ecbc3f4f750c42cf" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。-1 なら imageIndex() と同じ。">selectedImageIndex</a>() <span class="keyword">const</span>;
+<a name="l00219"></a>00219         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a029f2abc7ed81166ecbc3f4f750c42cf" title="選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。-1 なら imageIndex() と同じ。">selectedImageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00221"></a>00221         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae9828cd60b97a55365b9a153deb683e1" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a>() <span class="keyword">const</span>;
+<a name="l00222"></a>00222         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#ae9828cd60b97a55365b9a153deb683e1" title="状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。">state</a>(<span class="keywordtype">int</span> value);
+<a name="l00224"></a>00224         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a9a7926f5755aa89142545b9421c8bedf" title="項目の文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00225"></a>00225         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_info.html#a9a7926f5755aa89142545b9421c8bedf" title="項目の文字列。">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227     <span class="keyword">private</span>:
+<a name="l00228"></a>00228         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a>;
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _text;
+<a name="l00231"></a>00231         std::vector&lt;ItemInfo&gt; _itemInfos;
+<a name="l00232"></a>00232         <span class="keywordtype">int</span> _imageIndex;
+<a name="l00233"></a>00233         <span class="keywordtype">int</span> _selectedImageIndex;
+<a name="l00234"></a>00234         <span class="keywordtype">int</span> _itemDataState;
+<a name="l00235"></a>00235     };
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237 
+<a name="l00239"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html">00239</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html" title="項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。">ItemDescendantsIterator</a> {
+<a name="l00240"></a>00240     <span class="keyword">public</span>:
+<a name="l00241"></a>00241         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html" title="項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。">ItemDescendantsIterator</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#afd683b9031bbfec877cebebdc89a4afd" title="仮想的なルート項目を取得する。この項目は表示されないし子項目の操作以外は受け付けない。">root</a>);
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item_descendants_iterator.html" title="項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。">TreeView::ItemDescendantsIterator</a>&amp; operator++();
+<a name="l00244"></a>00244         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a>&amp; operator*();
+<a name="l00245"></a>00245         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a>* operator-&gt;();
+<a name="l00246"></a>00246         operator bool() <span class="keyword">const</span>;
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248     <span class="keyword">private</span>:
+<a name="l00249"></a>00249         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> _root;
+<a name="l00250"></a>00250         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> _current;
+<a name="l00251"></a>00251     };
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 
+<a name="l00256"></a><a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a3126aa1c92fb0c565b0fc7657a15e754">00256</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;TreeView, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a3126aa1c92fb0c565b0fc7657a15e754" title="ツりービューのイベントの親クラス。">Event</a>;
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Click</a>;
+<a name="l00259"></a>00259     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">RightClick</a>;
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261 
+<a name="l00263"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html">00263</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00264"></a>00264         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>);
+<a name="l00265"></a>00265 
+<a name="l00267"></a>00267         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>();
+<a name="l00268"></a>00268 
+<a name="l00269"></a>00269     <span class="keyword">private</span>:
+<a name="l00270"></a>00270         HTREEITEM _item;
+<a name="l00271"></a>00271     };
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273 
+<a name="l00275"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_drag.html">00275</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_drag.html" title="項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。">ItemDrag</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00276"></a>00276         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_drag.html" title="項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。">ItemDrag</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_drag.html#ab1a28fe64d1eb32948eec827fb60c8a8" title="右ボタンドラッグかどうか。">rButton</a>);
+<a name="l00277"></a>00277 
+<a name="l00279"></a>00279         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_drag.html#ab1a28fe64d1eb32948eec827fb60c8a8" title="右ボタンドラッグかどうか。">rButton</a>() <span class="keyword">const</span>;
+<a name="l00280"></a>00280 
+<a name="l00281"></a>00281     <span class="keyword">private</span>:
+<a name="l00282"></a>00282         <span class="keywordtype">bool</span> _rButton;
+<a name="l00283"></a>00283     };
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285 
+<a name="l00287"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html">00287</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html" title="項目の子項目が表示されているかどうかが変化したイベント。">ItemExpand</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00288"></a>00288         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html" title="項目の子項目が表示されているかどうかが変化したイベント。">ItemExpand</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html#a89d16d11ebb9067731fc141a99cf0dbb" title="項目の子項目が表示されているかどうか。">expanded</a>);
+<a name="l00289"></a>00289 
+<a name="l00291"></a>00291         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html#a89d16d11ebb9067731fc141a99cf0dbb" title="項目の子項目が表示されているかどうか。">expanded</a>() <span class="keyword">const</span>;
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293     <span class="keyword">private</span>:
+<a name="l00294"></a>00294         <span class="keywordtype">bool</span> _expanded;
+<a name="l00295"></a>00295     };
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297 
+<a name="l00299"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expanding.html">00299</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expanding.html" title="項目の子項目が表示されているかどうかが変化しようとしているイベント。">ItemExpanding</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html" title="項目の子項目が表示されているかどうかが変化したイベント。">ItemExpand</a> {
+<a name="l00300"></a>00300         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expanding.html" title="項目の子項目が表示されているかどうかが変化しようとしているイベント。">ItemExpanding</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expand.html#a89d16d11ebb9067731fc141a99cf0dbb" title="項目の子項目が表示されているかどうか。">expanded</a>);
+<a name="l00301"></a>00301 
+<a name="l00303"></a>00303         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expanding.html#ad682f5d7896ffcbd84635f70f6194e17" title="変化をキャンセルするかどうか。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00304"></a>00304         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_expanding.html#ad682f5d7896ffcbd84635f70f6194e17" title="変化をキャンセルするかどうか。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00305"></a>00305 
+<a name="l00306"></a>00306     <span class="keyword">private</span>:
+<a name="l00307"></a>00307         <span class="keywordtype">bool</span> _cancel;
+<a name="l00308"></a>00308     };
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 
+<a name="l00312"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html">00312</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html" title="項目を描画する直前のイベント。">ItemPrePaint</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00313"></a>00313         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html" title="項目を描画する直前のイベント。">ItemPrePaint</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, ::tagNMTVCUSTOMDRAW* info);
+<a name="l00314"></a>00314 
+<a name="l00316"></a>00316         <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a4519b600625d0e12b35c5ec8ec2b8203" title="項目の背景の色。selected() が true の場合は無効。TreeView::fullRowSelect() で範囲が変わる。">backColor</a>() <span class="keyword">const</span>;
+<a name="l00317"></a>00317         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a4519b600625d0e12b35c5ec8ec2b8203" title="項目の背景の色。selected() が true の場合は無効。TreeView::fullRowSelect() で範囲が変わる。">backColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00319"></a>00319         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#ad951b4631028ffb14b3d5fa4a6b9a337" title="項目のクライアント座標領域。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00321"></a>00321         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a6f3f1dcac7e9231255dff63452f252d2" title="フォーカスがあるように描画するかどうか。">focused</a>() <span class="keyword">const</span>;
+<a name="l00322"></a>00322         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a6f3f1dcac7e9231255dff63452f252d2" title="フォーカスがあるように描画するかどうか。">focused</a>(<span class="keywordtype">bool</span> value);
+<a name="l00324"></a>00324         <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a2e6e5a8fd5969eb97f2ff5a882bb8b17" title="項目の文字列のフォント。">font</a>() <span class="keyword">const</span>;
+<a name="l00325"></a>00325         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a2e6e5a8fd5969eb97f2ff5a882bb8b17" title="項目の文字列のフォント。">font</a>(HFONT value);
+<a name="l00327"></a>00327         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a6054d3d09b0a265581b5daded3ffa54c" title="イベントの発生した項目。">item</a>();
+<a name="l00329"></a>00329         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#ae728baea1ce7cc02779753a82451e699" title="項目のツリー階層の深さ。0 から始まる。">level</a>() <span class="keyword">const</span>;
+<a name="l00331"></a>00331         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a81cae1541728c947959bfd5ba8c4ec69" title="選択しているように描画するかどうか。">selected</a>() <span class="keyword">const</span>;
+<a name="l00332"></a>00332         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a81cae1541728c947959bfd5ba8c4ec69" title="選択しているように描画するかどうか。">selected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00334"></a>00334         <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a78b1d25e3d925d80932bb67f9c421e79" title="項目の文字列の色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00335"></a>00335         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_pre_paint.html#a78b1d25e3d925d80932bb67f9c421e79" title="項目の文字列の色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337     <span class="keyword">private</span>:
+<a name="l00338"></a>00338         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>;
+<a name="l00339"></a>00339 
+<a name="l00340"></a>00340         ::tagNMTVCUSTOMDRAW* _info;
+<a name="l00341"></a>00341         <span class="keywordtype">bool</span> _fontChanged;
+<a name="l00342"></a>00342     };
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344 
+<a name="l00346"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html">00346</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html" title="選択項目が変化したイベント。">ItemSelect</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00347"></a>00347         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html" title="選択項目が変化したイベント。">ItemSelect</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#a2b331ef7ca2adbfc594e376a8698165e" title="古い選択項目。">oldSelectedItem</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#ab620ecae8578cdf94159713ca4b3aa63" title="新しい選択項目。">newSelectedItem</a>);
+<a name="l00348"></a>00348 
+<a name="l00350"></a>00350         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#ab620ecae8578cdf94159713ca4b3aa63" title="新しい選択項目。">newSelectedItem</a>() <span class="keyword">const</span>;
+<a name="l00352"></a>00352         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#a2b331ef7ca2adbfc594e376a8698165e" title="古い選択項目。">oldSelectedItem</a>() <span class="keyword">const</span>;
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354     <span class="keyword">protected</span>:
+<a name="l00355"></a>00355         HTREEITEM _oldSelectedItem;
+<a name="l00356"></a>00356         HTREEITEM _newSelectedItem;
+<a name="l00357"></a>00357     };
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 
+<a name="l00361"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_selecting.html">00361</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_selecting.html" title="選択項目が変化しようとしているイベント。">ItemSelecting</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html" title="選択項目が変化したイベント。">ItemSelect</a> {
+<a name="l00362"></a>00362         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_selecting.html" title="選択項目が変化しようとしているイベント。">ItemSelecting</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#a2b331ef7ca2adbfc594e376a8698165e" title="古い選択項目。">oldSelectedItem</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_select.html#ab620ecae8578cdf94159713ca4b3aa63" title="新しい選択項目。">newSelectedItem</a>);
+<a name="l00363"></a>00363 
+<a name="l00365"></a>00365         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_selecting.html#a9b41fa37367f911b7fe966ce7623de36" title="変化をキャンセルするかどうか。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00366"></a>00366         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_selecting.html#a9b41fa37367f911b7fe966ce7623de36" title="変化をキャンセルするかどうか。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00367"></a>00367 
+<a name="l00368"></a>00368     <span class="keyword">private</span>:
+<a name="l00369"></a>00369         <span class="keywordtype">bool</span> _cancel;
+<a name="l00370"></a>00370     };
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372 
+<a name="l00374"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html">00374</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html" title="項目の状態が変化したイベント。">ItemStateChange</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00375"></a>00375         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html" title="項目の状態が変化したイベント。">ItemStateChange</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#a69b4ac6fece603b03cbfcf9ecf58ac83" title="古い項目の状態。">oldState</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#abf4710b785ac3e9c137b6af69f734ae7" title="新しい項目の状態。">newState</a>);
+<a name="l00376"></a>00376 
+<a name="l00378"></a>00378         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#abf4710b785ac3e9c137b6af69f734ae7" title="新しい項目の状態。">newState</a>() <span class="keyword">const</span>;
+<a name="l00380"></a>00380         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#a69b4ac6fece603b03cbfcf9ecf58ac83" title="古い項目の状態。">oldState</a>() <span class="keyword">const</span>;
+<a name="l00381"></a>00381 
+<a name="l00382"></a>00382     <span class="keyword">protected</span>:
+<a name="l00383"></a>00383         <span class="keywordtype">int</span> _oldState;
+<a name="l00384"></a>00384         <span class="keywordtype">int</span> _newState;
+<a name="l00385"></a>00385     };
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387 
+<a name="l00389"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_changing.html">00389</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_changing.html" title="項目の状態が変化しようとしているイベント。">ItemStateChanging</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html" title="項目の状態が変化したイベント。">ItemStateChange</a> {
+<a name="l00390"></a>00390         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_changing.html" title="項目の状態が変化しようとしているイベント。">ItemStateChanging</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#a69b4ac6fece603b03cbfcf9ecf58ac83" title="古い項目の状態。">oldState</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#abf4710b785ac3e9c137b6af69f734ae7" title="新しい項目の状態。">newState</a>);
+<a name="l00391"></a>00391 
+<a name="l00393"></a>00393         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#abf4710b785ac3e9c137b6af69f734ae7" title="新しい項目の状態。">newState</a>(<span class="keywordtype">int</span> value);
+<a name="l00394"></a>00394         <span class="keyword">using</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_state_change.html#abf4710b785ac3e9c137b6af69f734ae7" title="新しい項目の状態。">ItemStateChange::newState</a>;
+<a name="l00395"></a>00395     };
+<a name="l00396"></a>00396 
+<a name="l00397"></a>00397 
+<a name="l00399"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_tip_popup.html">00399</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_tip_popup.html" title="項目のツールチップが表示されるイベント。">ItemTipPopup</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00400"></a>00400         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_tip_popup.html" title="項目のツールチップが表示されるイベント。">ItemTipPopup</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <span class="keywordtype">wchar_t</span>* buffer, <span class="keywordtype">int</span> bufferSize);
+<a name="l00401"></a>00401 
+<a name="l00403"></a>00403         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_tip_popup.html#a37df9a08632d7ca19df5351b03ff2fd4" title="表示する文字列を設定する。文字列の長さには上限があって切り捨てられる。">setText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405     <span class="keyword">private</span>:
+<a name="l00406"></a>00406         <span class="keywordtype">wchar_t</span>* _buffer;
+<a name="l00407"></a>00407         <span class="keywordtype">int</span> _bufferSize;
+<a name="l00408"></a>00408     };
+<a name="l00409"></a>00409 
+<a name="l00410"></a>00410 
+<a name="l00412"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html">00412</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html" title="項目の文字列を編集した直後のイベント。">TextEdit</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00413"></a>00413         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html" title="項目の文字列を編集した直後のイベント。">TextEdit</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a92a24efcf09f1a1f1dcd6cdd553b943e" title="編集される、または編集された文字列。">itemText</a>);
+<a name="l00414"></a>00414 
+<a name="l00416"></a>00416         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a1ccbe6cc06c1f5600d83ab58aa6d1008" title="編集を開始しないか、または編集結果を反映しないかどうか。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00417"></a>00417         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a1ccbe6cc06c1f5600d83ab58aa6d1008" title="編集を開始しないか、または編集結果を反映しないかどうか。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00419"></a>00419         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a92a24efcf09f1a1f1dcd6cdd553b943e" title="編集される、または編集された文字列。">itemText</a>() <span class="keyword">const</span>;
+<a name="l00420"></a>00420         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a92a24efcf09f1a1f1dcd6cdd553b943e" title="編集される、または編集された文字列。">itemText</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422     <span class="keyword">private</span>:
+<a name="l00423"></a>00423         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _itemText;
+<a name="l00424"></a>00424         <span class="keywordtype">bool</span> _cancel;
+<a name="l00425"></a>00425     };
+<a name="l00426"></a>00426 
+<a name="l00427"></a>00427 
+<a name="l00429"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_editing.html">00429</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_editing.html" title="項目の文字列を編集する直前のイベント。">TextEditing</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html" title="項目の文字列を編集した直後のイベント。">TextEdit</a> {
+<a name="l00430"></a>00430         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_editing.html" title="項目の文字列を編集する直前のイベント。">TextEditing</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_item_event.html#ab9718a5fd1fe78b534d133d28c23971d" title="項目。">item</a>, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_edit.html#a92a24efcf09f1a1f1dcd6cdd553b943e" title="編集される、または編集された文字列。">itemText</a>);
+<a name="l00431"></a>00431 
+<a name="l00434"></a>00434         <a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_text_editing.html#ac0a206b367cb7f30e61b8fe1d53c67ca" title="編集をするエディットコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。 ある程度 TreeView が制御しているので動作しない設定もある。">edit</a>();
+<a name="l00435"></a>00435     };
+<a name="l00436"></a>00436 
+<a name="l00437"></a>00437 
+<a name="l00439"></a><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html">00439</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html" title="ヒットテストの結果。">HitTestInfo</a> {
+<a name="l00440"></a>00440         <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html" title="ヒットテストの結果。">HitTestInfo</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_control.html#a9e9825e07722a65035a27de591c30bca" title="ウインドウハンドル。得られるハンドルは必ず作成済みで、現在のスレッドで使用できる。そうでなければ assert で警告を出す。">handle</a>, HTREEITEM <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#ad328bc4035037fb9a8d795adc089f1e7" title="当たっている項目。当たってない場合はヌル項目。">item</a>, <span class="keywordtype">int</span> flags);
+<a name="l00441"></a>00441 
+<a name="l00443"></a>00443         <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#ad328bc4035037fb9a8d795adc089f1e7" title="当たっている項目。当たってない場合はヌル項目。">item</a>();
+<a name="l00445"></a>00445         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#a38927a89231b85a167c7746d79bc94f7" title="子項目を表示/非表示にする[+][-]ボタンの上。">onButton</a>() <span class="keyword">const</span>;
+<a name="l00447"></a>00447         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#a712a000557a8d5746a1cdf3d82126880" title="アイコン画像の上。">onImage</a>() <span class="keyword">const</span>;
+<a name="l00449"></a>00449         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#a82075f4df5a9b2063ea9f9b362e7a850" title="項目のインデントの上。">onIndent</a>() <span class="keyword">const</span>;
+<a name="l00451"></a>00451         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#aaa807eb5fe5dbffc2d22d8e92c7bfb95" title="項目のアイコン画像、状態画像、または文字列の上。">onItem</a>() <span class="keyword">const</span>;
+<a name="l00453"></a>00453         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#a8e3466ab4552418b8504aad7fbabbc12" title="項目の文字列より右の部分。">onItemRight</a>() <span class="keyword">const</span>;
+<a name="l00455"></a>00455         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#ac81b9428c7b90d3b7441ceedfd8ce0d8" title="状態画像の上。">onStateImage</a>() <span class="keyword">const</span>;
+<a name="l00457"></a>00457         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html#a25f8551f34634bb65834769b4ad1c8b0" title="文字列の上。">onText</a>() <span class="keyword">const</span>;
+<a name="l00458"></a>00458 
+<a name="l00459"></a>00459     <span class="keyword">private</span>:
+<a name="l00460"></a>00460         HWND _handle;
+<a name="l00461"></a>00461         HTREEITEM _item;
+<a name="l00462"></a>00462         <span class="keywordtype">int</span> _flags;
+<a name="l00463"></a>00463     };
+<a name="l00464"></a>00464 
+<a name="l00465"></a>00465 
+<a name="l00466"></a>00466 <span class="keyword">public</span>:
+<a name="l00468"></a>00468     <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aa4a244ecddc06ef63ee3a46408308c3b" title="ヌルハンドルで作成。">TreeView</a>();
+<a name="l00469"></a>00469     <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aa4a244ecddc06ef63ee3a46408308c3b" title="ヌルハンドルで作成。">TreeView</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00471"></a>00471     <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aa4a244ecddc06ef63ee3a46408308c3b" title="ヌルハンドルで作成。">TreeView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">TreeView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9defaba6e6d310a78fa2c15846c28001" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00473"></a>00473     <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aa4a244ecddc06ef63ee3a46408308c3b" title="ヌルハンドルで作成。">TreeView</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> itemInfos, <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">TreeView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9defaba6e6d310a78fa2c15846c28001" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00474"></a>00474     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>();
+<a name="l00475"></a>00475     <a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_tree_view.html" title="ツリービュー。">TreeView</a>&amp;&amp; value);
+<a name="l00476"></a>00476 
+<a name="l00477"></a>00477 <span class="keyword">public</span>:
+<a name="l00479"></a>00479     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a880f128881ea660fa3b10ea587ed4d85" title="フォーカスが外れても選択状態を表示するかどうか。初期値は false。">alwaysSelected</a>() <span class="keyword">const</span>;
+<a name="l00480"></a>00480     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a880f128881ea660fa3b10ea587ed4d85" title="フォーカスが外れても選択状態を表示するかどうか。初期値は false。">alwaysSelected</a>(<span class="keywordtype">bool</span> value);
+<a name="l00482"></a>00482     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a97653571ec71b3bcde9bdd1ae3a8ce5d" title="背景色。">backColor</a>() <span class="keyword">const</span>;
+<a name="l00483"></a>00483     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a97653571ec71b3bcde9bdd1ae3a8ce5d" title="背景色。">backColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00485"></a>00485     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af928e611cf29498cac5a7215a65317b0" title="子項目を表示/非表示にする[+][-]ボタンを表示するかどうか。初期値は true。">buttons</a>() <span class="keyword">const</span>;
+<a name="l00486"></a>00486     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af928e611cf29498cac5a7215a65317b0" title="子項目を表示/非表示にする[+][-]ボタンを表示するかどうか。初期値は true。">buttons</a>(<span class="keywordtype">bool</span> value);
+<a name="l00488"></a>00488     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ac490b9734425102150fba87180597701" title="項目数。">count</a>() <span class="keyword">const</span>;
+<a name="l00490"></a>00490     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8f7752d0c8a34abe3a8ba082d355d0e9" title="ツりービュー内に表示できる項目数。">countPerPage</a>() <span class="keyword">const</span>;
+<a name="l00492"></a>00492     <a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af87677f1d38af12cf96f54b831785b4b" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>() <span class="keyword">const</span>;
+<a name="l00493"></a>00493     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af87677f1d38af12cf96f54b831785b4b" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>(<a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> value);
+<a name="l00495"></a>00495     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7412708c353a0238f5c7654a4f374e20" title="横の行を全て選択状態にするかどうか。lines() が true の場合は true に設定できない。初期値は false。">fullRowSelect</a>() <span class="keyword">const</span>;
+<a name="l00496"></a>00496     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7412708c353a0238f5c7654a4f374e20" title="横の行を全て選択状態にするかどうか。lines() が true の場合は true に設定できない。初期値は false。">fullRowSelect</a>(<span class="keywordtype">bool</span> value);
+<a name="l00498"></a>00498     <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html" title="ヒットテストの結果。">TreeView::HitTestInfo</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ad61ba16ee6e32f86b55e01c69f40988d" title="指定したクライアント座標のヒットテストを行って情報を取得する。">getHitTestInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00499"></a>00499     <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_hit_test_info.html" title="ヒットテストの結果。">TreeView::HitTestInfo</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ad61ba16ee6e32f86b55e01c69f40988d" title="指定したクライアント座標のヒットテストを行って情報を取得する。">getHitTestInfo</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00501"></a>00501     <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a618e587826f2cf744ed6bab0a10d02c3" title="指定したクライアント座標にある項目を取得する。無い場合はヌル項目。">getItemAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point);
+<a name="l00502"></a>00502     <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a618e587826f2cf744ed6bab0a10d02c3" title="指定したクライアント座標にある項目を取得する。無い場合はヌル項目。">getItemAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00504"></a>00504     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8b2322022158116ef61ac05f0ffa7be0" title="適切なコントロールサイズ。font(), count() 等の値によって最適なサイズを返す。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00506"></a>00506     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a6f238b70c8bd19c985adebad2c02294f" title="項目にカーソルを合わせるとカーソルが Cursor::hand() になって文字列にアンダーラインが表示されるかどうか。初期値は false。">hotTracking</a>() <span class="keyword">const</span>;
+<a name="l00507"></a>00507     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a6f238b70c8bd19c985adebad2c02294f" title="項目にカーソルを合わせるとカーソルが Cursor::hand() になって文字列にアンダーラインが表示されるかどうか。初期値は false。">hotTracking</a>(<span class="keywordtype">bool</span> value);
+<a name="l00509"></a>00509     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a76a5c2644dc6f55c64a871665ef25460" title="項目を表示し切れない時に水平スクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。">hScrollable</a>() <span class="keyword">const</span>;
+<a name="l00510"></a>00510     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a76a5c2644dc6f55c64a871665ef25460" title="項目を表示し切れない時に水平スクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。">hScrollable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00512"></a>00512     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8d22a3c18227a7806561f64f0fec139a" title="アイコンの画像リスト。TreeView は画像リストのハンドルを破棄しない。">imageList</a>() <span class="keyword">const</span>;
+<a name="l00513"></a>00513     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8d22a3c18227a7806561f64f0fec139a" title="アイコンの画像リスト。TreeView は画像リストのハンドルを破棄しない。">imageList</a>(HIMAGELIST value);
+<a name="l00515"></a>00515     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a73ee9c822e143ed9180636879aa63c6c" title="子項目のインデントピクセル数。">indent</a>() <span class="keyword">const</span>;
+<a name="l00516"></a>00516     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a73ee9c822e143ed9180636879aa63c6c" title="子項目のインデントピクセル数。">indent</a>(<span class="keywordtype">int</span> value);
+<a name="l00518"></a>00518     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#acca8e4b4219c95e18facaa3383560062" title="項目の高さ。">itemHeight</a>() <span class="keyword">const</span>;
+<a name="l00519"></a>00519     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#acca8e4b4219c95e18facaa3383560062" title="項目の高さ。">itemHeight</a>(<span class="keywordtype">int</span> value);
+<a name="l00521"></a>00521     <a class="code" href="classbalor_1_1gui_1_1_tool_tip.html" title="ツールチップコントロール。">ToolTip</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9eb91f4475eedffe71d587f544249ed4" title="項目ごとに表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 TreeView が制御しているので動作しない設定もある。">itemTip</a>();
+<a name="l00523"></a>00523     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a91dacf4e3f968c73f93689830b8852b9" title="項目ごとにツールチップを表示するかどうか。onItemTipPopup イベントで表示する文字列を指定する。初期値は false。">itemTipEnabled</a>() <span class="keyword">const</span>;
+<a name="l00524"></a>00524     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a91dacf4e3f968c73f93689830b8852b9" title="項目ごとにツールチップを表示するかどうか。onItemTipPopup イベントで表示する文字列を指定する。初期値は false。">itemTipEnabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00526"></a>00526     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af6a8bcbd7dd3ea348c70b83581579274" title="親と子項目を結ぶ線の色。">lineColor</a>() <span class="keyword">const</span>;
+<a name="l00527"></a>00527     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#af6a8bcbd7dd3ea348c70b83581579274" title="親と子項目を結ぶ線の色。">lineColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00529"></a>00529     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a66c9e927e859e045b6e5d85351904759" title="親と子項目を結ぶ線を表示するかどうか。初期値は true。">lines</a>() <span class="keyword">const</span>;
+<a name="l00530"></a>00530     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a66c9e927e859e045b6e5d85351904759" title="親と子項目を結ぶ線を表示するかどうか。初期値は true。">lines</a>(<span class="keywordtype">bool</span> value);
+<a name="l00532"></a>00532     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ab0c69a208806d557cd62924ef726215f" title="左クリックしたイベント。">onClick</a>();
+<a name="l00534"></a>00534     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemDrag&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9031b6ffd759fc23ec93c3bcc5691782" title="項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。">onItemDrag</a>();
+<a name="l00536"></a>00536     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemExpand&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aca9e4a8174287951713601695eb6d286" title="項目の子項目が表示されているかどうかが変化したイベント。">onItemExpand</a>();
+<a name="l00538"></a>00538     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemExpanding&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a0471d00d6de53937348901f09c45f072" title="項目の子項目が表示されているかどうかが変化しようとしているイベント。">onItemExpanding</a>();
+<a name="l00540"></a>00540     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemPrePaint&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a61d09d38a92cc919b46e47905249dcfa" title="項目を描画する直前のイベント。">onItemPrePaint</a>();
+<a name="l00542"></a>00542     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemSelect&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8681f105f53eec2221005f1f4b46a676" title="選択項目が変化したイベント。">onItemSelect</a>();
+<a name="l00544"></a>00544     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemSelecting&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ae1f12a3ca1ea89a75c572e5742ea25c5" title="選択項目が変化しようとしているイベント。">onItemSelecting</a>();
+<a name="l00546"></a>00546     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemStateChange&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8202fd0dc3c8472a67840f79c7f4ab6c" title="項目の状態が変化したイベント。">onItemStateChange</a>();
+<a name="l00548"></a>00548     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemStateChanging&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a6ecccc5b85d31d8fdc42c84106b00e44" title="項目の状態が変化しようとしているイベント。">onItemStateChanging</a>();
+<a name="l00550"></a>00550     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemTipPopup&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9ab7d9216f8fb58e00948777fdf3b85f" title="項目のツールチップを表示するイベント。">onItemTipPopup</a>();
+<a name="l00552"></a>00552     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::RightClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#aa100b27f842d901a475e49a738318c21" title="右クリックしたイベント。うまく拾えない onMouseUp イベントの代わりに使う。">onRightClick</a>();
+<a name="l00554"></a>00554     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::TextEdit&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ad3a682abb0df1c34f2b58e1fadef8d30" title="項目の文字列編集が終わって反映する直前のイベント。">onTextEdit</a>();
+<a name="l00556"></a>00556     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::TextEditing&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#abbdedc4c75487e65b0364684e7f4f164" title="項目の文字列編集が始まる直前のイベント。">onTextEditing</a>();
+<a name="l00558"></a>00558     <a class="code" href="structbalor_1_1gui_1_1_tree_view_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">TreeView::Options</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a9defaba6e6d310a78fa2c15846c28001" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00560"></a>00560     <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#afd683b9031bbfec877cebebdc89a4afd" title="仮想的なルート項目を取得する。この項目は表示されないし子項目の操作以外は受け付けない。">root</a>();
+<a name="l00561"></a>00561     <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#afd683b9031bbfec877cebebdc89a4afd" title="仮想的なルート項目を取得する。この項目は表示されないし子項目の操作以外は受け付けない。">root</a>() <span class="keyword">const</span>;
+<a name="l00563"></a>00563     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ae695aee15c1407acc2c92272a6a1db06" title="ルート項目と子項目を結ぶ線を表示するかどうか。初期値は true。">rootLines</a>() <span class="keyword">const</span>;
+<a name="l00564"></a>00564     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#ae695aee15c1407acc2c92272a6a1db06" title="ルート項目と子項目を結ぶ線を表示するかどうか。初期値は true。">rootLines</a>(<span class="keywordtype">bool</span> value);
+<a name="l00566"></a>00566     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a2b7253b4ccd8bdaa19f74865d114089c" title="項目を表示し切れない時にスクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。">scrollable</a>() <span class="keyword">const</span>;
+<a name="l00567"></a>00567     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a2b7253b4ccd8bdaa19f74865d114089c" title="項目を表示し切れない時にスクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。">scrollable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00569"></a>00569     <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a597cf3543776989d8cf7b821b04cb472" title="選択されている項目。">selectedItem</a>() <span class="keyword">const</span>;
+<a name="l00570"></a>00570     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a597cf3543776989d8cf7b821b04cb472" title="選択されている項目。">selectedItem</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> value);
+<a name="l00573"></a>00573     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8867ac88f2bdca00feb8cd7d6c4c3714" title="状態アイコンの画像リスト。0 番目の画像は使用されない。TreeView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場...">stateImageList</a>() <span class="keyword">const</span>;
+<a name="l00574"></a>00574     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a8867ac88f2bdca00feb8cd7d6c4c3714" title="状態アイコンの画像リスト。0 番目の画像は使用されない。TreeView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場...">stateImageList</a>(HIMAGELIST value);
+<a name="l00576"></a>00576     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a143ba818dfefadadf80469448cdd18da" title="文字色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00577"></a>00577     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a143ba818dfefadadf80469448cdd18da" title="文字色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00579"></a>00579     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a46a9a23ad47f880e339a72e06d50012d" title="クリックで項目の文字列を編集できるかどうか。初期値は false。">textEditable</a>() <span class="keyword">const</span>;
+<a name="l00580"></a>00580     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a46a9a23ad47f880e339a72e06d50012d" title="クリックで項目の文字列を編集できるかどうか。初期値は false。">textEditable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00582"></a>00582     <a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7eb37145c9cf417e543828bbf791a88d" title="最初に表示されている項目。">topItem</a>() <span class="keyword">const</span>;
+<a name="l00583"></a>00583     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a7eb37145c9cf417e543828bbf791a88d" title="最初に表示されている項目。">topItem</a>(<a class="code" href="classbalor_1_1gui_1_1_tree_view_1_1_item.html" title="項目。TreeView::root 関数等から取得できる。">TreeView::Item</a> value);
+<a name="l00584"></a>00584 
+<a name="l00585"></a>00585 <span class="keyword">protected</span>:
+<a name="l00587"></a>00587     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tree_view.html#a97883d9dc47cb8daee1240716ccc6b2f" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00588"></a>00588 
+<a name="l00589"></a>00589 <span class="keyword">protected</span>:
+<a name="l00590"></a>00590     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::Click&amp;&gt;</a> _onClick;
+<a name="l00591"></a>00591     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemDrag&amp;&gt;</a> _onItemDrag;
+<a name="l00592"></a>00592     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemExpand&amp;&gt;</a> _onItemExpand;
+<a name="l00593"></a>00593     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemExpanding&amp;&gt;</a> _onItemExpanding;
+<a name="l00594"></a>00594     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemPrePaint&amp;&gt;</a> _onItemPrePaint;
+<a name="l00595"></a>00595     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemSelect&amp;&gt;</a> _onItemSelect;
+<a name="l00596"></a>00596     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemSelecting&amp;&gt;</a> _onItemSelecting;
+<a name="l00597"></a>00597     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemStateChange&amp;&gt;</a> _onItemStateChange;
+<a name="l00598"></a>00598     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemStateChanging&amp;&gt;</a> _onItemStateChanging;
+<a name="l00599"></a>00599     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::ItemTipPopup&amp;&gt;</a> _onItemTipPopup;
+<a name="l00600"></a>00600     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::RightClick&amp;&gt;</a> _onRightClick;
+<a name="l00601"></a>00601     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::TextEdit&amp;&gt;</a> _onTextEdit;
+<a name="l00602"></a>00602     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;TreeView::TextEditing&amp;&gt;</a> _onTextEditing;
+<a name="l00603"></a>00603 };
+<a name="l00604"></a>00604 
+<a name="l00605"></a>00605 
+<a name="l00606"></a>00606 
+<a name="l00607"></a>00607     }
+<a name="l00608"></a>00608 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

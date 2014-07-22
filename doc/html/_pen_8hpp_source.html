@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Pen.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Pen.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/ArrayRange.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">struct </span>HBRUSH__;
+<a name="l00008"></a>00008 <span class="keyword">struct </span>HPEN__;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>balor {
+<a name="l00012"></a>00012     <span class="keyword">namespace </span>graphics {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">class </span>Brush;
+<a name="l00015"></a>00015 <span class="keyword">class </span>Color;
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 
+<a name="l00022"></a><a class="code" href="classbalor_1_1graphics_1_1_pen.html">00022</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00023"></a>00023 <span class="keyword">public</span>:
+<a name="l00024"></a>00024     typedef ::HBRUSH__* HBRUSH;
+<a name="l00025"></a>00025     typedef ::HPEN__* HPEN;
+<a name="l00026"></a>00026 
+<a name="l00028"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html">00028</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html" title="線の始点と終点の形。">LineCap</a> {
+<a name="l00029"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2e">00029</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2e">_enum</a> {
+<a name="l00030"></a>00030             round  = 0x00000000, 
+<a name="l00031"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186">00031</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186" title="線の端点を丸くする。">square</a> = 0x00000100, 
+<a name="l00032"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2eaaefd5a28e52f5872abb2de1457ed1047">00032</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2eaaefd5a28e52f5872abb2de1457ed1047" title="線の端点を四角くする。">flat</a>   = 0x00000200, 
+<a name="l00033"></a>00033         };
+<a name="l00034"></a>00034         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html" title="線の始点と終点の形。">LineCap</a>);
+<a name="l00035"></a>00035     };
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00039"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html">00039</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html" title="線の接続部分の形。">LineJoin</a> {
+<a name="l00040"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0ba">00040</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0ba">_enum</a> {
+<a name="l00041"></a>00041             round  = 0x00000000, 
+<a name="l00042"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baabd2aab743c17aa2474380217b9f3d895">00042</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baabd2aab743c17aa2474380217b9f3d895" title="接続部分を丸くする。">bevel</a>  = 0x00001000, 
+<a name="l00043"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328">00043</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328" title="接続部分を平らにする。">mitter</a> = 0x00002000, 
+<a name="l00044"></a>00044         };
+<a name="l00045"></a>00045         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html" title="線の接続部分の形。">LineJoin</a>);
+<a name="l00046"></a>00046     };
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html">00049</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html" title="ペンの線のスタイル。">Style</a> {
+<a name="l00050"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737">00050</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737">_enum</a> {
+<a name="l00051"></a>00051             solid       = 0, 
+<a name="l00052"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a5f5a945cae2c06b784d576ac8242286b">00052</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a5f5a945cae2c06b784d576ac8242286b" title="実線。">dash</a>        = 1, 
+<a name="l00053"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737aa41e84f88e20139540722c2ec01b6d95">00053</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737aa41e84f88e20139540722c2ec01b6d95" title="破線。">dot</a>         = 2, 
+<a name="l00054"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737ab82dedfa65de8fae75ce931db313ae7b">00054</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737ab82dedfa65de8fae75ce931db313ae7b" title="点線。">dashDot</a>     = 3, 
+<a name="l00055"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737ab49f9e334db68233883cfc7bbfa8ba6d">00055</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737ab49f9e334db68233883cfc7bbfa8ba6d" title="一点鎖線。">dashDotDot</a>  = 4, 
+<a name="l00056"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a8f448f6a42624e053f1c048014329060">00056</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a8f448f6a42624e053f1c048014329060" title="二点鎖線。">null</a>        = 5, 
+<a name="l00057"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a2efff33e7a52bf081ce77a0c20779f46">00057</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a2efff33e7a52bf081ce77a0c20779f46" title="線を描画しない。">insideFrame</a> = 6, 
+<a name="l00058"></a><a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a1178ee06fc5cd4512f4cba4c38daa5a6">00058</a>             <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html#adf8ca8bcf75381fb84d001d318d46737a1178ee06fc5cd4512f4cba4c38daa5a6" title="実線で、図形を描く場合に線幅が図形内に完全に収まるように書く。">custom</a>      = 7, 
+<a name="l00059"></a>00059         };
+<a name="l00060"></a>00060         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html" title="ペンの線のスタイル。">Style</a>);
+<a name="l00061"></a>00061     };
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">public</span>:
+<a name="l00065"></a>00065     <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>();
+<a name="l00066"></a>00066     <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(<a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a>&amp;&amp; value);
+<a name="l00068"></a>00068     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(HPEN handle, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a840ad4014edc96eb1a817799546c227d" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a> = <span class="keyword">false</span>);
+<a name="l00070"></a>00070     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(HBRUSH <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a34d1082c63451aead38badab376783c2" title="描画に使うブラシ。ブラシを使わない場合はヌルハンドルのブラシが返る。">brush</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#aa0c02448a75dcc816ae28465666070fa" title="線の幅。">width</a> = 1, <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html" title="ペンの線のスタイル。">Pen::Style</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#adf3e951ec3b67e7d5ecde19e9c4d358f" title="点線のスタイル。">style</a> = Style::solid, LineCap <a class="code" href="classbalor_1_1graphics_1_1_pen.html#af8b44fe7c1a1e233323bfca005917f8d" title="線の始点と終点の形。">lineCap</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186" title="線の端点を丸くする。">LineCap::square</a>, LineJoin <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a1294cc1db10e8e2433113b08a8024891" title="線の接続点の形。">lineJoin</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328" title="接続部分を平らにする。">LineJoin::mitter</a>);
+<a name="l00072"></a>00072     <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(HBRUSH <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a34d1082c63451aead38badab376783c2" title="描画に使うブラシ。ブラシを使わない場合はヌルハンドルのブラシが返る。">brush</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#aa0c02448a75dcc816ae28465666070fa" title="線の幅。">width</a>, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const int&gt;</a> patten, LineCap <a class="code" href="classbalor_1_1graphics_1_1_pen.html#af8b44fe7c1a1e233323bfca005917f8d" title="線の始点と終点の形。">lineCap</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186" title="線の端点を丸くする。">LineCap::square</a>, LineJoin <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a1294cc1db10e8e2433113b08a8024891" title="線の接続点の形。">lineJoin</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328" title="接続部分を平らにする。">LineJoin::mitter</a>);
+<a name="l00074"></a>00074     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; <a class="code" href="classbalor_1_1graphics_1_1_pen.html#ab3fd3653e5959da47c9d5e401edde9ff" title="線の色。ブラシを使う場合は意味を持たない。">color</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#aa0c02448a75dcc816ae28465666070fa" title="線の幅。">width</a> = 1, <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html" title="ペンの線のスタイル。">Pen::Style</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#adf3e951ec3b67e7d5ecde19e9c4d358f" title="点線のスタイル。">style</a> = Style::solid, LineCap <a class="code" href="classbalor_1_1graphics_1_1_pen.html#af8b44fe7c1a1e233323bfca005917f8d" title="線の始点と終点の形。">lineCap</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186" title="線の端点を丸くする。">LineCap::square</a>, LineJoin <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a1294cc1db10e8e2433113b08a8024891" title="線の接続点の形。">lineJoin</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328" title="接続部分を平らにする。">LineJoin::mitter</a>);
+<a name="l00076"></a>00076     <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a3192cedd512f9c1aada96edb0a7b8b19" title="ヌルハンドルで作成。">Pen</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; <a class="code" href="classbalor_1_1graphics_1_1_pen.html#ab3fd3653e5959da47c9d5e401edde9ff" title="線の色。ブラシを使う場合は意味を持たない。">color</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#aa0c02448a75dcc816ae28465666070fa" title="線の幅。">width</a>, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const int&gt;</a> patten, LineCap <a class="code" href="classbalor_1_1graphics_1_1_pen.html#af8b44fe7c1a1e233323bfca005917f8d" title="線の始点と終点の形。">lineCap</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html#ae36527979e0ecb95b513f450972fde2ea5339e1d9b53dd22b9a351fe2771fc186" title="線の端点を丸くする。">LineCap::square</a>, LineJoin <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a1294cc1db10e8e2433113b08a8024891" title="線の接続点の形。">lineJoin</a> = <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html#a50ef3a8cba33237f495aad6fb4bff0baa45f5103f562d87b138caab567765e328" title="接続部分を平らにする。">LineJoin::mitter</a>);
+<a name="l00077"></a>00077     ~<a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a>();
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a>&amp;&amp; value);
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">public</span>:
+<a name="l00083"></a>00083     <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a34d1082c63451aead38badab376783c2" title="描画に使うブラシ。ブラシを使わない場合はヌルハンドルのブラシが返る。">brush</a>() <span class="keyword">const</span>;
+<a name="l00085"></a>00085     <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a05f3dd4515e7a4d4642946f45d27bbe2" title="複製を返す。">clone</a>() <span class="keyword">const</span>;
+<a name="l00086"></a>00086     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a05f3dd4515e7a4d4642946f45d27bbe2" title="複製を返す。">clone</a>(HPEN handle);
+<a name="l00088"></a>00088     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#ab3fd3653e5959da47c9d5e401edde9ff" title="線の色。ブラシを使う場合は意味を持たない。">color</a>() <span class="keyword">const</span>;
+<a name="l00090"></a>00090     <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_cap.html" title="線の始点と終点の形。">Pen::LineCap</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#af8b44fe7c1a1e233323bfca005917f8d" title="線の始点と終点の形。">lineCap</a>() <span class="keyword">const</span>;
+<a name="l00092"></a>00092     <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_line_join.html" title="線の接続部分の形。">Pen::LineJoin</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a1294cc1db10e8e2433113b08a8024891" title="線の接続点の形。">lineJoin</a>() <span class="keyword">const</span>;
+<a name="l00094"></a>00094     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a840ad4014edc96eb1a817799546c227d" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>() <span class="keyword">const</span>;
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a840ad4014edc96eb1a817799546c227d" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>(<span class="keywordtype">bool</span> value);
+<a name="l00097"></a>00097     std::vector&lt;int, std::allocator&lt;int&gt; &gt; <a class="code" href="classbalor_1_1graphics_1_1_pen.html#ae0cf6bf0bece082d2a7a9ac6e04ad3e9" title="点線のパターン。コンストラクタで指定しなかった場合は空の配列。">pattern</a>() <span class="keyword">const</span>;
+<a name="l00099"></a>00099     <a class="code" href="structbalor_1_1graphics_1_1_pen_1_1_style.html" title="ペンの線のスタイル。">Pen::Style</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#adf3e951ec3b67e7d5ecde19e9c4d358f" title="点線のスタイル。">style</a>() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#aa0c02448a75dcc816ae28465666070fa" title="線の幅。">width</a>() <span class="keyword">const</span>;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 <span class="keyword">public</span>: <span class="comment">// システムペン一覧</span>
+<a name="l00105"></a>00105 <span class="comment"></span>    <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a6571df6c989b464a60326e1bad3f7870" title="白い実線のペン。">white</a>();
+<a name="l00107"></a>00107     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a0f95bebc316a37c312b84fe734710fc4" title="黒い実線のペン。">black</a>();
+<a name="l00109"></a>00109     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_pen.html" title="GDI ペンを表す。">Pen</a> <a class="code" href="classbalor_1_1graphics_1_1_pen.html#affd0b93a7bd1a7e841d4cc31318c62bb" title="描画しないペン。">hollow</a>();
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="keyword">public</span>:
+<a name="l00113"></a><a class="code" href="classbalor_1_1graphics_1_1_pen.html#a681e24b66bd32278570124508c5cb06f">00113</a>     <a class="code" href="classbalor_1_1graphics_1_1_pen.html#a681e24b66bd32278570124508c5cb06f" title="HPEN への自動変換 ＆ null チェック用">operator HPEN</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="keyword">private</span>:
+<a name="l00116"></a>00116     HPEN _handle;
+<a name="l00117"></a>00117     <span class="keywordtype">bool</span> _owned;
+<a name="l00118"></a>00118 };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122     }
+<a name="l00123"></a>00123 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

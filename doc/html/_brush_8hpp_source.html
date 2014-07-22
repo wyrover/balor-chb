@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Brush.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Brush.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00007"></a>00007 <span class="keyword">struct </span>HBRUSH__;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>balor {
+<a name="l00011"></a>00011     <span class="keyword">namespace </span>graphics {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">class </span>Bitmap;
+<a name="l00014"></a>00014 <span class="keyword">class </span>Color;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00020"></a><a class="code" href="classbalor_1_1graphics_1_1_brush.html">00020</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022     typedef ::HBITMAP__* HBITMAP;
+<a name="l00023"></a>00023     typedef ::HBRUSH__* HBRUSH;
+<a name="l00024"></a>00024 
+<a name="l00026"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html">00026</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html" title="ハッチブラシの種類。">Hatch</a> {
+<a name="l00027"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252">00027</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252">_enum</a> {
+<a name="l00028"></a>00028             none             = -1, 
+<a name="l00029"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252ac3a69cc9d14b56659484894a4ee58f0f">00029</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252ac3a69cc9d14b56659484894a4ee58f0f" title="単色ブラシ">horizontal</a>       =  0, 
+<a name="l00030"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a669a6c0f73b26d4bafc97baf93287266">00030</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a669a6c0f73b26d4bafc97baf93287266" title="横縞模様。">vertical</a>         =  1, 
+<a name="l00031"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252aa48913dcb91c34b91567614a56300351">00031</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252aa48913dcb91c34b91567614a56300351" title="縦縞模様。">forwardDiagonal</a>  =  2, 
+<a name="l00032"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a6d85df1e25131b764d69ddcb1234de20">00032</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a6d85df1e25131b764d69ddcb1234de20" title="４５度右上がり縞模様。">backwardDiagonal</a> =  3, 
+<a name="l00033"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252abe4a57e74e5062f0171e04721fafcd17">00033</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252abe4a57e74e5062f0171e04721fafcd17" title="４５度右下がり縞模様。">cross</a>            =  4, 
+<a name="l00034"></a><a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a79a1281da6bb97be7f1617634491511f">00034</a>             <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html#ae1223954867f522e05d5f44d66e8d252a79a1281da6bb97be7f1617634491511f" title="縦横縞模様。">diagonalCross</a>    =  5, 
+<a name="l00035"></a>00035         };
+<a name="l00036"></a>00036         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html" title="ハッチブラシの種類。">Hatch</a>);
+<a name="l00037"></a>00037     };
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">public</span>:
+<a name="l00041"></a>00041     <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8fb888b2d4d0d8830cc2c7ba6aca2d8d" title="ヌルハンドルで作成。">Brush</a>();
+<a name="l00042"></a>00042     <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8fb888b2d4d0d8830cc2c7ba6aca2d8d" title="ヌルハンドルで作成。">Brush</a>(<a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a>&amp;&amp; value);
+<a name="l00044"></a>00044     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8fb888b2d4d0d8830cc2c7ba6aca2d8d" title="ヌルハンドルで作成。">Brush</a>(HBRUSH handle, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a52a9fc487d258e1684bb5df9267ce39e" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a> = <span class="keyword">false</span>);
+<a name="l00046"></a>00046     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8fb888b2d4d0d8830cc2c7ba6aca2d8d" title="ヌルハンドルで作成。">Brush</a>(HBITMAP <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a68e2d3df0320ebe7c2599247279c8a3e" title="パターンブラシのビットマップを返す。パターンブラシでない場合はヌルハンドルのビットマップが返る。">bitmap</a>);
+<a name="l00048"></a>00048     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8fb888b2d4d0d8830cc2c7ba6aca2d8d" title="ヌルハンドルで作成。">Brush</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; <a class="code" href="classbalor_1_1graphics_1_1_brush.html#ab420e389c5ed8b234754a4b2708192c4" title="単色またはハッチブラシの色。パターンブラシの場合は無意味。">color</a>, <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html" title="ハッチブラシの種類。">Brush::Hatch</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a9d325b786919e63762d937efa5c3bca1" title="ハッチブラシの種類を返す。">hatch</a> = Hatch::none);
+<a name="l00049"></a>00049     ~<a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a>&amp;&amp; value);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">public</span>:
+<a name="l00055"></a>00055     <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a68e2d3df0320ebe7c2599247279c8a3e" title="パターンブラシのビットマップを返す。パターンブラシでない場合はヌルハンドルのビットマップが返る。">bitmap</a>() <span class="keyword">const</span>;
+<a name="l00057"></a>00057     <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a84878440b08e32e729e205256f42ef9a" title="複製して返す。">clone</a>() <span class="keyword">const</span>;
+<a name="l00058"></a>00058     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a84878440b08e32e729e205256f42ef9a" title="複製して返す。">clone</a>(HBRUSH handle);
+<a name="l00060"></a>00060     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#ab420e389c5ed8b234754a4b2708192c4" title="単色またはハッチブラシの色。パターンブラシの場合は無意味。">color</a>() <span class="keyword">const</span>;
+<a name="l00062"></a>00062     <a class="code" href="structbalor_1_1graphics_1_1_brush_1_1_hatch.html" title="ハッチブラシの種類。">Brush::Hatch</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a9d325b786919e63762d937efa5c3bca1" title="ハッチブラシの種類を返す。">hatch</a>() <span class="keyword">const</span>;
+<a name="l00064"></a>00064     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a52a9fc487d258e1684bb5df9267ce39e" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>() <span class="keyword">const</span>;
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a52a9fc487d258e1684bb5df9267ce39e" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>(<span class="keywordtype">bool</span> value);
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keyword">public</span>: <span class="comment">// システムブラシ一覧</span>
+<a name="l00069"></a>00069 <span class="comment"></span>    <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a7a3b47d8dad817b0c79491aee37dc90e" title="白いブラシ。">white</a>();
+<a name="l00071"></a>00071     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a0daf55e24369798ab047592ddad85bdf" title="明るい灰色ブラシ。">lightGray</a>();
+<a name="l00073"></a>00073     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#ad9ecb53d50720ca9bf875c5fbf8128d3" title="暗い灰色ブラシ。">darkGray</a>();
+<a name="l00075"></a>00075     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a86ed855677cc408787789487320d5ad8" title="黒いブラシ。">black</a>();
+<a name="l00077"></a>00077     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1graphics_1_1_brush.html#a8278742fbb73aa701322f3fb5a54da03" title="描画しないブラシ。">hollow</a>();
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> activeBorder();
+<a name="l00080"></a>00080     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> activeCaption();
+<a name="l00081"></a>00081     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> activeCaptionText();
+<a name="l00082"></a>00082     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> appWorkspace();
+<a name="l00083"></a>00083     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> control();
+<a name="l00084"></a>00084     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> controlShadow();
+<a name="l00085"></a>00085     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> controlDarkShadow();
+<a name="l00086"></a>00086     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> controlLight();
+<a name="l00087"></a>00087     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> controlHighlight();
+<a name="l00088"></a>00088     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> controlText();
+<a name="l00089"></a>00089     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> desktop();
+<a name="l00090"></a>00090     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> gradientActiveCaption();
+<a name="l00091"></a>00091     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> gradientInactiveCaption();
+<a name="l00092"></a>00092     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> grayText();
+<a name="l00093"></a>00093     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> hotTrack();
+<a name="l00094"></a>00094     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> inactiveBorder();
+<a name="l00095"></a>00095     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> inactiveCaption();
+<a name="l00096"></a>00096     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> inactiveCaptionText();
+<a name="l00097"></a>00097     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> menu();
+<a name="l00098"></a>00098     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> menuBar();
+<a name="l00099"></a>00099     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> menuHighlight();
+<a name="l00100"></a>00100     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> menuText();
+<a name="l00101"></a>00101     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> scrollbar();
+<a name="l00102"></a>00102     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> selectedControl();
+<a name="l00103"></a>00103     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> selectedControlText();
+<a name="l00104"></a>00104     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> toolTip();
+<a name="l00105"></a>00105     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> toolTipText();
+<a name="l00106"></a>00106     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> window();
+<a name="l00107"></a>00107     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> windowFrame();
+<a name="l00108"></a>00108     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> windowText();
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="keyword">public</span>:
+<a name="l00112"></a><a class="code" href="classbalor_1_1graphics_1_1_brush.html#ab89fd2f6619156aee75a5ab0090fa3f1">00112</a>     <a class="code" href="classbalor_1_1graphics_1_1_brush.html#ab89fd2f6619156aee75a5ab0090fa3f1" title="HBRUSH への自動変換 ＆ null チェック用">operator HBRUSH</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="keyword">private</span>:
+<a name="l00115"></a>00115     HBRUSH _handle;
+<a name="l00116"></a>00116     <span class="keywordtype">bool</span> _owned;
+<a name="l00117"></a>00117 };
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121     }
+<a name="l00122"></a>00122 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

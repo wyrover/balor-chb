@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ComboBox.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ComboBox.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/gui/Edit.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/ListBox.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/StringRangeArray.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>gui {
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00039"></a><a class="code" href="classbalor_1_1gui_1_1_combo_box.html">00039</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00040"></a>00040 <span class="keyword">public</span>:
+<a name="l00042"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html">00042</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html" title="コンボボックスのスタイル。">Style</a> {
+<a name="l00043"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08">00043</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08">_enum</a> {
+<a name="l00044"></a>00044             simple       = 0x0001L, 
+<a name="l00045"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a5f45ae4017b48635cf9b0721f28936e9">00045</a>             <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a5f45ae4017b48635cf9b0721f28936e9" title="エディットの下にリストボックスを常に表示する。">dropDown</a>     = 0x0002L, 
+<a name="l00046"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a57777badb041c8318506a7ba065d1e7c">00046</a>             <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a57777badb041c8318506a7ba065d1e7c" title="エディットの隣のボタンを押すとリストボックスが表示される。">dropDownList</a> = 0x0003L, 
+<a name="l00047"></a>00047         };
+<a name="l00048"></a>00048         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html" title="コンボボックスのスタイル。">Style</a>);
+<a name="l00049"></a>00049     };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 
+<a name="l00053"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html">00053</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00054"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html#aa1ce83f127effca51925326ef2e7f5ce">00054</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html#aa1ce83f127effca51925326ef2e7f5ce">_enum</a> {
+<a name="l00055"></a>00055             none             = 0      ,
+<a name="l00056"></a>00056             noHScroll        = 0x0040L, 
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html#aa1ce83f127effca51925326ef2e7f5cea0e53bd353c248d22288b85807e39f88a">00057</a>             <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html#aa1ce83f127effca51925326ef2e7f5cea0e53bd353c248d22288b85807e39f88a" title="入力文字列が右にはみ出る場合にスクロールせず、それ以上入力できなくする。">noIntegralHeight</a> = 0x0400L, 
+<a name="l00058"></a>00058         };
+<a name="l00059"></a>00059         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00060"></a>00060     };
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html">00064</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a> : <span class="keyword">public</span> ::balor::gui::<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a> {
+<a name="l00065"></a>00065         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>();
+<a name="l00068"></a>00068         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>(<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>&amp;&amp; value);
+<a name="l00069"></a>00069         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_control.html#a9e9825e07722a65035a27de591c30bca" title="ウインドウハンドル。得られるハンドルは必ず作成済みで、現在のスレッドで使用できる。そうでなければ assert で警告を出す。">handle</a>);
+<a name="l00070"></a>00070         ~<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>();
+<a name="l00071"></a>00071         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a>&amp;&amp; value);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     <span class="keyword">private</span>:
+<a name="l00075"></a>00075         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Control::Defocus&amp;&gt;</a>&amp; onDefocus();
+<a name="l00077"></a>00077         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Control::Focus&amp;&gt;</a>&amp; onFocus();
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079     <span class="keyword">public</span>:
+<a name="l00081"></a>00081         <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">Control::parent</a>;
+<a name="l00082"></a>00082         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* );
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <span class="keyword">protected</span>:
+<a name="l00086"></a>00086         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isInputKey(<span class="keywordtype">int</span> shortcut) <span class="keyword">const</span>;
+<a name="l00088"></a>00088         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html#a36f41b18a8c63b2dd848fb31c13a98f6" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00089"></a>00089     };
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 
+<a name="l00093"></a><a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html">00093</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a> : <span class="keyword">public</span> ::balor::gui::<a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a> {
+<a name="l00094"></a>00094         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>();
+<a name="l00097"></a>00097         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>(<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>&amp;&amp; value);
+<a name="l00098"></a>00098         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_control.html#a9e9825e07722a65035a27de591c30bca" title="ウインドウハンドル。得られるハンドルは必ず作成済みで、現在のスレッドで使用できる。そうでなければ assert で警告を出す。">handle</a>);
+<a name="l00099"></a>00099         ~<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>();
+<a name="l00100"></a>00100         <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a>&amp;&amp; value);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102     <span class="keyword">private</span>:
+<a name="l00104"></a>00104         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Control::Defocus&amp;&gt;</a>&amp; onDefocus();
+<a name="l00106"></a>00106         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Control::Focus&amp;&gt;</a>&amp; onFocus();
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="keyword">public</span>:
+<a name="l00110"></a>00110         <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">Control::parent</a>;
+<a name="l00111"></a>00111         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* );
+<a name="l00112"></a>00112     };
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 
+<a name="l00116"></a><a class="code" href="classbalor_1_1gui_1_1_combo_box.html#abd5615c5be88b65d1758378495a1ad84">00116</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;ComboBox, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#abd5615c5be88b65d1758378495a1ad84" title="コンボボックスのイベントの親クラス。">Event</a>;
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">CloseUp</a>;
+<a name="l00119"></a>00119     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">DropDown</a>;
+<a name="l00120"></a>00120     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Select</a>;
+<a name="l00121"></a>00121     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">SelectCancel</a>;
+<a name="l00122"></a>00122     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">SelectEnd</a>;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="keyword">public</span>:
+<a name="l00127"></a>00127     <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5f9ab83c8c92f4ba33f707f280d8ff6e" title="ヌルハンドルで作成。">ComboBox</a>();
+<a name="l00128"></a>00128     <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5f9ab83c8c92f4ba33f707f280d8ff6e" title="ヌルハンドルで作成。">ComboBox</a>(<a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00130"></a>00130     <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5f9ab83c8c92f4ba33f707f280d8ff6e" title="ヌルハンドルで作成。">ComboBox</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html" title="コンボボックスのスタイル。">ComboBox::Style</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a6ff2dbbc582a4cebef219913b1704db4" title="コンボボックスのスタイル。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a5f45ae4017b48635cf9b0721f28936e9" title="エディットの下にリストボックスを常に表示する。">Style::dropDown</a>, <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ComboBox::Options</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a9cbf6562e9f452d9a1555319b591b944" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00132"></a>00132     <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5f9ab83c8c92f4ba33f707f280d8ff6e" title="ヌルハンドルで作成。">ComboBox</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> items, <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html" title="コンボボックスのスタイル。">ComboBox::Style</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a6ff2dbbc582a4cebef219913b1704db4" title="コンボボックスのスタイル。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html#a85bf1f8577ad2b028c5b99dad34bba08a5f45ae4017b48635cf9b0721f28936e9" title="エディットの下にリストボックスを常に表示する。">Style::dropDown</a>, <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ComboBox::Options</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a9cbf6562e9f452d9a1555319b591b944" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00133"></a>00133     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>();
+<a name="l00134"></a>00134     <a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_combo_box.html" title="コンボボックス。">ComboBox</a>&amp;&amp; value);
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 <span class="keyword">public</span>:
+<a name="l00138"></a>00138     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a1c7c5a75759bb6a7acef87785a8120fa" title="ドロップダウンを表示した時の位置と大きさ。">boundsWithDropDown</a>() <span class="keyword">const</span>;
+<a name="l00140"></a>00140     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#abef3b96825e6beed5feadcc90a45f96c" title="ドロップダウンを開始するボタンの矩形。">dropDownButtonBounds</a>() <span class="keyword">const</span>;
+<a name="l00142"></a>00142     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a0bbad4679364fe1b18d70024f75372e7" title="ドロップダウンを開始するボタンが押されているかどうか。">dropDownButtonIsPushed</a>() <span class="keyword">const</span>;
+<a name="l00144"></a>00144     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a9bfb542c9bbd2dc45bb3b7c3901b3996" title="ドロップダウンが表示されているかどうか。">dropDowned</a>() <span class="keyword">const</span>;
+<a name="l00145"></a>00145     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a9bfb542c9bbd2dc45bb3b7c3901b3996" title="ドロップダウンが表示されているかどうか。">dropDowned</a>(<span class="keywordtype">bool</span> value);
+<a name="l00147"></a>00147     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a2d89e3abaf8bbbdf69c1ed6521bf2a19" title="ドロップダウンのスクロール可能な幅。">dropDownScrollWidth</a>() <span class="keyword">const</span>;
+<a name="l00148"></a>00148     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a2d89e3abaf8bbbdf69c1ed6521bf2a19" title="ドロップダウンのスクロール可能な幅。">dropDownScrollWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00150"></a>00150     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a44dd535fcb12053d74a5aebd57bdf40f" title="ドロップダウンの幅。コンボボックスの幅より小さくはならない。style() が ComboBox::Style::simple の場合は常にコンボボックスの幅と同じ。">dropDownWidth</a>() <span class="keyword">const</span>;
+<a name="l00151"></a>00151     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a44dd535fcb12053d74a5aebd57bdf40f" title="ドロップダウンの幅。コンボボックスの幅より小さくはならない。style() が ComboBox::Style::simple の場合は常にコンボボックスの幅と同じ。">dropDownWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00153"></a>00153     <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">ComboBox::Edit</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#ab376f063422dbe7fd134ab4daf196ed5" title="コンボボックス上のエディットコントロール。style() が ComboBox::Style::DropDownList の場合は作成されない。">edit</a>();
+<a name="l00154"></a>00154     <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">ComboBox::Edit</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#ab376f063422dbe7fd134ab4daf196ed5" title="コンボボックス上のエディットコントロール。style() が ComboBox::Style::DropDownList の場合は作成されない。">edit</a>() <span class="keyword">const</span>;
+<a name="l00156"></a>00156     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a20c8a47d0f6375437345d6220859c577" title="エディットの部分の高さ。style() が ComboBox::Style::simple でかつ options() に ComboBox::Options::noIntegralHeight を設定...">editHeight</a>() <span class="keyword">const</span>;
+<a name="l00157"></a>00157     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a20c8a47d0f6375437345d6220859c577" title="エディットの部分の高さ。style() が ComboBox::Style::simple でかつ options() に ComboBox::Options::noIntegralHeight を設定...">editHeight</a>(<span class="keywordtype">int</span> value);
+<a name="l00159"></a>00159     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#ab4d97d27e8523e309830b5e31853f9dd" title="下矢印キーでドロップダウン開くかどうか。true の場合はマウスホイールで選択できなくなる。false の場合は F4 キーで開く。初期値は false。">extendedUI</a>() <span class="keyword">const</span>;
+<a name="l00160"></a>00160     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#ab4d97d27e8523e309830b5e31853f9dd" title="下矢印キーでドロップダウン開くかどうか。true の場合はマウスホイールで選択できなくなる。false の場合は F4 キーで開く。初期値は false。">extendedUI</a>(<span class="keywordtype">bool</span> value);
+<a name="l00162"></a>00162     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a99e7bfb1952fe888f00190c28aa22e4a" title="フォーカスを得られるかどうか。">focused</a>() <span class="keyword">const</span>;
+<a name="l00164"></a>00164     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a1bf8d0c50c44ec8cb45401ac5dd3f8de" title="適切なコントロールサイズ。font, style, items の値によって最適な大きさを返す。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00166"></a>00166     <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">ComboBox::List</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a63cb73c28c1d925e1f860cbd1a55937d" title="コンボボックス上のリストボックス。">list</a>();
+<a name="l00167"></a>00167     <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">ComboBox::List</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a63cb73c28c1d925e1f860cbd1a55937d" title="コンボボックス上のリストボックス。">list</a>() <span class="keyword">const</span>;
+<a name="l00171"></a>00171     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a57932bbe936de5ee4cfff08980c848a0" title="ドロップダウンリストが項目を何個まで表示できるか。現在の項目数より小さい場合はスクロールバーが表示される。 options() に ComboBox::Options::noIntegralHeight...">maxVisibleItemCount</a>() <span class="keyword">const</span>;
+<a name="l00172"></a>00172     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a57932bbe936de5ee4cfff08980c848a0" title="ドロップダウンリストが項目を何個まで表示できるか。現在の項目数より小さい場合はスクロールバーが表示される。 options() に ComboBox::Options::noIntegralHeight...">maxVisibleItemCount</a>(<span class="keywordtype">int</span> value);
+<a name="l00174"></a>00174     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::CloseUp&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a74d85ede9cf0be355333a4a811bc7ea8" title="ドロップダウンを閉じた時のイベント。">onCloseUp</a>();
+<a name="l00176"></a>00176     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::DropDown&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a29c068f30724bc8be2062652bc7e87af" title="ドロップダウンを表示した時のイベント。">onDropDown</a>();
+<a name="l00178"></a>00178     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#aaebe4150757e3668ad469719dedc6a94" title="選択項目を変更した時のイベント。ドロップダウン表示中に矢印キーを押した時は起きるがマウス移動では起きない。">onSelect</a>();
+<a name="l00180"></a>00180     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::SelectCancel&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#af6e8952a6b6dc81cb2d8a49f3708d52d" title="項目を選択せずにドロップダウンを閉じた時のイベント。ESC キーや他のコントロールにフォーカスを移した場合。">onSelectCancel</a>();
+<a name="l00182"></a>00182     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::SelectEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a2ff07c3960b9125930f7d1acaa0ddf5e" title="項目を選択してドロップダウンを閉じた時のイベント。">onSelectEnd</a>();
+<a name="l00184"></a>00184     <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ComboBox::Options</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a9cbf6562e9f452d9a1555319b591b944" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00186"></a>00186     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5dfdb980cce581be7ae89ca923abc0f3" title="現在選択している項目のインデックス。選択していないか、選択後に一度でも文字を編集したら -1 が返る。">selectedIndex</a>() <span class="keyword">const</span>;
+<a name="l00187"></a>00187     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a5dfdb980cce581be7ae89ca923abc0f3" title="現在選択している項目のインデックス。選択していないか、選択後に一度でも文字を編集したら -1 が返る。">selectedIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00189"></a>00189     <a class="code" href="structbalor_1_1gui_1_1_combo_box_1_1_style.html" title="コンボボックスのスタイル。">ComboBox::Style</a> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a6ff2dbbc582a4cebef219913b1704db4" title="コンボボックスのスタイル。">style</a>() <span class="keyword">const</span>;
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 <span class="keyword">protected</span>:
+<a name="l00193"></a>00193     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isInputKey(<span class="keywordtype">int</span> shortcut) <span class="keyword">const</span>;
+<a name="l00195"></a>00195     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_combo_box.html#a78ebb8e0d52db6cebd116e6abc80ec64" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197     <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。">Edit</a> _edit;
+<a name="l00198"></a>00198     <a class="code" href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。">List</a> _list;
+<a name="l00199"></a>00199     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::CloseUp&amp;&gt;</a> _onCloseUp;
+<a name="l00200"></a>00200     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::DropDown&amp;&gt;</a> _onDropDown;
+<a name="l00201"></a>00201     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::Select&amp;&gt;</a> _onSelect;
+<a name="l00202"></a>00202     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::SelectCancel&amp;&gt;</a> _onSelectCancel;
+<a name="l00203"></a>00203     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ComboBox::SelectEnd&amp;&gt;</a> _onSelectEnd;
+<a name="l00204"></a>00204 };
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208     }
+<a name="l00209"></a>00209 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

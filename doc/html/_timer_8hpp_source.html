@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Timer.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Timer.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Event.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Listener.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/Reference.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">struct </span>HWND__;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>balor {
+<a name="l00011"></a>00011     <span class="keyword">namespace </span>gui {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">class </span>Control;
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00059"></a><a class="code" href="classbalor_1_1gui_1_1_timer.html">00059</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_timer.html" title="タイマーを表す。">Timer</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00060"></a>00060 <span class="keyword">public</span>:
+<a name="l00062"></a><a class="code" href="classbalor_1_1gui_1_1_timer.html#a2f7aeee7be552d27403df5c12d5e43e1">00062</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">EventWithSender&lt;Timer&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_timer.html#a2f7aeee7be552d27403df5c12d5e43e1" title="タイマーのイベントクラス。">Run</a>;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="keyword">public</span>:
+<a name="l00066"></a>00066     <a class="code" href="classbalor_1_1gui_1_1_timer.html#ad201ec7cb38bf987465fd699318ebcc0" title="空タイマーを作成。">Timer</a>();
+<a name="l00067"></a>00067     <a class="code" href="classbalor_1_1gui_1_1_timer.html#ad201ec7cb38bf987465fd699318ebcc0" title="空タイマーを作成。">Timer</a>(<a class="code" href="classbalor_1_1gui_1_1_timer.html" title="タイマーを表す。">Timer</a>&amp;&amp; value);
+<a name="l00069"></a>00069     <a class="code" href="classbalor_1_1gui_1_1_timer.html#ad201ec7cb38bf987465fd699318ebcc0" title="空タイマーを作成。">Timer</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_timer.html#a9e55f30ab71b8a17aa73cd2ce979c4cd" title="タイマーを実行する Control。">executor</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#a3def60787cb5f153a90b09bfbdd1d581" title="onRun の実行間隔（ミリ秒）。">interval</a>, <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Timer::Run&amp;&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_timer.html#ac772f1c31bc4619f821f9f365e711956" title="interval ごとに発生するイベント。">onRun</a> = <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Timer::Run&amp;&gt;</a>());
+<a name="l00070"></a>00070     ~<a class="code" href="classbalor_1_1gui_1_1_timer.html" title="タイマーを表す。">Timer</a>();
+<a name="l00071"></a>00071     <a class="code" href="classbalor_1_1gui_1_1_timer.html" title="タイマーを表す。">Timer</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_timer.html" title="タイマーを表す。">Timer</a>&amp;&amp; value);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">public</span>:
+<a name="l00075"></a>00075     <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_timer.html#a9e55f30ab71b8a17aa73cd2ce979c4cd" title="タイマーを実行する Control。">executor</a>() <span class="keyword">const</span>;
+<a name="l00077"></a>00077     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#a3def60787cb5f153a90b09bfbdd1d581" title="onRun の実行間隔（ミリ秒）。">interval</a>() <span class="keyword">const</span>;
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#a3def60787cb5f153a90b09bfbdd1d581" title="onRun の実行間隔（ミリ秒）。">interval</a>(<span class="keywordtype">int</span> value);
+<a name="l00080"></a>00080     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Timer::Run&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_timer.html#ac772f1c31bc4619f821f9f365e711956" title="interval ごとに発生するイベント。">onRun</a>();
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#a8993af457de95d7b4baa37639d2eba52" title="タイマーを開始する。">start</a>();
+<a name="l00084"></a>00084     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#af7bfb3dde0b46dbcbaabcc2ce6ebc841" title="開始済みかどうか。初期値は false。">started</a>() <span class="keyword">const</span>;
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_timer.html#ae3c9451ab546f6e2016e8f49f2b5ddb3" title="タイマーを停止する。">stop</a>();
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keyword">private</span>:
+<a name="l00089"></a>00089     typedef ::HWND__* HWND;
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Control&gt;</a> _executor;
+<a name="l00092"></a>00092     <span class="keywordtype">int</span> _interval;
+<a name="l00093"></a>00093     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Timer::Run&amp;&gt;</a> _onRun;
+<a name="l00094"></a>00094     <span class="keywordtype">bool</span> _started;
+<a name="l00095"></a>00095 };
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     }
+<a name="l00100"></a>00100 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

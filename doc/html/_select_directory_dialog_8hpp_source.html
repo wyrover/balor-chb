@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/SelectDirectoryDialog.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/SelectDirectoryDialog.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/FileDialog.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00038"></a><a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html">00038</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a> : <span class="keyword">protected</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a> {
+<a name="l00039"></a>00039 <span class="keyword">public</span>:
+<a name="l00040"></a>00040     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">FileDialog::ControlId</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">ControlId</a>;
+<a name="l00041"></a>00041     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">FileDialog::Event</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a>;
+<a name="l00042"></a>00042     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">FileDialog::HelpRequest</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">HelpRequest</a>;
+<a name="l00043"></a>00043     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">FileDialog::Resize</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Resize</a>;
+<a name="l00044"></a>00044     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html" title="決定ボタンを押したイベント。">FileDialog::Accept</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html" title="決定ボタンを押したイベント。">Accept</a>;
+<a name="l00045"></a>00045     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">FileDialog::Init</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">Init</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="keyword">public</span>:
+<a name="l00048"></a>00048     <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>();
+<a name="l00049"></a>00049     <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>(<a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>&amp;&amp; value);
+<a name="l00050"></a>00050     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>();
+<a name="l00051"></a>00051     <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html" title="ディレクトリを選択するダイアログボックス。">SelectDirectoryDialog</a>&amp;&amp; value);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">public</span>:
+<a name="l00055"></a>00055     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html#a515e94093dbc9e4f15edfdd4c8a37842" title="ダイアログ表示前は初期表示されるディレクトリパス。ダイアログ表示後はユーザが選択したディレクトリパス。初期値は空文字列。">directoryPath</a>() <span class="keyword">const</span>;
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html#a515e94093dbc9e4f15edfdd4c8a37842" title="ダイアログ表示前は初期表示されるディレクトリパス。ダイアログ表示後はユーザが選択したディレクトリパス。初期値は空文字列。">directoryPath</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a44136c022a5195d84ed9a215af4a9aea" title="ヘルプボタンを表示するかどうか。初期値は false。">FileDialog::helpButton</a>;
+<a name="l00059"></a>00059     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ade032aaea462e14ac1827ac68b5d43e6" title="決定ボタンを押したイベント。">FileDialog::onAccept</a>;
+<a name="l00060"></a>00060     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a9e00b45d83dbb05a2eaf3da9f751f7bd" title="ヘルプボタンが押されたイベント。helpButton() が true の場合のみ発生する。">FileDialog::onHelpRequest</a>;
+<a name="l00061"></a>00061     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#aaa9caff9fef3c9569dc97fcbbb0a3625" title="ダイアログを初期化するイベント。">FileDialog::onInit</a>;
+<a name="l00062"></a>00062     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a2fe4ed8bbfb36040e815517d1d92870e" title="ダイアログの大きさを変更したイベント。">FileDialog::onResize</a>;
+<a name="l00063"></a>00063     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a5f17df8850bacb98a87a3352c7d79f72" title="ダイアログの左側にファイルの場所リストを表示するかどうか。初期値は true。">FileDialog::placesBar</a>;
+<a name="l00064"></a>00064 
+<a name="l00066"></a>00066     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html#a175567122206a01149d2cc6a2977934d" title="ダイアログボックスを表示する。ファイルを選択したかどうかを返す。">show</a>(HWND owner);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#aace3198610189107bbf5ff1743789893" title="ダイアログボックスのタイトル。空文字列を指定した場合はシステムデフォルトになる。初期値は空文字列。">FileDialog::title</a>;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="keyword">protected</span>:
+<a name="l00072"></a>00072     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_select_directory_dialog.html#a49724dd5a2fbe474a09ccf28e518bf00" title="フックしたメッセージを処理する。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="keyword">protected</span>:
+<a name="l00075"></a>00075     Procedure _editDefaultProcedure;
+<a name="l00076"></a>00076 };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

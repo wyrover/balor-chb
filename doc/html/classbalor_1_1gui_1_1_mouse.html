@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::Mouse</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_mouse.html">Mouse</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::Mouse</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::Mouse" -->
+<p>マウスに関する情報や操作を扱う。  
+ <a href="classbalor_1_1gui_1_1_mouse.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a>&gt;</code></p>
+
+<p><a href="classbalor_1_1gui_1_1_mouse-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0a">_enum</a> { <br/>
+&#160;&#160;<b>none</b> =  0x00, 
+<a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0aa4553ce87d002d030e00820dfc9873419">lButton</a> =  0x01, 
+<a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0aaecfdcac52dab3a51cf11a06f5aa64e95">mButton</a> =  0x04, 
+<a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0aac29954c0a60014121c5ca0d8a2572c0b">rButton</a> =  0x02, 
+<br/>
+&#160;&#160;<a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0aa557872a2420a73647d5a08df38aef53d">xButton1</a> =  0x05, 
+<a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0aa461c1e5c3ff00abd02cdeb436313b60d">xButton2</a> =  0x06
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのボタンの種類。  <a href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0a">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c6889eb0adae9b6f97e2f5b2cf9e79e"></a><!-- doxytag: member="balor::gui::Mouse::HCURSOR" ref="a4c6889eb0adae9b6f97e2f5b2cf9e79e" args="" -->
+typedef ::HICON__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HCURSOR</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf36b49dcca5f1b1092ff64d118d5126"></a><!-- doxytag: member="balor::gui::Mouse::Cursor" ref="acf36b49dcca5f1b1092ff64d118d5126" args="" -->
+typedef ::<a class="el" href="classbalor_1_1graphics_1_1_cursor.html">balor::graphics::Cursor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Cursor</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeeb7d42d7b752cbe4bea39793d565dda"></a><!-- doxytag: member="balor::gui::Mouse::BALOR_NAMED_ENUM_MEMBERS" ref="aeeb7d42d7b752cbe4bea39793d565dda" args="(Mouse)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>BALOR_NAMED_ENUM_MEMBERS</b> (<a class="el" href="classbalor_1_1gui_1_1_mouse.html">Mouse</a>)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64956cc25a03077321ee9d25bf2cd329"></a><!-- doxytag: member="balor::gui::Mouse::buttonCount" ref="a64956cc25a03077321ee9d25bf2cd329" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a64956cc25a03077321ee9d25bf2cd329">buttonCount</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンの数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdd903ee51c86eb1993f698f4126d448"></a><!-- doxytag: member="balor::gui::Mouse::buttonSwapped" ref="abdd903ee51c86eb1993f698f4126d448" args="()" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#abdd903ee51c86eb1993f698f4126d448">buttonSwapped</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">左右のボタン機能を交換しているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada537cd203b8f7a48e8243d4f0fdf987"></a><!-- doxytag: member="balor::gui::Mouse::clip" ref="ada537cd203b8f7a48e8243d4f0fdf987" args="()" -->
+static <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ada537cd203b8f7a48e8243d4f0fdf987">clip</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルが移動可能なスクリーン座標領域。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adca0e31b3ed720814a469b234448148f"></a><!-- doxytag: member="balor::gui::Mouse::clip" ref="adca0e31b3ed720814a469b234448148f" args="(const Rectangle &amp;value)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>clip</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2867e053ef8340fddb9cbdfa2a38dfc6"></a><!-- doxytag: member="balor::gui::Mouse::cursor" ref="a2867e053ef8340fddb9cbdfa2a38dfc6" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_cursor.html">Cursor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a2867e053ef8340fddb9cbdfa2a38dfc6">cursor</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソル。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09c8f2682bed89e4893f36fdd05e59b0"></a><!-- doxytag: member="balor::gui::Mouse::cursor" ref="a09c8f2682bed89e4893f36fdd05e59b0" args="(HCURSOR value)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>cursor</b> (HCURSOR value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a982dfe4d88b3489b3843fba78c13e17e"></a><!-- doxytag: member="balor::gui::Mouse::doubleClickSize" ref="a982dfe4d88b3489b3843fba78c13e17e" args="()" -->
+static <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a982dfe4d88b3489b3843fba78c13e17e">doubleClickSize</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">二回のクリックがダブルクリックとみなされるピクセル範囲。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f718dd66fc2b4f1b10f014d7cdd598f"></a><!-- doxytag: member="balor::gui::Mouse::doubleClickTime" ref="a5f718dd66fc2b4f1b10f014d7cdd598f" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a5f718dd66fc2b4f1b10f014d7cdd598f">doubleClickTime</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ダブルクリックとみなされるクリック間隔（ミリ秒）。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01d8cc94f6276620b12db57d7e974a19"></a><!-- doxytag: member="balor::gui::Mouse::hide" ref="a01d8cc94f6276620b12db57d7e974a19" args="()" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a01d8cc94f6276620b12db57d7e974a19">hide</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルを非表示にする。表示非表示はカウントされる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac49b67a1d96779b38bee52522c6d659c"></a><!-- doxytag: member="balor::gui::Mouse::hoverSize" ref="ac49b67a1d96779b38bee52522c6d659c" args="()" -->
+static <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ac49b67a1d96779b38bee52522c6d659c">hoverSize</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスホバーでとどまっていなければならない範囲ピクセル。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade378992e71e08c798d08bf23e2a08aa"></a><!-- doxytag: member="balor::gui::Mouse::hoverTime" ref="ade378992e71e08c798d08bf23e2a08aa" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ade378992e71e08c798d08bf23e2a08aa">hoverTime</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスホバーのデフォルト待機時間（ミリ秒）。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb872a749274c9383f122a18e39e531c"></a><!-- doxytag: member="balor::gui::Mouse::isPushed" ref="abb872a749274c9383f122a18e39e531c" args="(Mouse button)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#abb872a749274c9383f122a18e39e531c">isPushed</a> (<a class="el" href="classbalor_1_1gui_1_1_mouse.html">Mouse</a> button)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンが押されているかどうか。ウインドウメッセージループで状態が更新される。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f63d2a4ca46fb5f6a1205ab7aa8921e"></a><!-- doxytag: member="balor::gui::Mouse::isPushedAsync" ref="a5f63d2a4ca46fb5f6a1205ab7aa8921e" args="(Mouse button)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a5f63d2a4ca46fb5f6a1205ab7aa8921e">isPushedAsync</a> (<a class="el" href="classbalor_1_1gui_1_1_mouse.html">Mouse</a> button)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンが押されているかどうか。ウインドウメッセージループによらずに現在の状態を取得する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32ce9dfe1459edf9eee80915041310ef"></a><!-- doxytag: member="balor::gui::Mouse::position" ref="a32ce9dfe1459edf9eee80915041310ef" args="()" -->
+static <a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a32ce9dfe1459edf9eee80915041310ef">position</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの現在のスクリーン座標。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0e910c1d487b03bfd9d5ab19c5c7fef"></a><!-- doxytag: member="balor::gui::Mouse::position" ref="aa0e910c1d487b03bfd9d5ab19c5c7fef" args="(const Point &amp;value)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4e34859a0be78bf5254d123990f7333"></a><!-- doxytag: member="balor::gui::Mouse::positionAtLastMessage" ref="ae4e34859a0be78bf5254d123990f7333" args="()" -->
+static <a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ae4e34859a0be78bf5254d123990f7333">positionAtLastMessage</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最後にメッセージ処理されたマウスカーソルのスクリーン座標。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94a4808b3e3aad71fdcf78ba1e16f0f8"></a><!-- doxytag: member="balor::gui::Mouse::present" ref="a94a4808b3e3aad71fdcf78ba1e16f0f8" args="()" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a94a4808b3e3aad71fdcf78ba1e16f0f8">present</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスが接続されているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8a166b462397d9b41a4f554370494b5"></a><!-- doxytag: member="balor::gui::Mouse::show" ref="ad8a166b462397d9b41a4f554370494b5" args="()" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ad8a166b462397d9b41a4f554370494b5">show</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルを表示する。表示非表示はカウントされる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd1264ce3fb59131620392fa95b6cf07"></a><!-- doxytag: member="balor::gui::Mouse::speed" ref="afd1264ce3fb59131620392fa95b6cf07" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#afd1264ce3fb59131620392fa95b6cf07">speed</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動速度。１（遅い）〜２０（早い）を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae99d2792498e289b62a152dc5ddf7d64"></a><!-- doxytag: member="balor::gui::Mouse::wheelPresent" ref="ae99d2792498e289b62a152dc5ddf7d64" args="()" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ae99d2792498e289b62a152dc5ddf7d64">wheelPresent</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスホイールが接続されているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad739ab64064576b768062fe11c48ef17"></a><!-- doxytag: member="balor::gui::Mouse::wheelScrollDelta" ref="ad739ab64064576b768062fe11c48ef17" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#ad739ab64064576b768062fe11c48ef17">wheelScrollDelta</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスホイールで一度にスクロールするピクセル数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15e64146cfce9127c9617bc968bb9665"></a><!-- doxytag: member="balor::gui::Mouse::wheelScrollLines" ref="a15e64146cfce9127c9617bc968bb9665" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_mouse.html#a15e64146cfce9127c9617bc968bb9665">wheelScrollLines</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスホイールで一度にスクロールする行数。 <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>マウスに関する情報や操作を扱う。 </p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"MessageBox Sample");</code></pre><pre><code>	<a class="el" href="classbalor_1_1gui_1_1_label.html" title="スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。">Label</a> position(frame, 20, 10, 200, 0, L"現在のカーソル位置：");
+	frame.onMouseMove() = [&amp;] (Frame::MouseMove&amp; ) {
+		position.text(<a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>(L"現在のカーソル位置：") + <a class="el" href="classbalor_1_1gui_1_1_mouse.html#a32ce9dfe1459edf9eee80915041310ef" title="マウスカーソルの現在のスクリーン座標。">Mouse::position()</a>.x + L", " + <a class="el" href="classbalor_1_1gui_1_1_mouse.html#a32ce9dfe1459edf9eee80915041310ef" title="マウスカーソルの現在のスクリーン座標。">Mouse::position()</a>.y);
+	};
+	<a class="el" href="classbalor_1_1gui_1_1_label.html" title="スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。">Label</a> change(frame, 20, 50, 200, 100, L"カーソルの変更");
+	change.edge(Label::Edge::client);
+	change.onCursorChange() = [&amp;] (Label::CursorChange&amp; e) {
+		e.cursor(<a class="el" href="classbalor_1_1graphics_1_1_cursor.html#aedcfb56a063c44b7e876d0112e83c3cb" title="ハンドカーソル。">Cursor::hand()</a>);
+	};
+	<a class="el" href="classbalor_1_1gui_1_1_label.html" title="スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。">Label</a> hide(frame, 20, 180, 200, 100, L"カーソルを非表示");
+	hide.edge(Label::Edge::client);
+	hide.onMouseEnter() = [&amp;] (Label::MouseEnter&amp; ) {
+		<a class="el" href="classbalor_1_1gui_1_1_mouse.html#a01d8cc94f6276620b12db57d7e974a19" title="マウスカーソルを非表示にする。表示非表示はカウントされる。">Mouse::hide()</a>;
+	};
+	hide.onMouseLeave() = [&amp;] (Label::MouseLeave&amp; ) {
+		<a class="el" href="classbalor_1_1gui_1_1_mouse.html#ad8a166b462397d9b41a4f554370494b5" title="マウスカーソルを表示する。表示非表示はカウントされる。">Mouse::show()</a>;
+	};</code></pre><pre><code>	frame.runMessageLoop();
+ </code></pre> </div><hr/><h2>列挙型</h2>
+<a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0a"></a><!-- doxytag: member="balor::gui::Mouse::_enum" ref="abe0df63aefbc90fec96bce4c0f9f0e0a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classbalor_1_1gui_1_1_mouse.html#abe0df63aefbc90fec96bce4c0f9f0e0a">balor::gui::Mouse::_enum</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>マウスのボタンの種類。 </p>
+<dl><dt><b>列挙型の値: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0aa4553ce87d002d030e00820dfc9873419"></a><!-- doxytag: member="lButton" ref="abe0df63aefbc90fec96bce4c0f9f0e0aa4553ce87d002d030e00820dfc9873419" args="" -->lButton</em>&nbsp;</td><td>
+<p>どのボタンでもない。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0aaecfdcac52dab3a51cf11a06f5aa64e95"></a><!-- doxytag: member="mButton" ref="abe0df63aefbc90fec96bce4c0f9f0e0aaecfdcac52dab3a51cf11a06f5aa64e95" args="" -->mButton</em>&nbsp;</td><td>
+<p>左ボタン。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0aac29954c0a60014121c5ca0d8a2572c0b"></a><!-- doxytag: member="rButton" ref="abe0df63aefbc90fec96bce4c0f9f0e0aac29954c0a60014121c5ca0d8a2572c0b" args="" -->rButton</em>&nbsp;</td><td>
+<p>中央ボタン。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0aa557872a2420a73647d5a08df38aef53d"></a><!-- doxytag: member="xButton1" ref="abe0df63aefbc90fec96bce4c0f9f0e0aa557872a2420a73647d5a08df38aef53d" args="" -->xButton1</em>&nbsp;</td><td>
+<p>右ボタン。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="abe0df63aefbc90fec96bce4c0f9f0e0aa461c1e5c3ff00abd02cdeb436313b60d"></a><!-- doxytag: member="xButton2" ref="abe0df63aefbc90fec96bce4c0f9f0e0aa461c1e5c3ff00abd02cdeb436313b60d" args="" -->xButton2</em>&nbsp;</td><td>
+<p>X1ボタン。 </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Mouse.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:32に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::io::File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1io.html">io</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1io_1_1_file.html">File</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="#pub-static-attribs">Static Public 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::io::File</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::io::File" -->
+<p>ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。  
+ <a href="classbalor_1_1io_1_1_file.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_file_8hpp_source.html">File.hpp</a>&gt;</code></p>
+
+<p><a href="classbalor_1_1io_1_1_file-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_access_denied_exception.html">AccessDeniedException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アクセス権限がなかった。あるいは異なるボリュームに移動しようとした。  <a href="classbalor_1_1io_1_1_file_1_1_access_denied_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_already_exists_exception.html">AlreadyExistsException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">移動先等にファイルやディレクトリが既に存在していた。  <a href="classbalor_1_1io_1_1_file_1_1_already_exists_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1io_1_1_file_1_1_attributes.html">Attributes</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイル属性。組み合わせで指定する。  <a href="structbalor_1_1io_1_1_file_1_1_attributes.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html">FilesIterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。  <a href="structbalor_1_1io_1_1_file_1_1_files_iterator.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_invalid_path_exception.html">InvalidPathException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリのパスが不正だった。  <a href="classbalor_1_1io_1_1_file_1_1_invalid_path_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_not_empty_exception.html">NotEmptyException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリが空ではなくて削除できなかった。  <a href="classbalor_1_1io_1_1_file_1_1_not_empty_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_not_found_exception.html">NotFoundException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリが見つからなかった。  <a href="classbalor_1_1io_1_1_file_1_1_not_found_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_path_too_long_exception.html">PathTooLongException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">パスが長すぎた。  <a href="classbalor_1_1io_1_1_file_1_1_path_too_long_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file_1_1_sharing_violation_exception.html">SharingViolationException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">他スレッドとの Share アクセス競合があった。あるいは移動先が自分のサブディレクトリだった。  <a href="classbalor_1_1io_1_1_file_1_1_sharing_violation_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1io_1_1_file_1_1_special.html">Special</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">システムの特別なディレクトリの種類。  <a href="structbalor_1_1io_1_1_file_1_1_special.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1io_1_1_file_1_1_special_option.html">SpecialOption</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">システムの特殊なディレクトリの取得オプション。  <a href="structbalor_1_1io_1_1_file_1_1_special_option.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7b4c4a8bdc6616bb28dcf0d1d07a335"></a><!-- doxytag: member="balor::io::File::Icon" ref="ac7b4c4a8bdc6616bb28dcf0d1d07a335" args="" -->
+typedef ::<a class="el" href="classbalor_1_1graphics_1_1_icon.html">balor::graphics::Icon</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Icon</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7171a271b7206c87e1e593b1cdd9d50"></a><!-- doxytag: member="balor::io::File::File" ref="ae7171a271b7206c87e1e593b1cdd9d50" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#ae7171a271b7206c87e1e593b1cdd9d50">File</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">空文字列のパスから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a764eb2e2a78b6fb81cb10ddfa52e1dde"></a><!-- doxytag: member="balor::io::File::File" ref="a764eb2e2a78b6fb81cb10ddfa52e1dde" args="(const File &amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>File</b> (const <a class="el" href="classbalor_1_1io_1_1_file.html">File</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6e6f8988167fb07174e7f34a4f51a34"></a><!-- doxytag: member="balor::io::File::File" ref="aa6e6f8988167fb07174e7f34a4f51a34" args="(StringRange path)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aa6e6f8988167fb07174e7f34a4f51a34">File</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルパスから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f0584cfe24e4f26557a8dd795edfec5"></a><!-- doxytag: member="balor::io::File::File" ref="a4f0584cfe24e4f26557a8dd795edfec5" args="(StringRange direcotryName, StringRange fileName)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a4f0584cfe24e4f26557a8dd795edfec5">File</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> direcotryName, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> fileName)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ名とファイル名から作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af63ee65384e154c574d693f3e6a1dc29"></a><!-- doxytag: member="balor::io::File::operator=" ref="af63ee65384e154c574d693f3e6a1dc29" args="(const File &amp;value)" -->
+<a class="el" href="classbalor_1_1io_1_1_file.html">File</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classbalor_1_1io_1_1_file.html">File</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6ce3369b0f7629271c3af4272751257"></a><!-- doxytag: member="balor::io::File::attributes" ref="ad6ce3369b0f7629271c3af4272751257" args="() const " -->
+<a class="el" href="structbalor_1_1io_1_1_file_1_1_attributes.html">File::Attributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#ad6ce3369b0f7629271c3af4272751257">attributes</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイル属性。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a05f10ead0be6a3cc4a505a59e6182a"></a><!-- doxytag: member="balor::io::File::attributes" ref="a9a05f10ead0be6a3cc4a505a59e6182a" args="(File::Attributes value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>attributes</b> (<a class="el" href="structbalor_1_1io_1_1_file_1_1_attributes.html">File::Attributes</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17ecd65e74ec693c3c1a819d4ec76898"></a><!-- doxytag: member="balor::io::File::copyTo" ref="a17ecd65e74ec693c3c1a819d4ec76898" args="(StringRange destPath, bool overwrite=false) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a17ecd65e74ec693c3c1a819d4ec76898">copyTo</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> destPath, bool overwrite=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルをコピーする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07eda982491003cb8865d9d2126431ef"></a><!-- doxytag: member="balor::io::File::create" ref="a07eda982491003cb8865d9d2126431ef" args="()" -->
+<a class="el" href="classbalor_1_1io_1_1_file_stream.html">FileStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a07eda982491003cb8865d9d2126431ef">create</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを作成し、ファイルストリームを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91b40160f0b7c7143b97f3ba67c85d55"></a><!-- doxytag: member="balor::io::File::createDirectory" ref="a91b40160f0b7c7143b97f3ba67c85d55" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a91b40160f0b7c7143b97f3ba67c85d55">createDirectory</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリを作成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec03b568da048658367cdf496908b70b"></a><!-- doxytag: member="balor::io::File::empty" ref="aec03b568da048658367cdf496908b70b" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aec03b568da048658367cdf496908b70b">empty</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルパスが空文字列であるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac9bf2ce2bdfc8dd99d0deaeb594ae20"></a><!-- doxytag: member="balor::io::File::exists" ref="aac9bf2ce2bdfc8dd99d0deaeb594ae20" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aac9bf2ce2bdfc8dd99d0deaeb594ae20">exists</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">存在するかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad53f3503f54fcc4e9736f44dd65ab152"></a><!-- doxytag: member="balor::io::File::extension" ref="ad53f3503f54fcc4e9736f44dd65ab152" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#ad53f3503f54fcc4e9736f44dd65ab152">extension</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">拡張子。無い場合は空文字列が返る。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6398b34690322339138256879263634"></a><!-- doxytag: member="balor::io::File::extensionToBuffer" ref="af6398b34690322339138256879263634" args="(StringBuffer &amp;buffer) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>extensionToBuffer</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;buffer) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa045d119e7f84332f5869dd30428d840"></a><!-- doxytag: member="balor::io::File::fullPathFile" ref="aa045d119e7f84332f5869dd30428d840" args="() const " -->
+<a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aa045d119e7f84332f5869dd30428d840">fullPathFile</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フルファイルパスのファイル。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cd6b6cceeb44b8c353e449bbc1f797f"></a><!-- doxytag: member="balor::io::File::getFiles" ref="a3cd6b6cceeb44b8c353e449bbc1f797f" args="(StringRange searchPettern=L&quot;?*&quot;, bool recursive=false) const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1io_1_1_file.html">File</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1io_1_1_file.html">File</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a3cd6b6cceeb44b8c353e449bbc1f797f">getFiles</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> searchPettern=L&quot;?*&quot;, bool recursive=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のディレクトリの下のファイル一覧を返す。ワイルドカード指定可能。 ワイルドカードはファイル名または最後のディレクトリ名にのみ使用できる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a249117cd4c47acaa52982df92731a031"></a><!-- doxytag: member="balor::io::File::getFilesIterator" ref="a249117cd4c47acaa52982df92731a031" args="(StringRange searchPettern=L&quot;?*&quot;) const " -->
+<a class="el" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html">File::FilesIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getFilesIterator</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> searchPettern=L&quot;?*&quot;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5fa88d679eea7f782c8fa5f90ec55a9"></a><!-- doxytag: member="balor::io::File::icon" ref="ad5fa88d679eea7f782c8fa5f90ec55a9" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_icon.html">Icon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#ad5fa88d679eea7f782c8fa5f90ec55a9">icon</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">エクスプローラ上でこのファイルが表示される時のアイコン。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a5dd4f79070a3141d1e2fdb16fee387"></a><!-- doxytag: member="balor::io::File::isDirectory" ref="a9a5dd4f79070a3141d1e2fdb16fee387" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a9a5dd4f79070a3141d1e2fdb16fee387">isDirectory</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリかどうか。存在しない場合は false を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35b51e82886d1e4922a1b4290bc43da7"></a><!-- doxytag: member="balor::io::File::moveTo" ref="a35b51e82886d1e4922a1b4290bc43da7" args="(StringRange destPath)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a35b51e82886d1e4922a1b4290bc43da7">moveTo</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> destPath)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルまたはディレクトリを移動する。ディレクトリのボリュームをまたいだ移動はできない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1f1301a81dc11e10eb759ceca3c3809"></a><!-- doxytag: member="balor::io::File::name" ref="aa1f1301a81dc11e10eb759ceca3c3809" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aa1f1301a81dc11e10eb759ceca3c3809">name</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルまたはディレクトリ名。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa58350d853f5d233cf3c90f535095e9d"></a><!-- doxytag: member="balor::io::File::nameToBuffer" ref="aa58350d853f5d233cf3c90f535095e9d" args="(StringBuffer &amp;buffer) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nameToBuffer</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;buffer) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae07badb806ef0ec221eae1a45f8d7d6"></a><!-- doxytag: member="balor::io::File::nameWithoutExtension" ref="aae07badb806ef0ec221eae1a45f8d7d6" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aae07badb806ef0ec221eae1a45f8d7d6">nameWithoutExtension</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">拡張子無しのファイル名。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497f0a7af5145589e1b76cb6df9c5585"></a><!-- doxytag: member="balor::io::File::nameWithoutExtensionToBuffer" ref="a497f0a7af5145589e1b76cb6df9c5585" args="(StringBuffer &amp;buffer) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nameWithoutExtensionToBuffer</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;buffer) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa81915e1eb795d29ebce22ec38fb6f9a"></a><!-- doxytag: member="balor::io::File::openAppend" ref="aa81915e1eb795d29ebce22ec38fb6f9a" args="()" -->
+<a class="el" href="classbalor_1_1io_1_1_file_stream.html">FileStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aa81915e1eb795d29ebce22ec38fb6f9a">openAppend</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを追加書き込みモードでオープンする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f02e73848a6c39703ca404a5113a7d6"></a><!-- doxytag: member="balor::io::File::openRead" ref="a8f02e73848a6c39703ca404a5113a7d6" args="() const " -->
+<a class="el" href="classbalor_1_1io_1_1_file_stream.html">FileStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a8f02e73848a6c39703ca404a5113a7d6">openRead</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを読み取りモードでオープンする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc14c97489b8412f37bb20956703ac65"></a><!-- doxytag: member="balor::io::File::openWrite" ref="abc14c97489b8412f37bb20956703ac65" args="()" -->
+<a class="el" href="classbalor_1_1io_1_1_file_stream.html">FileStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#abc14c97489b8412f37bb20956703ac65">openWrite</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを書き込みモードでオープンする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96dbbfe5b4ed26819ca8da8ed468967b"></a><!-- doxytag: member="balor::io::File::path" ref="a96dbbfe5b4ed26819ca8da8ed468967b" args="() const " -->
+const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b">path</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルパス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedd16aee1e9ef62f739bd21ea2ed09d7"></a><!-- doxytag: member="balor::io::File::path" ref="aedd16aee1e9ef62f739bd21ea2ed09d7" args="(StringRange value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abea37e57a03e6de89b048b12c0d58483"></a><!-- doxytag: member="balor::io::File::path" ref="abea37e57a03e6de89b048b12c0d58483" args="(StringRange directoryName, StringRange fileName)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> directoryName, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> fileName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a145cecb27e1e66fdc1ca89beb920639f"></a><!-- doxytag: member="balor::io::File::pathLength" ref="a145cecb27e1e66fdc1ca89beb920639f" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a145cecb27e1e66fdc1ca89beb920639f">pathLength</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルパスの長さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f2789921b029abaffae0b0208935941"></a><!-- doxytag: member="balor::io::File::parent" ref="a3f2789921b029abaffae0b0208935941" args="() const " -->
+<a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a3f2789921b029abaffae0b0208935941">parent</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親ディレクトリ。無い場合は空のパスを持った <a class="el" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> が返る。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a701a773b4615d0505d157f5070dc93"></a><!-- doxytag: member="balor::io::File::remove" ref="a4a701a773b4615d0505d157f5070dc93" args="(bool recursive=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a4a701a773b4615d0505d157f5070dc93">remove</a> (bool recursive=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルを削除する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a387721b0ab8a94f54e7072b28af0ea87"></a><!-- doxytag: member="balor::io::File::replace" ref="a387721b0ab8a94f54e7072b28af0ea87" args="(StringRange destFilePath, StringRange backupFilePath)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a387721b0ab8a94f54e7072b28af0ea87">replace</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> destFilePath, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> backupFilePath)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バックアップを作成しない場合は destinationBackupFileName に長さ０の文字列を渡す <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd6fa9385cb1c04ddb1521a783e27bb5"></a><!-- doxytag: member="balor::io::File::resetPathLength" ref="afd6fa9385cb1c04ddb1521a783e27bb5" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#afd6fa9385cb1c04ddb1521a783e27bb5">resetPathLength</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルパスの長さを設定し直す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21234b7409db0f252f47e004692bf0e6"></a><!-- doxytag: member="balor::io::File::root" ref="a21234b7409db0f252f47e004692bf0e6" args="() const " -->
+<a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a21234b7409db0f252f47e004692bf0e6">root</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ルートディレクトリ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20c1558ebcbb612374f8e87b8b987125"></a><!-- doxytag: member="balor::io::File::operator StringRange" ref="a20c1558ebcbb612374f8e87b8b987125" args="() const " -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a20c1558ebcbb612374f8e87b8b987125">operator StringRange</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">パスを表す StringRange への変換。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaff3cb84f73a3f20937547f60096cee6"></a><!-- doxytag: member="balor::io::File::createTempFile" ref="aaff3cb84f73a3f20937547f60096cee6" args="()" -->
+static <a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#aaff3cb84f73a3f20937547f60096cee6">createTempFile</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">テンポラリファイルを作成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab427db02533c344626be516babefd765"></a><!-- doxytag: member="balor::io::File::current" ref="ab427db02533c344626be516babefd765" args="()" -->
+static <a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#ab427db02533c344626be516babefd765">current</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">カレントディレクトリ <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab03c8ec7345b1d98f2d32c213300f181"></a><!-- doxytag: member="balor::io::File::current" ref="ab03c8ec7345b1d98f2d32c213300f181" args="(StringRange path)" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>current</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> path)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bc5063c9b034a34b60a1c2adcf4e59c"></a><!-- doxytag: member="balor::io::File::exists" ref="a7bc5063c9b034a34b60a1c2adcf4e59c" args="(StringRange path)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>exists</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> path)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc58b5d172e506664f3a87546a5ae603"></a><!-- doxytag: member="balor::io::File::getSpecial" ref="abc58b5d172e506664f3a87546a5ae603" args="(File::Special special, File::SpecialOption option=SpecialOption::create)" -->
+static <a class="el" href="classbalor_1_1io_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#abc58b5d172e506664f3a87546a5ae603">getSpecial</a> (<a class="el" href="structbalor_1_1io_1_1_file_1_1_special.html">File::Special</a> special, <a class="el" href="structbalor_1_1io_1_1_file_1_1_special_option.html">File::SpecialOption</a> option=SpecialOption::create)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">システムの特殊なディレクトリを返す。引数によっては空のパスや存在しないパスが返る事がある。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5167d80ba7eb8310d625c2c6fb881e25"></a><!-- doxytag: member="balor::io::File::maxPath" ref="a5167d80ba7eb8310d625c2c6fb881e25" args="" -->
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1io_1_1_file.html#a5167d80ba7eb8310d625c2c6fb881e25">maxPath</a> = 260</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">パス文字列の最大長。 <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。 </p>
+</div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/<a class="el" href="_file_8hpp_source.html">File.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/File.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:34に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

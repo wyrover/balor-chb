@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::ListView</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-attribs">Static Public 変数</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::ListView</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::ListView" --><!-- doxytag: inherits="balor::gui::Control" -->
+<p>リストビュー。  
+ <a href="classbalor_1_1gui_1_1_list_view.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_list_view_8hpp_source.html">ListView.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::ListViewに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1gui_1_1_list_view.png" usemap="#balor::gui::ListView_map" alt=""/>
+  <map id="balor::gui::ListView_map" name="balor::gui::ListView_map">
+<area href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。" alt="balor::gui::Control" shape="rect" coords="0,112,130,136"/>
+<area href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代..." alt="balor::Referenceable" shape="rect" coords="0,56,130,80"/>
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,130,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1gui_1_1_list_view-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_align.html">Align</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列の配置。  <a href="structbalor_1_1gui_1_1_list_view_1_1_align.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html">Column</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行。ListView::getColumn 関数で取得できる。  <a href="classbalor_1_1gui_1_1_list_view_1_1_column.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html">ColumnInfo</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。  <a href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html">HeaderClick</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘッダをクリックしたイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html">HitTestInfo</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヒットテストの結果。  <a href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item.html">Item</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目。ListView::operator[] で取得できる。  <a href="classbalor_1_1gui_1_1_list_view_1_1_item.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html">ItemChange</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目が変化したイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html">ItemChanging</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目が変化しようとしているイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ItemClick</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目をクリックしたイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html">ItemDrag</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html">ItemEvent</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目に関するイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_event.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ItemInfo</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。  <a href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html">ItemPortion</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の部分。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_portion.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html">ItemPrePaint</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を描画する直前のイベント。選択行の色を変えるには <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81" title="選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。">selected()</a> を false に設定する。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html">ItemTipPopup</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目のツールチップが表示されるイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。組み合わせで指定する。  <a href="structbalor_1_1gui_1_1_list_view_1_1_options.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">Style</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">表示スタイル。  <a href="structbalor_1_1gui_1_1_list_view_1_1_style.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html">TextEdit</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列編集が終わって反映する直前のイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html">TextEditing</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列編集が始まる直前のイベント。  <a href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3dc0434ab3b8d5c06530c0f1cd3a9f9f"></a><!-- doxytag: member="balor::gui::ListView::HIMAGELIST" ref="a3dc0434ab3b8d5c06530c0f1cd3a9f9f" args="" -->
+typedef ::_IMAGELIST *&#160;</td><td class="memItemRight" valign="bottom"><b>HIMAGELIST</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab307e6f8168e26877d640bac007ea1a2"></a><!-- doxytag: member="balor::gui::ListView::ImageList" ref="ab307e6f8168e26877d640bac007ea1a2" args="" -->
+typedef <br class="typebreak"/>
+::<a class="el" href="classbalor_1_1graphics_1_1_image_list.html">balor::graphics::ImageList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ImageList</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd263d03dd7583cdef9491175f5b9f10"></a><!-- doxytag: member="balor::gui::ListView::Event" ref="acd263d03dd7583cdef9491175f5b9f10" args="" -->
+typedef <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">EventWithSubclassSender</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a>, <a class="el" href="classbalor_1_1_event_with_sender.html">Control::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#acd263d03dd7583cdef9491175f5b9f10">Event</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">リストビューのイベントの親クラス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0cb576168279bd66e836e9e86accc60"></a><!-- doxytag: member="balor::gui::ListView::ItemDoubleClick" ref="ad0cb576168279bd66e836e9e86accc60" args="" -->
+typedef <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ItemClick</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ItemDoubleClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab471a067963eaae9d349a13faa958f71"></a><!-- doxytag: member="balor::gui::ListView::ItemRightClick" ref="ab471a067963eaae9d349a13faa958f71" args="" -->
+typedef <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ItemClick</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ItemRightClick</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3aba476c30c4b8b2d9ab04f3313c6f2"></a><!-- doxytag: member="balor::gui::ListView::ListView" ref="ab3aba476c30c4b8b2d9ab04f3313c6f2" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ab3aba476c30c4b8b2d9ab04f3313c6f2">ListView</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルポインタで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31220739272efe66c790159c56447273"></a><!-- doxytag: member="balor::gui::ListView::ListView" ref="a31220739272efe66c790159c56447273" args="(ListView &amp;&amp;value, bool checkSlicing=true)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>ListView</b> (<a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a> &amp;&amp;value, bool checkSlicing=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabc7121d384437a191a1c4b53f8c8f21"></a><!-- doxytag: member="balor::gui::ListView::ListView" ref="aabc7121d384437a191a1c4b53f8c8f21" args="(Control &amp;parent, int x, int y, int width, int height, ListView::Style style=Style::details, ListView::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aabc7121d384437a191a1c4b53f8c8f21">ListView</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">ListView::Style</a> style=Style::details, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">ListView::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af96d628c3282ea449a508ed9d8c5297b"></a><!-- doxytag: member="balor::gui::ListView::ListView" ref="af96d628c3282ea449a508ed9d8c5297b" args="(Control &amp;parent, int x, int y, int width, int height, ArrayRange&lt; const ItemInfo &gt; itemInfos, ListView::Style style=Style::details, ListView::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#af96d628c3282ea449a508ed9d8c5297b">ListView</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ItemInfo</a> &gt; itemInfos, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">ListView::Style</a> style=Style::details, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">ListView::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさ、項目情報配列から作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3910ef52c915baa16b9fd1ad5a6e3116"></a><!-- doxytag: member="balor::gui::ListView::ListView" ref="a3910ef52c915baa16b9fd1ad5a6e3116" args="(Control &amp;parent, int x, int y, int width, int height, ArrayRange&lt; const ColumnInfo &gt; columnInfos, ArrayRange&lt; const ItemInfo &gt; itemInfos, ListView::Style style=Style::details, ListView::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a3910ef52c915baa16b9fd1ad5a6e3116">ListView</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html">ColumnInfo</a> &gt; columnInfos, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ItemInfo</a> &gt; itemInfos, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">ListView::Style</a> style=Style::details, <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">ListView::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさ、縦の行情報配列、項目情報配列から作成。大きさを０にすると getPreferredSize 関数で求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9f18c370a2ae1d327f6eb16e004a834"></a><!-- doxytag: member="balor::gui::ListView::operator=" ref="aa9f18c370a2ae1d327f6eb16e004a834" args="(ListView &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab83f8debaa98bd62538122e844de16fd"></a><!-- doxytag: member="balor::gui::ListView::add" ref="ab83f8debaa98bd62538122e844de16fd" args="(const ItemInfo &amp;itemInfo)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ab83f8debaa98bd62538122e844de16fd">add</a> (const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ItemInfo</a> &amp;itemInfo)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を追加する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6209561c5c2aa7e896a9235c9f689b5"></a><!-- doxytag: member="balor::gui::ListView::alwaysSelected" ref="aa6209561c5c2aa7e896a9235c9f689b5" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aa6209561c5c2aa7e896a9235c9f689b5">alwaysSelected</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォーカスが外れても選択状態を表示するかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4043001cb024590c9c2c948405fb6b8f"></a><!-- doxytag: member="balor::gui::ListView::alwaysSelected" ref="a4043001cb024590c9c2c948405fb6b8f" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>alwaysSelected</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1276288a06ac92e0b8b976b720c205c"></a><!-- doxytag: member="balor::gui::ListView::arrange" ref="ad1276288a06ac92e0b8b976b720c205c" args="(bool snapToGrid=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ad1276288a06ac92e0b8b976b720c205c">arrange</a> (bool snapToGrid=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイコンを整列する。style() が ListView::Style::largeIcon, smallIcon, tile の場合のみ有効。snapToGrid が true の場合は項目を一番近い一定間隔の升目の中に移動する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa27e6c72801bc09469ce0395a190c311"></a><!-- doxytag: member="balor::gui::ListView::autoArrange" ref="aa27e6c72801bc09469ce0395a190c311" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aa27e6c72801bc09469ce0395a190c311">autoArrange</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイコンを自動整列するかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59bc8f76df034c7f6f4bd16046d46322"></a><!-- doxytag: member="balor::gui::ListView::autoArrange" ref="a59bc8f76df034c7f6f4bd16046d46322" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>autoArrange</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f71cc38af59cf7e51f90621d175eea8"></a><!-- doxytag: member="balor::gui::ListView::beginEdit" ref="a4f71cc38af59cf7e51f90621d175eea8" args="(int index)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a4f71cc38af59cf7e51f90621d175eea8">beginEdit</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列の編集を始める。強制的にフォーカスを得る。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa3fbf414ab2e29ce259bd63125ee1ac"></a><!-- doxytag: member="balor::gui::ListView::brush" ref="aaa3fbf414ab2e29ce259bd63125ee1ac" args="(HBRUSH value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>brush</b> (HBRUSH value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade6683280bfec7d39962b021555d3aec"></a><!-- doxytag: member="balor::gui::ListView::brushOrigin" ref="ade6683280bfec7d39962b021555d3aec" args="(const Point &amp;value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>brushOrigin</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5857312f46ffa490fd2313add5e93c9"></a><!-- doxytag: member="balor::gui::ListView::clear" ref="ac5857312f46ffa490fd2313add5e93c9" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ac5857312f46ffa490fd2313add5e93c9">clear</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を全て削除する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2591c7d48b8d154b2ea3788172220fc5"></a><!-- doxytag: member="balor::gui::ListView::columnCount" ref="a2591c7d48b8d154b2ea3788172220fc5" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a2591c7d48b8d154b2ea3788172220fc5">columnCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行の数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92c97b5e50dfdb3bab4bc0d9b3adf168"></a><!-- doxytag: member="balor::gui::ListView::columnInfos" ref="a92c97b5e50dfdb3bab4bc0d9b3adf168" args="() const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html">ListView::ColumnInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a92c97b5e50dfdb3bab4bc0d9b3adf168">columnInfos</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行の情報配列を一括で取得、設定する。ColumnInfo::width() が 0 の場合は <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html#a287481f51629002542b2957a0616a654" title="幅をヘッダーの文字列幅に合わせる。項目の文字列幅以下にはならない。">Column::fitWidthToHeader</a> 関数で幅を求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad61a10c4932ea83b34fc1d007c349008"></a><!-- doxytag: member="balor::gui::ListView::columnInfos" ref="ad61a10c4932ea83b34fc1d007c349008" args="(ArrayRange&lt; const ListView::ColumnInfo &gt; value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>columnInfos</b> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html">ListView::ColumnInfo</a> &gt; value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64f476404c138e793be52a6b869f5ac6"></a><!-- doxytag: member="balor::gui::ListView::count" ref="a64f476404c138e793be52a6b869f5ac6" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a64f476404c138e793be52a6b869f5ac6">count</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37cbd7e500789a86fe8565858947b03e"></a><!-- doxytag: member="balor::gui::ListView::countPerPage" ref="a37cbd7e500789a86fe8565858947b03e" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a37cbd7e500789a86fe8565858947b03e">countPerPage</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">リストビュー内に表示できる項目数。style() が <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">ListView::Style::details</a> か list の場合のみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c23702832aa4d8f578954a2b7c814c9"></a><!-- doxytag: member="balor::gui::ListView::edge" ref="a4c23702832aa4d8f578954a2b7c814c9" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a4c23702832aa4d8f578954a2b7c814c9">edge</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールの境界線の種類。初期値は Control::Edge::client。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b83f7ff28342c31bc0e7aad71b5fea1"></a><!-- doxytag: member="balor::gui::ListView::edge" ref="a7b83f7ff28342c31bc0e7aad71b5fea1" args="(Control::Edge value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>edge</b> (<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8afd723946dfabfef5eceb6a139697e1"></a><!-- doxytag: member="balor::gui::ListView::endEdit" ref="a8afd723946dfabfef5eceb6a139697e1" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8afd723946dfabfef5eceb6a139697e1">endEdit</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列の編集を終了する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7cb7ec1ad6076320ee920caeeb6b7c54"></a><!-- doxytag: member="balor::gui::ListView::erase" ref="a7cb7ec1ad6076320ee920caeeb6b7c54" args="(int index)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a7cb7ec1ad6076320ee920caeeb6b7c54">erase</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を削除する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a011d61f146d14bb402c0e48ba662bfc1"></a><!-- doxytag: member="balor::gui::ListView::findIndex" ref="a011d61f146d14bb402c0e48ba662bfc1" args="(StringRange text, int startIndex=0, bool prefixSearch=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a011d61f146d14bb402c0e48ba662bfc1">findIndex</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> text, int startIndex=0, bool prefixSearch=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したインデックス以降で指定した文字列をもつ項目を見つける。サブ項目の文字列は検索されない。見つからない場合は -1。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b119c9cdf90a06f2ea532043e38db2f"></a><!-- doxytag: member="balor::gui::ListView::focusedIndex" ref="a0b119c9cdf90a06f2ea532043e38db2f" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a0b119c9cdf90a06f2ea532043e38db2f">focusedIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォーカスされている項目インデックス。無い場合は -1。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a603569d2fc6de31d85f3d5989d3fa03c"></a><!-- doxytag: member="balor::gui::ListView::focusedIndex" ref="a603569d2fc6de31d85f3d5989d3fa03c" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>focusedIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ccebbb1495276b4bae47466be8c270c"></a><!-- doxytag: member="balor::gui::ListView::fullRowSelect" ref="a2ccebbb1495276b4bae47466be8c270c" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a2ccebbb1495276b4bae47466be8c270c">fullRowSelect</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">横の行を全て選択状態にするかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9faa4b33d4a8817df85612859bf2b90"></a><!-- doxytag: member="balor::gui::ListView::fullRowSelect" ref="ab9faa4b33d4a8817df85612859bf2b90" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fullRowSelect</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac2563f4a4408a1a9f94237d5beff8b2"></a><!-- doxytag: member="balor::gui::ListView::getColumn" ref="aac2563f4a4408a1a9f94237d5beff8b2" args="(int index)" -->
+<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html">ListView::Column</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aac2563f4a4408a1a9f94237d5beff8b2">getColumn</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行を取得する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af920696c3cb8014d4401ddadef86accb"></a><!-- doxytag: member="balor::gui::ListView::getHitTestInfo" ref="af920696c3cb8014d4401ddadef86accb" args="(const Point &amp;point) const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html">ListView::HitTestInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#af920696c3cb8014d4401ddadef86accb">getHitTestInfo</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したクライアント座標のヒットテストを行って情報を取得する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10272e1e566c48514d6ab33e3d3911c7"></a><!-- doxytag: member="balor::gui::ListView::getHitTestInfo" ref="a10272e1e566c48514d6ab33e3d3911c7" args="(int x, int y) const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_hit_test_info.html">ListView::HitTestInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getHitTestInfo</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa33b33d79e574eed5c8f174064916bc7"></a><!-- doxytag: member="balor::gui::ListView::getIndexAt" ref="aa33b33d79e574eed5c8f174064916bc7" args="(const Point &amp;point) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aa33b33d79e574eed5c8f174064916bc7">getIndexAt</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したクライアント座標にある項目のインデックスを取得する。無い場合は -1。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27b0a65e3a69dd283ddadfaf58ed0a7b"></a><!-- doxytag: member="balor::gui::ListView::getIndexAt" ref="a27b0a65e3a69dd283ddadfaf58ed0a7b" args="(int x, int y) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndexAt</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca605833d07718b222e02bf2f81e3086"></a><!-- doxytag: member="balor::gui::ListView::getPreferredSize" ref="aca605833d07718b222e02bf2f81e3086" args="(int width=0, int height=0) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aca605833d07718b222e02bf2f81e3086">getPreferredSize</a> (int width=0, int height=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">適切なコントロールサイズ。font(), <a class="el" href="classbalor_1_1gui_1_1_list_view.html#a64f476404c138e793be52a6b869f5ac6" title="項目数。">count()</a> 等の値によって最適なサイズを返す。style() が <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">ListView::Style::details</a> の場合のみ正確なサイズを計算できる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada2d723015882198752b820d00c6b280"></a><!-- doxytag: member="balor::gui::ListView::getSelectedIndex" ref="ada2d723015882198752b820d00c6b280" args="(int startIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ada2d723015882198752b820d00c6b280">getSelectedIndex</a> (int startIndex=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したインデックス以降で選択されている項目のインデックスを取得する。 引数に前回取得したインデックス + 1 を指定すれば次のインデックスを見つけられる。見つからない場合は -1 を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40184448c2c6e2df45978173e36d8a28"></a><!-- doxytag: member="balor::gui::ListView::gridLines" ref="a40184448c2c6e2df45978173e36d8a28" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a40184448c2c6e2df45978173e36d8a28">gridLines</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目境界線を表示するかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b0ff2b7ab9bd1b55b915de2adb198c6"></a><!-- doxytag: member="balor::gui::ListView::gridLines" ref="a9b0ff2b7ab9bd1b55b915de2adb198c6" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gridLines</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9c4873c423f8c962a5d908cd1c4db6b"></a><!-- doxytag: member="balor::gui::ListView::headerDragDrop" ref="af9c4873c423f8c962a5d908cd1c4db6b" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#af9c4873c423f8c962a5d908cd1c4db6b">headerDragDrop</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘッダをドラッグ＆ドロップで移動できるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdafd6bc3a0376d779631d9bf1776e80"></a><!-- doxytag: member="balor::gui::ListView::headerDragDrop" ref="abdafd6bc3a0376d779631d9bf1776e80" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>headerDragDrop</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0e74573345dec8ef358991ffc7d925d"></a><!-- doxytag: member="balor::gui::ListView::headerVisible" ref="ac0e74573345dec8ef358991ffc7d925d" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ac0e74573345dec8ef358991ffc7d925d">headerVisible</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘッダを表示するかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62ba949176203a562298b0517bc1f603"></a><!-- doxytag: member="balor::gui::ListView::headerVisible" ref="a62ba949176203a562298b0517bc1f603" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>headerVisible</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f5ff718c9b8d807e4fe524f3f6d93c5"></a><!-- doxytag: member="balor::gui::ListView::hotTracking" ref="a8f5ff718c9b8d807e4fe524f3f6d93c5" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8f5ff718c9b8d807e4fe524f3f6d93c5">hotTracking</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目にカーソルを合わせるとカーソルが <a class="el" href="classbalor_1_1graphics_1_1_cursor.html#aedcfb56a063c44b7e876d0112e83c3cb" title="ハンドカーソル。">Cursor::hand()</a> になって文字列にアンダーラインが表示されるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ab10ac2f8792da5340e6e32d05ec156"></a><!-- doxytag: member="balor::gui::ListView::hotTracking" ref="a3ab10ac2f8792da5340e6e32d05ec156" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hotTracking</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1247faa218d27a51a381517319ccae95"></a><!-- doxytag: member="balor::gui::ListView::hotTrackSelection" ref="a1247faa218d27a51a381517319ccae95" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a1247faa218d27a51a381517319ccae95">hotTrackSelection</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目にカーソルを合わせてしばらくすると項目が選択されるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67d732709265a5bf4e6db905e9f4ed22"></a><!-- doxytag: member="balor::gui::ListView::hotTrackSelection" ref="a67d732709265a5bf4e6db905e9f4ed22" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hotTrackSelection</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab96a1ba017161267263708d9d9408a92"></a><!-- doxytag: member="balor::gui::ListView::iconSpacing" ref="ab96a1ba017161267263708d9d9408a92" args="() const " -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ab96a1ba017161267263708d9d9408a92">iconSpacing</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目同士の距離。Size(-1, -1) を指定するとデフォルトに戻る。style() が ListView::Style::largeIcon の場合のみ有効。縦幅が変わらない模様。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af884e8074b3bd1a4f4dd49a13a476ff2"></a><!-- doxytag: member="balor::gui::ListView::iconSpacing" ref="af884e8074b3bd1a4f4dd49a13a476ff2" args="(const Size &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>iconSpacing</b> (const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a320ef2ec697378c2e27e3c49a52ad431"></a><!-- doxytag: member="balor::gui::ListView::insert" ref="a320ef2ec697378c2e27e3c49a52ad431" args="(int index, const ItemInfo &amp;itemInfo)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a320ef2ec697378c2e27e3c49a52ad431">insert</a> (int index, const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ItemInfo</a> &amp;itemInfo)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を挿入する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36cc643c08efa6162830f00cab19e534"></a><!-- doxytag: member="balor::gui::ListView::itemInfos" ref="a36cc643c08efa6162830f00cab19e534" args="() const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ListView::ItemInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a36cc643c08efa6162830f00cab19e534">itemInfos</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の情報配列を一括で取得、設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a474df729c4e9dfe7e6a27137d08f79b4"></a><!-- doxytag: member="balor::gui::ListView::itemInfos" ref="a474df729c4e9dfe7e6a27137d08f79b4" args="(ArrayRange&lt; const ListView::ItemInfo &gt; value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>itemInfos</b> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html">ListView::ItemInfo</a> &gt; value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26db3cb98b8735f9e245205dee3a7a46"></a><!-- doxytag: member="balor::gui::ListView::itemTip" ref="a26db3cb98b8735f9e245205dee3a7a46" args="()" -->
+<a class="el" href="classbalor_1_1gui_1_1_tool_tip.html">ToolTip</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a26db3cb98b8735f9e245205dee3a7a46">itemTip</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目ごとに表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 <a class="el" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a> が制御しているので動作しない設定もある。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b5106ecb1df1b6ead5cc1210d630c4f"></a><!-- doxytag: member="balor::gui::ListView::itemTipEnabled" ref="a8b5106ecb1df1b6ead5cc1210d630c4f" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8b5106ecb1df1b6ead5cc1210d630c4f">itemTipEnabled</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目ごとにツールチップを表示するかどうか。onItemTipPopup() イベントで表示する文字列を指定する。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a708e68f8f854778aba40b41917152697"></a><!-- doxytag: member="balor::gui::ListView::itemTipEnabled" ref="a708e68f8f854778aba40b41917152697" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>itemTipEnabled</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b08af8820ec9374595d93225e2483ca"></a><!-- doxytag: member="balor::gui::ListView::largeImageList" ref="a8b08af8820ec9374595d93225e2483ca" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_image_list.html">ImageList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8b08af8820ec9374595d93225e2483ca">largeImageList</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大きいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a171d609ce1485fbbc80d41bbe2fc11c7"></a><!-- doxytag: member="balor::gui::ListView::largeImageList" ref="a171d609ce1485fbbc80d41bbe2fc11c7" args="(HIMAGELIST value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>largeImageList</b> (HIMAGELIST value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04d79a39d02f8cd19c17b9adc20120a8"></a><!-- doxytag: member="balor::gui::ListView::leftArrange" ref="a04d79a39d02f8cd19c17b9adc20120a8" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a04d79a39d02f8cd19c17b9adc20120a8">leftArrange</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイコンを左上から下に整列するかどうか。false の場合は左上から右に整列する。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ecf640d3ab2ffe896daa63ce8374950"></a><!-- doxytag: member="balor::gui::ListView::leftArrange" ref="a6ecf640d3ab2ffe896daa63ce8374950" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>leftArrange</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab157e0c8264daef2adfe0c1f44f5a72a"></a><!-- doxytag: member="balor::gui::ListView::multiselect" ref="ab157e0c8264daef2adfe0c1f44f5a72a" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ab157e0c8264daef2adfe0c1f44f5a72a">multiselect</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイテムを複数選択できるかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ee879ea098f3165516c02dc958af870"></a><!-- doxytag: member="balor::gui::ListView::multiselect" ref="a0ee879ea098f3165516c02dc958af870" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>multiselect</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae128d2965f56a05647c05a64d8b967e7"></a><!-- doxytag: member="balor::gui::ListView::onHeaderClick" ref="ae128d2965f56a05647c05a64d8b967e7" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html">ListView::HeaderClick</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ae128d2965f56a05647c05a64d8b967e7">onHeaderClick</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘッダをクリックしたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af05ed3f131b5556e5f1a771fd1e5e77d"></a><!-- doxytag: member="balor::gui::ListView::onItemChange" ref="af05ed3f131b5556e5f1a771fd1e5e77d" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html">ListView::ItemChange</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#af05ed3f131b5556e5f1a771fd1e5e77d">onItemChange</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目が変化したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e018d14482415c0c188da23ab32e103"></a><!-- doxytag: member="balor::gui::ListView::onItemChanging" ref="a2e018d14482415c0c188da23ab32e103" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html">ListView::ItemChanging</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a2e018d14482415c0c188da23ab32e103">onItemChanging</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目が変化しようとしているイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae88237808c927ce2f91b4e8a6e10b478"></a><!-- doxytag: member="balor::gui::ListView::onItemClick" ref="ae88237808c927ce2f91b4e8a6e10b478" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemClick</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ae88237808c927ce2f91b4e8a6e10b478">onItemClick</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目をクリックしたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a883a3c91a8e4eae1ee0f6744bf8750e5"></a><!-- doxytag: member="balor::gui::ListView::onItemDoubleClick" ref="a883a3c91a8e4eae1ee0f6744bf8750e5" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemDoubleClick</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a883a3c91a8e4eae1ee0f6744bf8750e5">onItemDoubleClick</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目をダブルクリックしたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f4933b841fff0fddb0ad3456af9c924"></a><!-- doxytag: member="balor::gui::ListView::onItemDrag" ref="a8f4933b841fff0fddb0ad3456af9c924" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html">ListView::ItemDrag</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8f4933b841fff0fddb0ad3456af9c924">onItemDrag</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目をマウス左ボタンまたは右ボタンでドラッグしたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8c95fe0cdc6aca512236e0696f1c706"></a><!-- doxytag: member="balor::gui::ListView::onItemPrePaint" ref="aa8c95fe0cdc6aca512236e0696f1c706" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html">ListView::ItemPrePaint</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aa8c95fe0cdc6aca512236e0696f1c706">onItemPrePaint</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を描画する直前のイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a05988db141c271880e07b8fd8d1975"></a><!-- doxytag: member="balor::gui::ListView::onItemRightClick" ref="a5a05988db141c271880e07b8fd8d1975" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemRightClick</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a5a05988db141c271880e07b8fd8d1975">onItemRightClick</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を右クリックしたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f2cf3bf7a72583e22b79a9c70994fd3"></a><!-- doxytag: member="balor::gui::ListView::onItemTipPopup" ref="a0f2cf3bf7a72583e22b79a9c70994fd3" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html">ListView::ItemTipPopup</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a0f2cf3bf7a72583e22b79a9c70994fd3">onItemTipPopup</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目のツールチップを表示するイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f990b5eb32ec0e34bcdda4145496a82"></a><!-- doxytag: member="balor::gui::ListView::onTextEdit" ref="a3f990b5eb32ec0e34bcdda4145496a82" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html">ListView::TextEdit</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a3f990b5eb32ec0e34bcdda4145496a82">onTextEdit</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列編集が終わって反映する直前のイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a972785f9ef53e344a0238f7fdffba023"></a><!-- doxytag: member="balor::gui::ListView::onTextEditing" ref="a972785f9ef53e344a0238f7fdffba023" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html">ListView::TextEditing</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a972785f9ef53e344a0238f7fdffba023">onTextEditing</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列編集が始まる直前のイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a6cd312df27cbb0deb88911a79a68c8"></a><!-- doxytag: member="balor::gui::ListView::options" ref="a7a6cd312df27cbb0deb88911a79a68c8" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_options.html">ListView::Options</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a7a6cd312df27cbb0deb88911a79a68c8">options</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac72ec6074d1ea259007f2e5c9cfac0e2"></a><!-- doxytag: member="balor::gui::ListView::scrollable" ref="ac72ec6074d1ea259007f2e5c9cfac0e2" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ac72ec6074d1ea259007f2e5c9cfac0e2">scrollable</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を表示し切れない時にスクロールバーを表示するかどうか。初期値は true。 項目、位置、サイズや style を設定する前に設定しないとうまく動作しない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae971ec9293795ba0f30245ec8cc4c9f8"></a><!-- doxytag: member="balor::gui::ListView::scrollable" ref="ae971ec9293795ba0f30245ec8cc4c9f8" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scrollable</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67852264f85fb6298b336f5939ac31f3"></a><!-- doxytag: member="balor::gui::ListView::selectedCount" ref="a67852264f85fb6298b336f5939ac31f3" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a67852264f85fb6298b336f5939ac31f3">selectedCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択されている項目の数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a343aa18b939eb3bf38a0a41e06751fe0"></a><!-- doxytag: member="balor::gui::ListView::smallImageList" ref="a343aa18b939eb3bf38a0a41e06751fe0" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_image_list.html">ImageList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a343aa18b939eb3bf38a0a41e06751fe0">smallImageList</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">小さいアイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62eded528d91471f92c3ceb6cf930816"></a><!-- doxytag: member="balor::gui::ListView::smallImageList" ref="a62eded528d91471f92c3ceb6cf930816" args="(HIMAGELIST value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>smallImageList</b> (HIMAGELIST value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18a7f2fe22e29f94182557c3aa856a29"></a><!-- doxytag: member="balor::gui::ListView::sort" ref="a18a7f2fe22e29f94182557c3aa856a29" args="(bool ascending=true, int columnIndex=0)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a18a7f2fe22e29f94182557c3aa856a29">sort</a> (bool ascending=true, int columnIndex=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を文字列順にソートする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6141bf7c779ca1bc12d71e5ddcfcae57"></a><!-- doxytag: member="balor::gui::ListView::sort" ref="a6141bf7c779ca1bc12d71e5ddcfcae57" args="(const std::tr1::function&lt; int(int, int)&gt; &amp;compareFunction)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a6141bf7c779ca1bc12d71e5ddcfcae57">sort</a> (const std::tr1::function&lt; int(int, int)&gt; &amp;compareFunction)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">比較関数でソートする。比較関数の戻り値は <a class="el" href="classbalor_1_1_string.html#a7ed6aaa049f0fbdeb1ce30748ca77046" title="文字列の比較。戻り値は C 言語の strcmp 系の関数と同じ。">String::compare</a> と同様で、引数は比較する二つの項目インデックス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f1e24d58f79486fe1034ec81df7b1b1"></a><!-- doxytag: member="balor::gui::ListView::sort" ref="a0f1e24d58f79486fe1034ec81df7b1b1" args="(const std::tr1::function&lt; int(const String &amp;, const String &amp;)&gt; &amp;compareFunction, int columnIndex)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a0f1e24d58f79486fe1034ec81df7b1b1">sort</a> (const std::tr1::function&lt; int(const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;)&gt; &amp;compareFunction, int columnIndex)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">比較関数でソートする。比較関数の戻り値は <a class="el" href="classbalor_1_1_string.html#a7ed6aaa049f0fbdeb1ce30748ca77046" title="文字列の比較。戻り値は C 言語の strcmp 系の関数と同じ。">String::compare</a> と同様で、引数は比較する二つの項目文字列。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bf089b5e45256ec69e6bfee9a8051a4"></a><!-- doxytag: member="balor::gui::ListView::stateImageList" ref="a8bf089b5e45256ec69e6bfee9a8051a4" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_image_list.html">ImageList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8bf089b5e45256ec69e6bfee9a8051a4">stateImageList</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">状態アイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場合は checkBoxes() を true にした状態で <a class="el" href="classbalor_1_1gui_1_1_list_view.html#a8bf089b5e45256ec69e6bfee9a8051a4" title="状態アイコンの画像リスト。ListView は画像リストのハンドルを破棄しない。 ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場合は checkBoxes()...">stateImageList()</a> 関数で取得した画像リストを操作する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79afa5051f8480067cc53289962430fa"></a><!-- doxytag: member="balor::gui::ListView::stateImageList" ref="a79afa5051f8480067cc53289962430fa" args="(HIMAGELIST value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stateImageList</b> (HIMAGELIST value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a191db45f74f97564c4a845794b5dfb30"></a><!-- doxytag: member="balor::gui::ListView::style" ref="a191db45f74f97564c4a845794b5dfb30" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">ListView::Style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30">style</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">表示スタイル。この関数の使用には <a class="el" href="_enable_visual_style_8hpp_source.html">EnableVisualStyle.hpp</a> のインクルードが必要。初期値は ListView::Style::details。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9373e097352e119ed156a2a9dacf27f"></a><!-- doxytag: member="balor::gui::ListView::style" ref="aa9373e097352e119ed156a2a9dacf27f" args="(ListView::Style value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>style</b> (<a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html">ListView::Style</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7757be659dd219527fe6364235f7c91"></a><!-- doxytag: member="balor::gui::ListView::textColor" ref="ae7757be659dd219527fe6364235f7c91" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ae7757be659dd219527fe6364235f7c91">textColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a65981c9a77aa528fe1d633a9d20de8"></a><!-- doxytag: member="balor::gui::ListView::textColor" ref="a6a65981c9a77aa528fe1d633a9d20de8" args="(const Color &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51bae7d8c0b188a40949127f609a1bc9"></a><!-- doxytag: member="balor::gui::ListView::textEditable" ref="a51bae7d8c0b188a40949127f609a1bc9" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a51bae7d8c0b188a40949127f609a1bc9">textEditable</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリックで項目の文字列を編集できるかどうか。編集できるのは項目の最初の文字列のみ。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaaba636cf3127df62e7165bc6a90d89"></a><!-- doxytag: member="balor::gui::ListView::textEditable" ref="abaaba636cf3127df62e7165bc6a90d89" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textEditable</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f323ff6ea8af4f5d99acc799db70213"></a><!-- doxytag: member="balor::gui::ListView::textVisible" ref="a9f323ff6ea8af4f5d99acc799db70213" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a9f323ff6ea8af4f5d99acc799db70213">textVisible</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目文字列を表示するかどうか。非表示になるのは <a class="el" href="classbalor_1_1gui_1_1_list_view.html#a191db45f74f97564c4a845794b5dfb30" title="表示スタイル。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。初期値は ListView::Style::details。">style()</a> が ListView::Style::largeIcon または smallIcon の場合のみ。この関数の使用には <a class="el" href="_enable_visual_style_8hpp_source.html">EnableVisualStyle.hpp</a> のインクルードが必要。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af181fffe16fdcaaf5e9ba5b4ed39e45b"></a><!-- doxytag: member="balor::gui::ListView::textVisible" ref="af181fffe16fdcaaf5e9ba5b4ed39e45b" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textVisible</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08d17cdd3ef7fdafecf0b3b6e3794fa1"></a><!-- doxytag: member="balor::gui::ListView::textWrap" ref="a08d17cdd3ef7fdafecf0b3b6e3794fa1" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a08d17cdd3ef7fdafecf0b3b6e3794fa1">textWrap</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイコン表示の項目の文字列が長い場合に改行するかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b9f7977402c0034e14f5b74e59bb16f"></a><!-- doxytag: member="balor::gui::ListView::textWrap" ref="a9b9f7977402c0034e14f5b74e59bb16f" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textWrap</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3045d2b770b328d64b144520603a216"></a><!-- doxytag: member="balor::gui::ListView::topIndex" ref="ac3045d2b770b328d64b144520603a216" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#ac3045d2b770b328d64b144520603a216">topIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最初に表示されている項目のインデックス。style() が <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17aa9beae63179be995c28f25e026bf38ed" title="大きなアイコン表示。">ListView::Style::details</a> か <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_style.html#a89f0501af5e104d7623d0bc918342c17ab9ccb332b94ca57ecb8fe9ab1c3bac81" title="小さなアイコン表示。">ListView::Style::list</a> の場合のみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1ff8cecfe83b322147851cbb8a0f7c8"></a><!-- doxytag: member="balor::gui::ListView::topIndex" ref="af1ff8cecfe83b322147851cbb8a0f7c8" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>topIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae65113c5ccb96db522521607dd21048"></a><!-- doxytag: member="balor::gui::ListView::operator[]" ref="aae65113c5ccb96db522521607dd21048" args="(int index)" -->
+<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item.html">ListView::Item</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#aae65113c5ccb96db522521607dd21048">operator[]</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">index 番目の項目。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b2e37997e49717ee9df428258b2049b"></a><!-- doxytag: member="balor::gui::ListView::maxTextLength" ref="a9b2e37997e49717ee9df428258b2049b" args="" -->
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a9b2e37997e49717ee9df428258b2049b">maxTextLength</a> = 512</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列の終端文字を含めた最大長。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a155ddebd96122c55445c9eb35fbfac7f"></a><!-- doxytag: member="balor::gui::ListView::processMessage" ref="a155ddebd96122c55445c9eb35fbfac7f" args="(Message &amp;msg)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_view.html#a155ddebd96122c55445c9eb35fbfac7f">processMessage</a> (<a class="el" href="classbalor_1_1gui_1_1_message.html">Message</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージを処理する。いわゆるウインドウプロシージャ。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69dbd37c5b299db2cb8140cf1900aae8"></a><!-- doxytag: member="balor::gui::ListView::_onHeaderClick" ref="a69dbd37c5b299db2cb8140cf1900aae8" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_header_click.html">ListView::HeaderClick</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onHeaderClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a76d6e0d762d3c3cfd0fea4965c391f"></a><!-- doxytag: member="balor::gui::ListView::_onItemChange" ref="a4a76d6e0d762d3c3cfd0fea4965c391f" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_change.html">ListView::ItemChange</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemChange</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab159e5797c463096a5b8866888d02e1e"></a><!-- doxytag: member="balor::gui::ListView::_onItemChanging" ref="ab159e5797c463096a5b8866888d02e1e" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_changing.html">ListView::ItemChanging</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemChanging</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab270a3b6df640a36d5e52351c53c4042"></a><!-- doxytag: member="balor::gui::ListView::_onItemClick" ref="ab270a3b6df640a36d5e52351c53c4042" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemClick</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52079e801b4a04b866f18146d362169f"></a><!-- doxytag: member="balor::gui::ListView::_onItemDoubleClick" ref="a52079e801b4a04b866f18146d362169f" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemDoubleClick</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemDoubleClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae882f39c42fe2b5d3ce7b1aa4647cd28"></a><!-- doxytag: member="balor::gui::ListView::_onItemDrag" ref="ae882f39c42fe2b5d3ce7b1aa4647cd28" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_drag.html">ListView::ItemDrag</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemDrag</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72ef12c8427cf6dbbd108e4b9cb6f433"></a><!-- doxytag: member="balor::gui::ListView::_onItemPrePaint" ref="a72ef12c8427cf6dbbd108e4b9cb6f433" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html">ListView::ItemPrePaint</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemPrePaint</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab1d0cfabfaa9634205e0eb22132bd96"></a><!-- doxytag: member="balor::gui::ListView::_onItemRightClick" ref="aab1d0cfabfaa9634205e0eb22132bd96" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_click.html">ListView::ItemRightClick</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemRightClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45626a12ff22a4c50739660f5891d5fe"></a><!-- doxytag: member="balor::gui::ListView::_onItemTipPopup" ref="a45626a12ff22a4c50739660f5891d5fe" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_tip_popup.html">ListView::ItemTipPopup</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onItemTipPopup</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9415a062b35b4927adf77f77a679d831"></a><!-- doxytag: member="balor::gui::ListView::_onTextEdit" ref="a9415a062b35b4927adf77f77a679d831" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_edit.html">ListView::TextEdit</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onTextEdit</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24cd153e11e8231516267203cf41ff38"></a><!-- doxytag: member="balor::gui::ListView::_onTextEditing" ref="a24cd153e11e8231516267203cf41ff38" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_text_editing.html">ListView::TextEditing</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onTextEditing</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>リストビュー。 </p>
+<p>マウス左ボタンか右ボタンを押した場合、onMouseDown イベントはボタンを離した時に発生し、onMouseUp イベントは発生しない。 代わりに onItemClick イベントや onItemRightClick イベントを使用できる。 onDrag イベントはうまく拾えない。onDrag の代わりに onItemDrag イベントを使用できる。 グループは未実装。</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"ListView Sample");</code></pre><pre><code>	typedef <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column_info.html" title="縦の行の情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::columnInfos 関数等で使用する。">ListView::ColumnInfo</a> <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>;
+	<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a> columns[] = {
+		<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>(L"果物名"),
+		<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>(L"色"),
+		<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_column.html" title="縦の行。ListView::getColumn 関数で取得できる。">Column</a>(L"大きさ")
+	};
+	typedef <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item_info.html" title="項目情報構造体。情報を持つだけでリストビューは一切操作しない。ListView::itemInfos 関数等で使用する。">ListView::ItemInfo</a> <a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a>;
+	const wchar_t* item0Texts[] = {L"ブドウ", L"紫", L"小"};
+	const wchar_t* item1Texts[] = {L"メロン", L"緑", L"中"};
+	const wchar_t* item2Texts[] = {L"スイカ", L"赤", L"大"};
+	<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item.html" title="項目。ListView::operator[] で取得できる。">Item</a> items[] = {
+		Item(item0Texts),
+		Item(item1Texts),
+		Item(item2Texts)
+	};
+	<a class="el" href="classbalor_1_1gui_1_1_list_view.html" title="リストビュー。">ListView</a> list(frame, 20, 10, 0, 0, columns, items);
+	list.fullRowSelect(true);</code></pre><pre><code>	frame.runMessageLoop();
+ </code></pre> </div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_list_view_8hpp_source.html">ListView.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListView.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:31に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

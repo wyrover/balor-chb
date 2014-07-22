@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/StringRangeArray.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/StringRangeArray.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/test/noMacroAssert.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>std {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>tr1 {
+<a name="l00008"></a>00008 <span class="preprocessor">#ifdef  _WIN64</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">unsigned</span> __<span class="keywordtype">int</span>64&gt; <span class="keyword">class </span>array;
+<a name="l00010"></a>00010 <span class="preprocessor">#else</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, __w64 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt; <span class="keyword">class </span>array;
+<a name="l00012"></a>00012 <span class="preprocessor">#endif</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span>    }
+<a name="l00014"></a>00014     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span>allocator;
+<a name="l00015"></a>00015     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">struct </span>char_traits;
+<a name="l00016"></a>00016     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator&gt; <span class="keyword">class </span>basic_string;
+<a name="l00017"></a>00017     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> A&gt; <span class="keyword">class </span>vector;
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>balor {
+<a name="l00021"></a>00021     <span class="keyword">namespace </span>io {
+<a name="l00022"></a>00022 <span class="keyword">class </span>File;
+<a name="l00023"></a>00023     }
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">namespace </span>balor {
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keyword">class </span>String;
+<a name="l00030"></a>00030 <span class="keyword">class </span>StringBuffer;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00058"></a><a class="code" href="classbalor_1_1_string_range_array.html">00058</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> {
+<a name="l00059"></a>00059     typedef ::balor::io::File <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keyword">public</span>:
+<a name="l00063"></a><a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5">00063</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keywordtype">wchar_t</span>* (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_charPointerAccessor) {}
+<a name="l00064"></a>00064     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_charPointerAccessor) {}
+<a name="l00066"></a><a class="code" href="classbalor_1_1_string_range_array.html#a55c83411d44137bfe325823db47d427c">00066</a>     <a class="code" href="classbalor_1_1_string_range_array.html#a55c83411d44137bfe325823db47d427c" title="文字列ポインタのポインタと長さで初期化。">StringRangeArray</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* <span class="keyword">const</span> * begin, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>) : _begin(begin), _length(length), _accessor(_charPointerAccessor) {
+<a name="l00067"></a>00067 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>);
+<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span>    }
+<a name="l00072"></a><a class="code" href="classbalor_1_1_string_range_array.html#a77168936b191110634245909ea673a2e">00072</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a77168936b191110634245909ea673a2e" title="文字列ポインタの vector で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;wchar_t*, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_charPointerAccessor) {}
+<a name="l00073"></a>00073     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;const wchar_t*, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_charPointerAccessor) {}
+<a name="l00075"></a><a class="code" href="classbalor_1_1_string_range_array.html#a6000600dbf1eec345d589051cd17efb3">00075</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a6000600dbf1eec345d589051cd17efb3" title="文字列ポインタの array で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;wchar_t*, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_charPointerAccessor) {}
+<a name="l00076"></a>00076     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;const wchar_t*, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_charPointerAccessor) {}
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00080"></a><a class="code" href="classbalor_1_1_string_range_array.html#a70b4a9764ab12305e8bf23dbcba3e857">00080</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a70b4a9764ab12305e8bf23dbcba3e857" title="File の固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_fileAccessor) {}
+<a name="l00082"></a><a class="code" href="classbalor_1_1_string_range_array.html#a357efaaf97c089fe41c8a248587d26d7">00082</a>     <a class="code" href="classbalor_1_1_string_range_array.html#a357efaaf97c089fe41c8a248587d26d7" title="File のポインタと長さで初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>* begin, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>) : _begin(begin), _length(length), _accessor(_fileAccessor) {
+<a name="l00083"></a>00083 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>);
+<a name="l00085"></a>00085 <span class="preprocessor">#endif</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span>    }
+<a name="l00088"></a><a class="code" href="classbalor_1_1_string_range_array.html#aa31b7f3f61e5c55be6e31b8e9191079e">00088</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#aa31b7f3f61e5c55be6e31b8e9191079e" title="File の vector で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;File, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_fileAccessor) {}
+<a name="l00089"></a>00089     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;const File, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_fileAccessor) {}
+<a name="l00091"></a><a class="code" href="classbalor_1_1_string_range_array.html#a646148b88c1f73065bdf7231a6ee6001">00091</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a646148b88c1f73065bdf7231a6ee6001" title="File の array で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;File, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_fileAccessor) {}
+<a name="l00092"></a>00092     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;const File, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_fileAccessor) {}
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 
+<a name="l00096"></a><a class="code" href="classbalor_1_1_string_range_array.html#a8700af8b93fd7a4200061818706895a3">00096</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a8700af8b93fd7a4200061818706895a3" title="String の固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_stringAccessor) {}
+<a name="l00098"></a><a class="code" href="classbalor_1_1_string_range_array.html#a7bdd0e0614024adc11301f8cbda1adb3">00098</a>     <a class="code" href="classbalor_1_1_string_range_array.html#a7bdd0e0614024adc11301f8cbda1adb3" title="String のポインタと長さで初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>* begin, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>) : _begin(begin), _length(length), _accessor(_stringAccessor) {
+<a name="l00099"></a>00099 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00100"></a>00100 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>);
+<a name="l00101"></a>00101 <span class="preprocessor">#endif</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>    }
+<a name="l00104"></a><a class="code" href="classbalor_1_1_string_range_array.html#a0fd1dd948ecbfc430d23f0ca4e3a9973">00104</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a0fd1dd948ecbfc430d23f0ca4e3a9973" title="String の vector で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;String, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stringAccessor) {}
+<a name="l00105"></a>00105     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;const String, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stringAccessor) {}
+<a name="l00107"></a><a class="code" href="classbalor_1_1_string_range_array.html#a4f4966619de31d64c9023880e866aaf3">00107</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a4f4966619de31d64c9023880e866aaf3" title="String の array で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;String, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stringAccessor) {}
+<a name="l00108"></a>00108     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;const String, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stringAccessor) {}
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 
+<a name="l00112"></a><a class="code" href="classbalor_1_1_string_range_array.html#a5dae28757dc536ab769a7f9b77dcce33">00112</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a5dae28757dc536ab769a7f9b77dcce33" title="StringBuffer の固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_stringBufferAccessor) {}
+<a name="l00114"></a><a class="code" href="classbalor_1_1_string_range_array.html#a3df9c102d82185ad26c353c723348ce2">00114</a>     <a class="code" href="classbalor_1_1_string_range_array.html#a3df9c102d82185ad26c353c723348ce2" title="StringBuffer のポインタと長さで初期化。">StringRangeArray</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>* begin, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>) : _begin(begin), _length(length), _accessor(_stringBufferAccessor) {
+<a name="l00115"></a>00115 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00116"></a>00116 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>);
+<a name="l00117"></a>00117 <span class="preprocessor">#endif</span>
+<a name="l00118"></a>00118 <span class="preprocessor"></span>    }
+<a name="l00120"></a><a class="code" href="classbalor_1_1_string_range_array.html#a70e0f5dbc9cc5f8d5b0dcef5412793f4">00120</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a70e0f5dbc9cc5f8d5b0dcef5412793f4" title="StringBuffer の vector で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;StringBuffer, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stringBufferAccessor) {}
+<a name="l00121"></a>00121     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;const StringBuffer, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stringBufferAccessor) {}
+<a name="l00123"></a><a class="code" href="classbalor_1_1_string_range_array.html#a0d9e049f1a846cd94fbf2f627d9734ae">00123</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a0d9e049f1a846cd94fbf2f627d9734ae" title="StringBuffer の array で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;StringBuffer, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stringBufferAccessor) {}
+<a name="l00124"></a>00124     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;const StringBuffer, Size &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stringBufferAccessor) {}
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 
+<a name="l00128"></a><a class="code" href="classbalor_1_1_string_range_array.html#a9b5c5b6bd2e710260ac834482fefeb06">00128</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator, <span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a9b5c5b6bd2e710260ac834482fefeb06" title="wstring の固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::basic_string&lt;wchar_t, Traits, Allocator&gt; (&amp;array)[<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>]) : _begin(array), _length(Size), _accessor(_stdStringAccessor) {}
+<a name="l00130"></a><a class="code" href="classbalor_1_1_string_range_array.html#a105d11aac575814edf9dfd2a9b116289">00130</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a105d11aac575814edf9dfd2a9b116289" title="wstring のポインタと長さで初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::basic_string&lt;wchar_t, Traits, Allocator&gt;* begin, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>) : _begin(begin), _length(length), _accessor(_stdStringAccessor) {
+<a name="l00131"></a>00131 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00132"></a>00132 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>);
+<a name="l00133"></a>00133 <span class="preprocessor">#endif</span>
+<a name="l00134"></a>00134 <span class="preprocessor"></span>    }
+<a name="l00136"></a><a class="code" href="classbalor_1_1_string_range_array.html#a58f274e9313aff1791a46b06043728a2">00136</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator, <span class="keyword">typename</span> VectorAllocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a58f274e9313aff1791a46b06043728a2" title="wstring の vector で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;std::basic_string&lt;wchar_t, Traits, Allocator&gt;, VectorAllocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stdStringAccessor) {}
+<a name="l00137"></a>00137     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator, <span class="keyword">typename</span> VectorAllocator&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::vector&lt;<span class="keyword">const</span> std::basic_string&lt;wchar_t, Traits, VectorAllocator&gt;, Allocator&gt;&amp; array) : _begin(array.data()), _length(array.size()), _accessor(_stdStringAccessor) {}
+<a name="l00139"></a><a class="code" href="classbalor_1_1_string_range_array.html#a64ef50785dad2e7cf71f1701d0a9fc63">00139</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator, <span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#a64ef50785dad2e7cf71f1701d0a9fc63" title="wstring の array で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;std::basic_string&lt;wchar_t, Traits, Allocator&gt;, <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stdStringAccessor) {}
+<a name="l00140"></a>00140     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Allocator, <span class="keywordtype">int</span> Size&gt; <a class="code" href="classbalor_1_1_string_range_array.html#ab4de5511e8c47184c090cbcb7a0714e5" title="文字列ポインタの固定長配列で初期化。">StringRangeArray</a>(<span class="keyword">const</span> std::tr1::array&lt;<span class="keyword">const</span> std::basic_string&lt;wchar_t, Traits, Allocator&gt;, <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> &gt;&amp; array) : _begin(array.data()), _length(<a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>), _accessor(_stdStringAccessor) {}
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 <span class="keyword">public</span>:
+<a name="l00144"></a><a class="code" href="classbalor_1_1_string_range_array.html#a7f0887033fb1665aa779f3191dc8714a">00144</a>     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_string_range_array.html#a7f0887033fb1665aa779f3191dc8714a" title="配列が空かどうか。">empty</a>()<span class="keyword"> const </span>{
+<a name="l00145"></a>00145         <span class="keywordflow">return</span> !_length;
+<a name="l00146"></a>00146     }
+<a name="l00148"></a><a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc">00148</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>()<span class="keyword"> const </span>{
+<a name="l00149"></a>00149         <span class="keywordflow">return</span> _length;
+<a name="l00150"></a>00150     }
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 <span class="keyword">public</span>:
+<a name="l00154"></a><a class="code" href="classbalor_1_1_string_range_array.html#ac9015abdd0b636a50275581b99bf1d6e">00154</a>     <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1_string_range_array.html#ac9015abdd0b636a50275581b99bf1d6e" title="配列要素へのアクセス">operator[]</a>(<span class="keywordtype">int</span> index) {
+<a name="l00155"></a>00155 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= index);
+<a name="l00157"></a>00157         ::balor::test::noMacroAssert(index &lt; <a class="code" href="classbalor_1_1_string_range_array.html#a705ed5e002ed2d252a034255921909fc" title="配列の長さ。">length</a>());
+<a name="l00158"></a>00158 <span class="preprocessor">#endif</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span>        <span class="keywordflow">return</span> (*_accessor)(_begin, index);
+<a name="l00160"></a>00160     }
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 <span class="keyword">private</span>:
+<a name="l00163"></a>00163     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> _charPointerAccessor(<span class="keyword">const</span> <span class="keywordtype">void</span>* begin, <span class="keywordtype">int</span> index);
+<a name="l00164"></a>00164     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> _fileAccessor(<span class="keyword">const</span> <span class="keywordtype">void</span>* begin, <span class="keywordtype">int</span> index);
+<a name="l00165"></a>00165     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> _stringAccessor(<span class="keyword">const</span> <span class="keywordtype">void</span>* begin, <span class="keywordtype">int</span> index);
+<a name="l00166"></a>00166     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> _stringBufferAccessor(<span class="keyword">const</span> <span class="keywordtype">void</span>* begin, <span class="keywordtype">int</span> index);
+<a name="l00167"></a>00167     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> _stdStringAccessor(<span class="keyword">const</span> <span class="keywordtype">void</span>* begin, <span class="keywordtype">int</span> index);
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169     <span class="keyword">const</span> <span class="keywordtype">void</span>* _begin;
+<a name="l00170"></a>00170     <a class="code" href="namespacebalor.html#ad0f34fc262530da34bc5d80437fe7dda" title="ワイド文字列用。">StringRange</a> (*_accessor)(<span class="keyword">const</span> <span class="keywordtype">void</span>* , int);
+<a name="l00171"></a>00171     <span class="keywordtype">int</span> _length;
+<a name="l00172"></a>00172 };
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

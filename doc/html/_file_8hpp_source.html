@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/File.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/File.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/io/FileStream.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>std {
+<a name="l00010"></a>00010 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span>allocator;
+<a name="l00011"></a>00011 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> A&gt; <span class="keyword">class </span>vector;
+<a name="l00012"></a>00012 }
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>balor {
+<a name="l00015"></a>00015     <span class="keyword">namespace </span>graphics {
+<a name="l00016"></a>00016         <span class="keyword">class </span>Icon;
+<a name="l00017"></a>00017     }
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="keyword">namespace </span>balor {
+<a name="l00022"></a>00022     <span class="keyword">namespace </span>io {
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00029"></a><a class="code" href="classbalor_1_1io_1_1_file.html">00029</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> {
+<a name="l00030"></a>00030 <span class="keyword">public</span>:
+<a name="l00031"></a>00031     typedef ::balor::graphics::Icon <a class="code" href="classbalor_1_1graphics_1_1_icon.html" title="アイコンを表す。">Icon</a>;
+<a name="l00032"></a>00032 
+<a name="l00034"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html">00034</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html" title="ファイル属性。組み合わせで指定する。">Attributes</a> {
+<a name="l00035"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0">00035</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0">_enum</a> {
+<a name="l00036"></a>00036             none              = 0         , 
+<a name="l00037"></a>00037             readOnly          = 0x00000001, 
+<a name="l00038"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0abe115a8b72a9e38c411667fb007e930a">00038</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0abe115a8b72a9e38c411667fb007e930a" title="読み取り専用。">hidden</a>            = 0x00000002, 
+<a name="l00039"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a9521c5077a72e355c229afdb1f5d9dc9">00039</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a9521c5077a72e355c229afdb1f5d9dc9" title="隠しファイルまたはディレクトリ。">system</a>            = 0x00000004, 
+<a name="l00040"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0ac9aa0ec35e17f47ab5add6ede61f41bf">00040</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0ac9aa0ec35e17f47ab5add6ede61f41bf" title="システムファイルまたはディレクトリ。">directory</a>         = 0x00000010, 
+<a name="l00041"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a7326a34442b1932add1527aec270369f">00041</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a7326a34442b1932add1527aec270369f" title="ディレクトリである。">archive</a>           = 0x00000020, 
+<a name="l00042"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a6965446f28b060cc52e613c57e1131ae">00042</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a6965446f28b060cc52e613c57e1131ae" title="アーカイブファイルまたはディレクトリ。">normal</a>            = 0x00000080, 
+<a name="l00043"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0ac522fd9b5882dfabf631df7cb6cb1c1a">00043</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0ac522fd9b5882dfabf631df7cb6cb1c1a" title="特に属性が無い。">temporary</a>         = 0x00000100, 
+<a name="l00044"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a7d9b3b96f6e3511ae2ff3b2a1ec2eb38">00044</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a7d9b3b96f6e3511ae2ff3b2a1ec2eb38" title="一時ファイル。">sparseFile</a>        = 0x00000200, 
+<a name="l00045"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0addc64b639873cd7beae2c051d904bc9c">00045</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0addc64b639873cd7beae2c051d904bc9c" title="スパースファイル。">reparsePoint</a>      = 0x00000400, 
+<a name="l00046"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0abba7d2c381bea71c22068e4e3341e917">00046</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0abba7d2c381bea71c22068e4e3341e917" title="再解析ポイントが関連付けられている。">compressed</a>        = 0x00000800, 
+<a name="l00047"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0afc7bacfa8c3238121c110f44abaa5cc7">00047</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0afc7bacfa8c3238121c110f44abaa5cc7" title="圧縮されている。">offline</a>           = 0x00001000, 
+<a name="l00048"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a975e93bdb6769839a69ff76dd4f96566">00048</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a975e93bdb6769839a69ff76dd4f96566" title="ファイルの存在するリモート記憶域がオフライン。">notContentIndexed</a> = 0x00002000, 
+<a name="l00049"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0aced5a392a640b07f302cd83fdb3defd7">00049</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0aced5a392a640b07f302cd83fdb3defd7" title="インデックスサービスの対象になっていない。">encrypted</a>         = 0x00004000, 
+<a name="l00050"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a35ef2a0250a3bcd3a66cc3b8aa3252ff">00050</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html#a3ba8d9d993231d3c2373024366a5b1f0a35ef2a0250a3bcd3a66cc3b8aa3252ff" title="暗号化されている。">virtualFile</a>       = 0x00010000, 
+<a name="l00051"></a>00051         };
+<a name="l00052"></a>00052         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html" title="ファイル属性。組み合わせで指定する。">Attributes</a>);
+<a name="l00053"></a>00053     };
+<a name="l00054"></a>00054 
+<a name="l00056"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html">00056</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html" title="システムの特別なディレクトリの種類。">Special</a> {
+<a name="l00057"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1">00057</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1">_enum</a> {
+<a name="l00058"></a>00058             adminTools             = 0x0030, 
+<a name="l00059"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a30b15b5c71b1b019ed59d947ff2a9edb">00059</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a30b15b5c71b1b019ed59d947ff2a9edb" title="管理ツール。">appData</a>                = 0x001a, 
+<a name="l00060"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a624b48f893c9dc1e9e4a22394a6767a7">00060</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a624b48f893c9dc1e9e4a22394a6767a7" title="ローミングありのアプリケーションデータ。">CDBurnArea</a>             = 0x003b, 
+<a name="l00061"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3b9bae1caee185d2e96a0bdc236118c1">00061</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3b9bae1caee185d2e96a0bdc236118c1" title="CD への書き込みを待機しているファイルの領域。">commonAdminTools</a>       = 0x002f, 
+<a name="l00062"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a180fb733f1435a20356949095652bdac">00062</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a180fb733f1435a20356949095652bdac" title="全ユーザの管理ツール。">commonAppData</a>          = 0x0023, 
+<a name="l00063"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a278135a890ef63f83102941e308a0707">00063</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a278135a890ef63f83102941e308a0707" title="全ユーザのアプリケーションデータ。">commonDesktopDirectory</a> = 0x0019, 
+<a name="l00064"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ad4f142716be9233d8a53a7913b26a450">00064</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ad4f142716be9233d8a53a7913b26a450" title="全ユーザのデスクトップ。">commonDocuments</a>        = 0x002e, 
+<a name="l00065"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a148d7633094b14a4b337d7d984978eac">00065</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a148d7633094b14a4b337d7d984978eac" title="全ユーザのドキュメント。">commonMusic</a>            = 0x0035, 
+<a name="l00066"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abd6df8d4ccfe4403b63899567ee813c7">00066</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abd6df8d4ccfe4403b63899567ee813c7" title="全ユーザのミュージック。">commonOemLinks</a>         = 0x003a, 
+<a name="l00067"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9ab675e7b80302745daf33346c82e370">00067</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9ab675e7b80302745daf33346c82e370" title="common OEM link。">commonPictures</a>         = 0x0036, 
+<a name="l00068"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a0ea6123ad4435f040cb79c0c527c0f39">00068</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a0ea6123ad4435f040cb79c0c527c0f39" title="全ユーザのピクチャ。">commonPrograms</a>         = 0X0017, 
+<a name="l00069"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a87e0b83ea0e5c662b30c9225fc55ffff">00069</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a87e0b83ea0e5c662b30c9225fc55ffff" title="全ユーザのスタートメニューの全てのプログラム。">commonStartMenu</a>        = 0x0016, 
+<a name="l00070"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1adf707e2e81dde7bef6661bdc838933f6">00070</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1adf707e2e81dde7bef6661bdc838933f6" title="全ユーザのスタートメニュー。">commonStartup</a>          = 0x0018, 
+<a name="l00071"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ae2ec61e8bb2b9346b8104448dabe74b6">00071</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ae2ec61e8bb2b9346b8104448dabe74b6" title="全ユーザのスタートアップ。">commonTemplates</a>        = 0x002d, 
+<a name="l00072"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a1bba1e4606c547059c24a7ab60853b80">00072</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a1bba1e4606c547059c24a7ab60853b80" title="全ユーザのドキュメントテンプレート。">commonVideos</a>           = 0x0037, 
+<a name="l00073"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3db9272b2de3ad6a9b4ff403f104d18f">00073</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3db9272b2de3ad6a9b4ff403f104d18f" title="全ユーザのビデオ。">cookies</a>                = 0x0021, 
+<a name="l00074"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a15c13939afdb887b6ec8b3db54b191e3">00074</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a15c13939afdb887b6ec8b3db54b191e3" title="Cookie。">desktop</a>                = 0x0000, 
+<a name="l00075"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a68f7cb23e063e538991332fff099f675">00075</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a68f7cb23e063e538991332fff099f675" title="デスクトップ。">desktopDirectory</a>       = 0x0010, 
+<a name="l00076"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abbfd4acf2e1da61cd6f9b6775587247d">00076</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abbfd4acf2e1da61cd6f9b6775587247d" title="デスクトップ。">favorites</a>              = 0x0006, 
+<a name="l00077"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9010809fced72afbd872b03f0b35f689">00077</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9010809fced72afbd872b03f0b35f689" title="お気に入り。">fonts</a>                  = 0x0014, 
+<a name="l00078"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a7fa7f561690c13ce54d4889b2edd949f">00078</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a7fa7f561690c13ce54d4889b2edd949f" title="フォント。">history</a>                = 0x0022, 
+<a name="l00079"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1afce545dba8e4c23841b442b50453f73c">00079</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1afce545dba8e4c23841b442b50453f73c" title="履歴。">internetCache</a>          = 0x0020, 
+<a name="l00080"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1afa5b95d8f2540c9c74acc307d963c387">00080</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1afa5b95d8f2540c9c74acc307d963c387" title="IEキャッシュ。">localAppData</a>           = 0x001c, 
+<a name="l00081"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aa995e59285b44abc991abf3c7620df81">00081</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aa995e59285b44abc991abf3c7620df81" title="アプリケーションデータ。">localizedResources</a>     = 0x0039, 
+<a name="l00082"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ace602d661e3d8c8ad063a30a0401ed85">00082</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ace602d661e3d8c8ad063a30a0401ed85" title="ローカライズされたリソースデータ。">myComputer</a>             = 0x0011, 
+<a name="l00083"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a91cb1107326a9b88c94081e1cd782651">00083</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a91cb1107326a9b88c94081e1cd782651" title="マイコンピュータ。">myDocuments</a>            = 0x0005, 
+<a name="l00084"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a7c934afa4e98501d3bfa76ff1fb2b609">00084</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a7c934afa4e98501d3bfa76ff1fb2b609" title="マイドキュメント。">myMusic</a>                = 0x000d, 
+<a name="l00085"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a22d6e66c26a502ba6de5e19ed39ed6e7">00085</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a22d6e66c26a502ba6de5e19ed39ed6e7" title="マイミュージック。">myPictures</a>             = 0x0027, 
+<a name="l00086"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a1d150e06ab5c670a8ae1e8314e7384b4">00086</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a1d150e06ab5c670a8ae1e8314e7384b4" title="マイピクチャ。">myVideos</a>               = 0x000e, 
+<a name="l00087"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3dcdd0aad3e9cfb7e3406930ae3a69f8">00087</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a3dcdd0aad3e9cfb7e3406930ae3a69f8" title="マイビデオ。">netHood</a>                = 0x0013, 
+<a name="l00088"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a123101d31af662063c0db3f2345d0dc4">00088</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a123101d31af662063c0db3f2345d0dc4" title="NetHood。">personal</a>               = 0x0005, 
+<a name="l00089"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a019993fefd78c78e51564f948af610a6">00089</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a019993fefd78c78e51564f948af610a6" title="マイドキュメント。">printHood</a>              = 0x001b, 
+<a name="l00090"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1acdd3a1c9d9872af755c664758d08c22b">00090</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1acdd3a1c9d9872af755c664758d08c22b" title="PrintHood。">programFiles</a>           = 0x0026, 
+<a name="l00091"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a2ee8a503a62fe35ecda83cfaeadaa169">00091</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a2ee8a503a62fe35ecda83cfaeadaa169" title="Program Files。">programFilesX86</a>        = 0x002a, 
+<a name="l00092"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a8e958b3536fa946d720e233a263a0d68">00092</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a8e958b3536fa946d720e233a263a0d68" title="Program Files。（６４ビット）">programFilesCommon</a>     = 0x002b, 
+<a name="l00093"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ab1744268344ba486da64e9f98f853577">00093</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ab1744268344ba486da64e9f98f853577" title="Program Files/common。">programFilesCommonX86</a>  = 0x002c, 
+<a name="l00094"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ac8a65ed9607218332fd1e2a4901a6dc0">00094</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ac8a65ed9607218332fd1e2a4901a6dc0" title="Program Files/common。（６４ビット）">programs</a>               = 0x0002, 
+<a name="l00095"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abc81076382108f9cc545c52b8e8facd7">00095</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1abc81076382108f9cc545c52b8e8facd7" title="スタートメニューの全てのプログラム。">recent</a>                 = 0x0008, 
+<a name="l00096"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a32eb88608d0d43356c886fda5418833d">00096</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a32eb88608d0d43356c886fda5418833d" title="最近使ったファイル。">resources</a>              = 0x0038, 
+<a name="l00097"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a2b5049dbc24544a9e09f7159597c68b3">00097</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a2b5049dbc24544a9e09f7159597c68b3" title="リソースデータ。">sendTo</a>                 = 0x0009, 
+<a name="l00098"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ae94e5e6a3fec8c67d0e98212db6ab8a5">00098</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ae94e5e6a3fec8c67d0e98212db6ab8a5" title="送る。">startMenu</a>              = 0x000b, 
+<a name="l00099"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a11c91219af78a7f5db990bdca425b817">00099</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a11c91219af78a7f5db990bdca425b817" title="スタートメニュー。">startup</a>                = 0x0007, 
+<a name="l00100"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aef6be5fc3275da5049019ee556ec486c">00100</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aef6be5fc3275da5049019ee556ec486c" title="スタートアップ。">system</a>                 = 0x0025, 
+<a name="l00101"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9bb97e134a7e116abb002b38e61da306">00101</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a9bb97e134a7e116abb002b38e61da306" title="ＯＳのシステムディレクトリ。">systemX86</a>              = 0x0029, 
+<a name="l00102"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ab6ed1cb806c55c9fc51d2a30db6da56b">00102</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ab6ed1cb806c55c9fc51d2a30db6da56b" title="ＯＳのシステムディレクトリ。">templates</a>              = 0x0015, 
+<a name="l00103"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a717152fea3d535b61d1adbcb5ceda4c0">00103</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1a717152fea3d535b61d1adbcb5ceda4c0" title="ドキュメントテンプレート。">userProfile</a>            = 0x0028, 
+<a name="l00104"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ad469aba06faf2f53356a56093df71cd8">00104</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1ad469aba06faf2f53356a56093df71cd8" title="プロファイル。">windows</a>                = 0x0024, 
+<a name="l00105"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aa529202be1cfdf1926786474a23784e2">00105</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html#af6562a097b2df77d10e81d44aa33e3c1aa529202be1cfdf1926786474a23784e2" title="ＯＳのディレクトリ。">temporary</a>              = 0xffff, 
+<a name="l00106"></a>00106         };
+<a name="l00107"></a>00107         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html" title="システムの特別なディレクトリの種類。">Special</a>);
+<a name="l00108"></a>00108     };
+<a name="l00109"></a>00109 
+<a name="l00111"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html">00111</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html" title="システムの特殊なディレクトリの取得オプション。">SpecialOption</a> {
+<a name="l00112"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bad">00112</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bad">_enum</a> {
+<a name="l00113"></a>00113             none        = 0     , 
+<a name="l00114"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bada93906f8054042e2e974fda489763feed">00114</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bada93906f8054042e2e974fda489763feed" title="存在しない場合は空文字列を返す。">create</a>      = 0x8000, 
+<a name="l00115"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bada1f0f1ac961a32e604057016edb990163">00115</a>             <a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bada1f0f1ac961a32e604057016edb990163" title="存在しない場合は作成する。">doNotVerify</a> = 0x4000, 
+<a name="l00116"></a>00116         };
+<a name="l00117"></a>00117         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html" title="システムの特殊なディレクトリの取得オプション。">SpecialOption</a>);
+<a name="l00118"></a>00118     };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00122"></a>00122     <span class="keyword">struct </span>FilesIterator;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
+<a name="l00126"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_access_denied_exception.html">00126</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_access_denied_exception.html" title="アクセス権限がなかった。あるいは異なるボリュームに移動しようとした。">AccessDeniedException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00127"></a>00127 
+<a name="l00129"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_already_exists_exception.html">00129</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_already_exists_exception.html" title="移動先等にファイルやディレクトリが既に存在していた。">AlreadyExistsException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00130"></a>00130 
+<a name="l00132"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_invalid_path_exception.html">00132</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_invalid_path_exception.html" title="ディレクトリのパスが不正だった。">InvalidPathException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00133"></a>00133 
+<a name="l00135"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_not_empty_exception.html">00135</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_not_empty_exception.html" title="ディレクトリが空ではなくて削除できなかった。">NotEmptyException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00136"></a>00136 
+<a name="l00138"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_not_found_exception.html">00138</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_not_found_exception.html" title="ディレクトリが見つからなかった。">NotFoundException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00139"></a>00139 
+<a name="l00141"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_path_too_long_exception.html">00141</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_path_too_long_exception.html" title="パスが長すぎた。">PathTooLongException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00142"></a>00142 
+<a name="l00144"></a><a class="code" href="classbalor_1_1io_1_1_file_1_1_sharing_violation_exception.html">00144</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_file_1_1_sharing_violation_exception.html" title="他スレッドとの Share アクセス競合があった。あるいは移動先が自分のサブディレクトリだった。">SharingViolationException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00145"></a>00145 
+<a name="l00147"></a><a class="code" href="classbalor_1_1io_1_1_file.html#a5167d80ba7eb8310d625c2c6fb881e25">00147</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a5167d80ba7eb8310d625c2c6fb881e25" title="パス文字列の最大長。">maxPath</a> = 260;
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 <span class="keyword">public</span>:
+<a name="l00151"></a>00151     <a class="code" href="classbalor_1_1io_1_1_file.html#ae7171a271b7206c87e1e593b1cdd9d50" title="空文字列のパスから作成。">File</a>();
+<a name="l00152"></a>00152     <a class="code" href="classbalor_1_1io_1_1_file.html#ae7171a271b7206c87e1e593b1cdd9d50" title="空文字列のパスから作成。">File</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>&amp; value);
+<a name="l00154"></a>00154     <a class="code" href="classbalor_1_1io_1_1_file.html#ae7171a271b7206c87e1e593b1cdd9d50" title="空文字列のパスから作成。">File</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>);
+<a name="l00156"></a>00156     <a class="code" href="classbalor_1_1io_1_1_file.html#ae7171a271b7206c87e1e593b1cdd9d50" title="空文字列のパスから作成。">File</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> direcotryName, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> fileName);
+<a name="l00157"></a>00157     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>&amp; value);
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 <span class="keyword">public</span>:
+<a name="l00161"></a>00161     <a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html" title="ファイル属性。組み合わせで指定する。">File::Attributes</a> <a class="code" href="classbalor_1_1io_1_1_file.html#ad6ce3369b0f7629271c3af4272751257" title="ファイル属性。">attributes</a>() <span class="keyword">const</span>;
+<a name="l00162"></a>00162     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#ad6ce3369b0f7629271c3af4272751257" title="ファイル属性。">attributes</a>(<a class="code" href="structbalor_1_1io_1_1_file_1_1_attributes.html" title="ファイル属性。組み合わせで指定する。">File::Attributes</a> value);
+<a name="l00164"></a>00164     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a17ecd65e74ec693c3c1a819d4ec76898" title="ファイルをコピーする。">copyTo</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> destPath, <span class="keywordtype">bool</span> overwrite = <span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00166"></a>00166     <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a07eda982491003cb8865d9d2126431ef" title="ファイルを作成し、ファイルストリームを返す。">create</a>();
+<a name="l00168"></a>00168     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a91b40160f0b7c7143b97f3ba67c85d55" title="ディレクトリを作成する。">createDirectory</a>();
+<a name="l00170"></a>00170     <span class="keyword">static</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#aaff3cb84f73a3f20937547f60096cee6" title="テンポラリファイルを作成する。">createTempFile</a>();
+<a name="l00172"></a>00172     <span class="keyword">static</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#ab427db02533c344626be516babefd765" title="カレントディレクトリ">current</a>();
+<a name="l00173"></a>00173     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#ab427db02533c344626be516babefd765" title="カレントディレクトリ">current</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>);
+<a name="l00175"></a>00175     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file.html#aec03b568da048658367cdf496908b70b" title="ファイルパスが空文字列であるかどうか。">empty</a>() <span class="keyword">const</span>;
+<a name="l00177"></a>00177     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file.html#aac9bf2ce2bdfc8dd99d0deaeb594ae20" title="存在するかどうか。">exists</a>() <span class="keyword">const</span>;
+<a name="l00178"></a>00178     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file.html#aac9bf2ce2bdfc8dd99d0deaeb594ae20" title="存在するかどうか。">exists</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>);
+<a name="l00180"></a>00180     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1io_1_1_file.html#ad53f3503f54fcc4e9736f44dd65ab152" title="拡張子。無い場合は空文字列が返る。">extension</a>() <span class="keyword">const</span>;
+<a name="l00181"></a>00181     <span class="keywordtype">void</span> extensionToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00183"></a>00183     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#aa045d119e7f84332f5869dd30428d840" title="フルファイルパスのファイル。">fullPathFile</a>() <span class="keyword">const</span>;
+<a name="l00186"></a>00186     std::vector&lt;File, std::allocator&lt;File&gt; &gt; <a class="code" href="classbalor_1_1io_1_1_file.html#a3cd6b6cceeb44b8c353e449bbc1f797f" title="現在のディレクトリの下のファイル一覧を返す。ワイルドカード指定可能。 ワイルドカードはファイル名または最後のディレクトリ名にのみ使用できる。">getFiles</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> searchPettern = L<span class="stringliteral">&quot;?*&quot;</span>, <span class="keywordtype">bool</span> recursive = <span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00187"></a>00187     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">File::FilesIterator</a> getFilesIterator(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> searchPettern = L<span class="stringliteral">&quot;?*&quot;</span>) <span class="keyword">const</span>;
+<a name="l00189"></a>00189     <span class="keyword">static</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#abc58b5d172e506664f3a87546a5ae603" title="システムの特殊なディレクトリを返す。引数によっては空のパスや存在しないパスが返る事がある。">getSpecial</a>(<a class="code" href="structbalor_1_1io_1_1_file_1_1_special.html" title="システムの特別なディレクトリの種類。">File::Special</a> special, <a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html" title="システムの特殊なディレクトリの取得オプション。">File::SpecialOption</a> option = <a class="code" href="structbalor_1_1io_1_1_file_1_1_special_option.html#a0b56fbec7ad1a15f9515838cf2e08bada93906f8054042e2e974fda489763feed" title="存在しない場合は空文字列を返す。">SpecialOption::create</a>);
+<a name="l00191"></a>00191     <a class="code" href="classbalor_1_1graphics_1_1_icon.html" title="アイコンを表す。">Icon</a> <a class="code" href="classbalor_1_1io_1_1_file.html#ad5fa88d679eea7f782c8fa5f90ec55a9" title="エクスプローラ上でこのファイルが表示される時のアイコン。">icon</a>() <span class="keyword">const</span>;
+<a name="l00193"></a>00193     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a9a5dd4f79070a3141d1e2fdb16fee387" title="ディレクトリかどうか。存在しない場合は false を返す。">isDirectory</a>() <span class="keyword">const</span>;
+<a name="l00195"></a>00195     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a35b51e82886d1e4922a1b4290bc43da7" title="ファイルまたはディレクトリを移動する。ディレクトリのボリュームをまたいだ移動はできない。">moveTo</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> destPath);
+<a name="l00197"></a>00197     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1io_1_1_file.html#aa1f1301a81dc11e10eb759ceca3c3809" title="ファイルまたはディレクトリ名。">name</a>() <span class="keyword">const</span>;
+<a name="l00198"></a>00198     <span class="keywordtype">void</span> nameToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00200"></a>00200     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1io_1_1_file.html#aae07badb806ef0ec221eae1a45f8d7d6" title="拡張子無しのファイル名。">nameWithoutExtension</a>() <span class="keyword">const</span>;
+<a name="l00201"></a>00201     <span class="keywordtype">void</span> nameWithoutExtensionToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00203"></a>00203     <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a> <a class="code" href="classbalor_1_1io_1_1_file.html#aa81915e1eb795d29ebce22ec38fb6f9a" title="ファイルを追加書き込みモードでオープンする。">openAppend</a>();
+<a name="l00205"></a>00205     <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a8f02e73848a6c39703ca404a5113a7d6" title="ファイルを読み取りモードでオープンする。">openRead</a>() <span class="keyword">const</span>;
+<a name="l00207"></a>00207     <a class="code" href="classbalor_1_1io_1_1_file_stream.html" title="Win32 API のファイルアクセス機能をサポートするストリーム。">FileStream</a> <a class="code" href="classbalor_1_1io_1_1_file.html#abc14c97489b8412f37bb20956703ac65" title="ファイルを書き込みモードでオープンする。">openWrite</a>();
+<a name="l00209"></a><a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b">00209</a>     <span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _path; }
+<a name="l00210"></a>00210     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00211"></a>00211     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a96dbbfe5b4ed26819ca8da8ed468967b" title="ファイルパス。">path</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> directoryName, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> fileName);
+<a name="l00213"></a>00213     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a145cecb27e1e66fdc1ca89beb920639f" title="ファイルパスの長さ。">pathLength</a>() <span class="keyword">const</span>;
+<a name="l00215"></a>00215     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a3f2789921b029abaffae0b0208935941" title="親ディレクトリ。無い場合は空のパスを持った File が返る。">parent</a>() <span class="keyword">const</span>;
+<a name="l00217"></a>00217     <span class="keywordtype">void</span> <span class="keyword">remove</span>(<span class="keywordtype">bool</span> recursive = <span class="keyword">false</span>);
+<a name="l00219"></a>00219     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#a387721b0ab8a94f54e7072b28af0ea87" title="バックアップを作成しない場合は destinationBackupFileName に長さ０の文字列を渡す">replace</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> destFilePath, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> backupFilePath);
+<a name="l00221"></a>00221     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_file.html#afd6fa9385cb1c04ddb1521a783e27bb5" title="ファイルパスの長さを設定し直す。">resetPathLength</a>();
+<a name="l00223"></a>00223     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> <a class="code" href="classbalor_1_1io_1_1_file.html#a21234b7409db0f252f47e004692bf0e6" title="ルートディレクトリ。">root</a>() <span class="keyword">const</span>;
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225 <span class="keyword">public</span>:
+<a name="l00227"></a><a class="code" href="classbalor_1_1io_1_1_file.html#a20c1558ebcbb612374f8e87b8b987125">00227</a>     <a class="code" href="classbalor_1_1io_1_1_file.html#a20c1558ebcbb612374f8e87b8b987125" title="パスを表す StringRange への変換。">operator StringRange</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespacebalor.html#ad0f34fc262530da34bc5d80437fe7dda" title="ワイド文字列用。">StringRange</a>(_path, _pathLength); }
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229 <span class="keyword">private</span>:
+<a name="l00230"></a>00230     <span class="keywordtype">wchar_t</span> _path[<a class="code" href="classbalor_1_1io_1_1_file.html#a5167d80ba7eb8310d625c2c6fb881e25" title="パス文字列の最大長。">maxPath</a>];
+<a name="l00231"></a>00231     <span class="keywordtype">int</span> _pathLength;
+<a name="l00232"></a>00232 };
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 
+<a name="l00237"></a><a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html">00237</a> <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">File::FilesIterator</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00238"></a>00238     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">FilesIterator</a>(<a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">FilesIterator</a>&amp;&amp; value);
+<a name="l00239"></a>00239     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">FilesIterator</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>&amp; file, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> searchPettern = L<span class="stringliteral">&quot;?*&quot;</span>);
+<a name="l00240"></a>00240     ~<a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">FilesIterator</a>();
+<a name="l00241"></a>00241     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">File::FilesIterator</a>&amp; operator=(<a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">FilesIterator</a>&amp;&amp; value);
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243 <span class="keyword">public</span>:
+<a name="l00245"></a>00245     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>&amp; <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html#a450b5a20e6f7e489034b68bb96805627" title="列挙したファイルへのアクセス。">operator*</a>();
+<a name="l00246"></a>00246     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a>* operator-&gt;();
+<a name="l00248"></a>00248     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html" title="ファイルを列挙するイテレータ。再帰検索はサポートしない。再帰検索をするにはスタックなどの処理が必要になるのでそれならば getFiles で配列に入れたほうが早いだろう。">File::FilesIterator</a>&amp; <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html#a037f283ded8007f6dabb4a7dcee4a479" title="次のファイルへ移動。">operator++</a>();
+<a name="l00250"></a>00250     <a class="code" href="structbalor_1_1io_1_1_file_1_1_files_iterator.html#aab677557214c4931888e21acf623e821" title="列挙中かどうか。">operator bool</a>() <span class="keyword">const</span>;
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252 <span class="keyword">private</span>:
+<a name="l00253"></a>00253     <a class="code" href="classbalor_1_1io_1_1_file.html" title="ファイルまたはディレクトリを表す。パスを保持し、パスに対する操作もサポートする。">File</a> current;
+<a name="l00254"></a>00254     <span class="keywordtype">int</span> nameIndex;
+<a name="l00255"></a>00255     <span class="keywordtype">void</span>* handle;
+<a name="l00256"></a>00256 };
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260     }
+<a name="l00261"></a>00261 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

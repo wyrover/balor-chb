@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/FontDialog.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/FontDialog.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/graphics/Color.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/graphics/Font.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/Event.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/Listener.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/Point.hpp&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;balor/Size.hpp&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">struct </span>HWND__;
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>balor {
+<a name="l00014"></a>00014     <span class="keyword">namespace </span>gui {
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 
+<a name="l00045"></a><a class="code" href="classbalor_1_1gui_1_1_font_dialog.html">00045</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_font_dialog.html" title="フォント選択ダイアログ。">FontDialog</a> {
+<a name="l00046"></a>00046 <span class="keyword">public</span>:
+<a name="l00047"></a>00047     typedef ::HWND__* HWND;
+<a name="l00048"></a>00048     typedef ::balor::graphics::Color <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>;
+<a name="l00049"></a>00049     typedef ::balor::graphics::Font <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a>;
+<a name="l00050"></a>00050     typedef ::balor::graphics::Font::HFONT HFONT;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 
+<a name="l00054"></a><a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html">00054</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html" title="FontDialog のイベントの親クラス。">Event</a> : <span class="keyword">public</span> balor::<a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html" title="FontDialog のイベントの親クラス。">Event</a> {
+<a name="l00055"></a>00055         <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html" title="FontDialog のイベントの親クラス。">Event</a>(HWND <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html#ac7720545d9a2862d7e7c76f0db2d1f22" title="ダイアログのウインドウハンドル。">sender</a>);
+<a name="l00056"></a>00056 
+<a name="l00058"></a>00058         HWND <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html#ac7720545d9a2862d7e7c76f0db2d1f22" title="ダイアログのウインドウハンドル。">sender</a>() <span class="keyword">const</span>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="keyword">private</span>:
+<a name="l00061"></a>00061         HWND _sender;
+<a name="l00062"></a>00062     };
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 
+<a name="l00066"></a><a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html">00066</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">Init</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html" title="FontDialog のイベントの親クラス。">Event</a> {
+<a name="l00067"></a>00067         <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">Init</a>(HWND <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_event.html#ac7720545d9a2862d7e7c76f0db2d1f22" title="ダイアログのウインドウハンドル。">sender</a>);
+<a name="l00068"></a>00068 
+<a name="l00071"></a>00071         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a9d3059086a637267b8e10b6d98603f3e" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>() <span class="keyword">const</span>;
+<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a9d3059086a637267b8e10b6d98603f3e" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00073"></a>00073         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a9d3059086a637267b8e10b6d98603f3e" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00075"></a>00075         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a10c44f62d1b24e20750f827c6b7bb812" title="ダイアログのクライアント領域の大きさ。">clientSize</a>() <span class="keyword">const</span>;
+<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a10c44f62d1b24e20750f827c6b7bb812" title="ダイアログのクライアント領域の大きさ。">clientSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_font_dialog_1_1_init.html#a10c44f62d1b24e20750f827c6b7bb812" title="ダイアログのクライアント領域の大きさ。">clientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00078"></a>00078     };
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">public</span>:
+<a name="l00082"></a>00082     <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html" title="フォント選択ダイアログ。">FontDialog</a>();
+<a name="l00083"></a>00083     <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html" title="フォント選択ダイアログ。">FontDialog</a>(<a class="code" href="classbalor_1_1gui_1_1_font_dialog.html" title="フォント選択ダイアログ。">FontDialog</a>&amp;&amp; value);
+<a name="l00084"></a>00084     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_font_dialog.html" title="フォント選択ダイアログ。">FontDialog</a>();
+<a name="l00085"></a>00085 
+<a name="l00087"></a>00087     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#aa9bb4eb61740d67d82bf914f378f2b42" title="文字セットを選択するＵＩを有効にするかどうか。初期値は true。">charsetUI</a>() <span class="keyword">const</span>;
+<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#aa9bb4eb61740d67d82bf914f378f2b42" title="文字セットを選択するＵＩを有効にするかどうか。初期値は true。">charsetUI</a>(<span class="keywordtype">bool</span> value);
+<a name="l00090"></a>00090     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a797c5d5756a83cf589ce9041b2d978cd" title="フォントの初期色または選択したフォントの色。初期値は Color::black()。">color</a>() <span class="keyword">const</span>;
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a797c5d5756a83cf589ce9041b2d978cd" title="フォントの初期色または選択したフォントの色。初期値は Color::black()。">color</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00093"></a>00093     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#aa039f83e683db45562e4dd5a797996bc" title="取り消し線、下線、色を選択するＵＩを表示するかどうか。初期値は true。">effectsUI</a>() <span class="keyword">const</span>;
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#aa039f83e683db45562e4dd5a797996bc" title="取り消し線、下線、色を選択するＵＩを表示するかどうか。初期値は true。">effectsUI</a>(<span class="keywordtype">bool</span> value);
+<a name="l00096"></a>00096     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#abe7895ce376bfc91f1616d51a2bc370a" title="固定ピッチフォントのみ選択できるかどうか。初期値は false。">fixedPitchOnly</a>() <span class="keyword">const</span>;
+<a name="l00097"></a>00097     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#abe7895ce376bfc91f1616d51a2bc370a" title="固定ピッチフォントのみ選択できるかどうか。初期値は false。">fixedPitchOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00099"></a>00099     <span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a90e81b00a233927a9f6316094839487f" title="初期フォントまたは選択したフォント。初期値はヌルハンドルの Font。">font</a>() <span class="keyword">const</span>;
+<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a90e81b00a233927a9f6316094839487f" title="初期フォントまたは選択したフォント。初期値はヌルハンドルの Font。">font</a>(HFONT value);
+<a name="l00102"></a>00102     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FontDialog::Init&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a32277d937fc0d089218cc9bb6eca329c" title="ダイアログを初期化するイベント。">onInit</a>();
+<a name="l00104"></a>00104     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#abca5fd979d296befa15a02f57f8fe05d" title="非 OEM、シンボル、ANSI 文字セットを選択できるかどうか。初期値は false。">scriptsOnly</a>() <span class="keyword">const</span>;
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#abca5fd979d296befa15a02f57f8fe05d" title="非 OEM、シンボル、ANSI 文字セットを選択できるかどうか。初期値は false。">scriptsOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00107"></a>00107     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a276027261f17e5d5bd2f56aa2191ed18" title="ダイアログボックスを表示する。色を選択したかどうかを返す。">show</a>(HWND owner);
+<a name="l00109"></a>00109     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a9b0aff4a042fd3ed51bd4ecc90ca3106" title="縦書きフォントを選択できるかどうか。初期値は true。">verticalFonts</a>() <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_font_dialog.html#a9b0aff4a042fd3ed51bd4ecc90ca3106" title="縦書きフォントを選択できるかどうか。初期値は true。">verticalFonts</a>(<span class="keywordtype">bool</span> value);
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="keyword">protected</span>:
+<a name="l00113"></a>00113     <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> _font;
+<a name="l00114"></a>00114     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> _color;
+<a name="l00115"></a>00115     <span class="keywordtype">int</span> _flags;
+<a name="l00116"></a>00116     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FontDialog::Init&amp;&gt;</a> _onInit;
+<a name="l00117"></a>00117 };
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121     }
+<a name="l00122"></a>00122 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

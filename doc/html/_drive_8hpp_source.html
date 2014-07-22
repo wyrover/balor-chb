@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/Drive.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/io/Drive.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">namespace </span>balor {
+<a name="l00009"></a>00009     <span class="keyword">namespace </span>io {
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00016"></a><a class="code" href="classbalor_1_1io_1_1_drive.html">00016</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_drive.html" title="システムのドライブを表す。">Drive</a> {
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00019"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html">00019</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html" title="ドライブの種類。">Type</a> {
+<a name="l00020"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6">00020</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6">_enum</a> {
+<a name="l00021"></a>00021             unknown         = 0, 
+<a name="l00022"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6aee8ed49e2963bbe9cc3fcd35792ed109">00022</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6aee8ed49e2963bbe9cc3fcd35792ed109" title="判別不能。">noRootDirectory</a> = 1, 
+<a name="l00023"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a346e79aa3c89f947dd8e4baccf8ec875">00023</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a346e79aa3c89f947dd8e4baccf8ec875" title="ルートディレクトリが存在しなかった。">removable</a>       = 2, 
+<a name="l00024"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a739582dfbc61ad81d2d9a3cb26b7fa2f">00024</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a739582dfbc61ad81d2d9a3cb26b7fa2f" title="リムーバブルドライブ。">fixed</a>           = 3, 
+<a name="l00025"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a0d086ac50aac7c90ea68a38a0f8ccc48">00025</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a0d086ac50aac7c90ea68a38a0f8ccc48" title="取り出せない HDD 等のドライブ。">remote</a>          = 4, 
+<a name="l00026"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a5742e67152854d311fa6b790da0a6fed">00026</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6a5742e67152854d311fa6b790da0a6fed" title="リモートドライブ。">cdRom</a>           = 5, 
+<a name="l00027"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6ab74bc8324b1916e2303344d78db4fb94">00027</a>             <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html#a71ba12ceda2aff1398c687d96b1db1b6ab74bc8324b1916e2303344d78db4fb94" title="CD-ROM ドライブ。">ramDisk</a>         = 6, 
+<a name="l00028"></a>00028         };
+<a name="l00029"></a>00029         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html" title="ドライブの種類。">Type</a>);
+<a name="l00030"></a>00030     };
+<a name="l00031"></a>00031 
+<a name="l00033"></a><a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html">00033</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">DrivesIterator</a> {
+<a name="l00034"></a>00034         <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">DrivesIterator</a>(<span class="keywordtype">bool</span> begin);
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036         <a class="code" href="classbalor_1_1io_1_1_drive.html" title="システムのドライブを表す。">Drive</a> operator*();
+<a name="l00037"></a>00037         <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">Drive::DrivesIterator</a>&amp; operator++();
+<a name="l00038"></a>00038         <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">Drive::DrivesIterator</a>&amp; operator--();
+<a name="l00039"></a>00039         <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">Drive::DrivesIterator</a>&amp; rhs);
+<a name="l00040"></a>00040     <span class="keyword">private</span>:
+<a name="l00041"></a>00041         <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mask;
+<a name="l00042"></a>00042         <span class="keywordtype">int</span> current;
+<a name="l00043"></a>00043     };
+<a name="l00044"></a>00044 
+<a name="l00046"></a><a class="code" href="classbalor_1_1io_1_1_drive_1_1_access_denied_exception.html">00046</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_drive_1_1_access_denied_exception.html" title="アクセス権限がなかった。">AccessDeniedException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="classbalor_1_1io_1_1_drive_1_1_not_found_exception.html">00049</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_drive_1_1_not_found_exception.html" title="ドライブが見つからなかった。">NotFoundException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00050"></a>00050 
+<a name="l00052"></a><a class="code" href="classbalor_1_1io_1_1_drive_1_1_not_ready_exception.html">00052</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1io_1_1_drive_1_1_not_ready_exception.html" title="ドライブが準備できていなかった。">NotReadyException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="keyword">public</span>:
+<a name="l00056"></a>00056     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#a670ec01c691056396ed604f2e99276c8" title="ドライブ名から作成。">Drive</a>(<span class="keywordtype">wchar_t</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#ae91f729b78b985e954e7de34d123e9dc" title="ドライブ文字。">letter</a>);
+<a name="l00057"></a>00057     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#a670ec01c691056396ed604f2e99276c8" title="ドライブ名から作成。">Drive</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1io_1_1_drive.html#a6e54eb284771f73ed38ea1a69714f020" title="ドライブ名。">name</a>);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">public</span>:
+<a name="l00061"></a>00061     __int64 <a class="code" href="classbalor_1_1io_1_1_drive.html#abab06a21977db21807578cd6195a1849" title="現在のユーザが使用できる空きバイト数。">availableFreeBytes</a>() <span class="keyword">const</span>;
+<a name="l00063"></a>00063     <span class="keyword">static</span> <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">Drive::DrivesIterator</a> <a class="code" href="classbalor_1_1io_1_1_drive.html#a6b80d05d5ffed00f0ce041595c4c327f" title="論理ドライブリストのイテレータ。">drivesBegin</a>();
+<a name="l00064"></a>00064     <span class="keyword">static</span> <a class="code" href="structbalor_1_1io_1_1_drive_1_1_drives_iterator.html" title="論理ドライブを列挙するイテレータ。">Drive::DrivesIterator</a> drivesEnd();
+<a name="l00066"></a>00066     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1io_1_1_drive.html#af431afa0a27b4ee34b2197fd0496351a" title="ファイルシステム名">fileSystem</a>() <span class="keyword">const</span>;
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> fileSystemToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00069"></a>00069     <span class="keywordtype">wchar_t</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#ae91f729b78b985e954e7de34d123e9dc" title="ドライブ文字。">letter</a>() <span class="keyword">const</span>;
+<a name="l00071"></a>00071     <span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1io_1_1_drive.html#a6e54eb284771f73ed38ea1a69714f020" title="ドライブ名。">name</a>() <span class="keyword">const</span>;
+<a name="l00073"></a>00073     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#a3a7e4721b665cd893a379f8d66dd3b42" title="準備ができているかどうか。">ready</a>() <span class="keyword">const</span>;
+<a name="l00075"></a>00075     __int64 <a class="code" href="classbalor_1_1io_1_1_drive.html#aa0b65d6342f9c2ff5f217bedc8da7181" title="空きバイト数。">totalFreeBytes</a>() <span class="keyword">const</span>;
+<a name="l00077"></a>00077     __int64 <a class="code" href="classbalor_1_1io_1_1_drive.html#a9b32a3bb25cbd246afb216041a26d975" title="ドライブの総バイト数。">totalBytes</a>() <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <a class="code" href="structbalor_1_1io_1_1_drive_1_1_type.html" title="ドライブの種類。">Drive::Type</a> <a class="code" href="classbalor_1_1io_1_1_drive.html#a5973e907175987f76e5338ad5c8ad1ec" title="ドライブのタイプ。">type</a>() <span class="keyword">const</span>;
+<a name="l00081"></a>00081     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1io_1_1_drive.html#a858cc695926e50e5100f07d963a480cc" title="ボリュームラベル。">volumeLabel</a>() <span class="keyword">const</span>;
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1io_1_1_drive.html#a858cc695926e50e5100f07d963a480cc" title="ボリュームラベル。">volumeLabel</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00083"></a>00083     <span class="keywordtype">void</span> volumeLabelToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="keyword">private</span>:
+<a name="l00086"></a>00086     <span class="keywordtype">wchar_t</span> _name[4];
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     }
+<a name="l00092"></a>00092 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

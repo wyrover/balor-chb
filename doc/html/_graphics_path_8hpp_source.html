@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/GraphicsPath.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/GraphicsPath.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/graphics/Graphics.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/ArrayRange.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">struct </span>HDC__;
+<a name="l00011"></a>00011 <span class="keyword">struct </span>HFONT__;
+<a name="l00012"></a>00012 <span class="keyword">struct </span>HPEN__;
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>balor {
+<a name="l00015"></a>00015 <span class="keyword">class </span>Point;
+<a name="l00016"></a>00016 <span class="keyword">class </span>Rectangle;
+<a name="l00017"></a>00017 <span class="keyword">class </span>Size;
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="keyword">namespace </span>balor {
+<a name="l00022"></a>00022     <span class="keyword">namespace </span>graphics {
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00034"></a><a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html">00034</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00036"></a>00036     typedef ::HDC__* HDC;
+<a name="l00037"></a>00037     typedef ::HFONT__* HFONT;
+<a name="l00038"></a>00038     typedef ::HPEN__* HPEN;
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html">00041</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a> {
+<a name="l00042"></a>00042     <span class="keyword">public</span>:
+<a name="l00043"></a>00043         <a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>() {}
+<a name="l00044"></a>00044         <a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>(<a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>&amp;&amp; value);
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046         <a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>&amp;&amp; value);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <span class="keyword">public</span>:
+<a name="l00049"></a>00049         std::vector&lt;Point&gt; points;
+<a name="l00050"></a>00050         std::vector&lt;unsigned char&gt; types;
+<a name="l00051"></a>00051     };
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="keyword">public</span>:
+<a name="l00056"></a>00056     <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a5b708aa130299d325876a1db3f0321f5" title="まっさらな描画状態で作成。">GraphicsPath</a>();
+<a name="l00057"></a>00057     <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a5b708aa130299d325876a1db3f0321f5" title="まっさらな描画状態で作成。">GraphicsPath</a>(<a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a>&amp;&amp; value);
+<a name="l00059"></a>00059     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a5b708aa130299d325876a1db3f0321f5" title="まっさらな描画状態で作成。">GraphicsPath</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a>&amp; <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a2a210e6292d748905dc25710e445a674" title="図形データ。">data</a>);
+<a name="l00060"></a>00060     ~<a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a>();
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a>&amp;&amp; value);
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="keyword">public</span>:
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ac7c8910196734d91b8d4bdfedd6bb076" title="円弧を追加する。">addArc</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rect, <span class="keywordtype">float</span> startAngle, <span class="keywordtype">float</span> sweepAngle);
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ac7c8910196734d91b8d4bdfedd6bb076" title="円弧を追加する。">addArc</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">float</span> startAngle, <span class="keywordtype">float</span> sweepAngle);
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a9775e69ae7377bbd362de1fde006a453" title="ベジェ曲線を追加する。終点のピクセルは描画されない。">addBezier</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p0, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p1, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p2, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p3);
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a9775e69ae7377bbd362de1fde006a453" title="ベジェ曲線を追加する。終点のピクセルは描画されない。">addBezier</a>(<span class="keywordtype">int</span> x0, <span class="keywordtype">int</span> y0, <span class="keywordtype">int</span> x1, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <span class="keywordtype">int</span> x3, <span class="keywordtype">int</span> y3);
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a5060483e3b8ea08522848f057f31b1f7" title="ベジェ曲線を連続で追加する。終点のピクセルは描画されない。">addBeziers</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Point&gt;</a> points);
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a85809d1608713da917bdaf96d0836d7b" title="円を追加する。">addCircle</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point, <span class="keywordtype">int</span> radius);
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a85809d1608713da917bdaf96d0836d7b" title="円を追加する。">addCircle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> radius);
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#af2ee697b5e8785f8dffe98647ca8b37e" title="楕円を追加する。">addEllipse</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rect);
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#af2ee697b5e8785f8dffe98647ca8b37e" title="楕円を追加する。">addEllipse</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a3ac07f2857adef53a8bb8ae37d0c305b" title="線分を追加する。終点のピクセルは描画されない。">addLine</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p0, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; p1);
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a3ac07f2857adef53a8bb8ae37d0c305b" title="線分を追加する。終点のピクセルは描画されない。">addLine</a>(<span class="keywordtype">int</span> x0, <span class="keywordtype">int</span> y0, <span class="keywordtype">int</span> x1, <span class="keywordtype">int</span> y1);
+<a name="l00083"></a>00083     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a1a4a500c78dccaa9a15135466687fd4e" title="線分を連続で追加する。終点のピクセルは描画されない。">addLines</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Point&gt;</a> points);
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ad90112d0559370a08606039fa21db9b1" title="パスを追加する。">addPath</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a>&amp; path);
+<a name="l00087"></a>00087     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#afe6aa73f5f6cfa4e500e43100fc32490" title="扇形を追加する。">addPie</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rectangle, <span class="keywordtype">float</span> startAngle, <span class="keywordtype">float</span> sweepAngle);
+<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#afe6aa73f5f6cfa4e500e43100fc32490" title="扇形を追加する。">addPie</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">float</span> startAngle, <span class="keywordtype">float</span> sweepAngle);
+<a name="l00090"></a>00090     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a6be7fd5cd275e204044a38391fa21d91" title="多角形を追加する。">addPolygon</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Point&gt;</a> points);
+<a name="l00092"></a>00092     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a6c3a3cd569d85e0cb5b0402d2243cded" title="長方形を追加する。">addRectangle</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rect);
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a6c3a3cd569d85e0cb5b0402d2243cded" title="長方形を追加する。">addRectangle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a7010ad5296d9c17219cfac83487d5eee" title="長方形を連続で追加する。">addRectangles</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Rectangle&gt;</a> rects);
+<a name="l00097"></a>00097     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ab7e32d18779eafd92e7ed68c1ac9ffc4" title="文字列を追加する。">addText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> s, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point);
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ab7e32d18779eafd92e7ed68c1ac9ffc4" title="文字列を追加する。">addText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> s, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00099"></a>00099     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ab7e32d18779eafd92e7ed68c1ac9ffc4" title="文字列を追加する。">addText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> s, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rect, <a class="code" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html" title="文字列描画のフラグ。組み合わせで指定する。">Graphics::TextFormat</a> format = <a class="code" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694ac20e80c6a1c57da4f773b7eb750239e1" title="矩形の下端に文字列を揃える。singleLine も含める。">Graphics::TextFormat::default</a>);
+<a name="l00101"></a>00101     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ad5c384e0d041de22b7a0baa309999647" title="図形を含む矩形。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00103"></a>00103     <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#aacb4d48e9821a3db0a230d5c8fd5f0dc" title="複製を返す。">clone</a>() <span class="keyword">const</span>;
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ae8dbd44f20372f9b177c5de91ddb48b6" title="直前に描いた図形を閉じる。">closeFigure</a>();
+<a name="l00107"></a>00107     <a class="code" href="classbalor_1_1graphics_1_1_graphics_path_1_1_data.html" title="描画した線のデータ。">Data</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a2a210e6292d748905dc25710e445a674" title="図形データ。">data</a>() <span class="keyword">const</span>;
+<a name="l00109"></a>00109     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a8f5ec13be863bba5e92c271e044bb945" title="曲線データを直線に分解する。">flatten</a>();
+<a name="l00111"></a>00111     <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a4e172fa46cee0483e592bd93b15f574e" title="文字を描画するフォント。">font</a>() <span class="keyword">const</span>;
+<a name="l00112"></a>00112     <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a4e172fa46cee0483e592bd93b15f574e" title="文字を描画するフォント。">font</a>(HFONT value);
+<a name="l00114"></a><a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ac8974f78f0381247a39f834ff6085359">00114</a>     HDC <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#ac8974f78f0381247a39f834ff6085359" title="HDC を返す。">hdc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00116"></a>00116     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a7db2febb21d3f0b6f7b7a1bf37894180" title="点が図形に含まれるかどうか。">isVisible</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00117"></a>00117     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a7db2febb21d3f0b6f7b7a1bf37894180" title="点が図形に含まれるかどうか。">isVisible</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00119"></a>00119     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a13361e5e34af3bddcb659c22575f1a6a" title="最後の図形を書き終わった点。">lastPoint</a>() <span class="keyword">const</span>;
+<a name="l00121"></a>00121     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#a3f9b6e4b3459f3b990962c41bdc40037" title="図形を全て消す。">reset</a>();
+<a name="l00123"></a>00123     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_graphics_path.html#af6e8185a043294708e3d2202ad7a4fd9" title="図形の線を指定したペンの太さにする。太くした線自体が図形になる。">widen</a>(HPEN pen);
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="keyword">private</span>:
+<a name="l00126"></a>00126     HDC _handle;
+<a name="l00127"></a>00127     <span class="keywordtype">bool</span> _closed;
+<a name="l00128"></a>00128 };
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

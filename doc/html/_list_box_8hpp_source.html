@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListBox.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListBox.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/graphics/Color.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/StringRangeArray.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/UniqueAny.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>gui {
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00042"></a><a class="code" href="classbalor_1_1gui_1_1_list_box.html">00042</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00043"></a>00043 <span class="keyword">public</span>:
+<a name="l00045"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html">00045</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html" title="項目の選択方法。">SelectMode</a> {
+<a name="l00046"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcc">00046</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcc">_enum</a> {
+<a name="l00047"></a>00047             none             = 0x4000L, 
+<a name="l00048"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca6a0560c3902fe6b262647c29c4226573">00048</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca6a0560c3902fe6b262647c29c4226573" title="選択できない">one</a>              = 0x0000L, 
+<a name="l00049"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca01496ff74e496664c6eaa2dd262f6d05">00049</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca01496ff74e496664c6eaa2dd262f6d05" title="一つだけ選択できる">multiple</a>         = 0x0008L, 
+<a name="l00050"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca9f9fdbf8de5d2c9c00541799d09914f4">00050</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca9f9fdbf8de5d2c9c00541799d09914f4" title="複数選択できる">multipleExtended</a> = 0x0800L, 
+<a name="l00051"></a>00051         };
+<a name="l00052"></a>00052         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html" title="項目の選択方法。">SelectMode</a>);
+<a name="l00053"></a>00053     };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html">00057</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00058"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138">00058</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138">_enum</a> {
+<a name="l00059"></a>00059             none             = 0          , 
+<a name="l00060"></a>00060             noHScroll        = 0x00100000L, 
+<a name="l00061"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a8bb2c8279a2896a97dd25525f12a830f">00061</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a8bb2c8279a2896a97dd25525f12a830f" title="水平スクロールをしない。">noVScroll</a>        = 0x00200000L, 
+<a name="l00062"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a233fe728247762ee5e75facf36d1bee4">00062</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a233fe728247762ee5e75facf36d1bee4" title="垂直スクロールをしない。">scrollBarFixed</a>   = 0x1000L    , 
+<a name="l00063"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138ae6d6ae81d4447ae98e32071e42ad9a33">00063</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138ae6d6ae81d4447ae98e32071e42ad9a33" title="noHScroll や noVScroll が設定されていないスクロールバーを常に表示する。">multiColumn</a>      = 0x0200L    , 
+<a name="l00064"></a><a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a30c9889a8139450806ad34270b9591c5">00064</a>             <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138a30c9889a8139450806ad34270b9591c5" title="縦の行を複数行にする。">noIntegralHeight</a> = 0x0100L    , 
+<a name="l00065"></a>00065         };
+<a name="l00066"></a>00066         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00067"></a>00067     };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00071"></a><a class="code" href="classbalor_1_1gui_1_1_list_box.html#a4dcfa4bcca383c4da9533c7ed4595aea">00071</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;ListBox, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a4dcfa4bcca383c4da9533c7ed4595aea" title="リストボックスのイベントの親クラス。">Event</a>;
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Select</a>;
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keyword">public</span>:
+<a name="l00078"></a>00078     <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a04faecf9fee0818be09f7a8686946b8b" title="ヌルハンドルで作成。">ListBox</a>();
+<a name="l00079"></a>00079     <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a04faecf9fee0818be09f7a8686946b8b" title="ヌルハンドルで作成。">ListBox</a>(<a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00081"></a>00081     <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a04faecf9fee0818be09f7a8686946b8b" title="ヌルハンドルで作成。">ListBox</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html" title="項目の選択方法。">ListBox::SelectMode</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a38548bbc25df9c43172da6cca1556fb1" title="first 番目から last 番目までの項目を選択する。selecting が false なら選択を解除する。複数選択可能な場合のみ有効。">select</a> = <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca6a0560c3902fe6b262647c29c4226573" title="選択できない">SelectMode::one</a>, <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListBox::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a95b63e9692e04491f5650e0f8f88a797" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00083"></a>00083     <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a04faecf9fee0818be09f7a8686946b8b" title="ヌルハンドルで作成。">ListBox</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a0cd36264ac50c96183311fb19b6b7272" title="項目を一括で取得、設定する。">items</a>, <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html" title="項目の選択方法。">ListBox::SelectMode</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a38548bbc25df9c43172da6cca1556fb1" title="first 番目から last 番目までの項目を選択する。selecting が false なら選択を解除する。複数選択可能な場合のみ有効。">select</a> = <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca6a0560c3902fe6b262647c29c4226573" title="選択できない">SelectMode::one</a>, <a class="code" href="structbalor_1_1gui_1_1_list_box_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">ListBox::Options</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a95b63e9692e04491f5650e0f8f88a797" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00084"></a>00084     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a>();
+<a name="l00085"></a>00085     <a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a>&amp;&amp; value);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="keyword">public</span>:
+<a name="l00089"></a>00089     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a98b7d75b2de8d3651e82ddfeb595e59a" title="項目を追加する。">add</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> item);
+<a name="l00091"></a>00091     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a60894e0e5180f9f7f14a34170c951362" title="範囲選択の開始点になる項目インデックス。設定されていない場合は -1。">anchorIndex</a>() <span class="keyword">const</span>;
+<a name="l00092"></a>00092     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a60894e0e5180f9f7f14a34170c951362" title="範囲選択の開始点になる項目インデックス。設定されていない場合は -1。">anchorIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#af6bc802f145d607da5cb7f953c8a232a" title="全ての項目を削除する。">clear</a>();
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a6008f9c6ebc82b157b9de02462f4e2e6" title="全ての項目を未選択にする。">clearSelected</a>();
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a53602a9a1d37550973b908d679889a73" title="一行の幅。options() に ListBox::Options::multiColumn を設定した場合のみ有効。">columnWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00100"></a>00100     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a7c319c866a3807a2ddbad10b8ddb69d8" title="項目数。">count</a>() <span class="keyword">const</span>;
+<a name="l00102"></a>00102     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a3ab2559e7a8d5ad45e17ca3516134d19" title="１列に表示できる項目数？。">countPerPage</a>() <span class="keyword">const</span>;
+<a name="l00104"></a>00104     <a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#ae869715a4797df09326f7b8355496902" title="コントロールの境界線の種類。">edge</a>() <span class="keyword">const</span>;
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#ae869715a4797df09326f7b8355496902" title="コントロールの境界線の種類。">edge</a>(<a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> value);
+<a name="l00107"></a>00107     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a9b44049826095e2e338c1a73e90b88c0" title="項目を削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00109"></a>00109     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a619287b8df9b9d970dc48ad8403d9d5a" title="最初に表示されている項目のインデックス。スクロールを制御できる。">firstVisibleIndex</a>() <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a619287b8df9b9d970dc48ad8403d9d5a" title="最初に表示されている項目のインデックス。スクロールを制御できる。">firstVisibleIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00112"></a>00112     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#acef8f4f167f10d72b3be5d5c67be2111" title="フォーカスされている項目インデックス。">focusedIndex</a>() <span class="keyword">const</span>;
+<a name="l00113"></a>00113     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#acef8f4f167f10d72b3be5d5c67be2111" title="フォーカスされている項目インデックス。">focusedIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00115"></a>00115     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a5f46db61e8e733bce29b9ec8861d7381" title="クライアント座標から最も近い項目のインデックスを求める。見つからない場合は -1 を返す。">getIndexAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00116"></a>00116     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a5f46db61e8e733bce29b9ec8861d7381" title="クライアント座標から最も近い項目のインデックスを求める。見つからない場合は -1 を返す。">getIndexAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00118"></a>00118     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a42403b9eeadee4c3f67da7ed234be8ab" title="指定したインデックスの項目。">getItem</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00119"></a>00119     <span class="keywordtype">void</span> getItemToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer, <span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00121"></a>00121     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a7480deee82cbe4eefc5290b3d12f5a48" title="項目のクライアント座標と大きさ。幅は現在のスクロール位置で表示されている大きさ。">getItemBounds</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00123"></a><a class="code" href="classbalor_1_1gui_1_1_list_box.html#afcd39abcf7024c15e99bc23a5601afa1">00123</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_list_box.html#afcd39abcf7024c15e99bc23a5601afa1" title="項目に紐つけたデータ。取得する場合は UniqueAny の中身の型を指定する。">getItemData</a>(<span class="keywordtype">int</span> index) {
+<a name="l00124"></a>00124         <span class="keyword">auto</span> data = _getItemData(index);
+<a name="l00125"></a>00125         <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T <a class="code" href="classbalor_1_1gui_1_1_list_box.html#afcd39abcf7024c15e99bc23a5601afa1" title="項目に紐つけたデータ。取得する場合は UniqueAny の中身の型を指定する。">getItemData</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{
+<a name="l00128"></a>00128         <span class="keyword">auto</span> data = _getItemData(index);
+<a name="l00129"></a>00129         <span class="keywordflow">return</span> any_cast&lt;T&gt;(*<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>*<span class="keyword">&gt;</span>(&amp;data));
+<a name="l00130"></a>00130     }
+<a name="l00132"></a>00132     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#ad86734afe0589b5d2ba68a2eb0dd266f" title="項目に紐つけたデータがあるかどうか。">getItemDataIsEmpty</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00134"></a>00134     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#aa9e5071f7e7c3bba4b8ac83efa24005f" title="font(), items() の値によって最適な大きさを求める。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00136"></a>00136     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#aba9c626d18ad950630feee8e79031e08" title="項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> item);
+<a name="l00138"></a>00138     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a7597e2559d6c06f7e5a5c9080d93372a" title="項目の選択状態の取得と設定。">isSelected</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00139"></a>00139     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a7597e2559d6c06f7e5a5c9080d93372a" title="項目の選択状態の取得と設定。">isSelected</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">bool</span> selected);
+<a name="l00141"></a>00141     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a3787eccd7a888d36011c6637ca7ce1e7" title="項目の高さ。スクロールがおかしくなるので項目を追加する前に設定するべき。">itemHeight</a>() <span class="keyword">const</span>;
+<a name="l00142"></a>00142     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a3787eccd7a888d36011c6637ca7ce1e7" title="項目の高さ。スクロールがおかしくなるので項目を追加する前に設定するべき。">itemHeight</a>(<span class="keywordtype">int</span> value);
+<a name="l00144"></a>00144     std::vector&lt;String, std::allocator&lt;String&gt; &gt; <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a0cd36264ac50c96183311fb19b6b7272" title="項目を一括で取得、設定する。">items</a>() <span class="keyword">const</span>;
+<a name="l00145"></a>00145     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a0cd36264ac50c96183311fb19b6b7272" title="項目を一括で取得、設定する。">items</a>(<a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> value);
+<a name="l00147"></a>00147     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a6d7e8c6e0e5cd32bcc462322c977f674" title="現在の項目の表示に必要な最大幅。">maxItemWidth</a>() <span class="keyword">const</span>;
+<a name="l00149"></a>00149     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListBox::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_list_box.html#af02aee193f7dafcf863c7dad4ae85132" title="選択項目が変更されたイベント。">onSelect</a>();
+<a name="l00151"></a>00151     ListBox::Options <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a95b63e9692e04491f5650e0f8f88a797" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00153"></a>00153     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a38548bbc25df9c43172da6cca1556fb1" title="first 番目から last 番目までの項目を選択する。selecting が false なら選択を解除する。複数選択可能な場合のみ有効。">select</a>(<span class="keywordtype">int</span> first, <span class="keywordtype">int</span> last, <span class="keywordtype">bool</span> selecting = <span class="keyword">true</span>);
+<a name="l00155"></a>00155     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#ab09f3aa8f90c3799c740ce044202f8b8" title="選択されている項目の数。">selectedCount</a>() <span class="keyword">const</span>;
+<a name="l00157"></a>00157     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a544110ade3a9cee2c23d3577acead496" title="選択されている項目のインデックス。選択されていない場合は -1 が返る。selectMode() が ListBox::SelectMode::one の場合のみ有効。">selectedIndex</a>() <span class="keyword">const</span>;
+<a name="l00158"></a>00158     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a544110ade3a9cee2c23d3577acead496" title="選択されている項目のインデックス。選択されていない場合は -1 が返る。selectMode() が ListBox::SelectMode::one の場合のみ有効。">selectedIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00160"></a>00160     std::vector&lt;int, std::allocator&lt;int&gt; &gt; <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a102083df6b5b919c162fcf8b9964bd27" title="選択されている項目のインデックス配列。">selectedIndices</a>() <span class="keyword">const</span>;
+<a name="l00161"></a>00161     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a102083df6b5b919c162fcf8b9964bd27" title="選択されている項目のインデックス配列。">selectedIndices</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;int&gt;</a> value);
+<a name="l00163"></a>00163     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#afefb188d59bd4fb4038746ae1fd0338f" title="項目にデータを紐つける。">setItemData</a>(<span class="keywordtype">int</span> index, <a class="code" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a>&amp;&amp; value);
+<a name="l00165"></a>00165     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a5eb2085a9c9741170a5c538d240d178a" title="水平スクロールできる幅。">scrollWidth</a>() <span class="keyword">const</span>;
+<a name="l00166"></a>00166     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a5eb2085a9c9741170a5c538d240d178a" title="水平スクロールできる幅。">scrollWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00168"></a>00168     ListBox::SelectMode <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a5361d038992ea664acf675eab40fbcac" title="項目の選択方法。">selectMode</a>() <span class="keyword">const</span>;
+<a name="l00170"></a>00170     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a97691fc85f42c67464e4eb5c4be17b1d" title="tab 幅。初期値は 8。単位はフォントの平均幅。">tabWidth</a>() <span class="keyword">const</span>;
+<a name="l00171"></a>00171     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a97691fc85f42c67464e4eb5c4be17b1d" title="tab 幅。初期値は 8。単位はフォントの平均幅。">tabWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00173"></a>00173     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a1cdf3de546cfe1800be8da045f436ebb" title="文字列の色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00174"></a>00174     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a1cdf3de546cfe1800be8da045f436ebb" title="文字列の色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 <span class="keyword">public</span>:
+<a name="l00178"></a>00178     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a27fb99d15cb564d3736ea9a6deb831d5" title="項目を取得する。">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181 <span class="keyword">protected</span>:
+<a name="l00183"></a>00183     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_list_box.html#a204980ea50e0a3878573c55aca59ea27" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(Message&amp; msg);
+<a name="l00184"></a>00184 
+<a name="l00185"></a>00185 <span class="keyword">protected</span>:
+<a name="l00186"></a>00186     <span class="keywordtype">void</span>* _getItemData(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188     <span class="keywordtype">int</span> _tabWidth;
+<a name="l00189"></a>00189     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> _textColor;
+<a name="l00190"></a>00190     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ListBox::Select&amp;&gt;</a> _onSelect;
+<a name="l00191"></a>00191 };
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195     }
+<a name="l00196"></a>00196 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

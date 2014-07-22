@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::ListBox</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_list_box.html">ListBox</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::ListBox</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::ListBox" --><!-- doxytag: inherits="balor::gui::Control" -->
+<p>リストボックスコントロール。  
+ <a href="classbalor_1_1gui_1_1_list_box.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_list_box_8hpp_source.html">ListBox.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::ListBoxに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1gui_1_1_list_box.png" usemap="#balor::gui::ListBox_map" alt=""/>
+  <map id="balor::gui::ListBox_map" name="balor::gui::ListBox_map">
+<area href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。" alt="balor::gui::Control" shape="rect" coords="0,112,155,136"/>
+<area href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代..." alt="balor::Referenceable" shape="rect" coords="0,56,155,80"/>
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,155,24"/>
+<area href="classbalor_1_1gui_1_1_combo_box_1_1_list.html" title="コンボボックス上のリストボックス。" alt="balor::gui::ComboBox::List" shape="rect" coords="0,224,155,248"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1gui_1_1_list_box-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_options.html">Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。組み合わせで指定する。  <a href="structbalor_1_1gui_1_1_list_box_1_1_options.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html">SelectMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の選択方法。  <a href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4dcfa4bcca383c4da9533c7ed4595aea"></a><!-- doxytag: member="balor::gui::ListBox::Event" ref="a4dcfa4bcca383c4da9533c7ed4595aea" args="" -->
+typedef <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">EventWithSubclassSender</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1gui_1_1_list_box.html">ListBox</a>, <a class="el" href="classbalor_1_1_event_with_sender.html">Control::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a4dcfa4bcca383c4da9533c7ed4595aea">Event</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">リストボックスのイベントの親クラス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08b09ef4b435380fc16cad66c9cc991f"></a><!-- doxytag: member="balor::gui::ListBox::Select" ref="a08b09ef4b435380fc16cad66c9cc991f" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Select</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04faecf9fee0818be09f7a8686946b8b"></a><!-- doxytag: member="balor::gui::ListBox::ListBox" ref="a04faecf9fee0818be09f7a8686946b8b" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a04faecf9fee0818be09f7a8686946b8b">ListBox</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab5ef26954b0612638bfb78d3baf9652"></a><!-- doxytag: member="balor::gui::ListBox::ListBox" ref="aab5ef26954b0612638bfb78d3baf9652" args="(ListBox &amp;&amp;value, bool checkSlicing=true)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>ListBox</b> (<a class="el" href="classbalor_1_1gui_1_1_list_box.html">ListBox</a> &amp;&amp;value, bool checkSlicing=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade353b4faee6ef78143f5e8a2d6f10d5"></a><!-- doxytag: member="balor::gui::ListBox::ListBox" ref="ade353b4faee6ef78143f5e8a2d6f10d5" args="(Control &amp;parent, int x, int y, int width, int height, ListBox::SelectMode select=SelectMode::one, ListBox::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#ade353b4faee6ef78143f5e8a2d6f10d5">ListBox</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html">ListBox::SelectMode</a> select=SelectMode::one, <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_options.html">ListBox::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0daa62b531424262cc714c345734cba"></a><!-- doxytag: member="balor::gui::ListBox::ListBox" ref="ad0daa62b531424262cc714c345734cba" args="(Control &amp;parent, int x, int y, int width, int height, StringRangeArray items, ListBox::SelectMode select=SelectMode::one, ListBox::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#ad0daa62b531424262cc714c345734cba">ListBox</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="classbalor_1_1_string_range_array.html">StringRangeArray</a> items, <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html">ListBox::SelectMode</a> select=SelectMode::one, <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_options.html">ListBox::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさ、項目配列から作成。大きさを０にすると getPreferredSize 関数で求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d2ac32deae1c9ca6deaf5ad83105008"></a><!-- doxytag: member="balor::gui::ListBox::operator=" ref="a9d2ac32deae1c9ca6deaf5ad83105008" args="(ListBox &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1gui_1_1_list_box.html">ListBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1gui_1_1_list_box.html">ListBox</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98b7d75b2de8d3651e82ddfeb595e59a"></a><!-- doxytag: member="balor::gui::ListBox::add" ref="a98b7d75b2de8d3651e82ddfeb595e59a" args="(StringRange item)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a98b7d75b2de8d3651e82ddfeb595e59a">add</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> item)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を追加する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60894e0e5180f9f7f14a34170c951362"></a><!-- doxytag: member="balor::gui::ListBox::anchorIndex" ref="a60894e0e5180f9f7f14a34170c951362" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a60894e0e5180f9f7f14a34170c951362">anchorIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">範囲選択の開始点になる項目インデックス。設定されていない場合は -1。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05ca1f695e79ff3ddc159d02c1f31bfa"></a><!-- doxytag: member="balor::gui::ListBox::anchorIndex" ref="a05ca1f695e79ff3ddc159d02c1f31bfa" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>anchorIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6bc802f145d607da5cb7f953c8a232a"></a><!-- doxytag: member="balor::gui::ListBox::clear" ref="af6bc802f145d607da5cb7f953c8a232a" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#af6bc802f145d607da5cb7f953c8a232a">clear</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての項目を削除する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6008f9c6ebc82b157b9de02462f4e2e6"></a><!-- doxytag: member="balor::gui::ListBox::clearSelected" ref="a6008f9c6ebc82b157b9de02462f4e2e6" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a6008f9c6ebc82b157b9de02462f4e2e6">clearSelected</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての項目を未選択にする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53602a9a1d37550973b908d679889a73"></a><!-- doxytag: member="balor::gui::ListBox::columnWidth" ref="a53602a9a1d37550973b908d679889a73" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a53602a9a1d37550973b908d679889a73">columnWidth</a> (int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">一行の幅。options() に <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_options.html#abc9c50e766c519ec7bcaddb3a0a6d138ae6d6ae81d4447ae98e32071e42ad9a33" title="noHScroll や noVScroll が設定されていないスクロールバーを常に表示する。">ListBox::Options::multiColumn</a> を設定した場合のみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c319c866a3807a2ddbad10b8ddb69d8"></a><!-- doxytag: member="balor::gui::ListBox::count" ref="a7c319c866a3807a2ddbad10b8ddb69d8" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a7c319c866a3807a2ddbad10b8ddb69d8">count</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ab2559e7a8d5ad45e17ca3516134d19"></a><!-- doxytag: member="balor::gui::ListBox::countPerPage" ref="a3ab2559e7a8d5ad45e17ca3516134d19" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a3ab2559e7a8d5ad45e17ca3516134d19">countPerPage</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">１列に表示できる項目数？。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae869715a4797df09326f7b8355496902"></a><!-- doxytag: member="balor::gui::ListBox::edge" ref="ae869715a4797df09326f7b8355496902" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#ae869715a4797df09326f7b8355496902">edge</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールの境界線の種類。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb2edbccbd2888bde180eae5c6d5b2cd"></a><!-- doxytag: member="balor::gui::ListBox::edge" ref="aeb2edbccbd2888bde180eae5c6d5b2cd" args="(Control::Edge value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>edge</b> (<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b44049826095e2e338c1a73e90b88c0"></a><!-- doxytag: member="balor::gui::ListBox::erase" ref="a9b44049826095e2e338c1a73e90b88c0" args="(int index)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a9b44049826095e2e338c1a73e90b88c0">erase</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を削除する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a619287b8df9b9d970dc48ad8403d9d5a"></a><!-- doxytag: member="balor::gui::ListBox::firstVisibleIndex" ref="a619287b8df9b9d970dc48ad8403d9d5a" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a619287b8df9b9d970dc48ad8403d9d5a">firstVisibleIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最初に表示されている項目のインデックス。スクロールを制御できる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9cf34a7aa4ae519c6f838de7fc7f153"></a><!-- doxytag: member="balor::gui::ListBox::firstVisibleIndex" ref="ab9cf34a7aa4ae519c6f838de7fc7f153" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>firstVisibleIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acef8f4f167f10d72b3be5d5c67be2111"></a><!-- doxytag: member="balor::gui::ListBox::focusedIndex" ref="acef8f4f167f10d72b3be5d5c67be2111" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#acef8f4f167f10d72b3be5d5c67be2111">focusedIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォーカスされている項目インデックス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a59a851d68e1f9fd4a6fc9ad66fcf50"></a><!-- doxytag: member="balor::gui::ListBox::focusedIndex" ref="a9a59a851d68e1f9fd4a6fc9ad66fcf50" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>focusedIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f46db61e8e733bce29b9ec8861d7381"></a><!-- doxytag: member="balor::gui::ListBox::getIndexAt" ref="a5f46db61e8e733bce29b9ec8861d7381" args="(const Point &amp;point) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a5f46db61e8e733bce29b9ec8861d7381">getIndexAt</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クライアント座標から最も近い項目のインデックスを求める。見つからない場合は -1 を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b8ffe5996bc6be2a50521f863fbb2b2"></a><!-- doxytag: member="balor::gui::ListBox::getIndexAt" ref="a6b8ffe5996bc6be2a50521f863fbb2b2" args="(int x, int y) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndexAt</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42403b9eeadee4c3f67da7ed234be8ab"></a><!-- doxytag: member="balor::gui::ListBox::getItem" ref="a42403b9eeadee4c3f67da7ed234be8ab" args="(int index) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a42403b9eeadee4c3f67da7ed234be8ab">getItem</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したインデックスの項目。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1884b644972fea9c374fe92c1db7083a"></a><!-- doxytag: member="balor::gui::ListBox::getItemToBuffer" ref="a1884b644972fea9c374fe92c1db7083a" args="(StringBuffer &amp;buffer, int index) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getItemToBuffer</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;buffer, int index) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7480deee82cbe4eefc5290b3d12f5a48"></a><!-- doxytag: member="balor::gui::ListBox::getItemBounds" ref="a7480deee82cbe4eefc5290b3d12f5a48" args="(int index) const " -->
+<a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a7480deee82cbe4eefc5290b3d12f5a48">getItemBounds</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目のクライアント座標と大きさ。幅は現在のスクロール位置で表示されている大きさ。 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="afcd39abcf7024c15e99bc23a5601afa1"></a><!-- doxytag: member="balor::gui::ListBox::getItemData" ref="afcd39abcf7024c15e99bc23a5601afa1" args="(int index)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#afcd39abcf7024c15e99bc23a5601afa1">getItemData</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目に紐つけたデータ。取得する場合は <a class="el" href="classbalor_1_1_unique_any.html" title="任意の型の値を代入できるクラス。">UniqueAny</a> の中身の型を指定する。 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7f13f71d09090c3b5002e1121701e1e3"></a><!-- doxytag: member="balor::gui::ListBox::getItemData" ref="a7f13f71d09090c3b5002e1121701e1e3" args="(int index) const " -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getItemData</b> (int index) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad86734afe0589b5d2ba68a2eb0dd266f"></a><!-- doxytag: member="balor::gui::ListBox::getItemDataIsEmpty" ref="ad86734afe0589b5d2ba68a2eb0dd266f" args="(int index) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#ad86734afe0589b5d2ba68a2eb0dd266f">getItemDataIsEmpty</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目に紐つけたデータがあるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9e5071f7e7c3bba4b8ac83efa24005f"></a><!-- doxytag: member="balor::gui::ListBox::getPreferredSize" ref="aa9e5071f7e7c3bba4b8ac83efa24005f" args="(int width=0, int height=0) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#aa9e5071f7e7c3bba4b8ac83efa24005f">getPreferredSize</a> (int width=0, int height=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_control.html#a265b33dd38f8b8033b79cbda2610fc90" title="表示に使うフォント。初期値は defaultFont()。フォントハンドルは参照されるので破棄しないように注意。">font()</a>, <a class="el" href="classbalor_1_1gui_1_1_list_box.html#a0cd36264ac50c96183311fb19b6b7272" title="項目を一括で取得、設定する。">items()</a> の値によって最適な大きさを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba9c626d18ad950630feee8e79031e08"></a><!-- doxytag: member="balor::gui::ListBox::insert" ref="aba9c626d18ad950630feee8e79031e08" args="(int index, StringRange item)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#aba9c626d18ad950630feee8e79031e08">insert</a> (int index, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> item)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を挿入する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7597e2559d6c06f7e5a5c9080d93372a"></a><!-- doxytag: member="balor::gui::ListBox::isSelected" ref="a7597e2559d6c06f7e5a5c9080d93372a" args="(int index) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a7597e2559d6c06f7e5a5c9080d93372a">isSelected</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の選択状態の取得と設定。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31bcb6e367ae024d32ed3260b2aa4135"></a><!-- doxytag: member="balor::gui::ListBox::isSelected" ref="a31bcb6e367ae024d32ed3260b2aa4135" args="(int index, bool selected)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>isSelected</b> (int index, bool selected)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3787eccd7a888d36011c6637ca7ce1e7"></a><!-- doxytag: member="balor::gui::ListBox::itemHeight" ref="a3787eccd7a888d36011c6637ca7ce1e7" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a3787eccd7a888d36011c6637ca7ce1e7">itemHeight</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の高さ。スクロールがおかしくなるので項目を追加する前に設定するべき。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac36c6373441894e8fed1794855cc5a41"></a><!-- doxytag: member="balor::gui::ListBox::itemHeight" ref="ac36c6373441894e8fed1794855cc5a41" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>itemHeight</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cd36264ac50c96183311fb19b6b7272"></a><!-- doxytag: member="balor::gui::ListBox::items" ref="a0cd36264ac50c96183311fb19b6b7272" args="() const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1_string.html">String</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1_string.html">String</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a0cd36264ac50c96183311fb19b6b7272">items</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を一括で取得、設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf3694c56b39d683179f07a8d6766de0"></a><!-- doxytag: member="balor::gui::ListBox::items" ref="abf3694c56b39d683179f07a8d6766de0" args="(StringRangeArray value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>items</b> (<a class="el" href="classbalor_1_1_string_range_array.html">StringRangeArray</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d7e8c6e0e5cd32bcc462322c977f674"></a><!-- doxytag: member="balor::gui::ListBox::maxItemWidth" ref="a6d7e8c6e0e5cd32bcc462322c977f674" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a6d7e8c6e0e5cd32bcc462322c977f674">maxItemWidth</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の項目の表示に必要な最大幅。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af02aee193f7dafcf863c7dad4ae85132"></a><!-- doxytag: member="balor::gui::ListBox::onSelect" ref="af02aee193f7dafcf863c7dad4ae85132" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">ListBox::Select</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#af02aee193f7dafcf863c7dad4ae85132">onSelect</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択項目が変更されたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95b63e9692e04491f5650e0f8f88a797"></a><!-- doxytag: member="balor::gui::ListBox::options" ref="a95b63e9692e04491f5650e0f8f88a797" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_options.html">ListBox::Options</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a95b63e9692e04491f5650e0f8f88a797">options</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38548bbc25df9c43172da6cca1556fb1"></a><!-- doxytag: member="balor::gui::ListBox::select" ref="a38548bbc25df9c43172da6cca1556fb1" args="(int first, int last, bool selecting=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a38548bbc25df9c43172da6cca1556fb1">select</a> (int first, int last, bool selecting=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">first 番目から last 番目までの項目を選択する。selecting が false なら選択を解除する。複数選択可能な場合のみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab09f3aa8f90c3799c740ce044202f8b8"></a><!-- doxytag: member="balor::gui::ListBox::selectedCount" ref="ab09f3aa8f90c3799c740ce044202f8b8" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#ab09f3aa8f90c3799c740ce044202f8b8">selectedCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択されている項目の数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a544110ade3a9cee2c23d3577acead496"></a><!-- doxytag: member="balor::gui::ListBox::selectedIndex" ref="a544110ade3a9cee2c23d3577acead496" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a544110ade3a9cee2c23d3577acead496">selectedIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択されている項目のインデックス。選択されていない場合は -1 が返る。selectMode() が <a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html#a27241d9f1c1ef43e07bb66fe5d0cebcca6a0560c3902fe6b262647c29c4226573" title="選択できない">ListBox::SelectMode::one</a> の場合のみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dcd9c239cb07634da30287655d76625"></a><!-- doxytag: member="balor::gui::ListBox::selectedIndex" ref="a5dcd9c239cb07634da30287655d76625" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selectedIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a102083df6b5b919c162fcf8b9964bd27"></a><!-- doxytag: member="balor::gui::ListBox::selectedIndices" ref="a102083df6b5b919c162fcf8b9964bd27" args="() const " -->
+std::vector&lt; int, <br class="typebreak"/>
+std::allocator&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a102083df6b5b919c162fcf8b9964bd27">selectedIndices</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択されている項目のインデックス配列。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5de203ab8fd3165459d08848d87182d5"></a><!-- doxytag: member="balor::gui::ListBox::selectedIndices" ref="a5de203ab8fd3165459d08848d87182d5" args="(ArrayRange&lt; int &gt; value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selectedIndices</b> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; int &gt; value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afefb188d59bd4fb4038746ae1fd0338f"></a><!-- doxytag: member="balor::gui::ListBox::setItemData" ref="afefb188d59bd4fb4038746ae1fd0338f" args="(int index, UniqueAny &amp;&amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#afefb188d59bd4fb4038746ae1fd0338f">setItemData</a> (int index, <a class="el" href="classbalor_1_1_unique_any.html">UniqueAny</a> &amp;&amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目にデータを紐つける。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5eb2085a9c9741170a5c538d240d178a"></a><!-- doxytag: member="balor::gui::ListBox::scrollWidth" ref="a5eb2085a9c9741170a5c538d240d178a" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a5eb2085a9c9741170a5c538d240d178a">scrollWidth</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">水平スクロールできる幅。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c4d1501de82a4f1e4a7fd0ee2946fdc"></a><!-- doxytag: member="balor::gui::ListBox::scrollWidth" ref="a9c4d1501de82a4f1e4a7fd0ee2946fdc" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>scrollWidth</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5361d038992ea664acf675eab40fbcac"></a><!-- doxytag: member="balor::gui::ListBox::selectMode" ref="a5361d038992ea664acf675eab40fbcac" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_list_box_1_1_select_mode.html">ListBox::SelectMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a5361d038992ea664acf675eab40fbcac">selectMode</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の選択方法。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97691fc85f42c67464e4eb5c4be17b1d"></a><!-- doxytag: member="balor::gui::ListBox::tabWidth" ref="a97691fc85f42c67464e4eb5c4be17b1d" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a97691fc85f42c67464e4eb5c4be17b1d">tabWidth</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">tab 幅。初期値は 8。単位はフォントの平均幅。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a025a9733ef05a65418560151be8fd808"></a><!-- doxytag: member="balor::gui::ListBox::tabWidth" ref="a025a9733ef05a65418560151be8fd808" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tabWidth</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cdf3de546cfe1800be8da045f436ebb"></a><!-- doxytag: member="balor::gui::ListBox::textColor" ref="a1cdf3de546cfe1800be8da045f436ebb" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a1cdf3de546cfe1800be8da045f436ebb">textColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b3086e4b704c49ab83879b1b4a68561"></a><!-- doxytag: member="balor::gui::ListBox::textColor" ref="a0b3086e4b704c49ab83879b1b4a68561" args="(const Color &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27fb99d15cb564d3736ea9a6deb831d5"></a><!-- doxytag: member="balor::gui::ListBox::operator[]" ref="a27fb99d15cb564d3736ea9a6deb831d5" args="(int index) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a27fb99d15cb564d3736ea9a6deb831d5">operator[]</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目を取得する。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a204980ea50e0a3878573c55aca59ea27"></a><!-- doxytag: member="balor::gui::ListBox::processMessage" ref="a204980ea50e0a3878573c55aca59ea27" args="(Message &amp;msg)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_list_box.html#a204980ea50e0a3878573c55aca59ea27">processMessage</a> (<a class="el" href="classbalor_1_1gui_1_1_message.html">Message</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージを処理する。いわゆるウインドウプロシージャ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e36d173cdefd193930edaa2a2286e7b"></a><!-- doxytag: member="balor::gui::ListBox::_getItemData" ref="a2e36d173cdefd193930edaa2a2286e7b" args="(int index) const " -->
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>_getItemData</b> (int index) const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5789cd6269b4d42dc7445ed8f4b29e0e"></a><!-- doxytag: member="balor::gui::ListBox::_tabWidth" ref="a5789cd6269b4d42dc7445ed8f4b29e0e" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_tabWidth</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f601ca701f8b75b3353e967e96d8458"></a><!-- doxytag: member="balor::gui::ListBox::_textColor" ref="a8f601ca701f8b75b3353e967e96d8458" args="" -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_textColor</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80a3ab938f24f8bb1b7127350c7b1741"></a><!-- doxytag: member="balor::gui::ListBox::_onSelect" ref="a80a3ab938f24f8bb1b7127350c7b1741" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">ListBox::Select</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onSelect</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>リストボックスコントロール。 </p>
+<p>水平スクロールバーは自動的には表示されないので、scrollWidth() に <a class="el" href="classbalor_1_1gui_1_1_list_box.html#a6d7e8c6e0e5cd32bcc462322c977f674" title="現在の項目の表示に必要な最大幅。">maxItemWidth()</a> 等を設定する必要がある。</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"ListBox Sample");</code></pre><pre><code>	<a class="el" href="classbalor_1_1gui_1_1_label.html" title="スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。">Label</a> label(frame, 20, 10, 0, 0, L"ウインドウのアイコンを選択");
+	Icon icons[] = {
+		<a class="el" href="classbalor_1_1graphics_1_1_icon.html#ace649817d4ab083453a3be60f11e294f" title="アプリケーションアイコン。">Icon::application()</a>,
+		<a class="el" href="classbalor_1_1graphics_1_1_icon.html#a20efb7d1bf8c22f9cb1fb0ee74bf1153" title="感嘆符アイコン。">Icon::exclamation()</a>,
+		<a class="el" href="classbalor_1_1graphics_1_1_icon.html#a6e7b5d86d3140eef3d305cc742d465f7" title="疑問符アイコン。">Icon::question()</a>
+	};
+	const wchar_t* items[] = {
+		L"アプリケーションアイコン",
+		L"エクスクラメーションアイコン",
+		L"クエスチョンアイコン"
+	};
+	<a class="el" href="classbalor_1_1gui_1_1_list_box.html" title="リストボックスコントロール。">ListBox</a> list(frame, 20, 50, 0, 0, items);
+	list.onSelect() = [&amp;] (ListBox::Select&amp; e) {
+		frame.icon(icons[list.selectedIndex()]);
+	};</code></pre><pre><code>	frame.runMessageLoop();
+ </code></pre> </div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_list_box_8hpp_source.html">ListBox.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListBox.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:31に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

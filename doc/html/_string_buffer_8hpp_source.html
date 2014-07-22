@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/StringBuffer.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/StringBuffer.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Convert.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">namespace </span>balor {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00027"></a><a class="code" href="classbalor_1_1_string_buffer.html">00027</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> {
+<a name="l00028"></a>00028 <span class="keyword">public</span>:
+<a name="l00029"></a>00029     <span class="keyword">typedef</span> std::basic_string&lt;wchar_t, std::char_traits&lt;wchar_t&gt;, std::allocator&lt;wchar_t&gt; &gt; wstring;
+<a name="l00030"></a>00030     <span class="keyword">friend</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">public</span>:
+<a name="l00034"></a>00034     <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>();
+<a name="l00035"></a>00035     <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; value);
+<a name="l00036"></a>00036     <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp;&amp; value);
+<a name="l00038"></a>00038     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; value);
+<a name="l00039"></a>00039     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp;&amp; value);
+<a name="l00041"></a>00041     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#a052e68d3f64cb4ae56239503823dbbb5" title="終端文字を含んだバッファのサイズ。">capacity</a>);
+<a name="l00043"></a><a class="code" href="classbalor_1_1_string_buffer.html#a1ca16f87dc9bad3b1b3ec05591673a18">00043</a>     <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Capacity&gt; <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1_string_buffer.html#a1ca16f87dc9bad3b1b3ec05591673a18" title="固定長配列をバッファとして初期化。">StringBuffer</a>(<span class="keywordtype">wchar_t</span> (&amp;buffer)[Capacity], <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a> = 0) : _begin(buffer), _length(<a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>), _capacity(Capacity), _allocatable(false) {
+<a name="l00044"></a>00044 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(0 &lt;= <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>);
+<a name="l00046"></a>00046         ::balor::test::noMacroAssert(<a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a> &lt; Capacity);
+<a name="l00047"></a>00047 <span class="preprocessor">#endif</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span>        _begin[<a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>] = L<span class="charliteral">&#39;\0&#39;</span>;
+<a name="l00049"></a>00049     }
+<a name="l00051"></a>00051     <a class="code" href="classbalor_1_1_string_buffer.html#a1362297bef0001405acf82b7b321605e" title="キャパシティ = 1 で初期化。">StringBuffer</a>(<span class="keywordtype">wchar_t</span>* buffer, <span class="keywordtype">int</span> capacity, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a> = 0);
+<a name="l00052"></a>00052     ~<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>();
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; value);
+<a name="l00055"></a>00055     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; operator=(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp;&amp; value);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="keyword">public</span>:
+<a name="l00059"></a>00059     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_string_buffer.html#a945ad5830a0127ec14c18bf39aa09774" title="バッファを拡張できるかどうか。">allocatable</a>() <span class="keyword">const</span>;
+<a name="l00061"></a><a class="code" href="classbalor_1_1_string_buffer.html#aa20d2c5a71721a28692fffd59787e454">00061</a>     <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1_string_buffer.html#aa20d2c5a71721a28692fffd59787e454" title="文字列の先頭。">begin</a>() { <span class="keywordflow">return</span> _begin; }
+<a name="l00062"></a>00062     <span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1_string_buffer.html#aa20d2c5a71721a28692fffd59787e454" title="文字列の先頭。">begin</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _begin; }
+<a name="l00064"></a>00064     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#a052e68d3f64cb4ae56239503823dbbb5" title="終端文字を含んだバッファのサイズ。">capacity</a>() <span class="keyword">const</span>;
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a052e68d3f64cb4ae56239503823dbbb5" title="終端文字を含んだバッファのサイズ。">capacity</a>(<span class="keywordtype">int</span> value);
+<a name="l00067"></a><a class="code" href="classbalor_1_1_string_buffer.html#a83a8dc9ce17b6ee9a3fa24dfba13e2c0">00067</a>     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a83a8dc9ce17b6ee9a3fa24dfba13e2c0" title="文字列の長さを０にする。">clear</a>() { <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>(0); }
+<a name="l00069"></a>00069     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_string_buffer.html#a67b705f37ad832f3a26cf212f1ac93c8" title="空文字列かどうか。">empty</a>() <span class="keyword">const</span>;
+<a name="l00071"></a><a class="code" href="classbalor_1_1_string_buffer.html#a1314b0c0eeba7d58aa42c494777fa21b">00071</a>     <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1_string_buffer.html#a1314b0c0eeba7d58aa42c494777fa21b" title="文字列の終端。">end</a>() { <span class="keywordflow">return</span> _begin + _length; }
+<a name="l00072"></a>00072     <span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* <a class="code" href="classbalor_1_1_string_buffer.html#a1314b0c0eeba7d58aa42c494777fa21b" title="文字列の終端。">end</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _begin + _length; }
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a6b277c41a8b2d5008d15df250f1c9dae" title="指定した部分を削除する。">erase</a>(<span class="keywordtype">int</span> beginIndex);
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a6b277c41a8b2d5008d15df250f1c9dae" title="指定した部分を削除する。">erase</a>(<span class="keywordtype">int</span> beginIndex, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>);
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a2bb1bcb9e845bb3843c3e84cc740924c" title="end() から終端文字を検索して新しく長さを設定し直す。">expandLength</a>();
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a2bb1bcb9e845bb3843c3e84cc740924c" title="end() から終端文字を検索して新しく長さを設定し直す。">expandLength</a>(<span class="keywordtype">int</span> delta);
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a626d008cc7651880628c489620baba45" title="文字列を挿入する。">insert</a>(<span class="keywordtype">int</span> beginIndex, <span class="keywordtype">wchar_t</span> value, <span class="keywordtype">int</span> count);
+<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a626d008cc7651880628c489620baba45" title="文字列を挿入する。">insert</a>(<span class="keywordtype">int</span> beginIndex, <a class="code" href="namespacebalor.html#ad0f34fc262530da34bc5d80437fe7dda" title="ワイド文字列用。">StringRange</a> value);
+<a name="l00084"></a><a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c">00084</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _length; }
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>(<span class="keywordtype">int</span> value);
+<a name="l00087"></a>00087     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a7349aaa2e619aaac9532c908799f8ffb" title="指定した文字や文字列を置換する。">replace</a>(<span class="keywordtype">wchar_t</span> oldValue, <span class="keywordtype">wchar_t</span> newValue);
+<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a7349aaa2e619aaac9532c908799f8ffb" title="指定した文字や文字列を置換する。">replace</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> oldValue, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> newValue);
+<a name="l00089"></a>00089     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a7349aaa2e619aaac9532c908799f8ffb" title="指定した文字や文字列を置換する。">replace</a>(<span class="keywordtype">int</span> beginIndex, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_string_buffer.html#ad0e3a9b3b7ce968d889a9e06160d9d8c" title="文字列の長さ。">length</a>, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a0590be70695df8298affdecbb26b087c" title="capacity を指定した長さ以上にする。">reserve</a>(<span class="keywordtype">int</span> maxLength);
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a2daedf7b1c4fab91d84701f664a24331" title="capacity を現在の長さ + 追加の長さ以上にする。">reserveAdditionally</a>(<span class="keywordtype">int</span> additionalLength);
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_string_buffer.html#a448b6cd27fa83984f9befa584e15ae72" title="先頭と末尾の trimChars に含まれる文字を取り除く。trimChars が空文字列の場合は whiteSpace とみなす。">trim</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> trimChars = L<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="keyword">public</span>:
+<a name="l00099"></a>00099     <a class="code" href="classbalor_1_1_string_buffer.html#ab2b35610703b4fe0e9ff5ab1b2ceb27b" title="wstring への変換。">operator wstring</a>() <span class="keyword">const</span>;
+<a name="l00101"></a><a class="code" href="classbalor_1_1_string_buffer.html#a8a93c2c95c60d3c4d74642546257b355">00101</a>     <a class="code" href="classbalor_1_1_string_buffer.html#a8a93c2c95c60d3c4d74642546257b355" title="StringRange への変換。">operator StringRange</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespacebalor.html#ad0f34fc262530da34bc5d80437fe7dda" title="ワイド文字列用。">StringRange</a>(_begin, _length); }
+<a name="l00103"></a>00103     <span class="keywordtype">wchar_t</span>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a39c4bdbd91b126b4562eb54958f99a33" title="文字要素を返す。">operator[] </a>(<span class="keywordtype">int</span> index);
+<a name="l00104"></a>00104     <span class="keyword">const</span> <span class="keywordtype">wchar_t</span>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a39c4bdbd91b126b4562eb54958f99a33" title="文字要素を返す。">operator[] </a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00106"></a>00106     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; rhs);
+<a name="l00107"></a>00107     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; rhs);
+<a name="l00108"></a>00108     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keyword">const</span> wstring&amp; rhs);
+<a name="l00109"></a>00109     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* rhs);
+<a name="l00110"></a>00110     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keywordtype">wchar_t</span>* rhs);
+<a name="l00111"></a>00111     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a13a9e4f1839602ed0876f41ba5babb5e" title="文字列の追加演算子。">operator+=</a>(<span class="keywordtype">wchar_t</span> rhs);
+<a name="l00113"></a><a class="code" href="classbalor_1_1_string_buffer.html#a93a96d146344b4e9e98031d0f1871e8c">00113</a>     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; <a class="code" href="classbalor_1_1_string_buffer.html#a93a96d146344b4e9e98031d0f1871e8c" title="Convert::to&lt;StringBuffer&gt; が可能な型の += 演算。">operator+=</a>(<span class="keyword">const</span> T&amp; rhs) {
+<a name="l00114"></a>00114         Convert::to&lt;StringBuffer&gt;(*<span class="keyword">this</span>, rhs);
+<a name="l00115"></a>00115         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00116"></a>00116     }
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 <span class="keyword">private</span>:
+<a name="l00119"></a>00119     <span class="keywordtype">int</span> _getNewCapacity(<span class="keywordtype">int</span> newLength) <span class="keyword">const</span>;
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121     <span class="keywordtype">wchar_t</span>* _begin;
+<a name="l00122"></a>00122     <span class="keywordtype">int</span> _length;
+<a name="l00123"></a>00123     <span class="keywordtype">int</span> _capacity;
+<a name="l00124"></a>00124     <span class="keywordtype">bool</span> _allocatable;
+<a name="l00125"></a>00125 };
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

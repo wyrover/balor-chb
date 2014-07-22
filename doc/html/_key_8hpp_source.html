@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Key.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Key.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00044"></a><a class="code" href="structbalor_1_1gui_1_1_key.html">00044</a> <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a> {
+<a name="l00045"></a>00045     <span class="keyword">enum</span> _enum {
+<a name="l00046"></a>00046         a                  = <span class="charliteral">&#39;A&#39;</span> , 
+<a name="l00047"></a>00047         add                = 0x6B, <span class="comment">//VK_ADD</span>
+<a name="l00048"></a>00048         alt                = 0x12, <span class="comment">//VK_MENU</span>
+<a name="l00049"></a>00049         apps               = 0x5D, <span class="comment">//VK_APPS</span>
+<a name="l00050"></a>00050         attn               = 0xF6, <span class="comment">//VK_ATTN</span>
+<a name="l00051"></a>00051         b                  = <span class="charliteral">&#39;B&#39;</span> , 
+<a name="l00052"></a>00052         back               = 0x08, <span class="comment">//VK_BACK</span>
+<a name="l00053"></a>00053         browserBack        = 0xA6, <span class="comment">//VK_BROWSER_BACK</span>
+<a name="l00054"></a>00054         browserFavorites   = 0xAB, <span class="comment">//VK_BROWSER_FAVORITES</span>
+<a name="l00055"></a>00055         browserForward     = 0xA7, <span class="comment">//VK_BROWSER_FORWARD</span>
+<a name="l00056"></a>00056         browserHome        = 0xAC, <span class="comment">//VK_BROWSER_HOME</span>
+<a name="l00057"></a>00057         browserRefresh     = 0xA8, <span class="comment">//VK_BROWSER_REFRESH</span>
+<a name="l00058"></a>00058         browserSearch      = 0xAA, <span class="comment">//VK_BROWSER_SEARCH</span>
+<a name="l00059"></a>00059         browserStop        = 0xA9, <span class="comment">//VK_BROWSER_STOP</span>
+<a name="l00060"></a>00060         c                  = <span class="charliteral">&#39;C&#39;</span> , 
+<a name="l00061"></a>00061         cancel             = 0x03, <span class="comment">//VK_CANCEL</span>
+<a name="l00062"></a>00062         capital            = 0x14, <span class="comment">//VK_CAPITAL</span>
+<a name="l00063"></a>00063         capsLock           = 0x14, <span class="comment">//VK_CAPITAL</span>
+<a name="l00064"></a>00064         clear              = 0x0C, <span class="comment">//VK_CLEAR</span>
+<a name="l00065"></a>00065         crsel              = 0xF7, <span class="comment">//VK_CRSEL</span>
+<a name="l00066"></a>00066         ctrl               = 0x11, <span class="comment">//VK_CONTROL</span>
+<a name="l00067"></a>00067         d                  = <span class="charliteral">&#39;D&#39;</span> , 
+<a name="l00068"></a>00068         d0                 = <span class="charliteral">&#39;0&#39;</span> , 
+<a name="l00069"></a>00069         d1                 = <span class="charliteral">&#39;1&#39;</span> , 
+<a name="l00070"></a>00070         d2                 = <span class="charliteral">&#39;2&#39;</span> , 
+<a name="l00071"></a>00071         d3                 = <span class="charliteral">&#39;3&#39;</span> , 
+<a name="l00072"></a>00072         d4                 = <span class="charliteral">&#39;4&#39;</span> , 
+<a name="l00073"></a>00073         d5                 = <span class="charliteral">&#39;5&#39;</span> , 
+<a name="l00074"></a>00074         d6                 = <span class="charliteral">&#39;6&#39;</span> , 
+<a name="l00075"></a>00075         d7                 = <span class="charliteral">&#39;7&#39;</span> , 
+<a name="l00076"></a>00076         d8                 = <span class="charliteral">&#39;8&#39;</span> , 
+<a name="l00077"></a>00077         d9                 = <span class="charliteral">&#39;9&#39;</span> , 
+<a name="l00078"></a>00078         decimal            = <span class="charliteral">&#39;.&#39;</span> , 
+<a name="l00079"></a>00079         deleteKey          = 0x2E, <span class="comment">//VK_DELETE</span>
+<a name="l00080"></a>00080         divide             = 0x6F, <span class="comment">//VK_DIVIDE</span>
+<a name="l00081"></a>00081         down               = 0x28, <span class="comment">//VK_DOWN</span>
+<a name="l00082"></a>00082         e                  = <span class="charliteral">&#39;E&#39;</span> , 
+<a name="l00083"></a>00083         end                = 0x23, <span class="comment">//VK_END</span>
+<a name="l00084"></a>00084         enter              = 0x0D, <span class="comment">//VK_RETURN</span>
+<a name="l00085"></a>00085         eraseEof           = 0xF9, <span class="comment">//VK_EREOF</span>
+<a name="l00086"></a>00086         escape             = 0x1B, <span class="comment">//VK_ESCAPE</span>
+<a name="l00087"></a>00087         execute            = 0x2B, <span class="comment">//VK_EXECUTE</span>
+<a name="l00088"></a>00088         exsel              = 0xF8, <span class="comment">//VK_EXSEL</span>
+<a name="l00089"></a>00089         f                  = <span class="charliteral">&#39;F&#39;</span> , 
+<a name="l00090"></a>00090         f1                 = 0x70, <span class="comment">//VK_F1</span>
+<a name="l00091"></a>00091         f10                = 0x79, <span class="comment">//VK_F10</span>
+<a name="l00092"></a>00092         f11                = 0x7A, <span class="comment">//VK_F11</span>
+<a name="l00093"></a>00093         f12                = 0x7B, <span class="comment">//VK_F12</span>
+<a name="l00094"></a>00094         f13                = 0x7C, <span class="comment">//VK_F13</span>
+<a name="l00095"></a>00095         f14                = 0x7D, <span class="comment">//VK_F14</span>
+<a name="l00096"></a>00096         f15                = 0x7E, <span class="comment">//VK_F15</span>
+<a name="l00097"></a>00097         f16                = 0x7F, <span class="comment">//VK_F16</span>
+<a name="l00098"></a>00098         f17                = 0x80, <span class="comment">//VK_F17</span>
+<a name="l00099"></a>00099         f18                = 0x81, <span class="comment">//VK_F18</span>
+<a name="l00100"></a>00100         f19                = 0x82, <span class="comment">//VK_F19</span>
+<a name="l00101"></a>00101         f2                 = 0x71, <span class="comment">//VK_F2</span>
+<a name="l00102"></a>00102         f20                = 0x83, <span class="comment">//VK_F20</span>
+<a name="l00103"></a>00103         f21                = 0x84, <span class="comment">//VK_F21</span>
+<a name="l00104"></a>00104         f22                = 0x85, <span class="comment">//VK_F22</span>
+<a name="l00105"></a>00105         f23                = 0x86, <span class="comment">//VK_F23</span>
+<a name="l00106"></a>00106         f24                = 0x87, <span class="comment">//VK_F24</span>
+<a name="l00107"></a>00107         f3                 = 0x72, <span class="comment">//VK_F3</span>
+<a name="l00108"></a>00108         f4                 = 0x73, <span class="comment">//VK_F4</span>
+<a name="l00109"></a>00109         f5                 = 0x74, <span class="comment">//VK_F5</span>
+<a name="l00110"></a>00110         f6                 = 0x75, <span class="comment">//VK_F6</span>
+<a name="l00111"></a>00111         f7                 = 0x76, <span class="comment">//VK_F7</span>
+<a name="l00112"></a>00112         f8                 = 0x77, <span class="comment">//VK_F8</span>
+<a name="l00113"></a>00113         f9                 = 0x78, <span class="comment">//VK_F9</span>
+<a name="l00114"></a>00114         finalMode          = 0x18, <span class="comment">//VK_FINAL</span>
+<a name="l00115"></a>00115         g                  = <span class="charliteral">&#39;G&#39;</span> , 
+<a name="l00116"></a>00116         h                  = <span class="charliteral">&#39;H&#39;</span> , 
+<a name="l00117"></a>00117         hangulMode         = 0x15, <span class="comment">//VK_HANGUL</span>
+<a name="l00118"></a>00118         hanjaMode          = 0x19, <span class="comment">//VK_HANJA</span>
+<a name="l00119"></a>00119         help               = 0x2F, <span class="comment">//VK_HELP</span>
+<a name="l00120"></a>00120         home               = 0x24, <span class="comment">//VK_HOME</span>
+<a name="l00121"></a>00121         i                  = <span class="charliteral">&#39;I&#39;</span> , 
+<a name="l00122"></a>00122         ImeAccept          = 0x1E, <span class="comment">//VK_ACCEPT</span>
+<a name="l00123"></a>00123         ImeConvert         = 0x1C, <span class="comment">//VK_CONVERT</span>
+<a name="l00124"></a>00124         ImeModeChange      = 0x1F, <span class="comment">//VK_MODECHANGE</span>
+<a name="l00125"></a>00125         ImeNonconvert      = 0x1D, <span class="comment">//VK_NONCONVERT</span>
+<a name="l00126"></a>00126         insert             = 0x2D, <span class="comment">//VK_INSERT</span>
+<a name="l00127"></a>00127         j                  = <span class="charliteral">&#39;J&#39;</span> , 
+<a name="l00128"></a>00128         junjaMode          = 0x17, <span class="comment">//VK_JUNJA</span>
+<a name="l00129"></a>00129         k                  = <span class="charliteral">&#39;K&#39;</span> , 
+<a name="l00130"></a>00130         kanaMode           = 0x15, <span class="comment">//VK_KANA</span>
+<a name="l00131"></a>00131         kanjiMode          = 0x19, <span class="comment">//VK_KANJI</span>
+<a name="l00132"></a>00132         l                  = <span class="charliteral">&#39;L&#39;</span> , 
+<a name="l00133"></a>00133         launchApplication1 = 0xB6, <span class="comment">//VK_LAUNCH_APP1</span>
+<a name="l00134"></a>00134         launchApplication2 = 0xB7, <span class="comment">//VK_LAUNCH_APP2</span>
+<a name="l00135"></a>00135         launchMail         = 0xB4, <span class="comment">//VK_LAUNCH_MAIL</span>
+<a name="l00136"></a>00136         lButton            = 0x01, <span class="comment">//VK_LBUTTON</span>
+<a name="l00137"></a>00137         lControl           = 0xA2, <span class="comment">//VK_LCONTROL</span>
+<a name="l00138"></a>00138         left               = 0x25, <span class="comment">//VK_LEFT</span>
+<a name="l00139"></a>00139         lineFeed           = 0x0a, 
+<a name="l00140"></a>00140         lAlt               = 0xA4, <span class="comment">//VK_LMENU</span>
+<a name="l00141"></a>00141         lShift             = 0xA0, <span class="comment">//VK_LSHIFT</span>
+<a name="l00142"></a>00142         lWin               = 0x5B, <span class="comment">//VK_LWIN</span>
+<a name="l00143"></a>00143         m                  = <span class="charliteral">&#39;M&#39;</span> , 
+<a name="l00144"></a>00144         mButton            = 0x04, <span class="comment">//VK_MBUTTON</span>
+<a name="l00145"></a>00145         mediaNextTrack     = 0xB0, <span class="comment">//VK_MEDIA_NEXT_TRACK</span>
+<a name="l00146"></a>00146         mediaPlayPause     = 0xB3, <span class="comment">//VK_MEDIA_PLAY_PAUSE</span>
+<a name="l00147"></a>00147         mediaPreviousTrack = 0xB1, <span class="comment">//VK_MEDIA_PREV_TRACK</span>
+<a name="l00148"></a>00148         mediaStop          = 0xB2, <span class="comment">//VK_MEDIA_STOP</span>
+<a name="l00149"></a>00149         multiply           = 0x6A, <span class="comment">//VK_MULTIPLY</span>
+<a name="l00150"></a>00150         n                  = <span class="charliteral">&#39;N&#39;</span> , 
+<a name="l00151"></a>00151         next               = 0x22, <span class="comment">//VK_NEXT</span>
+<a name="l00152"></a>00152         noName             = 0xFC, <span class="comment">//VK_NONAME</span>
+<a name="l00153"></a>00153         none               = 0x00, 
+<a name="l00154"></a>00154         numLock            = 0x90, <span class="comment">//VK_NUMLOCK</span>
+<a name="l00155"></a>00155         numPad0            = 0x60, <span class="comment">//VK_NUMPAD0</span>
+<a name="l00156"></a>00156         numPad1            = 0x61, <span class="comment">//VK_NUMPAD1</span>
+<a name="l00157"></a>00157         numPad2            = 0x62, <span class="comment">//VK_NUMPAD2</span>
+<a name="l00158"></a>00158         numPad3            = 0x63, <span class="comment">//VK_NUMPAD3</span>
+<a name="l00159"></a>00159         numPad4            = 0x64, <span class="comment">//VK_NUMPAD4</span>
+<a name="l00160"></a>00160         numPad5            = 0x65, <span class="comment">//VK_NUMPAD5</span>
+<a name="l00161"></a>00161         numPad6            = 0x66, <span class="comment">//VK_NUMPAD6</span>
+<a name="l00162"></a>00162         numPad7            = 0x67, <span class="comment">//VK_NUMPAD7</span>
+<a name="l00163"></a>00163         numPad8            = 0x68, <span class="comment">//VK_NUMPAD8</span>
+<a name="l00164"></a>00164         numPad9            = 0x69, <span class="comment">//VK_NUMPAD9</span>
+<a name="l00165"></a>00165         o                  = <span class="charliteral">&#39;O&#39;</span> , 
+<a name="l00166"></a>00166         oem1               = 0xBA, <span class="comment">//VK_OEM_1</span>
+<a name="l00167"></a>00167         oem102             = 0xE2, <span class="comment">//VK_OEM_102</span>
+<a name="l00168"></a>00168         oem2               = 0xBF, <span class="comment">//VK_OEM_2</span>
+<a name="l00169"></a>00169         oem3               = 0xC0, <span class="comment">//VK_OEM_3</span>
+<a name="l00170"></a>00170         oem4               = 0xDB, <span class="comment">//VK_OEM_4</span>
+<a name="l00171"></a>00171         oem5               = 0xDC, <span class="comment">//VK_OEM_5</span>
+<a name="l00172"></a>00172         oem6               = 0xDD, <span class="comment">//VK_OEM_6</span>
+<a name="l00173"></a>00173         oem7               = 0xDE, <span class="comment">//VK_OEM_7</span>
+<a name="l00174"></a>00174         oem8               = 0xDF, <span class="comment">//VK_OEM_8</span>
+<a name="l00175"></a>00175         oemBackslash       = 0xE2, <span class="comment">//VK_OEM_102</span>
+<a name="l00176"></a>00176         oemClear           = 0xFE, <span class="comment">//VK_OEM_CLEAR</span>
+<a name="l00177"></a>00177         oemCloseBrackets   = 0xDD, <span class="comment">//VK_OEM_6</span>
+<a name="l00178"></a>00178         oemcomma           = 0xBC, <span class="comment">//VK_OEM_COMMA</span>
+<a name="l00179"></a>00179         oemMinus           = 0xBD, <span class="comment">//VK_OEM_MINUS</span>
+<a name="l00180"></a>00180         oemOpenBrackets    = 0xDB, <span class="comment">//VK_OEM_4</span>
+<a name="l00181"></a>00181         oemPeriod          = 0xBE, <span class="comment">//VK_OEM_PERIOD</span>
+<a name="l00182"></a>00182         oemPipe            = 0xDC, <span class="comment">//VK_OEM_5</span>
+<a name="l00183"></a>00183         oemPlus            = 0xBB, <span class="comment">//VK_OEM_PLUS</span>
+<a name="l00184"></a>00184         oemQuestion        = 0xBF, <span class="comment">//VK_OEM_2</span>
+<a name="l00185"></a>00185         oemQuotes          = 0xDE, <span class="comment">//VK_OEM_7</span>
+<a name="l00186"></a>00186         oemSemicolon       = 0xBA, <span class="comment">//VK_OEM_1</span>
+<a name="l00187"></a>00187         oemTilde           = 0xC0, <span class="comment">//VK_OEM_3</span>
+<a name="l00188"></a>00188         p                  = <span class="charliteral">&#39;P&#39;</span> , 
+<a name="l00189"></a>00189         pa1                = 0xFD, <span class="comment">//VK_PA1</span>
+<a name="l00190"></a>00190         packet             = 0xE7, <span class="comment">//VK_PACKET</span>
+<a name="l00191"></a>00191         pageDown           = 0x22, <span class="comment">//VK_NEXT</span>
+<a name="l00192"></a>00192         pageUp             = 0x21, <span class="comment">//VK_PRIOR</span>
+<a name="l00193"></a>00193         pause              = 0x13, <span class="comment">//VK_PAUSE</span>
+<a name="l00194"></a>00194         play               = 0xFA, <span class="comment">//VK_PLAY</span>
+<a name="l00195"></a>00195         print              = 0x2A, <span class="comment">//VK_PRINT</span>
+<a name="l00196"></a>00196         printScreen        = 0x2C, <span class="comment">//VK_SNAPSHOT</span>
+<a name="l00197"></a>00197         prior              = 0x21, <span class="comment">//VK_PRIOR</span>
+<a name="l00198"></a>00198         processKey         = 0xE5, <span class="comment">//VK_PROCESSKEY</span>
+<a name="l00199"></a>00199         q                  = <span class="charliteral">&#39;Q&#39;</span> , 
+<a name="l00200"></a>00200         r                  = <span class="charliteral">&#39;R&#39;</span> , 
+<a name="l00201"></a>00201         rButton            = 0x02, <span class="comment">//VK_RBUTTON</span>
+<a name="l00202"></a>00202         rControl           = 0xA3, <span class="comment">//VK_RCONTROL</span>
+<a name="l00203"></a>00203         right              = 0x27, <span class="comment">//VK_RIGHT</span>
+<a name="l00204"></a>00204         rAlt               = 0xA5, <span class="comment">//VK_RMENU</span>
+<a name="l00205"></a>00205         rShift             = 0xA1, <span class="comment">//VK_RSHIFT</span>
+<a name="l00206"></a>00206         rWin               = 0x5C, <span class="comment">//VK_RWIN</span>
+<a name="l00207"></a>00207         s                  = <span class="charliteral">&#39;S&#39;</span> , 
+<a name="l00208"></a>00208         scroll             = 0x91, <span class="comment">//VK_SCROLL</span>
+<a name="l00209"></a>00209         select             = 0x29, <span class="comment">//VK_SELECT</span>
+<a name="l00210"></a>00210         selectMedia        = 0xB5, <span class="comment">//VK_LAUNCH_MEDIA_SELECT</span>
+<a name="l00211"></a>00211         separator          = 0x6C, <span class="comment">//VK_SEPARATOR</span>
+<a name="l00212"></a>00212         shift              = 0x10, <span class="comment">//VK_SHIFT</span>
+<a name="l00213"></a>00213         sleep              = 0x5F, <span class="comment">//VK_SLEEP</span>
+<a name="l00214"></a>00214         snapshot           = 0x2C, <span class="comment">//VK_SNAPSHOT</span>
+<a name="l00215"></a>00215         space              = 0x20, <span class="comment">//VK_SPACE</span>
+<a name="l00216"></a>00216         subtract           = 0x6D, <span class="comment">//VK_SUBTRACT</span>
+<a name="l00217"></a>00217         t                  = <span class="charliteral">&#39;T&#39;</span> , 
+<a name="l00218"></a>00218         tab                = 0x09, <span class="comment">//VK_TAB</span>
+<a name="l00219"></a>00219         u                  = <span class="charliteral">&#39;U&#39;</span> , 
+<a name="l00220"></a>00220         up                 = 0x26, <span class="comment">//VK_UP</span>
+<a name="l00221"></a>00221         v                  = <span class="charliteral">&#39;V&#39;</span> , 
+<a name="l00222"></a>00222         volumeDown         = 0xAE, <span class="comment">//VK_VOLUME_DOWN</span>
+<a name="l00223"></a>00223         volumeMute         = 0xAD, <span class="comment">//VK_VOLUME_MUTE</span>
+<a name="l00224"></a>00224         volumeUp           = 0xAF, <span class="comment">//VK_VOLUME_UP</span>
+<a name="l00225"></a>00225         w                  = <span class="charliteral">&#39;W&#39;</span> , 
+<a name="l00226"></a>00226         x                  = <span class="charliteral">&#39;X&#39;</span> , 
+<a name="l00227"></a>00227         xButton1           = 0x05, <span class="comment">//VK_XBUTTON1</span>
+<a name="l00228"></a>00228         xButton2           = 0x06, <span class="comment">//VK_XBUTTON2</span>
+<a name="l00229"></a>00229         y                  = <span class="charliteral">&#39;Y&#39;</span> , 
+<a name="l00230"></a>00230         z                  = <span class="charliteral">&#39;Z&#39;</span> , 
+<a name="l00231"></a>00231         zoom               = 0xFB, <span class="comment">//VK_ZOOM</span>
+<a name="l00232"></a>00232     };
+<a name="l00233"></a>00233     BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a>);
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 
+<a name="l00237"></a><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html">00237</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html" title="Key と組み合わせてショートカットコマンドを表せる。">Modifier</a> {
+<a name="l00238"></a><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510">00238</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510">_enum</a> {
+<a name="l00239"></a>00239             alt   = 0x00010000, 
+<a name="l00240"></a><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510a0e64d90ba21e4305b89d17ff360df717">00240</a>             <a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510a0e64d90ba21e4305b89d17ff360df717" title="ALT キーを押しながら">ctrl</a>  = 0x00020000, 
+<a name="l00241"></a><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510a3ff2c416d19c98b3a283c67bd57e4b64">00241</a>             <a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510a3ff2c416d19c98b3a283c67bd57e4b64" title="CTRL キーを押しながら">shift</a> = 0x00040000, 
+<a name="l00242"></a><a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510aae28537a6d34b4db6e607d86b6d7e493">00242</a>             <a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html#aa2513f50ce06a292f38df2f44350a510aae28537a6d34b4db6e607d86b6d7e493" title="SHIFT キーを押しながら">mask</a>  = 0x00070000,
+<a name="l00243"></a>00243         };
+<a name="l00244"></a>00244         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_key_1_1_modifier.html" title="Key と組み合わせてショートカットコマンドを表せる。">Modifier</a>);
+<a name="l00245"></a>00245     };
+<a name="l00246"></a>00246 
+<a name="l00248"></a>00248     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#aacc1950aa49097c83838750adbd11a43" title="キーがロックされているかどうか。">isLocked</a>(<a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a> key);
+<a name="l00250"></a>00250     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#afb705158fa1a522f26fc6198ea7a6021" title="キーが押されているかどうか。ウインドウメッセージループによって状態が更新される。">isPushed</a>(<a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a> key);
+<a name="l00252"></a>00252     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#a6d2d3cfe4a7779dd1d49a89c26250d74" title="キーが押されているかどうか。ウインドウメッセージループによらずに現在の状態を取得する。">isPushedAsync</a>(<a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a> key);
+<a name="l00254"></a>00254     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#a7df9846b77294633470080dd29ed580c" title="キーのリピートが始まるまでの時間。0〜3（約250ms〜1000msでハードによって違う）が返る。">repeatDelay</a>();
+<a name="l00256"></a>00256     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#a9258c79054f652edd611f81a32be36da" title="キーのリピート速度。0〜31（約2.5〜30回リピート/秒でハードによって違う）が返る。">repeatSpeed</a>();
+<a name="l00258"></a>00258     <span class="keyword">static</span> <span class="keywordtype">wchar_t</span> <a class="code" href="structbalor_1_1gui_1_1_key.html#a89a1ed5e0c8c6d67aa26c9a2a07309ee" title="キーの値を wchar_t に変換する。変換できないキーの場合は 0 を返す。">toChar</a>(<a class="code" href="structbalor_1_1gui_1_1_key.html" title="キーボードのキーを表す。">Key</a> key);
+<a name="l00259"></a>00259 };
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262 
+<a name="l00263"></a>00263     }
+<a name="l00264"></a>00264 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

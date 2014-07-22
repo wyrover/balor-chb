@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::Frame</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::Frame</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::Frame" --><!-- doxytag: inherits="balor::gui::ScrollableControl" -->
+<p>トップレベルで他のコントロールのフレームとなるウインドウ。  
+ <a href="classbalor_1_1gui_1_1_frame.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_frame_8hpp_source.html">Frame.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::Frameに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1gui_1_1_frame.png" usemap="#balor::gui::Frame_map" alt=""/>
+  <map id="balor::gui::Frame_map" name="balor::gui::Frame_map">
+<area href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。" alt="balor::gui::ScrollableControl" shape="rect" coords="0,168,168,192"/>
+<area href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。" alt="balor::gui::Control" shape="rect" coords="0,112,168,136"/>
+<area href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代..." alt="balor::Referenceable" shape="rect" coords="0,56,168,80"/>
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,168,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1gui_1_1_frame-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_close.html">Close</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じたイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_close.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html">CloseReason</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じる理由。  <a href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_closing.html">Closing</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じるイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_closing.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html">HelpButtonClick</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘルプボタンを押したイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_move.html">Move</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">移動したイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_move.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_moving.html">Moving</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">移動するイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_moving.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resize.html">Resize</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさを変更したイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_resize.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html">Resizing</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさを変更するイベント。  <a href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html">Style</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウのスタイル。  <a href="structbalor_1_1gui_1_1_frame_1_1_style.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f0a2cbcfaa8f050066fcb8513714937"></a><!-- doxytag: member="balor::gui::Frame::Icon" ref="a7f0a2cbcfaa8f050066fcb8513714937" args="" -->
+typedef ::<a class="el" href="classbalor_1_1graphics_1_1_icon.html">balor::graphics::Icon</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Icon</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14ea26d3eb39ffeafe446b2380d74bf2"></a><!-- doxytag: member="balor::gui::Frame::Event" ref="a14ea26d3eb39ffeafe446b2380d74bf2" args="" -->
+typedef <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">EventWithSubclassSender</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a>, <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">ScrollableControl::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a14ea26d3eb39ffeafe446b2380d74bf2">Event</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> のイベントの親クラス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97c61385abd36da4dbafe1d7ebc87b1a"></a><!-- doxytag: member="balor::gui::Frame::DisplayChange" ref="a97c61385abd36da4dbafe1d7ebc87b1a" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DisplayChange</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40b04274d2ed4828339d07566efcbfbe"></a><!-- doxytag: member="balor::gui::Frame::MenuLoopBegin" ref="a40b04274d2ed4828339d07566efcbfbe" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MenuLoopBegin</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72e0f6e8c2c07e7354acc220e7cbfefa"></a><!-- doxytag: member="balor::gui::Frame::MenuLoopEnd" ref="a72e0f6e8c2c07e7354acc220e7cbfefa" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MenuLoopEnd</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa931250847cb878c3d386e30220ad314"></a><!-- doxytag: member="balor::gui::Frame::ResizeMoveBegin" ref="aa931250847cb878c3d386e30220ad314" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ResizeMoveBegin</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab26638be1fed182a09a45c7a625f3224"></a><!-- doxytag: member="balor::gui::Frame::ResizeMoveEnd" ref="ab26638be1fed182a09a45c7a625f3224" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ResizeMoveEnd</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a430b23ec7ddaaa44768042a884e8b2c6"></a><!-- doxytag: member="balor::gui::Frame::Paint" ref="a430b23ec7ddaaa44768042a884e8b2c6" args="" -->
+typedef <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">PaintEvent</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a>, <a class="el" href="classbalor_1_1_event_with_sender.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Paint</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af634035b15f63e75a2cc5ec4859445b5"></a><!-- doxytag: member="balor::gui::Frame::Frame" ref="af634035b15f63e75a2cc5ec4859445b5" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#af634035b15f63e75a2cc5ec4859445b5">Frame</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82afe83037b6c34e9224ce48a423886a"></a><!-- doxytag: member="balor::gui::Frame::Frame" ref="a82afe83037b6c34e9224ce48a423886a" args="(StringRange text, int clientWidth=0, int clientHeight=0, Frame::Style style=Style::sizable)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a82afe83037b6c34e9224ce48a423886a">Frame</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> text, int clientWidth=0, int clientHeight=0, <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html">Frame::Style</a> style=Style::sizable)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">タイトル文字列、クライアントサイズ、スタイルから作成。クライアントサイズを０にすると既定の大きさで作成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a052d5109af77c28a60ca9795707cafcb"></a><!-- doxytag: member="balor::gui::Frame::Frame" ref="a052d5109af77c28a60ca9795707cafcb" args="(Frame &amp;&amp;value, bool checkSlicing=true)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Frame</b> (<a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> &amp;&amp;value, bool checkSlicing=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae35414cd6f971e057e1986c9721ec213"></a><!-- doxytag: member="balor::gui::Frame::operator=" ref="ae35414cd6f971e057e1986c9721ec213" args="(Frame &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af29ab1b86f1acf3b03257eeec12cdaff"></a><!-- doxytag: member="balor::gui::Frame::acceptButton" ref="af29ab1b86f1acf3b03257eeec12cdaff" args="() const " -->
+<a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#af29ab1b86f1acf3b03257eeec12cdaff">acceptButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタン以外にフォーカスがある時に Enter キーを押すと押した事になるボタン。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af931fc3b0052ff6862b063e4a39889a0"></a><!-- doxytag: member="balor::gui::Frame::acceptButton" ref="af931fc3b0052ff6862b063e4a39889a0" args="(Button *value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>acceptButton</b> (<a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0457d77758844bb08570860a191924c"></a><!-- doxytag: member="balor::gui::Frame::activate" ref="ad0457d77758844bb08570860a191924c" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ad0457d77758844bb08570860a191924c">activate</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アクティブにする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f54b577f4f4e33d14e36e387396dc93"></a><!-- doxytag: member="balor::gui::Frame::activeControl" ref="a7f54b577f4f4e33d14e36e387396dc93" args="() const " -->
+virtual <a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a7f54b577f4f4e33d14e36e387396dc93">activeControl</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウ上でフォーカスを得ているコントロール。ウインドウがアクティブでなくなっても保存され、ウインドウが再びアクティブになった時にフォーカスが復元される。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34940868446d1b1e1767d2b1b363d5d3"></a><!-- doxytag: member="balor::gui::Frame::activeControl" ref="a34940868446d1b1e1767d2b1b363d5d3" args="(Control *value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>activeControl</b> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf233880ee37b6db2b88a0d2bb1cfd5e"></a><!-- doxytag: member="balor::gui::Frame::cancelButton" ref="adf233880ee37b6db2b88a0d2bb1cfd5e" args="() const " -->
+<a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#adf233880ee37b6db2b88a0d2bb1cfd5e">cancelButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ESC キーを押した時に押した事になるボタン。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85f9871c5740f2bb405096009b244c8e"></a><!-- doxytag: member="balor::gui::Frame::cancelButton" ref="a85f9871c5740f2bb405096009b244c8e" args="(Button *value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cancelButton</b> (<a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52490a58068a984af2dc4a8f07d16d39"></a><!-- doxytag: member="balor::gui::Frame::centerToOwner" ref="a52490a58068a984af2dc4a8f07d16d39" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a52490a58068a984af2dc4a8f07d16d39">centerToOwner</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">オーナーウインドウの中心に移動する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab70f3c4c7735cd3d174439db0875a297"></a><!-- doxytag: member="balor::gui::Frame::centerToScreen" ref="ab70f3c4c7735cd3d174439db0875a297" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ab70f3c4c7735cd3d174439db0875a297">centerToScreen</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">スクリーンの中心に移動する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17fc3ad0bbf2a4739338951983cb4f4e"></a><!-- doxytag: member="balor::gui::Frame::close" ref="a17fc3ad0bbf2a4739338951983cb4f4e" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a17fc3ad0bbf2a4739338951983cb4f4e">close</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じる。ウインドウは非表示になるが破壊はされない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4071fafda33bf59b9844ee300c1ad506"></a><!-- doxytag: member="balor::gui::Frame::desktopPosition" ref="a4071fafda33bf59b9844ee300c1ad506" args="() const " -->
+<a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a4071fafda33bf59b9844ee300c1ad506">desktopPosition</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デスクトップ上での座標。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a365164a5e2a791558d7eee2f07e662c1"></a><!-- doxytag: member="balor::gui::Frame::desktopPosition" ref="a365164a5e2a791558d7eee2f07e662c1" args="(const Point &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>desktopPosition</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad962fc0dbead69f9359b1118a2cdaeab"></a><!-- doxytag: member="balor::gui::Frame::desktopPosition" ref="ad962fc0dbead69f9359b1118a2cdaeab" args="(int x, int y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>desktopPosition</b> (int x, int y)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ac0a88f256b7064a0521b1bb0d7d2ff"></a><!-- doxytag: member="balor::gui::Frame::focusable" ref="a5ac0a88f256b7064a0521b1bb0d7d2ff" args="() const " -->
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a5ac0a88f256b7064a0521b1bb0d7d2ff">focusable</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォーカスを得られるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43456abc10bc42e9520a4f04f4998a94"></a><!-- doxytag: member="balor::gui::Frame::helpButton" ref="a43456abc10bc42e9520a4f04f4998a94" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a43456abc10bc42e9520a4f04f4998a94">helpButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">？ボタンを有効にするかどうか。有効にした場合、最大化ボタンと最小化ボタンは消える。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6905f9713bb442c48b712779a0ad20a"></a><!-- doxytag: member="balor::gui::Frame::helpButton" ref="ab6905f9713bb442c48b712779a0ad20a" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>helpButton</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8336b443c1e96461454bc4cedc4132a"></a><!-- doxytag: member="balor::gui::Frame::icon" ref="ab8336b443c1e96461454bc4cedc4132a" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_icon.html">Icon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ab8336b443c1e96461454bc4cedc4132a">icon</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">タイトルバーに表示するアイコン。大きいアイコンを指定する。初期値は nullptr。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eadbf402151a34f05e19ba2446e23e9"></a><!-- doxytag: member="balor::gui::Frame::icon" ref="a8eadbf402151a34f05e19ba2446e23e9" args="(HICON value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>icon</b> (HICON value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4de9f06a75cffc492327c5f0b1cac9dc"></a><!-- doxytag: member="balor::gui::Frame::maximizeButton" ref="a4de9f06a75cffc492327c5f0b1cac9dc" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a4de9f06a75cffc492327c5f0b1cac9dc">maximizeButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最大化ボタンを有効にするかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74963d7f78019ca84dec8c091d47772a"></a><!-- doxytag: member="balor::gui::Frame::maximizeButton" ref="a74963d7f78019ca84dec8c091d47772a" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>maximizeButton</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1131d145e7f4f74b02c394be49cc090e"></a><!-- doxytag: member="balor::gui::Frame::maximized" ref="a1131d145e7f4f74b02c394be49cc090e" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a1131d145e7f4f74b02c394be49cc090e">maximized</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最大化しているかどうか。visible が true の場合のみ変更できる。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2abab26e944c58a702be9ce69b2dbc4e"></a><!-- doxytag: member="balor::gui::Frame::maximized" ref="a2abab26e944c58a702be9ce69b2dbc4e" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>maximized</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e6e75fd798341ec07644389ef651976"></a><!-- doxytag: member="balor::gui::Frame::menuBar" ref="a0e6e75fd798341ec07644389ef651976" args="(MenuBar *value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a0e6e75fd798341ec07644389ef651976">menuBar</a> (<a class="el" href="classbalor_1_1gui_1_1_menu_bar.html">MenuBar</a> *value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューバーを設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a468366ed6a2c4841169fd44dc4a30a18"></a><!-- doxytag: member="balor::gui::Frame::menuBarBounds" ref="a468366ed6a2c4841169fd44dc4a30a18" args="() const " -->
+<a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a468366ed6a2c4841169fd44dc4a30a18">menuBarBounds</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューバーの占める領域。無い場合は Rectangle(0, 0, 0, 0) を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac43b327d78c0428b9e25b64936952109"></a><!-- doxytag: member="balor::gui::Frame::menuBarFocused" ref="ac43b327d78c0428b9e25b64936952109" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ac43b327d78c0428b9e25b64936952109">menuBarFocused</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューバーがフォーカスを得ているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf45a560e172b957fd22afdffbecab3e"></a><!-- doxytag: member="balor::gui::Frame::minimizeButton" ref="acf45a560e172b957fd22afdffbecab3e" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#acf45a560e172b957fd22afdffbecab3e">minimizeButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最小化ボタンを有効にするかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd44550ec3b8e7bb18bf2d412f4453ee"></a><!-- doxytag: member="balor::gui::Frame::minimizeButton" ref="abd44550ec3b8e7bb18bf2d412f4453ee" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>minimizeButton</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae45367500b03733436e92a6cf54c19e9"></a><!-- doxytag: member="balor::gui::Frame::minimized" ref="ae45367500b03733436e92a6cf54c19e9" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ae45367500b03733436e92a6cf54c19e9">minimized</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最小化しているかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad934912390f96a204cae3b236bbf201d"></a><!-- doxytag: member="balor::gui::Frame::minimized" ref="ad934912390f96a204cae3b236bbf201d" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>minimized</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d39192309293c838bb5e91519f750fd"></a><!-- doxytag: member="balor::gui::Frame::onClose" ref="a7d39192309293c838bb5e91519f750fd" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_close.html">Frame::Close</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a7d39192309293c838bb5e91519f750fd">onClose</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7539e8c970c301d0f391d08562ee26e3"></a><!-- doxytag: member="balor::gui::Frame::onClosing" ref="a7539e8c970c301d0f391d08562ee26e3" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_closing.html">Frame::Closing</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a7539e8c970c301d0f391d08562ee26e3">onClosing</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを閉じるイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc5031789261e40f129c361189836430"></a><!-- doxytag: member="balor::gui::Frame::onDisplayChange" ref="adc5031789261e40f129c361189836430" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::DisplayChange</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#adc5031789261e40f129c361189836430">onDisplayChange</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">モニタの解像度または色数が変更されたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adba9eed45ad526cfb913a65c97a62b61"></a><!-- doxytag: member="balor::gui::Frame::onHelpButtonClick" ref="adba9eed45ad526cfb913a65c97a62b61" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html">Frame::HelpButtonClick</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#adba9eed45ad526cfb913a65c97a62b61">onHelpButtonClick</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヘルプボタンを押したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4eb508380d0e0033f9de214fbc334f39"></a><!-- doxytag: member="balor::gui::Frame::onMenuLoopBegin" ref="a4eb508380d0e0033f9de214fbc334f39" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::MenuLoopBegin</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a4eb508380d0e0033f9de214fbc334f39">onMenuLoopBegin</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューの表示を開始したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a645acd3335b3703d4c129a34d68133c3"></a><!-- doxytag: member="balor::gui::Frame::onMenuLoopEnd" ref="a645acd3335b3703d4c129a34d68133c3" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::MenuLoopEnd</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a645acd3335b3703d4c129a34d68133c3">onMenuLoopEnd</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューの表示を終了したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee02d9d3fd1d09fb558ac8e4cae4d6a5"></a><!-- doxytag: member="balor::gui::Frame::onMove" ref="aee02d9d3fd1d09fb558ac8e4cae4d6a5" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_move.html">Frame::Move</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#aee02d9d3fd1d09fb558ac8e4cae4d6a5">onMove</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">移動したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f122b86db5966fb16c3993795f4cc8a"></a><!-- doxytag: member="balor::gui::Frame::onMoving" ref="a2f122b86db5966fb16c3993795f4cc8a" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_moving.html">Frame::Moving</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a2f122b86db5966fb16c3993795f4cc8a">onMoving</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">移動するイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab93b2c380990a22350d7c8c6b12e9ef9"></a><!-- doxytag: member="balor::gui::Frame::onPaint" ref="ab93b2c380990a22350d7c8c6b12e9ef9" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">Frame::Paint</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ab93b2c380990a22350d7c8c6b12e9ef9">onPaint</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クライアント領域を描画するイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a662df30de507a62743440df760b1bc47"></a><!-- doxytag: member="balor::gui::Frame::onResize" ref="a662df30de507a62743440df760b1bc47" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resize.html">Frame::Resize</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a662df30de507a62743440df760b1bc47">onResize</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさが変更されたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d47385310c2c9e5be9fa27ab8144ba9"></a><!-- doxytag: member="balor::gui::Frame::onResizing" ref="a1d47385310c2c9e5be9fa27ab8144ba9" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html">Frame::Resizing</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a1d47385310c2c9e5be9fa27ab8144ba9">onResizing</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさが変更されるイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11e632849ff3cad1a7468e6a8dd7e8e2"></a><!-- doxytag: member="balor::gui::Frame::onResizeMoveBegin" ref="a11e632849ff3cad1a7468e6a8dd7e8e2" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::ResizeMoveBegin</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a11e632849ff3cad1a7468e6a8dd7e8e2">onResizeMoveBegin</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">サイズ変更や移動を開始したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24315d7ac4f614fc8bc244b81ba1a6a8"></a><!-- doxytag: member="balor::gui::Frame::onResizeMoveEnd" ref="a24315d7ac4f614fc8bc244b81ba1a6a8" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::ResizeMoveEnd</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a24315d7ac4f614fc8bc244b81ba1a6a8">onResizeMoveEnd</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">サイズ変更や移動を終了したイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aaf030c3296b9a685d78fabe3a95cda"></a><!-- doxytag: member="balor::gui::Frame::owner" ref="a4aaf030c3296b9a685d78fabe3a95cda" args="() const " -->
+<a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a4aaf030c3296b9a685d78fabe3a95cda">owner</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">オーナー。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df4bbcb063e38dd7a2663e939652d6e"></a><!-- doxytag: member="balor::gui::Frame::owner" ref="a7df4bbcb063e38dd7a2663e939652d6e" args="(Frame *value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>owner</b> (<a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9b0ce8199bcdff6572fc61d389e2f3a"></a><!-- doxytag: member="balor::gui::Frame::ownerHandle" ref="ad9b0ce8199bcdff6572fc61d389e2f3a" args="() const " -->
+HWND&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ad9b0ce8199bcdff6572fc61d389e2f3a">ownerHandle</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">オーナーウインドウハンドル。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8480e0b3a423945f88d68645bae6a095"></a><!-- doxytag: member="balor::gui::Frame::ownerHandle" ref="a8480e0b3a423945f88d68645bae6a095" args="(HWND value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ownerHandle</b> (HWND value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a85de02702b977df7b155c62e179a14"></a><!-- doxytag: member="balor::gui::Frame::parent" ref="a3a85de02702b977df7b155c62e179a14" args="(Control *value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d4a29b7f1ad37d7ce4d3594c5f11b9e"></a><!-- doxytag: member="balor::gui::Frame::resetLayer" ref="a7d4a29b7f1ad37d7ce4d3594c5f11b9e" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a7d4a29b7f1ad37d7ce4d3594c5f11b9e">resetLayer</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setLayer 関数で設定したレイヤーを無効にする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7b6d35acb3f981c263fda4bde90bc67"></a><!-- doxytag: member="balor::gui::Frame::restoreBounds" ref="af7b6d35acb3f981c263fda4bde90bc67" args="() const " -->
+<a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#af7b6d35acb3f981c263fda4bde90bc67">restoreBounds</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最大化も最小化もしていない状態の bounds。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc9df97f532c77d9d0b070206d1c635d"></a><!-- doxytag: member="balor::gui::Frame::runMessageLoop" ref="abc9df97f532c77d9d0b070206d1c635d" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#abc9df97f532c77d9d0b070206d1c635d">runMessageLoop</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージループを実行する。exitMessageLoop 関数を呼ぶか、この関数を呼んだウインドウが閉じられればループを抜ける。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36db3359d9ba386e49e74f7c65365fe7"></a><!-- doxytag: member="balor::gui::Frame::runModalMessageLoop" ref="a36db3359d9ba386e49e74f7c65365fe7" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a36db3359d9ba386e49e74f7c65365fe7">runModalMessageLoop</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">同じスレッドの他のウインドウを使用不可にしてメッセージループを実行する。いわゆるダイアログの表示。オーナーを設定しておく必要がある。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4142900ee3f8a452bb13e45ecdb43572"></a><!-- doxytag: member="balor::gui::Frame::runPostedMessages" ref="a4142900ee3f8a452bb13e45ecdb43572" args="()" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a4142900ee3f8a452bb13e45ecdb43572">runPostedMessages</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">溜まっているメッセージを処理してメッセージループを終了すべきかどうかを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bfc25ce55a00fc80b50327a5670fdb2"></a><!-- doxytag: member="balor::gui::Frame::setLayer" ref="a5bfc25ce55a00fc80b50327a5670fdb2" args="(float alpha)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a5bfc25ce55a00fc80b50327a5670fdb2">setLayer</a> (float alpha)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウを半透明にする。alpha は不透明度(0〜1) で 1 で不透明。resetLayer 関数で無効化できる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e1eb757c8de1fb05a8982a6de11a59e"></a><!-- doxytag: member="balor::gui::Frame::setLayer" ref="a3e1eb757c8de1fb05a8982a6de11a59e" args="(const Color &amp;colorKey)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a3e1eb757c8de1fb05a8982a6de11a59e">setLayer</a> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;colorKey)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウ上で colorKey と同じ色の部分を透明にする。resetLayer 関数で無効化できる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17dced4c59db57df245ff58bfd089831"></a><!-- doxytag: member="balor::gui::Frame::setLayer" ref="a17dced4c59db57df245ff58bfd089831" args="(HDC graphicsWithAlphaChannel, float alpha=1.0f)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a17dced4c59db57df245ff58bfd089831">setLayer</a> (HDC graphicsWithAlphaChannel, float alpha=1.0f)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">graphicsWithAlphaChannel で指定したアルファチャンネルを持った３２ビット画像でウインドウと背景を半透明合成する。画像はあらかじめ <a class="el" href="classbalor_1_1graphics_1_1_bitmap.html#afc45e50c02fff387f31075bee1c9ce70" title="アルファチャンネルを全てのピクセルに乗算する。DIB の 32ビット画像の場合のみ有効。 Graphics::blend 関数でアルファチャンネルを使う場合はあらかじめこの関数を呼んでおく必要がある。">Bitmap::premultiplyAlpha</a> 関数を実行しておく必要がある。 alpha 引数でさらに全体に半透明をかけることもできる。style() を強制的に Frame::Style::none に設定する。resetLayer 関数で無効化できる。他の setLayer 関数が既に適用されている場合、この関数は失敗する。 WM_PAINT が処理されなくなり、画像のみ表示されるのでこの <a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> の上にコントロールを表示したい場合はこの <a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> をオーナーに持ち、colorKey で透過した <a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> を上に乗せて位置を追従させると良い。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92f341dff2642f1a26e7f64602d2e216"></a><!-- doxytag: member="balor::gui::Frame::sizeFromClientSize" ref="a92f341dff2642f1a26e7f64602d2e216" args="(const Size &amp;clientSize) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a92f341dff2642f1a26e7f64602d2e216">sizeFromClientSize</a> (const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;clientSize) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クライアント領域の大きさからコントロールの大きさを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a616e8a5bd9982d96362fe3ba8d5fff"></a><!-- doxytag: member="balor::gui::Frame::showInTaskbar" ref="a0a616e8a5bd9982d96362fe3ba8d5fff" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a0a616e8a5bd9982d96362fe3ba8d5fff">showInTaskbar</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">タスクバーに表示するかどうか。表示を消せるのは <a class="el" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style()</a> が <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fbaf410200cb51acb6c74fc591791862584" title="リサイズできるウインドウ。">Frame::Style::toolWindow</a> か <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba84e2ffd589246d11f39b2844e8fa3a05" title="ツールウインドウ。アイコン、最大化ボタン、最小化ボタン、ヘルプボタンが表示されない。">Frame::Style::sizableToolWindow</a> の時かオーナーを持つウインドウだけ。 上記の <a class="el" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style()</a> 以外で表示を消すには上記の <a class="el" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style()</a> を持った非表示のオーナーを持てば良い。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9dd329c560867a6d45ed60f87080ab5"></a><!-- doxytag: member="balor::gui::Frame::showInTaskbar" ref="ab9dd329c560867a6d45ed60f87080ab5" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showInTaskbar</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2db3f3af54c686061ef383b510da5756"></a><!-- doxytag: member="balor::gui::Frame::style" ref="a2db3f3af54c686061ef383b510da5756" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html">Frame::Style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756">style</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウのスタイル。初期値は Frame::Style::sizable。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae6e70a9383538945b7a9c9265ba6e5a"></a><!-- doxytag: member="balor::gui::Frame::style" ref="aae6e70a9383538945b7a9c9265ba6e5a" args="(Frame::Style value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>style</b> (<a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html">Frame::Style</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa871ab1579bc1159cc13190e0d955712"></a><!-- doxytag: member="balor::gui::Frame::systemMenu" ref="aa871ab1579bc1159cc13190e0d955712" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#aa871ab1579bc1159cc13190e0d955712">systemMenu</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">閉じる、最大化、最小化ボタンとシステムメニューを有効にするかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8320b1348568da463d4f16a8ac71ea9e"></a><!-- doxytag: member="balor::gui::Frame::systemMenu" ref="a8320b1348568da463d4f16a8ac71ea9e" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>systemMenu</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7d15d037f1b2e2413be34f029efe287"></a><!-- doxytag: member="balor::gui::Frame::text" ref="ad7d15d037f1b2e2413be34f029efe287" args="(StringRange value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>text</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8914ba5db243d043e3f187deb373bd5"></a><!-- doxytag: member="balor::gui::Frame::topMost" ref="ab8914ba5db243d043e3f187deb373bd5" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ab8914ba5db243d043e3f187deb373bd5">topMost</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">常に最前面に表示されるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa781741e3b17c6e9f4010e64ff58fc64"></a><!-- doxytag: member="balor::gui::Frame::topMost" ref="aa781741e3b17c6e9f4010e64ff58fc64" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>topMost</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91ba5bb3772f7e21ae19f95bd7551895"></a><!-- doxytag: member="balor::gui::Frame::updateMenubar" ref="a91ba5bb3772f7e21ae19f95bd7551895" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a91ba5bb3772f7e21ae19f95bd7551895">updateMenubar</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メニューバーの表示を更新する。ポップアップではないメニュー項目を変更したら更新する必要がある。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6661973ec9fd55a04433f1be5a0e44f3"></a><!-- doxytag: member="balor::gui::Frame::visible" ref="a6661973ec9fd55a04433f1be5a0e44f3" args="(bool value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>visible</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a835f5a7ce88a198e0fb1e6d41c929796"></a><!-- doxytag: member="balor::gui::Frame::processDescendantErased" ref="a835f5a7ce88a198e0fb1e6d41c929796" args="(Control &amp;descendant)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a835f5a7ce88a198e0fb1e6d41c929796">processDescendantErased</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;descendant)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">子孫コントロールが子孫ではなくなるときの処理。。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fcac7e2b4163d65bc1e41c7cb0bc0cf"></a><!-- doxytag: member="balor::gui::Frame::processDescendantFocused" ref="a8fcac7e2b4163d65bc1e41c7cb0bc0cf" args="(Control &amp;descendant)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a8fcac7e2b4163d65bc1e41c7cb0bc0cf">processDescendantFocused</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;descendant)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">子孫コントロールがフォーカスを得たときの処理。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a184ea39a2b60559271ef80df01c6d76e"></a><!-- doxytag: member="balor::gui::Frame::activeFrame" ref="a184ea39a2b60559271ef80df01c6d76e" args="()" -->
+static <a class="el" href="classbalor_1_1gui_1_1_frame.html">Frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a184ea39a2b60559271ef80df01c6d76e">activeFrame</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在アクティブなウインドウ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa4df9e7fdbc3751f18e1a3178208c4"></a><!-- doxytag: member="balor::gui::Frame::captionFont" ref="a5fa4df9e7fdbc3751f18e1a3178208c4" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a5fa4df9e7fdbc3751f18e1a3178208c4">captionFont</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">タイトルバーの文字列のフォント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac76b476acb377a3d6fcaeee38dadbb44"></a><!-- doxytag: member="balor::gui::Frame::exitMessageLoop" ref="ac76b476acb377a3d6fcaeee38dadbb44" args="()" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ac76b476acb377a3d6fcaeee38dadbb44">exitMessageLoop</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージループから抜ける。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2935b1246e10b2a8cc1e075d5f06b5a"></a><!-- doxytag: member="balor::gui::Frame::processDialogKey" ref="ae2935b1246e10b2a8cc1e075d5f06b5a" args="(int shortcut)" -->
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#ae2935b1246e10b2a8cc1e075d5f06b5a">processDialogKey</a> (int shortcut)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ダイアログキーを処理して処理できたかどうかを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a2451395f8301931fd31136384a76ee"></a><!-- doxytag: member="balor::gui::Frame::processMessage" ref="a3a2451395f8301931fd31136384a76ee" args="(Message &amp;msg)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#a3a2451395f8301931fd31136384a76ee">processMessage</a> (<a class="el" href="classbalor_1_1gui_1_1_message.html">Message</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージを処理する。いわゆるウインドウプロシージャ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0af7b3e9975db7bdb51cb8796832c4e"></a><!-- doxytag: member="balor::gui::Frame::updateHandleStyle" ref="aa0af7b3e9975db7bdb51cb8796832c4e" args="(int style, int exStyle, HICON icon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_frame.html#aa0af7b3e9975db7bdb51cb8796832c4e">updateHandleStyle</a> (int style, int exStyle, HICON icon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウハンドルのスタイルを更新する。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6226cef7e12ff421745bae6d9a15ebbe"></a><!-- doxytag: member="balor::gui::Frame::_canPostQuitMessage" ref="a6226cef7e12ff421745bae6d9a15ebbe" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_canPostQuitMessage</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a306cb2934e59733d4e8357f3be68be0b"></a><!-- doxytag: member="balor::gui::Frame::_closeReason" ref="a306cb2934e59733d4e8357f3be68be0b" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html">CloseReason</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_closeReason</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45ea5929ef64513831e95c35691157e7"></a><!-- doxytag: member="balor::gui::Frame::_acceptButton" ref="a45ea5929ef64513831e95c35691157e7" args="" -->
+<a class="el" href="classbalor_1_1_reference.html">Reference</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_acceptButton</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6168fa46db3d82481ecb100f87fefc6"></a><!-- doxytag: member="balor::gui::Frame::_activeControl" ref="ad6168fa46db3d82481ecb100f87fefc6" args="" -->
+<a class="el" href="classbalor_1_1_reference.html">Reference</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_activeControl</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b004ea9447bacfd40025c0cc5462e5f"></a><!-- doxytag: member="balor::gui::Frame::_cancelButton" ref="a7b004ea9447bacfd40025c0cc5462e5f" args="" -->
+<a class="el" href="classbalor_1_1_reference.html">Reference</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_button.html">Button</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_cancelButton</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a398c5589650067108e7cc6fc6c062b14"></a><!-- doxytag: member="balor::gui::Frame::_style" ref="a398c5589650067108e7cc6fc6c062b14" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_frame_1_1_style.html">Style</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_style</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a821be9a26580b30ae2ae055c5986d185"></a><!-- doxytag: member="balor::gui::Frame::_onClose" ref="a821be9a26580b30ae2ae055c5986d185" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_close.html">Frame::Close</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onClose</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2652bd4c383be8de24e80179f623eaa"></a><!-- doxytag: member="balor::gui::Frame::_onClosing" ref="aa2652bd4c383be8de24e80179f623eaa" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_closing.html">Frame::Closing</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onClosing</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1de57dba0d7604588ce871088de4ed4"></a><!-- doxytag: member="balor::gui::Frame::_onDisplayChange" ref="ab1de57dba0d7604588ce871088de4ed4" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::DisplayChange</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onDisplayChange</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33dd788568cc27e3c71a24b627e07390"></a><!-- doxytag: member="balor::gui::Frame::_onHelpButtonClick" ref="a33dd788568cc27e3c71a24b627e07390" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html">Frame::HelpButtonClick</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onHelpButtonClick</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2416bee5e2093e582d77595e82a4b6d1"></a><!-- doxytag: member="balor::gui::Frame::_onMenuLoopBegin" ref="a2416bee5e2093e582d77595e82a4b6d1" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::MenuLoopBegin</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onMenuLoopBegin</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36435db8cfba275c37d9a72577d71f06"></a><!-- doxytag: member="balor::gui::Frame::_onMenuLoopEnd" ref="a36435db8cfba275c37d9a72577d71f06" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::MenuLoopEnd</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onMenuLoopEnd</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c5e7624f0f3bf8951b23e936eed71a1"></a><!-- doxytag: member="balor::gui::Frame::_onMove" ref="a2c5e7624f0f3bf8951b23e936eed71a1" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_move.html">Frame::Move</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onMove</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44f4870c0fbe19d3cc9de56e3980933a"></a><!-- doxytag: member="balor::gui::Frame::_onMoving" ref="a44f4870c0fbe19d3cc9de56e3980933a" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_moving.html">Frame::Moving</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onMoving</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8aaeb355d9499743200937c4484aaed0"></a><!-- doxytag: member="balor::gui::Frame::_onPaint" ref="a8aaeb355d9499743200937c4484aaed0" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">Frame::Paint</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onPaint</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04cbfdd206365f79b5e88e2b00bb060e"></a><!-- doxytag: member="balor::gui::Frame::_onResize" ref="a04cbfdd206365f79b5e88e2b00bb060e" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resize.html">Frame::Resize</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onResize</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26ffb152974fe7fc2059994efb42cba4"></a><!-- doxytag: member="balor::gui::Frame::_onResizing" ref="a26ffb152974fe7fc2059994efb42cba4" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html">Frame::Resizing</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onResizing</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e3692efabc5a5118980ffed715b5c4a"></a><!-- doxytag: member="balor::gui::Frame::_onResizeMoveBegin" ref="a1e3692efabc5a5118980ffed715b5c4a" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::ResizeMoveBegin</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onResizeMoveBegin</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a661e327a0d2d95a7f4a8f87b21ef9bc0"></a><!-- doxytag: member="balor::gui::Frame::_onResizeMoveEnd" ref="a661e327a0d2d95a7f4a8f87b21ef9bc0" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_sender.html">Frame::ResizeMoveEnd</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onResizeMoveEnd</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>トップレベルで他のコントロールのフレームとなるウインドウ。 </p>
+<p>TODO: parent に他のコントロールを指定して子フレームになると WS_CAPTION スタイルを持つ限りフレーム上のエディットコントロールがマウスに反応しなくなる。原因不明。.NET でも同じ現象が起きるので WIN32 の仕様かもしれない。</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"Frame Sample");</code></pre><pre><code>	<a class="el" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> edit(frame, 20, 10, 0, 0, 20);
+	<a class="el" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a> accept(frame, 20, 40, 0, 0, L"決定", [&amp;] (Button::Click&amp; ) {
+		<a class="el" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">MsgBox::show</a>(L"決定しました。");
+	});
+	<a class="el" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a> cancel(frame, 20, 70, 0, 0, L"キャンセル", [&amp;] (Button::Click&amp; ) {
+		<a class="el" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">MsgBox::show</a>(L"キャンセルしました。");
+	});
+	frame.acceptButton(&amp;accept); // Enter キーで反応。
+	frame.cancelButton(&amp;cancel); // ESC キーで反応。
+	frame.onClosing() = [&amp;] (<a class="el" href="structbalor_1_1gui_1_1_frame_1_1_closing.html" title="ウインドウを閉じるイベント。">Frame::Closing</a>&amp; e) {
+		if (<a class="el" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">MsgBox::show</a>(frame, L"閉じますか？", L"終了", <a class="el" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaee7aa7711cbcc81bce9bfc825ad6132f" title="OK。">MsgBox::Buttons::okCancel</a>) != MsgBox::Result::ok) {
+			e.cancel(true);
+		}
+	};
+	frame.icon(<a class="el" href="classbalor_1_1graphics_1_1_icon.html#a6e7b5d86d3140eef3d305cc742d465f7" title="疑問符アイコン。">Icon::question()</a>);</code></pre><pre><code> 	frame.runMessageLoop();
+ </code></pre> </div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_frame_8hpp_source.html">Frame.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Frame.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:31に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

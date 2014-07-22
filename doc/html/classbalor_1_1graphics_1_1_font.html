@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::graphics::Font</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1graphics.html">graphics</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::graphics::Font</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::graphics::Font" --><!-- doxytag: inherits="balor::NonCopyable" -->
+<p>GDI フォントを表す。  
+ <a href="classbalor_1_1graphics_1_1_font.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_font_8hpp_source.html">Font.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::graphics::Fontに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1graphics_1_1_font.png" usemap="#balor::graphics::Font_map" alt=""/>
+  <map id="balor::graphics::Font_map" name="balor::graphics::Font_map">
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,127,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1graphics_1_1_font-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_font_1_1_quality.html">Quality</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントの描画品質。 XPでは nonantialiased 以外は antialiased と等しいようだ。 Vistaでは antialiased と nonantialiased はＸＰと同じだがそれ以外は ClearType のぼかしが見られる。 Vistaにおいて、ＭＳ ゴシックはフォントのピクセルサイズがアンチエイリアスは 25 未満、 ClearType のぼかしは 23 未満だとかからなくなるが、 メイリオは 23 未満でも両方かかる。  <a href="structbalor_1_1graphics_1_1_font_1_1_quality.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_font_1_1_style.html">Style</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントのスタイル。組み合わせで指定する。  <a href="structbalor_1_1graphics_1_1_font_1_1_style.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afab8eed7c5ff54b235a898952ad50194"></a><!-- doxytag: member="balor::graphics::Font::HFONT" ref="afab8eed7c5ff54b235a898952ad50194" args="" -->
+typedef ::HFONT__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HFONT</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3a7185bfd7aae50a30f7afdf592847c"></a><!-- doxytag: member="balor::graphics::Font::LOGFONTW" ref="ac3a7185bfd7aae50a30f7afdf592847c" args="" -->
+typedef ::tagLOGFONTW&#160;</td><td class="memItemRight" valign="bottom"><b>LOGFONTW</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab1dd1e1e62a5dd4c5c4afeaad942e4"></a><!-- doxytag: member="balor::graphics::Font::Font" ref="acab1dd1e1e62a5dd4c5c4afeaad942e4" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#acab1dd1e1e62a5dd4c5c4afeaad942e4">Font</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99d372f82676ed88dcdf2f1f6617ebdb"></a><!-- doxytag: member="balor::graphics::Font::Font" ref="a99d372f82676ed88dcdf2f1f6617ebdb" args="(Font &amp;&amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Font</b> (<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a3ce690c94b98e1db256940cf4146aa"></a><!-- doxytag: member="balor::graphics::Font::Font" ref="a5a3ce690c94b98e1db256940cf4146aa" args="(HFONT handle, bool owned=false)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a5a3ce690c94b98e1db256940cf4146aa">Font</a> (HFONT handle, bool owned=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab76a7bcc3b273cabc5d7893fbef7e3d6"></a><!-- doxytag: member="balor::graphics::Font::Font" ref="ab76a7bcc3b273cabc5d7893fbef7e3d6" args="(const Font &amp;font, int height, Font::Style style=Style::regular)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#ab76a7bcc3b273cabc5d7893fbef7e3d6">Font</a> (const <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a> &amp;font, int height, <a class="el" href="structbalor_1_1graphics_1_1_font_1_1_style.html">Font::Style</a> style=Style::regular)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントを新しい大きさとスタイルで複製する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affe584a547041aab46d78e3a9723bec4"></a><!-- doxytag: member="balor::graphics::Font::Font" ref="affe584a547041aab46d78e3a9723bec4" args="(StringRange name, int height, Font::Style style=Style::regular, Font::Quality quality=Quality::proof, int escapement=0, int orientation=0)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#affe584a547041aab46d78e3a9723bec4">Font</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> name, int height, <a class="el" href="structbalor_1_1graphics_1_1_font_1_1_style.html">Font::Style</a> style=Style::regular, <a class="el" href="structbalor_1_1graphics_1_1_font_1_1_quality.html">Font::Quality</a> quality=Quality::proof, int escapement=0, int orientation=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">各引数を元にフォントを作成する。height はピクセルサイズ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a308bc38543163f79715f79114a6fffc5"></a><!-- doxytag: member="balor::graphics::Font::operator=" ref="a308bc38543163f79715f79114a6fffc5" args="(Font &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c64156c0829bc0597ecf849c81483b5"></a><!-- doxytag: member="balor::graphics::Font::averageWidth" ref="a8c64156c0829bc0597ecf849c81483b5" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a8c64156c0829bc0597ecf849c81483b5">averageWidth</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字の平均幅。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7f102137b22e46505f6357a82a8baf0"></a><!-- doxytag: member="balor::graphics::Font::clone" ref="ac7f102137b22e46505f6357a82a8baf0" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#ac7f102137b22e46505f6357a82a8baf0">clone</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">複製を作成して返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa6002e4f388fa238ba1a255c94d402c"></a><!-- doxytag: member="balor::graphics::Font::escapement" ref="afa6002e4f388fa238ba1a255c94d402c" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#afa6002e4f388fa238ba1a255c94d402c">escapement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字送り方向の角度。（0〜3600） <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69a37b5afc011b1b4e51234a451e8575"></a><!-- doxytag: member="balor::graphics::Font::height" ref="a69a37b5afc011b1b4e51234a451e8575" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a69a37b5afc011b1b4e51234a451e8575">height</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字のピクセル単位の高さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5901a044836d269d484224cc9937b5f4"></a><!-- doxytag: member="balor::graphics::Font::name" ref="a5901a044836d269d484224cc9937b5f4" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a5901a044836d269d484224cc9937b5f4">name</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォント名。コンストラクタで指定した名前とは限らない。最終的に選ばれた名前になる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa854015b907377003d8f4c155259308c"></a><!-- doxytag: member="balor::graphics::Font::orientation" ref="aa854015b907377003d8f4c155259308c" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#aa854015b907377003d8f4c155259308c">orientation</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字のベースラインに対する表示方向の角度。（0〜3600） <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ee8fa3f31d05daa11652c81c6d67ae2"></a><!-- doxytag: member="balor::graphics::Font::owned" ref="a7ee8fa3f31d05daa11652c81c6d67ae2" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a7ee8fa3f31d05daa11652c81c6d67ae2">owned</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタでハンドルを破棄するかどうか。変更は要注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9adc3e0d05a39cdf72dd1bcc13b2c9f"></a><!-- doxytag: member="balor::graphics::Font::owned" ref="aa9adc3e0d05a39cdf72dd1bcc13b2c9f" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>owned</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58a9eb67fc0fea39b44f22fd8ebe3546"></a><!-- doxytag: member="balor::graphics::Font::quality" ref="a58a9eb67fc0fea39b44f22fd8ebe3546" args="() const " -->
+<a class="el" href="structbalor_1_1graphics_1_1_font_1_1_quality.html">Font::Quality</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a58a9eb67fc0fea39b44f22fd8ebe3546">quality</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">描画品質 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae59eaa092730ded90e68ba52cfe33881"></a><!-- doxytag: member="balor::graphics::Font::style" ref="ae59eaa092730ded90e68ba52cfe33881" args="() const " -->
+<a class="el" href="structbalor_1_1graphics_1_1_font_1_1_style.html">Font::Style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#ae59eaa092730ded90e68ba52cfe33881">style</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントスタイル。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cdcabfd9280b29c34671a3769d9fb5e"></a><!-- doxytag: member="balor::graphics::Font::operator HFONT" ref="a0cdcabfd9280b29c34671a3769d9fb5e" args="() const " -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a0cdcabfd9280b29c34671a3769d9fb5e">operator HFONT</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">HFONT への自動変換 ＆ null チェック用 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7dc1bfb22bfb40502da18454a678a71"></a><!-- doxytag: member="balor::graphics::Font::clone" ref="ac7dc1bfb22bfb40502da18454a678a71" args="(HFONT handle)" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> (HFONT handle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bde60dfe3e81a3153cdc20bab7d45b8"></a><!-- doxytag: member="balor::graphics::Font::fromLogFont" ref="a0bde60dfe3e81a3153cdc20bab7d45b8" args="(const LOGFONTW &amp;logfont)" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a0bde60dfe3e81a3153cdc20bab7d45b8">fromLogFont</a> (const LOGFONTW &amp;logfont)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">LOGFONTW 構造体から作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e74e5af1d4ef8edbe8d838035359dbf"></a><!-- doxytag: member="balor::graphics::Font::names" ref="a9e74e5af1d4ef8edbe8d838035359dbf" args="()" -->
+static std::vector&lt; <a class="el" href="classbalor_1_1_string.html">String</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1_string.html">String</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#a9e74e5af1d4ef8edbe8d838035359dbf">names</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">使用できるフォント名リスト。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b6f92d325b819c2ea573e41b70a175b"></a><!-- doxytag: member="balor::graphics::Font::ansiFixed" ref="a5b6f92d325b819c2ea573e41b70a175b" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ansiFixed</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a557007b8da66757651c152334f497a45"></a><!-- doxytag: member="balor::graphics::Font::ansiVar" ref="a557007b8da66757651c152334f497a45" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ansiVar</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d7792b4933da64e13d9baea77d9ddcc"></a><!-- doxytag: member="balor::graphics::Font::deviceDefault" ref="a5d7792b4933da64e13d9baea77d9ddcc" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>deviceDefault</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4bf981b0a8a13d510195048a7f0a611"></a><!-- doxytag: member="balor::graphics::Font::defaultGui" ref="aa4bf981b0a8a13d510195048a7f0a611" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_font.html#aa4bf981b0a8a13d510195048a7f0a611">defaultGui</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Control のデフォルトフォント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4ca02944b1cdd1438e24dd88cc20b63"></a><!-- doxytag: member="balor::graphics::Font::oemFixed" ref="af4ca02944b1cdd1438e24dd88cc20b63" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>oemFixed</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9192a5b713bd875e06db048b09823278"></a><!-- doxytag: member="balor::graphics::Font::system" ref="a9192a5b713bd875e06db048b09823278" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>system</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eeaa874998dc4dd1b388cf2ca8ebcab"></a><!-- doxytag: member="balor::graphics::Font::systemFixed" ref="a8eeaa874998dc4dd1b388cf2ca8ebcab" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>systemFixed</b> ()</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>GDI フォントを表す。 </p>
+<p>フォントサイズにポイント単位が使いたい場合は <a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a33712ab3eba2aaad82b0b047b0e28207" title="dpiY() を元にポイント→ピクセル変換を行う。">Graphics::pointToPixel</a> 関数を使う。 縦書き指定は コンストラクタでフォント名の先頭に@をつけ、escapement と orientation を 2700 に指定する。 縦書き専用フォントでなくとも escapement で一応縦書きにはなるが「。」等の小さな文字が左下に寄せられるので使いにくい。 TODO:平均文字幅、アセント、ディセント･･等の情報取得。 </p>
+</div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/<a class="el" href="_font_8hpp_source.html">Font.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Font.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:30に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

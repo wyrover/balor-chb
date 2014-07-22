@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/UpDown.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/UpDown.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">class </span>Edit;
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00038"></a><a class="code" href="classbalor_1_1gui_1_1_up_down.html">00038</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_up_down.html" title="アップダウンコントロール。">UpDown</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00039"></a>00039 <span class="keyword">public</span>:
+<a name="l00041"></a><a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html">00041</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00042"></a><a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdaf">00042</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdaf">_enum</a> {
+<a name="l00043"></a>00043             none        = 0     , 
+<a name="l00044"></a>00044             noArrowKeys = 0x0020, 
+<a name="l00045"></a><a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdafaf5211ca6a90662eeb03662748be1ddd2">00045</a>             <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdafaf5211ca6a90662eeb03662748be1ddd2" title="buddy() から矢印キーやマウスホイールの入力を受け取らないようにする。">horizontal</a>  = 0x0040, 
+<a name="l00046"></a><a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdafab957494309c16242c48c1d682664c43c">00046</a>             <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html#a16b27d80d4d5ae5bcb8a8e81c6a4fdafab957494309c16242c48c1d682664c43c" title="左右ボタンのアップダウンコントロールにする。">leftAlign</a>   = 0x0008, 
+<a name="l00047"></a>00047         };
+<a name="l00048"></a>00048         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00049"></a>00049     };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 
+<a name="l00053"></a><a class="code" href="classbalor_1_1gui_1_1_up_down.html#a4beb689afb5c0a414000956a25ee2cd2">00053</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;UpDown, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a4beb689afb5c0a414000956a25ee2cd2" title="アップダウンコントロールのイベントの親クラス。">Event</a>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Down</a>;
+<a name="l00056"></a>00056     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Up</a>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">public</span>:
+<a name="l00061"></a>00061     <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a95b19bcf8786755daf1bc79a754c1377" title="ヌルハンドルで作成。">UpDown</a>();
+<a name="l00062"></a>00062     <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a95b19bcf8786755daf1bc79a754c1377" title="ヌルハンドルで作成。">UpDown</a>(<a class="code" href="classbalor_1_1gui_1_1_up_down.html" title="アップダウンコントロール。">UpDown</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00064"></a>00064     <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a95b19bcf8786755daf1bc79a754c1377" title="ヌルハンドルで作成。">UpDown</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">UpDown::Options</a> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#acbc2e168c41b60911a5094887bb8ad1c" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00066"></a>00066     <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a95b19bcf8786755daf1bc79a754c1377" title="ヌルハンドルで作成。">UpDown</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a2f950bacbc7e1446ed6543db51db1787" title="相棒コントロール。このコントロールに吸着し、矢印キーやマウスホイールの入力をもらって onUp, onDown イベントを発生させる。 相棒コントロールの位置や大きさが変わっても追従はしないが再度設定し...">buddy</a>, <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">UpDown::Options</a> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#acbc2e168c41b60911a5094887bb8ad1c" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00067"></a>00067     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_up_down.html" title="アップダウンコントロール。">UpDown</a>();
+<a name="l00068"></a>00068     <a class="code" href="classbalor_1_1gui_1_1_up_down.html" title="アップダウンコントロール。">UpDown</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_up_down.html" title="アップダウンコントロール。">UpDown</a>&amp;&amp; value);
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="keyword">public</span>:
+<a name="l00073"></a>00073     <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a2f950bacbc7e1446ed6543db51db1787" title="相棒コントロール。このコントロールに吸着し、矢印キーやマウスホイールの入力をもらって onUp, onDown イベントを発生させる。 相棒コントロールの位置や大きさが変わっても追従はしないが再度設定し...">buddy</a>() <span class="keyword">const</span>;
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a2f950bacbc7e1446ed6543db51db1787" title="相棒コントロール。このコントロールに吸着し、矢印キーやマウスホイールの入力をもらって onUp, onDown イベントを発生させる。 相棒コントロールの位置や大きさが変わっても追従はしないが再度設定し...">buddy</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* value);
+<a name="l00076"></a>00076     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#aa67ae40202dd22621fbc9bffe1f36d4b" title="フォーカスを得られるかどうか。">focusable</a>() <span class="keyword">const</span>;
+<a name="l00078"></a>00078     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;UpDown::Down&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_up_down.html#a22a63c486b163322a044818f882405c8" title="下ボタンを押したイベントのリスナー。">onDown</a>();
+<a name="l00080"></a>00080     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;UpDown::Up&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_up_down.html#af047e60fb5278fd5ee072bc2b1d2ad8a" title="上ボタンを押したイベントのリスナー。">onUp</a>();
+<a name="l00082"></a>00082     <a class="code" href="structbalor_1_1gui_1_1_up_down_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">UpDown::Options</a> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#acbc2e168c41b60911a5094887bb8ad1c" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="keyword">protected</span>:
+<a name="l00086"></a>00086     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_up_down.html#aedac3afba611cbd8ea0c70fa06334a77" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keyword">protected</span>:
+<a name="l00089"></a>00089     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _buddySize;
+<a name="l00090"></a>00090     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;UpDown::Down&amp;&gt;</a> _onDown;
+<a name="l00091"></a>00091     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;UpDown::Up&amp;&gt;</a> _onUp;
+<a name="l00092"></a>00092 };
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096     }
+<a name="l00097"></a>00097 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

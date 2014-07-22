@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/GroupBox.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/GroupBox.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>gui {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00039"></a><a class="code" href="classbalor_1_1gui_1_1_group_box.html">00039</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_group_box.html" title="グループボックス。">GroupBox</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00040"></a>00040 <span class="keyword">public</span>:
+<a name="l00042"></a>00042     <a class="code" href="classbalor_1_1gui_1_1_group_box.html#afea42bff335cd7c2e81cadfbfec32977" title="ヌルハンドルで作成。">GroupBox</a>();
+<a name="l00043"></a>00043     <a class="code" href="classbalor_1_1gui_1_1_group_box.html#afea42bff335cd7c2e81cadfbfec32977" title="ヌルハンドルで作成。">GroupBox</a>(<a class="code" href="classbalor_1_1gui_1_1_group_box.html" title="グループボックス。">GroupBox</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00045"></a>00045     <a class="code" href="classbalor_1_1gui_1_1_group_box.html#afea42bff335cd7c2e81cadfbfec32977" title="ヌルハンドルで作成。">GroupBox</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>);
+<a name="l00046"></a>00046     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_group_box.html" title="グループボックス。">GroupBox</a>();
+<a name="l00047"></a>00047     <a class="code" href="classbalor_1_1gui_1_1_group_box.html" title="グループボックス。">GroupBox</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_group_box.html" title="グループボックス。">GroupBox</a>&amp;&amp; value);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">public</span>:
+<a name="l00051"></a>00051     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1graphics_1_1_brush.html" title="GDI ブラシを表す。">Brush</a> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a874194c5034e3705ee2d26dcc2d67dcb" title="背景ブラシ。設定しなければ親コントロールのブラシを使用する。">brush</a>() <span class="keyword">const</span>;
+<a name="l00052"></a>00052     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a874194c5034e3705ee2d26dcc2d67dcb" title="背景ブラシ。設定しなければ親コントロールのブラシを使用する。">Control::brush</a>;
+<a name="l00054"></a>00054     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a66472c82711c61cbca043fd826566721" title="背景ブラシの原点。">brushOrigin</a>() <span class="keyword">const</span>;
+<a name="l00055"></a>00055     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a66472c82711c61cbca043fd826566721" title="背景ブラシの原点。">Control::brushOrigin</a>;
+<a name="l00057"></a>00057     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a3edb4c4ed3816507532bc1ef7b6ae9ef" title="仮想的なコントロールのクライアント座標と大きさ。">displayRectangle</a>() <span class="keyword">const</span>;
+<a name="l00059"></a>00059     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#afdb532b1080e9fff10c6e4f0d4a999ca" title="フォーカスを得られるかどうか。">focusable</a>() <span class="keyword">const</span>;
+<a name="l00061"></a>00061     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#a970e97ce0515dc1069834ea14e67ca85" title="子コントロールが収まる最適な大きさを求める。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">protected</span>:
+<a name="l00065"></a>00065     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_group_box.html#af5aca512f30d74f56526759aa1e5a65d" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

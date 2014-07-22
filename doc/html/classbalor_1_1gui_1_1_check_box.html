@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::CheckBox</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::CheckBox</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::CheckBox" --><!-- doxytag: inherits="balor::gui::ButtonBase" -->
+<p>チェックボックス。  
+ <a href="classbalor_1_1gui_1_1_check_box.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_check_box_8hpp_source.html">CheckBox.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::CheckBoxに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1gui_1_1_check_box.png" usemap="#balor::gui::CheckBox_map" alt=""/>
+  <map id="balor::gui::CheckBox_map" name="balor::gui::CheckBox_map">
+<area href="classbalor_1_1gui_1_1_button_base.html" title="Button, CheckBox, RadioButton の共通処理をまとめた基底クラス。" alt="balor::gui::ButtonBase" shape="rect" coords="0,168,133,192"/>
+<area href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。" alt="balor::gui::Control" shape="rect" coords="0,112,133,136"/>
+<area href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代..." alt="balor::Referenceable" shape="rect" coords="0,56,133,80"/>
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,133,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1gui_1_1_check_box-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_check_box_1_1_state.html">State</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">チェック状態。  <a href="structbalor_1_1gui_1_1_check_box_1_1_state.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbcf677fdc97c6d1bb24192da6ccc1d8"></a><!-- doxytag: member="balor::gui::CheckBox::Event" ref="abbcf677fdc97c6d1bb24192da6ccc1d8" args="" -->
+typedef <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">EventWithSubclassSender</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a>, <a class="el" href="classbalor_1_1_event_with_sender.html">Control::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#abbcf677fdc97c6d1bb24192da6ccc1d8">Event</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_check_box.html" title="チェックボックス。">CheckBox</a> のイベントの親クラス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3fbba387f67b6bfb6e93a1593001c21"></a><!-- doxytag: member="balor::gui::CheckBox::StateChange" ref="af3fbba387f67b6bfb6e93a1593001c21" args="" -->
+typedef <a class="el" href="classbalor_1_1_event_with_subclass_sender.html">Event</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StateChange</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f39fc6f391417453c93818b30a33046"></a><!-- doxytag: member="balor::gui::CheckBox::Paint" ref="a5f39fc6f391417453c93818b30a33046" args="" -->
+typedef <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">PaintEvent</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a>, <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Paint</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ccaba4c4bf095f234f363c43794d78c"></a><!-- doxytag: member="balor::gui::CheckBox::CheckBox" ref="a4ccaba4c4bf095f234f363c43794d78c" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a4ccaba4c4bf095f234f363c43794d78c">CheckBox</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82e04d7600dddeb29434549628e511a2"></a><!-- doxytag: member="balor::gui::CheckBox::CheckBox" ref="a82e04d7600dddeb29434549628e511a2" args="(CheckBox &amp;&amp;value, bool checkSlicing=true)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>CheckBox</b> (<a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a> &amp;&amp;value, bool checkSlicing=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36278a6ab8e01655462a84902fcd5db9"></a><!-- doxytag: member="balor::gui::CheckBox::CheckBox" ref="a36278a6ab8e01655462a84902fcd5db9" args="(Control &amp;parent, int x, int y, int width, int height, StringRange text, Listener&lt; CheckBox::StateChange &amp; &gt; onStateChange=Listener&lt; CheckBox::StateChange &amp; &gt;())" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a36278a6ab8e01655462a84902fcd5db9">CheckBox</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> text, <a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_subclass_sender.html">CheckBox::StateChange</a> &amp; &gt; onStateChange=<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_subclass_sender.html">CheckBox::StateChange</a> &amp; &gt;())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさ、文字列から作成。大きさを０にすると getPreferredSize 関数で求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55c5559176cd935169afbd88bc4839fa"></a><!-- doxytag: member="balor::gui::CheckBox::operator=" ref="a55c5559176cd935169afbd88bc4839fa" args="(CheckBox &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1gui_1_1_check_box.html">CheckBox</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71838c63dca36c51e3c9ba2a9f724597"></a><!-- doxytag: member="balor::gui::CheckBox::autoCheck" ref="a71838c63dca36c51e3c9ba2a9f724597" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a71838c63dca36c51e3c9ba2a9f724597">autoCheck</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">チェック状態を自動的に更新するかどうか。初期値は true。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a508d98531dcb4fef00b9096970652977"></a><!-- doxytag: member="balor::gui::CheckBox::autoCheck" ref="a508d98531dcb4fef00b9096970652977" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>autoCheck</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af96716cfb380e5149ceb204e81d257ed"></a><!-- doxytag: member="balor::gui::CheckBox::checked" ref="af96716cfb380e5149ceb204e81d257ed" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#af96716cfb380e5149ceb204e81d257ed">checked</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">チェックされているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1de48eac4d1631bcb9ee04af01daec6e"></a><!-- doxytag: member="balor::gui::CheckBox::checked" ref="a1de48eac4d1631bcb9ee04af01daec6e" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checked</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab15a7e8eafc1b0cbbdc0f36fc09b736b"></a><!-- doxytag: member="balor::gui::CheckBox::getPreferredSize" ref="ab15a7e8eafc1b0cbbdc0f36fc09b736b" args="(int width=0, int height=0) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#ab15a7e8eafc1b0cbbdc0f36fc09b736b">getPreferredSize</a> (int width=0, int height=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の文字列やフォント等から最適な大きさを求める。multiline() が true の場合 width を固定すると最適な height が求まる。TODO:文字列に改行が含まれる場合にフォントを変更すると正確に求められない模様。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43522ff54852eccbfddf7e9ffaa4d03b"></a><!-- doxytag: member="balor::gui::CheckBox::onPaint" ref="a43522ff54852eccbfddf7e9ffaa4d03b" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">CheckBox::Paint</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a43522ff54852eccbfddf7e9ffaa4d03b">onPaint</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">描画するイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b42e7f473aeda29b259139af4b42b23"></a><!-- doxytag: member="balor::gui::CheckBox::onStateChange" ref="a9b42e7f473aeda29b259139af4b42b23" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a><br class="typebreak"/>
+&lt; <a class="el" href="classbalor_1_1_event_with_subclass_sender.html">CheckBox::StateChange</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a9b42e7f473aeda29b259139af4b42b23">onStateChange</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">チェック状態が変化した、あるいは <a class="el" href="classbalor_1_1gui_1_1_check_box.html#a71838c63dca36c51e3c9ba2a9f724597" title="チェック状態を自動的に更新するかどうか。初期値は true。">autoCheck()</a> が false の場合は変化が要求されたイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0c8851d20c168af63d47f5e61e74396"></a><!-- doxytag: member="balor::gui::CheckBox::pushLike" ref="ae0c8851d20c168af63d47f5e61e74396" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#ae0c8851d20c168af63d47f5e61e74396">pushLike</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">トグルボタンのような外見を持つかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8be3e93cd7aada1ed8a37ed762aff2c"></a><!-- doxytag: member="balor::gui::CheckBox::pushLike" ref="af8be3e93cd7aada1ed8a37ed762aff2c" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pushLike</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b862d9b4dd73fd6e201ccb46cfde584"></a><!-- doxytag: member="balor::gui::CheckBox::rightButton" ref="a3b862d9b4dd73fd6e201ccb46cfde584" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a3b862d9b4dd73fd6e201ccb46cfde584">rightButton</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンが文字列の右に表示されるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b17d2a6ab131ab2cdf5b5fca687d68d"></a><!-- doxytag: member="balor::gui::CheckBox::rightButton" ref="a8b17d2a6ab131ab2cdf5b5fca687d68d" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>rightButton</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58f3ce6a884af404e5487705140f1b39"></a><!-- doxytag: member="balor::gui::CheckBox::state" ref="a58f3ce6a884af404e5487705140f1b39" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_check_box_1_1_state.html">CheckBox::State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a58f3ce6a884af404e5487705140f1b39">state</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">チェック状態。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e99e689ff1fa18ae7fe976a8c25478f"></a><!-- doxytag: member="balor::gui::CheckBox::state" ref="a0e99e689ff1fa18ae7fe976a8c25478f" args="(CheckBox::State value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> (<a class="el" href="structbalor_1_1gui_1_1_check_box_1_1_state.html">CheckBox::State</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f4325b00cbc856ff98ef922a324a4b7"></a><!-- doxytag: member="balor::gui::CheckBox::threeState" ref="a2f4325b00cbc856ff98ef922a324a4b7" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a2f4325b00cbc856ff98ef922a324a4b7">threeState</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">３つのチェック状態を持つかどうか。false の場合は２つのチェック状態を持つ。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a6c3857a99f2a9b93f8db649e7e3f5c"></a><!-- doxytag: member="balor::gui::CheckBox::threeState" ref="a2a6c3857a99f2a9b93f8db649e7e3f5c" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>threeState</b> (bool value)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2203a1de6690f2dbfe65a5b043877bf6"></a><!-- doxytag: member="balor::gui::CheckBox::processMessage" ref="a2203a1de6690f2dbfe65a5b043877bf6" args="(Message &amp;msg)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_check_box.html#a2203a1de6690f2dbfe65a5b043877bf6">processMessage</a> (<a class="el" href="classbalor_1_1gui_1_1_message.html">Message</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージを処理する。いわゆるウインドウプロシージャ。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4cf7577b205a86b6b7e5ff4a540f539"></a><!-- doxytag: member="balor::gui::CheckBox::_stateChanging" ref="aa4cf7577b205a86b6b7e5ff4a540f539" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_stateChanging</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fd10d56f702c53da18565533ec44a5"></a><!-- doxytag: member="balor::gui::CheckBox::_onPaint" ref="a75fd10d56f702c53da18565533ec44a5" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html">CheckBox::Paint</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onPaint</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497a5a7c4ea47179fef930b11f1deccd"></a><!-- doxytag: member="balor::gui::CheckBox::_onStateChange" ref="a497a5a7c4ea47179fef930b11f1deccd" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="classbalor_1_1_event_with_subclass_sender.html">CheckBox::StateChange</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onStateChange</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>チェックボックス。 </p>
+<p>オーナードローにするとチェック状態等を自分で管理しなければならなくなるので単に WM_PAINT を乗っ取る。</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"CheckBox Sample");</code></pre><pre><code>	auto onStateChange = [&amp;] (CheckBox::StateChange&amp; ) {
+		frame.invalidate();
+	};
+	<a class="el" href="classbalor_1_1gui_1_1_check_box.html" title="チェックボックス。">CheckBox</a> check0(frame, 20, 10, 0, 0, L"色を白に変える", onStateChange);
+	<a class="el" href="classbalor_1_1gui_1_1_check_box.html" title="チェックボックス。">CheckBox</a> check1(frame, 20, 40, 0, 0, L"形を四角に変える", onStateChange);</code></pre><pre><code>	frame.onPaint() = [&amp;] (Frame::Paint&amp; e) {
+		auto g = e.graphics();
+		g.brush(Color::control());
+		g.clear();
+		g.brush(check0.checked() ? Color::white() : Color::yellow());
+		if (check1.checked()) {
+			g.drawRectangle(10, 80, 200, 200);
+		} else {
+			g.drawEllipse(10, 80, 200, 200);
+		}
+	};</code></pre><pre><code>	frame.runMessageLoop();
+ </code></pre> </div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_check_box_8hpp_source.html">CheckBox.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/CheckBox.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:30に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

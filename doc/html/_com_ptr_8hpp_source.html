@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/ComPtr.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/ComPtr.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/test/noMacroAssert.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">struct </span>_GUID;
+<a name="l00007"></a>00007 <span class="keyword">struct </span>IUnknown;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>system {
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>detail {
+<a name="l00015"></a>00015     <span class="keywordtype">void</span> coCreateInstance(const ::_GUID&amp; rclsid, ::IUnknown* unknown, const ::_GUID&amp; riid, <span class="keywordtype">void</span>** pointer);
+<a name="l00016"></a>00016     <span class="keywordtype">void</span> coCreateInstance(const ::_GUID&amp; rclsid, ::IUnknown* unknown, const ::_GUID&amp; riid, <span class="keywordtype">void</span>** pointer, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> context);
+<a name="l00017"></a>00017     <span class="keywordtype">void</span> queryInterface(::IUnknown* from, const ::_GUID&amp; riid, <span class="keywordtype">void</span>** pointer);
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00024"></a>00024 <span class="preprocessor">#pragma warning (push)</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#pragma warning (disable : 4189) //  &#39;result&#39; : ローカル変数が初期化されましたが、参照されていません</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00027"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html">00027</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_com_ptr.html" title="COM インターフェースの作成、開放の支援をするスマートポインター。">ComPtr</a> {
+<a name="l00028"></a>00028 <span class="keyword">public</span>:
+<a name="l00030"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852">00030</a>     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>() : _ptr(nullptr) {}
+<a name="l00031"></a>00031     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1system_1_1_com_ptr.html" title="COM インターフェースの作成、開放の支援をするスマートポインター。">ComPtr</a>&amp; value) : _ptr(value._ptr) {
+<a name="l00032"></a>00032         _ptr-&gt;AddRef();
+<a name="l00033"></a>00033     }
+<a name="l00037"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a87f38f80d5e27da3079d7cc00e986d94">00037</a>     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a87f38f80d5e27da3079d7cc00e986d94" title="REFCLSID から COM インターフェースを作成。 COM が未初期化でなおかつメインスレッドであれば Com::Initialize(true) で初期化を試みる。メインスレッドでなければ Co...">ComPtr</a>(const ::_GUID&amp; rclsid, ::IUnknown* unknown = <span class="keyword">nullptr</span>) : _ptr(nullptr) {
+<a name="l00038"></a>00038         ::balor::system::detail::coCreateInstance(rclsid, unknown, __uuidof(T), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;_ptr));
+<a name="l00039"></a>00039     }
+<a name="l00040"></a>00040     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>(const ::_GUID&amp; rclsid, ::IUnknown* unknown, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> context) : _ptr(nullptr) {
+<a name="l00041"></a>00041         ::balor::system::detail::coCreateInstance(rclsid, unknown, __uuidof(T), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;_ptr), context);
+<a name="l00042"></a>00042     }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>(<a class="code" href="classbalor_1_1system_1_1_com_ptr.html" title="COM インターフェースの作成、開放の支援をするスマートポインター。">ComPtr</a>&amp;&amp; value) : _ptr(value._ptr) {
+<a name="l00045"></a>00045         value._ptr = <span class="keyword">nullptr</span>;
+<a name="l00046"></a>00046     }
+<a name="l00047"></a>00047     ~<a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>() {
+<a name="l00048"></a>00048         <span class="keywordflow">if</span> (_ptr) {
+<a name="l00049"></a>00049             _ptr-&gt;Release();
+<a name="l00050"></a>00050             <span class="comment">//_ptr = nullptr;</span>
+<a name="l00051"></a>00051         }
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>&amp; operator=(<a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>&amp;&amp; value) {
+<a name="l00055"></a>00055         <span class="keywordflow">if</span> (&amp;_ptr != &amp;value._ptr) {
+<a name="l00056"></a>00056             <span class="keyword">auto</span> backup = _ptr;
+<a name="l00057"></a>00057             _ptr = value._ptr;
+<a name="l00058"></a>00058             value._ptr = backup;
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00061"></a>00061     }
+<a name="l00062"></a>00062     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#afb338fa39241c361759832e69bf87852" title="ヌルポインタで初期化。">ComPtr</a>&amp; value) {
+<a name="l00063"></a>00063         <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;value) {
+<a name="l00064"></a>00064             <span class="keywordflow">if</span> (_ptr) {
+<a name="l00065"></a>00065                 _ptr-&gt;Release();
+<a name="l00066"></a>00066             }
+<a name="l00067"></a>00067             _ptr = value._ptr;
+<a name="l00068"></a>00068             _ptr-&gt;AddRef();
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">public</span>:
+<a name="l00076"></a>00076     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T2&gt;
+<a name="l00077"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a144069c454cd38ad73fa2731d85f605a">00077</a>     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a144069c454cd38ad73fa2731d85f605a" title="newPtr の型に QueryInterface を行う。 COM インターフェースが未登録または未実装の場合は Com::InterfaceNotFoundException を投げる。...">queryInterface</a>(<a class="code" href="classbalor_1_1system_1_1_com_ptr.html" title="COM インターフェースの作成、開放の支援をするスマートポインター。">ComPtr&lt;T2&gt;</a>&amp; newPtr) {
+<a name="l00078"></a>00078 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(newPtr == <span class="keyword">nullptr</span>);
+<a name="l00080"></a>00080 <span class="preprocessor">#endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>        ::balor::system::detail::queryInterface(*<span class="keyword">this</span>, __uuidof(T2), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;newPtr));
+<a name="l00082"></a>00082     }
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="keyword">public</span>:
+<a name="l00086"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#aaa7f9bd72f32de3058dd43a5d89cdff7">00086</a>     <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#aaa7f9bd72f32de3058dd43a5d89cdff7" title="COM インターフェースポインタの取得。">operator T*</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ptr; }
+<a name="l00088"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a231be2fcffcf6d41225d12ffd0ac6d72">00088</a>     T** <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a231be2fcffcf6d41225d12ffd0ac6d72" title="COM インターフェースポインタへのアドレスの取得。CoCreateInstance での使用を想定しているのでポインタは nullptr でなければならない。">operator&amp;</a>() {
+<a name="l00089"></a>00089 <span class="preprocessor">#if !defined(NDEBUG)</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span>        ::balor::test::noMacroAssert(_ptr == <span class="keyword">nullptr</span>);
+<a name="l00091"></a>00091 <span class="preprocessor">#endif</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>        <span class="keywordflow">return</span> &amp;_ptr;
+<a name="l00093"></a>00093     }
+<a name="l00095"></a><a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a534e1fca41f096a572524169e613651d">00095</a>     T* <a class="code" href="classbalor_1_1system_1_1_com_ptr.html#a534e1fca41f096a572524169e613651d" title="COM インターフェースメンバへのアクセス。">operator-&gt;</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ptr; }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="keyword">private</span>:
+<a name="l00098"></a>00098     T* _ptr;
+<a name="l00099"></a>00099 };
+<a name="l00100"></a>00100 <span class="preprocessor">#pragma warning (pop)</span>
+<a name="l00101"></a>00101 <span class="preprocessor"></span>
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     }
+<a name="l00105"></a>00105 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

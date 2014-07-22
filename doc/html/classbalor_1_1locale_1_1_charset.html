@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::locale::Charset</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1locale.html">locale</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::locale::Charset</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::locale::Charset" --><!-- doxytag: inherits="balor::NonCopyable" -->
+<p>文字コードを表し、コード間の文字列変換を提供する。  
+ <a href="classbalor_1_1locale_1_1_charset.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_charset_8hpp_source.html">Charset.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::locale::Charsetに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1locale_1_1_charset.png" usemap="#balor::locale::Charset_map" alt=""/>
+  <map id="balor::locale::Charset_map" name="balor::locale::Charset_map">
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,131,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1locale_1_1_charset-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset_1_1_conversion_failed_exception.html">ConversionFailedException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">encode, decode, convert が失敗し、throwable 引数が true の場合に投げられる。  <a href="classbalor_1_1locale_1_1_charset_1_1_conversion_failed_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset_1_1_insufficient_buffer_exceptoin.html">InsufficientBufferExceptoin</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">変換結果を書き込む配列の長さが足りなかった。  <a href="classbalor_1_1locale_1_1_charset_1_1_insufficient_buffer_exceptoin.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset_1_1_not_found_exception.html">NotFoundException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャラクターセットが見つからなかった。  <a href="classbalor_1_1locale_1_1_charset_1_1_not_found_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d4edba2616a0fc22e53b6a19e5cca76"></a><!-- doxytag: member="balor::locale::Charset::string" ref="a3d4edba2616a0fc22e53b6a19e5cca76" args="" -->
+typedef std::basic_string<br class="typebreak"/>
+&lt; char, std::char_traits&lt; char &gt;<br class="typebreak"/>
+, std::allocator&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>string</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad78f0341407ed9de744c379402dd02f9"></a><!-- doxytag: member="balor::locale::Charset::Charset" ref="ad78f0341407ed9de744c379402dd02f9" args="(int codePage, bool isWindowsCodePage=false)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#ad78f0341407ed9de744c379402dd02f9">Charset</a> (int codePage, bool isWindowsCodePage=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コードページから作成。isWindowsCodePage についてはクラスのドキュメントを参照。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98a8e5015f458370ded601ba68df1df1"></a><!-- doxytag: member="balor::locale::Charset::Charset" ref="a98a8e5015f458370ded601ba68df1df1" args="(StringRange name)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a98a8e5015f458370ded601ba68df1df1">Charset</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャラクターセット名から作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67c3370f2a1166d0553bc08497698c29"></a><!-- doxytag: member="balor::locale::Charset::Charset" ref="a67c3370f2a1166d0553bc08497698c29" args="(Charset &amp;&amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Charset</b> (<a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa79408a182fc977094eec0c882679385"></a><!-- doxytag: member="balor::locale::Charset::operator=" ref="aa79408a182fc977094eec0c882679385" args="(Charset &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a544efc8030def8abfc480b9dc435a847"></a><!-- doxytag: member="balor::locale::Charset::codePage" ref="a544efc8030def8abfc480b9dc435a847" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a544efc8030def8abfc480b9dc435a847">codePage</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コードページ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adac2e52a31e3a92958ea367443f58e49"></a><!-- doxytag: member="balor::locale::Charset::decode" ref="adac2e52a31e3a92958ea367443f58e49" args="(ByteStringRange src) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#adac2e52a31e3a92958ea367443f58e49">decode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> への変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afabfb685252fc971cbfd2c93173f185f"></a><!-- doxytag: member="balor::locale::Charset::decode" ref="afabfb685252fc971cbfd2c93173f185f" args="(ByteStringRange src, int count) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>decode</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src, int count) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22cffff3be12d0137de17cf7a3fd2fe3"></a><!-- doxytag: member="balor::locale::Charset::decode" ref="a22cffff3be12d0137de17cf7a3fd2fe3" args="(ByteStringRange src, int count, ArrayRange&lt; wchar_t &gt; dst) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a22cffff3be12d0137de17cf7a3fd2fe3">decode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src, int count, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; wchar_t &gt; dst) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> への変換。dst に変換結果を書き込み、変換した文字数を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54ee5e24f4d8b22e9b0f7afc1d9f9d56"></a><!-- doxytag: member="balor::locale::Charset::displayName" ref="a54ee5e24f4d8b22e9b0f7afc1d9f9d56" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a54ee5e24f4d8b22e9b0f7afc1d9f9d56">displayName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャラクターセットの表示名。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae170e376b3488b0dbbf9ccbf2d733869"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="ae170e376b3488b0dbbf9ccbf2d733869" args="(ByteStringRange src, const Charset &amp;srcCharset) const " -->
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#ae170e376b3488b0dbbf9ccbf2d733869">encode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src, const <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;srcCharset) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">srcCharset からの変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8595636d37932b6e70aac0d5a33acccb"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="a8595636d37932b6e70aac0d5a33acccb" args="(ByteStringRange src, int count, const Charset &amp;srcCharset) const " -->
+string&#160;</td><td class="memItemRight" valign="bottom"><b>encode</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src, int count, const <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;srcCharset) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef5104f89d1b315f1236e4a8cd14f139"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="aef5104f89d1b315f1236e4a8cd14f139" args="(ByteStringRange src, int count, ArrayRange&lt; char &gt; dst, const Charset &amp;srcCharset) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#aef5104f89d1b315f1236e4a8cd14f139">encode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> src, int count, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; char &gt; dst, const <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &amp;srcCharset) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">srcCharset からの変換。dst に変換結果を書き込み、変換した文字数を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5a36406b81c884c4ae35b97fef48a64"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="ac5a36406b81c884c4ae35b97fef48a64" args="(StringRange src) const " -->
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#ac5a36406b81c884c4ae35b97fef48a64">encode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> src) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> からの変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae78f4af89a5e80ba878847de965a095"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="aae78f4af89a5e80ba878847de965a095" args="(StringRange src, int count) const " -->
+string&#160;</td><td class="memItemRight" valign="bottom"><b>encode</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> src, int count) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f910e9432137c8cfa5862320d826d6"></a><!-- doxytag: member="balor::locale::Charset::encode" ref="a78f910e9432137c8cfa5862320d826d6" args="(StringRange src, int count, ArrayRange&lt; char &gt; dst) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a78f910e9432137c8cfa5862320d826d6">encode</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> src, int count, <a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; char &gt; dst) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> からの変換。dst に変換結果を書き込み、変換した文字数を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af77b9f7fb70438b48f2e673b7e65dc86"></a><!-- doxytag: member="balor::locale::Charset::fallbackChar" ref="af77b9f7fb70438b48f2e673b7e65dc86" args="() const " -->
+wchar_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#af77b9f7fb70438b48f2e673b7e65dc86">fallbackChar</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> からの encode に失敗した文字を置換する文字。初期値は L'?'。Unicode 以外からの encode, decode ではサポートされない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a7febf0aff02802feabe4d3eb4b194f"></a><!-- doxytag: member="balor::locale::Charset::fallbackChar" ref="a8a7febf0aff02802feabe4d3eb4b194f" args="(wchar_t value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fallbackChar</b> (wchar_t value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1815ec1884388d4b17bf9d254d35da7"></a><!-- doxytag: member="balor::locale::Charset::name" ref="af1815ec1884388d4b17bf9d254d35da7" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#af1815ec1884388d4b17bf9d254d35da7">name</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャラクターセット名。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2393e9e899920869029547978677c6cc"></a><!-- doxytag: member="balor::locale::Charset::throwable" ref="a2393e9e899920869029547978677c6cc" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a2393e9e899920869029547978677c6cc">throwable</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">変換に失敗した場合に <a class="el" href="classbalor_1_1locale_1_1_charset_1_1_conversion_failed_exception.html" title="encode, decode, convert が失敗し、throwable 引数が true の場合に投げられる。">Charset::ConversionFailedException</a> を投げるかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3aea3ef76eecea2bb3f057a7e321b09b"></a><!-- doxytag: member="balor::locale::Charset::throwable" ref="a3aea3ef76eecea2bb3f057a7e321b09b" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>throwable</b> (bool value)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54c0559bfae170a87be991bd451fb9ef"></a><!-- doxytag: member="balor::locale::Charset::ascii" ref="a54c0559bfae170a87be991bd451fb9ef" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a54c0559bfae170a87be991bd451fb9ef">ascii</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ASCII 文字コード。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94e5f6b993bd7197ad073f18b8d5ae02"></a><!-- doxytag: member="balor::locale::Charset::bigEndianUnicode" ref="a94e5f6b993bd7197ad073f18b8d5ae02" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a94e5f6b993bd7197ad073f18b8d5ae02">bigEndianUnicode</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ビッグエンディアンユニコード。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7fd2c297d5c909425b9f3e14c5295be"></a><!-- doxytag: member="balor::locale::Charset::charsets" ref="ad7fd2c297d5c909425b9f3e14c5295be" args="()" -->
+static std::vector&lt; <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#ad7fd2c297d5c909425b9f3e14c5295be">charsets</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">使用可能なキャラクターセット一覧。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc2c90cb515f1d4bab8185b3ac12e967"></a><!-- doxytag: member="balor::locale::Charset::default" ref="acc2c90cb515f1d4bab8185b3ac12e967" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#acc2c90cb515f1d4bab8185b3ac12e967">default</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">システムのデフォルトキャラクターセット。isWindowsCodePage が true で作成される事に注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8528923a273c6700c5cb1c36a25f6241"></a><!-- doxytag: member="balor::locale::Charset::eucJp" ref="a8528923a273c6700c5cb1c36a25f6241" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a8528923a273c6700c5cb1c36a25f6241">eucJp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">EUC-JP コード。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d9e1d1c4cb6b423c73e27a8d841e768"></a><!-- doxytag: member="balor::locale::Charset::shiftJis" ref="a0d9e1d1c4cb6b423c73e27a8d841e768" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a0d9e1d1c4cb6b423c73e27a8d841e768">shiftJis</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ShiftJIS コード。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eb64d2204195247688a784085c9e65e"></a><!-- doxytag: member="balor::locale::Charset::unicode" ref="a7eb64d2204195247688a784085c9e65e" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a7eb64d2204195247688a784085c9e65e">unicode</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ユニコード。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade61ed26a60eef562021d056ff61a56d"></a><!-- doxytag: member="balor::locale::Charset::utf7" ref="ade61ed26a60eef562021d056ff61a56d" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#ade61ed26a60eef562021d056ff61a56d">utf7</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF7。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a54b1fbb435f70f7f70694d06fa8808"></a><!-- doxytag: member="balor::locale::Charset::utf8" ref="a5a54b1fbb435f70f7f70694d06fa8808" args="()" -->
+static <a class="el" href="classbalor_1_1locale_1_1_charset.html">Charset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1locale_1_1_charset.html#a5a54b1fbb435f70f7f70694d06fa8808">utf8</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF8。 <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>文字コードを表し、コード間の文字列変換を提供する。 </p>
+<p>変換には mlang.dll の COM オブジェクトを使用しているが、コンストラクタ引数の isWindowCodePage を true にした場合に限り WIN32 API の WideCharToMultiByte, MultiByteToWideChar 関数を使用する。 この場合 COM オブジェクトを必要とする関数を呼ばない限り COM オブジェクトは作成されないので、パフォーマンスが向上する可能性がある。 ただしこの設定は WIN32 API でサポートされるコードページでしか使えない。また、変換の結果が COM のものと異なる。 例えば、全角のアルファベットを ASCII で encode した場合に COM は半角のアルファベットに変換するが WIN32 API では変換失敗になる。 COM の初期化は、メインスレッドで COM オブジェクトの初期化に失敗した場合のみ <a class="el" href="classbalor_1_1system_1_1_com.html" title="COM の初期化と終了の自動化を提供する。">balor::system::Com</a> で STA の COM 初期化を行っている。 マルチスレッドで <a class="el" href="classbalor_1_1locale_1_1_charset.html" title="文字コードを表し、コード間の文字列変換を提供する。">Charset</a> を使用する場合はメインスレッドで MTA の COM 初期化を行うか、新しいスレッド内で明示的に COM の初期化処理、終了処理を行う必要がある。 なお mlang.dll のCOMオブジェクトの threadingModel は both であるようだ。 </p>
+</div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/locale/<a class="el" href="_charset_8hpp_source.html">Charset.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/locale/Charset.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:34に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Frame.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Frame.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/ScrollableControl.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="keyword">struct </span>tagMINMAXINFO;
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">namespace </span>balor {
+<a name="l00008"></a>00008     <span class="keyword">namespace </span>graphics {
+<a name="l00009"></a>00009         <span class="keyword">class </span>Icon;
+<a name="l00010"></a>00010     }
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>balor {
+<a name="l00015"></a>00015     <span class="keyword">namespace </span>gui {
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">class </span>Button;
+<a name="l00018"></a>00018 <span class="keyword">class </span>MenuBar;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00050"></a><a class="code" href="classbalor_1_1gui_1_1_frame.html">00050</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_scrollable_control.html" title="スクロール機能をもったコントロールの基底クラス。">ScrollableControl</a> {
+<a name="l00051"></a>00051 <span class="keyword">public</span>:
+<a name="l00052"></a>00052     typedef ::balor::graphics::Icon <a class="code" href="classbalor_1_1graphics_1_1_icon.html" title="アイコンを表す。">Icon</a>;
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 
+<a name="l00056"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html">00056</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> {
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ff">00057</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ff">_enum</a> {
+<a name="l00058"></a>00058             none              ,
+<a name="l00059"></a>00059             taskManagerClosing, 
+<a name="l00060"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ffa9f18109adfff5ca9ef1c85999353e815">00060</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ffa9f18109adfff5ca9ef1c85999353e815" title="タスクマネージャーから閉じた。">userClosing</a>       , 
+<a name="l00061"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ffa9218b715cffcffd66611e924326a2855">00061</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html#a4262b8fa589ed863c73f05102019e6ffa9218b715cffcffd66611e924326a2855" title="close() メソッドか閉じるボタンで閉じた。">windowShutDown</a>    , 
+<a name="l00062"></a>00062         };
+<a name="l00063"></a>00063         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a>);
+<a name="l00064"></a>00064     };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html">00068</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Style</a> {
+<a name="l00069"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fb">00069</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fb">_enum</a> {
+<a name="l00070"></a>00070             none             , 
+<a name="l00071"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fbac074c8ecf1db22cb2064b36db97c0904">00071</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fbac074c8ecf1db22cb2064b36db97c0904" title="タイトルバーも枠も無いウインドウ。">singleLine</a>       , 
+<a name="l00072"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba55a43975e8b15be9f98a2f8413a8d884">00072</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba55a43975e8b15be9f98a2f8413a8d884" title="一重線の枠を持つウインドウ。">threeDimensional</a> , 
+<a name="l00073"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba99b3951ae91184684221b16f1e49133c">00073</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba99b3951ae91184684221b16f1e49133c" title="立体的な枠を持つウインドウ。">dialog</a>           , 
+<a name="l00074"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba3a158a36c6122e8c0e26fbd0c4dc94e4">00074</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba3a158a36c6122e8c0e26fbd0c4dc94e4" title="ダイアログ風。">sizable</a>          , 
+<a name="l00075"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fbaf410200cb51acb6c74fc591791862584">00075</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fbaf410200cb51acb6c74fc591791862584" title="リサイズできるウインドウ。">toolWindow</a>       , 
+<a name="l00076"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba84e2ffd589246d11f39b2844e8fa3a05">00076</a>             <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba84e2ffd589246d11f39b2844e8fa3a05" title="ツールウインドウ。アイコン、最大化ボタン、最小化ボタン、ヘルプボタンが表示されない。">sizableToolWindow</a>, 
+<a name="l00077"></a>00077         };
+<a name="l00078"></a>00078         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Style</a>);
+<a name="l00079"></a>00079     };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00083"></a><a class="code" href="classbalor_1_1gui_1_1_frame.html#a14ea26d3eb39ffeafe446b2380d74bf2">00083</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;Frame, ScrollableControl::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a14ea26d3eb39ffeafe446b2380d74bf2" title="Frame のイベントの親クラス。">Event</a>;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">DisplayChange</a>;
+<a name="l00086"></a>00086     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">MenuLoopBegin</a>;
+<a name="l00087"></a>00087     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">MenuLoopEnd</a>;
+<a name="l00088"></a>00088     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">ResizeMoveBegin</a>;
+<a name="l00089"></a>00089     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">ResizeMoveEnd</a>;
+<a name="l00090"></a>00090     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html" title="描画するイベントのテンプレート。派生クラスで使用する。">PaintEvent&lt;Frame, Event&gt;</a> <a class="code" href="structbalor_1_1gui_1_1_control_1_1_paint_event.html" title="描画するイベントのテンプレート。派生クラスで使用する。">Paint</a>;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 
+<a name="l00094"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close.html">00094</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close.html" title="ウインドウを閉じたイベント。">Close</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00095"></a>00095         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close.html" title="ウインドウを閉じたイベント。">Close</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> reason);
+<a name="l00096"></a>00096 
+<a name="l00098"></a>00098         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close.html#ad0eb8bd5ff2297bb7fd9a33f4d1a673c" title="閉じた理由。">closeReason</a>() <span class="keyword">const</span>;
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100     <span class="keyword">private</span>:
+<a name="l00101"></a>00101         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> _closeReason;
+<a name="l00102"></a>00102     };
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00106"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_closing.html">00106</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_closing.html" title="ウインドウを閉じるイベント。">Closing</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close.html" title="ウインドウを閉じたイベント。">Close</a> {
+<a name="l00107"></a>00107         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_closing.html" title="ウインドウを閉じるイベント。">Closing</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> reason);
+<a name="l00108"></a>00108 
+<a name="l00110"></a>00110         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_closing.html#a41b5562488edf039237c46e8c8fd4f45" title="閉じるのをキャンセルするかどうか。初期値は false。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00111"></a>00111         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_closing.html#a41b5562488edf039237c46e8c8fd4f45" title="閉じるのをキャンセルするかどうか。初期値は false。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113     <span class="keyword">private</span>:
+<a name="l00114"></a>00114         <span class="keywordtype">bool</span> _cancel;
+<a name="l00115"></a>00115     };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 
+<a name="l00119"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html">00119</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html" title="ヘルプボタンを押したイベント。">HelpButtonClick</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00120"></a>00120         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html" title="ヘルプボタンを押したイベント。">HelpButtonClick</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>);
+<a name="l00121"></a>00121 
+<a name="l00123"></a>00123         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html#a2c8f0b0b4ffdd921caffddec4522ed0e" title="デフォルトの処理をキャンセルするかどうか。初期値は false。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00124"></a>00124         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_help_button_click.html#a2c8f0b0b4ffdd921caffddec4522ed0e" title="デフォルトの処理をキャンセルするかどうか。初期値は false。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126     <span class="keyword">private</span>:
+<a name="l00127"></a>00127         <span class="keywordtype">bool</span> _cancel;
+<a name="l00128"></a>00128     };
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 
+<a name="l00132"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html">00132</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html" title="移動したイベント。">Move</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00133"></a>00133         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html" title="移動したイベント。">Move</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">position</a>);
+<a name="l00134"></a>00134 
+<a name="l00136"></a>00136         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">position</a>() <span class="keyword">const</span>;
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138     <span class="keyword">protected</span>:
+<a name="l00139"></a>00139         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> _position;
+<a name="l00140"></a>00140     };
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 
+<a name="l00144"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_moving.html">00144</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_moving.html" title="移動するイベント。">Moving</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html" title="移動したイベント。">Move</a> {
+<a name="l00145"></a>00145         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_moving.html" title="移動するイベント。">Moving</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">position</a>);
+<a name="l00146"></a>00146 
+<a name="l00148"></a>00148         <span class="keyword">using</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">Move::position</a>;
+<a name="l00149"></a>00149         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">position</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00150"></a>00150         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_move.html#a0f72fe94f0e3822adc8b63c91b0f06d4" title="移動したスクリーン位置。">position</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00151"></a>00151     };
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 
+<a name="l00155"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html">00155</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html" title="大きさを変更するイベント。">Resizing</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00156"></a>00156         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html" title="大きさを変更するイベント。">Resizing</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, ::tagMINMAXINFO* info);
+<a name="l00157"></a>00157 
+<a name="l00159"></a>00159         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a323c0a72a2f402be6835c85840b73643" title="最大化した時のスクリーン位置。※イベント名のミスマッチ！">maximizedPosition</a>() <span class="keyword">const</span>;
+<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a323c0a72a2f402be6835c85840b73643" title="最大化した時のスクリーン位置。※イベント名のミスマッチ！">maximizedPosition</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00161"></a>00161         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a323c0a72a2f402be6835c85840b73643" title="最大化した時のスクリーン位置。※イベント名のミスマッチ！">maximizedPosition</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00163"></a>00163         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#abcb28b749ef9546cfaf01160b5d6665b" title="最大化した時の大きさ。">maximizedSize</a>() <span class="keyword">const</span>;
+<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#abcb28b749ef9546cfaf01160b5d6665b" title="最大化した時の大きさ。">maximizedSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#abcb28b749ef9546cfaf01160b5d6665b" title="最大化した時の大きさ。">maximizedSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00167"></a>00167         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a4f2865a6e3d4ebbd4787ff327f88bb4e" title="ウインドウをドラッグして大きさ変更する時の最大の大きさ。">maxTrackSize</a>() <span class="keyword">const</span>;
+<a name="l00168"></a>00168         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a4f2865a6e3d4ebbd4787ff327f88bb4e" title="ウインドウをドラッグして大きさ変更する時の最大の大きさ。">maxTrackSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00169"></a>00169         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a4f2865a6e3d4ebbd4787ff327f88bb4e" title="ウインドウをドラッグして大きさ変更する時の最大の大きさ。">maxTrackSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00171"></a>00171         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a5daa37474cbcaf5950306df95f8d273d" title="ウインドウをドラッグして大きさ変更する時の最小の大きさ。">minTrackSize</a>() <span class="keyword">const</span>;
+<a name="l00172"></a>00172         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a5daa37474cbcaf5950306df95f8d273d" title="ウインドウをドラッグして大きさ変更する時の最小の大きさ。">minTrackSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00173"></a>00173         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resizing.html#a5daa37474cbcaf5950306df95f8d273d" title="ウインドウをドラッグして大きさ変更する時の最小の大きさ。">minTrackSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175     <span class="keyword">private</span>:
+<a name="l00176"></a>00176         ::tagMINMAXINFO* _info;
+<a name="l00177"></a>00177     };
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179 
+<a name="l00181"></a><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resize.html">00181</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resize.html" title="大きさを変更したイベント。">Resize</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00182"></a>00182         <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resize.html" title="大きさを変更したイベント。">Resize</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> flag);
+<a name="l00183"></a>00183 
+<a name="l00185"></a>00185         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resize.html#add68c39ef8fee34f8b3c61cdb0e398e4" title="最大化されたかどうか。">maximized</a>() <span class="keyword">const</span>;
+<a name="l00187"></a>00187         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_resize.html#ad01154220a352069d2d107136cc9fc71" title="最小化されたかどうか。">minimized</a>() <span class="keyword">const</span>;
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189     <span class="keyword">private</span>:
+<a name="l00190"></a>00190         <span class="keywordtype">int</span> _flag;
+<a name="l00191"></a>00191     };
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194 <span class="keyword">public</span>:
+<a name="l00196"></a>00196     <a class="code" href="classbalor_1_1gui_1_1_frame.html#af634035b15f63e75a2cc5ec4859445b5" title="ヌルハンドルで作成。">Frame</a>();
+<a name="l00198"></a>00198     <a class="code" href="classbalor_1_1gui_1_1_frame.html#af634035b15f63e75a2cc5ec4859445b5" title="ヌルハンドルで作成。">Frame</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>, <span class="keywordtype">int</span> clientWidth = 0, <span class="keywordtype">int</span> clientHeight = 0, <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Frame::Style</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style</a> = <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html#a0a673b72956e3a7a82ab311d536643fba3a158a36c6122e8c0e26fbd0c4dc94e4" title="ダイアログ風。">Style::sizable</a>);
+<a name="l00199"></a>00199     <a class="code" href="classbalor_1_1gui_1_1_frame.html#af634035b15f63e75a2cc5ec4859445b5" title="ヌルハンドルで作成。">Frame</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00200"></a>00200     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>();
+<a name="l00201"></a>00201     <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>&amp;&amp; value);
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 <span class="keyword">public</span>:
+<a name="l00205"></a>00205     <a class="code" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a>* <a class="code" href="classbalor_1_1gui_1_1_frame.html#af29ab1b86f1acf3b03257eeec12cdaff" title="ボタン以外にフォーカスがある時に Enter キーを押すと押した事になるボタン。">acceptButton</a>() <span class="keyword">const</span>;
+<a name="l00206"></a>00206     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#af29ab1b86f1acf3b03257eeec12cdaff" title="ボタン以外にフォーカスがある時に Enter キーを押すと押した事になるボタン。">acceptButton</a>(<a class="code" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a>* value);
+<a name="l00208"></a>00208     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ad0457d77758844bb08570860a191924c" title="アクティブにする。">activate</a>();
+<a name="l00210"></a>00210     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_frame.html#a7f54b577f4f4e33d14e36e387396dc93" title="ウインドウ上でフォーカスを得ているコントロール。ウインドウがアクティブでなくなっても保存され、ウインドウが再びアクティブになった時にフォーカスが復元される。">activeControl</a>() <span class="keyword">const</span>;
+<a name="l00211"></a>00211     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a7f54b577f4f4e33d14e36e387396dc93" title="ウインドウ上でフォーカスを得ているコントロール。ウインドウがアクティブでなくなっても保存され、ウインドウが再びアクティブになった時にフォーカスが復元される。">activeControl</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* value);
+<a name="l00213"></a>00213     <span class="keyword">static</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>* <a class="code" href="classbalor_1_1gui_1_1_frame.html#a184ea39a2b60559271ef80df01c6d76e" title="現在アクティブなウインドウ。">activeFrame</a>();
+<a name="l00215"></a>00215     <a class="code" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a>* <a class="code" href="classbalor_1_1gui_1_1_frame.html#adf233880ee37b6db2b88a0d2bb1cfd5e" title="ESC キーを押した時に押した事になるボタン。">cancelButton</a>() <span class="keyword">const</span>;
+<a name="l00216"></a>00216     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#adf233880ee37b6db2b88a0d2bb1cfd5e" title="ESC キーを押した時に押した事になるボタン。">cancelButton</a>(<a class="code" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a>* value);
+<a name="l00218"></a>00218     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a5fa4df9e7fdbc3751f18e1a3178208c4" title="タイトルバーの文字列のフォント。">captionFont</a>();
+<a name="l00220"></a>00220     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a52490a58068a984af2dc4a8f07d16d39" title="オーナーウインドウの中心に移動する。">centerToOwner</a>();
+<a name="l00222"></a>00222     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab70f3c4c7735cd3d174439db0875a297" title="スクリーンの中心に移動する。">centerToScreen</a>();
+<a name="l00224"></a>00224     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a17fc3ad0bbf2a4739338951983cb4f4e" title="ウインドウを閉じる。ウインドウは非表示になるが破壊はされない。">close</a>();
+<a name="l00226"></a>00226     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4071fafda33bf59b9844ee300c1ad506" title="デスクトップ上での座標。">desktopPosition</a>() <span class="keyword">const</span>;
+<a name="l00227"></a>00227     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4071fafda33bf59b9844ee300c1ad506" title="デスクトップ上での座標。">desktopPosition</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00228"></a>00228     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4071fafda33bf59b9844ee300c1ad506" title="デスクトップ上での座標。">desktopPosition</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00230"></a>00230     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ac76b476acb377a3d6fcaeee38dadbb44" title="メッセージループから抜ける。">exitMessageLoop</a>();
+<a name="l00232"></a>00232     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a5ac0a88f256b7064a0521b1bb0d7d2ff" title="フォーカスを得られるかどうか。">focusable</a>() <span class="keyword">const</span>;
+<a name="l00234"></a>00234     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a43456abc10bc42e9520a4f04f4998a94" title="？ボタンを有効にするかどうか。有効にした場合、最大化ボタンと最小化ボタンは消える。初期値は false。">helpButton</a>() <span class="keyword">const</span>;
+<a name="l00235"></a>00235     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a43456abc10bc42e9520a4f04f4998a94" title="？ボタンを有効にするかどうか。有効にした場合、最大化ボタンと最小化ボタンは消える。初期値は false。">helpButton</a>(<span class="keywordtype">bool</span> value);
+<a name="l00237"></a>00237     <a class="code" href="classbalor_1_1graphics_1_1_icon.html" title="アイコンを表す。">Icon</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab8336b443c1e96461454bc4cedc4132a" title="タイトルバーに表示するアイコン。大きいアイコンを指定する。初期値は nullptr。">icon</a>() <span class="keyword">const</span>;
+<a name="l00238"></a>00238     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab8336b443c1e96461454bc4cedc4132a" title="タイトルバーに表示するアイコン。大きいアイコンを指定する。初期値は nullptr。">icon</a>(HICON value);
+<a name="l00239"></a>00239     <span class="comment">/*bool keyPreview() const;  onShortcutKey イベントあればいらない？ */</span>
+<a name="l00240"></a>00240     <span class="comment">/*void keyPreview(bool value); */</span>
+<a name="l00242"></a>00242     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4de9f06a75cffc492327c5f0b1cac9dc" title="最大化ボタンを有効にするかどうか。初期値は true。">maximizeButton</a>() <span class="keyword">const</span>;
+<a name="l00243"></a>00243     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4de9f06a75cffc492327c5f0b1cac9dc" title="最大化ボタンを有効にするかどうか。初期値は true。">maximizeButton</a>(<span class="keywordtype">bool</span> value);
+<a name="l00245"></a>00245     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a1131d145e7f4f74b02c394be49cc090e" title="最大化しているかどうか。visible が true の場合のみ変更できる。初期値は false。">maximized</a>() <span class="keyword">const</span>;
+<a name="l00246"></a>00246     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a1131d145e7f4f74b02c394be49cc090e" title="最大化しているかどうか。visible が true の場合のみ変更できる。初期値は false。">maximized</a>(<span class="keywordtype">bool</span> value);
+<a name="l00248"></a>00248     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a0e6e75fd798341ec07644389ef651976" title="メニューバーを設定する。">menuBar</a>(<a class="code" href="classbalor_1_1gui_1_1_menu_bar.html" title="メニューバー。">MenuBar</a>* value);
+<a name="l00250"></a>00250     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a468366ed6a2c4841169fd44dc4a30a18" title="メニューバーの占める領域。無い場合は Rectangle(0, 0, 0, 0) を返す。">menuBarBounds</a>() <span class="keyword">const</span>;
+<a name="l00252"></a>00252     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ac43b327d78c0428b9e25b64936952109" title="メニューバーがフォーカスを得ているかどうか。">menuBarFocused</a>() <span class="keyword">const</span>;
+<a name="l00254"></a>00254     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#acf45a560e172b957fd22afdffbecab3e" title="最小化ボタンを有効にするかどうか。初期値は true。">minimizeButton</a>() <span class="keyword">const</span>;
+<a name="l00255"></a>00255     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#acf45a560e172b957fd22afdffbecab3e" title="最小化ボタンを有効にするかどうか。初期値は true。">minimizeButton</a>(<span class="keywordtype">bool</span> value);
+<a name="l00257"></a>00257     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ae45367500b03733436e92a6cf54c19e9" title="最小化しているかどうか。初期値は false。">minimized</a>() <span class="keyword">const</span>;
+<a name="l00258"></a>00258     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ae45367500b03733436e92a6cf54c19e9" title="最小化しているかどうか。初期値は false。">minimized</a>(<span class="keywordtype">bool</span> value);
+<a name="l00260"></a>00260     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Close&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a7d39192309293c838bb5e91519f750fd" title="ウインドウを閉じたイベント。">onClose</a>();
+<a name="l00262"></a>00262     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Closing&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a7539e8c970c301d0f391d08562ee26e3" title="ウインドウを閉じるイベント。">onClosing</a>();
+<a name="l00264"></a>00264     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::DisplayChange&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#adc5031789261e40f129c361189836430" title="モニタの解像度または色数が変更されたイベント。">onDisplayChange</a>();
+<a name="l00266"></a>00266     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::HelpButtonClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#adba9eed45ad526cfb913a65c97a62b61" title="ヘルプボタンを押したイベント。">onHelpButtonClick</a>();
+<a name="l00268"></a>00268     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::MenuLoopBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4eb508380d0e0033f9de214fbc334f39" title="メニューの表示を開始したイベント。">onMenuLoopBegin</a>();
+<a name="l00270"></a>00270     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::MenuLoopEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a645acd3335b3703d4c129a34d68133c3" title="メニューの表示を終了したイベント。">onMenuLoopEnd</a>();
+<a name="l00272"></a>00272     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Move&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#aee02d9d3fd1d09fb558ac8e4cae4d6a5" title="移動したイベント。">onMove</a>();
+<a name="l00274"></a>00274     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Moving&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a2f122b86db5966fb16c3993795f4cc8a" title="移動するイベント。">onMoving</a>();
+<a name="l00276"></a>00276     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Paint&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab93b2c380990a22350d7c8c6b12e9ef9" title="クライアント領域を描画するイベント。">onPaint</a>();
+<a name="l00278"></a>00278     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Resize&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a662df30de507a62743440df760b1bc47" title="大きさが変更されたイベント。">onResize</a>();
+<a name="l00280"></a>00280     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Resizing&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a1d47385310c2c9e5be9fa27ab8144ba9" title="大きさが変更されるイベント。">onResizing</a>();
+<a name="l00282"></a>00282     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::ResizeMoveBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a11e632849ff3cad1a7468e6a8dd7e8e2" title="サイズ変更や移動を開始したイベント。">onResizeMoveBegin</a>();
+<a name="l00284"></a>00284     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::ResizeMoveEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_frame.html#a24315d7ac4f614fc8bc244b81ba1a6a8" title="サイズ変更や移動を終了したイベント。">onResizeMoveEnd</a>();
+<a name="l00286"></a>00286     <a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>* <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4aaf030c3296b9a685d78fabe3a95cda" title="オーナー。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。">owner</a>() <span class="keyword">const</span>;
+<a name="l00287"></a>00287     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4aaf030c3296b9a685d78fabe3a95cda" title="オーナー。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。">owner</a>(<a class="code" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a>* value);
+<a name="l00289"></a>00289     HWND <a class="code" href="classbalor_1_1gui_1_1_frame.html#ad9b0ce8199bcdff6572fc61d389e2f3a" title="オーナーウインドウハンドル。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00290"></a>00290     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ad9b0ce8199bcdff6572fc61d389e2f3a" title="オーナーウインドウハンドル。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。">ownerHandle</a>(HWND value);
+<a name="l00292"></a>00292     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">ScrollableControl::parent</a>;
+<a name="l00293"></a>00293     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* value);
+<a name="l00295"></a>00295     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a7d4a29b7f1ad37d7ce4d3594c5f11b9e" title="setLayer 関数で設定したレイヤーを無効にする。">resetLayer</a>();
+<a name="l00297"></a>00297     <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#af7b6d35acb3f981c263fda4bde90bc67" title="最大化も最小化もしていない状態の bounds。">restoreBounds</a>() <span class="keyword">const</span>;
+<a name="l00299"></a>00299     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#abc9df97f532c77d9d0b070206d1c635d" title="メッセージループを実行する。exitMessageLoop 関数を呼ぶか、この関数を呼んだウインドウが閉じられればループを抜ける。">runMessageLoop</a>();
+<a name="l00301"></a>00301     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a36db3359d9ba386e49e74f7c65365fe7" title="同じスレッドの他のウインドウを使用不可にしてメッセージループを実行する。いわゆるダイアログの表示。オーナーを設定しておく必要がある。">runModalMessageLoop</a>();
+<a name="l00303"></a>00303     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a4142900ee3f8a452bb13e45ecdb43572" title="溜まっているメッセージを処理してメッセージループを終了すべきかどうかを返す。">runPostedMessages</a>();
+<a name="l00305"></a>00305     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a5bfc25ce55a00fc80b50327a5670fdb2" title="ウインドウを半透明にする。alpha は不透明度(0〜1) で 1 で不透明。resetLayer 関数で無効化できる。">setLayer</a>(<span class="keywordtype">float</span> alpha);
+<a name="l00307"></a>00307     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a5bfc25ce55a00fc80b50327a5670fdb2" title="ウインドウを半透明にする。alpha は不透明度(0〜1) で 1 で不透明。resetLayer 関数で無効化できる。">setLayer</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; colorKey);
+<a name="l00311"></a>00311     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a5bfc25ce55a00fc80b50327a5670fdb2" title="ウインドウを半透明にする。alpha は不透明度(0〜1) で 1 で不透明。resetLayer 関数で無効化できる。">setLayer</a>(HDC graphicsWithAlphaChannel, <span class="keywordtype">float</span> alpha = 1.0f);
+<a name="l00313"></a>00313     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a92f341dff2642f1a26e7f64602d2e216" title="クライアント領域の大きさからコントロールの大きさを求める。">sizeFromClientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a164487130f93987e53161346f295a74e" title="クライアント領域の大きさ。">clientSize</a>) <span class="keyword">const</span>;
+<a name="l00316"></a>00316     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a0a616e8a5bd9982d96362fe3ba8d5fff" title="タスクバーに表示するかどうか。表示を消せるのは style() が Frame::Style::toolWindow か Frame::Style::sizableToolWindow の時かオーナーを...">showInTaskbar</a>() <span class="keyword">const</span>;
+<a name="l00317"></a>00317     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a0a616e8a5bd9982d96362fe3ba8d5fff" title="タスクバーに表示するかどうか。表示を消せるのは style() が Frame::Style::toolWindow か Frame::Style::sizableToolWindow の時かオーナーを...">showInTaskbar</a>(<span class="keywordtype">bool</span> value);
+<a name="l00319"></a>00319     <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Frame::Style</a> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style</a>() <span class="keyword">const</span>;
+<a name="l00320"></a>00320     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style</a>(<a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Frame::Style</a> value);
+<a name="l00322"></a>00322     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#aa871ab1579bc1159cc13190e0d955712" title="閉じる、最大化、最小化ボタンとシステムメニューを有効にするかどうか。初期値は true。">systemMenu</a>() <span class="keyword">const</span>;
+<a name="l00323"></a>00323     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#aa871ab1579bc1159cc13190e0d955712" title="閉じる、最大化、最小化ボタンとシステムメニューを有効にするかどうか。初期値は true。">systemMenu</a>(<span class="keywordtype">bool</span> value);
+<a name="l00325"></a>00325     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">ScrollableControl::text</a>;
+<a name="l00326"></a>00326     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00328"></a>00328     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab8914ba5db243d043e3f187deb373bd5" title="常に最前面に表示されるかどうか。初期値は false。">topMost</a>() <span class="keyword">const</span>;
+<a name="l00329"></a>00329     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab8914ba5db243d043e3f187deb373bd5" title="常に最前面に表示されるかどうか。初期値は false。">topMost</a>(<span class="keywordtype">bool</span> value);
+<a name="l00331"></a>00331     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a91ba5bb3772f7e21ae19f95bd7551895" title="メニューバーの表示を更新する。ポップアップではないメニュー項目を変更したら更新する必要がある。">updateMenubar</a>();
+<a name="l00333"></a>00333     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#af12c84d9f44c4acea1b7fa3ffef1a432" title="表示しているかどうか。">ScrollableControl::visible</a>;
+<a name="l00334"></a>00334     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#af12c84d9f44c4acea1b7fa3ffef1a432" title="表示しているかどうか。">visible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337 <span class="keyword">public</span>: <span class="comment">// 本当は protected にしたいが Control とその派生クラスから呼ぶ必要があるので公開。</span>
+<a name="l00339"></a>00339 <span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a835f5a7ce88a198e0fb1e6d41c929796" title="子孫コントロールが子孫ではなくなるときの処理。。">processDescendantErased</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; descendant);
+<a name="l00341"></a>00341     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a8fcac7e2b4163d65bc1e41c7cb0bc0cf" title="子孫コントロールがフォーカスを得たときの処理。">processDescendantFocused</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; descendant);
+<a name="l00342"></a>00342 
+<a name="l00343"></a>00343 <span class="keyword">protected</span>:
+<a name="l00345"></a>00345     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#ae2935b1246e10b2a8cc1e075d5f06b5a" title="ダイアログキーを処理して処理できたかどうかを返す。">processDialogKey</a>(<span class="keywordtype">int</span> shortcut);
+<a name="l00347"></a>00347     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a3a2451395f8301931fd31136384a76ee" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00349"></a>00349     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#aa0af7b3e9975db7bdb51cb8796832c4e" title="ウインドウハンドルのスタイルを更新する。">updateHandleStyle</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_frame.html#a2db3f3af54c686061ef383b510da5756" title="ウインドウのスタイル。初期値は Frame::Style::sizable。">style</a>, <span class="keywordtype">int</span> exStyle, HICON <a class="code" href="classbalor_1_1gui_1_1_frame.html#ab8336b443c1e96461454bc4cedc4132a" title="タイトルバーに表示するアイコン。大きいアイコンを指定する。初期値は nullptr。">icon</a>);
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351 
+<a name="l00352"></a>00352 <span class="keyword">protected</span>:
+<a name="l00353"></a>00353     <span class="keywordtype">bool</span> _canPostQuitMessage;
+<a name="l00354"></a>00354     <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_close_reason.html" title="ウインドウを閉じる理由。">CloseReason</a> _closeReason;
+<a name="l00355"></a>00355     <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Button&gt;</a> _acceptButton;
+<a name="l00356"></a>00356     <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Control&gt;</a> _activeControl;
+<a name="l00357"></a>00357     <a class="code" href="classbalor_1_1_reference.html">Reference&lt;Button&gt;</a> _cancelButton;
+<a name="l00358"></a>00358     <a class="code" href="structbalor_1_1gui_1_1_frame_1_1_style.html" title="ウインドウのスタイル。">Style</a> _style;
+<a name="l00359"></a>00359     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Close&amp;&gt;</a> _onClose;
+<a name="l00360"></a>00360     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Closing&amp;&gt;</a> _onClosing;
+<a name="l00361"></a>00361     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::DisplayChange&amp;&gt;</a> _onDisplayChange;
+<a name="l00362"></a>00362     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::HelpButtonClick&amp;&gt;</a> _onHelpButtonClick;
+<a name="l00363"></a>00363     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::MenuLoopBegin&amp;&gt;</a> _onMenuLoopBegin;
+<a name="l00364"></a>00364     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::MenuLoopEnd&amp;&gt;</a> _onMenuLoopEnd;
+<a name="l00365"></a>00365     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Move&amp;&gt;</a> _onMove;
+<a name="l00366"></a>00366     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Moving&amp;&gt;</a> _onMoving;
+<a name="l00367"></a>00367     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Paint&amp;&gt;</a> _onPaint;
+<a name="l00368"></a>00368     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Resize&amp;&gt;</a> _onResize;
+<a name="l00369"></a>00369     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::Resizing&amp;&gt;</a> _onResizing;
+<a name="l00370"></a>00370     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::ResizeMoveBegin&amp;&gt;</a> _onResizeMoveBegin;
+<a name="l00371"></a>00371     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Frame::ResizeMoveEnd&amp;&gt;</a> _onResizeMoveEnd;
+<a name="l00372"></a>00372 };
+<a name="l00373"></a>00373 
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376     }
+<a name="l00377"></a>00377 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::String</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1_string.html">String</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="#pub-attribs">Public 変数</a> &#124;
+<a href="#friends">フレンド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::String</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::String" -->
+<p>文字列を表す。  
+ <a href="classbalor_1_1_string.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_string_8hpp_source.html">String.hpp</a>&gt;</code></p>
+
+<p><a href="classbalor_1_1_string-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1_string_1_1_compare_options.html">CompareOptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列比較のオプション。組み合わせで指定する。 文字列を検索する関数（indexOf, lastIndexOf, startsWith, endsWith等）では ignoreNonSpace, ignoreSymbols は指定できない。  <a href="structbalor_1_1_string_1_1_compare_options.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1_string_1_1_normalization_form.html">NormalizationForm</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> の正規化形式。  <a href="structbalor_1_1_string_1_1_normalization_form.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string_1_1_normalize_dll_not_found_exception.html">NormalizeDllNotFoundException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">normaliz.dll が見つからない場合に投げられる。  <a href="classbalor_1_1_string_1_1_normalize_dll_not_found_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string_1_1_normalize_failed_exception.html">NormalizeFailedException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">欠けたサロゲートペアなどの正規化不能な文字を正規化しようとしたときに投げられる。  <a href="classbalor_1_1_string_1_1_normalize_failed_exception.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5899ed75f80fb19fa7c8b8726e0d1d97"></a><!-- doxytag: member="balor::String::string" ref="a5899ed75f80fb19fa7c8b8726e0d1d97" args="" -->
+typedef std::basic_string<br class="typebreak"/>
+&lt; char, std::char_traits&lt; char &gt;<br class="typebreak"/>
+, std::allocator&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>string</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae48923b988b05097947447dce03e03d9"></a><!-- doxytag: member="balor::String::wstring" ref="ae48923b988b05097947447dce03e03d9" args="" -->
+typedef std::basic_string<br class="typebreak"/>
+&lt; wchar_t, std::char_traits<br class="typebreak"/>
+&lt; wchar_t &gt;, std::allocator<br class="typebreak"/>
+&lt; wchar_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wstring</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56dd1389ac3663bba295f99a442c53ed"></a><!-- doxytag: member="balor::String::Locale" ref="a56dd1389ac3663bba295f99a442c53ed" args="" -->
+typedef ::<a class="el" href="classbalor_1_1locale_1_1_locale.html">balor::locale::Locale</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Locale</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38fe92c29b7aa132ae10a315b6eccc23"></a><!-- doxytag: member="balor::String::SizeType" ref="a38fe92c29b7aa132ae10a315b6eccc23" args="" -->
+typedef __w64 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>SizeType</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7d20d5373c2407f9ebd920a726e31a5"></a><!-- doxytag: member="balor::String::String" ref="ac7d20d5373c2407f9ebd920a726e31a5" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ac7d20d5373c2407f9ebd920a726e31a5">String</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">空文字列（L""）で初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a165d1e48e93ff6ff405e6efbaad476db"></a><!-- doxytag: member="balor::String::String" ref="a165d1e48e93ff6ff405e6efbaad476db" args="(const String &amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61b5bb577e82c8678a14293916d0d210"></a><!-- doxytag: member="balor::String::String" ref="a61b5bb577e82c8678a14293916d0d210" args="(String &amp;&amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c71cf7b8656144f2dd6712209fad107"></a><!-- doxytag: member="balor::String::String" ref="a1c71cf7b8656144f2dd6712209fad107" args="(const StringBuffer &amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a1c71cf7b8656144f2dd6712209fad107">String</a> (const <a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> から変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af40471d47cb99509eb3291bffd772984"></a><!-- doxytag: member="balor::String::String" ref="af40471d47cb99509eb3291bffd772984" args="(StringBuffer &amp;&amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0909b51244c285f6c3cc8c3e671c31b"></a><!-- doxytag: member="balor::String::String" ref="ab0909b51244c285f6c3cc8c3e671c31b" args="(const wstring &amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ab0909b51244c285f6c3cc8c3e671c31b">String</a> (const wstring &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">std::wstring で初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24b2fc2fe260369f6e97c8d82dcd192f"></a><!-- doxytag: member="balor::String::String" ref="a24b2fc2fe260369f6e97c8d82dcd192f" args="(const wchar_t *value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a24b2fc2fe260369f6e97c8d82dcd192f">String</a> (const wchar_t *value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタで初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9b84b1b47b21d0e9a8a4ee81dae5894"></a><!-- doxytag: member="balor::String::String" ref="ae9b84b1b47b21d0e9a8a4ee81dae5894" args="(wchar_t c, int count)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ae9b84b1b47b21d0e9a8a4ee81dae5894">String</a> (wchar_t c, int count)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャラクターと繰り返し数で初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e8f0cd535727bfedf9e1e0edb9edf2a"></a><!-- doxytag: member="balor::String::String" ref="a6e8f0cd535727bfedf9e1e0edb9edf2a" args="(const wchar_t *value, int length)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a6e8f0cd535727bfedf9e1e0edb9edf2a">String</a> (const wchar_t *value, int length)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタと文字列の長さで初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f9e90ce4c2b14b9840005d2b54a708e"></a><!-- doxytag: member="balor::String::String" ref="a9f9e90ce4c2b14b9840005d2b54a708e" args="(ByteStringRange value, const ::balor::locale::Charset &amp;charset)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a9f9e90ce4c2b14b9840005d2b54a708e">String</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> value, const ::<a class="el" href="classbalor_1_1locale_1_1_charset.html">balor::locale::Charset</a> &amp;charset)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バイト文字列をキャラクターセットでデコードして初期化。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26c4c15641568cb735d84db6026564e2"></a><!-- doxytag: member="balor::String::operator=" ref="a26c4c15641568cb735d84db6026564e2" args="(const String &amp;value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebf72c3a602604cc6da4110b975fdb5c"></a><!-- doxytag: member="balor::String::operator=" ref="aebf72c3a602604cc6da4110b975fdb5c" args="(String &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dcf0ecfbe368db1d1e29e9d4acabb94"></a><!-- doxytag: member="balor::String::operator=" ref="a7dcf0ecfbe368db1d1e29e9d4acabb94" args="(const StringBuffer &amp;value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a7dcf0ecfbe368db1d1e29e9d4acabb94">operator=</a> (const <a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> を代入。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82bada4631213961bd5b230dc1a421d3"></a><!-- doxytag: member="balor::String::operator=" ref="a82bada4631213961bd5b230dc1a421d3" args="(StringBuffer &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a118a673dd8c4f8e37230570d475c3efa"></a><!-- doxytag: member="balor::String::operator=" ref="a118a673dd8c4f8e37230570d475c3efa" args="(const wstring &amp;value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a118a673dd8c4f8e37230570d475c3efa">operator=</a> (const wstring &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">std::wstring を代入。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef0a8deb620575c02962df6c4b841fcd"></a><!-- doxytag: member="balor::String::operator=" ref="aef0a8deb620575c02962df6c4b841fcd" args="(const wchar_t *value)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#aef0a8deb620575c02962df6c4b841fcd">operator=</a> (const wchar_t *value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタを代入。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4444404ba9e44e69e0a941d34b55d41"></a><!-- doxytag: member="balor::String::begin" ref="aa4444404ba9e44e69e0a941d34b55d41" args="() const " -->
+const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#aa4444404ba9e44e69e0a941d34b55d41">begin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列へのポインタ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace2ffc8744dc4d42f5c8a5441dc5a1bb"></a><!-- doxytag: member="balor::String::c_str" ref="ace2ffc8744dc4d42f5c8a5441dc5a1bb" args="() const " -->
+const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ace2ffc8744dc4d42f5c8a5441dc5a1bb">c_str</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列へのポインタ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adea2e700305d91c4310560a51dcbaa8b"></a><!-- doxytag: member="balor::String::compareTo" ref="adea2e700305d91c4310560a51dcbaa8b" args="(StringRange rhs) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#adea2e700305d91c4310560a51dcbaa8b">compareTo</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の比較。戻り値は C 言語の strcmp 系の関数と同じ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeec3f887e140175da327694a8f21acca"></a><!-- doxytag: member="balor::String::contains" ref="aeec3f887e140175da327694a8f21acca" args="(StringRange value) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#aeec3f887e140175da327694a8f21acca">contains</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列内で value が見つかるかどうか。 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="af9d6c8834b49b1eaa430314d2a0dc51e"></a><!-- doxytag: member="balor::String::copyTo" ref="af9d6c8834b49b1eaa430314d2a0dc51e" args="(wchar_t(&amp;array)[Size]) const " -->
+template&lt;int Size&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#af9d6c8834b49b1eaa430314d2a0dc51e">copyTo</a> (wchar_t(&amp;array)[<a class="el" href="classbalor_1_1_size.html">Size</a>]) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字配列に null終端を含む文字列全体をコピーする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f05540edd722cb04426a016a0372c29"></a><!-- doxytag: member="balor::String::copyTo" ref="a1f05540edd722cb04426a016a0372c29" args="(wchar_t *array, int arraySize) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copyTo</b> (wchar_t *array, int arraySize) const </td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="ae5dfdc4f4edf799bdfece2b05c4ab8de"></a><!-- doxytag: member="balor::String::copyTo" ref="ae5dfdc4f4edf799bdfece2b05c4ab8de" args="(int beginIndex, wchar_t(&amp;array)[Size], int arrayIndex, int length) const " -->
+template&lt;int Size&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ae5dfdc4f4edf799bdfece2b05c4ab8de">copyTo</a> (int beginIndex, wchar_t(&amp;array)[<a class="el" href="classbalor_1_1_size.html">Size</a>], int arrayIndex, int length) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字配列に部分文字列をコピーする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a111a8323fa2e133ecc292ef8216bec8a"></a><!-- doxytag: member="balor::String::copyTo" ref="a111a8323fa2e133ecc292ef8216bec8a" args="(int beginIndex, wchar_t *array, int arraySize, int arrayIndex, int length) const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copyTo</b> (int beginIndex, wchar_t *array, int arraySize, int arrayIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75370d5ed39871cb93c8ecde160a5734"></a><!-- doxytag: member="balor::String::empty" ref="a75370d5ed39871cb93c8ecde160a5734" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a75370d5ed39871cb93c8ecde160a5734">empty</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">空文字列かどうか。長さが０ではなくても空文字列になりえることに注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65682cd9f8d4251cfbaebbb636140337"></a><!-- doxytag: member="balor::String::end" ref="a65682cd9f8d4251cfbaebbb636140337" args="() const " -->
+const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a65682cd9f8d4251cfbaebbb636140337">end</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列終端へのポインタ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac702875ff390ae9170b79c2676de6390"></a><!-- doxytag: member="balor::String::endsWith" ref="ac702875ff390ae9170b79c2676de6390" args="(StringRange value, bool ignoreCase=false) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ac702875ff390ae9170b79c2676de6390">endsWith</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, bool ignoreCase=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字列で終わるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfb5602331ebc64133c6341b48f96279"></a><!-- doxytag: member="balor::String::endsWith" ref="acfb5602331ebc64133c6341b48f96279" args="(StringRange value, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>endsWith</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a476a8323482f4b1e28120ba3006aeef2"></a><!-- doxytag: member="balor::String::equalTo" ref="a476a8323482f4b1e28120ba3006aeef2" args="(StringRange rhs, bool ignoreCase=false) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a476a8323482f4b1e28120ba3006aeef2">equalTo</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, bool ignoreCase=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列が等しいかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a715f540bc032ce18696c352b64271220"></a><!-- doxytag: member="balor::String::equalTo" ref="a715f540bc032ce18696c352b64271220" args="(StringRange rhs, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>equalTo</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09d9b7e76a701745ec741a5b1fae1370"></a><!-- doxytag: member="balor::String::erase" ref="a09d9b7e76a701745ec741a5b1fae1370" args="(int beginIndex) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a09d9b7e76a701745ec741a5b1fae1370">erase</a> (int beginIndex) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した部分を削除した文字列を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1128d9c2bfe7152ad4c39091d78ebc7f"></a><!-- doxytag: member="balor::String::erase" ref="a1128d9c2bfe7152ad4c39091d78ebc7f" args="(int beginIndex, int length) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f9cbcbc317f295037326afd04ef4f0e"></a><!-- doxytag: member="balor::String::getNextLetterIndex" ref="a9f9cbcbc317f295037326afd04ef4f0e" args="(int beginIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a9f9cbcbc317f295037326afd04ef4f0e">getNextLetterIndex</a> (int beginIndex=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">結合文字やサロゲートペアを考慮して beginIndex の次の文字のインデックスを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad6e69c8df0eda74b46ed82d7a9e00d1"></a><!-- doxytag: member="balor::String::hashCode" ref="aad6e69c8df0eda74b46ed82d7a9e00d1" args="() const " -->
+SizeType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#aad6e69c8df0eda74b46ed82d7a9e00d1">hashCode</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列のハッシュ値。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31b304b51134667913c7fa849ca050c8"></a><!-- doxytag: member="balor::String::indexOf" ref="a31b304b51134667913c7fa849ca050c8" args="(StringRange value, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a31b304b51134667913c7fa849ca050c8">indexOf</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, bool ignoreCase=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字や文字列が最初に見つかった位置を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abff03300665b996e261443e3ac0a7697"></a><!-- doxytag: member="balor::String::indexOf" ref="abff03300665b996e261443e3ac0a7697" args="(StringRange value, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a463782c2502ac6078c4d2970b93a3863"></a><!-- doxytag: member="balor::String::indexOf" ref="a463782c2502ac6078c4d2970b93a3863" args="(wchar_t value, int beginIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (wchar_t value, int beginIndex=0) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0476341f7056939dd3a8d62ea87c6717"></a><!-- doxytag: member="balor::String::indexOf" ref="a0476341f7056939dd3a8d62ea87c6717" args="(StringRange value, int beginIndex, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, bool ignoreCase=false) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43c0b037bed755da06db90df6bc1c2e4"></a><!-- doxytag: member="balor::String::indexOf" ref="a43c0b037bed755da06db90df6bc1c2e4" args="(StringRange value, int beginIndex, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1c7e23f8f1e47fcffb72ae3b4ba2687"></a><!-- doxytag: member="balor::String::indexOf" ref="ad1c7e23f8f1e47fcffb72ae3b4ba2687" args="(wchar_t value, int beginIndex, int length) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (wchar_t value, int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9668ff78b60ec50c8f9502e22b17f13c"></a><!-- doxytag: member="balor::String::indexOf" ref="a9668ff78b60ec50c8f9502e22b17f13c" args="(StringRange value, int beginIndex, int length, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, int length, bool ignoreCase=false) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b5387562fe0ce3c1963dc1b6f22b08e"></a><!-- doxytag: member="balor::String::indexOf" ref="a8b5387562fe0ce3c1963dc1b6f22b08e" args="(StringRange value, int beginIndex, int length, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, int length, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad373bc98da1a251915469c74601b49f1"></a><!-- doxytag: member="balor::String::indexOfAny" ref="ad373bc98da1a251915469c74601b49f1" args="(StringRange anyOf, int beginIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ad373bc98da1a251915469c74601b49f1">indexOfAny</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> anyOf, int beginIndex=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字列の中の文字のどれかが最初に見つかった位置を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62951a72748594ae08a78f2a2e390cd4"></a><!-- doxytag: member="balor::String::indexOfAny" ref="a62951a72748594ae08a78f2a2e390cd4" args="(StringRange anyOf, int beginIndex, int length) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOfAny</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> anyOf, int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a249e06ded4e784d01f639dd9943fd597"></a><!-- doxytag: member="balor::String::insert" ref="a249e06ded4e784d01f639dd9943fd597" args="(int beginIndex, StringRange value) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a249e06ded4e784d01f639dd9943fd597">insert</a> (int beginIndex, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を挿入して返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51c94e595b2052837afc473c5d041332"></a><!-- doxytag: member="balor::String::isNormalized" ref="a51c94e595b2052837afc473c5d041332" args="(String::NormalizationForm frame=NormalizationForm::c) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a51c94e595b2052837afc473c5d041332">isNormalized</a> (<a class="el" href="structbalor_1_1_string_1_1_normalization_form.html">String::NormalizationForm</a> frame=NormalizationForm::c) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した正規化形式で正規化されているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0f74fc6a9b6fd6ff2573f6ac0aff37d"></a><!-- doxytag: member="balor::String::isWhiteSpace" ref="ab0f74fc6a9b6fd6ff2573f6ac0aff37d" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ab0f74fc6a9b6fd6ff2573f6ac0aff37d">isWhiteSpace</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">空白文字しか含まれないかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64314d60b5ff6084a13b92c036189e34"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="a64314d60b5ff6084a13b92c036189e34" args="(StringRange value, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a64314d60b5ff6084a13b92c036189e34">lastIndexOf</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, bool ignoreCase=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字や文字列が最後に見つかった位置を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5f9cecc09efc2db37b4696fb9f33a6d"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="ad5f9cecc09efc2db37b4696fb9f33a6d" args="(StringRange value, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae340c35fe8e536bdf40e626ea5ca0c29"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="ae340c35fe8e536bdf40e626ea5ca0c29" args="(wchar_t value, int beginIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (wchar_t value, int beginIndex=0) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae770d35acac4565cd972bf22625fa840"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="ae770d35acac4565cd972bf22625fa840" args="(StringRange value, int beginIndex, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, bool ignoreCase=false) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc3fe096a1703c6c37c249515ece232c"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="afc3fe096a1703c6c37c249515ece232c" args="(StringRange value, int beginIndex, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a202b62070721bbfa0f19990a6499ad44"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="a202b62070721bbfa0f19990a6499ad44" args="(wchar_t value, int beginIndex, int length) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (wchar_t value, int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e615dc334b524e74eb7f415177282b8"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="a3e615dc334b524e74eb7f415177282b8" args="(StringRange value, int beginIndex, int length, bool ignoreCase=false) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, int length, bool ignoreCase=false) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a723ddf664995c0fdc47396bf963eaa03"></a><!-- doxytag: member="balor::String::lastIndexOf" ref="a723ddf664995c0fdc47396bf963eaa03" args="(StringRange value, int beginIndex, int length, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOf</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, int beginIndex, int length, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66ae452677b52283450b1eaf0f8b7186"></a><!-- doxytag: member="balor::String::lastIndexOfAny" ref="a66ae452677b52283450b1eaf0f8b7186" args="(StringRange anyOf, int beginIndex=0) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a66ae452677b52283450b1eaf0f8b7186">lastIndexOfAny</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> anyOf, int beginIndex=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字列の中の文字のどれかが最後に見つかった位置を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a0c6604c2440b3fddd280ff5f4cc112"></a><!-- doxytag: member="balor::String::lastIndexOfAny" ref="a0a0c6604c2440b3fddd280ff5f4cc112" args="(StringRange anyOf, int beginIndex, int length) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lastIndexOfAny</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> anyOf, int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbd7e61b601d814f1277f22b461a954d"></a><!-- doxytag: member="balor::String::length" ref="afbd7e61b601d814f1277f22b461a954d" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#afbd7e61b601d814f1277f22b461a954d">length</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の長さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb645be7f60024f675938fe2731e677f"></a><!-- doxytag: member="balor::String::lengthInLetter" ref="aeb645be7f60024f675938fe2731e677f" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#aeb645be7f60024f675938fe2731e677f">lengthInLetter</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">結合文字やサロゲートペアを考慮した表示される文字列の長さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12a45b17c21bbd5b3c27a2840d061bf1"></a><!-- doxytag: member="balor::String::normalize" ref="a12a45b17c21bbd5b3c27a2840d061bf1" args="(String::NormalizationForm frame=NormalizationForm::c) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a12a45b17c21bbd5b3c27a2840d061bf1">normalize</a> (<a class="el" href="structbalor_1_1_string_1_1_normalization_form.html">String::NormalizationForm</a> frame=NormalizationForm::c) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した正規化形式で正規化して返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a7481c026103c41bb5670c166e4b5d"></a><!-- doxytag: member="balor::String::padLeft" ref="a47a7481c026103c41bb5670c166e4b5d" args="(int length, wchar_t paddingChar=L' ') const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a47a7481c026103c41bb5670c166e4b5d">padLeft</a> (int length, wchar_t paddingChar=L' ') const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した長さになるまで先頭に文字を埋め込んで返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38262ff392b748b537525a80f35b3c14"></a><!-- doxytag: member="balor::String::padRight" ref="a38262ff392b748b537525a80f35b3c14" args="(int length, wchar_t paddingChar=L' ') const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a38262ff392b748b537525a80f35b3c14">padRight</a> (int length, wchar_t paddingChar=L' ') const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した長さになるまで末尾に文字を埋め込んで返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a484996f24cc45c60b291f86d18175885"></a><!-- doxytag: member="balor::String::referred" ref="a484996f24cc45c60b291f86d18175885" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a484996f24cc45c60b291f86d18175885">referred</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタを参照しているかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0eb991aa02124f2f8f9345278c1416e"></a><!-- doxytag: member="balor::String::replace" ref="ab0eb991aa02124f2f8f9345278c1416e" args="(wchar_t oldValue, wchar_t newValue) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ab0eb991aa02124f2f8f9345278c1416e">replace</a> (wchar_t oldValue, wchar_t newValue) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字や文字列を置換して返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06530f5103d81c5d0108c0f04e349514"></a><!-- doxytag: member="balor::String::replace" ref="a06530f5103d81c5d0108c0f04e349514" args="(StringRange oldValue, StringRange newValue) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>replace</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> oldValue, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> newValue) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc8b7e9847e3b0756e3929f69e40fa57"></a><!-- doxytag: member="balor::String::split" ref="acc8b7e9847e3b0756e3929f69e40fa57" args="(StringRange separators=L&quot;&quot;) const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1_string.html">String</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1_string.html">String</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#acc8b7e9847e3b0756e3929f69e40fa57">split</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> separators=L&quot;&quot;) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した複数の区切り文字で分割した文字列配列を返す。separators が空の場合は区切り文字を whiteSpace とみなす。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21da07f3a81c7b87715b5d0054853eae"></a><!-- doxytag: member="balor::String::split" ref="a21da07f3a81c7b87715b5d0054853eae" args="(StringRangeArray separators) const " -->
+std::vector&lt; <a class="el" href="classbalor_1_1_string.html">String</a>, <br class="typebreak"/>
+std::allocator&lt; <a class="el" href="classbalor_1_1_string.html">String</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a21da07f3a81c7b87715b5d0054853eae">split</a> (<a class="el" href="classbalor_1_1_string_range_array.html">StringRangeArray</a> separators) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した複数の区切り文字列で分割した文字列配列を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35de5d7213650e9e30ef54106366f7ed"></a><!-- doxytag: member="balor::String::startsWith" ref="a35de5d7213650e9e30ef54106366f7ed" args="(StringRange value, bool ignoreCase=false) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a35de5d7213650e9e30ef54106366f7ed">startsWith</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, bool ignoreCase=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した文字列で始まるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e908d71649c41d87a66358c5b9f2a53"></a><!-- doxytag: member="balor::String::startsWith" ref="a9e908d71649c41d87a66358c5b9f2a53" args="(StringRange value, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>startsWith</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab49b84fc7fdedf4671e29f2adf2143c4"></a><!-- doxytag: member="balor::String::substring" ref="ab49b84fc7fdedf4671e29f2adf2143c4" args="(int beginIndex) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ab49b84fc7fdedf4671e29f2adf2143c4">substring</a> (int beginIndex) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">部分文字列を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c032bc3db906093aca473d9a615846c"></a><!-- doxytag: member="balor::String::substring" ref="a8c032bc3db906093aca473d9a615846c" args="(int beginIndex, int length) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>substring</b> (int beginIndex, int length) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7d9428e439959f136890fef88246993"></a><!-- doxytag: member="balor::String::toLower" ref="ae7d9428e439959f136890fef88246993" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ae7d9428e439959f136890fef88246993">toLower</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大文字を小文字にして返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2835eae9863f1bf48a896ccb56192482"></a><!-- doxytag: member="balor::String::toLower" ref="a2835eae9863f1bf48a896ccb56192482" args="(const Locale &amp;locale) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toLower</b> (const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4accd4a549a8163b47f29bb1e4520946"></a><!-- doxytag: member="balor::String::toUpper" ref="a4accd4a549a8163b47f29bb1e4520946" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a4accd4a549a8163b47f29bb1e4520946">toUpper</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">小文字を大文字にして返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52a680d69da21c6cd1905187a0d2af78"></a><!-- doxytag: member="balor::String::toUpper" ref="a52a680d69da21c6cd1905187a0d2af78" args="(const Locale &amp;locale) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toUpper</b> (const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8cbd5eb096a6a906da8e81b6cefa7f3"></a><!-- doxytag: member="balor::String::trim" ref="ac8cbd5eb096a6a906da8e81b6cefa7f3" args="(StringRange trimChars=String()) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ac8cbd5eb096a6a906da8e81b6cefa7f3">trim</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> trimChars=<a class="el" href="classbalor_1_1_string.html">String</a>()) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">先頭と末尾の trimChars に含まれる文字を全て取り除いて返す。trimChars が空文字列の場合は whiteSpace とみなす。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad79856cb2e2b7e55548da3e1f743b478"></a><!-- doxytag: member="balor::String::operator wstring" ref="ad79856cb2e2b7e55548da3e1f743b478" args="() const " -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#ad79856cb2e2b7e55548da3e1f743b478">operator wstring</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">wstring への変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d9685735794cfcdf838bd08f69c3871"></a><!-- doxytag: member="balor::String::operator StringRange" ref="a5d9685735794cfcdf838bd08f69c3871" args="() const " -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a5d9685735794cfcdf838bd08f69c3871">operator StringRange</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">StringRange への変換。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfc09c628a6c25d1c2874376d689cb07"></a><!-- doxytag: member="balor::String::operator[]" ref="acfc09c628a6c25d1c2874376d689cb07" args="(int index) const " -->
+wchar_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#acfc09c628a6c25d1c2874376d689cb07">operator[]</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字要素を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d21e40df8f52701c8fc6e76ee27cf1f"></a><!-- doxytag: member="balor::String::operator+=" ref="a6d21e40df8f52701c8fc6e76ee27cf1f" args="(const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a6d21e40df8f52701c8fc6e76ee27cf1f">operator+=</a> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の追加。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b7c18fb923312da5cedd802a6234dcd"></a><!-- doxytag: member="balor::String::operator+=" ref="a2b7c18fb923312da5cedd802a6234dcd" args="(const wstring &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const wstring &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1f75de6fa06811734ec24ee3afdb59f"></a><!-- doxytag: member="balor::String::operator+=" ref="ac1f75de6fa06811734ec24ee3afdb59f" args="(const wchar_t *rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const wchar_t *rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d15c318cdce4d6e4767dbc7ead51d16"></a><!-- doxytag: member="balor::String::operator+=" ref="a0d15c318cdce4d6e4767dbc7ead51d16" args="(wchar_t *rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (wchar_t *rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd0a2e278c3b26663c8ef7c75aede680"></a><!-- doxytag: member="balor::String::operator+=" ref="acd0a2e278c3b26663c8ef7c75aede680" args="(wchar_t rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (wchar_t rhs)</td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a5380b0232171bcd2e596081774bfc8af"></a><!-- doxytag: member="balor::String::operator+=" ref="a5380b0232171bcd2e596081774bfc8af" args="(const T &amp;rhs)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classbalor_1_1_string.html">String</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a5380b0232171bcd2e596081774bfc8af">operator+=</a> (const T &amp;rhs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespacebalor_1_1_convert.html#a12e05be2dfc3d546c771c80979323d45" title="任意型から任意型への変換テンプレート関数。サポートする変換のみ特殊化して実装する。基数引数の初期値を 10 に設定する。">Convert::to&lt;String&gt;</a> が可能な型の += 演算。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ed6aaa049f0fbdeb1ce30748ca77046"></a><!-- doxytag: member="balor::String::compare" ref="a7ed6aaa049f0fbdeb1ce30748ca77046" args="(StringRange lhs, StringRange rhs, bool ignoreCase=false)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a7ed6aaa049f0fbdeb1ce30748ca77046">compare</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, bool ignoreCase=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の比較。戻り値は C 言語の strcmp 系の関数と同じ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa65675717fddeeab3192254de55e6526"></a><!-- doxytag: member="balor::String::compare" ref="aa65675717fddeeab3192254de55e6526" args="(StringRange lhs, StringRange rhs, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>compare</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf5252ccd1f7c605c90d6a6b2277b76e"></a><!-- doxytag: member="balor::String::compare" ref="aaf5252ccd1f7c605c90d6a6b2277b76e" args="(StringRange lhs, int lindex, StringRange rhs, int rindex, int length, bool ignoreCase=false)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>compare</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, int lindex, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, int rindex, int length, bool ignoreCase=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa2893ace48c39757c2ec62c995a9ae5"></a><!-- doxytag: member="balor::String::compare" ref="afa2893ace48c39757c2ec62c995a9ae5" args="(StringRange lhs, int lindex, StringRange rhs, int rindex, int length, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>compare</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, int lindex, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, int rindex, int length, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e80f7ca63569a8e8a1802321ebc6da4"></a><!-- doxytag: member="balor::String::equals" ref="a7e80f7ca63569a8e8a1802321ebc6da4" args="(ByteStringRange lhs, ByteStringRange rhs, bool ignoreCase=false)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a7e80f7ca63569a8e8a1802321ebc6da4">equals</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">ByteStringRange</a> rhs, bool ignoreCase=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列が等しいかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5df038e404c4a3e01f783d2a35b19944"></a><!-- doxytag: member="balor::String::equals" ref="a5df038e404c4a3e01f783d2a35b19944" args="(StringRange lhs, StringRange rhs, bool ignoreCase=false)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>equals</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, bool ignoreCase=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab54bc5b611a0fc341ac13519a2cf13bb"></a><!-- doxytag: member="balor::String::equals" ref="ab54bc5b611a0fc341ac13519a2cf13bb" args="(StringRange lhs, StringRange rhs, const Locale &amp;locale, String::CompareOptions options=CompareOptions::none)" -->
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>equals</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs, const <a class="el" href="classbalor_1_1locale_1_1_locale.html">Locale</a> &amp;locale, <a class="el" href="structbalor_1_1_string_1_1_compare_options.html">String::CompareOptions</a> options=CompareOptions::none)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a619f2730a8b45a35a198f425e3a3881b"></a><!-- doxytag: member="balor::String::getLength" ref="a619f2730a8b45a35a198f425e3a3881b" args="(const char *value)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a619f2730a8b45a35a198f425e3a3881b">getLength</a> (const char *value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">バイト文字列ポインタのさす文字列の長さを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3386c55c9993c0f1eec46965b7c68658"></a><!-- doxytag: member="balor::String::getLength" ref="a3386c55c9993c0f1eec46965b7c68658" args="(const wchar_t *value)" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a3386c55c9993c0f1eec46965b7c68658">getLength</a> (const wchar_t *value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタのさす文字列の長さを返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80f7a7d5bcf0542f5cfb7ff7c1d0c05a"></a><!-- doxytag: member="balor::String::join" ref="a80f7a7d5bcf0542f5cfb7ff7c1d0c05a" args="(StringRange separator, StringRangeArray values)" -->
+static <a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a80f7a7d5bcf0542f5cfb7ff7c1d0c05a">join</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> separator, <a class="el" href="classbalor_1_1_string_range_array.html">StringRangeArray</a> values)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">複数の文字列を separator で結合して返す。 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a7e837606edd5d1e1b2832d59970848ef"></a><!-- doxytag: member="balor::String::literal" ref="a7e837606edd5d1e1b2832d59970848ef" args="(const wchar_t(&amp;string)[Size])" -->
+template&lt;int Size&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a7e837606edd5d1e1b2832d59970848ef">literal</a> (const wchar_t(&amp;string)[<a class="el" href="classbalor_1_1_size.html">Size</a>])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列リテラルを参照する <a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> を作成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1356dae9482fbbf041cd4034e22841f7"></a><!-- doxytag: member="balor::String::refer" ref="a1356dae9482fbbf041cd4034e22841f7" args="(StringRange value)" -->
+static <a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a1356dae9482fbbf041cd4034e22841f7">refer</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列ポインタを参照する <a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> を作成する。String は内容の変更を許さないが、参照元が先に破壊されると危険。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5116092e31f02d245cd5d2529ea6729a"></a><!-- doxytag: member="balor::String::refer" ref="a5116092e31f02d245cd5d2529ea6729a" args="(const wchar_t *value, int length)" -->
+static <a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>refer</b> (const wchar_t *value, int length)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75b43171ebfb04998594ef96f56a8f2c"></a><!-- doxytag: member="balor::String::StringBuffer" ref="a75b43171ebfb04998594ef96f56a8f2c" args="" -->
+friend&#160;</td><td class="memItemRight" valign="bottom"><b>StringBuffer</b></td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+フレンド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a346acdf3143412eaab63e8f3664cd575"></a><!-- doxytag: member="balor::String::operator+" ref="a346acdf3143412eaab63e8f3664cd575" args="(const String &amp;lhs, const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a346acdf3143412eaab63e8f3664cd575">operator+</a> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の加算。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab32566cd99aa7fa70a239ebc22004c6e"></a><!-- doxytag: member="balor::String::operator+" ref="ab32566cd99aa7fa70a239ebc22004c6e" args="(const String &amp;lhs, const wstring &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, const wstring &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add76b9d55fd47115c185cae1d76ec115"></a><!-- doxytag: member="balor::String::operator+" ref="add76b9d55fd47115c185cae1d76ec115" args="(const String &amp;lhs, const wchar_t *rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, const wchar_t *rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab11a8a086561552eef880932e3751328"></a><!-- doxytag: member="balor::String::operator+" ref="ab11a8a086561552eef880932e3751328" args="(const String &amp;lhs, wchar_t *rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, wchar_t *rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27c2c172554510dedbed267104b27062"></a><!-- doxytag: member="balor::String::operator+" ref="a27c2c172554510dedbed267104b27062" args="(const String &amp;lhs, wchar_t rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, wchar_t rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ba3d9cd83f3543491924efd9256823a"></a><!-- doxytag: member="balor::String::operator+" ref="a1ba3d9cd83f3543491924efd9256823a" args="(const wstring &amp;lhs, const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const wstring &amp;lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0559c02b86fbad3397fa72875668951"></a><!-- doxytag: member="balor::String::operator+" ref="aa0559c02b86fbad3397fa72875668951" args="(const wchar_t *lhs, const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const wchar_t *lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a262d6b404dc861d4c7f5dfb239178b6e"></a><!-- doxytag: member="balor::String::operator+" ref="a262d6b404dc861d4c7f5dfb239178b6e" args="(wchar_t *lhs, const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (wchar_t *lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab70c24c7f361d76b13054350f0266129"></a><!-- doxytag: member="balor::String::operator+" ref="ab70c24c7f361d76b13054350f0266129" args="(wchar_t lhs, const String &amp;rhs)" -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (wchar_t lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a91e9aaef145695f878e075b08b9fde4d"></a><!-- doxytag: member="balor::String::operator+" ref="a91e9aaef145695f878e075b08b9fde4d" args="(const String &amp;lhs, const T &amp;rhs)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a91e9aaef145695f878e075b08b9fde4d">operator+</a> (const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;lhs, const T &amp;rhs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespacebalor_1_1_convert.html#a12e05be2dfc3d546c771c80979323d45" title="任意型から任意型への変換テンプレート関数。サポートする変換のみ特殊化して実装する。基数引数の初期値を 10 に設定する。">Convert::to&lt;String&gt;</a> が可能な型との + 演算。 <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a583959a82f67a86da65ad9ce0792e5bb"></a><!-- doxytag: member="balor::String::operator+" ref="a583959a82f67a86da65ad9ce0792e5bb" args="(const T &amp;lhs, const String &amp;rhs)" -->
+template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (const T &amp;lhs, const <a class="el" href="classbalor_1_1_string.html">String</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59d80b80c175e4cbb235188dd2d16390"></a><!-- doxytag: member="balor::String::operator==" ref="a59d80b80c175e4cbb235188dd2d16390" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1_string.html#a59d80b80c175e4cbb235188dd2d16390">operator==</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">比較演算。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1aea900147f3035c9a933ff5ef4b51f"></a><!-- doxytag: member="balor::String::operator!=" ref="aa1aea900147f3035c9a933ff5ef4b51f" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ddd4f21be43e1337ff719fc467fb1ef"></a><!-- doxytag: member="balor::String::operator&lt;" ref="a6ddd4f21be43e1337ff719fc467fb1ef" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f79014eacb76ec8bff2992d4e5561fe"></a><!-- doxytag: member="balor::String::operator&lt;=" ref="a2f79014eacb76ec8bff2992d4e5561fe" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a697b5d238b2cb28efd71a42e9e60eac3"></a><!-- doxytag: member="balor::String::operator&gt;" ref="a697b5d238b2cb28efd71a42e9e60eac3" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9fded4cfb540a413b3fb829b9b08833"></a><!-- doxytag: member="balor::String::operator&gt;=" ref="af9fded4cfb540a413b3fb829b9b08833" args="(StringRange lhs, StringRange rhs)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> lhs, <a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> rhs)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>文字列を表す。 </p>
+<p>Java や .NET の <a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> と同様、Unicode のみを扱い文字列ポインタの内容の変更を許可しない。 std::wstring と相互に変換可能。ただし basic_string を引数に取るテンプレート関数には渡せないものが多いのでその場合は begin、end 関数を使う。 関数引数に <a class="el" href="classbalor_1_1locale_1_1_locale.html" title="言語、文字列処理に関わるロケールを表す。">balor::locale::Locale</a> を渡さない場合は常に序数処理を行う。（地域差を無視して文字コードを数値として比較する） 特に operator &lt; 等の演算子の処理では Locale を指定できないので全て序数処理になることに注意。 序数処理では全角アルファベットに対する ignoreCase はサポートしない。 <a class="el" href="namespacebalor_1_1_convert.html#a12e05be2dfc3d546c771c80979323d45" title="任意型から任意型への変換テンプレート関数。サポートする変換のみ特殊化して実装する。基数引数の初期値を 10 に設定する。">Convert::to&lt;String&gt;</a> 関数で変換可能な型と <a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> は + 演算子で連結することができる。</p>
+<p><a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> 正規化の為の isNormalized, normalize 関数は Vista 以降か、IE7 以降のインストールされた XP か、または normaliz.dll をインストールした XP でのみサポートする。</p>
+<p>Vista 以降であれば ::FindNLSString 関数が使えるのだが balor は XP 以降のサポートなので indexOf, lastIndexOf, startsWith 及び endsWith 関数は自力実装となっている。 API が対応していないのでサロゲートペアでかつ結合文字である文字コードを結合文字と判断できない。</p>
+<p>内容を変更しないという仕様を生かして refer, literal 関数を使って文字列ポインタを参照だけすることができるが、ポインタ参照の危険性を十分に考慮する必要がある。</p>
+<p>文字列クラスの自作は車輪の再発明であり、できればやりたくはないが std::wstring 及び Boost.string algo ではロケールや <a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> 関連の処理を完全に無視しているので対応した文字列クラスを作成した。</p>
+<p>※サロゲートペア、正規化、結合文字は <a class="el" href="classbalor_1_1_unicode.html" title="暫定実装。">Unicode</a> の仕様</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> s(L"abc");</code></pre><pre><code>std::wstring との相互変換
+	std::wstring ws = s;
+	s = ws;</code></pre><pre><code>ロケールを考慮した比較
+	bool result = <a class="el" href="classbalor_1_1_string.html#a7ed6aaa049f0fbdeb1ce30748ca77046" title="文字列の比較。戻り値は C 言語の strcmp 系の関数と同じ。">String::compare</a>(s, L"あいう", <a class="el" href="classbalor_1_1locale_1_1_locale.html#a502e8d7e64aa8710cd7fe749f35a7383" title="現在のスレッドのロケール。">Locale::current()</a>);</code></pre><pre><code>文字列同士、または数値との連結
+	s = s + L"def";
+	s = <a class="el" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>(L"(") + 128 + L", " + 256 + L")";
+ </code></pre> </div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/<a class="el" href="_string_8hpp_source.html">String.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/String.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:29に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

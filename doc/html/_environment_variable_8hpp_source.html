@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/EnvironmentVariable.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/EnvironmentVariable.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="keyword">namespace </span>balor {
+<a name="l00006"></a>00006     <span class="keyword">namespace </span>io {
+<a name="l00007"></a>00007         <span class="keyword">class </span>Registry;
+<a name="l00008"></a>00008     }
+<a name="l00009"></a>00009 }
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>balor {
+<a name="l00013"></a>00013     <span class="keyword">namespace </span>system {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00020"></a><a class="code" href="classbalor_1_1system_1_1_environment_variable.html">00020</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_environment_variable.html" title="環境変数に関する操作。">EnvironmentVariable</a> {
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022     typedef ::balor::io::Registry <a class="code" href="classbalor_1_1io_1_1_registry.html" title="レジストリにアクセスするクラス。">Registry</a>;
+<a name="l00023"></a>00023 
+<a name="l00026"></a><a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html">00026</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html" title="現在のプロセスの全ての環境変数を列挙するイテレータ。列挙中に環境変数を削除したりすると予期せぬ動作を起こす可能性がある。 名前や値へのアクセスはスレッドセーフではない。">VariablesIterator</a> {
+<a name="l00027"></a>00027         <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html" title="現在のプロセスの全ての環境変数を列挙するイテレータ。列挙中に環境変数を削除したりすると予期せぬ動作を起こす可能性がある。 名前や値へのアクセスはスレッドセーフではない。">VariablesIterator</a>();
+<a name="l00028"></a>00028 
+<a name="l00030"></a>00030         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html#a436a8f5be8655311c73969365b6984da" title="環境変数名。">name</a>() <span class="keyword">const</span>;
+<a name="l00031"></a>00031         <span class="keywordtype">void</span> nameToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00033"></a>00033         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html#a6335eaf97a13325332f53c1735706339" title="環境変数の値。">value</a>() <span class="keyword">const</span>;
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> valueToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00036"></a>00036         <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html" title="現在のプロセスの全ての環境変数を列挙するイテレータ。列挙中に環境変数を削除したりすると予期せぬ動作を起こす可能性がある。 名前や値へのアクセスはスレッドセーフではない。">VariablesIterator</a>&amp; <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html#a8479fee8595bd46ea425b230735eff90" title="次の環境変数へ。">operator++</a>();
+<a name="l00038"></a>00038         <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html#afc4e0aa5d7699b9d3586c3e5afa9b355" title="列挙中かどうか。">operator bool</a>() <span class="keyword">const</span>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keyword">private</span>:
+<a name="l00041"></a>00041         <span class="keywordtype">int</span> _current;
+<a name="l00042"></a>00042     };
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">public</span>:
+<a name="l00046"></a>00046     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#ac536beb6c9f721309fef538f29a97ca5" title="文字列に含まれる % で囲まれた環境変数名を展開して返す。">expandStrings</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <span class="keywordtype">string</span>);
+<a name="l00047"></a>00047     <span class="keyword">static</span> <span class="keywordtype">void</span> expandStringsToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> <span class="keywordtype">string</span>);
+<a name="l00049"></a>00049     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#ab47d66350fc075e74e2acc30e1aaa689" title="現在のプロセスの環境変数が存在するかどうか。">find</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> valueName);
+<a name="l00051"></a>00051     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <span class="keyword">get</span>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> valueName);
+<a name="l00052"></a>00052     <span class="keyword">static</span> <span class="keywordtype">void</span> getToBuffer(<a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a>&amp; buffer, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> valueName);
+<a name="l00054"></a>00054     <span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">remove</span>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> valueName);
+<a name="l00056"></a>00056     <span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">set</span>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> valueName, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00058"></a>00058     <span class="keyword">static</span> <a class="code" href="classbalor_1_1io_1_1_registry.html" title="レジストリにアクセスするクラス。">Registry</a> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#a7be76718f6688df33f593381352d33dc" title="システムの環境変数が設定されているレジストリを返す。">systemRegistry</a>();
+<a name="l00061"></a>00061     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#a7e9afa8e59f44ccc1892484c0e5e85f9" title="環境変数のレジストリの変更を全てのプロセスに反映させる。WM_SETTINGCHANGE メッセージを処理しないプロセスには効果がない。 TODO:コマンドプロンプトに反映されないようだ。自作のアプリで...">updateAllProcess</a>();
+<a name="l00063"></a>00063     <span class="keyword">static</span> <a class="code" href="classbalor_1_1io_1_1_registry.html" title="レジストリにアクセスするクラス。">Registry</a> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#ae3ec01b1b6d8add068e0fa6673190643" title="ログイン中のユーザの環境変数が設定されているレジストリを返す。">userRegistry</a>();
+<a name="l00065"></a>00065     <span class="keyword">static</span> <a class="code" href="structbalor_1_1system_1_1_environment_variable_1_1_variables_iterator.html" title="現在のプロセスの全ての環境変数を列挙するイテレータ。列挙中に環境変数を削除したりすると予期せぬ動作を起こす可能性がある。 名前や値へのアクセスはスレッドセーフではない。">EnvironmentVariable::VariablesIterator</a> <a class="code" href="classbalor_1_1system_1_1_environment_variable.html#a836033a2520f7ee9b57dcc382458b8c8" title="現在のプロセスの全ての環境変数を列挙するイテレータ。">variablesBegin</a>();
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: 構造体 balor::gui::ListView::ItemPrePaint</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a>      </li>
+      <li class="navelem"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html">ItemPrePaint</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">構造体 balor::gui::ListView::ItemPrePaint</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::ListView::ItemPrePaint" --><!-- doxytag: inherits="balor::EventWithSubclassSender" -->
+<p>項目を描画する直前のイベント。選択行の色を変えるには <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81" title="選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。">selected()</a> を false に設定する。  
+ <a href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_list_view_8hpp_source.html">ListView.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::ListView::ItemPrePaintに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.png" usemap="#balor::gui::ListView::ItemPrePaint_map" alt=""/>
+  <map id="balor::gui::ListView::ItemPrePaint_map" name="balor::gui::ListView::ItemPrePaint_map">
+<area href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。" alt="balor::EventWithSubclassSender&lt; SubclassSender, BaseEvent &gt;" shape="rect" coords="0,0,380,24"/>
+</map>
+ </div></div>
+
+<p><a href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf1b1e358ff1566c9737459b24248d24"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::ItemPrePaint" ref="aaf1b1e358ff1566c9737459b24248d24" args="(ListView &amp;sender,::tagNMLVCUSTOMDRAW *info)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>ItemPrePaint</b> (<a class="el" href="classbalor_1_1gui_1_1_list_view.html">ListView</a> &amp;sender,::tagNMLVCUSTOMDRAW *info)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b73e9292eab1c86f1ab2a5a8a354d9a"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::backColor" ref="a7b73e9292eab1c86f1ab2a5a8a354d9a" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a7b73e9292eab1c86f1ab2a5a8a354d9a">backColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の背景の色。ListView::brush 関数で画像ブラシを指定した場合は無効。selected() が true の場合も無効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7cbf14cdc945acb4d278b912fada1b78"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::backColor" ref="a7cbf14cdc945acb4d278b912fada1b78" args="(const Color &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>backColor</b> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd2a0c9b8270efb28c8dd6ac4b479754"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::bounds" ref="afd2a0c9b8270efb28c8dd6ac4b479754" args="() const " -->
+<a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#afd2a0c9b8270efb28c8dd6ac4b479754">bounds</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目のクライアント座標領域。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba053ebfbcd653357588beb880f979d4"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::columnIndex" ref="aba053ebfbcd653357588beb880f979d4" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aba053ebfbcd653357588beb880f979d4">columnIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">縦の行のインデックス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48eb74e736c4fdb7bca86a999955f48e"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::focused" ref="a48eb74e736c4fdb7bca86a999955f48e" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a48eb74e736c4fdb7bca86a999955f48e">focused</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">フォーカスがあるように描画するかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad03c5dc131ab16b3ca4f8776591f9e5e"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::focused" ref="ad03c5dc131ab16b3ca4f8776591f9e5e" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>focused</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a380279ee417e59bc87fcceee553e4f7c"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::font" ref="a380279ee417e59bc87fcceee553e4f7c" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a380279ee417e59bc87fcceee553e4f7c">font</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列のフォント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27f837198ef5d4cefcd5f15b040d15cd"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::font" ref="a27f837198ef5d4cefcd5f15b040d15cd" args="(HFONT value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>font</b> (HFONT value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea0ed69f7d4636731770bb334a75a406"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::item" ref="aea0ed69f7d4636731770bb334a75a406" args="()" -->
+<a class="el" href="classbalor_1_1gui_1_1_list_view_1_1_item.html">ListView::Item</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aea0ed69f7d4636731770bb334a75a406">item</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">イベントの発生した項目。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1c584cb439f8b229766288f29ed2d81"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::selected" ref="aa1c584cb439f8b229766288f29ed2d81" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81">selected</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf3434630292a211ccfcbb0f2da0c8da"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::selected" ref="acf3434630292a211ccfcbb0f2da0c8da" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selected</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cca9c49e33f40ebff81d1c17cd2f0de"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::textColor" ref="a9cca9c49e33f40ebff81d1c17cd2f0de" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#a9cca9c49e33f40ebff81d1c17cd2f0de">textColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">項目の文字列の色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57e07f3f54ee6592c182c34ba9525ef5"></a><!-- doxytag: member="balor::gui::ListView::ItemPrePaint::textColor" ref="a57e07f3f54ee6592c182c34ba9525ef5" args="(const Color &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;value)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>項目を描画する直前のイベント。選択行の色を変えるには <a class="el" href="structbalor_1_1gui_1_1_list_view_1_1_item_pre_paint.html#aa1c584cb439f8b229766288f29ed2d81" title="選択しているように描画するかどうか。選択項目の色を変えるにはこれを false にしなければならない。">selected()</a> を false に設定する。 </p>
+</div><hr/>この構造体の説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_list_view_8hpp_source.html">ListView.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ListView.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:32に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

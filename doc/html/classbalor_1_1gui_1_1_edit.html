@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::gui::Edit</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1gui.html">gui</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1gui_1_1_edit.html">Edit</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a> &#124;
+<a href="#pro-methods">Protected メソッド</a> &#124;
+<a href="#pro-attribs">Protected 変数</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::gui::Edit</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::gui::Edit" --><!-- doxytag: inherits="balor::gui::Control" -->
+<p>エディットコントロール。  
+ <a href="classbalor_1_1gui_1_1_edit.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_edit_8hpp_source.html">Edit.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::gui::Editに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1gui_1_1_edit.png" usemap="#balor::gui::Edit_map" alt=""/>
+  <map id="balor::gui::Edit_map" name="balor::gui::Edit_map">
+<area href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。" alt="balor::gui::Control" shape="rect" coords="0,112,157,136"/>
+<area href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代..." alt="balor::Referenceable" shape="rect" coords="0,56,157,80"/>
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,157,24"/>
+<area href="classbalor_1_1gui_1_1_combo_box_1_1_edit.html" title="コンボボックス上のエディットコントロール。" alt="balor::gui::ComboBox::Edit" shape="rect" coords="0,224,157,248"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1gui_1_1_edit-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_align.html">Align</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">編集文字列の配置。  <a href="structbalor_1_1gui_1_1_edit_1_1_align.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">ImeConvert</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の変換モード。  <a href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">ImeMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の動作。  <a href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html">ImeStatus</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の挙動を表すフラグ。組み合わせで指定する。  <a href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html">Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。組み合わせで指定する。  <a href="structbalor_1_1gui_1_1_edit_1_1_options.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_paste.html">Paste</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップボードの文字列を貼り付けるイベント。  <a href="structbalor_1_1gui_1_1_edit_1_1_paste.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_selection.html">Selection</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の選択状態。  <a href="structbalor_1_1gui_1_1_edit_1_1_selection.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html">TextChange</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を変更して表示に反映する直前のイベント。  <a href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a883ef81ec0204939f036768f5060c2ed"></a><!-- doxytag: member="balor::gui::Edit::HBITMAP" ref="a883ef81ec0204939f036768f5060c2ed" args="" -->
+typedef ::HBITMAP__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HBITMAP</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af467cf6e000df74270f7806c8b50dede"></a><!-- doxytag: member="balor::gui::Edit::Event" ref="af467cf6e000df74270f7806c8b50dede" args="" -->
+typedef <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_subclass_sender.html">EventWithSubclassSender</a>&lt; <a class="el" href="classbalor_1_1gui_1_1_edit.html">Edit</a>, <br class="typebreak"/>
+<a class="el" href="classbalor_1_1_event_with_sender.html">Control::Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#af467cf6e000df74270f7806c8b50dede">Event</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_label.html" title="スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。">Label</a> のイベントの親クラス。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a292f9cb66018dc3e06aaea6e9bb673b6"></a><!-- doxytag: member="balor::gui::Edit::Edit" ref="a292f9cb66018dc3e06aaea6e9bb673b6" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6">Edit</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b6e1760b1874714b0390a82decbc9fe"></a><!-- doxytag: member="balor::gui::Edit::Edit" ref="a3b6e1760b1874714b0390a82decbc9fe" args="(Edit &amp;&amp;value, bool checkSlicing=true)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (<a class="el" href="classbalor_1_1gui_1_1_edit.html">Edit</a> &amp;&amp;value, bool checkSlicing=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2d9af2033b12fa80cfbe8d0291a059d"></a><!-- doxytag: member="balor::gui::Edit::Edit" ref="aa2d9af2033b12fa80cfbe8d0291a059d" args="(Control &amp;parent, int x, int y, int width, int height, Edit::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2d9af2033b12fa80cfbe8d0291a059d">Edit</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html">Edit::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a825241911e6d62889bcc66484343480b"></a><!-- doxytag: member="balor::gui::Edit::Edit" ref="a825241911e6d62889bcc66484343480b" args="(Control &amp;parent, int x, int y, int width, int height, int lineLength, int lineCount=1, Edit::Options options=Options::none)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a825241911e6d62889bcc66484343480b">Edit</a> (<a class="el" href="classbalor_1_1gui_1_1_control.html">Control</a> &amp;parent, int x, int y, int width, int height, int lineLength, int lineCount=1, <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html">Edit::Options</a> options=Options::none)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">親、位置、大きさ、一行の文字数、行数から作成。大きさを０にすると一行の文字数と行数から大きさを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44b28f21b0a0f825433f62fac396606d"></a><!-- doxytag: member="balor::gui::Edit::Edit" ref="a44b28f21b0a0f825433f62fac396606d" args="(HWND handle)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a44b28f21b0a0f825433f62fac396606d">Edit</a> (HWND handle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ハンドルを参照して作成。ハンドルは破棄しない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a456272c91825f954e6a29ba750695ff9"></a><!-- doxytag: member="balor::gui::Edit::operator=" ref="a456272c91825f954e6a29ba750695ff9" args="(Edit &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1gui_1_1_edit.html">Edit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1gui_1_1_edit.html">Edit</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f71d0f70edea06700e11b48c12df1d0"></a><!-- doxytag: member="balor::gui::Edit::align" ref="a0f71d0f70edea06700e11b48c12df1d0" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_align.html">Edit::Align</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a0f71d0f70edea06700e11b48c12df1d0">align</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">編集文字列の配置。初期値は Edit::Align::left。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b5a6d9ba3dae9b4ae8f830260f6bb84"></a><!-- doxytag: member="balor::gui::Edit::align" ref="a5b5a6d9ba3dae9b4ae8f830260f6bb84" args="(Edit::Align value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_align.html">Edit::Align</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a652ff320cce084d7f89d46a772d6b914"></a><!-- doxytag: member="balor::gui::Edit::canUndo" ref="a652ff320cce084d7f89d46a772d6b914" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a652ff320cce084d7f89d46a772d6b914">canUndo</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">やり直し情報があるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea64b1dcb5d106672435af7063855058"></a><!-- doxytag: member="balor::gui::Edit::caretIndex" ref="aea64b1dcb5d106672435af7063855058" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aea64b1dcb5d106672435af7063855058">caretIndex</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットのある文字インデックス。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f66df53ba3b8be0b21e7bab05435a5f"></a><!-- doxytag: member="balor::gui::Edit::caretIndex" ref="a5f66df53ba3b8be0b21e7bab05435a5f" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>caretIndex</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35706f71030b660bc546b543b0392aaa"></a><!-- doxytag: member="balor::gui::Edit::caretVisible" ref="a35706f71030b660bc546b543b0392aaa" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a35706f71030b660bc546b543b0392aaa">caretVisible</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットを表示するかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3929e6db2782bb10643b033d597a6d90"></a><!-- doxytag: member="balor::gui::Edit::caretVisible" ref="a3929e6db2782bb10643b033d597a6d90" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>caretVisible</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ad3e585e7d8ea7af5101972e969a5ccd4">changeCaret</a> (const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;size, bool grayed=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットの大きさや、灰色にするかどうかを設定する。例えば半角数字だけを入力する場合に四角いキャレットにするには下記のようなコードを書く。  <a href="#ad3e585e7d8ea7af5101972e969a5ccd4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b048c5b1f198ef189b52cf4685aacd7"></a><!-- doxytag: member="balor::gui::Edit::changeCaret" ref="a8b048c5b1f198ef189b52cf4685aacd7" args="(int width, int height, bool grayed=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeCaret</b> (int width, int height, bool grayed=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7283f035656901e529a2bc22ee3dae70"></a><!-- doxytag: member="balor::gui::Edit::changeCaret" ref="a7283f035656901e529a2bc22ee3dae70" args="(HBITMAP caret)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a7283f035656901e529a2bc22ee3dae70">changeCaret</a> (HBITMAP caret)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットの画像を変更する。画像は文字に対して XOR 演算を行う。キャレットの大きさを変更すると無効になる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6222c235ce52b313bd4874d3c8fb104d"></a><!-- doxytag: member="balor::gui::Edit::clearUndo" ref="a6222c235ce52b313bd4874d3c8fb104d" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a6222c235ce52b313bd4874d3c8fb104d">clearUndo</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">やり直し情報を消す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b2b4af76a730bbec37f457680bb8f08"></a><!-- doxytag: member="balor::gui::Edit::copy" ref="a9b2b4af76a730bbec37f457680bb8f08" args="() const " -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9b2b4af76a730bbec37f457680bb8f08">copy</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択している文字列をクリップボードにコピーする。文字列が選択されていない場合は何もしない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b503309c3b01cf6de98ea301aeee8f4"></a><!-- doxytag: member="balor::gui::Edit::cueBanner" ref="a5b503309c3b01cf6de98ea301aeee8f4" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a5b503309c3b01cf6de98ea301aeee8f4">cueBanner</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ユーザが初めて入力するまで表示するガイド文字列。optins() に Edit::Options::multiline を設定していない場合のみ有効。この関数の使用には <a class="el" href="_enable_visual_style_8hpp_source.html">EnableVisualStyle.hpp</a> のインクルードが必要。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f556115b47d13ca2a83dec16380f636"></a><!-- doxytag: member="balor::gui::Edit::cueBanner" ref="a0f556115b47d13ca2a83dec16380f636" args="(StringRange value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cueBanner</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeeaaf6e15cb65f0fd17618feaff77e6"></a><!-- doxytag: member="balor::gui::Edit::cut" ref="adeeaaf6e15cb65f0fd17618feaff77e6" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#adeeaaf6e15cb65f0fd17618feaff77e6">cut</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択している文字列を切り取ってクリップボードに貼り付ける。文字列が選択されていない場合はなにもしない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfbf11c158a0c4f8430fd58a4f729190"></a><!-- doxytag: member="balor::gui::Edit::edge" ref="acfbf11c158a0c4f8430fd58a4f729190" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#acfbf11c158a0c4f8430fd58a4f729190">edge</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロールの境界線の種類。初期値は Control::Edge::client。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1eab0a40f3d273a21aa60735bde5d81e"></a><!-- doxytag: member="balor::gui::Edit::edge" ref="a1eab0a40f3d273a21aa60735bde5d81e" args="(Control::Edge value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>edge</b> (<a class="el" href="structbalor_1_1gui_1_1_control_1_1_edge.html">Control::Edge</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54b9cf35f1623b26890c228771a5f18e"></a><!-- doxytag: member="balor::gui::Edit::firstVisibleLine" ref="a54b9cf35f1623b26890c228771a5f18e" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a54b9cf35f1623b26890c228771a5f18e">firstVisibleLine</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">最初に表示されている行。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf0a28ba801ee113683d97b72f7d93b8"></a><!-- doxytag: member="balor::gui::Edit::getIndexAt" ref="acf0a28ba801ee113683d97b72f7d93b8" args="(const Point &amp;position) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#acf0a28ba801ee113683d97b72f7d93b8">getIndexAt</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;position) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クライアント座標から最も近い文字インデックスを求める。クライアント領域上ではない場合は -1 を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaa0a25acfd9bb89bd9fc1f7d3f107c8"></a><!-- doxytag: member="balor::gui::Edit::getIndexAt" ref="abaa0a25acfd9bb89bd9fc1f7d3f107c8" args="(int x, int y) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndexAt</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af279f92db236f6d832a00ef316b8c484"></a><!-- doxytag: member="balor::gui::Edit::getIndexFromLine" ref="af279f92db236f6d832a00ef316b8c484" args="(int line) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#af279f92db236f6d832a00ef316b8c484">getIndexFromLine</a> (int line) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行の先頭の文字インデックスを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53c56de7ac5b97463f22bdaeafd5552b"></a><!-- doxytag: member="balor::gui::Edit::getLineFromIndex" ref="a53c56de7ac5b97463f22bdaeafd5552b" args="(int index) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a53c56de7ac5b97463f22bdaeafd5552b">getLineFromIndex</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字インデックスから行を求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1016df69ad4cdf658a1cd552bebd09e2"></a><!-- doxytag: member="balor::gui::Edit::getLineLength" ref="a1016df69ad4cdf658a1cd552bebd09e2" args="(int line) const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a1016df69ad4cdf658a1cd552bebd09e2">getLineLength</a> (int line) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行の文字数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3048ccae84a95efad85b3d901b0982ec"></a><!-- doxytag: member="balor::gui::Edit::getLineText" ref="a3048ccae84a95efad85b3d901b0982ec" args="(int line) const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a3048ccae84a95efad85b3d901b0982ec">getLineText</a> (int line) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">行の文字列を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4968663f610b2b2682a1b32c936ddc9d"></a><!-- doxytag: member="balor::gui::Edit::getPositionFromIndex" ref="a4968663f610b2b2682a1b32c936ddc9d" args="(int index) const " -->
+<a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a4968663f610b2b2682a1b32c936ddc9d">getPositionFromIndex</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字インデックスからクライアント座標を求める。キャレットが移動できる文末はなぜか位置が取得できないので注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add401bd752106af6f2e75dfac3927b92"></a><!-- doxytag: member="balor::gui::Edit::getPreferredSize" ref="add401bd752106af6f2e75dfac3927b92" args="(int width=0, int height=0) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#add401bd752106af6f2e75dfac3927b92">getPreferredSize</a> (int width=0, int height=0) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">引数で 0 を指定した部分のみ現在の状態に最適な大きさを求める。0 以外を指定した部分はそのまま返る。 <a class="el" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> は素のままでは最適な大きさが推測できないので <a class="el" href="classbalor_1_1gui_1_1_edit.html#ab1df232cf370f687511a950be3759f7a" title="この Edit で想定される一行の文字数と行数。width は一行の文字数、height は行数を表す。getPreferredSize 関数に 0 を指定した時、この数値から大きさを求める。初期値は ...">preferredCharCount()</a> の一行の文字数、行数から最適な大きさを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bf32940cfa7ce9783efa09255a04dd1"></a><!-- doxytag: member="balor::gui::Edit::hScrollBar" ref="a9bf32940cfa7ce9783efa09255a04dd1" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9bf32940cfa7ce9783efa09255a04dd1">hScrollBar</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">水平スクロールバーを表示するかどうか。optins() に Edit::Options::multiline を設定した場合のみ有効。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7842dade5ed2e356408c0a53608e0605"></a><!-- doxytag: member="balor::gui::Edit::hScrollBar" ref="a7842dade5ed2e356408c0a53608e0605" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hScrollBar</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7d9ceade68514139a61f8680c1d492e"></a><!-- doxytag: member="balor::gui::Edit::imeConvert" ref="ae7d9ceade68514139a61f8680c1d492e" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">Edit::ImeConvert</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ae7d9ceade68514139a61f8680c1d492e">imeConvert</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の変換モード。初期値は Edit::ImeConvert::default。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a233a71ea7e1ebdc2c49fb514b7e8189a"></a><!-- doxytag: member="balor::gui::Edit::imeConvert" ref="a233a71ea7e1ebdc2c49fb514b7e8189a" args="(Edit::ImeConvert value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imeConvert</b> (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">Edit::ImeConvert</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd618f6eed8d6711e539acf2e094abd"></a><!-- doxytag: member="balor::gui::Edit::imeFixed" ref="aabd618f6eed8d6711e539acf2e094abd" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aabd618f6eed8d6711e539acf2e094abd">imeFixed</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a22fabcae36dedf19f3c0397b1debb0f3" title="IME の動作。初期値は Edit::ImeConvert::default。">imeMode()</a> と <a class="el" href="classbalor_1_1gui_1_1_edit.html#ae7d9ceade68514139a61f8680c1d492e" title="IME の変換モード。初期値は Edit::ImeConvert::default。">imeConvert()</a> を現在の状態からユーザが変更できなくするかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6bec44afa522eb0c1cf6368535c02ad"></a><!-- doxytag: member="balor::gui::Edit::imeFixed" ref="ae6bec44afa522eb0c1cf6368535c02ad" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imeFixed</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22fabcae36dedf19f3c0397b1debb0f3"></a><!-- doxytag: member="balor::gui::Edit::imeMode" ref="a22fabcae36dedf19f3c0397b1debb0f3" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">Edit::ImeMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a22fabcae36dedf19f3c0397b1debb0f3">imeMode</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の動作。初期値は Edit::ImeConvert::default。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e50f8d9e9982fcd67f0c9e977256972"></a><!-- doxytag: member="balor::gui::Edit::imeMode" ref="a1e50f8d9e9982fcd67f0c9e977256972" args="(Edit::ImeMode value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imeMode</b> (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">Edit::ImeMode</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3f364c4bd8741673a0d5a9f32426abd"></a><!-- doxytag: member="balor::gui::Edit::imeStatus" ref="ab3f364c4bd8741673a0d5a9f32426abd" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html">Edit::ImeStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ab3f364c4bd8741673a0d5a9f32426abd">imeStatus</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IME の挙動を表すフラグ。初期値は Edit::ImeStatus::none。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a1c92c60ff4c1fb2eb85557e0ab35cf"></a><!-- doxytag: member="balor::gui::Edit::imeStatus" ref="a3a1c92c60ff4c1fb2eb85557e0ab35cf" args="(Edit::ImeStatus value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imeStatus</b> (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html">Edit::ImeStatus</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8a6e2ab7494418875d979887b1196df"></a><!-- doxytag: member="balor::gui::Edit::length" ref="aa8a6e2ab7494418875d979887b1196df" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa8a6e2ab7494418875d979887b1196df">length</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">編集文字列の長さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a500cc699207e164f9fadac115f2ddad4"></a><!-- doxytag: member="balor::gui::Edit::lineCount" ref="a500cc699207e164f9fadac115f2ddad4" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a500cc699207e164f9fadac115f2ddad4">lineCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">編集文字列の行数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62e9ffc0354796929d8338b5f1db45f9"></a><!-- doxytag: member="balor::gui::Edit::lowercaseOnly" ref="a62e9ffc0354796929d8338b5f1db45f9" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a62e9ffc0354796929d8338b5f1db45f9">lowercaseOnly</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">大文字を全て小文字として入力するどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b4e063d516052a13dfcfc14b6c822a8"></a><!-- doxytag: member="balor::gui::Edit::lowercaseOnly" ref="a4b4e063d516052a13dfcfc14b6c822a8" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lowercaseOnly</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bb699d06996411de49e3e695adbdafd"></a><!-- doxytag: member="balor::gui::Edit::margin" ref="a5bb699d06996411de49e3e695adbdafd" args="() const " -->
+<a class="el" href="classbalor_1_1gui_1_1_padding.html">Padding</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a5bb699d06996411de49e3e695adbdafd">margin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列とコントロールの間の余白。multiline() が false の場合は left と right しか指定できない。初期値は Padding(2, 0, 2, 0)。 複数行ではないが上下の余白が欲しい場合は <a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options()</a> に Edit::Options::mutiline | <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea1b988ab08af0f9387fc7a51c66a503c7" title="入力文字が右にはみ出る場合に右にスクロールせずに自動改行する。">Edit::Options::noVScroll</a> を設定すると良い。 複数行ではなく <a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options()</a> に <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea2528b277927dfbf146f18d1e5f9000d6" title="複数行入力できるようにする。Tab キー、Enterキー、Esc キーがダイアログキーとみなされなくなる。">Edit::Options::noHScroll</a> を設定した場合、余白の部分にはみ出た文字が表示されてしまうので上記のように複数行にすると良い。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77b5763e2d3849a193797fbfb2299b44"></a><!-- doxytag: member="balor::gui::Edit::margin" ref="a77b5763e2d3849a193797fbfb2299b44" args="(const Padding &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>margin</b> (const <a class="el" href="classbalor_1_1gui_1_1_padding.html">Padding</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3839a3e843c9b8a160901278864aac1"></a><!-- doxytag: member="balor::gui::Edit::margin" ref="ac3839a3e843c9b8a160901278864aac1" args="(int left, int top, int right, int bottom)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>margin</b> (int left, int top, int right, int bottom)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa73ebf4f7fae6d2ffe8625f9f549812e"></a><!-- doxytag: member="balor::gui::Edit::maxLength" ref="aa73ebf4f7fae6d2ffe8625f9f549812e" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa73ebf4f7fae6d2ffe8625f9f549812e">maxLength</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">入力できる最大文字数。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af554ab5e713ecc1ba415764b14464363"></a><!-- doxytag: member="balor::gui::Edit::maxLength" ref="af554ab5e713ecc1ba415764b14464363" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>maxLength</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a93d522f1e70d4f3c8d242974254a0b"></a><!-- doxytag: member="balor::gui::Edit::modified" ref="a1a93d522f1e70d4f3c8d242974254a0b" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a1a93d522f1e70d4f3c8d242974254a0b">modified</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列が編集されたかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a174c01575dade1f6a67a21a70e226644"></a><!-- doxytag: member="balor::gui::Edit::modified" ref="a174c01575dade1f6a67a21a70e226644" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>modified</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1434100bee561c6dd4c8175ab66632f"></a><!-- doxytag: member="balor::gui::Edit::multiline" ref="ac1434100bee561c6dd4c8175ab66632f" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ac1434100bee561c6dd4c8175ab66632f">multiline</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">複数行入力できるかどうか。コンストラクタで options 引数に Edit::Options::multiline を設定したかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61717c1cf3bbaea0699af7cda6087fde"></a><!-- doxytag: member="balor::gui::Edit::numberOnly" ref="a61717c1cf3bbaea0699af7cda6087fde" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a61717c1cf3bbaea0699af7cda6087fde">numberOnly</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">数字のみ許可するかどうか。ただし貼り付けした文字列はチェックされない。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a085dbbbf8af157bafe1da5b12f37b138"></a><!-- doxytag: member="balor::gui::Edit::numberOnly" ref="a085dbbbf8af157bafe1da5b12f37b138" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>numberOnly</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5b39b535c47aed837999080abe9897e"></a><!-- doxytag: member="balor::gui::Edit::onPaste" ref="aa5b39b535c47aed837999080abe9897e" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_paste.html">Edit::Paste</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa5b39b535c47aed837999080abe9897e">onPaste</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップボードの文字列を貼り付けるイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09b1e3b3e1f00427ba5ab053655c6a31"></a><!-- doxytag: member="balor::gui::Edit::onTextChange" ref="a09b1e3b3e1f00427ba5ab053655c6a31" args="()" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html">Edit::TextChange</a> &amp; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a09b1e3b3e1f00427ba5ab053655c6a31">onTextChange</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を変更して表示に反映する直前のイベント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2b4ab4395a7ea8077b607a7252a9d6f"></a><!-- doxytag: member="balor::gui::Edit::options" ref="aa2b4ab4395a7ea8077b607a7252a9d6f" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html">Edit::Options</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f">options</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コントロール作成後に変更できない設定。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa950e5ccb5d2b90165ff151948d00300"></a><!-- doxytag: member="balor::gui::Edit::passwordChar" ref="aa950e5ccb5d2b90165ff151948d00300" args="() const " -->
+wchar_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa950e5ccb5d2b90165ff151948d00300">passwordChar</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">パスワード入力でパスワードを隠す文字。0 なら隠さない。初期値は 0。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f8e50165f2da1580322cd34b0234655"></a><!-- doxytag: member="balor::gui::Edit::passwordChar" ref="a8f8e50165f2da1580322cd34b0234655" args="(wchar_t value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>passwordChar</b> (wchar_t value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cd79c7a7758a062a7fcd8cd6406ac1b"></a><!-- doxytag: member="balor::gui::Edit::paste" ref="a8cd79c7a7758a062a7fcd8cd6406ac1b" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a8cd79c7a7758a062a7fcd8cd6406ac1b">paste</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップボードの文字列を貼り付ける。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1df232cf370f687511a950be3759f7a"></a><!-- doxytag: member="balor::gui::Edit::preferredCharCount" ref="ab1df232cf370f687511a950be3759f7a" args="() const " -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ab1df232cf370f687511a950be3759f7a">preferredCharCount</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">この <a class="el" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> で想定される一行の文字数と行数。width は一行の文字数、height は行数を表す。getPreferredSize 関数に 0 を指定した時、この数値から大きさを求める。初期値は Size(10, 1)。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8d6fc4011db4c2d6b3b280428694557"></a><!-- doxytag: member="balor::gui::Edit::preferredCharCount" ref="ad8d6fc4011db4c2d6b3b280428694557" args="(const Size &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>preferredCharCount</b> (const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54d5304d894c779ab68064ddd8f240c4"></a><!-- doxytag: member="balor::gui::Edit::preferredCharCount" ref="a54d5304d894c779ab68064ddd8f240c4" args="(int lineLength, int lineCount)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>preferredCharCount</b> (int lineLength, int lineCount)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c393afc233f83522c798817c8fd0f3d"></a><!-- doxytag: member="balor::gui::Edit::readOnly" ref="a5c393afc233f83522c798817c8fd0f3d" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a5c393afc233f83522c798817c8fd0f3d">readOnly</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">読み取り専用かどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8136e399f9f51783251c6879409b38d8"></a><!-- doxytag: member="balor::gui::Edit::readOnly" ref="a8136e399f9f51783251c6879409b38d8" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>readOnly</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaf7ca27b190c37b0bcf8539ef4fc4d8"></a><!-- doxytag: member="balor::gui::Edit::scale" ref="afaf7ca27b190c37b0bcf8539ef4fc4d8" args="(const Scaler &amp;scaler)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#afaf7ca27b190c37b0bcf8539ef4fc4d8">scale</a> (const <a class="el" href="classbalor_1_1gui_1_1_scaler.html">Scaler</a> &amp;scaler)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1gui_1_1_scaler.html" title="数値のスケーリングを行う。">Scaler</a> を使ってコントロールをスケーリングする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57905726e15404a219c345d8e0eabc0f"></a><!-- doxytag: member="balor::gui::Edit::scroll" ref="a57905726e15404a219c345d8e0eabc0f" args="(int x, int y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a57905726e15404a219c345d8e0eabc0f">scroll</a> (int x, int y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">水平方向に x 文字数分、垂直方向に y 行分スクロールする。x は実際の文字数ではなく半角文字の平均文字幅のスクロール量。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff712ab355512f05c8181c07d0372b41"></a><!-- doxytag: member="balor::gui::Edit::scrollInto" ref="aff712ab355512f05c8181c07d0372b41" args="(int x, int y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aff712ab355512f05c8181c07d0372b41">scrollInto</a> (int x, int y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">y行の x 文字目にスクロールする。x は実際の文字数ではなく半角文字の平均文字幅のスクロール量。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a347fb5404201a04389270594c3a88c82"></a><!-- doxytag: member="balor::gui::Edit::scrollLineDown" ref="a347fb5404201a04389270594c3a88c82" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a347fb5404201a04389270594c3a88c82">scrollLineDown</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">一行下にスクロールする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73c3ee0979c9c04dbe81d30b64c082e3"></a><!-- doxytag: member="balor::gui::Edit::scrollLineUp" ref="a73c3ee0979c9c04dbe81d30b64c082e3" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a73c3ee0979c9c04dbe81d30b64c082e3">scrollLineUp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">一行上にスクロールする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa095a78e1a037dacc840e9e957316a9c"></a><!-- doxytag: member="balor::gui::Edit::scrollPageDown" ref="aa095a78e1a037dacc840e9e957316a9c" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa095a78e1a037dacc840e9e957316a9c">scrollPageDown</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">１ページ下にスクロールする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa194663e7c26ee2fa50211991b23f4fa"></a><!-- doxytag: member="balor::gui::Edit::scrollPageUp" ref="aa194663e7c26ee2fa50211991b23f4fa" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa194663e7c26ee2fa50211991b23f4fa">scrollPageUp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">１ページ上にスクロールする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ac7df23a392431348145417d79096da"></a><!-- doxytag: member="balor::gui::Edit::scrollToCaret" ref="a9ac7df23a392431348145417d79096da" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9ac7df23a392431348145417d79096da">scrollToCaret</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットが見える位置にスクロールする。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9824839f50423518a1f74ba0db0731ca"></a><!-- doxytag: member="balor::gui::Edit::selectedText" ref="a9824839f50423518a1f74ba0db0731ca" args="() const " -->
+<a class="el" href="classbalor_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9824839f50423518a1f74ba0db0731ca">selectedText</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">選択されている文字列。無い場合は空文字列を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf8075656bd293aa9fb8c8d76c360376"></a><!-- doxytag: member="balor::gui::Edit::selectedText" ref="adf8075656bd293aa9fb8c8d76c360376" args="(StringRange value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selectedText</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad14aae27312d0c5c37139c9ae2498075"></a><!-- doxytag: member="balor::gui::Edit::selection" ref="ad14aae27312d0c5c37139c9ae2498075" args="() const " -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_selection.html">Edit::Selection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ad14aae27312d0c5c37139c9ae2498075">selection</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の選択状態。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeef9d7523bd879f8878030824208dd36"></a><!-- doxytag: member="balor::gui::Edit::selection" ref="aeef9d7523bd879f8878030824208dd36" args="(const Edit::Selection &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selection</b> (const <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_selection.html">Edit::Selection</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1766c4bf620fd9fbedeb450a27090883"></a><!-- doxytag: member="balor::gui::Edit::selection" ref="a1766c4bf620fd9fbedeb450a27090883" args="(int index, int length)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>selection</b> (int index, int length)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e83cf18c1cde0c07d2845bb3e379931"></a><!-- doxytag: member="balor::gui::Edit::sizeFromClientSize" ref="a6e83cf18c1cde0c07d2845bb3e379931" args="(const Size &amp;clientSize) const " -->
+virtual <a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a6e83cf18c1cde0c07d2845bb3e379931">sizeFromClientSize</a> (const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;clientSize) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クライアント領域の大きさからコントロールの大きさを求める。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94cd8a47cc66be6c556e9d6d06465967"></a><!-- doxytag: member="balor::gui::Edit::tabWidth" ref="a94cd8a47cc66be6c556e9d6d06465967" args="(int value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a94cd8a47cc66be6c556e9d6d06465967">tabWidth</a> (int value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">tab 幅。初期値は取得できないがおそらく 8。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91715dad684bdda72a61cde82f2ddf99"></a><!-- doxytag: member="balor::gui::Edit::text" ref="a91715dad684bdda72a61cde82f2ddf99" args="(StringRange value)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>text</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc87324c6becf1231c7045b041a74492"></a><!-- doxytag: member="balor::gui::Edit::textColor" ref="adc87324c6becf1231c7045b041a74492" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#adc87324c6becf1231c7045b041a74492">textColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66df5bcbcd640064f1e3377b6fa701fe"></a><!-- doxytag: member="balor::gui::Edit::textColor" ref="a66df5bcbcd640064f1e3377b6fa701fe" args="(const Color &amp;value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c96c4858e57c1455644637067472894"></a><!-- doxytag: member="balor::gui::Edit::undo" ref="a9c96c4858e57c1455644637067472894" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9c96c4858e57c1455644637067472894">undo</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">直前の編集をやり直す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae34b159b779ac9316112a43ff896e959"></a><!-- doxytag: member="balor::gui::Edit::uppercaseOnly" ref="ae34b159b779ac9316112a43ff896e959" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#ae34b159b779ac9316112a43ff896e959">uppercaseOnly</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">小文字を全て大文字として入力するかどうか。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66cdca397c906d9dbd687bc24b7d086e"></a><!-- doxytag: member="balor::gui::Edit::uppercaseOnly" ref="a66cdca397c906d9dbd687bc24b7d086e" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>uppercaseOnly</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a3cc25a3d238cc0d90186c96f2a9cbb"></a><!-- doxytag: member="balor::gui::Edit::vScrollBar" ref="a2a3cc25a3d238cc0d90186c96f2a9cbb" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a2a3cc25a3d238cc0d90186c96f2a9cbb">vScrollBar</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">垂直スクロールバーを表示するかどうか。multiline() が true の場合のみ有効。初期値は false。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36ab1da372fdb97f2f2f56ec1bb56472"></a><!-- doxytag: member="balor::gui::Edit::vScrollBar" ref="a36ab1da372fdb97f2f2f56ec1bb56472" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>vScrollBar</b> (bool value)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfd612e34b3f9b0f907e0c20a832160d"></a><!-- doxytag: member="balor::gui::Edit::caretBlinkTime" ref="adfd612e34b3f9b0f907e0c20a832160d" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#adfd612e34b3f9b0f907e0c20a832160d">caretBlinkTime</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">キャレットの点滅時間（ミリ秒）。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9aeed8b4fb7488b3b4ce9cc4ca63a7dd"></a><!-- doxytag: member="balor::gui::Edit::defaultCaretWidth" ref="a9aeed8b4fb7488b3b4ce9cc4ca63a7dd" args="()" -->
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a9aeed8b4fb7488b3b4ce9cc4ca63a7dd">defaultCaretWidth</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">システムデフォルトのキャレットの幅。 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a946d461e26d4facec6a59fa95ff9e6a1"></a><!-- doxytag: member="balor::gui::Edit::processMessage" ref="a946d461e26d4facec6a59fa95ff9e6a1" args="(Message &amp;msg)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1gui_1_1_edit.html#a946d461e26d4facec6a59fa95ff9e6a1">processMessage</a> (<a class="el" href="classbalor_1_1gui_1_1_message.html">Message</a> &amp;msg)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">メッセージを処理する。いわゆるウインドウプロシージャ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4487a2f4246aaf38fe5ee00d2cdea5a7"></a><!-- doxytag: member="balor::gui::Edit::_initialize" ref="a4487a2f4246aaf38fe5ee00d2cdea5a7" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_initialize</b> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected 変数</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a5a3c66ff61aeb6e5e242a7d0ef87a1"></a><!-- doxytag: member="balor::gui::Edit::_owned" ref="a0a5a3c66ff61aeb6e5e242a7d0ef87a1" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_owned</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89659fa66676610e0c1f67fdad97cc19"></a><!-- doxytag: member="balor::gui::Edit::_caret" ref="a89659fa66676610e0c1f67fdad97cc19" args="" -->
+HBITMAP&#160;</td><td class="memItemRight" valign="bottom"><b>_caret</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ef8e62204aca18e0487a6f3ccd9c0d4"></a><!-- doxytag: member="balor::gui::Edit::_caretSize" ref="a9ef8e62204aca18e0487a6f3ccd9c0d4" args="" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_caretSize</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdd0bedc8bdf2e968caa3c3bca68cbce"></a><!-- doxytag: member="balor::gui::Edit::_caretIndex" ref="afdd0bedc8bdf2e968caa3c3bca68cbce" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_caretIndex</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5394e5420ca678fddea0c5fb77705abf"></a><!-- doxytag: member="balor::gui::Edit::_caretVisible" ref="a5394e5420ca678fddea0c5fb77705abf" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_caretVisible</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92a7440b33e8e117449adc245cb0ed94"></a><!-- doxytag: member="balor::gui::Edit::_imeMode" ref="a92a7440b33e8e117449adc245cb0ed94" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">ImeMode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_imeMode</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4401363d2762665412a8cff7d6d42122"></a><!-- doxytag: member="balor::gui::Edit::_imeModeBackup" ref="a4401363d2762665412a8cff7d6d42122" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">ImeMode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_imeModeBackup</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3edda1359298f4dcf1fe6a5d4aa49871"></a><!-- doxytag: member="balor::gui::Edit::_imeModeChanging" ref="a3edda1359298f4dcf1fe6a5d4aa49871" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_imeModeChanging</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14fa1157d5a9f7aa1081e09b1fe7938e"></a><!-- doxytag: member="balor::gui::Edit::_imeConvert" ref="a14fa1157d5a9f7aa1081e09b1fe7938e" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">ImeConvert</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_imeConvert</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35733d78a6532d8160732b1aed9eb403"></a><!-- doxytag: member="balor::gui::Edit::_imeConvertBackup" ref="a35733d78a6532d8160732b1aed9eb403" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">ImeConvert</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_imeConvertBackup</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a365608e2e2e3c8967816be3800abced8"></a><!-- doxytag: member="balor::gui::Edit::_imeFixed" ref="a365608e2e2e3c8967816be3800abced8" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_imeFixed</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2be3a4885fae200be835658b36f208b9"></a><!-- doxytag: member="balor::gui::Edit::_margin" ref="a2be3a4885fae200be835658b36f208b9" args="" -->
+<a class="el" href="classbalor_1_1gui_1_1_padding.html">Padding</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_margin</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa3ab02b2497bc954c490cc66e246076"></a><!-- doxytag: member="balor::gui::Edit::_preferredCharCount" ref="aaa3ab02b2497bc954c490cc66e246076" args="" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_preferredCharCount</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf41dba6f15ce9e581c8b02aaed5916d"></a><!-- doxytag: member="balor::gui::Edit::_textChanging" ref="aaf41dba6f15ce9e581c8b02aaed5916d" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_textChanging</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe2303b0eb0d80983df9d7b180e943bc"></a><!-- doxytag: member="balor::gui::Edit::_textColor" ref="abe2303b0eb0d80983df9d7b180e943bc" args="" -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_textColor</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad040aa3a5e7ba408794cba0ff06d57db"></a><!-- doxytag: member="balor::gui::Edit::_oldText" ref="ad040aa3a5e7ba408794cba0ff06d57db" args="" -->
+<a class="el" href="classbalor_1_1_string_buffer.html">StringBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_oldText</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60d3ac8753db0e8e77108bfa6ae90155"></a><!-- doxytag: member="balor::gui::Edit::_oldSelection" ref="a60d3ac8753db0e8e77108bfa6ae90155" args="" -->
+<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_selection.html">Selection</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_oldSelection</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8af1d9cd6094eb108a3e46e0e28e2285"></a><!-- doxytag: member="balor::gui::Edit::_onPaste" ref="a8af1d9cd6094eb108a3e46e0e28e2285" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_paste.html">Edit::Paste</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onPaste</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61111d21e94b324cba352c387fcfa3b9"></a><!-- doxytag: member="balor::gui::Edit::_onTextChange" ref="a61111d21e94b324cba352c387fcfa3b9" args="" -->
+<a class="el" href="classbalor_1_1_listener.html">Listener</a>&lt; <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html">Edit::TextChange</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_onTextChange</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>エディットコントロール。 </p>
+<p><a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options()</a> に Edit::Options::multiline を設定した場合のみ有効な機能があるが、 <a class="el" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options()</a> に Edit::Options::multiline | <a class="el" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea1b988ab08af0f9387fc7a51c66a503c7" title="入力文字が右にはみ出る場合に右にスクロールせずに自動改行する。">Edit::Options::noVScroll</a> を設定すれば一行エディットでありながら複数行の場合の機能を使える。 オートコンプリート機能を使いたい場合は <a class="el" href="classbalor_1_1gui_1_1_auto_complete.html" title="エディットコントロールに特定の文字を入力すると文字列の続きの候補を列挙したり補間できるようにする。">AutoComplete</a> クラスを使用する。 <a class="el" href="classbalor_1_1gui_1_1_tab.html" title="タブコントロール。">Tab</a> キーや Enter キーについては onShortcutKey イベントで挙動を変更できる。Control::ShortcutKey クラスのドキュメントを参照。 onTextChange イベントを処理することで入力制限や置換に対応できる。（onKeyPress イベントでは貼り付けや切り取りに対応できない） 以下はひらがなをカタカナに強制変換する例。 </p>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> edit(frame, 10, 10, 100, 20);
+	edit.onTextChange() = [&amp;] (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html" title="文字列を変更して表示に反映する直前のイベント。">Edit::TextChange</a>&amp; e) {
+		<a class="el" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> buffer(e.newText());
+		for (auto i = buffer.begin(), end = buffer.end(); i != end; ++i) {
+			if (L'ぁ' &lt;= *i &amp;&amp; *i &lt;= L'ん') {
+				*i += L'ァ' - L'ぁ';
+			}
+		}
+		e.newText(buffer);
+	};
+</code></pre><p> 上記の例のように常に文字列を設定し直すとオートコンプリート機能を使う場合に不具合が出るので 問題であれば onKeyPress イベントと onPaste イベントを併用するのが良い。</p>
+<p>IME 関連は日本語環境の場合のみ動作する。それ以外では何を設定しても無視する。 現状の実装では <a class="el" href="classbalor_1_1gui_1_1_edit.html#aabd618f6eed8d6711e539acf2e094abd" title="imeMode() と imeConvert() を現在の状態からユーザが変更できなくするかどうか。初期値は false。">imeFixed()</a> が true の場合でも、マウスで IME 言語バーを操作すると次の１文字の入力は固定された設定に戻る前の入力になる。 機会を見て修正したいがどの道ペースト等に対応する為に別の入力制限は必須。</p>
+<h3>・サンプルコード</h3>
+<pre><code>
+	<a class="el" href="classbalor_1_1gui_1_1_frame.html" title="トップレベルで他のコントロールのフレームとなるウインドウ。">Frame</a> frame(L"Edit Sample");</code></pre><pre><code>	<a class="el" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> edit(frame, 20, 10, 0, 0, 10);
+	<a class="el" href="classbalor_1_1gui_1_1_button.html" title="ボタンコントロール。">Button</a> button(frame, 20, 50, 0, 0, L"数値決定", [&amp;] (Button::Click&amp; ) {
+		<a class="el" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">MsgBox::show</a>(L"入力した数値は\n\n" + edit.text());
+	});
+	frame.acceptButton(&amp;button); // エディットコントロール上で Enter キーを押すと反応するようにする。</code></pre><pre><code>小数点を含む数値のみ入力できるようにする。C++ 標準正規表現ライブラリは #include &lt;regex&gt;
+	std::wregex editRegex(L"-?[0-9]*\\.?[0-9]*");
+	edit.onTextChange() = [&amp;] (<a class="el" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html" title="文字列を変更して表示に反映する直前のイベント。">Edit::TextChange</a>&amp; e) {
+		auto text = e.newText();
+		if (!std::regex_match(text.begin(), text.end(), editRegex)) {
+			e.cancel(true);
+		}
+	};
+	edit.imeMode(Edit::ImeMode::alphaHalf);</code></pre><pre><code>	frame.runMessageLoop();
+ </code></pre> </div><hr/><h2>関数</h2>
+<a class="anchor" id="ad3e585e7d8ea7af5101972e969a5ccd4"></a><!-- doxytag: member="balor::gui::Edit::changeCaret" ref="ad3e585e7d8ea7af5101972e969a5ccd4" args="(const Size &amp;size, bool grayed=false)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void balor::gui::Edit::changeCaret </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>grayed</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>キャレットの大きさや、灰色にするかどうかを設定する。例えば半角数字だけを入力する場合に四角いキャレットにするには下記のようなコードを書く。 </p>
+<pre><code>
+	    Graphics graphics(edit);
+	    graphics.font(edit.font());
+	    edit.changeCaret(graphics.measureText(L"0"));
+	    </code></pre> 
+</div>
+</div>
+<hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/<a class="el" href="_edit_8hpp_source.html">Edit.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Edit.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:31に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

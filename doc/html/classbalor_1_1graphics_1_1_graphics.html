@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: クラス balor::graphics::Graphics</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1graphics.html">graphics</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">構成</a> &#124;
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a> &#124;
+<a href="#pub-static-methods">Static Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">クラス balor::graphics::Graphics</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::graphics::Graphics" --><!-- doxytag: inherits="balor::NonCopyable" -->
+<p>GDI による描画処理を扱う。  
+ <a href="classbalor_1_1graphics_1_1_graphics.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a>&gt;</code></p>
+<div class="dynheader">
+balor::graphics::Graphicsに対する継承グラフ</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classbalor_1_1graphics_1_1_graphics.png" usemap="#balor::graphics::Graphics_map" alt=""/>
+  <map id="balor::graphics::Graphics_map" name="balor::graphics::Graphics_map">
+<area href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。" alt="balor::NonCopyable" shape="rect" coords="0,0,153,24"/>
+</map>
+ </div></div>
+
+<p><a href="classbalor_1_1graphics_1_1_graphics-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+構成</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html">CopyMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コピー処理モード。  <a href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">CopyOperation</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーの演算方法。組み合わせで指定する。  <a href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics_1_1_state.html">State</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ペンやブラシ等の設定を保存したオブジェクト。  <a href="classbalor_1_1graphics_1_1_graphics_1_1_state.html#details">[詳細]</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">TextFormat</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列描画のフラグ。組み合わせで指定する。  <a href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#details">[詳細]</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2d81b6e78cfe4c1ebfd893308960d42"></a><!-- doxytag: member="balor::graphics::Graphics::HIMAGELIST" ref="ae2d81b6e78cfe4c1ebfd893308960d42" args="" -->
+typedef ::_IMAGELIST *&#160;</td><td class="memItemRight" valign="bottom"><b>HIMAGELIST</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5c28bebb32c5baf8223b88b959d868d"></a><!-- doxytag: member="balor::graphics::Graphics::HBITMAP" ref="ab5c28bebb32c5baf8223b88b959d868d" args="" -->
+typedef ::HBITMAP__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HBITMAP</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a9e49d63084ab581a25da94ac4fe3c5"></a><!-- doxytag: member="balor::graphics::Graphics::HBRUSH" ref="a1a9e49d63084ab581a25da94ac4fe3c5" args="" -->
+typedef ::HBRUSH__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HBRUSH</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2512720a68f01a54a5f101bb740a3cc5"></a><!-- doxytag: member="balor::graphics::Graphics::HDC" ref="a2512720a68f01a54a5f101bb740a3cc5" args="" -->
+typedef ::HDC__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HDC</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0f75ad5051536c2624970e896b5c67c"></a><!-- doxytag: member="balor::graphics::Graphics::HFONT" ref="ad0f75ad5051536c2624970e896b5c67c" args="" -->
+typedef ::HFONT__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HFONT</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe8bf73136547242c1b2bc85f8011bdf"></a><!-- doxytag: member="balor::graphics::Graphics::HICON" ref="abe8bf73136547242c1b2bc85f8011bdf" args="" -->
+typedef ::HICON__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HICON</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dc09eecf3ba0a0e6a5537bccd356853"></a><!-- doxytag: member="balor::graphics::Graphics::HPEN" ref="a0dc09eecf3ba0a0e6a5537bccd356853" args="" -->
+typedef ::HPEN__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HPEN</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6a0d57080cb19963c2087cca3154265"></a><!-- doxytag: member="balor::graphics::Graphics::HRGN" ref="aa6a0d57080cb19963c2087cca3154265" args="" -->
+typedef ::HRGN__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HRGN</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0f89fef4e2821ac12690c56ac4ba0f9"></a><!-- doxytag: member="balor::graphics::Graphics::HWND" ref="ab0f89fef4e2821ac12690c56ac4ba0f9" args="" -->
+typedef ::HWND__ *&#160;</td><td class="memItemRight" valign="bottom"><b>HWND</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35ce75f130100b1872991e60b1dac2dc"></a><!-- doxytag: member="balor::graphics::Graphics::Graphics" ref="a35ce75f130100b1872991e60b1dac2dc" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a35ce75f130100b1872991e60b1dac2dc">Graphics</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ヌルハンドルで作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4704d2b04377a996e0b72e907b09f2c6"></a><!-- doxytag: member="balor::graphics::Graphics::Graphics" ref="a4704d2b04377a996e0b72e907b09f2c6" args="(Graphics &amp;&amp;value)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Graphics</b> (<a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c2edac5e53f66d5918752a0356886c3"></a><!-- doxytag: member="balor::graphics::Graphics::Graphics" ref="a8c2edac5e53f66d5918752a0356886c3" args="(HDC handle, bool owned=false)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a8c2edac5e53f66d5918752a0356886c3">Graphics</a> (HDC handle, bool owned=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0839f3649bff71b9e667bd3095e96d68"></a><!-- doxytag: member="balor::graphics::Graphics::Graphics" ref="a0839f3649bff71b9e667bd3095e96d68" args="(HBITMAP bitmap)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a0839f3649bff71b9e667bd3095e96d68">Graphics</a> (HBITMAP bitmap)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ビットマップのデバイスを作成。ビットマップを先に破棄しようとすると失敗するので、必ず <a class="el" href="classbalor_1_1graphics_1_1_graphics.html" title="GDI による描画処理を扱う。">Graphics</a> のほうを先に破棄すること。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f87b125d04794b0c4ae9ed5f6eae491"></a><!-- doxytag: member="balor::graphics::Graphics::Graphics" ref="a2f87b125d04794b0c4ae9ed5f6eae491" args="(HWND control)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a2f87b125d04794b0c4ae9ed5f6eae491">Graphics</a> (HWND control)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウハンドルから作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e2e2f9039ac2bccd1f64002e3d8d619"></a><!-- doxytag: member="balor::graphics::Graphics::operator=" ref="a6e2e2f9039ac2bccd1f64002e3d8d619" args="(Graphics &amp;&amp;value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a> &amp;&amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa49d11bfd89574231d64c8eb58703cb2"></a><!-- doxytag: member="balor::graphics::Graphics::backColor" ref="aa49d11bfd89574231d64c8eb58703cb2" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aa49d11bfd89574231d64c8eb58703cb2">backColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">背景色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b3c0035f7283529cb1bd1ae70d034b2"></a><!-- doxytag: member="balor::graphics::Graphics::backColor" ref="a0b3c0035f7283529cb1bd1ae70d034b2" args="(Color value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>backColor</b> (<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af655c5e4340863207af15ded732e9259"></a><!-- doxytag: member="balor::graphics::Graphics::backTransparent" ref="af655c5e4340863207af15ded732e9259" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#af655c5e4340863207af15ded732e9259">backTransparent</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">テキスト、ハッチブラシ、ペンで描画する時に背景をブラシで塗らないかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af596c227285eb94f939ce66f73027cb2"></a><!-- doxytag: member="balor::graphics::Graphics::backTransparent" ref="af596c227285eb94f939ce66f73027cb2" args="(bool value) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>backTransparent</b> (bool value) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a783e74fcaa9c35f48bbc223a8d4f037a"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a783e74fcaa9c35f48bbc223a8d4f037a" args="(const Point &amp;dstPos, HDC src, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a783e74fcaa9c35f48bbc223a8d4f037a">blend</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;dstPos, HDC src, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">半透明合成を行う。alpha に不透明度０〜１を指定する。copyMode() の影響は受けず、常に <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#a1a2014f11f877ad20ec58ff56f8ae4a5abd9cfe4de82589ab49e302c8f0e96ddb" title="縮小で消えるピクセルを残されるピクセルに OR 演算する。">Graphics::CopyMode::deleteScans</a> と同じ挙動になる。 src がアルファチャンネルを持った 32ビットのビットマップ（DDB でも良い）である場合に限り、srcAlphaChannel 引数を true にするとアルファチャンネルによる半透明合成を行う。 この場合 src の画像は <a class="el" href="classbalor_1_1graphics_1_1_bitmap.html#afc45e50c02fff387f31075bee1c9ce70" title="アルファチャンネルを全てのピクセルに乗算する。DIB の 32ビット画像の場合のみ有効。 Graphics::blend 関数でアルファチャンネルを使う場合はあらかじめこの関数を呼んでおく必要がある。">Bitmap::premultiplyAlpha</a> 関数であらかじめアルファを乗算しておく必要がある。また alpha 引数も同時に指定できる。 copy 関数のような反転コピーはサポートされず、ソースの範囲外をコピーしようとするとエラーになる。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29b0802273bc8c04ab5f89a3d8ed0ecc"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a29b0802273bc8c04ab5f89a3d8ed0ecc" args="(int dstX, int dstY, HDC src, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (int dstX, int dstY, HDC src, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a24eb56b87f145e1d224f61ec34eeaf"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a8a24eb56b87f145e1d224f61ec34eeaf" args="(const Point &amp;dstPos, HDC src, const Point &amp;srcPos, const Size &amp;size, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;dstPos, HDC src, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;srcPos, const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;size, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d801bb74a0130e45747e0a4e0bdc440"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a6d801bb74a0130e45747e0a4e0bdc440" args="(int dstX, int dstY, HDC src, int srcX, int srcY, int width, int height, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (int dstX, int dstY, HDC src, int srcX, int srcY, int width, int height, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a514ac1e60bbcb4c50d61ccc17dc278"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a3a514ac1e60bbcb4c50d61ccc17dc278" args="(const Rectangle &amp;dstRect, HDC src, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;dstRect, HDC src, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7c2732ef9c888c26064cd0347fea548"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="af7c2732ef9c888c26064cd0347fea548" args="(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (int dstX, int dstY, int dstWidth, int dstHeight, HDC src, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc66bace8a85bb747292740a02477f63"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="abc66bace8a85bb747292740a02477f63" args="(const Rectangle &amp;dstRect, HDC src, const Rectangle &amp;srcRect, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;dstRect, HDC src, const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;srcRect, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a14ece797a4e2e77ce5cda01637ffc"></a><!-- doxytag: member="balor::graphics::Graphics::blend" ref="a08a14ece797a4e2e77ce5cda01637ffc" args="(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, float alpha, bool srcAlphaChannel=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>blend</b> (int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, float alpha, bool srcAlphaChannel=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4799eca37589843d4a397936b27d08a7"></a><!-- doxytag: member="balor::graphics::Graphics::brush" ref="a4799eca37589843d4a397936b27d08a7" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_brush.html">Brush</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a4799eca37589843d4a397936b27d08a7">brush</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">図形を塗りつぶすブラシ。色を直接設定できる。塗らない場合は <a class="el" href="classbalor_1_1graphics_1_1_brush.html#a8278742fbb73aa701322f3fb5a54da03" title="描画しないブラシ。">Brush::hollow()</a> を設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a798faa0d6d2f95a665d6b8c96f7048a2"></a><!-- doxytag: member="balor::graphics::Graphics::brush" ref="a798faa0d6d2f95a665d6b8c96f7048a2" args="(HBRUSH value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_brush.html">Brush</a>&#160;</td><td class="memItemRight" valign="bottom"><b>brush</b> (HBRUSH value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77e4d8e54b8d5a18903e9cae42da3175"></a><!-- doxytag: member="balor::graphics::Graphics::brush" ref="a77e4d8e54b8d5a18903e9cae42da3175" args="(Color value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_brush.html">Brush</a>&#160;</td><td class="memItemRight" valign="bottom"><b>brush</b> (<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97200c092bc39276b8f5ddda0bb99894"></a><!-- doxytag: member="balor::graphics::Graphics::brushOrigin" ref="a97200c092bc39276b8f5ddda0bb99894" args="() const " -->
+<a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a97200c092bc39276b8f5ddda0bb99894">brushOrigin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ブラシの原点。copyMode を <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#a1a2014f11f877ad20ec58ff56f8ae4a5ac11c23e22ee0475270ac4b8b40fc007c" title="縮小で消えるピクセルをそのまま消す。">Graphics::CopyMode::halftone</a> に設定した場合は再設定する必要がある。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4610724cd04bcbfbd5bacb5437706564"></a><!-- doxytag: member="balor::graphics::Graphics::brushOrigin" ref="a4610724cd04bcbfbd5bacb5437706564" args="(const Point &amp;value)" -->
+<a class="el" href="classbalor_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>brushOrigin</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09e728fccf36bae57dc6e75e46558335"></a><!-- doxytag: member="balor::graphics::Graphics::clear" ref="a09e728fccf36bae57dc6e75e46558335" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a09e728fccf36bae57dc6e75e46558335">clear</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在のブラシで全体を塗りつぶす。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a823543620e36da77fdeccdaa48805bf0"></a><!-- doxytag: member="balor::graphics::Graphics::clip" ref="a823543620e36da77fdeccdaa48805bf0" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_region.html">Region</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a823543620e36da77fdeccdaa48805bf0">clip</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップ領域。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a270c55b1b110572072dc8e0a13767a84"></a><!-- doxytag: member="balor::graphics::Graphics::clip" ref="a270c55b1b110572072dc8e0a13767a84" args="(HRGN region)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clip</b> (HRGN region)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3e2bbe635bcbc46d766118bd938f241"></a><!-- doxytag: member="balor::graphics::Graphics::combineClip" ref="ae3e2bbe635bcbc46d766118bd938f241" args="(HRGN region, Region::Operation operation)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ae3e2bbe635bcbc46d766118bd938f241">combineClip</a> (HRGN region, <a class="el" href="structbalor_1_1graphics_1_1_region_1_1_operation.html">Region::Operation</a> operation)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップ領域を合成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a483ec2e216970611253eaf368d092ac3"></a><!-- doxytag: member="balor::graphics::Graphics::combineClip" ref="a483ec2e216970611253eaf368d092ac3" args="(const Rectangle rect, Region::Operation operation)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>combineClip</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> rect, <a class="el" href="structbalor_1_1graphics_1_1_region_1_1_operation.html">Region::Operation</a> operation)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae559760cca886b3f130a0623a149e37c"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="ae559760cca886b3f130a0623a149e37c" args="(const Point &amp;dstPos, HDC src, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ae559760cca886b3f130a0623a149e37c">copy</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;dstPos, HDC src, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ピクセルのコピーを行う。大きさに負数を指定すると反転コピーになる。 縮小や拡大コピーする場合、copyMode を <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#a1a2014f11f877ad20ec58ff56f8ae4a5ac11c23e22ee0475270ac4b8b40fc007c" title="縮小で消えるピクセルをそのまま消す。">Graphics::CopyMode::halftone</a> にしておかないととても汚くなる。ただし <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#a1a2014f11f877ad20ec58ff56f8ae4a5ac11c23e22ee0475270ac4b8b40fc007c" title="縮小で消えるピクセルをそのまま消す。">Graphics::CopyMode::halftone</a> だとアルファチャンネル情報がおかしくなる。 綺麗にする必要が無くても少なくとも <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html#a1a2014f11f877ad20ec58ff56f8ae4a5abd9cfe4de82589ab49e302c8f0e96ddb" title="縮小で消えるピクセルを残されるピクセルに OR 演算する。">Graphics::CopyMode::deleteScans</a> にしておかないと思ったような結果にはならない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7295e9f9a77f08a51757cfee6b31259e"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a7295e9f9a77f08a51757cfee6b31259e" args="(int dstX, int dstY, HDC src, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (int dstX, int dstY, HDC src, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27de4cda6be0b68a867d44eaab30300b"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a27de4cda6be0b68a867d44eaab30300b" args="(const Point &amp;dstPos, HDC src, const Point &amp;srcPos, const Size &amp;size, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;dstPos, HDC src, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;srcPos, const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;size, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c7a8bbdcb7c6372d8f40168a9379003"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a3c7a8bbdcb7c6372d8f40168a9379003" args="(int dstX, int dstY, HDC src, int srcX, int srcY, int width, int height, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (int dstX, int dstY, HDC src, int srcX, int srcY, int width, int height, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af65d64fdb1e74c60349483e1c1184d2e"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="af65d64fdb1e74c60349483e1c1184d2e" args="(const Rectangle &amp;dstRect, HDC src, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;dstRect, HDC src, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a204579a96109a6702475ad3d14810197"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a204579a96109a6702475ad3d14810197" args="(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (int dstX, int dstY, int dstWidth, int dstHeight, HDC src, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a66a7556423d411af44012a6c68c56f"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a9a66a7556423d411af44012a6c68c56f" args="(const Rectangle &amp;dstRect, HDC src, const Rectangle &amp;srcRect, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;dstRect, HDC src, const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;srcRect, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40a146a06d602c5611266c8c302fa7cb"></a><!-- doxytag: member="balor::graphics::Graphics::copy" ref="a40a146a06d602c5611266c8c302fa7cb" args="(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, Graphics::CopyOperation operation=CopyOperation::sourceCopy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">Graphics::CopyOperation</a> operation=CopyOperation::sourceCopy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c6538cbcb9aa7b1b20500f9b4aa1468"></a><!-- doxytag: member="balor::graphics::Graphics::copyMode" ref="a3c6538cbcb9aa7b1b20500f9b4aa1468" args="() const " -->
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html">Graphics::CopyMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a3c6538cbcb9aa7b1b20500f9b4aa1468">copyMode</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">コピー処理のモード。Graphics::CopyMode::halftone に設定した場合は brushOrigin を再設定する必要がある。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49ad92b7cf89ddc0931e32e3bedbf591"></a><!-- doxytag: member="balor::graphics::Graphics::copyMode" ref="a49ad92b7cf89ddc0931e32e3bedbf591" args="(Graphics::CopyMode value)" -->
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html">Graphics::CopyMode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>copyMode</b> (<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_mode.html">Graphics::CopyMode</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae15d5b4216416a2cbbbea8a7029e0c8f"></a><!-- doxytag: member="balor::graphics::Graphics::dpiX" ref="ae15d5b4216416a2cbbbea8a7029e0c8f" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ae15d5b4216416a2cbbbea8a7029e0c8f">dpiX</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ｘ軸のドット密度。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87f260112ee18fc524bff41f3c3eff71"></a><!-- doxytag: member="balor::graphics::Graphics::dpiY" ref="a87f260112ee18fc524bff41f3c3eff71" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a87f260112ee18fc524bff41f3c3eff71">dpiY</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ｙ軸のドット密度。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50f974db8fc75fbba2d5eb5cd9a0cb55"></a><!-- doxytag: member="balor::graphics::Graphics::drawArc" ref="a50f974db8fc75fbba2d5eb5cd9a0cb55" args="(const Rectangle &amp;rect, float startAngle, float sweepAngle)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a50f974db8fc75fbba2d5eb5cd9a0cb55">drawArc</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, float startAngle, float sweepAngle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">円弧を描く。角度は 0 〜 360 で反時計周り。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22c753d30eb4cfa0db66680a102e0b70"></a><!-- doxytag: member="balor::graphics::Graphics::drawArc" ref="a22c753d30eb4cfa0db66680a102e0b70" args="(int x, int y, int width, int height, float startAngle, float sweepAngle)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawArc</b> (int x, int y, int width, int height, float startAngle, float sweepAngle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a09c0ef31414245051ef030edb19564"></a><!-- doxytag: member="balor::graphics::Graphics::drawBezier" ref="a4a09c0ef31414245051ef030edb19564" args="(const Point &amp;p0, const Point &amp;p1, const Point &amp;p2, const Point &amp;p3)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a4a09c0ef31414245051ef030edb19564">drawBezier</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p0, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p1, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p2, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p3)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">点 p0 から 点 p3 にベジェ曲線を描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72b9b54966f5bf5e771ac1d50b113877"></a><!-- doxytag: member="balor::graphics::Graphics::drawBezier" ref="a72b9b54966f5bf5e771ac1d50b113877" args="(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBezier</b> (int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b2420a06cae20789b2ce9b53f00b176"></a><!-- doxytag: member="balor::graphics::Graphics::drawBeziers" ref="a2b2420a06cae20789b2ce9b53f00b176" args="(ArrayRange&lt; const Point &gt; points)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a2b2420a06cae20789b2ce9b53f00b176">drawBeziers</a> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1_point.html">Point</a> &gt; points)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">連続したベジェ曲線を描く。４点指定で連続する始点と終点を共通化した点の配列で、３で割ると１余る長さでなければならない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2618852d80076b68c85f58056d470023"></a><!-- doxytag: member="balor::graphics::Graphics::drawCircle" ref="a2618852d80076b68c85f58056d470023" args="(const Point &amp;point, int radius)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a2618852d80076b68c85f58056d470023">drawCircle</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point, int radius)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">円を描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb073c60e5b1b27e5873622bb39b522c"></a><!-- doxytag: member="balor::graphics::Graphics::drawCircle" ref="abb073c60e5b1b27e5873622bb39b522c" args="(int x, int y, int radius)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCircle</b> (int x, int y, int radius)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a7daf9bc280167cc06d94901b35c46d"></a><!-- doxytag: member="balor::graphics::Graphics::drawEllipse" ref="a8a7daf9bc280167cc06d94901b35c46d" args="(const Rectangle &amp;rect)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a8a7daf9bc280167cc06d94901b35c46d">drawEllipse</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">楕円を描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a139557b018ce0966698f253e1f1388be"></a><!-- doxytag: member="balor::graphics::Graphics::drawEllipse" ref="a139557b018ce0966698f253e1f1388be" args="(int x, int y, int width, int height)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawEllipse</b> (int x, int y, int width, int height)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cc554ad4b4ec80c5e1459fe937dd2aa"></a><!-- doxytag: member="balor::graphics::Graphics::drawIcon" ref="a4cc554ad4b4ec80c5e1459fe937dd2aa" args="(HICON icon, const Point &amp;point, bool masked=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a4cc554ad4b4ec80c5e1459fe937dd2aa">drawIcon</a> (HICON icon, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point, bool masked=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">アイコンを描く。masked を false にすると背景を透過しない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a2bc9a93592fc91f0e8b24e8af2ae6b"></a><!-- doxytag: member="balor::graphics::Graphics::drawIcon" ref="a7a2bc9a93592fc91f0e8b24e8af2ae6b" args="(HICON icon, int x, int y, bool masked=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawIcon</b> (HICON icon, int x, int y, bool masked=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a440c8076316b76989724dd418dd9fb1a"></a><!-- doxytag: member="balor::graphics::Graphics::drawIcon" ref="a440c8076316b76989724dd418dd9fb1a" args="(HICON icon, const Rectangle &amp;rect, bool masked=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawIcon</b> (HICON icon, const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, bool masked=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13b2b9dcdbc981d74443908c807dd009"></a><!-- doxytag: member="balor::graphics::Graphics::drawIcon" ref="a13b2b9dcdbc981d74443908c807dd009" args="(HICON icon, int x, int y, int width, int height, bool masked=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawIcon</b> (HICON icon, int x, int y, int width, int height, bool masked=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a8596af697f3a9532ea1d5a825f7681"></a><!-- doxytag: member="balor::graphics::Graphics::drawImageList" ref="a3a8596af697f3a9532ea1d5a825f7681" args="(HIMAGELIST imageList, int index, const Rectangle &amp;rect, ImageList::State state=ImageList::State::normal, float alpha=1.0f, bool grayscale=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a3a8596af697f3a9532ea1d5a825f7681">drawImageList</a> (HIMAGELIST imageList, int index, const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, <a class="el" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html">ImageList::State</a> state=ImageList::State::normal, float alpha=1.0f, bool grayscale=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">イメージリストの中の画像を描く。大きさを０にすると原寸で描画する。alpha が 1 未満の場合は半透明合成する。ただしグレイスケールと同時には有効にならない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68ef1fce0180aa4ef42d448636aa3869"></a><!-- doxytag: member="balor::graphics::Graphics::drawImageList" ref="a68ef1fce0180aa4ef42d448636aa3869" args="(HIMAGELIST imageList, int index, int x, int y, int width=0, int height=0, ImageList::State state=ImageList::State::normal, float alpha=1.0f, bool grayscale=false)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawImageList</b> (HIMAGELIST imageList, int index, int x, int y, int width=0, int height=0, <a class="el" href="structbalor_1_1graphics_1_1_image_list_1_1_state.html">ImageList::State</a> state=ImageList::State::normal, float alpha=1.0f, bool grayscale=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b6bc33920e39896cf1cc99ece668a16"></a><!-- doxytag: member="balor::graphics::Graphics::drawLine" ref="a5b6bc33920e39896cf1cc99ece668a16" args="(const Point &amp;p0, const Point &amp;p1)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a5b6bc33920e39896cf1cc99ece668a16">drawLine</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p0, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;p1)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">線分を描く。終点のピクセルは描かれない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2a3ab5d0ab64b3ab53c6b8edd230d7a"></a><!-- doxytag: member="balor::graphics::Graphics::drawLine" ref="ad2a3ab5d0ab64b3ab53c6b8edd230d7a" args="(int x0, int y0, int x1, int y1)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (int x0, int y0, int x1, int y1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc0fb9f8fa3bbf75bb7b403a602a2410"></a><!-- doxytag: member="balor::graphics::Graphics::drawLines" ref="adc0fb9f8fa3bbf75bb7b403a602a2410" args="(ArrayRange&lt; const Point &gt; points)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#adc0fb9f8fa3bbf75bb7b403a602a2410">drawLines</a> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1_point.html">Point</a> &gt; points)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">線分を連続で描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad76d9509e085a58174564ea1203d54d6"></a><!-- doxytag: member="balor::graphics::Graphics::drawPath" ref="ad76d9509e085a58174564ea1203d54d6" args="(GraphicsPath &amp;path)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ad76d9509e085a58174564ea1203d54d6">drawPath</a> (<a class="el" href="classbalor_1_1graphics_1_1_graphics_path.html">GraphicsPath</a> &amp;path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a> で描かれた線を描く。ペンで線のみ描く。ブラシで塗る場合は fillPath 関数を使う。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68a8200d875775b99da861fc4ab8a4d6"></a><!-- doxytag: member="balor::graphics::Graphics::drawPie" ref="a68a8200d875775b99da861fc4ab8a4d6" args="(const Rectangle &amp;rect, float startAngle, float sweepAngle)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a68a8200d875775b99da861fc4ab8a4d6">drawPie</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, float startAngle, float sweepAngle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">扇型を描く。角度は 0 〜 360 で反時計周り。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c1fbae70547323c80bf8e534da8bdc"></a><!-- doxytag: member="balor::graphics::Graphics::drawPie" ref="a69c1fbae70547323c80bf8e534da8bdc" args="(int x, int y, int width, int height, float startAngle, float sweepAngle)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPie</b> (int x, int y, int width, int height, float startAngle, float sweepAngle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28b01264b027d3b60e0e204a06c53f66"></a><!-- doxytag: member="balor::graphics::Graphics::drawPolygon" ref="a28b01264b027d3b60e0e204a06c53f66" args="(ArrayRange&lt; const Point &gt; points)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a28b01264b027d3b60e0e204a06c53f66">drawPolygon</a> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1_point.html">Point</a> &gt; points)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">多角形を描く。塗りつぶし方法は fillAlternate 関数で設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba8ef87226850679b09ce2180aa7a829"></a><!-- doxytag: member="balor::graphics::Graphics::drawRectangle" ref="aba8ef87226850679b09ce2180aa7a829" args="(const Rectangle &amp;rect)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aba8ef87226850679b09ce2180aa7a829">drawRectangle</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">長方形を描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdea7f6fd4e2feea39073e2c0a80462c"></a><!-- doxytag: member="balor::graphics::Graphics::drawRectangle" ref="acdea7f6fd4e2feea39073e2c0a80462c" args="(int x, int y, int width, int height)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (int x, int y, int width, int height)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa996207647e412027e19c10052c934a8"></a><!-- doxytag: member="balor::graphics::Graphics::drawRectangles" ref="aa996207647e412027e19c10052c934a8" args="(ArrayRange&lt; const Rectangle &gt; rects)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aa996207647e412027e19c10052c934a8">drawRectangles</a> (<a class="el" href="classbalor_1_1_array_range.html">ArrayRange</a>&lt; const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &gt; rects)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">長方形を連続で描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b56c75f7da66c9ef83a6aa9469e124b"></a><!-- doxytag: member="balor::graphics::Graphics::drawRegion" ref="a7b56c75f7da66c9ef83a6aa9469e124b" args="(HRGN region, HBRUSH brush, int lineWidth, int lineHeight)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a7b56c75f7da66c9ef83a6aa9469e124b">drawRegion</a> (HRGN region, HBRUSH brush, int lineWidth, int lineHeight)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">領域の輪郭を描く。やや特殊だが輪郭描画に使うブラシを引数で指定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f4baad1466b23843ffdfa99fd929d6a"></a><!-- doxytag: member="balor::graphics::Graphics::drawRoundRectangle" ref="a9f4baad1466b23843ffdfa99fd929d6a" args="(const Rectangle &amp;rect, const Size ellipseSize)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a9f4baad1466b23843ffdfa99fd929d6a">drawRoundRectangle</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, const <a class="el" href="classbalor_1_1_size.html">Size</a> ellipseSize)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">角の丸い長方形を描く。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9673aefcc234116105e8e4813ecdf70"></a><!-- doxytag: member="balor::graphics::Graphics::drawRoundRectangle" ref="ab9673aefcc234116105e8e4813ecdf70" args="(int x, int y, int width, int height, int ellipseWidth, int ellipseHeight)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRoundRectangle</b> (int x, int y, int width, int height, int ellipseWidth, int ellipseHeight)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14e27c103ca8ec330d0345eede36b74b"></a><!-- doxytag: member="balor::graphics::Graphics::drawText" ref="a14e27c103ca8ec330d0345eede36b74b" args="(StringRange s, const Point &amp;point)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a14e27c103ca8ec330d0345eede36b74b">drawText</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を書く。文字の背景を塗らないようにするには backTransparent を true に設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ea7bb6becd00a5e1f515bf373ff24cc"></a><!-- doxytag: member="balor::graphics::Graphics::drawText" ref="a9ea7bb6becd00a5e1f515bf373ff24cc" args="(StringRange s, int x, int y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawText</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, int x, int y)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a587fc56281c0903adb8625bc0aa1b717"></a><!-- doxytag: member="balor::graphics::Graphics::drawText" ref="a587fc56281c0903adb8625bc0aa1b717" args="(StringRange s, const Rectangle &amp;rect, Graphics::TextFormat format=TextFormat::default, int tabWidth=8)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a587fc56281c0903adb8625bc0aa1b717">drawText</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">Graphics::TextFormat</a> format=TextFormat::default, int tabWidth=8)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形の範囲内で文字列を書く。escapement 及び orientation が 0 のフォントしかサポートしない。（＝縦書きは不可） <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a774ffd140daa45e061b291e32b60cf35"></a><!-- doxytag: member="balor::graphics::Graphics::drawText" ref="a774ffd140daa45e061b291e32b60cf35" args="(StringRange s, int x, int y, int width, int height, Graphics::TextFormat format=TextFormat::default, int tabWidth=8)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawText</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, int x, int y, int width, int height, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">Graphics::TextFormat</a> format=TextFormat::default, int tabWidth=8)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67b19bf1eba22f90017d66a907a5b104"></a><!-- doxytag: member="balor::graphics::Graphics::fillAlternate" ref="a67b19bf1eba22f90017d66a907a5b104" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a67b19bf1eba22f90017d66a907a5b104">fillAlternate</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">drawPolygon 関数で交差する多角形を交互に塗りつぶすかどうか。false の場合は全て塗りつぶす。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab80155ddb0752dfbe936b87d5d8e3cb6"></a><!-- doxytag: member="balor::graphics::Graphics::fillAlternate" ref="ab80155ddb0752dfbe936b87d5d8e3cb6" args="(bool value)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fillAlternate</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad79d25ecfe4ae358b16f88918fd365c8"></a><!-- doxytag: member="balor::graphics::Graphics::fillPath" ref="ad79d25ecfe4ae358b16f88918fd365c8" args="(GraphicsPath &amp;path)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ad79d25ecfe4ae358b16f88918fd365c8">fillPath</a> (<a class="el" href="classbalor_1_1graphics_1_1_graphics_path.html">GraphicsPath</a> &amp;path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1graphics_1_1_graphics_path.html" title="描画した一連の線の集合を表す。">GraphicsPath</a> で描かれた領域をブラシで塗る。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78ac5d0d4d380b8a56439047f6f63bfe"></a><!-- doxytag: member="balor::graphics::Graphics::fillRegion" ref="a78ac5d0d4d380b8a56439047f6f63bfe" args="(HRGN region)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a78ac5d0d4d380b8a56439047f6f63bfe">fillRegion</a> (HRGN region)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">領域をブラシで塗る。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bfbf263785ed00ccb125c76b3e93794"></a><!-- doxytag: member="balor::graphics::Graphics::floodFillBorder" ref="a7bfbf263785ed00ccb125c76b3e93794" args="(const Point &amp;point, const Color &amp;borderColor)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a7bfbf263785ed00ccb125c76b3e93794">floodFillBorder</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;borderColor)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">境界色に囲まれた領域の塗りつぶしを行う。デバイスが更新領域でクリッピングされていると思ったような結果にならない事に注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc8d7d756e44ee71089f631309f80322"></a><!-- doxytag: member="balor::graphics::Graphics::floodFillBorder" ref="abc8d7d756e44ee71089f631309f80322" args="(int x, int y, const Color &amp;borderColor)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>floodFillBorder</b> (int x, int y, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;borderColor)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a643eadbb03431c23fcbfdaf466636fa5"></a><!-- doxytag: member="balor::graphics::Graphics::floodFillSurface" ref="a643eadbb03431c23fcbfdaf466636fa5" args="(const Point &amp;point, const Color &amp;surfaceColor)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a643eadbb03431c23fcbfdaf466636fa5">floodFillSurface</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;surfaceColor)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した表面色の領域の塗りつぶしを行う。デバイスが更新領域でクリッピングされていると思ったような結果にならない事に注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefc00984fa1f50724f498e07c688acbe"></a><!-- doxytag: member="balor::graphics::Graphics::floodFillSurface" ref="aefc00984fa1f50724f498e07c688acbe" args="(int x, int y, const Color &amp;surfaceColor)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>floodFillSurface</b> (int x, int y, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;surfaceColor)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3351fea0f4c98d9c284da2cc166dbb2"></a><!-- doxytag: member="balor::graphics::Graphics::font" ref="af3351fea0f4c98d9c284da2cc166dbb2" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#af3351fea0f4c98d9c284da2cc166dbb2">font</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字を描画するフォント。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac779df9afe8cbef74b1ca5729dd6a427"></a><!-- doxytag: member="balor::graphics::Graphics::font" ref="ac779df9afe8cbef74b1ca5729dd6a427" args="(HFONT value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_font.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><b>font</b> (HFONT value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f7e253a160875dc9c4ee67f963cfbeb"></a><!-- doxytag: member="balor::graphics::Graphics::getNearestColor" ref="a0f7e253a160875dc9c4ee67f963cfbeb" args="(const Color &amp;color) const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a0f7e253a160875dc9c4ee67f963cfbeb">getNearestColor</a> (const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;color) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">このデバイスで指定した色に最も近い色を返す。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa012edebf763b069e88ea42785ad2a35"></a><!-- doxytag: member="balor::graphics::Graphics::getPixel" ref="aa012edebf763b069e88ea42785ad2a35" args="(const Point &amp;point) const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aa012edebf763b069e88ea42785ad2a35">getPixel</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ピクセルの色を取得する。画像がアルファチャンネルを持っていたとしてもアルファ情報は取得できない。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7594f1a50058aa49f28e15716d31fb15"></a><!-- doxytag: member="balor::graphics::Graphics::getPixel" ref="a7594f1a50058aa49f28e15716d31fb15" args="(int x, int y) const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPixel</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb1715a2d9c098d07ade4416876bef3"></a><!-- doxytag: member="balor::graphics::Graphics::isVisible" ref="afdb1715a2d9c098d07ade4416876bef3" args="(const Point &amp;point) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#afdb1715a2d9c098d07ade4416876bef3">isVisible</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">点が描画できるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a435f2e55d99f454aa08271f5e27cbc73"></a><!-- doxytag: member="balor::graphics::Graphics::isVisible" ref="a435f2e55d99f454aa08271f5e27cbc73" args="(int x, int y) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isVisible</b> (int x, int y) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbdf36e3772359f603d0da0b12d38179"></a><!-- doxytag: member="balor::graphics::Graphics::isVisible" ref="abbdf36e3772359f603d0da0b12d38179" args="(const Rectangle &amp;rect) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#abbdf36e3772359f603d0da0b12d38179">isVisible</a> (const <a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a> &amp;rect) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">領域が一部でも描画できるかどうか。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac628f31eda7ba8c6a30d73b343a1f1d6"></a><!-- doxytag: member="balor::graphics::Graphics::isVisible" ref="ac628f31eda7ba8c6a30d73b343a1f1d6" args="(int x, int y, int width, int height) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isVisible</b> (int x, int y, int width, int height) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73c8633a9dee316c2db51a0b9f96d6c2"></a><!-- doxytag: member="balor::graphics::Graphics::measureText" ref="a73c8633a9dee316c2db51a0b9f96d6c2" args="(StringRange s)" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a73c8633a9dee316c2db51a0b9f96d6c2">measureText</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の描画サイズを求める。普通の横描きフォントのみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac71b903a0b149571d1d84b2410cf0dfa"></a><!-- doxytag: member="balor::graphics::Graphics::measureText" ref="ac71b903a0b149571d1d84b2410cf0dfa" args="(StringRange s, int width)" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ac71b903a0b149571d1d84b2410cf0dfa">measureText</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, int width)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した幅で表示できる文字までで切り捨てた場合の描画サイズを求める。普通の横描きフォントのみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab873610a0d87584365868b5040a06257"></a><!-- doxytag: member="balor::graphics::Graphics::measureText" ref="ab873610a0d87584365868b5040a06257" args="(StringRange s, const Size &amp;layoutArea, Graphics::TextFormat format=TextFormat::default, int tabWidth=8)" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ab873610a0d87584365868b5040a06257">measureText</a> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, const <a class="el" href="classbalor_1_1_size.html">Size</a> &amp;layoutArea, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">Graphics::TextFormat</a> format=TextFormat::default, int tabWidth=8)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の描画サイズを求める。普通の横描きフォントのみ有効。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2747d157a09f979ed0201ac46e2c63eb"></a><!-- doxytag: member="balor::graphics::Graphics::measureText" ref="a2747d157a09f979ed0201ac46e2c63eb" args="(StringRange s, int width, int height, Graphics::TextFormat format=TextFormat::default, int tabWidth=8)" -->
+<a class="el" href="classbalor_1_1_size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><b>measureText</b> (<a class="el" href="classbalor_1_1_basic_string_range.html">StringRange</a> s, int width, int height, <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">Graphics::TextFormat</a> format=TextFormat::default, int tabWidth=8)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa547d712a2df45d87be314e86f710f6a"></a><!-- doxytag: member="balor::graphics::Graphics::miterLimit" ref="aa547d712a2df45d87be314e86f710f6a" args="() const " -->
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aa547d712a2df45d87be314e86f710f6a">miterLimit</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ペンのマイター接合の長さ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a587ab716a70828f63c30498f86f7fc93"></a><!-- doxytag: member="balor::graphics::Graphics::miterLimit" ref="a587ab716a70828f63c30498f86f7fc93" args="(float value)" -->
+float&#160;</td><td class="memItemRight" valign="bottom"><b>miterLimit</b> (float value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c8358ed3866e2ff12ff6d30d6573458"></a><!-- doxytag: member="balor::graphics::Graphics::owned" ref="a2c8358ed3866e2ff12ff6d30d6573458" args="() const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a2c8358ed3866e2ff12ff6d30d6573458">owned</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタでハンドルを破棄するかどうか。変更は要注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d07e127143ce7717b0435f59d4f0c0c"></a><!-- doxytag: member="balor::graphics::Graphics::owned" ref="a5d07e127143ce7717b0435f59d4f0c0c" args="(bool value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>owned</b> (bool value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9b096efe0cf68ed4387caa035b2e690"></a><!-- doxytag: member="balor::graphics::Graphics::pen" ref="ab9b096efe0cf68ed4387caa035b2e690" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_pen.html">Pen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ab9b096efe0cf68ed4387caa035b2e690">pen</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">図形の輪郭を描くペン。色を直接設定できる。輪郭を描かない場合は <a class="el" href="classbalor_1_1graphics_1_1_pen.html#affd0b93a7bd1a7e841d4cc31318c62bb" title="描画しないペン。">Pen::hollow()</a> を設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7117d865cebd7e71ce2f63ec937670a"></a><!-- doxytag: member="balor::graphics::Graphics::pen" ref="ad7117d865cebd7e71ce2f63ec937670a" args="(HPEN value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_pen.html">Pen</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pen</b> (HPEN value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a416d34f1b746937e469a72098eccf783"></a><!-- doxytag: member="balor::graphics::Graphics::pen" ref="a416d34f1b746937e469a72098eccf783" args="(Color value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_pen.html">Pen</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pen</b> (<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ebddaed91949e4cdd81636684fe4bf5"></a><!-- doxytag: member="balor::graphics::Graphics::pixelToPoint" ref="a5ebddaed91949e4cdd81636684fe4bf5" args="(int pixel)" -->
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a5ebddaed91949e4cdd81636684fe4bf5">pixelToPoint</a> (int pixel)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a87f260112ee18fc524bff41f3c3eff71" title="ｙ軸のドット密度。">dpiY()</a> を元にピクセル→ポイント変換を行う。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33712ab3eba2aaad82b0b047b0e28207"></a><!-- doxytag: member="balor::graphics::Graphics::pointToPixel" ref="a33712ab3eba2aaad82b0b047b0e28207" args="(float point)" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a33712ab3eba2aaad82b0b047b0e28207">pointToPixel</a> (float point)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a87f260112ee18fc524bff41f3c3eff71" title="ｙ軸のドット密度。">dpiY()</a> を元にポイント→ピクセル変換を行う。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab408bc6e39b5cc6cd6e525fb66ecabb1"></a><!-- doxytag: member="balor::graphics::Graphics::setPixel" ref="ab408bc6e39b5cc6cd6e525fb66ecabb1" args="(const Point &amp;point, const Color &amp;color)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ab408bc6e39b5cc6cd6e525fb66ecabb1">setPixel</a> (const <a class="el" href="classbalor_1_1_point.html">Point</a> &amp;point, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;color)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ピクセルの色を設定する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1442b8530707fab55ff8b0f0d270fa57"></a><!-- doxytag: member="balor::graphics::Graphics::setPixel" ref="a1442b8530707fab55ff8b0f0d270fa57" args="(int x, int y, const Color &amp;color)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPixel</b> (int x, int y, const <a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> &amp;color)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42d269f70ee76ca4a1ada864eeae8e35"></a><!-- doxytag: member="balor::graphics::Graphics::state" ref="a42d269f70ee76ca4a1ada864eeae8e35" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_graphics_1_1_state.html">Graphics::State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a42d269f70ee76ca4a1ada864eeae8e35">state</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の設定の保存と復元。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af593e710669bb70cbb7d63cf4170f425"></a><!-- doxytag: member="balor::graphics::Graphics::state" ref="af593e710669bb70cbb7d63cf4170f425" args="(Graphics::State value)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> (<a class="el" href="classbalor_1_1graphics_1_1_graphics_1_1_state.html">Graphics::State</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3459381d0490e1bae15181585c5f77f"></a><!-- doxytag: member="balor::graphics::Graphics::textCharExtra" ref="af3459381d0490e1bae15181585c5f77f" args="() const " -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#af3459381d0490e1bae15181585c5f77f">textCharExtra</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の文字間隔。一行描画の drawText 関数でプロポーショナルではないフォントを使った場合のみ有効。 プロポーショナルフォントで描画する場合にこの設定が０（規定値）以外だとうまく描画されないので注意。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a723e4814b782c0134dda5f6da7b6617c"></a><!-- doxytag: member="balor::graphics::Graphics::textCharExtra" ref="a723e4814b782c0134dda5f6da7b6617c" args="(int value)" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><b>textCharExtra</b> (int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a245c5ccc3dbb64297ac3946302519209"></a><!-- doxytag: member="balor::graphics::Graphics::textColor" ref="a245c5ccc3dbb64297ac3946302519209" args="() const " -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a245c5ccc3dbb64297ac3946302519209">textColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">テキストの色。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a857d8604a4b1808d435457152b036a1c"></a><!-- doxytag: member="balor::graphics::Graphics::textColor" ref="a857d8604a4b1808d435457152b036a1c" args="(Color value)" -->
+<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b> (<a class="el" href="classbalor_1_1graphics_1_1_color.html">Color</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6952173a3fc8822dba9aff1f994ea634"></a><!-- doxytag: member="balor::graphics::Graphics::translateClip" ref="a6952173a3fc8822dba9aff1f994ea634" args="(int dx, int dy)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a6952173a3fc8822dba9aff1f994ea634">translateClip</a> (int dx, int dy)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">クリップ領域を平行移動する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94916e74bacaf2438ccb93419dd01e2f"></a><!-- doxytag: member="balor::graphics::Graphics::visibleClipBounds" ref="a94916e74bacaf2438ccb93419dd01e2f" args="() const " -->
+<a class="el" href="classbalor_1_1_rectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a94916e74bacaf2438ccb93419dd01e2f">visibleClipBounds</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">実際に描画可能な領域を含む矩形。画像から作成している場合は画像の大きさ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee1f0c68323cb9d1a15684f11f90db67"></a><!-- doxytag: member="balor::graphics::Graphics::operator HDC" ref="aee1f0c68323cb9d1a15684f11f90db67" args="() const " -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#aee1f0c68323cb9d1a15684f11f90db67">operator HDC</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">HDC への自動変換 ＆ null チェック用 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad491f2bc8a16fde186306dac54c50d03"></a><!-- doxytag: member="balor::graphics::Graphics::flush" ref="ad491f2bc8a16fde186306dac54c50d03" args="()" -->
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ad491f2bc8a16fde186306dac54c50d03">flush</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ハードが描画を終えるまで待つ。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0751c47585482faec8168733e0b9f6a"></a><!-- doxytag: member="balor::graphics::Graphics::fromControlWithNonClientArea" ref="ae0751c47585482faec8168733e0b9f6a" args="(HWND control)" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ae0751c47585482faec8168733e0b9f6a">fromControlWithNonClientArea</a> (HWND control)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ウインドウの非クライアント領域も含めた <a class="el" href="classbalor_1_1graphics_1_1_graphics.html" title="GDI による描画処理を扱う。">Graphics</a> を作成。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3a01fc52fa78fdc12ea792c2d08fc00"></a><!-- doxytag: member="balor::graphics::Graphics::fromGraphics" ref="af3a01fc52fa78fdc12ea792c2d08fc00" args="(HDC graphics)" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#af3a01fc52fa78fdc12ea792c2d08fc00">fromGraphics</a> (HDC graphics)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した graphics と互換性のあるメモリデバイスを作成。graphics に nullptr を指定するとディスプレイと互換性のあるメモリデバイスを作成する。 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18e74c44db98a569f760c02bcf64dde7"></a><!-- doxytag: member="balor::graphics::Graphics::fromScreen" ref="a18e74c44db98a569f760c02bcf64dde7" args="()" -->
+static <a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a18e74c44db98a569f760c02bcf64dde7">fromScreen</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ディスプレイを表す <a class="el" href="classbalor_1_1graphics_1_1_graphics.html" title="GDI による描画処理を扱う。">Graphics</a> を作成。 <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>GDI による描画処理を扱う。 </p>
+<p>図形を塗りつぶしせずに輪郭だけ描きたい場合は <a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a4799eca37589843d4a397936b27d08a7" title="図形を塗りつぶすブラシ。色を直接設定できる。塗らない場合は Brush::hollow() を設定する。">brush()</a> に <a class="el" href="classbalor_1_1graphics_1_1_brush.html#a8278742fbb73aa701322f3fb5a54da03" title="描画しないブラシ。">Brush::hollow()</a> を設定する。 図形を塗りつぶしだけしたい場合は <a class="el" href="classbalor_1_1graphics_1_1_graphics.html#ab9b096efe0cf68ed4387caa035b2e690" title="図形の輪郭を描くペン。色を直接設定できる。輪郭を描かない場合は Pen::hollow() を設定する。">pen()</a> に <a class="el" href="classbalor_1_1graphics_1_1_pen.html#affd0b93a7bd1a7e841d4cc31318c62bb" title="描画しないペン。">Pen::hollow()</a> を設定する。この場合図形の右下部分は描画されない。 drawText 関数を使う場合は <a class="el" href="classbalor_1_1graphics_1_1_graphics.html#af655c5e4340863207af15ded732e9259" title="テキスト、ハッチブラシ、ペンで描画する時に背景をブラシで塗らないかどうか。">backTransparent()</a> に注意する。 ビットマップを描画するには <a class="el" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> から <a class="el" href="classbalor_1_1graphics_1_1_graphics.html" title="GDI による描画処理を扱う。">Graphics</a> を作成して copy 関数を使う。 拡大縮小を伴って copy 関数を使う場合は <a class="el" href="classbalor_1_1graphics_1_1_graphics.html#a3c6538cbcb9aa7b1b20500f9b4aa1468" title="コピー処理のモード。Graphics::CopyMode::halftone に設定した場合は brushOrigin を再設定する必要がある。">copyMode()</a> に注意する。 半透明描画や、アルファチャンネルによる半透明合成をするには <a class="el" href="classbalor_1_1graphics_1_1_bitmap.html#afc45e50c02fff387f31075bee1c9ce70" title="アルファチャンネルを全てのピクセルに乗算する。DIB の 32ビット画像の場合のみ有効。 Graphics::blend 関数でアルファチャンネルを使う場合はあらかじめこの関数を呼んでおく必要がある。">Bitmap::premultiplyAlpha</a> 関数と blend 関数を使う。 カラーキーによる色抜きをするには <a class="el" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> と drawImageList 関数を使う 設定を変更する関数では旧設定を返すようになっている。設定をまとめて保存、復元するには state 関数を使う。 </p>
+</div><hr/>このクラスの説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a></li>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Graphics.cpp</li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:30に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

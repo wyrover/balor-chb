@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: 構造体 balor::graphics::Graphics::TextFormat</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1graphics.html">graphics</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>      </li>
+      <li class="navelem"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">TextFormat</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">構造体 balor::graphics::Graphics::TextFormat</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::graphics::Graphics::TextFormat" -->
+<p>文字列描画のフラグ。組み合わせで指定する。  
+ <a href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a>&gt;</code></p>
+
+<p><a href="structbalor_1_1graphics_1_1_graphics_1_1_text_format-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694">_enum</a> { <br/>
+&#160;&#160;<b>none</b> =  0, 
+<b>bottom</b> =  0x00000028, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694ac20e80c6a1c57da4f773b7eb750239e1">default</a> =  0x00000810, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a7b1595f08a05a1f4df1462523723f673">editControl</a> =  0x00002000, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694aa997468312c8d1555dfe18b37eaa3442">endEllipsis</a> =  0x00008000, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a01e2802895c8b4bfaa40930411696d0c">expandTabs</a> =  0x00000040, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a7c487fb1fb305e2e648e924b181c63ff">externalLeading</a> =  0x00000200, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a19e8dfc6da688d144e6493aecc4d9b66">hidePrefix</a> =  0x00100000, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694aa7b7969deb1cff266bee3ec2d6141d56">horizontalCenter</a> =  0x00000001, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a4861031b572a32e775e872bda2fd80f9">noClipping</a> =  0x00000100, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a2e4e8436d9ec1ae64309e6a69e6edc38">noFullWidthCharacterBreak</a> =  0x00080000, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694afe17ac9d1b061f62b11004e93fa6fdf3">noPrefix</a> =  0x00000800, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a60378618461aa7d300d82ec0d874b622">pathEllipsis</a> =  0x00004000, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694af4b25d12e4f17fd3e063c656b16bed9c">prefixOnly</a> =  0x00200000, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a76046977f9fbc823e4f107aaf27beee6">right</a> =  0x00000002, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a29973c0dcb2e6896284a038e6a17475c">rightToLeft</a> =  0x00020000, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a6d1dcb74712132da8186de2948ede3b0">singleLine</a> =  0x00000020, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a497930c834ecf57140b5dbb10ed0138e">verticalCenter</a> =  0x00000024, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a6d79e701207e9f81dadda53badae1630">wordBreak</a> =  0x00000010, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694a42a92b832b6be65c39298f58c1cf9b07">wordEllipsis</a> =  0x00040000
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25d4d5330e2a98ccdddec7237192969a"></a><!-- doxytag: member="balor::graphics::Graphics::TextFormat::BALOR_NAMED_LOGICAL_ENUM_MEMBERS" ref="a25d4d5330e2a98ccdddec7237192969a" args="(TextFormat)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>BALOR_NAMED_LOGICAL_ENUM_MEMBERS</b> (<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html">TextFormat</a>)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>文字列描画のフラグ。組み合わせで指定する。 </p>
+</div><hr/><h2>列挙型</h2>
+<a class="anchor" id="a364ce73154d5360b0c84d947d5a68694"></a><!-- doxytag: member="balor::graphics::Graphics::TextFormat::_enum" ref="a364ce73154d5360b0c84d947d5a68694" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_text_format.html#a364ce73154d5360b0c84d947d5a68694">balor::graphics::Graphics::TextFormat::_enum</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>列挙型の値: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694ac20e80c6a1c57da4f773b7eb750239e1"></a><!-- doxytag: member="default" ref="a364ce73154d5360b0c84d947d5a68694ac20e80c6a1c57da4f773b7eb750239e1" args="" -->default</em>&nbsp;</td><td>
+<p>矩形の下端に文字列を揃える。singleLine も含める。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a7b1595f08a05a1f4df1462523723f673"></a><!-- doxytag: member="editControl" ref="a364ce73154d5360b0c84d947d5a68694a7b1595f08a05a1f4df1462523723f673" args="" -->editControl</em>&nbsp;</td><td>
+<p>noPrefix かつ wordBreak。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694aa997468312c8d1555dfe18b37eaa3442"></a><!-- doxytag: member="endEllipsis" ref="a364ce73154d5360b0c84d947d5a68694aa997468312c8d1555dfe18b37eaa3442" args="" -->endEllipsis</em>&nbsp;</td><td>
+<p>複数行エディットコントロールと同じように描画する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a01e2802895c8b4bfaa40930411696d0c"></a><!-- doxytag: member="expandTabs" ref="a364ce73154d5360b0c84d947d5a68694a01e2802895c8b4bfaa40930411696d0c" args="" -->expandTabs</em>&nbsp;</td><td>
+<p>文末が矩形からはみ出す場合に「...」を表示する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a7c487fb1fb305e2e648e924b181c63ff"></a><!-- doxytag: member="externalLeading" ref="a364ce73154d5360b0c84d947d5a68694a7c487fb1fb305e2e648e924b181c63ff" args="" -->externalLeading</em>&nbsp;</td><td>
+<p>タブを展開する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a19e8dfc6da688d144e6493aecc4d9b66"></a><!-- doxytag: member="hidePrefix" ref="a364ce73154d5360b0c84d947d5a68694a19e8dfc6da688d144e6493aecc4d9b66" args="" -->hidePrefix</em>&nbsp;</td><td>
+<p>行の高さに、外部レディングの高さを追加する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694aa7b7969deb1cff266bee3ec2d6141d56"></a><!-- doxytag: member="horizontalCenter" ref="a364ce73154d5360b0c84d947d5a68694aa7b7969deb1cff266bee3ec2d6141d56" args="" -->horizontalCenter</em>&nbsp;</td><td>
+<p>L'&amp;' によって下線を表示しない。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a4861031b572a32e775e872bda2fd80f9"></a><!-- doxytag: member="noClipping" ref="a364ce73154d5360b0c84d947d5a68694a4861031b572a32e775e872bda2fd80f9" args="" -->noClipping</em>&nbsp;</td><td>
+<p>矩形の水平方向の中央に文字列を揃える。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a2e4e8436d9ec1ae64309e6a69e6edc38"></a><!-- doxytag: member="noFullWidthCharacterBreak" ref="a364ce73154d5360b0c84d947d5a68694a2e4e8436d9ec1ae64309e6a69e6edc38" args="" -->noFullWidthCharacterBreak</em>&nbsp;</td><td>
+<p>矩形からはみ出ても描画する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694afe17ac9d1b061f62b11004e93fa6fdf3"></a><!-- doxytag: member="noPrefix" ref="a364ce73154d5360b0c84d947d5a68694afe17ac9d1b061f62b11004e93fa6fdf3" args="" -->noPrefix</em>&nbsp;</td><td>
+<p>一つの文字を複数の文字コードの連続で表す時に途中で改行されないようにする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a60378618461aa7d300d82ec0d874b622"></a><!-- doxytag: member="pathEllipsis" ref="a364ce73154d5360b0c84d947d5a68694a60378618461aa7d300d82ec0d874b622" args="" -->pathEllipsis</em>&nbsp;</td><td>
+<p>L'&amp;' を特殊文字とみなさないようにする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694af4b25d12e4f17fd3e063c656b16bed9c"></a><!-- doxytag: member="prefixOnly" ref="a364ce73154d5360b0c84d947d5a68694af4b25d12e4f17fd3e063c656b16bed9c" args="" -->prefixOnly</em>&nbsp;</td><td>
+<p>ファイルパスを表示し切れない場合に適切に短縮する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a76046977f9fbc823e4f107aaf27beee6"></a><!-- doxytag: member="right" ref="a364ce73154d5360b0c84d947d5a68694a76046977f9fbc823e4f107aaf27beee6" args="" -->right</em>&nbsp;</td><td>
+<p>L'&amp;' によって表示される下線だけ描画する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a29973c0dcb2e6896284a038e6a17475c"></a><!-- doxytag: member="rightToLeft" ref="a364ce73154d5360b0c84d947d5a68694a29973c0dcb2e6896284a038e6a17475c" args="" -->rightToLeft</em>&nbsp;</td><td>
+<p>矩形の右端に文字列を揃える。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a6d1dcb74712132da8186de2948ede3b0"></a><!-- doxytag: member="singleLine" ref="a364ce73154d5360b0c84d947d5a68694a6d1dcb74712132da8186de2948ede3b0" args="" -->singleLine</em>&nbsp;</td><td>
+<p>フォントがヘブライ語かアラビア語の場合に右から左に文字を描画する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a497930c834ecf57140b5dbb10ed0138e"></a><!-- doxytag: member="verticalCenter" ref="a364ce73154d5360b0c84d947d5a68694a497930c834ecf57140b5dbb10ed0138e" args="" -->verticalCenter</em>&nbsp;</td><td>
+<p>改行せずに描画する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a6d79e701207e9f81dadda53badae1630"></a><!-- doxytag: member="wordBreak" ref="a364ce73154d5360b0c84d947d5a68694a6d79e701207e9f81dadda53badae1630" args="" -->wordBreak</em>&nbsp;</td><td>
+<p>矩形の垂直方向の中央に文字列を揃える。singleLine も含める。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a364ce73154d5360b0c84d947d5a68694a42a92b832b6be65c39298f58c1cf9b07"></a><!-- doxytag: member="wordEllipsis" ref="a364ce73154d5360b0c84d947d5a68694a42a92b832b6be65c39298f58c1cf9b07" args="" -->wordEllipsis</em>&nbsp;</td><td>
+<p>単語の途中で改行しないようにする。 </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/>この構造体の説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:30に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

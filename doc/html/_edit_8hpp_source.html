@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Edit.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Edit.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/graphics/Color.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Padding.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/StringBuffer.hpp&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>balor {
+<a name="l00013"></a>00013     <span class="keyword">namespace </span>gui {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00067"></a><a class="code" href="classbalor_1_1gui_1_1_edit.html">00067</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00068"></a>00068 <span class="keyword">public</span>:
+<a name="l00069"></a>00069     typedef ::HBITMAP__* HBITMAP;
+<a name="l00070"></a>00070 
+<a name="l00072"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html">00072</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html" title="編集文字列の配置。">Align</a> {
+<a name="l00073"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995e">00073</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995e">_enum</a> {
+<a name="l00074"></a>00074             left   = 0x0000, 
+<a name="l00075"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995ea177454763082b7fa8cb89ae4aa14f923">00075</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995ea177454763082b7fa8cb89ae4aa14f923" title="左揃え。">center</a> = 0x0001, 
+<a name="l00076"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995ea679895d6c4a16a0e30e402a257b253d5">00076</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html#a16c7417845a381c72ee3c022179f995ea679895d6c4a16a0e30e402a257b253d5" title="中央揃え。">right</a>  = 0x0002, 
+<a name="l00077"></a>00077         };
+<a name="l00078"></a>00078         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html" title="編集文字列の配置。">Align</a>);
+<a name="l00079"></a>00079     };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00083"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html">00083</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">ImeConvert</a> {
+<a name="l00084"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bb">00084</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bb">_enum</a> {
+<a name="l00085"></a>00085             <span class="keywordflow">default</span>            = 0xFFFF, 
+<a name="l00086"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbac292cc48f82e8198b3cca48dc34d177d">00086</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbac292cc48f82e8198b3cca48dc34d177d" title="OS に任せる。">general</a>            = 0x0008, 
+<a name="l00087"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbafda0df817c40ef924d7fa44f082a0e58">00087</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbafda0df817c40ef924d7fa44f082a0e58" title="一般。">personAndPlaceName</a> = 0x0001, 
+<a name="l00088"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbaafd0631749d00d9726ff8b26add96d87">00088</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbaafd0631749d00d9726ff8b26add96d87" title="人名/地名。">informal</a>           = 0x0010, 
+<a name="l00089"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbaa74836c395befbf4532b56031e4d63a5">00089</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html#a8406a52cc0a48bb35238f69e51fa61bbaa74836c395befbf4532b56031e4d63a5" title="話し言葉。">none</a>               = 0x0000, 
+<a name="l00090"></a>00090         };
+<a name="l00091"></a>00091         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">ImeConvert</a>);
+<a name="l00092"></a>00092     };
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 
+<a name="l00096"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html">00096</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">ImeMode</a> {
+<a name="l00097"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524">00097</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524">_enum</a> {
+<a name="l00098"></a>00098             <span class="keywordflow">default</span>      = 0x1000, 
+<a name="l00099"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ab575f7d0d6bec7e170fcaebec6e2d008">00099</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ab575f7d0d6bec7e170fcaebec6e2d008" title="OS に任せる。">on</a>           = 0x2000, 
+<a name="l00100"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a5d79609827600a8f7515714b75fd22e0">00100</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a5d79609827600a8f7515714b75fd22e0" title="IMEを有効にする。">off</a>          = 0x3000, 
+<a name="l00101"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a3537834b1c420dab48f16f8d1255cce8">00101</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a3537834b1c420dab48f16f8d1255cce8" title="IMEを無効にする。">disabled</a>     = 0x4000, 
+<a name="l00102"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ad4711e1d4a766945ff240df1a502aff9">00102</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ad4711e1d4a766945ff240df1a502aff9" title="IMEを無効にしてユーザが有効化できなくする。">hiragana</a>     = 0x0009, 
+<a name="l00103"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a1eccbbbed92e87423408c912d6cb13b9">00103</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a1eccbbbed92e87423408c912d6cb13b9" title="ひらがな。">katakana</a>     = 0x000b, 
+<a name="l00104"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a64bcf72cae3c8186e048ba179a5cf1b0">00104</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524a64bcf72cae3c8186e048ba179a5cf1b0" title="全角カタカナ。">katakanaHalf</a> = 0x0003, 
+<a name="l00105"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524af881635335626197632b8dbc1716a0a1">00105</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524af881635335626197632b8dbc1716a0a1" title="半角カタカナ。">alpha</a>        = 0x0008, 
+<a name="l00106"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ae34412561b0bb39d54e8205c4505b778">00106</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html#ae9f6a20ae51da749f1fd959b6beed524ae34412561b0bb39d54e8205c4505b778" title="全角英数。">alphaHalf</a>    = 0x0000, 
+<a name="l00107"></a>00107         };
+<a name="l00108"></a>00108         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">ImeMode</a>);
+<a name="l00109"></a>00109     };
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 
+<a name="l00113"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html">00113</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html" title="IME の挙動を表すフラグ。組み合わせで指定する。">ImeStatus</a> {
+<a name="l00114"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3">00114</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3">_enum</a> {
+<a name="l00115"></a>00115             none                = 0     ,
+<a name="l00116"></a>00116             noKeyPress          = 0x0001, 
+<a name="l00117"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3a8a3559a1921563b0d064f88495cb4b65">00117</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3a8a3559a1921563b0d064f88495cb4b65" title="IMEの入力結果について onKeyPress イベント（WM_CHAR メッセージ）を発生させない。">cancelOnGotFocus</a>    = 0x0002, 
+<a name="l00118"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3a97f63a6aed641918bcbd0a6d7c93c40d">00118</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html#ac3c79b3820ffc4dd941edd5a076388b3a97f63a6aed641918bcbd0a6d7c93c40d" title="フォーカスを得たとき IME の入力途中の内容を破棄する。">completeOnLostFocus</a> = 0x0004, 
+<a name="l00119"></a>00119         };
+<a name="l00120"></a>00120         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html" title="IME の挙動を表すフラグ。組み合わせで指定する。">ImeStatus</a>);
+<a name="l00121"></a>00121     };
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00125"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html">00125</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a> {
+<a name="l00126"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1e">00126</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1e">_enum</a> {
+<a name="l00127"></a>00127             none           = 0      ,
+<a name="l00128"></a>00128             multiline      = 0x0004L, 
+<a name="l00129"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea2528b277927dfbf146f18d1e5f9000d6">00129</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea2528b277927dfbf146f18d1e5f9000d6" title="複数行入力できるようにする。Tab キー、Enterキー、Esc キーがダイアログキーとみなされなくなる。">noHScroll</a>      = 0x0080L, 
+<a name="l00130"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea1b988ab08af0f9387fc7a51c66a503c7">00130</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea1b988ab08af0f9387fc7a51c66a503c7" title="入力文字が右にはみ出る場合に右にスクロールせずに自動改行する。">noVScroll</a>      = 0x0040L, 
+<a name="l00131"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea5119160cd4c29e716898cdf103155ebd">00131</a>             <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html#a4c781583f87d979e80dec75e923f4e1ea5119160cd4c29e716898cdf103155ebd" title="入力文字が下にはみ出る場合に下にスクロールせずにそれ以上入力できなくなる。">alwaysSelected</a> = 0x0100L, 
+<a name="l00132"></a>00132         };
+<a name="l00133"></a>00133         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Options</a>);
+<a name="l00134"></a>00134     };
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 
+<a name="l00138"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html">00138</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Selection</a> {
+<a name="l00139"></a>00139         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Selection</a>() {}
+<a name="l00140"></a>00140         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Selection</a>(<span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#ab53c11fb9631ca9afb5a8ffd16f7d8a9" title="選択を開始する文字インデックス。">index</a>, <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#a43d9b3e3e7a0fe672128448a801eb98a" title="選択している文字数。">length</a>) : <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#ab53c11fb9631ca9afb5a8ffd16f7d8a9" title="選択を開始する文字インデックス。">index</a>(index), <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#a43d9b3e3e7a0fe672128448a801eb98a" title="選択している文字数。">length</a>(length) {}
+<a name="l00141"></a>00141 
+<a name="l00143"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#ab53c11fb9631ca9afb5a8ffd16f7d8a9">00143</a>         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#ab53c11fb9631ca9afb5a8ffd16f7d8a9" title="選択を開始する文字インデックス。">index</a>;
+<a name="l00145"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#a43d9b3e3e7a0fe672128448a801eb98a">00145</a>         <span class="keywordtype">int</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html#a43d9b3e3e7a0fe672128448a801eb98a" title="選択している文字数。">length</a>;
+<a name="l00146"></a>00146     };
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 
+<a name="l00150"></a><a class="code" href="classbalor_1_1gui_1_1_edit.html#af467cf6e000df74270f7806c8b50dede">00150</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;Edit, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#af467cf6e000df74270f7806c8b50dede" title="Label のイベントの親クラス。">Event</a>;
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 
+<a name="l00154"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html">00154</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html" title="クリップボードの文字列を貼り付けるイベント。">Paste</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00155"></a>00155         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html" title="クリップボードの文字列を貼り付けるイベント。">Paste</a>(<a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>);
+<a name="l00156"></a>00156 
+<a name="l00158"></a>00158         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html#a64d572ee7c12225e52a2b3a9b55206d5" title="貼り付けをキャンセルするかどうか。初期値は false。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00159"></a>00159         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html#a64d572ee7c12225e52a2b3a9b55206d5" title="貼り付けをキャンセルするかどうか。初期値は false。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00161"></a>00161         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_paste.html#a73c2df9e1d8c09e31b12a6287ce816cd" title="貼り付ける文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163     <span class="keyword">private</span>:
+<a name="l00164"></a>00164         <span class="keywordtype">bool</span> _cancel;
+<a name="l00165"></a>00165     };
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 
+<a name="l00169"></a><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html">00169</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html" title="文字列を変更して表示に反映する直前のイベント。">TextChange</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>::<a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00170"></a>00170         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html" title="文字列を変更して表示に反映する直前のイベント。">TextChange</a>(<a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>);
+<a name="l00171"></a>00171 
+<a name="l00173"></a>00173         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#affbdfa11cc9ae6d2dbf733f4d6f21358" title="変更をキャンセルするかどうか。初期値は false。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00174"></a>00174         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#affbdfa11cc9ae6d2dbf733f4d6f21358" title="変更をキャンセルするかどうか。初期値は false。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00176"></a>00176         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Edit::Selection</a> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#a6568f732577de23423e15b0013bc1efe" title="変更後の選択状態。">newSelection</a>() <span class="keyword">const</span>;
+<a name="l00177"></a>00177         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#a6568f732577de23423e15b0013bc1efe" title="変更後の選択状態。">newSelection</a>(<span class="keyword">const</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Edit::Selection</a>&amp; value);
+<a name="l00179"></a>00179         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#aa9c1ff798bd50980514069b9e4c62efb" title="変更後の文字列。">newText</a>() <span class="keyword">const</span>;
+<a name="l00180"></a>00180         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#aa9c1ff798bd50980514069b9e4c62efb" title="変更後の文字列。">newText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00182"></a>00182         <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Edit::Selection</a> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#a787ed9dcf73944d273af3d4cf57d1c1c" title="変更前の選択状態。">oldSelection</a>() <span class="keyword">const</span>;
+<a name="l00184"></a>00184         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_text_change.html#ab3a3ffc818aca9a98b76f74793fac50a" title="変更前の文字列。">oldText</a>() <span class="keyword">const</span>;
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186     <span class="keyword">private</span>:
+<a name="l00187"></a>00187         <span class="keywordtype">bool</span> _cancel;
+<a name="l00188"></a>00188     };
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 <span class="keyword">public</span>:
+<a name="l00193"></a>00193     <a class="code" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6" title="ヌルハンドルで作成。">Edit</a>();
+<a name="l00194"></a>00194     <a class="code" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6" title="ヌルハンドルで作成。">Edit</a>(<a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00196"></a>00196     <a class="code" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6" title="ヌルハンドルで作成。">Edit</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Edit::Options</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00198"></a>00198     <a class="code" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6" title="ヌルハンドルで作成。">Edit</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> lineLength, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a500cc699207e164f9fadac115f2ddad4" title="編集文字列の行数。">lineCount</a> = 1, <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Edit::Options</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options</a> = Options::none);
+<a name="l00200"></a>00200     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a292f9cb66018dc3e06aaea6e9bb673b6" title="ヌルハンドルで作成。">Edit</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_control.html#a9e9825e07722a65035a27de591c30bca" title="ウインドウハンドル。得られるハンドルは必ず作成済みで、現在のスレッドで使用できる。そうでなければ assert で警告を出す。">handle</a>);
+<a name="l00201"></a>00201     ~<a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>();
+<a name="l00202"></a>00202     <a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_edit.html" title="エディットコントロール。">Edit</a>&amp;&amp; value);
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205 <span class="keyword">public</span>:
+<a name="l00207"></a>00207     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html" title="編集文字列の配置。">Edit::Align</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a0f71d0f70edea06700e11b48c12df1d0" title="編集文字列の配置。初期値は Edit::Align::left。">align</a>() <span class="keyword">const</span>;
+<a name="l00208"></a>00208     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a0f71d0f70edea06700e11b48c12df1d0" title="編集文字列の配置。初期値は Edit::Align::left。">align</a>(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_align.html" title="編集文字列の配置。">Edit::Align</a> value);
+<a name="l00210"></a>00210     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a652ff320cce084d7f89d46a772d6b914" title="やり直し情報があるかどうか。">canUndo</a>() <span class="keyword">const</span>;
+<a name="l00212"></a>00212     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#adfd612e34b3f9b0f907e0c20a832160d" title="キャレットの点滅時間（ミリ秒）。">caretBlinkTime</a>();
+<a name="l00214"></a>00214     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aea64b1dcb5d106672435af7063855058" title="キャレットのある文字インデックス。">caretIndex</a>() <span class="keyword">const</span>;
+<a name="l00215"></a>00215     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aea64b1dcb5d106672435af7063855058" title="キャレットのある文字インデックス。">caretIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00217"></a>00217     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a35706f71030b660bc546b543b0392aaa" title="キャレットを表示するかどうか。">caretVisible</a>() <span class="keyword">const</span>;
+<a name="l00218"></a>00218     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a35706f71030b660bc546b543b0392aaa" title="キャレットを表示するかどうか。">caretVisible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00225"></a>00225     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad3e585e7d8ea7af5101972e969a5ccd4" title="キャレットの大きさや、灰色にするかどうかを設定する。例えば半角数字だけを入力する場合に四角いキャレットにするには下記のようなコードを書く。">changeCaret</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a96e41e65323a36789014fb0f418787ba" title="大きさ。">size</a>, <span class="keywordtype">bool</span> grayed = <span class="keyword">false</span>);
+<a name="l00226"></a>00226     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad3e585e7d8ea7af5101972e969a5ccd4" title="キャレットの大きさや、灰色にするかどうかを設定する。例えば半角数字だけを入力する場合に四角いキャレットにするには下記のようなコードを書く。">changeCaret</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">bool</span> grayed = <span class="keyword">false</span>);
+<a name="l00228"></a>00228     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad3e585e7d8ea7af5101972e969a5ccd4" title="キャレットの大きさや、灰色にするかどうかを設定する。例えば半角数字だけを入力する場合に四角いキャレットにするには下記のようなコードを書く。">changeCaret</a>(HBITMAP caret);
+<a name="l00230"></a>00230     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a6222c235ce52b313bd4874d3c8fb104d" title="やり直し情報を消す。">clearUndo</a>();
+<a name="l00232"></a>00232     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9b2b4af76a730bbec37f457680bb8f08" title="選択している文字列をクリップボードにコピーする。文字列が選択されていない場合は何もしない。">copy</a>() <span class="keyword">const</span>;
+<a name="l00234"></a>00234     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5b503309c3b01cf6de98ea301aeee8f4" title="ユーザが初めて入力するまで表示するガイド文字列。optins() に Edit::Options::multiline を設定していない場合のみ有効。この関数の使用には EnableVisualStyl...">cueBanner</a>() <span class="keyword">const</span>;
+<a name="l00235"></a>00235     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5b503309c3b01cf6de98ea301aeee8f4" title="ユーザが初めて入力するまで表示するガイド文字列。optins() に Edit::Options::multiline を設定していない場合のみ有効。この関数の使用には EnableVisualStyl...">cueBanner</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00237"></a>00237     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#adeeaaf6e15cb65f0fd17618feaff77e6" title="選択している文字列を切り取ってクリップボードに貼り付ける。文字列が選択されていない場合はなにもしない。">cut</a>();
+<a name="l00239"></a>00239     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9aeed8b4fb7488b3b4ce9cc4ca63a7dd" title="システムデフォルトのキャレットの幅。">defaultCaretWidth</a>();
+<a name="l00241"></a>00241     <a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#acfbf11c158a0c4f8430fd58a4f729190" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>() <span class="keyword">const</span>;
+<a name="l00242"></a>00242     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#acfbf11c158a0c4f8430fd58a4f729190" title="コントロールの境界線の種類。初期値は Control::Edge::client。">edge</a>(<a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> value);
+<a name="l00244"></a>00244     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a54b9cf35f1623b26890c228771a5f18e" title="最初に表示されている行。">firstVisibleLine</a>() <span class="keyword">const</span>;
+<a name="l00246"></a>00246     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#acf0a28ba801ee113683d97b72f7d93b8" title="クライアント座標から最も近い文字インデックスを求める。クライアント領域上ではない場合は -1 を返す。">getIndexAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#ac9645789d862bb6e916ba650d04d07e7" title="親コントロールのクライアント座標系におけるこのコントロールの位置。">position</a>) <span class="keyword">const</span>;
+<a name="l00247"></a>00247     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#acf0a28ba801ee113683d97b72f7d93b8" title="クライアント座標から最も近い文字インデックスを求める。クライアント領域上ではない場合は -1 を返す。">getIndexAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00249"></a>00249     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#af279f92db236f6d832a00ef316b8c484" title="行の先頭の文字インデックスを求める。">getIndexFromLine</a>(<span class="keywordtype">int</span> line) <span class="keyword">const</span>;
+<a name="l00251"></a>00251     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a53c56de7ac5b97463f22bdaeafd5552b" title="文字インデックスから行を求める。">getLineFromIndex</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00253"></a>00253     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a1016df69ad4cdf658a1cd552bebd09e2" title="行の文字数。">getLineLength</a>(<span class="keywordtype">int</span> line) <span class="keyword">const</span>;
+<a name="l00255"></a>00255     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a3048ccae84a95efad85b3d901b0982ec" title="行の文字列を返す。">getLineText</a>(<span class="keywordtype">int</span> line) <span class="keyword">const</span>;
+<a name="l00257"></a>00257     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a4968663f610b2b2682a1b32c936ddc9d" title="文字インデックスからクライアント座標を求める。キャレットが移動できる文末はなぜか位置が取得できないので注意。">getPositionFromIndex</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00260"></a>00260     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#add401bd752106af6f2e75dfac3927b92" title="引数で 0 を指定した部分のみ現在の状態に最適な大きさを求める。0 以外を指定した部分はそのまま返る。 Edit は素のままでは最適な大きさが推測できないので preferredCharCount() ...">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00262"></a>00262     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9bf32940cfa7ce9783efa09255a04dd1" title="水平スクロールバーを表示するかどうか。optins() に Edit::Options::multiline を設定した場合のみ有効。初期値は false。">hScrollBar</a>() <span class="keyword">const</span>;
+<a name="l00263"></a>00263     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9bf32940cfa7ce9783efa09255a04dd1" title="水平スクロールバーを表示するかどうか。optins() に Edit::Options::multiline を設定した場合のみ有効。初期値は false。">hScrollBar</a>(<span class="keywordtype">bool</span> value);
+<a name="l00265"></a>00265     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">Edit::ImeConvert</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ae7d9ceade68514139a61f8680c1d492e" title="IME の変換モード。初期値は Edit::ImeConvert::default。">imeConvert</a>() <span class="keyword">const</span>;
+<a name="l00266"></a>00266     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ae7d9ceade68514139a61f8680c1d492e" title="IME の変換モード。初期値は Edit::ImeConvert::default。">imeConvert</a>(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">Edit::ImeConvert</a> value);
+<a name="l00268"></a>00268     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aabd618f6eed8d6711e539acf2e094abd" title="imeMode() と imeConvert() を現在の状態からユーザが変更できなくするかどうか。初期値は false。">imeFixed</a>() <span class="keyword">const</span>;
+<a name="l00269"></a>00269     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aabd618f6eed8d6711e539acf2e094abd" title="imeMode() と imeConvert() を現在の状態からユーザが変更できなくするかどうか。初期値は false。">imeFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00271"></a>00271     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">Edit::ImeMode</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a22fabcae36dedf19f3c0397b1debb0f3" title="IME の動作。初期値は Edit::ImeConvert::default。">imeMode</a>() <span class="keyword">const</span>;
+<a name="l00272"></a>00272     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a22fabcae36dedf19f3c0397b1debb0f3" title="IME の動作。初期値は Edit::ImeConvert::default。">imeMode</a>(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">Edit::ImeMode</a> value);
+<a name="l00274"></a>00274     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html" title="IME の挙動を表すフラグ。組み合わせで指定する。">Edit::ImeStatus</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ab3f364c4bd8741673a0d5a9f32426abd" title="IME の挙動を表すフラグ。初期値は Edit::ImeStatus::none。">imeStatus</a>() <span class="keyword">const</span>;
+<a name="l00275"></a>00275     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ab3f364c4bd8741673a0d5a9f32426abd" title="IME の挙動を表すフラグ。初期値は Edit::ImeStatus::none。">imeStatus</a>(<a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_status.html" title="IME の挙動を表すフラグ。組み合わせで指定する。">Edit::ImeStatus</a> value);
+<a name="l00277"></a>00277     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa8a6e2ab7494418875d979887b1196df" title="編集文字列の長さ。">length</a>() <span class="keyword">const</span>;
+<a name="l00279"></a>00279     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a500cc699207e164f9fadac115f2ddad4" title="編集文字列の行数。">lineCount</a>() <span class="keyword">const</span>;
+<a name="l00281"></a>00281     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a62e9ffc0354796929d8338b5f1db45f9" title="大文字を全て小文字として入力するどうか。初期値は false。">lowercaseOnly</a>() <span class="keyword">const</span>;
+<a name="l00282"></a>00282     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a62e9ffc0354796929d8338b5f1db45f9" title="大文字を全て小文字として入力するどうか。初期値は false。">lowercaseOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00286"></a>00286     <a class="code" href="classbalor_1_1gui_1_1_padding.html" title="上下左右の余白を表す。">Padding</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5bb699d06996411de49e3e695adbdafd" title="文字列とコントロールの間の余白。multiline() が false の場合は left と right しか指定できない。初期値は Padding(2, 0, 2...">margin</a>() <span class="keyword">const</span>;
+<a name="l00287"></a>00287     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5bb699d06996411de49e3e695adbdafd" title="文字列とコントロールの間の余白。multiline() が false の場合は left と right しか指定できない。初期値は Padding(2, 0, 2...">margin</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_padding.html" title="上下左右の余白を表す。">Padding</a>&amp; value);
+<a name="l00288"></a>00288     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5bb699d06996411de49e3e695adbdafd" title="文字列とコントロールの間の余白。multiline() が false の場合は left と right しか指定できない。初期値は Padding(2, 0, 2...">margin</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> top, <span class="keywordtype">int</span> right, <span class="keywordtype">int</span> bottom);
+<a name="l00290"></a>00290     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa73ebf4f7fae6d2ffe8625f9f549812e" title="入力できる最大文字数。">maxLength</a>() <span class="keyword">const</span>;
+<a name="l00291"></a>00291     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa73ebf4f7fae6d2ffe8625f9f549812e" title="入力できる最大文字数。">maxLength</a>(<span class="keywordtype">int</span> value);
+<a name="l00293"></a>00293     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a1a93d522f1e70d4f3c8d242974254a0b" title="文字列が編集されたかどうか。">modified</a>() <span class="keyword">const</span>;
+<a name="l00294"></a>00294     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a1a93d522f1e70d4f3c8d242974254a0b" title="文字列が編集されたかどうか。">modified</a>(<span class="keywordtype">bool</span> value);
+<a name="l00296"></a>00296     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ac1434100bee561c6dd4c8175ab66632f" title="複数行入力できるかどうか。コンストラクタで options 引数に Edit::Options::multiline を設定したかどうか。">multiline</a>() <span class="keyword">const</span>;
+<a name="l00298"></a>00298     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a61717c1cf3bbaea0699af7cda6087fde" title="数字のみ許可するかどうか。ただし貼り付けした文字列はチェックされない。初期値は false。">numberOnly</a>() <span class="keyword">const</span>;
+<a name="l00299"></a>00299     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a61717c1cf3bbaea0699af7cda6087fde" title="数字のみ許可するかどうか。ただし貼り付けした文字列はチェックされない。初期値は false。">numberOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00301"></a>00301     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Edit::Paste&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa5b39b535c47aed837999080abe9897e" title="クリップボードの文字列を貼り付けるイベント。">onPaste</a>();
+<a name="l00303"></a>00303     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Edit::TextChange&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_edit.html#a09b1e3b3e1f00427ba5ab053655c6a31" title="文字列を変更して表示に反映する直前のイベント。">onTextChange</a>();
+<a name="l00305"></a>00305     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_options.html" title="コントロール作成後に変更できない設定。組み合わせで指定する。">Edit::Options</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa2b4ab4395a7ea8077b607a7252a9d6f" title="コントロール作成後に変更できない設定。">options</a>() <span class="keyword">const</span>;
+<a name="l00307"></a>00307     <span class="keywordtype">wchar_t</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa950e5ccb5d2b90165ff151948d00300" title="パスワード入力でパスワードを隠す文字。0 なら隠さない。初期値は 0。">passwordChar</a>() <span class="keyword">const</span>;
+<a name="l00308"></a>00308     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa950e5ccb5d2b90165ff151948d00300" title="パスワード入力でパスワードを隠す文字。0 なら隠さない。初期値は 0。">passwordChar</a>(<span class="keywordtype">wchar_t</span> value);
+<a name="l00310"></a>00310     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a8cd79c7a7758a062a7fcd8cd6406ac1b" title="クリップボードの文字列を貼り付ける。">paste</a>();
+<a name="l00312"></a>00312     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ab1df232cf370f687511a950be3759f7a" title="この Edit で想定される一行の文字数と行数。width は一行の文字数、height は行数を表す。getPreferredSize 関数に 0 を指定した時、この数値から大きさを求める。初期値は ...">preferredCharCount</a>() <span class="keyword">const</span>;
+<a name="l00313"></a>00313     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ab1df232cf370f687511a950be3759f7a" title="この Edit で想定される一行の文字数と行数。width は一行の文字数、height は行数を表す。getPreferredSize 関数に 0 を指定した時、この数値から大きさを求める。初期値は ...">preferredCharCount</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00314"></a>00314     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ab1df232cf370f687511a950be3759f7a" title="この Edit で想定される一行の文字数と行数。width は一行の文字数、height は行数を表す。getPreferredSize 関数に 0 を指定した時、この数値から大きさを求める。初期値は ...">preferredCharCount</a>(<span class="keywordtype">int</span> lineLength, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a500cc699207e164f9fadac115f2ddad4" title="編集文字列の行数。">lineCount</a>);
+<a name="l00316"></a>00316     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5c393afc233f83522c798817c8fd0f3d" title="読み取り専用かどうか。初期値は false。">readOnly</a>() <span class="keyword">const</span>;
+<a name="l00317"></a>00317     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a5c393afc233f83522c798817c8fd0f3d" title="読み取り専用かどうか。初期値は false。">readOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00319"></a>00319     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#afaf7ca27b190c37b0bcf8539ef4fc4d8" title="Scaler を使ってコントロールをスケーリングする。">scale</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_scaler.html" title="数値のスケーリングを行う。">Scaler</a>&amp; scaler);
+<a name="l00321"></a>00321     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a57905726e15404a219c345d8e0eabc0f" title="水平方向に x 文字数分、垂直方向に y 行分スクロールする。x は実際の文字数ではなく半角文字の平均文字幅のスクロール量。">scroll</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00323"></a>00323     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aff712ab355512f05c8181c07d0372b41" title="y行の x 文字目にスクロールする。x は実際の文字数ではなく半角文字の平均文字幅のスクロール量。">scrollInto</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00325"></a>00325     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a347fb5404201a04389270594c3a88c82" title="一行下にスクロールする。">scrollLineDown</a>();
+<a name="l00327"></a>00327     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a73c3ee0979c9c04dbe81d30b64c082e3" title="一行上にスクロールする。">scrollLineUp</a>();
+<a name="l00329"></a>00329     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa095a78e1a037dacc840e9e957316a9c" title="１ページ下にスクロールする。">scrollPageDown</a>();
+<a name="l00331"></a>00331     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa194663e7c26ee2fa50211991b23f4fa" title="１ページ上にスクロールする。">scrollPageUp</a>();
+<a name="l00333"></a>00333     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9ac7df23a392431348145417d79096da" title="キャレットが見える位置にスクロールする。">scrollToCaret</a>();
+<a name="l00335"></a>00335     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9824839f50423518a1f74ba0db0731ca" title="選択されている文字列。無い場合は空文字列を返す。">selectedText</a>() <span class="keyword">const</span>;
+<a name="l00336"></a>00336     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9824839f50423518a1f74ba0db0731ca" title="選択されている文字列。無い場合は空文字列を返す。">selectedText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00338"></a>00338     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Edit::Selection</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad14aae27312d0c5c37139c9ae2498075" title="文字列の選択状態。">selection</a>() <span class="keyword">const</span>;
+<a name="l00339"></a>00339     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad14aae27312d0c5c37139c9ae2498075" title="文字列の選択状態。">selection</a>(<span class="keyword">const</span> <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Edit::Selection</a>&amp; value);
+<a name="l00340"></a>00340     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ad14aae27312d0c5c37139c9ae2498075" title="文字列の選択状態。">selection</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#aa8a6e2ab7494418875d979887b1196df" title="編集文字列の長さ。">length</a>);
+<a name="l00342"></a>00342     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a6e83cf18c1cde0c07d2845bb3e379931" title="クライアント領域の大きさからコントロールの大きさを求める。">sizeFromClientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a164487130f93987e53161346f295a74e" title="クライアント領域の大きさ。">clientSize</a>) <span class="keyword">const</span>;
+<a name="l00344"></a>00344     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a94cd8a47cc66be6c556e9d6d06465967" title="tab 幅。初期値は取得できないがおそらく 8。">tabWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00346"></a>00346     <span class="keyword">using</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">Control::text</a>;
+<a name="l00347"></a>00347     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_control.html#a545b09af4b347242d687b329d12c9c29" title="文字列。コントロールによってタイトルだったりラベルだったりエディット内容だったり様々。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00349"></a>00349     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> <a class="code" href="classbalor_1_1gui_1_1_edit.html#adc87324c6becf1231c7045b041a74492" title="文字列の色。">textColor</a>() <span class="keyword">const</span>;
+<a name="l00350"></a>00350     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#adc87324c6becf1231c7045b041a74492" title="文字列の色。">textColor</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; value);
+<a name="l00352"></a>00352     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a9c96c4858e57c1455644637067472894" title="直前の編集をやり直す。">undo</a>();
+<a name="l00354"></a>00354     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ae34b159b779ac9316112a43ff896e959" title="小文字を全て大文字として入力するかどうか。初期値は false。">uppercaseOnly</a>() <span class="keyword">const</span>;
+<a name="l00355"></a>00355     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#ae34b159b779ac9316112a43ff896e959" title="小文字を全て大文字として入力するかどうか。初期値は false。">uppercaseOnly</a>(<span class="keywordtype">bool</span> value);
+<a name="l00357"></a>00357     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a2a3cc25a3d238cc0d90186c96f2a9cbb" title="垂直スクロールバーを表示するかどうか。multiline() が true の場合のみ有効。初期値は false。">vScrollBar</a>() <span class="keyword">const</span>;
+<a name="l00358"></a>00358     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a2a3cc25a3d238cc0d90186c96f2a9cbb" title="垂直スクロールバーを表示するかどうか。multiline() が true の場合のみ有効。初期値は false。">vScrollBar</a>(<span class="keywordtype">bool</span> value);
+<a name="l00359"></a>00359 
+<a name="l00360"></a>00360 <span class="keyword">protected</span>:
+<a name="l00362"></a>00362     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_edit.html#a946d461e26d4facec6a59fa95ff9e6a1" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00363"></a>00363 
+<a name="l00364"></a>00364 <span class="keyword">protected</span>:
+<a name="l00365"></a>00365     <span class="keywordtype">void</span> _initialize();
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367     <span class="keywordtype">bool</span> _owned;
+<a name="l00368"></a>00368     HBITMAP _caret;
+<a name="l00369"></a>00369     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _caretSize;
+<a name="l00370"></a>00370     <span class="keywordtype">int</span> _caretIndex;
+<a name="l00371"></a>00371     <span class="keywordtype">bool</span> _caretVisible;
+<a name="l00372"></a>00372     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">ImeMode</a> _imeMode;
+<a name="l00373"></a>00373     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_mode.html" title="IME の動作。">ImeMode</a> _imeModeBackup;
+<a name="l00374"></a>00374     <span class="keywordtype">bool</span> _imeModeChanging;
+<a name="l00375"></a>00375     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">ImeConvert</a> _imeConvert;
+<a name="l00376"></a>00376     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_ime_convert.html" title="IME の変換モード。">ImeConvert</a> _imeConvertBackup;
+<a name="l00377"></a>00377     <span class="keywordtype">bool</span> _imeFixed;
+<a name="l00378"></a>00378     <a class="code" href="classbalor_1_1gui_1_1_padding.html" title="上下左右の余白を表す。">Padding</a> _margin;
+<a name="l00379"></a>00379     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _preferredCharCount;
+<a name="l00380"></a>00380     <span class="keywordtype">bool</span> _textChanging;
+<a name="l00381"></a>00381     <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a> _textColor;
+<a name="l00382"></a>00382     <a class="code" href="classbalor_1_1_string_buffer.html" title="文字列の連結、挿入、削除や置換を行える文字列バッファ。">StringBuffer</a> _oldText;
+<a name="l00383"></a>00383     <a class="code" href="structbalor_1_1gui_1_1_edit_1_1_selection.html" title="文字列の選択状態。">Selection</a> _oldSelection;
+<a name="l00384"></a>00384     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Edit::Paste&amp;&gt;</a> _onPaste;
+<a name="l00385"></a>00385     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Edit::TextChange&amp;&gt;</a> _onTextChange;
+<a name="l00386"></a>00386 };
+<a name="l00387"></a>00387 
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390     }
+<a name="l00391"></a>00391 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/DragDrop.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/DragDrop.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/system/ComPtr.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/OutOfMemoryException.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;balor/StringRangeArray.hpp&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">struct </span>_IMAGELIST;
+<a name="l00010"></a>00010 <span class="keyword">struct </span>IDataObject;
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">namespace </span>balor {
+<a name="l00013"></a>00013     <span class="keyword">namespace </span>graphics {
+<a name="l00014"></a>00014         <span class="keyword">class </span>Bitmap;
+<a name="l00015"></a>00015     }
+<a name="l00016"></a>00016     <span class="keyword">namespace </span>io {
+<a name="l00017"></a>00017         <span class="keyword">class </span>MemoryStream;
+<a name="l00018"></a>00018         <span class="keyword">class </span>Stream;
+<a name="l00019"></a>00019     }
+<a name="l00020"></a>00020 }
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>balor {
+<a name="l00024"></a>00024     <span class="keyword">namespace </span>gui {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 
+<a name="l00069"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop.html">00069</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop.html" title="ドラッグ＆ドロップ機能を提供する。">DragDrop</a> {
+<a name="l00070"></a>00070 <span class="keyword">public</span>:
+<a name="l00071"></a>00071     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00072"></a>00072     <span class="keyword">typedef</span> Control::HBITMAP HBITMAP;
+<a name="l00073"></a>00073     <span class="keyword">typedef</span> Control::HCURSOR HCURSOR;
+<a name="l00074"></a>00074     typedef ::balor::graphics::Bitmap <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a>;
+<a name="l00075"></a>00075     typedef ::balor::io::MemoryStream <a class="code" href="classbalor_1_1io_1_1_memory_stream.html" title="固定長メモリまたは動的に割り当てたメモリのストリーム。">MemoryStream</a>;
+<a name="l00076"></a>00076     typedef ::balor::io::Stream <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>;
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>;
+<a name="l00079"></a>00079     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>;
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">private</span>:
+<a name="l00082"></a>00082     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_drop_source.html" title="ドラッグドロップを開始する COM インターフェース。">DropSource</a>;
+<a name="l00083"></a>00083     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_drop_target.html" title="ドラッグドロップを受け取る COM インターフェース。">DropTarget</a>;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="keyword">public</span>:
+<a name="l00087"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_out_of_memory_exception.html">00087</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_out_of_memory_exception.html" title="メモリが足りなかった。">OutOfMemoryException</a> : <span class="keyword">public</span> ::balor::<a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_out_of_memory_exception.html" title="メモリが足りなかった。">OutOfMemoryException</a> {};
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 
+<a name="l00091"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html">00091</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> {
+<a name="l00092"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504">00092</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504">_enum</a> {
+<a name="l00093"></a>00093             none   = 0         , 
+<a name="l00094"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a3c72b8f3f6587b0ae39fc167b5a2e03b">00094</a>             <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a3c72b8f3f6587b0ae39fc167b5a2e03b" title="何も行われなかった。">copy</a>   = 1         , 
+<a name="l00095"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aa8cfa385567e62fd2ab22b5043c74048">00095</a>             <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aa8cfa385567e62fd2ab22b5043c74048" title="コピー操作を行う。">move</a>   = 2         , 
+<a name="l00096"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aaeb26a150f6b145b3283027f0dea6c12">00096</a>             <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aaeb26a150f6b145b3283027f0dea6c12" title="移動操作を行う。">link</a>   = 4         , 
+<a name="l00097"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a0942f8a886132c814eaa5106117295c1">00097</a>             <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a0942f8a886132c814eaa5106117295c1" title="ショートカットの作成操作を行う。">scroll</a> = 0x80000000, 
+<a name="l00098"></a>00098         };
+<a name="l00099"></a>00099         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a>);
+<a name="l00100"></a>00100     };
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 
+<a name="l00104"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html">00104</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html" title="ドラッグ中のデータをドロップしたイベント。">Drop</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>::<a class="code" href="classbalor_1_1_event.html" title="すべてのイベントクラスの親クラス。">Event</a> {
+<a name="l00105"></a>00105         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html" title="ドラッグ中のデータをドロップしたイベント。">Drop</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1_event_with_sender.html#aa11f5b1855b67b45760c30d64e14989d" title="イベント発生源。">sender</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#aa384e7e683aa02b7fa7b536d5c943cfa" title="ドラッグしているデータ。">data</a>, <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a366da18e3ba404cc7c99e346a7c64a08" title="ドラッグ元が許可する操作の組み合わせ。">allowedEffects</a>, <span class="keywordtype">int</span> keyState, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#ab679b6b99e4a275fda73320190b11f8e" title="マウスカーソルの位置。">position</a>);
+<a name="l00107"></a>00107         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a366da18e3ba404cc7c99e346a7c64a08" title="ドラッグ元が許可する操作の組み合わせ。">allowedEffects</a>() <span class="keyword">const</span>;
+<a name="l00109"></a>00109         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a950afca23b2ae76058da7493737b2a0a" title="ALT キーが押されているかどうか。">alt</a>() <span class="keyword">const</span>;
+<a name="l00111"></a>00111         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#aae9f963da18a873f3f41c42cbca857a2" title="CTRL キーが押されているかどうか。">ctrl</a>() <span class="keyword">const</span>;
+<a name="l00113"></a>00113         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">DragDrop::Data</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#aa384e7e683aa02b7fa7b536d5c943cfa" title="ドラッグしているデータ。">data</a>() <span class="keyword">const</span>;
+<a name="l00115"></a>00115         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a0dba69d607c93ca0f93f00e97aa1cfc2" title="ドラッグ＆ドロップの操作。組み合わせではない値になる。初期値はエクスプローラと同じ挙動。">effect</a>() <span class="keyword">const</span>;
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a0dba69d607c93ca0f93f00e97aa1cfc2" title="ドラッグ＆ドロップの操作。組み合わせではない値になる。初期値はエクスプローラと同じ挙動。">effect</a>(<a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> value);
+<a name="l00118"></a>00118         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a71e1b2b7b254feca5261bb9a4a13b762" title="マウスの左ボタンが押されているかどうか。">lButton</a>() <span class="keyword">const</span>;
+<a name="l00120"></a>00120         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a9d10b5cfc83e053b3914b5895a4982d2" title="マウスの中央ボタンが押されているかどうか。">mButton</a>() <span class="keyword">const</span>;
+<a name="l00122"></a>00122         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#ab679b6b99e4a275fda73320190b11f8e" title="マウスカーソルの位置。">position</a>() <span class="keyword">const</span>;
+<a name="l00124"></a>00124         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#afb402de68d6536e670e6269dcc4ffef6" title="マウスの右ボタンが押されているかどうか。">rButton</a>() <span class="keyword">const</span>;
+<a name="l00126"></a>00126         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html#a64174509d37e88e5f6954c86f2d25514" title="Shift キーが押されているかどうか。">shift</a>() <span class="keyword">const</span>;
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128     <span class="keyword">private</span>:
+<a name="l00129"></a>00129         <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>&amp; _data;
+<a name="l00130"></a>00130         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> _allowedEffects;
+<a name="l00131"></a>00131         <span class="keywordtype">int</span> _keyState;
+<a name="l00132"></a>00132         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> _position;
+<a name="l00133"></a>00133         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> _effect;
+<a name="l00134"></a>00134     };
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 
+<a name="l00138"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#a03cc521dacfee625295f1e5afa375a88">00138</a>     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html" title="ドラッグ中のデータをドロップしたイベント。">Drop</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#a03cc521dacfee625295f1e5afa375a88" title="ドラッグ中のマウスカーソルがコントロール上に入ったイベント。">Enter</a>;
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 
+<a name="l00143"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html">00143</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html" title="ドラッグ＆ドロップの操作 に対して適切なカーソルを設定するイベント。設定しなかった場合はシステムのデフォルトの挙動になる。 DragDrop::Target クラスの onDragEnter や onD...">Feedback</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>::<a class="code" href="classbalor_1_1_event.html" title="すべてのイベントクラスの親クラス。">Event</a> {
+<a name="l00144"></a>00144         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html" title="ドラッグ＆ドロップの操作 に対して適切なカーソルを設定するイベント。設定しなかった場合はシステムのデフォルトの挙動になる。 DragDrop::Target クラスの onDragEnter や onD...">Feedback</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1_event_with_sender.html#aa11f5b1855b67b45760c30d64e14989d" title="イベント発生源。">sender</a>, <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html#ac6fbdced6938714f75b507b5d481cd89" title="現状のドラッグ＆ドロップの操作。">effect</a>);
+<a name="l00145"></a>00145 
+<a name="l00147"></a>00147         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html#aeb71b89a442b1e9fe6fd975e123db652" title="カーソルを設定する。設定しなかった場合はシステムのデフォルトのカーソルになる。">cursor</a>(HCURSOR value);
+<a name="l00149"></a>00149         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_feedback.html#ac6fbdced6938714f75b507b5d481cd89" title="現状のドラッグ＆ドロップの操作。">effect</a>() <span class="keyword">const</span>;
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151     <span class="keyword">private</span>:
+<a name="l00152"></a>00152         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_drop_source.html" title="ドラッグドロップを開始する COM インターフェース。">DropSource</a>;
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">Effect</a> _effect;
+<a name="l00155"></a>00155         <span class="keywordtype">bool</span> _useDefaultCursor;
+<a name="l00156"></a>00156     };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 
+<a name="l00160"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#ac9ed3488c93862ece100648f988c8360">00160</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Control::Event</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#ac9ed3488c93862ece100648f988c8360" title="ドラッグ中のマウスカーソルがコントロール上から出たイベント。">Leave</a>;
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 
+<a name="l00164"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#ac81a15d2ee0b7202dbe7e889c5d4cd3e">00164</a>     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_drop.html" title="ドラッグ中のデータをドロップしたイベント。">Drop</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#ac81a15d2ee0b7202dbe7e889c5d4cd3e" title="ドラッグ中にマウスカーソルがコントロール上を移動したイベント。">Move</a>;
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166 
+<a name="l00169"></a><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html">00169</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html" title="キー入力状態等からドラッグ＆ドロップを続行するかキャンセルするか決めるイベント。 DragDrop::Target クラスの onDragEnter や onDragMove イベント等の前に発生する。...">QueryContinue</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>::<a class="code" href="classbalor_1_1_event.html" title="すべてのイベントクラスの親クラス。">Event</a> {
+<a name="l00170"></a>00170         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html" title="キー入力状態等からドラッグ＆ドロップを続行するかキャンセルするか決めるイベント。 DragDrop::Target クラスの onDragEnter や onDragMove イベント等の前に発生する。...">QueryContinue</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1_event_with_sender.html#aa11f5b1855b67b45760c30d64e14989d" title="イベント発生源。">sender</a>, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a732fd62c0e769f163cdc915e7adea9fb" title="ESC キーが押されたかどうか。">esc</a>, <span class="keywordtype">int</span> keyState);
+<a name="l00171"></a>00171 
+<a name="l00173"></a>00173         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#abbad01bfcba88c691f007d5027acfb40" title="ALT キーが押されているかどうか。">alt</a>() <span class="keyword">const</span>;
+<a name="l00175"></a>00175         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a8bd2eac768839688a7f625aeeead8eb4" title="ドラッグ＆ドロップをキャンセルするかどうか。">cancelDrag</a>() <span class="keyword">const</span>;
+<a name="l00176"></a>00176         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a8bd2eac768839688a7f625aeeead8eb4" title="ドラッグ＆ドロップをキャンセルするかどうか。">cancelDrag</a>(<span class="keywordtype">bool</span> value);
+<a name="l00178"></a>00178         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#aeee0900b943ba8e07f3cec8399762545" title="CTRL キーが押されているかどうか。">ctrl</a>() <span class="keyword">const</span>;
+<a name="l00180"></a>00180         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#ae8a2fceb2d52c8e876416df686d654ea" title="ドロップしてドラッグ＆ドロップを終了するかどうか。">drop</a>() <span class="keyword">const</span>;
+<a name="l00181"></a>00181         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#ae8a2fceb2d52c8e876416df686d654ea" title="ドロップしてドラッグ＆ドロップを終了するかどうか。">drop</a>(<span class="keywordtype">bool</span> value);
+<a name="l00183"></a>00183         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a732fd62c0e769f163cdc915e7adea9fb" title="ESC キーが押されたかどうか。">esc</a>() <span class="keyword">const</span>;
+<a name="l00185"></a>00185         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a0c42713f300640a799327b09f8d7b4b5" title="マウスの左ボタンが押されているかどうか。">lButton</a>() <span class="keyword">const</span>;
+<a name="l00187"></a>00187         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a79d437348c7ad3e2e275958195e0140c" title="マウスの中央ボタンが押されているかどうか。">mButton</a>() <span class="keyword">const</span>;
+<a name="l00189"></a>00189         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#a001a271da86c76a123921a61120123fd" title="マウスの右ボタンが押されているかどうか。">rButton</a>() <span class="keyword">const</span>;
+<a name="l00191"></a>00191         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_query_continue.html#acf23ab75e78cf7c38998e92ca47491a2" title="Shift キーが押されているかどうか。">shift</a>() <span class="keyword">const</span>;
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193     <span class="keyword">private</span>:
+<a name="l00194"></a>00194         <span class="keywordtype">bool</span> _esc;
+<a name="l00195"></a>00195         <span class="keywordtype">int</span> _keyState;
+<a name="l00196"></a>00196         <span class="keywordtype">bool</span> _cancelDrag;
+<a name="l00197"></a>00197         <span class="keywordtype">bool</span> _drop;
+<a name="l00198"></a>00198     };
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201 <span class="keyword">public</span>:
+<a name="l00204"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html">00204</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>  : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00205"></a>00205         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>;
+<a name="l00206"></a>00206     <span class="keyword">public</span>:
+<a name="l00208"></a>00208         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>();
+<a name="l00209"></a>00209         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>&amp;&amp; value);
+<a name="l00211"></a>00211         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(HBITMAP bitmap);
+<a name="l00212"></a>00212         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a>&amp; bitmap);
+<a name="l00214"></a>00214         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<span class="keywordtype">int</span> memoryFormat, <a class="code" href="classbalor_1_1io_1_1_memory_stream.html" title="固定長メモリまたは動的に割り当てたメモリのストリーム。">MemoryStream</a>&amp; stream);
+<a name="l00216"></a>00216         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; text);
+<a name="l00217"></a>00217         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span>* text);
+<a name="l00218"></a>00218         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(<span class="keyword">const</span> std::basic_string&lt;<span class="keywordtype">wchar_t</span>, std::char_traits&lt;wchar_t&gt;, std::allocator&lt;wchar_t&gt; &gt;&amp; text);
+<a name="l00219"></a>00219         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a54669e60d61cd3d2eae7e9142d1590ae" title="空のデータを作成。">Data</a>(::IDataObject* dataObject);
+<a name="l00220"></a>00220         ~<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>();
+<a name="l00221"></a>00221         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">Data</a>&amp;&amp; value);
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223     <span class="keyword">public</span>:
+<a name="l00225"></a>00225         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a975c6384a3b79818573c0a38a22fa17e" title="データに ビットマップが含まれるかどうか。">containsBitmap</a>() <span class="keyword">const</span>;
+<a name="l00227"></a>00227         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a104e218103f83e1010920fbc50b62c7b" title="データに DIB ビットマップが含まれるかどうか。">containsDIB</a>() <span class="keyword">const</span>;
+<a name="l00229"></a>00229         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a13e0c5fc5e4f7a6a6be2420f0d646ac7" title="データにファイルドロップリストが含まれるかどうか。">containsFileDropList</a>() <span class="keyword">const</span>;
+<a name="l00231"></a>00231         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#ad2fc6dce0867573e69331b39fb8f070c" title="データにユーザ定義のメモリデータが含まれるかどうか。">containsMemory</a>(<span class="keywordtype">int</span> memoryFormat) <span class="keyword">const</span>;
+<a name="l00233"></a>00233         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a72c62ca5c4bd7c1e7a496c71fdd0f99e" title="データに文字列が含まれるかどうか。">containsText</a>() <span class="keyword">const</span>;
+<a name="l00235"></a>00235         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a58910d66c79710fb68f8b831214a83e0" title="DDB ビットマップを取得する。無い場合はヌルのビットマップを返す。">getBitmap</a>() <span class="keyword">const</span>;
+<a name="l00237"></a>00237         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a3228b0a34c6a1b831c3f8a6518425e48" title="DIB ビットマップを取得する。無い場合はヌルのビットマップを返す。">getDIB</a>() <span class="keyword">const</span>;
+<a name="l00239"></a>00239         std::vector&lt;String, std::allocator&lt;String&gt; &gt; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#abf1af48434f410fd1bcf8d0b92c33e90" title="ファイルドロップリストを取得する。無い場合は空の配列を返す。">getFileDropList</a>() <span class="keyword">const</span>;
+<a name="l00241"></a>00241         <a class="code" href="classbalor_1_1io_1_1_memory_stream.html" title="固定長メモリまたは動的に割り当てたメモリのストリーム。">MemoryStream</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#afb1f5c07b85e0cef172411b17e66d0e8" title="ユーザ定義のメモリデータを取得する。無い場合は空のメモリストリームを返す。">getMemory</a>(<span class="keywordtype">int</span> memoryFormat) <span class="keyword">const</span>;
+<a name="l00243"></a>00243         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#ad9ca1b1820fdedf653a7ffd8ef1e1ff6" title="文字列を取得する。無い場合は空文字列を返す。">getText</a>() <span class="keyword">const</span>;
+<a name="l00245"></a>00245         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a146c2ede86ee4c929385bf1fc6e42e58" title="ユーザ定義のメモリフォーマット名を登録し、メモリフォーマットを返す。メモリフォーマット名が他のプロセスで既に登録されていたら同じメモリフォーマットを返す。">registerMemoryFormat</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> memoryFormatName);
+<a name="l00247"></a>00247         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a3aecb1a666397fc3ff6df441fd805358" title="DDB ビットマップを設定する。">setBitmap</a>(HBITMAP value);
+<a name="l00249"></a>00249         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#aea784ced7ccd6b8864dae1be43456629" title="DIB ビットマップを設定する。">setDIB</a>(HBITMAP value);
+<a name="l00251"></a>00251         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a0c1d5712e83a3da559e55065c70e6589" title="ファイルドロップリストを設定する。">setFileDropList</a>(<a class="code" href="classbalor_1_1_string_range_array.html" title="見かけ上 StringRange の配列に見えるクラス。">StringRangeArray</a> value);
+<a name="l00253"></a>00253         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#a786d7d00973c72bfa5709764daa1d5e1" title="ユーザ定義のメモリデータを設定する。">setMemory</a>(<span class="keywordtype">int</span> memoryFormat, <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>&amp; stream);
+<a name="l00255"></a>00255         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html#ac8a903a3314442a8f2488375de76c581" title="文字列を設定する。">setText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257     <span class="keyword">private</span>:<a class="code" href="classbalor_1_1system_1_1_com_ptr.html"></a>
+<a name="l00258"></a>00258 <a class="code" href="classbalor_1_1system_1_1_com_ptr.html">		::balor::system::ComPtr&lt;::IDataObject&gt;</a> _dataObject;
+<a name="l00259"></a>00259     };
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261 
+<a name="l00263"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html">00263</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00264"></a>00264     <span class="keyword">public</span>:
+<a name="l00266"></a>00266         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#ab9003fba36ec3833b9a6789022189165" title="未初期化状態。">Source</a>();
+<a name="l00267"></a>00267         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#ab9003fba36ec3833b9a6789022189165" title="未初期化状態。">Source</a>(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>&amp;&amp; value);
+<a name="l00269"></a>00269         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#ab9003fba36ec3833b9a6789022189165" title="未初期化状態。">Source</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; control);
+<a name="l00270"></a>00270         ~<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>();
+<a name="l00271"></a>00271         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html" title="ドラッグ＆ドロップを開始するコントロールを表す。">Source</a>&amp;&amp; value);
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273     <span class="keyword">public</span>:
+<a name="l00276"></a>00276         <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#abeee847e47cd1186eef61127241cfd65" title="ドラッグ＆ドロップを開始する。最終的に行われた操作を返す。allowedEffect には許可するドラッグ＆ドロップ操作の組み合わせを設定する。 また画像リストとその画像インデックス、画像の左上からみた...">doDragDrop</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_data.html" title="ドラッグ＆ドロップするデータを表す。 ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。">DragDrop::Data</a>&amp; data, <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html" title="ドラッグ＆ドロップ操作。組み合わせで指定する。">DragDrop::Effect</a> allowedEffects = <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a3c72b8f3f6587b0ae39fc167b5a2e03b" title="何も行われなかった。">Effect::copy</a> | <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aa8cfa385567e62fd2ab22b5043c74048" title="コピー操作を行う。">Effect::move</a> | <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504aaeb26a150f6b145b3283027f0dea6c12" title="移動操作を行う。">Effect::link</a> | <a class="code" href="structbalor_1_1gui_1_1_drag_drop_1_1_effect.html#ad5468cfdf76fe7cc9cc17d3408128504a0942f8a886132c814eaa5106117295c1" title="ショートカットの作成操作を行う。">Effect::scroll</a>
+<a name="l00277"></a>00277             , HIMAGELIST imageList = <span class="keyword">nullptr</span>, <span class="keywordtype">int</span> imageIndex = 0, <span class="keywordtype">int</span> xHotSpot = 0, <span class="keywordtype">int</span> yHotSpot = 0);
+<a name="l00279"></a>00279         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::Feedback&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#ad772c3687a020e0a168f95b21e2346ec" title="ドラッグ＆ドロップの操作に対して適切なカーソルを設定するイベント。設定しなかった場合はシステムのデフォルトの挙動になる。">onFeedback</a>();
+<a name="l00281"></a>00281         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::QueryContinue&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_source.html#a9886e163d64a6aab04d836497fb70a11" title="キー入力状態等からドラッグ＆ドロップを続行するかキャンセルするか決めるイベント。">onQueryContinue</a>();
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283     <span class="keyword">private</span>:<a class="code" href="classbalor_1_1system_1_1_com_ptr.html"></a>
+<a name="l00284"></a>00284 <a class="code" href="classbalor_1_1system_1_1_com_ptr.html">		::balor::system::ComPtr&lt;DropSource&gt;</a> _dropSource;
+<a name="l00285"></a>00285     };
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 
+<a name="l00290"></a><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html">00290</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html" title="ドラッグ＆ロップを受け取るコントロールを表す。 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。">Target</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00291"></a>00291     <span class="keyword">public</span>:
+<a name="l00293"></a>00293         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a49c41c6778cccaf34f78e6cacc4d9a1d" title="未初期化状態。">Target</a>();
+<a name="l00294"></a>00294         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a49c41c6778cccaf34f78e6cacc4d9a1d" title="未初期化状態。">Target</a>(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html" title="ドラッグ＆ロップを受け取るコントロールを表す。 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。">Target</a>&amp;&amp; value);
+<a name="l00296"></a>00296         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a49c41c6778cccaf34f78e6cacc4d9a1d" title="未初期化状態。">Target</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; control);
+<a name="l00297"></a>00297         ~<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html" title="ドラッグ＆ロップを受け取るコントロールを表す。 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。">Target</a>();
+<a name="l00298"></a>00298         <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html" title="ドラッグ＆ロップを受け取るコントロールを表す。 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。">Target</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html" title="ドラッグ＆ロップを受け取るコントロールを表す。 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。">Target</a>&amp;&amp; value);
+<a name="l00299"></a>00299 
+<a name="l00300"></a>00300     <span class="keyword">public</span>:
+<a name="l00302"></a>00302         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::Drop&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a70c67bc4def81f03933c5f4533a7d48e" title="ドロップしたイベント。">onDrop</a>();
+<a name="l00305"></a>00305         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::Enter&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a8b31f604b4fcf2cd0f7e1fbf3d56cd5f" title="ドラッグ中のマウスカーソルがコントロール上に入ったイベント。ここで DragDrop::Enter::data() 関数がどのデータを持っているか調べて 処理できるデータが無ければ DragDrop::...">onEnter</a>();
+<a name="l00307"></a>00307         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::Leave&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#a4f90d18bfd4980c70f90e7583acb05fa" title="ドラッグ中のマウスカーソルがコントロール上から出たイベント。">onLeave</a>();
+<a name="l00310"></a>00310         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;DragDrop::Move&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_drag_drop_1_1_target.html#aa757cce889955ad4a242532148743ddf" title="ドラッグ中にマウスカーソルがコントロール上を移動したイベント。ここで DragDrop::Move::data() 関数がどのデータを持っているか調べて 処理できるデータが無ければ DragDrop::...">onMove</a>();
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312     <span class="keyword">private</span>:<a class="code" href="classbalor_1_1system_1_1_com_ptr.html"></a>
+<a name="l00313"></a>00313 <a class="code" href="classbalor_1_1system_1_1_com_ptr.html">		::balor::system::ComPtr&lt;DropTarget&gt;</a> _dropTarget;
+<a name="l00314"></a>00314     };
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316 
+<a name="l00317"></a>00317 <span class="keyword">public</span>:
+<a name="l00319"></a>00319     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_drag_drop.html#ae8270aff69165bacd499c53148d24736" title="マウスボタンを押しながら移動した時にドラッグ＆ドロップを開始する移動範囲のシステム標準。">defaultDragSize</a>();
+<a name="l00320"></a>00320 };
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324     }
+<a name="l00325"></a>00325 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

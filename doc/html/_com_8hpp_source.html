@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/Com.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/system/Com.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007     <span class="keyword">namespace </span>system {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00018"></a><a class="code" href="classbalor_1_1system_1_1_com.html">00018</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_com.html" title="COM の初期化と終了の自動化を提供する。">Com</a> {
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00021"></a><a class="code" href="classbalor_1_1system_1_1_com_1_1_uninitialized_exception.html">00021</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_com_1_1_uninitialized_exception.html" title="COM が未初期化だった場合。">UninitializedException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00022"></a>00022 
+<a name="l00024"></a><a class="code" href="classbalor_1_1system_1_1_com_1_1_interface_not_found_exception.html">00024</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1system_1_1_com_1_1_interface_not_found_exception.html" title="COM インターフェースがレジストリに未登録だったり未実装だった場合。">InterfaceNotFoundException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_com.html#a356762f32a2dc7a43b9a5e4599cd16c7" title="COM を初期化する。isSTA が true ならば STA、false ならば MTA で初期化する。">initialize</a>(<span class="keywordtype">bool</span> isSTA = <span class="keyword">true</span>);
+<a name="l00030"></a>00030     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1system_1_1_com.html#a1c10cb4591d992163f6a986919142c91" title="メインスレッドにおいて COM が初期済みか否かを返す。">initialized</a>();
+<a name="l00032"></a>00032     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1system_1_1_com.html#ac133da18149b4b7572e8e30e9c5fb0b2" title="メインスレッドかどうか。">isMainThread</a>();
+<a name="l00034"></a>00034     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_com.html#aefa173c673337852fbf2be53331a6b8b" title="OLE を初期化する。COM が未初期化であった場合は同時に COM を STA で初期化する。">oleInitialize</a>();
+<a name="l00036"></a>00036     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1system_1_1_com.html#a4b6abc68c62371719739b1f2e0b067f3" title="メインスレッドにおいて OLE が初期済みかどうか。">oleInitialized</a>();
+<a name="l00038"></a>00038     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_com.html#a37c9a01664e8cc9d51c77b7e2aa7e0b3" title="OLE の終了処理を行う。">oleUninitialize</a>();
+<a name="l00040"></a>00040     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1system_1_1_com.html#ad2154dce20e43f570008b09d28fe6a4c" title="COM の終了処理を行う。">uninitialize</a>();
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     }
+<a name="l00046"></a>00046 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

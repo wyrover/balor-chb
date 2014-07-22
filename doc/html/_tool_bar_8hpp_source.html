@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ToolBar.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/ToolBar.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">struct </span>_IMAGELIST;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>graphics {
+<a name="l00011"></a>00011 <span class="keyword">class </span>ImageList;
+<a name="l00012"></a>00012     }
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>balor {
+<a name="l00017"></a>00017     <span class="keyword">namespace </span>gui {
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">class </span>ToolTip;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00072"></a><a class="code" href="classbalor_1_1gui_1_1_tool_bar.html">00072</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00073"></a>00073 <span class="keyword">public</span>:
+<a name="l00074"></a>00074     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00075"></a>00075     typedef ::balor::graphics::ImageList <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a>;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 
+<a name="l00079"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html">00079</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ItemStyle</a> {
+<a name="l00080"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2da">00080</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2da">_enum</a> {
+<a name="l00081"></a>00081             button         = 0x0000, 
+<a name="l00082"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa9f4d04172c695f9346c1f29e2f70d113">00082</a>             <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa9f4d04172c695f9346c1f29e2f70d113" title="普通のボタン。">separator</a>      = 0x0001, 
+<a name="l00083"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa43570649b05543b783983262cbd8e2f2">00083</a>             <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa43570649b05543b783983262cbd8e2f2" title="ボタン同士の区切り。">checkBox</a>       = 0x0002, 
+<a name="l00084"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa7fb92edc0a8fbd26b75ff45a1aa28fa1">00084</a>             <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa7fb92edc0a8fbd26b75ff45a1aa28fa1" title="トグルボタン。">radioButton</a>    = 0x0006, 
+<a name="l00085"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa15c4b949c4887faee7a9619a25017fd7">00085</a>             <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa15c4b949c4887faee7a9619a25017fd7" title="ラジオボタン。">dropDown</a>       = 0x0088, 
+<a name="l00086"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa57effa7d492e068a4534d1e8431db4d0">00086</a>             <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html#a819e9e3e55df463e289f1ac5cd92a2daa57effa7d492e068a4534d1e8431db4d0" title="ドロップダウン。">dropDownButton</a> = 0x0008, 
+<a name="l00087"></a>00087         };
+<a name="l00088"></a>00088         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ItemStyle</a>);
+<a name="l00089"></a>00089     };
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092     <span class="keyword">class </span>ItemInfo;
+<a name="l00093"></a>00093     <span class="keyword">struct </span>ItemTipPopup;
+<a name="l00094"></a>00094     <span class="keyword">struct </span>Click;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00098"></a><a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html">00098</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">Item</a> {
+<a name="l00099"></a>00099     <span class="keyword">public</span>:
+<a name="l00100"></a>00100         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">Item</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#adfb23da25d8909ee89bcffd107801808" title="ツールバーのハンドル。">ownerHandle</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a8be1cc01bae0aca5b1096ef1452d8690" title="項目のインデックス。">index</a>);
+<a name="l00102"></a>00102         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a7dc11857624017cda6e98b131f8cc8c5" title="項目情報を反映。">operator=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp; itemInfo);
+<a name="l00103"></a>00103 
+<a name="l00105"></a>00105         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a1566a125e49fa168df8c2d52904223ac" title="項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。">autoSize</a>() <span class="keyword">const</span>;
+<a name="l00106"></a>00106         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a1566a125e49fa168df8c2d52904223ac" title="項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。">autoSize</a>(<span class="keywordtype">bool</span> value);
+<a name="l00108"></a>00108         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#afc981d4f2f07223b6ad5bbcb18064665" title="項目のクライアント座標領域。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00110"></a>00110         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a0e722a21ca2d82fae6a4f71d5376683a" title="トグルで押された状態かどうか。">checked</a>() <span class="keyword">const</span>;
+<a name="l00111"></a>00111         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a0e722a21ca2d82fae6a4f71d5376683a" title="トグルで押された状態かどうか。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00113"></a>00113         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a2c67b5665b1c422b93059dd19df39a44" title="押せる状態かどうか。">enabled</a>() <span class="keyword">const</span>;
+<a name="l00114"></a>00114         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a2c67b5665b1c422b93059dd19df39a44" title="押せる状態かどうか。">enabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00117"></a>00117         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#ada3d347ed8ae9dc5b4de9ba8fd5664c8" title="アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。 style() が ToolBar::ItemStyle::separator の場合はセパレータ...">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00118"></a>00118         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#ada3d347ed8ae9dc5b4de9ba8fd5664c8" title="アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。 style() が ToolBar::ItemStyle::separator の場合はセパレータ...">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00120"></a>00120         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a8be1cc01bae0aca5b1096ef1452d8690" title="項目のインデックス。">index</a>() <span class="keyword">const</span>;
+<a name="l00122"></a>00122         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a5e2f3c6aa79141e21579edff76e9adf4" title="文字列の &amp; を特別処理するかどうか。文字列をツールチップに表示する場合は無効。">noPrefix</a>() <span class="keyword">const</span>;
+<a name="l00123"></a>00123         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a5e2f3c6aa79141e21579edff76e9adf4" title="文字列の &amp; を特別処理するかどうか。文字列をツールチップに表示する場合は無効。">noPrefix</a>(<span class="keywordtype">bool</span> value);
+<a name="l00125"></a>00125         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#abd835356264b1dcc9d3f200573c896c3" title="ボタンを押したイベント。">onClick</a>();
+<a name="l00127"></a>00127         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::ItemTipPopup&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a3c39a8b55b50e61fcf6baf0864f2dbc2" title="項目のツールチップを表示するイベント。">onItemTipPopup</a>();
+<a name="l00129"></a>00129         HWND <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#adfb23da25d8909ee89bcffd107801808" title="ツールバーのハンドル。">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00132"></a>00132         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a73d4011b794a9d500ead26bb7bce82ea" title="text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。 ToolTip::bottomText() が false の場合のみ有効。...">rightText</a>() <span class="keyword">const</span>;
+<a name="l00133"></a>00133         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a73d4011b794a9d500ead26bb7bce82ea" title="text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。 ToolTip::bottomText() が false の場合のみ有効。...">rightText</a>(<span class="keywordtype">bool</span> value);
+<a name="l00135"></a>00135         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a2b4b1901ee3cc034eea44c243b6cb708" title="ボタンを押した状態かどうか。">pushed</a>() <span class="keyword">const</span>;
+<a name="l00138"></a>00138         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a3897fc14b9475f1752e80c61981eef92" title="セパレータのピクセル幅。wrap() が true の場合は縦方向の大きさ。 style() が ToolBar::ItemStyle::separator 以外の場合はアイコンの画像リストのインデック...">separatorSize</a>() <span class="keyword">const</span>;
+<a name="l00139"></a>00139         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a3897fc14b9475f1752e80c61981eef92" title="セパレータのピクセル幅。wrap() が true の場合は縦方向の大きさ。 style() が ToolBar::ItemStyle::separator 以外の場合はアイコンの画像リストのインデック...">separatorSize</a>(<span class="keywordtype">int</span> value);
+<a name="l00141"></a>00141         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ToolBar::ItemStyle</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#aeb12f0d5999b9671a43c3b98c8a49e5c" title="項目のスタイル。">style</a>() <span class="keyword">const</span>;
+<a name="l00142"></a>00142         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#aeb12f0d5999b9671a43c3b98c8a49e5c" title="項目のスタイル。">style</a>(<a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ToolBar::ItemStyle</a> value);
+<a name="l00145"></a>00145         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a4a528dfbee34799027b7146043308bd2" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a>() <span class="keyword">const</span>;
+<a name="l00146"></a>00146         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a4a528dfbee34799027b7146043308bd2" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00148"></a>00148         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a668711dd400d359ea0f31741541dfff0" title="表示するかどうか。。">visible</a>() <span class="keyword">const</span>;
+<a name="l00149"></a>00149         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a668711dd400d359ea0f31741541dfff0" title="表示するかどうか。。">visible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00152"></a>00152         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#aec41ba70e87716d322b33753a4fee1c1" title="項目のピクセル幅。文字列が表示されている場合（ToolBar::bottomText() が true か、または ToolBar::bottomText() が false かつ rightText(...">width</a>() <span class="keyword">const</span>;
+<a name="l00153"></a>00153         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#aec41ba70e87716d322b33753a4fee1c1" title="項目のピクセル幅。文字列が表示されている場合（ToolBar::bottomText() が true か、または ToolBar::bottomText() が false かつ rightText(...">width</a>(<span class="keywordtype">int</span> value);
+<a name="l00155"></a>00155         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a56551015b556e2955685471d3e83358d" title="次の項目から改行するかどうか。">wrap</a>() <span class="keyword">const</span>;
+<a name="l00156"></a>00156         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html#a56551015b556e2955685471d3e83358d" title="次の項目から改行するかどうか。">wrap</a>(<span class="keywordtype">bool</span> value);
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158     <span class="keyword">private</span>:
+<a name="l00159"></a>00159         HWND _ownerHandle;
+<a name="l00160"></a>00160         <span class="keywordtype">int</span> _index;
+<a name="l00161"></a>00161     };
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163 
+<a name="l00166"></a><a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html">00166</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a> {
+<a name="l00167"></a>00167     <span class="keyword">public</span>:
+<a name="l00169"></a>00169         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad313e63a878b89ec5f5a31ab1bc06ea8" title="セパレータとして作成。">ItemInfo</a>();
+<a name="l00170"></a>00170         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad313e63a878b89ec5f5a31ab1bc06ea8" title="セパレータとして作成。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp;&amp; value);
+<a name="l00172"></a>00172         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad313e63a878b89ec5f5a31ab1bc06ea8" title="セパレータとして作成。">ItemInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">Item</a>&amp; item);
+<a name="l00174"></a>00174         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad313e63a878b89ec5f5a31ab1bc06ea8" title="セパレータとして作成。">ItemInfo</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ace68555c77f014a63bb5e0c1c4bf4d98" title="アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。 style() が ToolBar::ItemStyle::separator の場合はセパレータ...">imageIndex</a>, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a8c7ae7af0a5308648b00333ef898ebd5" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a> = <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>(), <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aa764dcc3b3247247ed5b805f3ea70bc0" title="ボタンを押したイベント。">onClick</a> = <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a>());
+<a name="l00176"></a>00176         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad313e63a878b89ec5f5a31ab1bc06ea8" title="セパレータとして作成。">ItemInfo</a>(<span class="keywordtype">int</span> imageIndex, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a8c7ae7af0a5308648b00333ef898ebd5" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a>, <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ToolBar::ItemStyle</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a395651f7c5a6b69f36d9454e25b1cd9a" title="項目のスタイル。">style</a>, <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aa764dcc3b3247247ed5b805f3ea70bc0" title="ボタンを押したイベント。">onClick</a>);
+<a name="l00177"></a>00177         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp;&amp; value);
+<a name="l00178"></a>00178 
+<a name="l00180"></a>00180         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad6e8dc929d8e88f2cccf4ce8fe43f5ed" title="項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。初期値は false。...">autoSize</a>() <span class="keyword">const</span>;
+<a name="l00181"></a>00181         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ad6e8dc929d8e88f2cccf4ce8fe43f5ed" title="項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。初期値は false。...">autoSize</a>(<span class="keywordtype">bool</span> value);
+<a name="l00183"></a>00183         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a9bf4dd3a836c3d2864e45e9fe210e335" title="トグルで押された状態かどうか。">checked</a>() <span class="keyword">const</span>;
+<a name="l00184"></a>00184         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a9bf4dd3a836c3d2864e45e9fe210e335" title="トグルで押された状態かどうか。">checked</a>(<span class="keywordtype">bool</span> value);
+<a name="l00186"></a>00186         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a99ef0719e646b8f1935633ff210cc831" title="押せる状態かどうか。">enabled</a>() <span class="keyword">const</span>;
+<a name="l00187"></a>00187         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a99ef0719e646b8f1935633ff210cc831" title="押せる状態かどうか。">enabled</a>(<span class="keywordtype">bool</span> value);
+<a name="l00190"></a>00190         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ace68555c77f014a63bb5e0c1c4bf4d98" title="アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。 style() が ToolBar::ItemStyle::separator の場合はセパレータ...">imageIndex</a>() <span class="keyword">const</span>;
+<a name="l00191"></a>00191         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ace68555c77f014a63bb5e0c1c4bf4d98" title="アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。 style() が ToolBar::ItemStyle::separator の場合はセパレータ...">imageIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00193"></a>00193         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aff9baad5eb2e9ec448adf5bbae4debea" title="文字列の &amp; を特別処理するかどうか。文字列をツールチップに表示する場合は無効。初期値は false。">noPrefix</a>() <span class="keyword">const</span>;
+<a name="l00194"></a>00194         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aff9baad5eb2e9ec448adf5bbae4debea" title="文字列の &amp; を特別処理するかどうか。文字列をツールチップに表示する場合は無効。初期値は false。">noPrefix</a>(<span class="keywordtype">bool</span> value);
+<a name="l00196"></a>00196         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aa764dcc3b3247247ed5b805f3ea70bc0" title="ボタンを押したイベント。">onClick</a>();
+<a name="l00197"></a>00197         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#aa764dcc3b3247247ed5b805f3ea70bc0" title="ボタンを押したイベント。">onClick</a>() <span class="keyword">const</span>;
+<a name="l00199"></a>00199         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::ItemTipPopup&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ab7a57eee7394a011e01f87a3890dbe79" title="項目のツールチップを表示するイベント。">onItemTipPopup</a>();
+<a name="l00200"></a>00200         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::ItemTipPopup&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#ab7a57eee7394a011e01f87a3890dbe79" title="項目のツールチップを表示するイベント。">onItemTipPopup</a>() <span class="keyword">const</span>;
+<a name="l00203"></a>00203         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a3b75632c2cf1f032f29794a6ac7d1722" title="text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。初期値は false。 ToolTip::bottomText() が false の場合の...">rightText</a>() <span class="keyword">const</span>;
+<a name="l00204"></a>00204         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a3b75632c2cf1f032f29794a6ac7d1722" title="text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。初期値は false。 ToolTip::bottomText() が false の場合の...">rightText</a>(<span class="keywordtype">bool</span> value);
+<a name="l00207"></a>00207         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a31a37ae4d67aedc9967771b5960b81f9" title="セパレータのピクセル幅。0 の場合はデフォルトの大きさ。wrap() が true の場合は縦方向の大きさ。 style() が ToolBar::ItemStyle::separator 以外の場合は...">separatorSize</a>() <span class="keyword">const</span>;
+<a name="l00208"></a>00208         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a31a37ae4d67aedc9967771b5960b81f9" title="セパレータのピクセル幅。0 の場合はデフォルトの大きさ。wrap() が true の場合は縦方向の大きさ。 style() が ToolBar::ItemStyle::separator 以外の場合は...">separatorSize</a>(<span class="keywordtype">int</span> value);
+<a name="l00210"></a>00210         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ToolBar::ItemStyle</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a395651f7c5a6b69f36d9454e25b1cd9a" title="項目のスタイル。">style</a>() <span class="keyword">const</span>;
+<a name="l00211"></a>00211         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a395651f7c5a6b69f36d9454e25b1cd9a" title="項目のスタイル。">style</a>(<a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_style.html" title="項目のスタイル。">ToolBar::ItemStyle</a> value);
+<a name="l00214"></a>00214         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a8c7ae7af0a5308648b00333ef898ebd5" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a>() <span class="keyword">const</span>;
+<a name="l00215"></a>00215         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a8c7ae7af0a5308648b00333ef898ebd5" title="項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。 ...">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00217"></a>00217         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#af5f04282ba031daadd294604d3cb735d" title="表示するかどうか。初期値は true。">visible</a>() <span class="keyword">const</span>;
+<a name="l00218"></a>00218         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#af5f04282ba031daadd294604d3cb735d" title="表示するかどうか。初期値は true。">visible</a>(<span class="keywordtype">bool</span> value);
+<a name="l00220"></a>00220         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a87cb9286181f5179be0c7f6d53149908" title="次の項目から改行するかどうか。初期値は false。">wrap</a>() <span class="keyword">const</span>;
+<a name="l00221"></a>00221         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html#a87cb9286181f5179be0c7f6d53149908" title="次の項目から改行するかどうか。初期値は false。">wrap</a>(<span class="keywordtype">bool</span> value);
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223     <span class="keyword">private</span>:
+<a name="l00224"></a>00224         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>;
+<a name="l00225"></a>00225         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">Item</a>;
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227         <span class="keywordtype">int</span> _imageIndex;
+<a name="l00228"></a>00228         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _text;
+<a name="l00229"></a>00229         <span class="keywordtype">int</span> _itemDataStyle;
+<a name="l00230"></a>00230         <span class="keywordtype">int</span> _itemDataState;
+<a name="l00231"></a>00231         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a> _onClick;
+<a name="l00232"></a>00232         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::ItemTipPopup&amp;&gt;</a> _onItemTipPopup;
+<a name="l00233"></a>00233     };
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 
+<a name="l00237"></a><a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#af501f5048a19e54ac15b76d678d0584d">00237</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;ToolBar, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#af501f5048a19e54ac15b76d678d0584d" title="ツールバーのイベントの親クラス。">Event</a>;
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239 
+<a name="l00241"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html">00241</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html" title="項目で発生するイベント。">ItemEvent</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00242"></a>00242         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html" title="項目で発生するイベント。">ItemEvent</a>(<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex);
+<a name="l00243"></a>00243 
+<a name="l00245"></a>00245         <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">ToolBar::Item</a> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html#ae5792a1a817ba02222e6fd6cc6e79559" title="イベントの発生した項目。">item</a>() <span class="keyword">const</span>;
+<a name="l00246"></a>00246 
+<a name="l00247"></a>00247     <span class="keyword">private</span>:
+<a name="l00248"></a>00248         <span class="keywordtype">int</span> _itemIndex;
+<a name="l00249"></a>00249     };
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251 
+<a name="l00253"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_click.html">00253</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_click.html" title="ボタンをクリックしたイベント。">Click</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html" title="項目で発生するイベント。">ItemEvent</a> {
+<a name="l00254"></a>00254         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_click.html" title="ボタンをクリックしたイベント。">Click</a>(<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_click.html#a1eb8ba3bea14777563b3c35bfcb349b7" title="ドロップダウンをクリックしたかどうか。">dropDown</a>);
+<a name="l00255"></a>00255 
+<a name="l00257"></a>00257         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_click.html#a1eb8ba3bea14777563b3c35bfcb349b7" title="ドロップダウンをクリックしたかどうか。">dropDown</a>() <span class="keyword">const</span>;
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259     <span class="keyword">private</span>:
+<a name="l00260"></a>00260         <span class="keywordtype">bool</span> _dropDown;
+<a name="l00261"></a>00261     };
+<a name="l00262"></a>00262 
+<a name="l00263"></a>00263 
+<a name="l00265"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_tip_popup.html">00265</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_tip_popup.html" title="項目のツールチップを表示するイベント。">ItemTipPopup</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_event.html" title="項目で発生するイベント。">ItemEvent</a> {
+<a name="l00266"></a>00266         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_tip_popup.html" title="項目のツールチップを表示するイベント。">ItemTipPopup</a>(<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keywordtype">wchar_t</span>* buffer, <span class="keywordtype">int</span> bufferSize);
+<a name="l00267"></a>00267 
+<a name="l00269"></a>00269         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_tip_popup.html#ae705f497917e7fcd7740bd940516e636" title="表示する文字列を設定する。文字列の長さには上限があって切り捨てられる。">setText</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00270"></a>00270 
+<a name="l00271"></a>00271     <span class="keyword">private</span>:
+<a name="l00272"></a>00272         <span class="keywordtype">wchar_t</span>* _buffer;
+<a name="l00273"></a>00273         <span class="keywordtype">int</span> _bufferSize;
+<a name="l00274"></a>00274     };
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277 <span class="keyword">public</span>:
+<a name="l00279"></a>00279     <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a9859b33c930373c28cbf31f52959a185" title="ヌルポインタで作成。">ToolBar</a>();
+<a name="l00280"></a>00280     <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a9859b33c930373c28cbf31f52959a185" title="ヌルポインタで作成。">ToolBar</a>(<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00282"></a>00282     <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a9859b33c930373c28cbf31f52959a185" title="ヌルポインタで作成。">ToolBar</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, HIMAGELIST <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6fc57ad14e714c9f479fc9ce394c8feb" title="項目の画像リスト。ToolBar は画像リストのハンドルを破棄しない。">imageList</a>);
+<a name="l00284"></a>00284     <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a9859b33c930373c28cbf31f52959a185" title="ヌルポインタで作成。">ToolBar</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, HIMAGELIST <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6fc57ad14e714c9f479fc9ce394c8feb" title="項目の画像リスト。ToolBar は画像リストのハンドルを破棄しない。">imageList</a>, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#ac0b6a406282265d378ca48b8ebfc24f8" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>);
+<a name="l00285"></a>00285     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>();
+<a name="l00286"></a>00286     <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_tool_bar.html" title="ツールバー。">ToolBar</a>&amp;&amp; value);
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 <span class="keyword">public</span>:
+<a name="l00290"></a>00290     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a06a542480b162c55b3a264fefb0e0d2a" title="項目を追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp; itemInfo);
+<a name="l00295"></a>00295     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a88ddbde2972792317e0be7b576a1f663" title="ボタンの下部に文字列を表示するかどうか。true の場合は ToolTip::Item::text() がボタンの下部に常に表示される。 ツールチップを表示する場合は ToolTip::Item::on...">bottomText</a>() <span class="keyword">const</span>;
+<a name="l00296"></a>00296     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a88ddbde2972792317e0be7b576a1f663" title="ボタンの下部に文字列を表示するかどうか。true の場合は ToolTip::Item::text() がボタンの下部に常に表示される。 ツールチップを表示する場合は ToolTip::Item::on...">bottomText</a>(<span class="keywordtype">bool</span> value);
+<a name="l00298"></a>00298     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a5b8102984765872ac3cc3984a3438295" title="項目を全て削除する。">clear</a>();
+<a name="l00300"></a>00300     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a3f99ef47e9f3fd4d1249a0a1e36e0a1c" title="項目数。">count</a>() <span class="keyword">const</span>;
+<a name="l00302"></a>00302     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#acbd3c466bf5713536f815b723a2392f9" title="入力を受け付けない項目の画像リスト。設定しない場合は imageList() の画像がグレイスケールで表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。">disabledImageList</a>() <span class="keyword">const</span>;
+<a name="l00303"></a>00303     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#acbd3c466bf5713536f815b723a2392f9" title="入力を受け付けない項目の画像リスト。設定しない場合は imageList() の画像がグレイスケールで表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。">disabledImageList</a>(HIMAGELIST value);
+<a name="l00305"></a>00305     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a5b7e27c7ad5d20626fe97f9dd6f086bf" title="上部に2ピクセル分のハイライト表示をするかどうか。初期値は false。">divider</a>() <span class="keyword">const</span>;
+<a name="l00306"></a>00306     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a5b7e27c7ad5d20626fe97f9dd6f086bf" title="上部に2ピクセル分のハイライト表示をするかどうか。初期値は false。">divider</a>(<span class="keywordtype">bool</span> value);
+<a name="l00308"></a>00308     <a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a3dbdc2e9d5c3ab5d0b26027fb70ae915" title="コントロールの境界線の種類。初期値は Control::Edge::none。">edge</a>() <span class="keyword">const</span>;
+<a name="l00309"></a>00309     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a3dbdc2e9d5c3ab5d0b26027fb70ae915" title="コントロールの境界線の種類。初期値は Control::Edge::none。">edge</a>(<a class="code" href="structbalor_1_1gui_1_1_control_1_1_edge.html" title="コントロールの境界線の種類。">Control::Edge</a> value);
+<a name="l00311"></a>00311     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a84a045a87d3bab6e2664a58dc8cd0dfd" title="項目を削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00313"></a>00313     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6af3173ff679b48d66c972f73990208e" title="フォーカスされている項目インデックス。無い場合は -1。">focusedIndex</a>() <span class="keyword">const</span>;
+<a name="l00314"></a>00314     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6af3173ff679b48d66c972f73990208e" title="フォーカスされている項目インデックス。無い場合は -1。">focusedIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00316"></a>00316     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a592fd43b00d2bea52e62ee2a80733e24" title="指定したクライアント座標にある項目のインデックスを取得する。セパレータのインデックスは返さない。見つからない場合は負数を返す。">getIndexAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00317"></a>00317     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a592fd43b00d2bea52e62ee2a80733e24" title="指定したクライアント座標にある項目のインデックスを取得する。セパレータのインデックスは返さない。見つからない場合は負数を返す。">getIndexAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00319"></a>00319     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#ae3d1c6c514020b967e07aa29ea7168e1" title="適切なコントロールサイズ。">getPreferredSize</a>(<span class="keywordtype">int</span> width = 0, <span class="keywordtype">int</span> height = 0) <span class="keyword">const</span>;
+<a name="l00321"></a>00321     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a454c2dd2769b456b37bffb8aa8f47a98" title="少しでも表示しきれない項目を隠すかどうか。初期値は false。">hideClippedItems</a>() <span class="keyword">const</span>;
+<a name="l00322"></a>00322     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a454c2dd2769b456b37bffb8aa8f47a98" title="少しでも表示しきれない項目を隠すかどうか。初期値は false。">hideClippedItems</a>(<span class="keywordtype">bool</span> value);
+<a name="l00324"></a>00324     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a90e9321b9c3b2f29053411413e6fff87" title="マウスカーソルの下の項目の画像リスト。設定しない場合は imageList() の画像が表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。">hotImageList</a>() <span class="keyword">const</span>;
+<a name="l00325"></a>00325     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a90e9321b9c3b2f29053411413e6fff87" title="マウスカーソルの下の項目の画像リスト。設定しない場合は imageList() の画像が表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。">hotImageList</a>(HIMAGELIST value);
+<a name="l00327"></a>00327     <a class="code" href="classbalor_1_1graphics_1_1_image_list.html" title="画像リスト。">ImageList</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6fc57ad14e714c9f479fc9ce394c8feb" title="項目の画像リスト。ToolBar は画像リストのハンドルを破棄しない。">imageList</a>() <span class="keyword">const</span>;
+<a name="l00328"></a>00328     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6fc57ad14e714c9f479fc9ce394c8feb" title="項目の画像リスト。ToolBar は画像リストのハンドルを破棄しない。">imageList</a>(HIMAGELIST value);
+<a name="l00330"></a>00330     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a18259b478355dfa8889f2c4b36f5effd" title="最初の項目の横方向のピクセル位置。初期値はおそらく０。">indent</a>(<span class="keywordtype">int</span> value);
+<a name="l00332"></a>00332     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a52e85ca9eddf27edf32553e42fcfdac3" title="項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp; itemInfo);
+<a name="l00334"></a>00334     std::vector&lt;ToolBar::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#ac0b6a406282265d378ca48b8ebfc24f8" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00335"></a>00335     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#ac0b6a406282265d378ca48b8ebfc24f8" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const ToolBar::ItemInfo&gt;</a> value);
+<a name="l00337"></a>00337     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#acdb7e7db170018b7cee997705356bcee" title="項目全てを含む大きさ。">itemsSize</a>() <span class="keyword">const</span>;
+<a name="l00339"></a>00339     <a class="code" href="classbalor_1_1gui_1_1_tool_tip.html" title="ツールチップコントロール。">ToolTip</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a1ae31c25420b4481424f7549e72fb4d1" title="項目に表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 ToolBar が制御しているので動作しない設定もある。">itemTip</a>();
+<a name="l00341"></a>00341     <span class="keyword">virtual</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a43a934a7c31635895f5c8d8ca240077b" title="クライアント領域の大きさからコントロールの大きさを求める。">sizeFromClientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a164487130f93987e53161346f295a74e" title="クライアント領域の大きさ。">clientSize</a>) <span class="keyword">const</span>;
+<a name="l00343"></a>00343     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6a9bea46204f79a569b413d3d20996fa" title="背景が透けるかどうか。現状では親が Rebar である場合にのみ透ける。初期値は false。">transparent</a>() <span class="keyword">const</span>;
+<a name="l00344"></a>00344     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a6a9bea46204f79a569b413d3d20996fa" title="背景が透けるかどうか。現状では親が Rebar である場合にのみ透ける。初期値は false。">transparent</a>(<span class="keywordtype">bool</span> value);
+<a name="l00346"></a>00346     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#af747a99bc5692927be39b4b7a21ae5d2" title="ツールバーを縦表示にするかどうか。true の場合、セパレータの表示が縦方向になり全ての項目の ToolBar::Item::wrap() を true に設定する。">vertical</a>() <span class="keyword">const</span>;
+<a name="l00347"></a>00347     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#af747a99bc5692927be39b4b7a21ae5d2" title="ツールバーを縦表示にするかどうか。true の場合、セパレータの表示が縦方向になり全ての項目の ToolBar::Item::wrap() を true に設定する。">vertical</a>(<span class="keywordtype">bool</span> value);
+<a name="l00351"></a>00351     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#abfda938cf26a833959f8790167218b24" title="ツールバーの幅で項目を表示しきれない時に改行するかどうか。vertical() と同時に true にすることはできない。初期値は false。 改行の入るセパレータは縦表示になる。改行の位置はシステム...">wrappable</a>() <span class="keyword">const</span>;
+<a name="l00352"></a>00352     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#abfda938cf26a833959f8790167218b24" title="ツールバーの幅で項目を表示しきれない時に改行するかどうか。vertical() と同時に true にすることはできない。初期値は false。 改行の入るセパレータは縦表示になる。改行の位置はシステム...">wrappable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354 <span class="keyword">public</span>:
+<a name="l00356"></a>00356     <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">ToolBar::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a545371ba77d245ee9477039bedcc7bb7" title="index 番目の項目。">operator[]</a>(<span class="keywordtype">int</span> index);
+<a name="l00357"></a>00357     <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item.html" title="項目。ToolBar::operator[] で取得できる。">ToolBar::Item</a> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a545371ba77d245ee9477039bedcc7bb7" title="index 番目の項目。">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 <span class="keyword">protected</span>:
+<a name="l00361"></a>00361     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar.html#a178da5d321a2bb065f0b33772e514024" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00362"></a>00362 
+<a name="l00363"></a>00363 <span class="keyword">protected</span>:
+<a name="l00364"></a><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_listener.html">00364</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_listener.html">ItemListener</a> {
+<a name="l00365"></a>00365         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_listener.html">ItemListener</a>();
+<a name="l00366"></a>00366         <a class="code" href="structbalor_1_1gui_1_1_tool_bar_1_1_item_listener.html">ItemListener</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_tool_bar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。 デフォルトコンストラクタで作成するとセパレータになる。">ItemInfo</a>&amp; info);
+<a name="l00367"></a>00367 
+<a name="l00368"></a>00368         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::Click&amp;&gt;</a> onClick;
+<a name="l00369"></a>00369         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;ToolBar::ItemTipPopup&amp;&gt;</a> onItemTipPopup;
+<a name="l00370"></a>00370     };
+<a name="l00371"></a>00371     std::vector&lt;ItemListener&gt; _itemListeners;
+<a name="l00372"></a>00372 };
+<a name="l00373"></a>00373 
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376     }
+<a name="l00377"></a>00377 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

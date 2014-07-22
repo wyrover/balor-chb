@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Rebar.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/Rebar.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">namespace </span>balor {
+<a name="l00010"></a>00010     <span class="keyword">namespace </span>graphics {
+<a name="l00011"></a>00011         <span class="keyword">class </span>Bitmap;
+<a name="l00012"></a>00012     }
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">namespace </span>balor {
+<a name="l00017"></a>00017     <span class="keyword">namespace </span>gui {
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00118"></a><a class="code" href="classbalor_1_1gui_1_1_rebar.html">00118</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a> {
+<a name="l00119"></a>00119 <span class="keyword">public</span>:
+<a name="l00120"></a>00120     typedef ::_IMAGELIST* HIMAGELIST;
+<a name="l00121"></a>00121     typedef ::balor::graphics::Bitmap <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a>;
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>;
+<a name="l00125"></a>00125     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a>;
+<a name="l00126"></a>00126     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_chevron_click.html" title="シェブロンを押したイベント。">ChevronClick</a>;
+<a name="l00127"></a>00127 
+<a name="l00129"></a><a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html">00129</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Item</a> {
+<a name="l00130"></a>00130     <span class="keyword">public</span>:
+<a name="l00131"></a>00131         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Item</a>(HWND <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#adb7b864fa4f909224d92a024696a6103" title="レバーコントロールのハンドル。">ownerHandle</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a4ad0ed50de0488f18abc7254045620cc" title="項目インデックス。">index</a>);
+<a name="l00133"></a>00133         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Item</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a9b1e271205e90e0e4fb36c33129bc9f0" title="項目情報を反映。">operator=</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00134"></a>00134 
+<a name="l00136"></a>00136         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#af9cba1cec02e5d72a393742a5257f66f" title="項目の背景ビットマップ。タイル表示される。">bitmap</a>() <span class="keyword">const</span>;
+<a name="l00137"></a>00137         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#af9cba1cec02e5d72a393742a5257f66f" title="項目の背景ビットマップ。タイル表示される。">bitmap</a>(HBITMAP value);
+<a name="l00139"></a>00139         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a74182004a23543cca42dd9f12d727812" title="項目の背景ビットマップの表示原点を項目の座標によらず固定するかどうか。">bitmapOriginFixed</a>() <span class="keyword">const</span>;
+<a name="l00140"></a>00140         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a74182004a23543cca42dd9f12d727812" title="項目の背景ビットマップの表示原点を項目の座標によらず固定するかどうか。">bitmapOriginFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00142"></a>00142         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a7372b0035bba7ca18e46600c082b8fe3" title="項目のクライアント座標領域。">bounds</a>() <span class="keyword">const</span>;
+<a name="l00144"></a>00144         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#afdf503ced9303fbfd211b42d75753b27" title="項目を改行するかどうか。後ろの項目も全て一緒に改行されるので index() は変化しない。">lineBreak</a>() <span class="keyword">const</span>;
+<a name="l00145"></a>00145         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#afdf503ced9303fbfd211b42d75753b27" title="項目を改行するかどうか。後ろの項目も全て一緒に改行されるので index() は変化しない。">lineBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00147"></a>00147         <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a3eceb669ab8e4f1b6c695f9e8cf24ae3" title="項目上に置くコントロール。置かない場合は nullptr。変更する前に minControlSize() を control の大きさに設定したほうが良い。">control</a>() <span class="keyword">const</span>;
+<a name="l00148"></a>00148         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a3eceb669ab8e4f1b6c695f9e8cf24ae3" title="項目上に置くコントロール。置かない場合は nullptr。変更する前に minControlSize() を control の大きさに設定したほうが良い。">control</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* value);
+<a name="l00150"></a>00150         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#abae2a01f6acd4c85a6946ca326450ddc" title="項目上に置くコントロールの上下に空白を入れるどうか。">controlEdge</a>() <span class="keyword">const</span>;
+<a name="l00151"></a>00151         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#abae2a01f6acd4c85a6946ca326450ddc" title="項目上に置くコントロールの上下に空白を入れるどうか。">controlEdge</a>(<span class="keywordtype">bool</span> value);
+<a name="l00153"></a>00153         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#ab15aebbef027bb18daad0fd5675391e9" title="項目上に置くコントロールが項目の幅に合わせて大きさを変えるかどうか。">controlResizable</a>() <span class="keyword">const</span>;
+<a name="l00154"></a>00154         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#ab15aebbef027bb18daad0fd5675391e9" title="項目上に置くコントロールが項目の幅に合わせて大きさを変えるかどうか。">controlResizable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00156"></a>00156         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a292f4dea5bdd36cdbe9b1a60a815a3e2" title="項目の表示可能なピクセル幅。width() がこの幅未満である場合、シェブロンを表示する。初期値は 0。">displayWidth</a>() <span class="keyword">const</span>;
+<a name="l00157"></a>00157         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a292f4dea5bdd36cdbe9b1a60a815a3e2" title="項目の表示可能なピクセル幅。width() がこの幅未満である場合、シェブロンを表示する。初期値は 0。">displayWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00159"></a>00159         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a4ad0ed50de0488f18abc7254045620cc" title="項目インデックス。">index</a>() <span class="keyword">const</span>;
+<a name="l00161"></a>00161         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a66f77ddc6b8bd80638150abb05f2ce50" title="項目を最大化する。">maximize</a>();
+<a name="l00163"></a>00163         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#aa73bc7f30addebc596b94fbcd5a0f391" title="ユーザが項目をリサイズする場合の最小の大きさ。">minControlSize</a>() <span class="keyword">const</span>;
+<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#aa73bc7f30addebc596b94fbcd5a0f391" title="ユーザが項目をリサイズする場合の最小の大きさ。">minControlSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#aa73bc7f30addebc596b94fbcd5a0f391" title="ユーザが項目をリサイズする場合の最小の大きさ。">minControlSize</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a5d0869a8bbd143b3f5ccacfc41015206" title="項目のピクセル幅。">width</a>, <span class="keywordtype">int</span> height);
+<a name="l00167"></a>00167         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a435707553a28944133be69975b19d93d" title="項目を最小化する。">minimize</a>();
+<a name="l00169"></a>00169         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::ChevronClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a0a06162bf70ce062f3a4aa7402853eed" title="シェブロンをクリックしたイベント。">onChevronClick</a>();
+<a name="l00171"></a>00171         HWND <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#adb7b864fa4f909224d92a024696a6103" title="レバーコントロールのハンドル。">ownerHandle</a>() <span class="keyword">const</span>;
+<a name="l00173"></a>00173         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a87ce5a9607c95a2ab183f07d5bc51ec1" title="項目上の大きさを変更できるかどうか。false の場合はグリップが表示されない。">resizable</a>() <span class="keyword">const</span>;
+<a name="l00174"></a>00174         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a87ce5a9607c95a2ab183f07d5bc51ec1" title="項目上の大きさを変更できるかどうか。false の場合はグリップが表示されない。">resizable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00176"></a>00176         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a68f02548373fbaf73c793f4bc5baa902" title="項目の文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00177"></a>00177         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a68f02548373fbaf73c793f4bc5baa902" title="項目の文字列。">text</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> value);
+<a name="l00179"></a>00179         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a5d0869a8bbd143b3f5ccacfc41015206" title="項目のピクセル幅。">width</a>() <span class="keyword">const</span>;
+<a name="l00180"></a>00180         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html#a5d0869a8bbd143b3f5ccacfc41015206" title="項目のピクセル幅。">width</a>(<span class="keywordtype">int</span> value);
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182     <span class="keyword">private</span>:
+<a name="l00183"></a>00183         HWND _ownerHandle;
+<a name="l00184"></a>00184         <span class="keywordtype">int</span> _index;
+<a name="l00185"></a>00185     };
+<a name="l00186"></a>00186 
+<a name="l00187"></a>00187 
+<a name="l00189"></a><a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html">00189</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a> {
+<a name="l00190"></a>00190     <span class="keyword">public</span>:
+<a name="l00191"></a>00191         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>();
+<a name="l00192"></a>00192         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00194"></a>00194         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Item</a>&amp; item);
+<a name="l00196"></a>00196         <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a35076b96e486ed949e33292328246f89" title="項目上に置くコントロール。置かない場合は nullptr。">control</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a66ac912305e509336d95f0bf2b8e0404" title="項目のピクセル幅。0 の場合は最小の大きさになる。">width</a> = 0, <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ac4b3f0e6b6ae02fe7609e1b335f8ddc8" title="項目の文字列。初期値は空文字列。">text</a> = L<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00197"></a>00197         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp;&amp; value);
+<a name="l00198"></a>00198 
+<a name="l00200"></a>00200         <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a9f2019ef8b4b2b462e650d2a52d541a2" title="項目の背景ビットマップ。タイル表示される。初期値はヌルハンドルの Bitmap。">bitmap</a>() <span class="keyword">const</span>;
+<a name="l00201"></a>00201         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a9f2019ef8b4b2b462e650d2a52d541a2" title="項目の背景ビットマップ。タイル表示される。初期値はヌルハンドルの Bitmap。">bitmap</a>(HBITMAP value);
+<a name="l00203"></a>00203         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ae275820cc729d0753dcaf809abd28fa2" title="項目の背景ビットマップの表示原点を項目の座標によらず固定するかどうか。初期値は false。">bitmapOriginFixed</a>() <span class="keyword">const</span>;
+<a name="l00204"></a>00204         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ae275820cc729d0753dcaf809abd28fa2" title="項目の背景ビットマップの表示原点を項目の座標によらず固定するかどうか。初期値は false。">bitmapOriginFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00206"></a>00206         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ad464d325f7d797ec5b9f27ccfc73df44" title="項目を改行するかどうか。初期値は false。">lineBreak</a>() <span class="keyword">const</span>;
+<a name="l00207"></a>00207         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ad464d325f7d797ec5b9f27ccfc73df44" title="項目を改行するかどうか。初期値は false。">lineBreak</a>(<span class="keywordtype">bool</span> value);
+<a name="l00209"></a>00209         <a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a35076b96e486ed949e33292328246f89" title="項目上に置くコントロール。置かない場合は nullptr。">control</a>() <span class="keyword">const</span>;
+<a name="l00210"></a>00210         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a35076b96e486ed949e33292328246f89" title="項目上に置くコントロール。置かない場合は nullptr。">control</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>* value);
+<a name="l00212"></a>00212         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#acfa77e0b904f5022f44c903705a8270b" title="項目上に置くコントロールの上下に空白を入れるどうか。初期値は true。">controlEdge</a>() <span class="keyword">const</span>;
+<a name="l00213"></a>00213         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#acfa77e0b904f5022f44c903705a8270b" title="項目上に置くコントロールの上下に空白を入れるどうか。初期値は true。">controlEdge</a>(<span class="keywordtype">bool</span> value);
+<a name="l00215"></a>00215         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a4bba836fc1a88a4911a041d856727773" title="項目上に置くコントロールが項目の幅に合わせて大きさを変えるかどうか。初期値は false。">controlResizable</a>() <span class="keyword">const</span>;
+<a name="l00216"></a>00216         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a4bba836fc1a88a4911a041d856727773" title="項目上に置くコントロールが項目の幅に合わせて大きさを変えるかどうか。初期値は false。">controlResizable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00218"></a>00218         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ab78f3c0f946d5d8fd39d552d96acb225" title="項目の表示可能なピクセル幅。width() がこの幅未満である場合、シェブロンを表示する。初期値は 0。">displayWidth</a>() <span class="keyword">const</span>;
+<a name="l00219"></a>00219         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ab78f3c0f946d5d8fd39d552d96acb225" title="項目の表示可能なピクセル幅。width() がこの幅未満である場合、シェブロンを表示する。初期値は 0。">displayWidth</a>(<span class="keywordtype">int</span> value);
+<a name="l00221"></a>00221         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ad25806883001eeb3bc3f07dbecaaa71e" title="項目上のコントロールをリサイズする場合の最小の大きさ。">minControlSize</a>() <span class="keyword">const</span>;
+<a name="l00222"></a>00222         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ad25806883001eeb3bc3f07dbecaaa71e" title="項目上のコントロールをリサイズする場合の最小の大きさ。">minControlSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00223"></a>00223         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ad25806883001eeb3bc3f07dbecaaa71e" title="項目上のコントロールをリサイズする場合の最小の大きさ。">minControlSize</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a66ac912305e509336d95f0bf2b8e0404" title="項目のピクセル幅。0 の場合は最小の大きさになる。">width</a>, <span class="keywordtype">int</span> height);
+<a name="l00225"></a>00225         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::ChevronClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a8f0b8b169d6ca90e8b6140ad9bbf1283" title="シェブロンをクリックしたイベント。">onChevronClick</a>();
+<a name="l00226"></a>00226         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::ChevronClick&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a8f0b8b169d6ca90e8b6140ad9bbf1283" title="シェブロンをクリックしたイベント。">onChevronClick</a>() <span class="keyword">const</span>;
+<a name="l00228"></a>00228         <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a73dba7cd42a16ca1455756f5f2bca4cf" title="項目上の大きさを変更できるかどうか。false の場合はグリップが表示されない。初期値は true。">resizable</a>() <span class="keyword">const</span>;
+<a name="l00229"></a>00229         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a73dba7cd42a16ca1455756f5f2bca4cf" title="項目上の大きさを変更できるかどうか。false の場合はグリップが表示されない。初期値は true。">resizable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00231"></a>00231         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ac4b3f0e6b6ae02fe7609e1b335f8ddc8" title="項目の文字列。初期値は空文字列。">text</a>() <span class="keyword">const</span>;
+<a name="l00232"></a>00232         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#ac4b3f0e6b6ae02fe7609e1b335f8ddc8" title="項目の文字列。初期値は空文字列。">text</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00234"></a>00234         <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a66ac912305e509336d95f0bf2b8e0404" title="項目のピクセル幅。0 の場合は最小の大きさになる。">width</a>() <span class="keyword">const</span>;
+<a name="l00235"></a>00235         <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html#a66ac912305e509336d95f0bf2b8e0404" title="項目のピクセル幅。0 の場合は最小の大きさになる。">width</a>(<span class="keywordtype">int</span> value);
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237     <span class="keyword">private</span>:
+<a name="l00238"></a>00238         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>;
+<a name="l00239"></a>00239         <span class="keyword">friend</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Item</a>;
+<a name="l00240"></a>00240 
+<a name="l00241"></a>00241         HWND _control;
+<a name="l00242"></a>00242         <span class="keywordtype">bool</span> _controlResizable;
+<a name="l00243"></a>00243         HBITMAP _bitmap;
+<a name="l00244"></a>00244         <span class="keywordtype">int</span> _style;
+<a name="l00245"></a>00245         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _text;
+<a name="l00246"></a>00246         <span class="keywordtype">int</span> _width;
+<a name="l00247"></a>00247         <span class="keywordtype">int</span> _displayWidth;
+<a name="l00248"></a>00248         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> _minControlSize;
+<a name="l00249"></a>00249         <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::ChevronClick&amp;&gt;</a> _onChevronClick;
+<a name="l00250"></a>00250     };
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 
+<a name="l00255"></a><a class="code" href="classbalor_1_1gui_1_1_rebar.html#a7ebd1ea12c30d844b1934c3a5c460552">00255</a>     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_subclass_sender.html" title="sender 関数を派生クラスで上書きするイベントクラス。">EventWithSubclassSender&lt;Rebar, Control::Event&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a7ebd1ea12c30d844b1934c3a5c460552" title="レバーコントロールのイベントの親クラス。">Event</a>;
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257     <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Resize</a>;
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 
+<a name="l00261"></a><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html">00261</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_event_with_sender.html" title="イベント発生源を伴うイベントクラス。">Event</a> {
+<a name="l00262"></a>00262         <a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a>(<a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex);
+<a name="l00263"></a>00263 
+<a name="l00265"></a>00265         <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Rebar::Item</a> <a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html#a1a5fdd46e70758c6716e6b1e571fe624" title="イベントの発生した項目。">item</a>();
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267     <span class="keyword">private</span>:
+<a name="l00268"></a>00268         <span class="keywordtype">int</span> _itemIndex;
+<a name="l00269"></a>00269     };
+<a name="l00270"></a>00270 
+<a name="l00271"></a>00271 
+<a name="l00273"></a><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_chevron_click.html">00273</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_chevron_click.html" title="シェブロンを押したイベント。">ChevronClick</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_item_event.html" title="項目に関するイベント。">ItemEvent</a> {
+<a name="l00274"></a>00274         <a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_chevron_click.html" title="シェブロンを押したイベント。">ChevronClick</a>(<a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>&amp; <a class="code" href="classbalor_1_1_event_with_subclass_sender.html#a43e4a213403e531f9c23321f200f9145" title="イベント発生源。">sender</a>, <span class="keywordtype">int</span> itemIndex, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a9485b70edb1150f6e3dbce04447d7c86" title="親のクライアント座標系での位置と大きさ。">bounds</a>);
+<a name="l00275"></a>00275 
+<a name="l00277"></a>00277         <span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; <a class="code" href="structbalor_1_1gui_1_1_rebar_1_1_chevron_click.html#a13a12f8a73d0929203ecad3dbac154df" title="シェブロンのクライアント座標領域。">chevronBounds</a>() <span class="keyword">const</span>;
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279     <span class="keyword">private</span>:
+<a name="l00280"></a>00280         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> _chevronBounds;
+<a name="l00281"></a>00281     };
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283 
+<a name="l00284"></a>00284 <span class="keyword">public</span>:
+<a name="l00286"></a>00286     <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a172cdfde3be92c0b9d04dc86e4dc3a78" title="ヌルポインタで作成。">Rebar</a>();
+<a name="l00287"></a>00287     <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a172cdfde3be92c0b9d04dc86e4dc3a78" title="ヌルポインタで作成。">Rebar</a>(<a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>&amp;&amp; value, <span class="keywordtype">bool</span> checkSlicing = <span class="keyword">true</span>);
+<a name="l00289"></a>00289     <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a172cdfde3be92c0b9d04dc86e4dc3a78" title="ヌルポインタで作成。">Rebar</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>);
+<a name="l00291"></a>00291     <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a172cdfde3be92c0b9d04dc86e4dc3a78" title="ヌルポインタで作成。">Rebar</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_control.html#a12576e469ed70551a5612403e78d9307" title="親コントロール。">parent</a>, <a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Rebar::ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#ab96f41bd795f5efcb73775a5ea65f7e0" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>);
+<a name="l00292"></a>00292     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>();
+<a name="l00293"></a>00293     <a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_rebar.html" title="レバーコントロール。">Rebar</a>&amp;&amp; value);
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295 <span class="keyword">public</span>:
+<a name="l00297"></a>00297     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a598cc20de9f9f7cdf6336caec0ce3a60" title="項目を追加する。">add</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00299"></a>00299     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aa1d35a85da721665dabf939b765ed85d" title="項目を全て削除する。">clear</a>();
+<a name="l00301"></a>00301     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aef2146fd254036a32413e27d1f4077be" title="項目数。">count</a>() <span class="keyword">const</span>;
+<a name="l00303"></a>00303     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aee93d28eb1e6bec999d8e30f1b67f3c5" title="項目の境界をダブルクリックしたら最大化/最小化するかどうか。false の場合はシングルクリック。初期値は false。">doubleClickToggle</a>() <span class="keyword">const</span>;
+<a name="l00304"></a>00304     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aee93d28eb1e6bec999d8e30f1b67f3c5" title="項目の境界をダブルクリックしたら最大化/最小化するかどうか。false の場合はシングルクリック。初期値は false。">doubleClickToggle</a>(<span class="keywordtype">bool</span> value);
+<a name="l00306"></a>00306     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a483a426a97aa5485e3369465ae7b3332" title="項目を削除する。">erase</a>(<span class="keywordtype">int</span> index);
+<a name="l00308"></a>00308     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#af7b28adc192105ad2cb2d431a828486f" title="指定したクライアント座標にある項目のインデックスを取得する。無い場合は -1。">getIndexAt</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00309"></a>00309     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#af7b28adc192105ad2cb2d431a828486f" title="指定したクライアント座標にある項目のインデックスを取得する。無い場合は -1。">getIndexAt</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00311"></a>00311     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a61c701bd07cf0c55cc79eb07534785c7" title="項目を挿入する。">insert</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item_info.html" title="項目情報構造体。情報を持つだけでレバーコントロールは一切操作しない。Rebar::itemInfos 関数等で使用する。">ItemInfo</a>&amp; itemInfo);
+<a name="l00313"></a>00313     std::vector&lt;Rebar::ItemInfo&gt; <a class="code" href="classbalor_1_1gui_1_1_rebar.html#ab96f41bd795f5efcb73775a5ea65f7e0" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>() <span class="keyword">const</span>;
+<a name="l00314"></a>00314     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#ab96f41bd795f5efcb73775a5ea65f7e0" title="項目の情報配列を一括で取得、設定する。">itemInfos</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Rebar::ItemInfo&gt;</a> value);
+<a name="l00316"></a>00316     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#af162934e1b6be95a17a94f80d8067b93" title="項目同士の境界に線を引くかどうか。初期値は true。">itemBorderLines</a>() <span class="keyword">const</span>;
+<a name="l00317"></a>00317     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#af162934e1b6be95a17a94f80d8067b93" title="項目同士の境界に線を引くかどうか。初期値は true。">itemBorderLines</a>(<span class="keywordtype">bool</span> value);
+<a name="l00319"></a>00319     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aeab8fd262222fa6b6d733882969b3df7" title="項目の順番が固定されるかどうか。初期値は false。">itemHeightVariable</a>() <span class="keyword">const</span>;
+<a name="l00320"></a>00320     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aeab8fd262222fa6b6d733882969b3df7" title="項目の順番が固定されるかどうか。初期値は false。">itemHeightVariable</a>(<span class="keywordtype">bool</span> value);
+<a name="l00322"></a>00322     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aeb20bcd377f529adf46ddef848b39760" title="項目の順番が固定されるかどうか。初期値は false。">itemOrderFixed</a>() <span class="keyword">const</span>;
+<a name="l00323"></a>00323     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#aeb20bcd377f529adf46ddef848b39760" title="項目の順番が固定されるかどうか。初期値は false。">itemOrderFixed</a>(<span class="keywordtype">bool</span> value);
+<a name="l00325"></a>00325     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::Resize&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_rebar.html#adba04892cbdb7fe1d27e42130a74c5b2" title="コントロールの大きさが変わったイベント。">onResize</a>();
+<a name="l00327"></a>00327     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a594eb10df44a2a14ab038ac1e54fd5fc" title="項目の列数。">rowCount</a>() <span class="keyword">const</span>;
+<a name="l00328"></a>00328 
+<a name="l00329"></a>00329 <span class="keyword">public</span>:
+<a name="l00331"></a>00331     <a class="code" href="classbalor_1_1gui_1_1_rebar_1_1_item.html" title="レバーコントロール上のバンド項目。Rebar::operator[] で取得できる。">Rebar::Item</a> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a807921211f23df10f56ef02e04b651ea" title="index 番目の項目。順番は追加した順とは限らずユーザのドラッグ操作によって変化する。">operator[]</a>(<span class="keywordtype">int</span> index);
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333 <span class="keyword">protected</span>:
+<a name="l00335"></a>00335     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_rebar.html#a21db46e47152672cfb51382d931dd977" title="メッセージを処理する。いわゆるウインドウプロシージャ。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337 <span class="keyword">protected</span>:
+<a name="l00338"></a>00338     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Rebar::Resize&amp;&gt;</a> _onResize;
+<a name="l00339"></a>00339 };
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342 
+<a name="l00343"></a>00343     }
+<a name="l00344"></a>00344 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

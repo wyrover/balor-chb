@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/Reference.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/Reference.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>balor {
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">class </span>Referenceable;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00013"></a><a class="code" href="classbalor_1_1_reference_base.html">00013</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a> {
+<a name="l00014"></a>00014 <span class="keyword">protected</span>:
+<a name="l00015"></a>00015     <span class="keyword">friend</span> <a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>;
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">protected</span>:
+<a name="l00018"></a>00018     <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>();
+<a name="l00019"></a>00019     <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>&amp; value);
+<a name="l00020"></a>00020     <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>(<a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>* pointer);
+<a name="l00021"></a>00021     ~<a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>();
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">protected</span>:
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> _attach(<a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>* pointer);
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> _detach();
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">protected</span>:
+<a name="l00028"></a>00028     <a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>* _pointer;
+<a name="l00029"></a>00029     <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>* _next;
+<a name="l00030"></a>00030 };
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00068"></a>00068 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<a name="l00069"></a><a class="code" href="classbalor_1_1_reference.html">00069</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_reference.html" title="クラスの一対多の参照ポインタを表す。">Reference</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a> {
+<a name="l00070"></a>00070 <span class="keyword">public</span>:
+<a name="l00072"></a><a class="code" href="classbalor_1_1_reference.html#a86c0244659dea517218c841573c1f3ca">00072</a>     <a class="code" href="classbalor_1_1_reference.html#a86c0244659dea517218c841573c1f3ca" title="ヌルポインタとして作成。">Reference</a>() {}
+<a name="l00073"></a>00073     <a class="code" href="classbalor_1_1_reference.html#a86c0244659dea517218c841573c1f3ca" title="ヌルポインタとして作成。">Reference</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_reference.html" title="クラスの一対多の参照ポインタを表す。">Reference</a>&amp; value) : <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>(value) {}
+<a name="l00075"></a><a class="code" href="classbalor_1_1_reference.html#af2b0d6aebedd71b1bad0dc7bafc09402">00075</a>     <a class="code" href="classbalor_1_1_reference.html#af2b0d6aebedd71b1bad0dc7bafc09402" title="参照先のポインタから作成。">Reference</a>(T* pointer) : <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>(pointer) {}
+<a name="l00076"></a>00076     ~<a class="code" href="classbalor_1_1_reference.html" title="クラスの一対多の参照ポインタを表す。">Reference</a>() {}
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078     <a class="code" href="classbalor_1_1_reference.html#a86c0244659dea517218c841573c1f3ca" title="ヌルポインタとして作成。">Reference</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_reference.html#a86c0244659dea517218c841573c1f3ca" title="ヌルポインタとして作成。">Reference</a>&amp; value) {
+<a name="l00079"></a>00079         <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;value) {
+<a name="l00080"></a>00080             _detach();
+<a name="l00081"></a>00081             _attach(value._pointer);
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00084"></a>00084     }
+<a name="l00086"></a><a class="code" href="classbalor_1_1_reference.html#a82c7d64421550931b027841ebad15772">00086</a>     <a class="code" href="classbalor_1_1_reference.html" title="クラスの一対多の参照ポインタを表す。">Reference</a>&amp; <a class="code" href="classbalor_1_1_reference.html#a82c7d64421550931b027841ebad15772" title="参照先のポインタを変更。">operator=</a>(T* pointer) {
+<a name="l00087"></a>00087         _detach();
+<a name="l00088"></a>00088         _attach(pointer);
+<a name="l00089"></a>00089         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="keyword">public</span>:
+<a name="l00094"></a><a class="code" href="classbalor_1_1_reference.html#ad62b215da17a5f6492dbf09040619d08">00094</a>     <a class="code" href="classbalor_1_1_reference.html#ad62b215da17a5f6492dbf09040619d08" title="参照先のポインタの取得。">operator T*</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(_pointer); } <span class="comment">// ここで reinterpret_cast を使ってはならない。仮想関数を持たない基底から持つ派生クラスへのキャストが正常に動かない。</span>
+<a name="l00096"></a><a class="code" href="classbalor_1_1_reference.html#a6c3465d719fe405198fdc9bf8777e190">00096</a> <span class="comment"></span>    T* <a class="code" href="classbalor_1_1_reference.html#a6c3465d719fe405198fdc9bf8777e190" title="参照先へのアクセス。">operator-&gt;</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(_pointer); }
+<a name="l00097"></a>00097 };
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00107"></a><a class="code" href="classbalor_1_1_referenceable.html">00107</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> { <span class="comment">// 一対多参照なのでコピー禁止</span>
+<a name="l00108"></a>00108 <span class="keyword">public</span>:
+<a name="l00109"></a>00109     <span class="keyword">friend</span> <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>;
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="keyword">protected</span>:
+<a name="l00112"></a>00112     <a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>();
+<a name="l00114"></a>00114     <a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>(<a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>&amp;&amp; value);
+<a name="l00115"></a>00115     ~<a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>();
+<a name="l00117"></a>00117     <a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>&amp; <a class="code" href="classbalor_1_1_referenceable.html#a29d1cceab0458ac50538c53980fc70a5" title="派生クラスから呼ぶ必要がある。">operator=</a>(<a class="code" href="classbalor_1_1_referenceable.html" title="Reference クラスで参照できるクラスの基底クラス。 このクラスを継承するクラスでは必ず右辺値参照コンストラクタと右辺値参照代入演算子を定義して このクラスの右辺値参照コンストラクタと右辺値参照代...">Referenceable</a>&amp;&amp; value);
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="keyword">private</span>:
+<a name="l00120"></a>00120     <a class="code" href="classbalor_1_1_reference_base.html" title="Reference クラスの型に依存しない実装部分。">ReferenceBase</a>* _first;
+<a name="l00121"></a>00121 };
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

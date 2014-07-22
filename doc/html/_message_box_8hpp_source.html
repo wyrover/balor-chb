@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/MessageBox.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/MessageBox.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/Enum.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">struct </span>HWND__;
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">namespace </span>balor {
+<a name="l00009"></a>00009     <span class="keyword">namespace </span>graphics {
+<a name="l00010"></a>00010         <span class="keyword">class </span>Font;
+<a name="l00011"></a>00011     }
+<a name="l00012"></a>00012 }
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>balor {
+<a name="l00016"></a>00016     <span class="keyword">namespace </span>gui {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00042"></a><a class="code" href="classbalor_1_1gui_1_1_msg_box.html">00042</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_msg_box.html" title="メッセージボックスの表示を行う。">MsgBox</a> {
+<a name="l00043"></a>00043 <span class="keyword">public</span>:
+<a name="l00044"></a>00044     typedef ::HWND__* HWND;
+<a name="l00045"></a>00045     typedef ::balor::graphics::Font <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 
+<a name="l00049"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html">00049</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html" title="表示するボタンの組み合わせ。">Buttons</a> {
+<a name="l00050"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cf">00050</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cf">_enum</a> {
+<a name="l00051"></a>00051             ok                = 0x00000000L, 
+<a name="l00052"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaee7aa7711cbcc81bce9bfc825ad6132f">00052</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaee7aa7711cbcc81bce9bfc825ad6132f" title="OK。">okCancel</a>          = 0x00000001L, 
+<a name="l00053"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaa6a9226cedd832b8d0295f7b47e21c37">00053</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaa6a9226cedd832b8d0295f7b47e21c37" title="OK、キャンセル。">abortRetryIgnore</a>  = 0x00000002L, 
+<a name="l00054"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaf2a0ca3d3c06f995360eb38d1abf482e">00054</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfaf2a0ca3d3c06f995360eb38d1abf482e" title="中止、再試行、無視。">yesNoCancel</a>       = 0x00000003L, 
+<a name="l00055"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfacd177bc26dc6cb1e171ad31b6cce0c40">00055</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfacd177bc26dc6cb1e171ad31b6cce0c40" title="はい、いいえ、キャンセル。">yesNo</a>             = 0x00000004L, 
+<a name="l00056"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfa62b9223bedc6c15d1f5760a80acb84ff">00056</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfa62b9223bedc6c15d1f5760a80acb84ff" title="はい、いいえ。">retryCancel</a>       = 0x00000005L, 
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfa48b5a000b4f295be673b24be0d053285">00057</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html#a14d04c957c63c5ed366d73b620f3a6cfa48b5a000b4f295be673b24be0d053285" title="再試行、キャンセル。">cancelTryContinue</a> = 0x00000006L, 
+<a name="l00058"></a>00058         };
+<a name="l00059"></a>00059         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html" title="表示するボタンの組み合わせ。">Buttons</a>);
+<a name="l00060"></a>00060     };
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00064"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html">00064</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html" title="表示するアイコン。">Icon</a> {
+<a name="l00065"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31">00065</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31">_enum</a> {
+<a name="l00066"></a>00066             none        = 0          , 
+<a name="l00067"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a584b0480b7145bf29b1982994a964eae">00067</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a584b0480b7145bf29b1982994a964eae" title="アイコン非表示。">hand</a>        = 0x00000010L, 
+<a name="l00068"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31aa23355c86119faf32a3c00c64bf28e31">00068</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31aa23355c86119faf32a3c00c64bf28e31" title="停止アイコン。">question</a>    = 0x00000020L, 
+<a name="l00069"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a32329afffec36faac5f8fe7b177e0d26">00069</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a32329afffec36faac5f8fe7b177e0d26" title="疑問符アイコン。">exclamation</a> = 0x00000030L, 
+<a name="l00070"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a32205c76bd2f9d33dafd78b2ecfdd965">00070</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a32205c76bd2f9d33dafd78b2ecfdd965" title="感嘆符アイコン。">asterisk</a>    = 0x00000040L, 
+<a name="l00071"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a96bdd383642fc1049ea313e1a795ce9b">00071</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a96bdd383642fc1049ea313e1a795ce9b" title="「i]マークアイコン。">stop</a>        = 0x00000010L, 
+<a name="l00072"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a5366f5d3e53e7683b7c621e69ff019da">00072</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a5366f5d3e53e7683b7c621e69ff019da" title="停止アイコン。">error</a>       = 0x00000010L, 
+<a name="l00073"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a01aa4b5b0febdcd81d49e1526e2a257b">00073</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a01aa4b5b0febdcd81d49e1526e2a257b" title="停止アイコン。">warning</a>     = 0x00000030L, 
+<a name="l00074"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a5a164e5ccf4ec41f0bb6a7734b9fb7b7">00074</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html#a32dc36add2aa983cce24942ad3cdbc31a5a164e5ccf4ec41f0bb6a7734b9fb7b7" title="感嘆符アイコン。">information</a> = 0x00000040L, 
+<a name="l00075"></a>00075         };
+<a name="l00076"></a>00076         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html" title="表示するアイコン。">Icon</a>);
+<a name="l00077"></a>00077     };
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00081"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html">00081</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html" title="既定のボタン。">Default</a> {
+<a name="l00082"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0">00082</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0">_enum</a> {
+<a name="l00083"></a>00083             button1 = 0x00000000L, 
+<a name="l00084"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0a01a38d05f1ae75e1927052178f209c0e">00084</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0a01a38d05f1ae75e1927052178f209c0e" title="一番目のボタン。">button2</a> = 0x00000100L, 
+<a name="l00085"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0a92d1b0dd370221da11d3394def2717aa">00085</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html#ae717a8c21f743c73a49d19934ce9dac0a92d1b0dd370221da11d3394def2717aa" title="二番目のボタン。">button3</a> = 0x00000200L, 
+<a name="l00086"></a>00086         };
+<a name="l00087"></a>00087         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html" title="既定のボタン。">Default</a>);
+<a name="l00088"></a>00088     };
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00092"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html">00092</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html" title="表示オプション。組み合わせで指定する。">Options</a> {
+<a name="l00093"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250">00093</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250">_enum</a> {
+<a name="l00094"></a>00094             none                = 0          , 
+<a name="l00095"></a>00095             topMost             = 0x00040000L, 
+<a name="l00096"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250adbff3b2deacd841be9d104eb4dc3ea05">00096</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250adbff3b2deacd841be9d104eb4dc3ea05" title="最前面ウインドウにする。">serviceNotification</a> = 0x00200000L, 
+<a name="l00097"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250afb55d3217ab87b8d9bd347f80181ac9c">00097</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250afb55d3217ab87b8d9bd347f80181ac9c" title="サービスから表示する。">defaultDesktopOnly</a>  = 0x00020000L, 
+<a name="l00098"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250a3101b40cd3b82fe2ee38996033cb4583">00098</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html#af95bae94ff2ea3ab2de745e51d14a250a3101b40cd3b82fe2ee38996033cb4583" title="サービスから表示する場合に既定のデスクトップでのみ表示する。">rightAlign</a>          = 0x00080000L, 
+<a name="l00099"></a>00099         };
+<a name="l00100"></a>00100         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html" title="表示オプション。組み合わせで指定する。">Options</a>);
+<a name="l00101"></a>00101     };
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00105"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html">00105</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html" title="ボタンの選択結果。">Result</a> {
+<a name="l00106"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2e">00106</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2e">_enum</a> {
+<a name="l00107"></a>00107             ok        =  1, 
+<a name="l00108"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea19e3145c83278c64f486d4bcefa92793">00108</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea19e3145c83278c64f486d4bcefa92793" title="OK。">cancel</a>    =  2, 
+<a name="l00109"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea6c18358886bfbfdcf00a5a896f5b613f">00109</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea6c18358886bfbfdcf00a5a896f5b613f" title="キャンセル。">abort</a>     =  3, 
+<a name="l00110"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eadec85f40702d122321d00a7f1a954dae">00110</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eadec85f40702d122321d00a7f1a954dae" title="中止。">retry</a>     =  4, 
+<a name="l00111"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eaf826d6e1da9e0a58d3090654752ee8b0">00111</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eaf826d6e1da9e0a58d3090654752ee8b0" title="再試行。">ignore</a>    =  5, 
+<a name="l00112"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ead694eceb367aebdbcedf520e88cb9993">00112</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ead694eceb367aebdbcedf520e88cb9993" title="無視。">yes</a>       =  6, 
+<a name="l00113"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eae69621bc5be3256871efe49af0a7ce64">00113</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2eae69621bc5be3256871efe49af0a7ce64" title="はい。">no</a>        =  7, 
+<a name="l00114"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea4e9135c957792336710a8d3d410b9ebe">00114</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea4e9135c957792336710a8d3d410b9ebe" title="いいえ。">tryAgain</a>  = 10, 
+<a name="l00115"></a><a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea0a2eaed10078e922502a7a698638cc24">00115</a>             <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html#a76628c3771d673c8ffe0200bf60ebc2ea0a2eaed10078e922502a7a698638cc24" title="再実行。">continues</a> = 11, 
+<a name="l00116"></a>00116         };
+<a name="l00117"></a>00117         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html" title="ボタンの選択結果。">Result</a>);
+<a name="l00118"></a>00118     };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="keyword">public</span>:
+<a name="l00122"></a>00122     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_font.html" title="GDI フォントを表す。">Font</a> <a class="code" href="classbalor_1_1gui_1_1_msg_box.html#a9955967e095fe0311cfbbeed88a26e47" title="メッセージボックスが使用するフォント。">font</a>();
+<a name="l00124"></a>00124     <span class="keyword">static</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html" title="ボタンの選択結果。">MsgBox::Result</a> <a class="code" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">show</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> text, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> caption = L<span class="stringliteral">&quot;&quot;</span>, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html" title="表示するボタンの組み合わせ。">MsgBox::Buttons</a> buttons = Buttons::ok, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html" title="表示するアイコン。">MsgBox::Icon</a> icon = Icon::none, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html" title="既定のボタン。">MsgBox::Default</a> defaultButton = Default::button1, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html" title="表示オプション。組み合わせで指定する。">MsgBox::Options</a> options = Options::none);
+<a name="l00126"></a>00126     <span class="keyword">static</span> <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_result.html" title="ボタンの選択結果。">MsgBox::Result</a> <a class="code" href="classbalor_1_1gui_1_1_msg_box.html#a58833101de72d6758e1d086dd5985437" title="同じスレッドの全てのウインドウを使用不可にしてメッセージボックスを表示する。">show</a>(HWND owner, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> text, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> caption = L<span class="stringliteral">&quot;&quot;</span>, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_buttons.html" title="表示するボタンの組み合わせ。">MsgBox::Buttons</a> buttons = Buttons::ok, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_icon.html" title="表示するアイコン。">MsgBox::Icon</a> icon = Icon::none, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_default.html" title="既定のボタン。">MsgBox::Default</a> defaultButton = Default::button1, <a class="code" href="structbalor_1_1gui_1_1_msg_box_1_1_options.html" title="表示オプション。組み合わせで指定する。">MsgBox::Options</a> options = Options::none);
+<a name="l00127"></a>00127 };
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 <span class="keyword">typedef</span> MsgBox MessageBox; <span class="comment">// MessageBoxマクロ対策</span>
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134     }
+<a name="l00135"></a>00135 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

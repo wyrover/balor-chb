@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/PopupMenu.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/PopupMenu.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/gui/Menu.hpp&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="keyword">namespace </span>balor {
+<a name="l00006"></a>00006 <span class="keyword">class </span>Point;
+<a name="l00007"></a>00007 }
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">namespace </span>balor {
+<a name="l00011"></a>00011     <span class="keyword">namespace </span>gui {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00047"></a><a class="code" href="classbalor_1_1gui_1_1_popup_menu.html">00047</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_popup_menu.html" title="ポップアップメニュー。">PopupMenu</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1gui_1_1_menu.html" title="メニューバーやポップアップメニューの基底クラス。">Menu</a> {
+<a name="l00048"></a>00048 <span class="keyword">public</span>:
+<a name="l00050"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html">00050</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html" title="表示を制御するフラグ。組み合わせで指定する。">Flags</a> {
+<a name="l00051"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6">00051</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6">_enum</a> {
+<a name="l00052"></a>00052             recursive  = 0x0001L, 
+<a name="l00053"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af1d81dfa7c60391f8d30b6251a6a1508">00053</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af1d81dfa7c60391f8d30b6251a6a1508" title="onRightClick() イベントで再帰的にポップアップメニューを表示する時に指定しなければならない。">bothButton</a> = 0x0002L, 
+<a name="l00054"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a1308a2826882b5e2421cd059e97b30f9">00054</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a1308a2826882b5e2421cd059e97b30f9" title="onRightClick() イベントの代わりに onClick() イベントを発生させる。">hCentor</a>    = 0x0004L, 
+<a name="l00055"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6abc2079f1580d651d295a639c0c990578">00055</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6abc2079f1580d651d295a639c0c990578" title="水平方向の中央に表示。">right</a>      = 0x0008L, 
+<a name="l00056"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a41d79218e676ab5bf3ed4a3eebe1153e">00056</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a41d79218e676ab5bf3ed4a3eebe1153e" title="右に表示。">bottom</a>     = 0x0020L, 
+<a name="l00057"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a89857a45ad261f1c43339d7e0cf00bc4">00057</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6a89857a45ad261f1c43339d7e0cf00bc4" title="上に表示。">vCentor</a>    = 0x0010L, 
+<a name="l00058"></a><a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af836b2a6035dd5cbfda35a8033cc66b9">00058</a>             <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af836b2a6035dd5cbfda35a8033cc66b9" title="垂直方向の中央に表示。">vertical</a>   = 0x0040L, 
+<a name="l00059"></a>00059         };
+<a name="l00060"></a>00060         BALOR_NAMED_LOGICAL_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html" title="表示を制御するフラグ。組み合わせで指定する。">Flags</a>);
+<a name="l00061"></a>00061     };
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">public</span>:
+<a name="l00065"></a>00065     <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a77e9f40f06994b9d8b9a28891e8b06c9" title="空のポップアップメニューを作成。">PopupMenu</a>();
+<a name="l00066"></a>00066     <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a77e9f40f06994b9d8b9a28891e8b06c9" title="空のポップアップメニューを作成。">PopupMenu</a>(<a class="code" href="classbalor_1_1gui_1_1_popup_menu.html" title="ポップアップメニュー。">PopupMenu</a>&amp;&amp; value);
+<a name="l00068"></a>00068     <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a77e9f40f06994b9d8b9a28891e8b06c9" title="空のポップアップメニューを作成。">PopupMenu</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Menu::ItemInfo&gt;</a> <a class="code" href="classbalor_1_1gui_1_1_menu.html#ae2f6559be9058456f70dc199a3d69cb2" title="子項目の情報配列を一括で取得、設定する。">itemInfos</a>);
+<a name="l00069"></a>00069     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_popup_menu.html" title="ポップアップメニュー。">PopupMenu</a>();
+<a name="l00070"></a>00070     <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html" title="ポップアップメニュー。">PopupMenu</a>&amp; operator=(<a class="code" href="classbalor_1_1gui_1_1_popup_menu.html" title="ポップアップメニュー。">PopupMenu</a>&amp;&amp; value);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">public</span>:
+<a name="l00074"></a>00074     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupBegin&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a34039d0291e34ddcc5700992d5cad3d0" title="ポップアップメニューを表示する直前のイベント。">onPopupBegin</a>();
+<a name="l00076"></a>00076     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;Menu::PopupEnd&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a465911150cfee63e51714baa17b5f3d9" title="ポップアップメニューを表示し終わったイベント。">onPopupEnd</a>();
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a946b66c08db6aaafd2dbed447b07f3ae" title="オーナーコントロールとオーナーのクライアント座標を指定してポップアップメニューを表示する。">show</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; owner, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; position, <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html" title="表示を制御するフラグ。組み合わせで指定する。">PopupMenu::Flags</a> flags = <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af1d81dfa7c60391f8d30b6251a6a1508" title="onRightClick() イベントで再帰的にポップアップメニューを表示する時に指定しなければならない。">Flags::bothButton</a> | <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af836b2a6035dd5cbfda35a8033cc66b9" title="垂直方向の中央に表示。">Flags::vertical</a>);
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_popup_menu.html#a946b66c08db6aaafd2dbed447b07f3ae" title="オーナーコントロールとオーナーのクライアント座標を指定してポップアップメニューを表示する。">show</a>(<a class="code" href="classbalor_1_1gui_1_1_control.html" title="コントロールの基底クラス。">Control</a>&amp; owner, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html" title="表示を制御するフラグ。組み合わせで指定する。">PopupMenu::Flags</a> flags = <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af1d81dfa7c60391f8d30b6251a6a1508" title="onRightClick() イベントで再帰的にポップアップメニューを表示する時に指定しなければならない。">Flags::bothButton</a> | <a class="code" href="structbalor_1_1gui_1_1_popup_menu_1_1_flags.html#a9ea810e004f0cabdbe4909eb96913ad6af836b2a6035dd5cbfda35a8033cc66b9" title="垂直方向の中央に表示。">Flags::vertical</a>);
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

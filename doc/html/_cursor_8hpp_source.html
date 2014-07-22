@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Cursor.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/Cursor.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;balor/ArrayRange.hpp&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;balor/Exception.hpp&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/NonCopyable.hpp&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;balor/StringRange.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">struct </span>HBITMAP__;
+<a name="l00009"></a>00009 <span class="keyword">struct </span>HICON__;
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">namespace </span>balor {
+<a name="l00012"></a>00012     <span class="keyword">namespace </span>io {
+<a name="l00013"></a>00013         <span class="keyword">class </span>Stream;
+<a name="l00014"></a>00014     }
+<a name="l00015"></a>00015     <span class="keyword">class </span>Point;
+<a name="l00016"></a>00016     <span class="keyword">class </span>Size;
+<a name="l00017"></a>00017 }
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>balor {
+<a name="l00021"></a>00021     <span class="keyword">namespace </span>graphics {
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">class </span>Bitmap;
+<a name="l00024"></a>00024 <span class="keyword">class </span>Color;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 
+<a name="l00031"></a><a class="code" href="classbalor_1_1graphics_1_1_cursor.html">00031</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> : <span class="keyword">private</span> <a class="code" href="classbalor_1_1_non_copyable.html" title="このクラスを継承するクラスのコピーを禁止する。">NonCopyable</a> {
+<a name="l00032"></a>00032 <span class="keyword">public</span>:
+<a name="l00033"></a>00033     typedef ::HBITMAP__* HBITMAP;
+<a name="l00034"></a>00034     typedef ::HICON__* HCURSOR;
+<a name="l00035"></a>00035     typedef ::balor::io::Stream <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>;
+<a name="l00036"></a>00036 
+<a name="l00038"></a><a class="code" href="classbalor_1_1graphics_1_1_cursor_1_1_not_found_exception.html">00038</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_cursor_1_1_not_found_exception.html" title="ファイルが見つからなかった。">NotFoundException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="classbalor_1_1graphics_1_1_cursor_1_1_load_failed_exception.html">00041</a>     <span class="keyword">class </span><a class="code" href="classbalor_1_1graphics_1_1_cursor_1_1_load_failed_exception.html" title="ロードに失敗した。">LoadFailedException</a> : <span class="keyword">public</span> <a class="code" href="classbalor_1_1_exception.html" title="balor の全ての例外クラスの親クラス。">Exception</a> {};
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keyword">public</span>:
+<a name="l00045"></a>00045     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>();
+<a name="l00046"></a>00046     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>(<a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a>&amp;&amp; value);
+<a name="l00048"></a>00048     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>(HCURSOR handle, <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a70e8ad90ca7284cc463e03c0cda1273a" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a> = <span class="keyword">false</span>);
+<a name="l00051"></a>00051     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>(HBITMAP <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ae463fbcaecab314f4656aa0d1241006d" title="カーソルの画像。">bitmap</a>, HBITMAP <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a6f9b6ced8afe4f4f7c06a0233610d1c6" title="カーソルの背景を透過するモノクロビットマップ。白い部分を透過する。">mask</a>, <span class="keywordtype">int</span> xHotSpot, <span class="keywordtype">int</span> yHotSpot);
+<a name="l00054"></a>00054     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>(HBITMAP <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ae463fbcaecab314f4656aa0d1241006d" title="カーソルの画像。">bitmap</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1graphics_1_1_color.html" title="色を表す。">Color</a>&amp; colorKey, <span class="keywordtype">int</span> xHotSpot, <span class="keywordtype">int</span> yHotSpot);
+<a name="l00056"></a>00056     <span class="keyword">explicit</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a39a32ace4bb8feed21a5ed8994a5be88" title="ヌルハンドルで作成。">Cursor</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> filePath);
+<a name="l00057"></a>00057     ~<a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a>();
+<a name="l00058"></a>00058     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a>&amp; operator=(<a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a>&amp;&amp; value);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keyword">public</span>:
+<a name="l00062"></a>00062     <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ae463fbcaecab314f4656aa0d1241006d" title="カーソルの画像。">bitmap</a>() <span class="keyword">const</span>;
+<a name="l00064"></a>00064     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ac7f0ca2f0924b10f59648b76f9d276b7" title="複製を返す。">clone</a>() <span class="keyword">const</span>;
+<a name="l00065"></a>00065     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ac7f0ca2f0924b10f59648b76f9d276b7" title="複製を返す。">clone</a>(HCURSOR handle);
+<a name="l00067"></a>00067     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a84338b9b969166c7fafced7a5ddc1daa" title="標準のサイズ。">defaultSize</a>();
+<a name="l00069"></a>00069     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ae92a5549a7a95a5f606d85a86e476810" title="カーソルがポイントする点。画像の左上を原点とするピクセル位置。">hotSpot</a>();
+<a name="l00071"></a>00071     <a class="code" href="classbalor_1_1graphics_1_1_bitmap.html" title="GDI ビットマップを表す。">Bitmap</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a6f9b6ced8afe4f4f7c06a0233610d1c6" title="カーソルの背景を透過するモノクロビットマップ。白い部分を透過する。">mask</a>() <span class="keyword">const</span>;
+<a name="l00073"></a>00073     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a70e8ad90ca7284cc463e03c0cda1273a" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>() <span class="keyword">const</span>;
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a70e8ad90ca7284cc463e03c0cda1273a" title="デストラクタでハンドルを破棄するかどうか。変更は要注意。">owned</a>(<span class="keywordtype">bool</span> value);
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>&amp;&amp; stream) <span class="keyword">const</span>;
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>&amp; stream) <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> filePath) <span class="keyword">const</span>;
+<a name="l00081"></a>00081     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Cursor&gt;</a> cursors, <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>&amp;&amp; stream);
+<a name="l00082"></a>00082     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Cursor&gt;</a> cursors, <a class="code" href="classbalor_1_1io_1_1_stream.html" title="バイナリストリームを表す抽象クラス。">Stream</a>&amp; stream);
+<a name="l00084"></a>00084     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af0bf2949c085fb23e050b06a2e2cc0b4" title="ストリームに保存する。">save</a>(<a class="code" href="classbalor_1_1_array_range.html" title="配列の始点と終点を持ち、std::vector、std::array、固定長配列、ポインタから変換できる。様々な配列表現を共通の関数インターフェースで実装できるようにする。">ArrayRange&lt;const Cursor&gt;</a> cursors, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> filePath);
+<a name="l00086"></a>00086     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#aa37638572450eebb7677c04960bcb329" title="カーソルの大きさ。">size</a>();
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keyword">public</span>: <span class="comment">// システムカーソル一覧。</span>
+<a name="l00090"></a>00090 <span class="comment"></span>    <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a0fc480a348f09c8a162532b5b7cdf264" title="矢印カーソルと砂時計。">appStarting</a>();
+<a name="l00092"></a>00092     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <span class="keywordflow">default</span>();
+<a name="l00094"></a>00094     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a46087e83656f767b5404f366bcb80b7e" title="十字カーソル。">cross</a>();
+<a name="l00096"></a>00096     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#aedcfb56a063c44b7e876d0112e83c3cb" title="ハンドカーソル。">hand</a>();
+<a name="l00098"></a>00098     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a9159ae08e0f752172a712041ff09ae18" title="矢印カーソルと疑問符。">help</a>();
+<a name="l00100"></a>00100     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a9b93a26d1905f95df7e7252b0aef282e" title="縦線カーソル。">iBeam</a>();
+<a name="l00102"></a>00102     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a5a359a86fc9321ee5d6f4f730b4e8c15" title="禁止カーソル。">no</a>();
+<a name="l00104"></a>00104     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a414ed295a86bd12411ef4ec58391da14" title="４方向の矢印カーソル。">sizeAll</a>();
+<a name="l00106"></a>00106     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ab3906edbb988d3a48cf02e459fab452e" title="右上と左下方向の矢印カーソル。">sizeNESW</a>();
+<a name="l00108"></a>00108     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a9f5e56a989d05e4c9e44c6f42fd9cbdf" title="上下方向の矢印カーソル。">sizeNS</a>();
+<a name="l00110"></a>00110     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#aabab6ec11031314cb86028568cab1b2f" title="左上と右下方向の矢印カーソル。">sizeNWSE</a>();
+<a name="l00112"></a>00112     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a159f7a2321707ea8568c1b76086ecf89" title="左右方向の矢印カーソル。">sizeWE</a>();
+<a name="l00114"></a>00114     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#af295c8ed030a949272b6932bb2e34bc3" title="上方向の矢印カーソル。">upAllow</a>();
+<a name="l00116"></a>00116     <span class="keyword">static</span> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html" title="カーソルの画像を表す。">Cursor</a> <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#ae3bfaecede12f3913e5580e642ce899e" title="砂時計カーソル。">wait</a>();
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 <span class="keyword">public</span>:
+<a name="l00120"></a><a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a52c11f0ddf519c0007b16294b1a99d08">00120</a>     <a class="code" href="classbalor_1_1graphics_1_1_cursor.html#a52c11f0ddf519c0007b16294b1a99d08" title="HCURSOR への自動変換 ＆ null チェック用">operator HCURSOR</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _handle; }
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="keyword">private</span>:
+<a name="l00123"></a>00123     HCURSOR _handle;
+<a name="l00124"></a>00124     <span class="keywordtype">bool</span> _owned;
+<a name="l00125"></a>00125 };
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129     }
+<a name="l00130"></a>00130 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:26に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

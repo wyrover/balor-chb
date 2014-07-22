@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/Rectangle.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/Rectangle.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="keyword">struct </span>tagRECT;
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="keyword">namespace </span>balor {
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">class </span>Size;
+<a name="l00010"></a>00010 <span class="keyword">class </span>Point;
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00020"></a><a class="code" href="classbalor_1_1_rectangle.html">00020</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> {
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022     typedef ::tagRECT RECT;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="keyword">public</span>:
+<a name="l00026"></a><a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c">00026</a>     <a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c" title="初期化せずに作成。">Rectangle</a>() {}
+<a name="l00027"></a>00027     <a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c" title="初期化せずに作成。">Rectangle</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rectangle);
+<a name="l00029"></a>00029     <a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c" title="初期化せずに作成。">Rectangle</a>(<span class="keyword">const</span> RECT&amp; rect);
+<a name="l00031"></a>00031     <a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c" title="初期化せずに作成。">Rectangle</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; <a class="code" href="classbalor_1_1_rectangle.html#ac8da6e3905623e5e39dc9b6d4da315d0" title="領域の左上座標。">position</a>, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1_rectangle.html#ab70c2625e6cefabc04e93c8115a7a0d7" title="領域の大きさ。">size</a>);
+<a name="l00033"></a>00033     <a class="code" href="classbalor_1_1_rectangle.html#aaef122aca2a99070182e91628cbd668c" title="初期化せずに作成。">Rectangle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00037"></a><a class="code" href="classbalor_1_1_rectangle.html#a5c646e127880ecc6aa5c680af9fde7d0">00037</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a5c646e127880ecc6aa5c680af9fde7d0" title="領域の下端座標。">bottom</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> y + height; }
+<a name="l00039"></a>00039     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1_rectangle.html#a6cc5e323ac47118afb340ec62e89c427" title="領域の左下座標。">bottomLeft</a>() <span class="keyword">const</span>;
+<a name="l00041"></a>00041     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1_rectangle.html#a028c51b89cae336ff496f0e1019b1fe4" title="領域の右下座標。">bottomRight</a>() <span class="keyword">const</span>;
+<a name="l00043"></a>00043     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_rectangle.html#a836ddbe34e148901301906a8f24ee185" title="点がこの領域に含まれるかどうか。">contains</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point) <span class="keyword">const</span>;
+<a name="l00044"></a>00044     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_rectangle.html#a836ddbe34e148901301906a8f24ee185" title="点がこの領域に含まれるかどうか。">contains</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y) <span class="keyword">const</span>;
+<a name="l00046"></a>00046     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_rectangle.html#a836ddbe34e148901301906a8f24ee185" title="点がこの領域に含まれるかどうか。">contains</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rect) <span class="keyword">const</span>;
+<a name="l00048"></a>00048     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1_rectangle.html#a32a9385e0730cf611fc9a8a1dd545cf1" title="left, top, right, bottom 座標系から作成する。">fromLTRB</a>(<span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a7385383f14790ffad4f70b25a9a71c45" title="領域の左端座標。">left</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a97503cd78c2c26f2e6691d5cd80645f4" title="領域の上端座標。">top</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a56bcf36a23b8259bf9026e032be0cef2" title="領域の右端座標。">right</a>, <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a5c646e127880ecc6aa5c680af9fde7d0" title="領域の下端座標。">bottom</a>);
+<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ab28b187f804f18a0e8aaf3ffda8f9585" title="指定した大きさ分、上下左右に拡大する。">grow</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; <a class="code" href="classbalor_1_1_rectangle.html#ab70c2625e6cefabc04e93c8115a7a0d7" title="領域の大きさ。">size</a>);
+<a name="l00051"></a>00051     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ab28b187f804f18a0e8aaf3ffda8f9585" title="指定した大きさ分、上下左右に拡大する。">grow</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00053"></a>00053     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1_rectangle.html#a1eeb588ab9a2bcff5c66c2512cc11f92" title="二つの領域の交差部分を返す。">intersection</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rhs);
+<a name="l00055"></a>00055     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1_rectangle.html#a33cf14f7cadefa8b7fc46da4b7a5a042" title="領域が交差するかどうか。">intersects</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00057"></a><a class="code" href="classbalor_1_1_rectangle.html#a7385383f14790ffad4f70b25a9a71c45">00057</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a7385383f14790ffad4f70b25a9a71c45" title="領域の左端座標。">left</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> x; }
+<a name="l00059"></a>00059     <span class="keyword">static</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="classbalor_1_1_rectangle.html#a835e2acb216322c0388553aa022e5d8b" title="二つの領域の結合部分を返す。">or</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rhs);
+<a name="l00061"></a>00061     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1_rectangle.html#ac8da6e3905623e5e39dc9b6d4da315d0" title="領域の左上座標。">position</a>() <span class="keyword">const</span>;
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ac8da6e3905623e5e39dc9b6d4da315d0" title="領域の左上座標。">position</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ac8da6e3905623e5e39dc9b6d4da315d0" title="領域の左上座標。">position</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00065"></a><a class="code" href="classbalor_1_1_rectangle.html#a56bcf36a23b8259bf9026e032be0cef2">00065</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a56bcf36a23b8259bf9026e032be0cef2" title="領域の右端座標。">right</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> x + width; }
+<a name="l00067"></a>00067     <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="classbalor_1_1_rectangle.html#ab70c2625e6cefabc04e93c8115a7a0d7" title="領域の大きさ。">size</a>() <span class="keyword">const</span>;
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ab70c2625e6cefabc04e93c8115a7a0d7" title="領域の大きさ。">size</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#ab70c2625e6cefabc04e93c8115a7a0d7" title="領域の大きさ。">size</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00071"></a><a class="code" href="classbalor_1_1_rectangle.html#a97503cd78c2c26f2e6691d5cd80645f4">00071</a>     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1_rectangle.html#a97503cd78c2c26f2e6691d5cd80645f4" title="領域の上端座標。">top</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> y; }
+<a name="l00073"></a>00073     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1_rectangle.html#a82633f5832964929ad0174ebde89ef71" title="領域の左上座標。">topLeft</a>() <span class="keyword">const</span>;
+<a name="l00075"></a>00075     <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="classbalor_1_1_rectangle.html#a889dc1e8619afffaf8fac1b0ec87985a" title="領域の右上座標。">topRight</a>() <span class="keyword">const</span>;
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#a5e2d3232084bef5e6e00ea82712f00cd" title="座標の数値分移動する。">translate</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; point);
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1_rectangle.html#a5e2d3232084bef5e6e00ea82712f00cd" title="座標の数値分移動する。">translate</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="keyword">public</span>:
+<a name="l00082"></a>00082     <a class="code" href="classbalor_1_1_rectangle.html#a0fec0dd127c10394d8a55d4d7e72f645" title="RECT 構造体への変換。">operator RECT</a>() <span class="keyword">const</span>;
+<a name="l00083"></a>00083     <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00084"></a>00084     <span class="keywordtype">bool</span> operator != (<span class="keyword">const</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a>&amp; rhs) <span class="keyword">const</span>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keyword">public</span>:
+<a name="l00087"></a>00087     <span class="keywordtype">int</span> x;
+<a name="l00088"></a>00088     <span class="keywordtype">int</span> y;
+<a name="l00089"></a>00089     <span class="keywordtype">int</span> width;
+<a name="l00090"></a>00090     <span class="keywordtype">int</span> height;
+<a name="l00091"></a>00091 };
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 
+<a name="l00095"></a><a class="code" href="namespacebalor.html#a438b329ef65d9d096755f8d37aba545a">00095</a> <span class="keyword">typedef</span> <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="namespacebalor.html#a438b329ef65d9d096755f8d37aba545a" title="Rectangle は WIN32 の関数名とかぶるので windows.h と一緒に使う場合はこの名前で">Rect</a>;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/FileDialog.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/syanji/Documents/work/project/balor/src/balor/balor/gui/FileDialog.hpp</div>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;balor/gui/Control.hpp&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">namespace </span>balor {
+<a name="l00009"></a>00009     <span class="keyword">namespace </span>gui {
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00017"></a><a class="code" href="classbalor_1_1gui_1_1_file_dialog.html">00017</a> <span class="keyword">class </span><a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a> {
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00019"></a>00019     <span class="keyword">typedef</span> Control::HWND HWND;
+<a name="l00020"></a>00020     <span class="keyword">typedef</span> Control::Procedure Procedure;
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00024"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html">00024</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">ControlId</a> {
+<a name="l00025"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5c">00025</a>         <span class="keyword">enum</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5c">_enum</a> {
+<a name="l00026"></a>00026             acceptButton      = 0x0001, 
+<a name="l00027"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca06f722e8f7774978c3e0138d674b2eec">00027</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca06f722e8f7774978c3e0138d674b2eec" title="決定ボタン。">cancelButton</a>      = 0x0002, 
+<a name="l00028"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca42c0f648b6d93a4cad8efab5fb2da71b">00028</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca42c0f648b6d93a4cad8efab5fb2da71b" title="キャンセルボタン。">directoryComboBox</a> = 0x0471, 
+<a name="l00029"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca953a4d3aa8b01d39a1f62bcb8a4a5871">00029</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca953a4d3aa8b01d39a1f62bcb8a4a5871" title="現在のディレクトリを表示するコンボボックス。">directoryLabel</a>    = 0x0443, 
+<a name="l00030"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca3842bd5e247ac9d155de35a60b06599f">00030</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca3842bd5e247ac9d155de35a60b06599f" title="現在のディレクトリを表示するコンボボックスのラベル。">directoryListView</a> = 0x0460, 
+<a name="l00031"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca57311e2e16797cb4b3d11f82fb1bd0cb">00031</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca57311e2e16797cb4b3d11f82fb1bd0cb" title="現在のディレクトリを表示するリストビュー。">filterComboBox</a>    = 0x0470, 
+<a name="l00032"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca5ef1fdfa2ac8a7b04121deacd3a72485">00032</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca5ef1fdfa2ac8a7b04121deacd3a72485" title="フィルターを表示するコンボボックス。">filterLabel</a>       = 0x0441, 
+<a name="l00033"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caaf28b2ec6bd46f38c71a045f5accab0e">00033</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caaf28b2ec6bd46f38c71a045f5accab0e" title="フィルターを表示するコンボボックスのラベル。">filePathEdit</a>      = 0x047c, 
+<a name="l00034"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caa7bd7b079c247ffe5f0e09388548e706">00034</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caa7bd7b079c247ffe5f0e09388548e706" title="ファイルパスを入力するエディットコントロール。">filePathLabel</a>     = 0x0442, 
+<a name="l00035"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caeb0bd26c337d54132e3e8dae0ee89bc9">00035</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5caeb0bd26c337d54132e3e8dae0ee89bc9" title="ファイルパスを入力するエディットコントロールのラベル。">helpButton</a>        = 0x0009, 
+<a name="l00036"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca1221837db721b5741cb0e529c8a20cce">00036</a>             <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html#a215b0c65b0d1566642f947f4e165db5ca1221837db721b5741cb0e529c8a20cce" title="ヘルプボタン。">readOnlyCheckBox</a>  = 0x0410, 
+<a name="l00037"></a>00037         };
+<a name="l00038"></a>00038         BALOR_NAMED_ENUM_MEMBERS(<a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">ControlId</a>);
+<a name="l00039"></a>00039     };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 
+<a name="l00043"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html">00043</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> : <span class="keyword">public</span> balor::<a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> {
+<a name="l00044"></a>00044         <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a>(HWND <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#ab55c35f59d116204245f21a70d504dcc" title="ダイアログのウインドウハンドル。">sender</a>);
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#afcceef4a2db06a2e9bdabd62be80f457" title="現在選択されているファイルパスまたはディレクトリパス。">filePath</a>() <span class="keyword">const</span>;
+<a name="l00049"></a>00049         <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#ab5762a7c202caeaa9446f3f0ef7a0c86" title="現在表示しているディレクトリ。">directory</a>() <span class="keyword">const</span>;
+<a name="l00051"></a>00051         HWND <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#ab55c35f59d116204245f21a70d504dcc" title="ダイアログのウインドウハンドル。">sender</a>() <span class="keyword">const</span>;
+<a name="l00053"></a>00053         <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#a7dc618a95189ed6c790d10e210a280c2" title="ダイアログのクライアント領域の大きさ。">clientSize</a>() <span class="keyword">const</span>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     <span class="keyword">private</span>:
+<a name="l00056"></a>00056         HWND _sender;
+<a name="l00057"></a>00057     };
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">DirectoryChange</a>;
+<a name="l00060"></a>00060     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">HelpRequest</a>;
+<a name="l00061"></a>00061     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Resize</a>;
+<a name="l00062"></a>00062     <span class="keyword">typedef</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Select</a>;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 
+<a name="l00066"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html">00066</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html" title="決定ボタンを押したイベント。">Accept</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> {
+<a name="l00067"></a>00067         <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html" title="決定ボタンを押したイベント。">Accept</a>(HWND <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#ab55c35f59d116204245f21a70d504dcc" title="ダイアログのウインドウハンドル。">sender</a>);
+<a name="l00068"></a>00068 
+<a name="l00070"></a>00070         <span class="keywordtype">bool</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html#aec9a999534ac7a0f85f5b1fb32e6137c" title="決定をキャンセルするかどうか。初期値は false。">cancel</a>() <span class="keyword">const</span>;
+<a name="l00071"></a>00071         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_accept.html#aec9a999534ac7a0f85f5b1fb32e6137c" title="決定をキャンセルするかどうか。初期値は false。">cancel</a>(<span class="keywordtype">bool</span> value);
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     <span class="keyword">private</span>:
+<a name="l00074"></a>00074         <span class="keywordtype">bool</span> _cancel;
+<a name="l00075"></a>00075     };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 
+<a name="l00079"></a><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html">00079</a>     <span class="keyword">struct </span><a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">Init</a> : <span class="keyword">public</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html" title="FileDialog のイベントの親クラス。">Event</a> {
+<a name="l00080"></a>00080         <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html" title="ダイアログを初期化するイベント。">Init</a>(HWND <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#ab55c35f59d116204245f21a70d504dcc" title="ダイアログのウインドウハンドル。">sender</a>);
+<a name="l00081"></a>00081 
+<a name="l00083"></a>00083         <a class="code" href="classbalor_1_1_rectangle.html" title="平面上の位置と大きさを持つ領域を表す構造体。">Rectangle</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#a8de4f2352cc7f53ebb60ff522bdf8c66" title="ダイアログ上のコントロールの領域。">getControlBounds</a>(<a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">FileDialog::ControlId</a> <span class="keywordtype">id</span>) <span class="keyword">const</span>;
+<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#ad54a2785a5ae395bbf5f862c4c9f5d2a" title="ダイアログ上のコントロールを非表示にする。">hideControl</a>(<a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">FileDialog::ControlId</a> <span class="keywordtype">id</span>);
+<a name="l00088"></a>00088         <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#a04ed9bdc6e31867b5f41795edd3f6148" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>() <span class="keyword">const</span>;
+<a name="l00089"></a>00089         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#a04ed9bdc6e31867b5f41795edd3f6148" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_point.html" title="平面の座標を表す構造体。">Point</a>&amp; value);
+<a name="l00090"></a>00090         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#a04ed9bdc6e31867b5f41795edd3f6148" title="ダイアログのスクリーン座標位置。 現状ではアプリケーションのプロセスが起動してから最初の一回しか変更できない模様。次回からは前回の位置が復元されている。">position</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);
+<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_init.html#aa735e5607d6d1897a721597961289e91" title="ダイアログ上のコントロールの文字列を変更する。">setControlText</a>(<a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_control_id.html" title="ダイアログ上のコントロールID。">FileDialog::ControlId</a> <span class="keywordtype">id</span>, <a class="code" href="classbalor_1_1_basic_string_range.html" title="文字列のポインタと長さを持ち、balor::String、balor::StringBuffer、std::wstring と文字列ポインタから変換できる。様々な文字列表現を共通の関数インターフェースで...">StringRange</a> text);
+<a name="l00094"></a>00094         <span class="keyword">using</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#a7dc618a95189ed6c790d10e210a280c2" title="ダイアログのクライアント領域の大きさ。">Event::clientSize</a>;
+<a name="l00095"></a>00095         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#a7dc618a95189ed6c790d10e210a280c2" title="ダイアログのクライアント領域の大きさ。">clientSize</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00096"></a>00096         <span class="keywordtype">void</span> <a class="code" href="structbalor_1_1gui_1_1_file_dialog_1_1_event.html#a7dc618a95189ed6c790d10e210a280c2" title="ダイアログのクライアント領域の大きさ。">clientSize</a>(<span class="keyword">const</span> <a class="code" href="classbalor_1_1_size.html" title="幅と高さによる寸法を表す構造体。">Size</a>&amp; value);
+<a name="l00097"></a>00097     };
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="keyword">public</span>:
+<a name="l00101"></a>00101     <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a>();
+<a name="l00102"></a>00102     <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a>(<a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a>&amp;&amp; value);
+<a name="l00103"></a>00103     <span class="keyword">virtual</span> ~<a class="code" href="classbalor_1_1gui_1_1_file_dialog.html" title="ファイルを開く・保存するダイアログボックスの基底クラス。">FileDialog</a>() = 0;
+<a name="l00104"></a>00104 
+<a name="l00106"></a>00106     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a6245b54144b865bcae5048e81b4b6093" title="ユーザがファイル名に拡張子を入力しなかった場合に自動的に追加される拡張子。カンマは含まない。初期値は空文字列。">defaultExtention</a>() <span class="keyword">const</span>;
+<a name="l00107"></a>00107     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a6245b54144b865bcae5048e81b4b6093" title="ユーザがファイル名に拡張子を入力しなかった場合に自動的に追加される拡張子。カンマは含まない。初期値は空文字列。">defaultExtention</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00109"></a>00109     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a91134f33d1868a212cf21fabe441ab50" title="ダイアログ表示前は初期表示されるファイルパスまたはファイル名。ダイアログ表示後はユーザが選択したファイルパス。multiselect() が true の場合は filePaths() のほうを使用する...">filePath</a>() <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a91134f33d1868a212cf21fabe441ab50" title="ダイアログ表示前は初期表示されるファイルパスまたはファイル名。ダイアログ表示後はユーザが選択したファイルパス。multiselect() が true の場合は filePaths() のほうを使用する...">filePath</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00112"></a>00112     std::vector&lt;String&gt; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a208186655e7fe1e9953b8258876f2ca4" title="ダイアログでユーザが選択したファイルパスリスト。multiselect() が true の場合のみ有効。">filePaths</a>() <span class="keyword">const</span>;
+<a name="l00118"></a>00118     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ad9afc9a5e762b37d890520ea247d2cb7" title="ダイアログで選択できるファイルの拡張子名と拡張子の組のリスト。拡張子名と拡張子は&#39; &#39;で区切り、拡張子はセミコロンで区切って複数指定できる。さらに&#39; &#39;区切りで複数の組を指定する。 &quot;\n\n&quot;で組...">filter</a>() <span class="keyword">const</span>;
+<a name="l00119"></a>00119     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ad9afc9a5e762b37d890520ea247d2cb7" title="ダイアログで選択できるファイルの拡張子名と拡張子の組のリスト。拡張子名と拡張子は&#39; &#39;で区切り、拡張子はセミコロンで区切って複数指定できる。さらに&#39; &#39;区切りで複数の組を指定する。 &quot;\n\n&quot;で組...">filter</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00121"></a>00121     <span class="keywordtype">int</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ab1ae0cca6750c8ffe7c1c01a57e3c862" title="ダイアログ表示前は filter() で指定した拡張子リストの初期インデックス。ダイアログ表示後はユーザが最後に選択したインデックス。初期値は 0。">filterIndex</a>() <span class="keyword">const</span>;
+<a name="l00122"></a>00122     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ab1ae0cca6750c8ffe7c1c01a57e3c862" title="ダイアログ表示前は filter() で指定した拡張子リストの初期インデックス。ダイアログ表示後はユーザが最後に選択したインデックス。初期値は 0。">filterIndex</a>(<span class="keywordtype">int</span> value);
+<a name="l00124"></a>00124     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a44136c022a5195d84ed9a215af4a9aea" title="ヘルプボタンを表示するかどうか。初期値は false。">helpButton</a>() <span class="keyword">const</span>;
+<a name="l00125"></a>00125     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a44136c022a5195d84ed9a215af4a9aea" title="ヘルプボタンを表示するかどうか。初期値は false。">helpButton</a>(<span class="keywordtype">bool</span> value);
+<a name="l00128"></a>00128     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#afa7166b6b58a95a80babf64c56a39a9f" title="ダイアログを表示した時に最初に表示されるディレクトリ。ただし filePath() にパスが含まれる場合はそちらを優先する。 filePath() も initialDirectory() も空文字列の...">initialDirectory</a>() <span class="keyword">const</span>;
+<a name="l00129"></a>00129     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#afa7166b6b58a95a80babf64c56a39a9f" title="ダイアログを表示した時に最初に表示されるディレクトリ。ただし filePath() にパスが含まれる場合はそちらを優先する。 filePath() も initialDirectory() も空文字列の...">initialDirectory</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00131"></a>00131     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#add9a0c92b7d587ae47804f210176332e" title="CTRL キーを押しながらファイルを複数選択できるかどうか。初期値は false。">multiselect</a>() <span class="keyword">const</span>;
+<a name="l00132"></a>00132     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#add9a0c92b7d587ae47804f210176332e" title="CTRL キーを押しながらファイルを複数選択できるかどうか。初期値は false。">multiselect</a>(<span class="keywordtype">bool</span> value);
+<a name="l00134"></a>00134     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a07b4618f0acdab0ff94bfa48ca976c7d" title="リンクファイルを指定した時にリンク先とみなさずリンクファイルとして開くかどうか。初期値は false。">noDereferenceLinks</a>() <span class="keyword">const</span>;
+<a name="l00135"></a>00135     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a07b4618f0acdab0ff94bfa48ca976c7d" title="リンクファイルを指定した時にリンク先とみなさずリンクファイルとして開くかどうか。初期値は false。">noDereferenceLinks</a>(<span class="keywordtype">bool</span> value);
+<a name="l00137"></a>00137     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Accept&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ade032aaea462e14ac1827ac68b5d43e6" title="決定ボタンを押したイベント。">onAccept</a>();
+<a name="l00139"></a>00139     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::DirectoryChange&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#ae2f186ab331d5e43a0957a12ab7fb581" title="ディレクトリを変更したイベント。">onDirectoryChange</a>();
+<a name="l00141"></a>00141     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::HelpRequest&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a9e00b45d83dbb05a2eaf3da9f751f7bd" title="ヘルプボタンが押されたイベント。helpButton() が true の場合のみ発生する。">onHelpRequest</a>();
+<a name="l00143"></a>00143     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Init&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#aaa9caff9fef3c9569dc97fcbbb0a3625" title="ダイアログを初期化するイベント。">onInit</a>();
+<a name="l00145"></a>00145     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Resize&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a2fe4ed8bbfb36040e815517d1d92870e" title="ダイアログの大きさを変更したイベント。">onResize</a>();
+<a name="l00147"></a>00147     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Select&amp;&gt;</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a0a1a1401d9a04784150574f697170c32" title="ファイルまたはディレクトリを選択したイベント。">onSelect</a>();
+<a name="l00149"></a>00149     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a5f17df8850bacb98a87a3352c7d79f72" title="ダイアログの左側にファイルの場所リストを表示するかどうか。初期値は true。">placesBar</a>() <span class="keyword">const</span>;
+<a name="l00150"></a>00150     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a5f17df8850bacb98a87a3352c7d79f72" title="ダイアログの左側にファイルの場所リストを表示するかどうか。初期値は true。">placesBar</a>(<span class="keywordtype">bool</span> value);
+<a name="l00152"></a>00152     <span class="keyword">const</span> <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a>&amp; <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#aace3198610189107bbf5ff1743789893" title="ダイアログボックスのタイトル。空文字列を指定した場合はシステムデフォルトになる。初期値は空文字列。">title</a>() <span class="keyword">const</span>;
+<a name="l00153"></a>00153     <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#aace3198610189107bbf5ff1743789893" title="ダイアログボックスのタイトル。空文字列を指定した場合はシステムデフォルトになる。初期値は空文字列。">title</a>(<a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> value);
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 <span class="keyword">protected</span>:
+<a name="l00157"></a>00157     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a051314d7f677892cfd1ace03b3d6ae13" title="フックしたメッセージを処理する。">processMessage</a>(<a class="code" href="classbalor_1_1gui_1_1_message.html" title="ウインドウメッセージ構造体。MSG 構造体のコピー＆拡張。">Message</a>&amp; msg);
+<a name="l00159"></a>00159     <span class="keywordtype">bool</span> <a class="code" href="classbalor_1_1gui_1_1_file_dialog.html#a0a1ce6544a12941c2bc924852545c62b" title="ダイアログボックスを表示する。ファイルを選択したかどうかを返す。">show</a>(HWND owner, <span class="keywordtype">bool</span> open);
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161 <span class="keyword">protected</span>:
+<a name="l00162"></a>00162     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _defaultExtention;
+<a name="l00163"></a>00163     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _filePath;
+<a name="l00164"></a>00164     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _filter;
+<a name="l00165"></a>00165     <span class="keywordtype">int</span> _filterIndex;
+<a name="l00166"></a>00166     <span class="keywordtype">int</span> _flags;
+<a name="l00167"></a>00167     <span class="keywordtype">int</span> _flagsEx;
+<a name="l00168"></a>00168     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _initialDirectory;
+<a name="l00169"></a>00169     <a class="code" href="classbalor_1_1_string.html" title="文字列を表す。">String</a> _title;
+<a name="l00170"></a>00170     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Accept&amp;&gt;</a> _onAccept;
+<a name="l00171"></a>00171     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::DirectoryChange&amp;&gt;</a> _onDirectoryChange;
+<a name="l00172"></a>00172     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::HelpRequest&amp;&gt;</a> _onHelpRequest;
+<a name="l00173"></a>00173     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Init&amp;&gt;</a> _onInit;
+<a name="l00174"></a>00174     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Resize&amp;&gt;</a> _onResize;
+<a name="l00175"></a>00175     <a class="code" href="classbalor_1_1_listener.html">Listener&lt;FileDialog::Select&amp;&gt;</a> _onSelect;
+<a name="l00176"></a>00176     Procedure _defaultProcedure;
+<a name="l00177"></a>00177 };
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181     }
+<a name="l00182"></a>00182 }
+</pre></div></div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:27に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

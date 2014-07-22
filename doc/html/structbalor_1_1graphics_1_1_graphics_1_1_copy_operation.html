@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>balor: 構造体 balor::graphics::Graphics::CopyOperation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- 作成： Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">balor&#160;<span id="projectnumber">version 1.0.1</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>メインページ</span></a></li>
+      <li><a href="namespaces.html"><span>ネームスペース</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>構成</span></a></li>
+      <li><a href="classes.html"><span>構成索引</span></a></li>
+      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>構成メンバ</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespacebalor.html">balor</a>      </li>
+      <li class="navelem"><a class="el" href="namespacebalor_1_1graphics.html">graphics</a>      </li>
+      <li class="navelem"><a class="el" href="classbalor_1_1graphics_1_1_graphics.html">Graphics</a>      </li>
+      <li class="navelem"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">CopyOperation</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 型</a> &#124;
+<a href="#pub-methods">Public メソッド</a>  </div>
+  <div class="headertitle">
+<div class="title">構造体 balor::graphics::Graphics::CopyOperation</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="balor::graphics::Graphics::CopyOperation" -->
+<p>コピーの演算方法。組み合わせで指定する。  
+ <a href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#details">[詳細]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a>&gt;</code></p>
+
+<p><a href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation-members.html">すべてのメンバ一覧</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public 型</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558ea">_enum</a> { <br/>
+&#160;&#160;<b>captureBlt</b> =  0x40000000, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa97555307d2b12327f8af96554e4530f2">destinationInvert</a> =  0x00550009, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa8ba7adcb61d29e2369e6e966a880e9ee">mergeCopy</a> =  0x00C000CA, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa5f9d133216cfd7f91f474c1be49f7a1e">mergePaint</a> =  0x00BB0226, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa7e3d64d99ba2fb9de06d076d38f21928">notSourceCopy</a> =  0x00330008, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa511356da101d2090dd3f2a65fd501bd7">notSourceErase</a> =  0x001100A6, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaaaff6ea4ef502372328749ccc6c3ca453">patCopy</a> =  0x00F00021, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaaefda9b47d247d115bd8e5c42aa7faed8">patInvert</a> =  0x005A0049, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa634a42dff6f6d3527544a14ae0e0eb91">patPaint</a> =  0x00FB0A09, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa4d11797a1d037c57ce8a47b6dbec52e2">sourceAnd</a> =  0x008800C6, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaa1002a00ac9b89ffd8df935e4af8bee5e">sourceCopy</a> =  0x00CC0020, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaaa5c20014694ecfa0965ffcb6fbab158b">sourceErase</a> =  0x00440328, 
+<br/>
+&#160;&#160;<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaac3fd2b3399eea3ec23139093e59884ca">sourceInvert</a> =  0x00660046, 
+<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558eaaba8d6c3dd99c9d8e8b3dc1da56b172ff">sourcePaint</a> =  0x00EE0086
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public メソッド</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c3b1d28de0b61edd947f0f9a5fea1b1"></a><!-- doxytag: member="balor::graphics::Graphics::CopyOperation::BALOR_NAMED_LOGICAL_ENUM_MEMBERS" ref="a8c3b1d28de0b61edd947f0f9a5fea1b1" args="(CopyOperation)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>BALOR_NAMED_LOGICAL_ENUM_MEMBERS</b> (<a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html">CopyOperation</a>)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>説明</h2>
+<div class="textblock"><p>コピーの演算方法。組み合わせで指定する。 </p>
+</div><hr/><h2>列挙型</h2>
+<a class="anchor" id="a0279e85428f077bd86e1f9b8400558ea"></a><!-- doxytag: member="balor::graphics::Graphics::CopyOperation::_enum" ref="a0279e85428f077bd86e1f9b8400558ea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="structbalor_1_1graphics_1_1_graphics_1_1_copy_operation.html#a0279e85428f077bd86e1f9b8400558ea">balor::graphics::Graphics::CopyOperation::_enum</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>列挙型の値: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa97555307d2b12327f8af96554e4530f2"></a><!-- doxytag: member="destinationInvert" ref="a0279e85428f077bd86e1f9b8400558eaa97555307d2b12327f8af96554e4530f2" args="" -->destinationInvert</em>&nbsp;</td><td>
+<p>コピー元が半透明なウインドウであってもピクセルをコピーする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa8ba7adcb61d29e2369e6e966a880e9ee"></a><!-- doxytag: member="mergeCopy" ref="a0279e85428f077bd86e1f9b8400558eaa8ba7adcb61d29e2369e6e966a880e9ee" args="" -->mergeCopy</em>&nbsp;</td><td>
+<p>コピー先の色を反転する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa5f9d133216cfd7f91f474c1be49f7a1e"></a><!-- doxytag: member="mergePaint" ref="a0279e85428f077bd86e1f9b8400558eaa5f9d133216cfd7f91f474c1be49f7a1e" args="" -->mergePaint</em>&nbsp;</td><td>
+<p>コピー元とコピー先のブラシを AND 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa7e3d64d99ba2fb9de06d076d38f21928"></a><!-- doxytag: member="notSourceCopy" ref="a0279e85428f077bd86e1f9b8400558eaa7e3d64d99ba2fb9de06d076d38f21928" args="" -->notSourceCopy</em>&nbsp;</td><td>
+<p>コピー元の色を反転してコピー先と OR 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa511356da101d2090dd3f2a65fd501bd7"></a><!-- doxytag: member="notSourceErase" ref="a0279e85428f077bd86e1f9b8400558eaa511356da101d2090dd3f2a65fd501bd7" args="" -->notSourceErase</em>&nbsp;</td><td>
+<p>コピー元の色を反転してコピーする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaaaff6ea4ef502372328749ccc6c3ca453"></a><!-- doxytag: member="patCopy" ref="a0279e85428f077bd86e1f9b8400558eaaaff6ea4ef502372328749ccc6c3ca453" args="" -->patCopy</em>&nbsp;</td><td>
+<p>コピー元とコピー先を OR 演算した後反転する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaaefda9b47d247d115bd8e5c42aa7faed8"></a><!-- doxytag: member="patInvert" ref="a0279e85428f077bd86e1f9b8400558eaaefda9b47d247d115bd8e5c42aa7faed8" args="" -->patInvert</em>&nbsp;</td><td>
+<p>コピー先のブラシで塗る。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa634a42dff6f6d3527544a14ae0e0eb91"></a><!-- doxytag: member="patPaint" ref="a0279e85428f077bd86e1f9b8400558eaa634a42dff6f6d3527544a14ae0e0eb91" args="" -->patPaint</em>&nbsp;</td><td>
+<p>コピー先のブラシとコピー先を XOR 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa4d11797a1d037c57ce8a47b6dbec52e2"></a><!-- doxytag: member="sourceAnd" ref="a0279e85428f077bd86e1f9b8400558eaa4d11797a1d037c57ce8a47b6dbec52e2" args="" -->sourceAnd</em>&nbsp;</td><td>
+<p>コピー元を反転した色とコピー先のブラシを OR 演算し、結果とコピー先を OR 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaa1002a00ac9b89ffd8df935e4af8bee5e"></a><!-- doxytag: member="sourceCopy" ref="a0279e85428f077bd86e1f9b8400558eaa1002a00ac9b89ffd8df935e4af8bee5e" args="" -->sourceCopy</em>&nbsp;</td><td>
+<p>コピー元とコピー先を AND 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaaa5c20014694ecfa0965ffcb6fbab158b"></a><!-- doxytag: member="sourceErase" ref="a0279e85428f077bd86e1f9b8400558eaaa5c20014694ecfa0965ffcb6fbab158b" args="" -->sourceErase</em>&nbsp;</td><td>
+<p>コピー元をコピーする。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaac3fd2b3399eea3ec23139093e59884ca"></a><!-- doxytag: member="sourceInvert" ref="a0279e85428f077bd86e1f9b8400558eaac3fd2b3399eea3ec23139093e59884ca" args="" -->sourceInvert</em>&nbsp;</td><td>
+<p>コピー元とコピー先を反転した色を AND 演算する。 </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0279e85428f077bd86e1f9b8400558eaaba8d6c3dd99c9d8e8b3dc1da56b172ff"></a><!-- doxytag: member="sourcePaint" ref="a0279e85428f077bd86e1f9b8400558eaaba8d6c3dd99c9d8e8b3dc1da56b172ff" args="" -->sourcePaint</em>&nbsp;</td><td>
+<p>コピー元とコピー先を XOR 演算する。 </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<hr/>この構造体の説明は次のファイルから生成されました:<ul>
+<li>C:/Users/syanji/Documents/work/project/balor/src/balor/balor/graphics/<a class="el" href="_graphics_8hpp_source.html">Graphics.hpp</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全て</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>クラス</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>ネームスペース</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>関数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>変数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>型定義</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>列挙型</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>列挙型の値</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>フレンド</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>balorに対してMon Aug 15 2011 19:24:30に生成されました。&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>
