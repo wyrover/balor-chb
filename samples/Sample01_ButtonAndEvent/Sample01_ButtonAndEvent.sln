@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample01_ButtonAndEvent", "Sample01_ButtonAndEvent.vcxproj", "{93B3A7DD-FC99-4FB3-B28A-76C438264A6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93B3A7DD-FC99-4FB3-B28A-76C438264A6A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{93B3A7DD-FC99-4FB3-B28A-76C438264A6A}.Debug|Win32.Build.0 = Debug|Win32
+		{93B3A7DD-FC99-4FB3-B28A-76C438264A6A}.Release|Win32.ActiveCfg = Release|Win32
+		{93B3A7DD-FC99-4FB3-B28A-76C438264A6A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
