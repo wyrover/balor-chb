@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="balor">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="balor\graphics">
+      <UniqueIdentifier>{146fad18-4e45-4e89-9946-40621b53329b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\gui">
+      <UniqueIdentifier>{4a9ff43b-ad8a-424a-907e-4735779df595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\io">
+      <UniqueIdentifier>{478d8404-4768-42fc-b287-11509e4ceba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\locale">
+      <UniqueIdentifier>{bfebf301-e64d-4879-af4b-c10771a3ba86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\test">
+      <UniqueIdentifier>{046386db-c479-4c00-b7d7-0c6d051398ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="balor\system">
+      <UniqueIdentifier>{7dffcb65-4c3c-4cd2-b476-c0417b979d02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="balor\all.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\ArrayRange.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Convert.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Exception.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Flag.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\OutOfMemoryException.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\scopeExit.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Singleton.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\String.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\StringRange.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\all.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Bitmap.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Color.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Font.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\GdiplusInitializer.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Graphics.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\GraphicsPath.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Icon.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Pen.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Region.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\all.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Button.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\CheckBox.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Clipboard.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Control.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\EnableVisualStyle.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\GroupBox.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Label.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Menu.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Message.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\MessageBox.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Padding.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Panel.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\RadioButton.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ScrollableControl.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ToolTip.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\all.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\Drive.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\File.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\FileStream.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\MemoryStream.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\Registry.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\Stream.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\locale\all.hpp">
+      <Filter>balor\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\all.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\Debug.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\HandleLeakChecker.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\InstanceTracer.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\noMacroAssert.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\UnhandledException.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\UnitTest.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\test\verify.hpp">
+      <Filter>balor\test</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\locale\Unicode.hpp">
+      <Filter>balor\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\all.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\ComPtr.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\FileVersionInfo.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\Module.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\PerformanceCounter.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\Process.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\Version.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\windows.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\link.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\locale\Locale.hpp">
+      <Filter>balor\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\locale\Charset.hpp">
+      <Filter>balor\locale</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\System.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Point.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Rectangle.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Size.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Listener.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Event.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\Resource.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Brush.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\PopupMenu.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ScrollBar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ProgressBar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\TrackBar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Timer.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\UpDown.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\AutoComplete.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ComboBox.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ListBox.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ListView.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\StringBuffer.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Enum.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\TreeView.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\Reference.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Key.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Mouse.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\EnvironmentVariable.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\MenuBar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\Cursor.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Edit.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Frame.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\DockLayout.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\io\StreamToIStream.hpp">
+      <Filter>balor\io</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\UniqueAny.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\DragDrop.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\ComBase.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\Com.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\system\Console.hpp">
+      <Filter>balor\system</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\graphics\ImageList.hpp">
+      <Filter>balor\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\LineLayout.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Monitor.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Scaler.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\StringRangeArray.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\NonCopyable.hpp">
+      <Filter>balor</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ToolBar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Tab.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\OpenFileDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\FileDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\SaveFileDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\SelectDirectoryDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Rebar.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\Splitter.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\ColorDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="balor\gui\FontDialog.hpp">
+      <Filter>balor\gui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="balor\Convert.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Singleton.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\String.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Bitmap.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Color.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Font.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\GdiplusInitializer.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Graphics.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\GraphicsPath.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Icon.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Pen.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Region.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Button.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\CheckBox.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Clipboard.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Control.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\GroupBox.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Label.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Menu.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Message.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\MessageBox.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Padding.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Panel.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\RadioButton.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ScrollableControl.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ToolTip.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Drive.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\File.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\FileStream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\MemoryStream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Registry.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Stream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\Debug.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\HandleLeakChecker.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\InstanceTracer.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\noMacroAssert.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\test\UnitTest.cpp">
+      <Filter>balor\test</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\locale\Unicode.cpp">
+      <Filter>balor\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\FileVersionInfo.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Module.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\PerformanceCounter.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Process.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Version.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\locale\Locale.cpp">
+      <Filter>balor\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\locale\Charset.cpp">
+      <Filter>balor\locale</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\System.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Point.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Rectangle.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Size.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\Resource.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Brush.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\PopupMenu.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ScrollBar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ProgressBar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\TrackBar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Timer.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\UpDown.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\AutoComplete.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ComboBox.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ListBox.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ListView.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\StringBuffer.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\TreeView.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\Reference.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Key.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Mouse.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\EnvironmentVariable.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\MenuBar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\Cursor.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Edit.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Frame.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\DockLayout.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\ComPtr.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\io\StreamToIStream.cpp">
+      <Filter>balor\io</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\DragDrop.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Com.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\system\Console.cpp">
+      <Filter>balor\system</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\graphics\ImageList.cpp">
+      <Filter>balor\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\LineLayout.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Monitor.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Scaler.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\StringRangeArray.cpp">
+      <Filter>balor</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ToolBar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Tab.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\OpenFileDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\FileDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\SaveFileDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\SelectDirectoryDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Rebar.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\Splitter.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\ColorDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="balor\gui\FontDialog.cpp">
+      <Filter>balor\gui</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug64|x64">
+      <Configuration>Debug64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release64|x64">
+      <Configuration>Release64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="balor\all.hpp" />
+    <ClInclude Include="balor\ArrayRange.hpp" />
+    <ClInclude Include="balor\Convert.hpp" />
+    <ClInclude Include="balor\Enum.hpp" />
+    <ClInclude Include="balor\Event.hpp" />
+    <ClInclude Include="balor\Exception.hpp" />
+    <ClInclude Include="balor\Flag.hpp" />
+    <ClInclude Include="balor\graphics\all.hpp" />
+    <ClInclude Include="balor\graphics\Bitmap.hpp" />
+    <ClInclude Include="balor\graphics\Brush.hpp" />
+    <ClInclude Include="balor\graphics\Color.hpp" />
+    <ClInclude Include="balor\graphics\Cursor.hpp" />
+    <ClInclude Include="balor\graphics\Font.hpp" />
+    <ClInclude Include="balor\graphics\GdiplusInitializer.hpp" />
+    <ClInclude Include="balor\graphics\Graphics.hpp" />
+    <ClInclude Include="balor\graphics\GraphicsPath.hpp" />
+    <ClInclude Include="balor\graphics\Icon.hpp" />
+    <ClInclude Include="balor\graphics\ImageList.hpp" />
+    <ClInclude Include="balor\graphics\Pen.hpp" />
+    <ClInclude Include="balor\graphics\Region.hpp" />
+    <ClInclude Include="balor\gui\all.hpp" />
+    <ClInclude Include="balor\gui\AutoComplete.hpp" />
+    <ClInclude Include="balor\gui\Button.hpp" />
+    <ClInclude Include="balor\gui\CheckBox.hpp" />
+    <ClInclude Include="balor\gui\Clipboard.hpp" />
+    <ClInclude Include="balor\gui\ColorDialog.hpp" />
+    <ClInclude Include="balor\gui\ComboBox.hpp" />
+    <ClInclude Include="balor\gui\Control.hpp" />
+    <ClInclude Include="balor\gui\DockLayout.hpp" />
+    <ClInclude Include="balor\gui\DragDrop.hpp" />
+    <ClInclude Include="balor\gui\Edit.hpp" />
+    <ClInclude Include="balor\gui\EnableVisualStyle.hpp" />
+    <ClInclude Include="balor\gui\FileDialog.hpp" />
+    <ClInclude Include="balor\gui\FontDialog.hpp" />
+    <ClInclude Include="balor\gui\Frame.hpp" />
+    <ClInclude Include="balor\gui\GroupBox.hpp" />
+    <ClInclude Include="balor\gui\Key.hpp" />
+    <ClInclude Include="balor\gui\Label.hpp" />
+    <ClInclude Include="balor\gui\LineLayout.hpp" />
+    <ClInclude Include="balor\gui\ListBox.hpp" />
+    <ClInclude Include="balor\gui\ListView.hpp" />
+    <ClInclude Include="balor\gui\Menu.hpp" />
+    <ClInclude Include="balor\gui\MenuBar.hpp" />
+    <ClInclude Include="balor\gui\Message.hpp" />
+    <ClInclude Include="balor\gui\MessageBox.hpp" />
+    <ClInclude Include="balor\gui\Monitor.hpp" />
+    <ClInclude Include="balor\gui\Mouse.hpp" />
+    <ClInclude Include="balor\gui\OpenFileDialog.hpp" />
+    <ClInclude Include="balor\gui\Padding.hpp" />
+    <ClInclude Include="balor\gui\Panel.hpp" />
+    <ClInclude Include="balor\gui\PopupMenu.hpp" />
+    <ClInclude Include="balor\gui\ProgressBar.hpp" />
+    <ClInclude Include="balor\gui\RadioButton.hpp" />
+    <ClInclude Include="balor\gui\Rebar.hpp" />
+    <ClInclude Include="balor\gui\SaveFileDialog.hpp" />
+    <ClInclude Include="balor\gui\Scaler.hpp" />
+    <ClInclude Include="balor\gui\ScrollableControl.hpp" />
+    <ClInclude Include="balor\gui\ScrollBar.hpp" />
+    <ClInclude Include="balor\gui\SelectDirectoryDialog.hpp" />
+    <ClInclude Include="balor\gui\Splitter.hpp" />
+    <ClInclude Include="balor\gui\Tab.hpp" />
+    <ClInclude Include="balor\gui\Timer.hpp" />
+    <ClInclude Include="balor\gui\ToolBar.hpp" />
+    <ClInclude Include="balor\gui\ToolTip.hpp" />
+    <ClInclude Include="balor\gui\TrackBar.hpp" />
+    <ClInclude Include="balor\gui\TreeView.hpp" />
+    <ClInclude Include="balor\gui\UpDown.hpp" />
+    <ClInclude Include="balor\io\all.hpp" />
+    <ClInclude Include="balor\io\Drive.hpp" />
+    <ClInclude Include="balor\io\File.hpp" />
+    <ClInclude Include="balor\io\FileStream.hpp" />
+    <ClInclude Include="balor\io\MemoryStream.hpp" />
+    <ClInclude Include="balor\io\Registry.hpp" />
+    <ClInclude Include="balor\io\Resource.hpp" />
+    <ClInclude Include="balor\io\Stream.hpp" />
+    <ClInclude Include="balor\io\StreamToIStream.hpp" />
+    <ClInclude Include="balor\link.hpp" />
+    <ClInclude Include="balor\Listener.hpp" />
+    <ClInclude Include="balor\locale\all.hpp" />
+    <ClInclude Include="balor\locale\Charset.hpp" />
+    <ClInclude Include="balor\locale\Locale.hpp" />
+    <ClInclude Include="balor\locale\Unicode.hpp" />
+    <ClInclude Include="balor\NonCopyable.hpp" />
+    <ClInclude Include="balor\OutOfMemoryException.hpp" />
+    <ClInclude Include="balor\Point.hpp" />
+    <ClInclude Include="balor\Rectangle.hpp" />
+    <ClInclude Include="balor\Reference.hpp" />
+    <ClInclude Include="balor\scopeExit.hpp" />
+    <ClInclude Include="balor\Singleton.hpp" />
+    <ClInclude Include="balor\Size.hpp" />
+    <ClInclude Include="balor\String.hpp" />
+    <ClInclude Include="balor\StringBuffer.hpp" />
+    <ClInclude Include="balor\StringRange.hpp" />
+    <ClInclude Include="balor\StringRangeArray.hpp" />
+    <ClInclude Include="balor\system\all.hpp" />
+    <ClInclude Include="balor\system\Com.hpp" />
+    <ClInclude Include="balor\system\ComBase.hpp" />
+    <ClInclude Include="balor\system\ComPtr.hpp" />
+    <ClInclude Include="balor\system\Console.hpp" />
+    <ClInclude Include="balor\system\EnvironmentVariable.hpp" />
+    <ClInclude Include="balor\system\FileVersionInfo.hpp" />
+    <ClInclude Include="balor\system\Module.hpp" />
+    <ClInclude Include="balor\system\PerformanceCounter.hpp" />
+    <ClInclude Include="balor\system\Process.hpp" />
+    <ClInclude Include="balor\system\System.hpp" />
+    <ClInclude Include="balor\system\Version.hpp" />
+    <ClInclude Include="balor\system\windows.hpp" />
+    <ClInclude Include="balor\test\all.hpp" />
+    <ClInclude Include="balor\test\Debug.hpp" />
+    <ClInclude Include="balor\test\HandleLeakChecker.hpp" />
+    <ClInclude Include="balor\test\InstanceTracer.hpp" />
+    <ClInclude Include="balor\test\noMacroAssert.hpp" />
+    <ClInclude Include="balor\test\UnhandledException.hpp" />
+    <ClInclude Include="balor\test\UnitTest.hpp" />
+    <ClInclude Include="balor\test\verify.hpp" />
+    <ClInclude Include="balor\UniqueAny.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="balor\Convert.cpp" />
+    <ClCompile Include="balor\graphics\Bitmap.cpp" />
+    <ClCompile Include="balor\graphics\Brush.cpp" />
+    <ClCompile Include="balor\graphics\Color.cpp" />
+    <ClCompile Include="balor\graphics\Cursor.cpp" />
+    <ClCompile Include="balor\graphics\Font.cpp" />
+    <ClCompile Include="balor\graphics\GdiplusInitializer.cpp" />
+    <ClCompile Include="balor\graphics\Graphics.cpp" />
+    <ClCompile Include="balor\graphics\GraphicsPath.cpp" />
+    <ClCompile Include="balor\graphics\Icon.cpp" />
+    <ClCompile Include="balor\graphics\ImageList.cpp" />
+    <ClCompile Include="balor\graphics\Pen.cpp" />
+    <ClCompile Include="balor\graphics\Region.cpp" />
+    <ClCompile Include="balor\gui\AutoComplete.cpp" />
+    <ClCompile Include="balor\gui\Button.cpp" />
+    <ClCompile Include="balor\gui\CheckBox.cpp" />
+    <ClCompile Include="balor\gui\Clipboard.cpp" />
+    <ClCompile Include="balor\gui\ColorDialog.cpp" />
+    <ClCompile Include="balor\gui\ComboBox.cpp" />
+    <ClCompile Include="balor\gui\Control.cpp" />
+    <ClCompile Include="balor\gui\DockLayout.cpp" />
+    <ClCompile Include="balor\gui\DragDrop.cpp" />
+    <ClCompile Include="balor\gui\Edit.cpp" />
+    <ClCompile Include="balor\gui\FileDialog.cpp" />
+    <ClCompile Include="balor\gui\FontDialog.cpp" />
+    <ClCompile Include="balor\gui\Frame.cpp" />
+    <ClCompile Include="balor\gui\GroupBox.cpp" />
+    <ClCompile Include="balor\gui\Key.cpp" />
+    <ClCompile Include="balor\gui\Label.cpp" />
+    <ClCompile Include="balor\gui\LineLayout.cpp" />
+    <ClCompile Include="balor\gui\ListBox.cpp" />
+    <ClCompile Include="balor\gui\ListView.cpp" />
+    <ClCompile Include="balor\gui\Menu.cpp" />
+    <ClCompile Include="balor\gui\MenuBar.cpp" />
+    <ClCompile Include="balor\gui\Message.cpp" />
+    <ClCompile Include="balor\gui\MessageBox.cpp" />
+    <ClCompile Include="balor\gui\Monitor.cpp" />
+    <ClCompile Include="balor\gui\Mouse.cpp" />
+    <ClCompile Include="balor\gui\OpenFileDialog.cpp" />
+    <ClCompile Include="balor\gui\Padding.cpp" />
+    <ClCompile Include="balor\gui\Panel.cpp" />
+    <ClCompile Include="balor\gui\PopupMenu.cpp" />
+    <ClCompile Include="balor\gui\ProgressBar.cpp" />
+    <ClCompile Include="balor\gui\RadioButton.cpp" />
+    <ClCompile Include="balor\gui\Rebar.cpp" />
+    <ClCompile Include="balor\gui\SaveFileDialog.cpp" />
+    <ClCompile Include="balor\gui\Scaler.cpp" />
+    <ClCompile Include="balor\gui\ScrollableControl.cpp" />
+    <ClCompile Include="balor\gui\ScrollBar.cpp" />
+    <ClCompile Include="balor\gui\SelectDirectoryDialog.cpp" />
+    <ClCompile Include="balor\gui\Splitter.cpp" />
+    <ClCompile Include="balor\gui\Tab.cpp" />
+    <ClCompile Include="balor\gui\Timer.cpp" />
+    <ClCompile Include="balor\gui\ToolBar.cpp" />
+    <ClCompile Include="balor\gui\ToolTip.cpp" />
+    <ClCompile Include="balor\gui\TrackBar.cpp" />
+    <ClCompile Include="balor\gui\TreeView.cpp" />
+    <ClCompile Include="balor\gui\UpDown.cpp" />
+    <ClCompile Include="balor\io\Drive.cpp" />
+    <ClCompile Include="balor\io\File.cpp" />
+    <ClCompile Include="balor\io\FileStream.cpp" />
+    <ClCompile Include="balor\io\MemoryStream.cpp" />
+    <ClCompile Include="balor\io\Registry.cpp" />
+    <ClCompile Include="balor\io\Resource.cpp" />
+    <ClCompile Include="balor\io\Stream.cpp" />
+    <ClCompile Include="balor\io\StreamToIStream.cpp" />
+    <ClCompile Include="balor\locale\Charset.cpp" />
+    <ClCompile Include="balor\locale\Locale.cpp" />
+    <ClCompile Include="balor\locale\Unicode.cpp" />
+    <ClCompile Include="balor\Point.cpp" />
+    <ClCompile Include="balor\Rectangle.cpp" />
+    <ClCompile Include="balor\Reference.cpp" />
+    <ClCompile Include="balor\Singleton.cpp" />
+    <ClCompile Include="balor\Size.cpp" />
+    <ClCompile Include="balor\String.cpp" />
+    <ClCompile Include="balor\StringBuffer.cpp" />
+    <ClCompile Include="balor\StringRangeArray.cpp" />
+    <ClCompile Include="balor\system\Com.cpp" />
+    <ClCompile Include="balor\system\ComPtr.cpp" />
+    <ClCompile Include="balor\system\Console.cpp" />
+    <ClCompile Include="balor\system\EnvironmentVariable.cpp" />
+    <ClCompile Include="balor\system\FileVersionInfo.cpp" />
+    <ClCompile Include="balor\system\Module.cpp" />
+    <ClCompile Include="balor\system\PerformanceCounter.cpp" />
+    <ClCompile Include="balor\system\Process.cpp" />
+    <ClCompile Include="balor\system\System.cpp" />
+    <ClCompile Include="balor\system\Version.cpp" />
+    <ClCompile Include="balor\test\Debug.cpp" />
+    <ClCompile Include="balor\test\HandleLeakChecker.cpp" />
+    <ClCompile Include="balor\test\InstanceTracer.cpp" />
+    <ClCompile Include="balor\test\noMacroAssert.cpp" />
+    <ClCompile Include="balor\test\UnitTest.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3F4236A2-525E-488F-B840-23B6C7FBF857}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>balor</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug64|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug64|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\balor;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)_debug</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug64|x64'">
+    <IncludePath>$(SolutionDir)\balor;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)_debug</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\balor;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <IncludePath>$(SolutionDir)\balor;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug64|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
