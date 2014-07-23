@@ -18,7 +18,7 @@ using namespace balor::io;
 
 
 testCase(construct) {
-	{// 긢긲긅깑긣생성자
+	{// 기본 생성자
 		MemoryStream stream;
 		testAssert(stream.capacity() == 256);
 		testAssert(stream.length() == 0);
@@ -29,8 +29,8 @@ testCase(construct) {
 		testAssert(stream.length() == 512);
 		testAssert(stream.buffer() != nullptr);
 	}
-	{// 긌긿긬긘긡귻럚믦
-		// 뼰뚼궶긬깋긽??
+	{// 캐파시티 설정
+		// 무효한 파라미터
 		testAssertionFailed(MemoryStream(0));
 		testNoThrow        (MemoryStream(1));
 
@@ -44,7 +44,7 @@ testCase(construct) {
 		testAssert(stream.length() == 512);
 		testAssert(stream.buffer() != nullptr);
 	}
-	{// 긽긾깏봹쀱럚믦
+	{// 메모리 배열 지정
 		wchar_t buffer[5] = L"0123";
 
 		{
@@ -68,10 +68,10 @@ testCase(construct) {
 			testAssert(stream.buffer() == buffer);
 		}
 	}
-	{// 긽긾깏?귽깛?럚믦
+	{// 메모리 포인터 지정 
 		char buffer[5] = "0123";
 
-		// 뼰뚼궶긬깋긽??
+		// 무효한 파라미터
 		testAssertionFailed(MemoryStream(nullptr, 0, 4));
 		testAssertionFailed(MemoryStream(buffer, -1, 4));
 		testAssertionFailed(MemoryStream(buffer, 0, -1));
@@ -158,11 +158,11 @@ testCase(buffer) {
 	const MemoryStream& constStream = stream;
 	testAssert(constStream.buffer() == buffer);
 
-	// 럄귟궻긑?긚궼 testCase(construct) 궳긡긚긣띙귒
+	// 나머지 케이스는 testCase(construct) 에서 완료
 }
 
 
-//testCase(capacity) { // testCase(length) 궸궲긡긚긣띙귒
+//testCase(capacity) { // testCase(length) 에서 테스트 완료
 //}
 
 
@@ -178,13 +178,13 @@ testCase(length) {
 	MemoryStream stream2(source, 0, 4, false);
 	MemoryStream stream3(4);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.length(0));
 	testAssertionFailed(stream1.length(-1));
 	testNoThrow        (stream1.length(0));
 	testAssertionFailed(stream2.length(0));
 
-	// 긖귽긛빾뛛
+	// 사이즈 변경
 	testAssert(stream1.length() == 0);
 	stream1.length(2);
 	testAssert(stream1.length() == 2);
@@ -192,7 +192,7 @@ testCase(length) {
 	testAssert(stream1.length() == 4);
 	testAssertionFailed(stream1.length(5));
 
-	// 긌긿긬긘긡귻빾뛛귩뵼궎긖귽긛빾뛛
+	// 캐파시티 변경을 따르는 사이즈 변경
 	testAssert(stream3.capacity() == 4);
 	testAssert(stream3.length() == 0);
 	stream3.write("0123", 0, 4);
@@ -213,13 +213,13 @@ testCase(position) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.position(1));
 	testAssertionFailed(stream1.position(-1));
 	testAssertionFailed(stream1.position(std::numeric_limits<int>::max() + static_cast<__int64>(1)));
 	testNoThrow        (stream1.position(std::numeric_limits<int>::max()));
 
-	// 긘?긏긡긚긣
+	// seek 테스트
 	char buffer[2] = {0};
 	stream1.position(1);
 	testAssert(stream1.position() == 1);
@@ -227,7 +227,7 @@ testCase(position) {
 	testAssert(buffer[0] == L'1');
 	testAssert(stream1.position() == 2);
 
-	// 붝댪둖귉궻긘?긏
+	// 범위 외에 seek
 	stream1.position(5);
 	testAssert(stream1.position() == 5);
 	testAssert(stream1.length() == 4);
@@ -241,7 +241,7 @@ testCase(read) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	char buffer[5] = {0};
 	testAssertionFailed(stream0.read(buffer, 0, 4));
 	testAssertionFailed(stream1.read(nullptr, 0, 4));
@@ -250,7 +250,7 @@ testCase(read) {
 	testAssertionFailed(stream1.read("abcd", 0, 4));
 	testNoThrow        (stream1.read(buffer, 0, 0));
 
-	// 벶귒뢯궢
+	// 읽기
 	testAssert(stream1.read(buffer, 0, 4) == 4);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "0123"));
@@ -266,7 +266,7 @@ testCase(read) {
 	testAssert(stream1.position() == 2);
 	testAssert(String::equals(buffer, "0013"));
 
-	// 붝댪둖벶귒뢯궢
+	// 범위 외 읽기
 	testAssert(stream1.read(buffer, 0, 4) == 2);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "2313"));
@@ -277,7 +277,7 @@ testCase(read) {
 }
 
 
-//testCase(readable) { // testCase(construct) 궸궲긡긚긣띙귒
+//testCase(readable) { // testCase(construct) 에서 테스트 완료
 //}
 
 
@@ -286,12 +286,12 @@ testCase(skip) {
 	MemoryStream stream0(source, 0, 4);
 	MemoryStream stream1 = move(stream0);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.skip(1));
 	testAssertionFailed(stream1.skip(std::numeric_limits<int>::max() + static_cast<__int64>(1)));
 	testNoThrow        (stream1.skip(std::numeric_limits<int>::max()));
 
-	// 긘?긏긡긚긣
+	// seek 테스트 
 	char buffer[2] = {0};
 	stream1.position(0);
 	testAssert(stream1.skip(1) == 1);
@@ -301,7 +301,7 @@ testCase(skip) {
 	testAssert(stream1.skip(0) == 0);
 	testAssert(stream1.skip(-2) == 0);
 
-	// 붝댪둖귉궻긘?긏
+	// 범위 외 seek
 	testAssert(stream1.skip(5) == 5);
 	testAssert(stream1.length() == 4);
 	stream1.position(4);
@@ -316,7 +316,7 @@ testCase(write) {
 	MemoryStream stream2(source, 0, 4, false);
 	MemoryStream stream3(4);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.write("0123", 0, 4));
 	testAssertionFailed(stream1.write(nullptr, 0, 4));
 	testAssertionFailed(stream1.write("0123", -1, 4));
@@ -324,7 +324,7 @@ testCase(write) {
 	testNoThrow        (stream1.write("0123", 0, 0));
 	testAssertionFailed(stream2.write("0123", 0, 4));
 
-	// 룕궖뜛귒
+	// 쓰기 
 	char buffer[10] = {0};
 	stream1.write("abcd", 0, 4);
 	testAssert(stream1.length() == 4);
@@ -347,7 +347,7 @@ testCase(write) {
 	testAssert(String::equals(buffer, "ab12"));
 	testThrow(stream1.write("3", 0, 1), MemoryStream::BufferOverrunException);
 
-	// 붝댪둖룕궖뜛귒
+	// 범위 외 쓰기
 	testAssert(stream3.length() == 0);
 	stream3.write("0123", 0, 4);
 	testAssert(stream3.length() == 4);

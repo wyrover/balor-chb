@@ -1,4 +1,4 @@
-#include <balor/graphics/Color.hpp>
+﻿#include <balor/graphics/Color.hpp>
 
 #include <balor/system/windows.hpp>
 

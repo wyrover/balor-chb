@@ -89,12 +89,12 @@ File::Special folders[] = {
 
 
 
-testCase(startup) { // 긪깛긤깑귩띍룊궻뚁귂뢯궢궳둴뺎궢갂볙븫궳뺎렃궢뫏궚귡걁덇뙥깏?긏궸뙥궑귡걂듫릶귩궇귞궔궣귕뚁귪궳궓궘
+testCase(startup) { // 핸들을 처음 호출에서 확보하고 내부에서 계속 유지하는(일견 릭으로 보이는) 함수를 처음부터 호출해 둔다
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -107,24 +107,24 @@ testCase(startup) { // 긪깛긤깑귩띍룊궻뚁귂뢯궢궳둴뺎궢갂볙븫
 	}
 	File file2(dir, L"file2.txt");
 
-	file0.replace(file1, file2); // XP궸궓궋궲궞궻룉뿚귩덇뱗믅궢궲궓궔궶궋궴긪깛긤깑깏?긏궕뙚뢯궠귢귡
+	file0.replace(file1, file2); // XP에서는 이 처리를 한번 통하지 않으면 핸들 릭이 검출된다 
 
 	for (int i = 0, end = sizeof(folders) / sizeof(folders[0]); i < end; ++i) {
-		testNoThrow(File::getSpecial(folders[i], File::SpecialOption::none);); // SHGetFolderPathW 듫릶궼긪깛긤깑귩몵돿궠궧귡귝궎궬
+		testNoThrow(File::getSpecial(folders[i], File::SpecialOption::none);); // SHGetFolderPathW 함수는 핸들을 증가시키지 않도록 
 	}
 
 }
 
 
 testCase(constructAndAssignment) {
-	{// 뗴궻긬긚
+	{// 빈 패스
 		File file(L"");
 		testAssert(!file.exists());
 	}
-	{// 뮮궥궗귡긬긚
+	{// 너무 긴 패스
 		testThrow(File file(String(L'a', MAX_PATH)), File::PathTooLongException);
 	}
-	{// 긬긚궻 move
+	{// 패스의 move
 		File file(L"c:\\abc");
 		testAssert(file == L"c:\\abc");
 		File file2 = move(file);
@@ -143,7 +143,7 @@ testCase(attributes) {
 	scopeExit(&removeTestDirectory);
 	
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -153,15 +153,15 @@ testCase(attributes) {
 	File file2(dir, L"hoge\\file2.txt");
 	File file3(L"c::\\abc");
 
-	// 뫔띪궢궶궋긲?귽깑
+	// 존재하지 않는 파일
 	testThrow(file1.attributes(), File::NotFoundException);
 	testThrow(file1.attributes(File::Attributes::normal), File::NotFoundException);
 
-	// 뫔띪궢궶궋긢귻깒긏긣깏둏몏
+	// 존재하지 않는 디렉토리 계층
 	testThrow(file2.attributes(), File::NotFoundException);
 	testThrow(file2.attributes(File::Attributes::normal), File::NotFoundException);
 
-	// 뼰뚼궶긬긚
+	// 무효한 패스
 	testThrow(file3.attributes(), File::InvalidPathException);
 	testThrow(file3.attributes(File::Attributes::none), File::InvalidPathException);
 
@@ -176,7 +176,7 @@ testCase(attributes) {
 		testThrow(file0.remove(), File::AccessDeniedException);
 	}
 
-	{// 긢귻깒긏긣깏궔귞롦벦궴빾뛛
+	{// 파일에서 취득과 갱신
 		File sub0(dir, L"sub0");
 		sub0.createDirectory();
 		auto attributes = sub0.attributes();
@@ -190,7 +190,7 @@ testCase(attributes) {
 	}
 
 
-	// Caution: 뫌맜 취득갂빾뛛뙛뙽궻궶궋긢귻깒긏긣깏궸귺긏긜긚궢궲 File::AccessDeniedException 궕뵯맯궥귡궞궴귩뽞럨궳둴봃
+	// Caution: 속성의 취득, 변경 권한이 없는 디렉토리에 접근해서 File::AccessDeniedException 가 발생하는 것을 눈으로 확인 
 }
 
 
@@ -198,7 +198,7 @@ testCase(copyTo) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -212,22 +212,22 @@ testCase(copyTo) {
 	File file2(dir, L"file2.txt");
 	File file3(dir, L"file3.txt");
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(file0.copyTo(L""));
 
-	// 뫔띪궢궶궋긲?귽깑뼹
+	// 존재하지 않는 파일 이름
 	testThrow(file2.copyTo(file3), File::NotFoundException);
 
-	// 긓긯?먩궕딓궸뫔띪궥귡걁뤵룕궖럚믦궶궢걂
+	// 복사처가 이미 존재한다(덮어 쓰기 지정 없음)
 	testThrow(file0.copyTo(file1), File::AlreadyExistsException);
 
-	{// 귺긏긜긚뙛뙽궕뼰궋
+	{// 접근 권한 없음
 		file1.attributes(file1.attributes() | File::Attributes::readOnly);
 		testThrow(file0.copyTo(file1, true), File::AccessDeniedException);
 		file1.attributes(file1.attributes() & ~File::Attributes::readOnly);
 	}
 
-	{// 뫔띪궥귡긢귻깒긏긣깏궸긓긯?
+	{// 존재하는 디렉토리에 복사
 		auto sub0(dir, L"sub0");
 		auto sub2(dir, L"sub2");
 		sub0.createDirectory();
@@ -235,7 +235,7 @@ testCase(copyTo) {
 		testThrow(sub0.copyTo(sub2), File::AlreadyExistsException);
 	}
 
-	{// 긢귻깒긏긣깏궻긓긯?
+	{// 디렉토리에 복사 
 		auto sub0(dir, L"sub0");
 		auto subsub0(sub0, L"subsub0");
 		auto file4(sub0, L"file4");
@@ -254,23 +254,23 @@ testCase(copyTo) {
 		testAssert(subsub01.exists());
 	}
 
-	{// 긲?귽깑귩긢귻깒긏긣깏궸긓긯?궢귝궎궴궢궫
+	{// 파일을 디렉토리에 복사하려고 하였다
 		testThrow(file0.copyTo(File(dir, L"sub0")), File::AccessDeniedException);
 	}
 
-	// 긬긚궕찾을 수 없는
+	// 패스를 찾을 수 없는
 	testThrow(File(dir, L"hoge\\file4.txt").copyTo(file0), File::NotFoundException);
 	testThrow(file0.copyTo(File(dir, L"hoge\\file4.txt")), File::NotFoundException);
 
-	{// 떎뾎귺긏긜긚궳궖궶궋
+	{// 공유 접근 할 수 없다
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.copyTo(file2), File::SharingViolationException);
 	}
 
-	// 븉맫궶긲?귽깑긬긚
+	// 부정한 파일 패스
 	testThrow(file0.copyTo(L"c::\\hoge.txt"), File::InvalidPathException);
 
-	{// 맫륂긑?긚걁뤵룕궖궶궢걂
+	{// 정상 케이스(덮어 쓰기 없음)
 		file0.copyTo(file2);
 		testAssert(file2.openRead().length() == 3);
 		char buffer[4] = {0};
@@ -279,7 +279,7 @@ testCase(copyTo) {
 		testAssert(file0.exists());
 	}
 
-	{// 맫륂긑?긚걁뤵룕궖궇귟걂
+	{// 정상 케이스(덮어 쓰기 있음)
 		file0.copyTo(file1, true);
 		auto stream = file1.openRead();
 		testAssert(stream.length() == 3);
@@ -291,7 +291,7 @@ testCase(copyTo) {
 }
 
 
-//testCase(create) { // testCase(open) 궳긡긚긣
+//testCase(create) { // testCase(open) 에서 테스트
 //}
 
 
@@ -299,41 +299,41 @@ testCase(createDirectory) {
 	scopeExit(&removeTestDirectory);
 	auto dir = getTestDirectory();
 
-	{// 긲?귽깑궕딓궸뫔띪궢궲궋귡
+	{// 파일이 이미 존재하고 있다
 		auto file(dir, L"file0");
 		file.create();
 		testThrow(file.createDirectory(), File::AlreadyExistsException);
 	}
-	{// 딓궸긢귻깒긏긣깏궕뫔띪궥귡궶귞돺귖궢궶궋
+	{// 이미 디렉토리가 존재하지만 아무것도 없다
 		testAssert(dir.exists());
 		testNoThrow(dir.createDirectory());
 		testAssert(dir.exists());
 	}
-	{// 뫔띪궢궶궋깑?긣긢귻깒긏긣깏궳띿맟
+	{// 존재 하지 않는 루트 디렉토리에서 작성
 		auto last = *(--Drive::drivesEnd());
 		File dir(String(last.letter() + 1, 1) + L":\\sub0\\subsub0");
 		testAssert(!dir.exists());
 		testThrow(dir.createDirectory(), File::NotFoundException);
 	}
-	{// 뼰뚼궶긬긚
+	{// 무효한 패스
 		testThrow(File(dir, L"a?b").createDirectory(), File::InvalidPathException);
 		testThrow(File(L"c::\\test").createDirectory(), File::InvalidPathException);
 	}
-	{// 븕믅궸띿맟
+	{// 보통으로 작성
 		auto sub0(dir, L"sub0");
 		testAssert(!sub0.exists());
 		sub0.createDirectory();
 		testAssert(sub0.exists());
 	}
-	{// 둏몏귩덇딠궸띿맟
+	{// 계층을 한번에 작성 
 		auto sub1(dir, L"sub1\\subsub1\\subsubsub1");
 		testAssert(!sub1.exists());
 		sub1.createDirectory();
 		testAssert(sub1.exists());
 	}
 
-	// Caution: 뙸띪궻깇?긗궻긢귻깒긏긣깏띿맟뙛뙽귩땻붬궢궫긢귻깒긏긣깏귩띿맟궢갂궩궻긢귻깒긏긣깏뤵궳 createDirectory 귩렳뛱궢궲
-	//          UnauthorizedAccessException궕뵯맯궥귡궞궴귩뽞럨궳둴봃
+	// Caution: 현재 유저 디렉토리 작성 권한을 거부한 디렉토리를 작성, 그 디렉토리에 위에서 createDirectory 를 실행하여
+	//          UnauthorizedAccessException 가 발생하는 것을 눈으로 확인 
 }
 
 
@@ -375,7 +375,7 @@ testCase(exists) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -429,7 +429,7 @@ testCase(getFiles) {
 	scopeExit(&removeTestDirectory);
 
 	File dir = getTestDirectory();
-	// 긡긚긣뾭긢귻깒긏긣깏둏몏궻띿맟
+	// 테스트 용 디렉토리 계층 작성 
 	File file0(dir, L"file0.txt");
 	File file1(dir, L"file1.doc");
 	File sub0(dir, L"sub0");
@@ -453,17 +453,17 @@ testCase(getFiles) {
 	file3.create();
 	file4.create();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssert(!dir.getFilesIterator(L"c:\\"));
 	testThrow(dir.getFiles(String(L'a', MAX_PATH)), File::PathTooLongException);
 	testThrow(File(L"c::\\hoge").getFiles(), File::NotFoundException);
 	testThrow(dir.getFiles(L"sub*\\subsub*"), File::InvalidPathException);
 
-	// 뙚랊륆뙊궶궢궶귞궽뙚랊뙅됈궶궢
+	// 검색 조건 없음 이라면 검색 결과 없음
 	testAssert(dir.getFiles(L"").empty());
 	testAssert(!dir.getFilesIterator(L""));
 
-	{// 띋딞궶궢멣뙚랊
+	{// 재귀 없이 모든 검색
 		auto files = dir.getFiles();
 		testAssert(files.size() == 5);
 		testAssert(files[0] == file0.path());
@@ -472,7 +472,7 @@ testCase(getFiles) {
 		testAssert(files[3] == sub1.path());
 		testAssert(files[4] == sub2.path());
 	}
-	{// 띋딞궇귟멣뙚랊
+	{// 재귀 있는 모든 검색
 		auto files = dir.getFiles(L"?*", true);
 		testAssert(files.size() == 11);
 		testAssert(files[ 0] == file2.path());
@@ -487,26 +487,26 @@ testCase(getFiles) {
 		testAssert(files[ 9] == sub1.path());
 		testAssert(files[10] == sub2.path());
 	}
-	{// 뙚랊긬??깛럚믦뙚랊
+	{// 검색 패턴 지정 검색 
 		auto files = dir.getFiles(L"*.doc", true);
 		testAssert(files.size() == 2);
 		testAssert(files[0] == file3.path());
 		testAssert(files[1] == file1.path());
 	}
-	{// 뙚랊긬??깛럚믦뗴뙚랊
+	{// 검색 패턴 지정 빈 검색
 		auto files = dir.getFiles(L"hoge?", true);
 		testAssert(files.empty());
 	}
-	{// 뗴긢귻깒긏긣깏뙚랊
+	{// 빈 디렉토리 검색
 		auto files = sub1.getFiles(L"?*", true);
 		testAssert(files.empty());
 	}
-	{// 븸릶둏몏뙚랊긬??깛럚믦뙚랊
+	{// 복수 계층 검색 패턴 지정 검색
 		auto files = dir.getFiles(L"sub0\\subsub2\\*.txt");
 		testAssert(files.size() == 1);
 		testAssert(files[0] == file2.path());
 	}
-	{// 븸릶둏몏뙚랊긬??깛럚믦뙚랊 띋딞궇귟
+	{// 복수 계층 검색 패턴 지정 검색 재귀 있음
 		auto files = dir.getFiles(L"subsub2\\?*.txt", true);
 		testAssert(files.size() == 1);
 		testAssert(files[0] == file2.path());
@@ -515,7 +515,7 @@ testCase(getFiles) {
 
 
 testCase(getSpecial) {
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(File::getSpecial(File::Special::_enum(-1)));
 	testAssertionFailed(File::getSpecial(File::Special::adminTools, File::SpecialOption::_enum(-1)));
 
@@ -534,8 +534,8 @@ testCase(getSpecial) {
 	//	dir.remove();
 	//}
 
-	// Caution: 긘긚긡?궻긲긅깑?귩랁룣궢궲띿맟궠귢귡궻귩긡긚긣궥귡궻궼봂귂궶궋갃
-	//       File::SpecialOption::doNotVerify 궓귝귂 File::SpecialOption::create 궻긑?긚귩됀?궳궇귢궽뽞럨궳둴봃궥귡궞궴
+	// Caution: 시스템의 폴더를 삭제하고 작성되는 것을 테스트는 할수 없음
+	//       File::SpecialOption::doNotVerify 및 File::SpecialOption::create 케이스가 가능한 것을 눈으로 확인
 }
 
 
@@ -560,7 +560,7 @@ testCase(moveTo) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 	File file0(dir, L"file0.txt");
@@ -575,34 +575,34 @@ testCase(moveTo) {
 	File file2(dir, L"file2.txt");
 	File file3(dir, L"file3.txt");
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(file0.moveTo(L""));
 
-	// 뫔띪궢궶궋긲?귽깑뼹
+	// 존재하지 않는 파일 이름
 	testThrow(file2.moveTo(file3), File::NotFoundException);
 
-	// 긓긯?먩궕딓궸뫔띪궥귡
+	// 복사할 곳이 이미 존재
 	testThrow(file0.moveTo(file1), File::AlreadyExistsException);
 
-	// 뫔띪궥귡긢귻깒긏긣깏궸댷벍궢귝궎궴궢궫
+	// 존재하는 디렉토리에 이동 하려면
 	testThrow(file0.moveTo(sub0), File::AlreadyExistsException);
 
-	{// 귺긏긜긚뙛뙽궕뼰궋
+	{// 접근 권한 없음
 	}
 
-	// 긬긚궕찾을 수 없는
+	// 패스를 찾을 수 없는
 	testThrow(File(dir, L"hoge\\file4.txt").moveTo(file0), File::NotFoundException);
 	testThrow(file0.moveTo(File(dir, L"hoge\\file4.txt")), File::NotFoundException);
 
-	{// 떎뾎귺긏긜긚궳궖궶궋
+	{// 공유 접근 할 수 없음
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.moveTo(file2), File::SharingViolationException);
 	}
 
-	// 븉맫궶긲?귽깑긬긚
+	// 부정한 파일 패스
 	testThrow(file0.moveTo(L"c::\\hoge.txt"), File::InvalidPathException);
 
-	{// 맫륂긑?긚걁뤵룕궖궶궢걂
+	{// 정상 케이스(덮어 쓰기 없음)
 		file0.moveTo(file2);
 		testAssert(!file0.exists());
 		testAssert(file2.exists());
@@ -618,7 +618,7 @@ testCase(moveToDirectory) {
 	scopeExit(&removeTestDirectory);
 	
 	File dir = getTestDirectory();
-	// 긡긚긣뾭긢귻깒긏긣깏둏몏궻띿맟
+	// 테스트용 디렉토리 계층 작성
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 	File file0(sub0, L"file0.txt");
@@ -630,39 +630,39 @@ testCase(moveToDirectory) {
 	File sub2(dir, L"sub2");
 	sub2.createDirectory();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(dir.moveTo(L""));
 
-	// 뫔띪궢궶궋긢귻깒긏긣깏
+	// 존재하지 않는 디렉토리
 	testThrow(sub1.moveTo(sub0), File::NotFoundException);
 
-	// 뫔띪궢궶궋긢귻깒긏긣깏둏몏귉궻댷벍
+	// 존재하지 않는 디렉토리 계층으로 이동
 	testThrow(sub0.moveTo(File(dir, L"subUnknown\\subsub0")), File::NotFoundException);
 
-	// 댷벍먩궻긫긞긡귻깛긐
+	// 이동 처 벤딩 
 	testThrow(sub0.moveTo(sub2), File::AlreadyExistsException);
 	testThrow(sub2.moveTo(file0), File::AlreadyExistsException);
 
-	// 렔빁궻긖긳긢귻깒긏긣깏귉궻댷벍
+	// 자신의 서브 디렉토리로 이동
 	testThrow(sub0.moveTo(subsub1), File::SharingViolationException);
 
-	// 뼰뚼궶긬긚
+	// 무효한 패스
 	testThrow(sub0.moveTo(L"c:\\a?c"), File::InvalidPathException);
 	testThrow(sub0.moveTo(L"c::\\abc"), File::InvalidPathException);
 
-	{// 긲?귽깑긆?긵깛궠귢궫긢귻깒긏긣깏궻댷벍
+	{// 파일 오픈된 디렉토리 이동
 		auto stream = file0.openRead();
 		testThrow(sub0.moveTo(sub1), File::AccessDeniedException);
 	}
-	{// 맫륂긑?긚
+	{// 정상 케이스
 		testNoThrow(sub0.moveTo(sub1));
 		testAssert(!sub0.exists());
 		testAssert(sub1.exists());
 		testAssert(sub1.getFiles(L"?*", true).size() == 4);
 	}
 
-	// Caution: 긢귻깒긏긣깏궻댷벍뙛뙽궻뼰궋깇?긗궳 moveTo 귩렳뛱궢갂File::AccessDeniedException 궕뵯맯궥귡궞궴귩뽞럨궳둴봃
-	// Caution: 댶궶귡긢귻긚긏?깏깄??귉궻 moveTo 귩렳뛱궢갂File::AccessDeniedException 궕뵯맯궥귡궞궴귩뽞럨궳둴봃
+	// Caution: 디렉토리 이동 권한 없은 유저로 moveTo를 실행하면 File::AccessDeniedException가 발생하는 것을 눈으로 확인
+	// Caution: 다른 디스크 불륨으로 moveTo를 실행하면 File::AccessDeniedException가 발생하는 것을 눈으로 확인
 }
 
 
@@ -688,12 +688,12 @@ testCase(nameWithoutExtension) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4189) // 'buffer' : 깓?긇깑빾릶궕룊딖돸궠귢귏궢궫궕갂랷뤖궠귢궲궋귏궧귪
+#pragma warning(disable : 4189) // 'buffer' : 로컬 변수가 초기화 되었지만 참조 되지 않았다
 testCase(open) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 
 	{// create
@@ -760,41 +760,41 @@ testCase(remove) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
 	}
 	File file2(dir, L"file2.txt");
 
-	// 뫔띪궢궶궋긲?귽깑뼹
+	// 존재하지 않는 파일 이름
 	testNoThrow(file2.remove());
 
-	{// 귺긏긜긚뙛뙽궕뼰궋
+	{// 접근 권한 없음
 		file0.attributes(file0.attributes() | File::Attributes::readOnly);
 		testThrow(file0.remove(), File::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~File::Attributes::readOnly);
 	}
 
-	// 긬긚궕찾을 수 없는
+	// 패스를 찾을 수 없다
 	testThrow(File(dir, L"hoge\\file4.txt").remove(), File::NotFoundException);
 
-	{// 떎뾎귺긏긜긚궳궖궶궋
+	{// 공유 접근 할 수 없다
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.remove(), File::SharingViolationException);
 	}
 
-	// 븉맫궶긲?귽깑긬긚
+	// 부정한 파일 패스
 	testThrow(File(L"c::\\hoge.txt").remove(), File::InvalidPathException);
 
-	{// 맫륂긑?긚
+	{// 정상 케이스
 		testAssert(file0.exists());
 		file0.remove();
 		testAssert(!file0.exists());
 	}
 
 
-	{// 뤑궥뙛뙽궻뼰궋긢귻깒긏긣깏궴뭁뫬긢귻깒긏긣깏랁룣
+	{// 삭제 권한 없는 디렉토리와 단체 디렉토리 삭제
 		File sub1(dir, L"sub1");
 		sub1.createDirectory();
 		sub1.attributes(sub1.attributes() | File::Attributes::readOnly);
@@ -803,7 +803,7 @@ testCase(remove) {
 		testNoThrow(sub1.remove());
 		testAssert(!sub1.exists());
 	}
-	{// 뗴궳궼궶궋긢귻깒긏긣깏궴띋딞랁룣
+	{// 비지 않은 디렉토리와 재귀 삭제 
 		File sub0(dir, L"sub0");
 		sub0.createDirectory();
 		{
@@ -826,7 +826,7 @@ testCase(replace) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -847,36 +847,36 @@ testCase(replace) {
 	File sub0(dir, L"sub0");
 	sub0.createDirectory();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(file0.replace(L"", L" "));
 
-	// 뫔띪궢궶궋긲?귽깑뼹
+	// 존재하지 않는 파일 이름
 	testThrow(file2.replace(file0, L""), File::NotFoundException);
 	testThrow(file0.replace(file2, L""), File::NotFoundException);
 
-	// 긢귻깒긏긣깏귩뭫궖듂궑궢귝궎궴궢궫
+	// 디렉토리를 바꾼다
 	testThrow(sub0.replace(file0, L""), File::AccessDeniedException);
 	testThrow(file0.replace(sub0, L""), File::AccessDeniedException);
 	testThrow(file0.replace(file1, sub0), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 
-	// 긬긚궕찾을 수 없는
+	// 패스를 찾을 수 없다
 	testThrow(file4.replace(file0, L""), File::NotFoundException);
 	testThrow(file0.replace(file4, L""), File::NotFoundException);
 	testThrow(file0.replace(file1, file4), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 
-	{// 떎뾎귺긏긜긚궳궖궶궋
+	{// 공유 접근 할 수 없다
 		FileStream stream(file0, FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(file0.replace(file1, L""), File::SharingViolationException);
 		testThrow(file1.replace(file0, L""), File::SharingViolationException);
 		testThrow(file1.replace(file3, file0), File::AccessDeniedException); // ERROR_UNABLE_TO_REMOVE_REPLACED
 	}
 
-	// 븉맫궶긲?귽깑긬긚
+	// 부정한 파일 패스 
 	testThrow(file5.replace(file0, L""), File::InvalidPathException);
 	testThrow(file0.replace(file5, L""), File::InvalidPathException);
 	testThrow(file0.replace(file0, file5), File::SharingViolationException);
 
-	{// 맫륂긑?긚걁긫긞긏귺긞긵궇귟걂
+	{// 정상 케이스(버퍼 있음)
 		file0.replace(file1, file2);
 		testAssert(!file0.exists());
 		testAssert(file1.openRead().length() == 3);
@@ -894,7 +894,7 @@ testCase(replace) {
 			testAssert(String::equals(buffer, "0123"));
 		}
 	}
-	{// 맫륂긑?긚걁긫긞긏귺긞긵뼰궢걂
+	{// 정상 케이스(버퍼 없음)
 		file1.replace(file2, L"");
 		testAssert(!file1.exists());
 		testAssert(file2.openRead().length() == 3);

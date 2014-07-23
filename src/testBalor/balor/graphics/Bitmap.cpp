@@ -1,5 +1,6 @@
-#include <balor/graphics/Bitmap.hpp>
+ï»¿#include <balor/graphics/Bitmap.hpp>
 
+#include <algorithm>
 #include <vector>
 
 #include <windows.h>
@@ -55,7 +56,7 @@ void removeTestDirectory() {
 }
 
 
-Bitmap getTestBitmap(Bitmap&& bitmap) { // ‹”F‚µ‚â‚·‚­A‹«ŠE‚Æ”½“]‚Ìƒ`ƒFƒbƒN‚ª‚Å‚«‚é‚æ‚¤‚È‰æ‘œ‚ğ¶¬‚·‚éB–Ú‹‚ÅƒeƒXƒgÏ‚İ
+Bitmap getTestBitmap(Bitmap&& bitmap) { 
 	if (bitmap.bitsPerPixel() == 1) {
 		Color colors[] = {Color::red(), Color::yellow()};
 		bitmap.palette(colors);
@@ -227,21 +228,21 @@ AnalyzeResult analyze(const Bitmap& lhs, const Bitmap& rhs) {
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
-	GdiplusInitializer::initialize(); // Gdiplus::GdiplusStartupŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	GdiplusInitializer::initialize(); // Gdiplus::GdiplusStartup í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 
 	Bitmap bitmap = Bitmap::createDDB(10, 10);
 	Gdiplus::Bitmap gpBitmap(10, 10);
 	Graphics graphics(bitmap);
 	Gdiplus::Graphics gpGraphics(graphics);
-	gpGraphics.DrawImage(&gpBitmap, 0, 0); // ‚Ç‚¤‚¢‚¤–ó‚©‚±‚ÌŠÖ”‚ÍÅ‰‚Ìˆê‰ñ‚ÌŒÄ‚Ño‚µ‚¾‚¯ GDI ƒnƒ“ƒhƒ‹‚ğˆêŒÂƒŠ[ƒN‚·‚é
+	gpGraphics.DrawImage(&gpBitmap, 0, 0); // ì´ìœ ë¥¼ ì˜ ëª¨ë¥´ê² ì§€ë§Œ ì´ í•¨ìˆ˜ëŠ” ì²˜ìŒ 1íšŒ í˜¸ì¶œë§Œìœ¼ë¡œ GDI í•¸ë“¤ì„ 1ê°œ ë¦­ í•œë‹¤
 
 	Bitmap bitmap2(10, 10);
-	bitmap2 = bitmap2.clone(); // CreateDIBSection ‚ªÅ‰‚Ìˆê‰ñ‚¾‚¯ƒnƒ“ƒhƒ‹ƒŠ[ƒNH
+	bitmap2 = bitmap2.clone(); // CreateDIBSection ê°€ ì²˜ìŒ 1íšŒë§Œ í•¸ë“¤ ë¦­?
 
-	Sleep(1000); // GDI+ ‚ª‚È‚ñ‚ç‚©‚Ìˆ—‚ğ•ÊƒXƒŒƒbƒh‚Ås‚Á‚Ä‚¢‚é‚æ‚¤‚Å‘Ò‚½‚È‚¢‚Æ•sŠm’è‚È‘¼‚ÌƒeƒXƒgƒP[ƒX‚Åƒnƒ“ƒhƒ‹ƒŠ[ƒN‚ªŒŸo‚³‚ê‚éB
+	Sleep(1000); // GDI+ ê°€ ì–´ë–¤ ì²˜ë¦¬ë¥¼ ë‹¤ë¥¸ ìŠ¤ë ˆë“œì—ì„œ í•˜ê³  ìˆì–´ì„œ ê¸°ë‹¤ë¦¬ì§€ ì•Šìœ¼ë©´ ë¶ˆí™•ì •í•˜ê²Œ ë‹¤ë¥¸ í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì—ì„œ í•¸ë“¤ ë¦­ì´ ê²€ì¶œ 
 }
 
 
@@ -261,7 +262,7 @@ testCase(formatDefaultConstruct) {
 
 
 testCase(formatConstruct) {
-	// —LŒø‚È bitsPerPixel
+	// ìœ íš¨í•œ bitsPerPixel
 	testAssertionFailed(Bitmap::Format(0));
 	testNoThrow(Bitmap::Format( 1));
 	testNoThrow(Bitmap::Format( 4));
@@ -270,7 +271,7 @@ testCase(formatConstruct) {
 	testNoThrow(Bitmap::Format(24));
 	testNoThrow(Bitmap::Format(32));
 
-	// rgbMask ‚ªİ’è‚Å‚«‚é bitsPerPixel ‚Í 16 ‚Æ 32 ‚Ì‚İ
+	// rgbMask ë¥¼ ì„¤ì •í•  ìˆ˜ ìˆëŠ” bitsPerPixel ì€ 16 ê³¼ 32 ë¿
 	testAssertionFailed(Bitmap::Format(1, 1, 0, 0));
 	testAssertionFailed(Bitmap::Format(1, 0, 1, 0));
 	testAssertionFailed(Bitmap::Format(1, 1, 0, 1));
@@ -278,13 +279,13 @@ testCase(formatConstruct) {
 	testNoThrow(Bitmap::Format(16, 0x7C00, 0x03E0, 0x001F));
 	testNoThrow(Bitmap::Format(32, 0x7C00, 0x03E0, 0x001F));
 
-	// rgbMask ‚Íƒrƒbƒg‚ªd‚È‚ç‚È‚¢
+	// rgbMask ëŠ” ë¹„íŠ¸ê°€ ì¤‘ë³µí•˜ì§€ ì•ŠëŠ”ë‹¤
 	testAssertionFailed(Bitmap::Format(32, 0x00FF0000, 0x0001FF00, 0x000000FF));
 	testAssertionFailed(Bitmap::Format(32, 0x00FF0000, 0x000000FF, 0x0001FF00));
 	testAssertionFailed(Bitmap::Format(32, 0x00FF0000, 0x0000FF00, 0x000001FF));
 	testNoThrow(Bitmap::Format(32, 0x00FF0000, 0x0000FF00, 0x000000FF));
 
-	// rgbMask ‚ª bitsPerPixel ‚Ì”ÍˆÍ‚ğƒI[ƒo[‚µ‚Ä‚¢‚é
+	// rgbMask ê°€ bitsPerPixel ë²”ìœ„ë¥¼ ì˜¤ë²„í•˜ê³  ìˆë‹¤ 
 	testAssertionFailed(Bitmap::Format(16, 0x0001F000, 0x00000F00, 0x000000F0));
 	testNoThrow(Bitmap::Format(16, 0x0000F000, 0x00000F00, 0x000000F0));
 }
@@ -331,38 +332,19 @@ testCase(moveConstruct) {
 }
 
 
-//testCase(constructWithIcon) {
-//	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
-//	testAssertionFailed(Bitmap((HICON)nullptr));
-//
-//	Icon source = Icon::application();
-//	Bitmap bitmap(source);
-//	auto size = source.size();
-//	testAssert(bitmap.size() == size);
-//	testAssert(!bitmap.isDDB());
-//	testAssert(bitmap.owned());
-//	Bitmap sourceCopy(size.width, size.height, bitmap.format());
-//	Graphics(sourceCopy).drawIcon(source, 0, 0);
-//	auto result = analyze(bitmap, sourceCopy);
-//	testAssert(result.averageError < 1); // “§‰ßˆ—‚ª‚ ‚é‚Ì‚ÅŠ®‘S‚Éˆê’v‚Í‚µ‚È‚¢
-//	//testAssert(bitmap == sourceCopy);
-//}
-
 
 testCase(streamConstruct) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// useIcm‚ÌƒeƒXƒg‚Íc”O‚È‚ª‚ç‚Å‚«‚È‚¢BGDI+“à•”‚Å‚Ç‚ÌF‹óŠÔ‚ğ‚Ç‚Ì‚æ‚¤‚É‘I‘ğ‚µA‚Ç‚¤•ÏŠ·‚µ‚Ä‚¢‚é‚©•s–¾‚¾‚©‚ç‚¾B
-	// ˆê‰–Ú‹‚ÅˆÙ‚È‚éF‹óŠÔ‚Ì‰æ‘œ‚ª‚Ù‚Æ‚ñ‚Ç“¯‚¶‚É‚È‚é‚±‚Æ‚ÍŠm”F‚µ‚Ä‚ ‚éB
-
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		File file0(dir, L"file0.bmp");
 		FileStream stream(file0.path(), FileStream::Mode::create, FileStream::Access::write, FileStream::Share::none, FileStream::Options::removeOnClose);
 		testAssertionFailed(Bitmap bitmap(stream));
 	}
 
-	{// bmp‚ÌŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì“Ç‚İ‚İ
+	{// bmpì˜ ê° í™”ìƒ í¬ë§· ì½ê¸°
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::palette1bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::bmp);
@@ -397,7 +379,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(source));
 	}
-	{// ‚Ç‚¤‚¢‚¤‚í‚¯‚© 565Œ`®‚Í32bit‰æ‘œ‚Æ‚µ‚Ä“Ç‚İ‚Ü‚ê‚éBOleLoadPicture‚Å‚à555‚Æ‚µ‚Ä“Ç‚İ‚Ü‚ê‚½B
+	{// ì–´ë–¤ ì´ìœ ì¸ì§€ 565 í˜•ì‹ì€ 32bit í™”ìƒìœ¼ë¡œ ì½í˜€ì§„ë‹¤. OleLoadPictureì—ì„œë„ 555ë¡œì„œ ì½í˜€ì§„ë‹¤
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp565));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::bmp);
@@ -405,7 +387,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.format() == Bitmap::Format::argb32bpp);
 
-		// ƒIƒ}ƒP‚É•ÏŠ·Œë·‚ª‚Â‚­
+		// ë¤ìœ¼ë¡œ ë³€í™˜ ì˜¤ì°¨ê°€ ë¶™ëŠ”ë‹¤ 
 		Bitmap source32 = getTestBitmap(Bitmap(source.width(), source.height(), Bitmap::Format::argb32bpp));
 		auto result = analyze(bitmap, source32);
 		testAssert(result.averageError == 0);
@@ -436,7 +418,7 @@ testCase(streamConstruct) {
 		testAssert(bitmap.equalsBits(source, true));
 	}
 
-	{// gif‚ÌŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì“Ç‚İ‚İ
+	{// gif ê° í™”ìƒ í¬ë§· ì½ê¸°
 		Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::palette1bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::gif);
@@ -449,18 +431,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap32(bitmap, source.width(), source.height(), Bitmap::Format::argb32bpp);
 		testAssert(bitmap32.equalsBits(source32));
 	}
-	//{
-	//	Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::palette4bpp));
-	//	source = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::palette8bpp);
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::gif);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream);
-	//	testAssert(bitmap.format() == Bitmap::Format::palette8bpp);
-	//	Bitmap source32 = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	Bitmap bitmap32 = bitmap.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	testAssert(bitmap32.equalsBits(source32));
-	//}
+	
 	{
 		Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::palette8bpp));
 		MemoryStream stream;
@@ -478,57 +449,8 @@ testCase(streamConstruct) {
 		testAssert(!bitmap.bottomUp());
 		testAssert(bitmap.equalsBits(source));
 	}
-	// GDI+‚ÌŒ¸F‹@”\‚ª“‚­‚ÄŒë·‚ªo‚·‚¬‚ÄƒeƒXƒg‚É‚È‚ç‚È‚¢
-	//{
-	//	Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::rgb16bpp));
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::gif);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream);
-	//	testAssert(bitmap.format() == Bitmap::Format::palette8bpp);
-	//	Bitmap source32 = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	Bitmap bitmap32 = bitmap.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	testAssert(bitmap32.equalsBits(source32));
-	//	auto result = analyze(source32, bitmap32);
-	//	result = result;
-	//}
-	//{
-	//	Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::rgb16bpp565));
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::gif);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream);
-	//	testAssert(bitmap.format() == Bitmap::Format::palette8bpp);
-	//	Bitmap source32 = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	Bitmap bitmap32 = bitmap.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	testAssert(bitmap32.equalsBits(source32));
-	//}
-	//{
-	//	Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::rgb24bpp));
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::gif);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream);
-	//	testAssert(bitmap.format() == Bitmap::Format::palette8bpp);
-	//	Bitmap source32 = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	Bitmap bitmap32 = bitmap.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	testAssert(bitmap32.equalsBits(source32));
-	//	auto result = analyze(bitmap32, source32);
-	//	result = result;
-	//}
-	//{
-	//	Bitmap source = getTestBitmap(Bitmap(30, 30, Bitmap::Format::argb32bpp));
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::gif);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream);
-	//	testAssert(bitmap.format() == Bitmap::Format::palette8bpp);
-	//	Bitmap source32 = source.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	Bitmap bitmap32 = bitmap.clone(Rectangle(0, 0, 30, 30), Bitmap::Format::argb32bpp);
-	//	testAssert(bitmap32.equalsBits(source32));
-	//}
-
-	{// jpg‚ÌŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì“Ç‚İ‚İ
+	
+	{// jpg ê° í™”ìƒ í¬ë§· ì½ê¸°
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::palette8bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::jpeg);
@@ -540,7 +462,7 @@ testCase(streamConstruct) {
 		Bitmap source24(source, source.width(), source.height(), Bitmap::Format::rgb24bpp);
 		testAssert(!bitmap.equalsBits(source24));
 		auto result = analyze(bitmap, source24);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 	{
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp));
@@ -552,7 +474,7 @@ testCase(streamConstruct) {
 		Bitmap source24(source, source.width(), source.height(), Bitmap::Format::rgb24bpp);
 		testAssert(!bitmap.equalsBits(source24));
 		auto result = analyze(bitmap, source24);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 	{
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp565));
@@ -564,7 +486,7 @@ testCase(streamConstruct) {
 		Bitmap source24(source, source.width(), source.height(), Bitmap::Format::rgb24bpp);
 		testAssert(!bitmap.equalsBits(source24));
 		auto result = analyze(bitmap, source24);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 	{
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb24bpp));
@@ -575,7 +497,7 @@ testCase(streamConstruct) {
 		testAssert(bitmap.format() == Bitmap::Format::rgb24bpp);
 		testAssert(!bitmap.equalsBits(source));
 		auto result = analyze(bitmap, source);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 	{
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::argb32bpp));
@@ -587,7 +509,7 @@ testCase(streamConstruct) {
 		Bitmap source24(source, source.width(), source.height(), Bitmap::Format::rgb24bpp);
 		testAssert(!bitmap.equalsBits(source24));
 		auto result = analyze(bitmap, source24);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 	{// topDown
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::argb32bpp, false));
@@ -600,10 +522,10 @@ testCase(streamConstruct) {
 		Bitmap source24(source, source.width(), source.height(), Bitmap::Format::rgb24bpp, false);
 		testAssert(!bitmap.equalsBits(source24));
 		auto result = analyze(bitmap, source24);
-		testAssert(result.averageError < 4); // jpg‚É‚Í‹êè‚È•”—Ş‚Ì‰æ‘œ‚È‚Ì‚Å­‚µ‚ä‚é‚ß‚É
+		testAssert(result.averageError < 4); // jpgëŠ” ê¹Œë‹¤ë¡œìš´ ë¶€ë¥˜ì˜ í™”ìƒì´ë¯€ë¡œ ì¡°ê¸ˆ ëŠìŠ¨í•˜ê²Œ
 	}
 
-	{// png‚ÌŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì“Ç‚İ‚İ
+	{// png ê° í™”ìƒ í¬ë§· ì½ê¸°
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::palette1bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::png);
@@ -629,7 +551,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(source));
 	}
-	{// 555Œ`®‚Í32bit‰æ‘œ‚Æ‚µ‚Ä•Û‘¶‚³‚ê‚éB
+	{// 555 í˜•ì‹ì€ 32bit í™”ìƒìœ¼ë¡œ ì €ì¥ëœë‹¤
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::png);
@@ -637,12 +559,12 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.format() == Bitmap::Format::argb32bpp);
 
-		// ƒIƒ}ƒP‚É•ÏŠ·Œë·‚ª‚Â‚­
+		// ë¤ìœ¼ë¡œ ë³€í™˜ ì˜¤ì°¨ê°€ ë¶™ëŠ”ë‹¤
 		Bitmap source32 = getTestBitmap(Bitmap(source.width(), source.height(), Bitmap::Format::argb32bpp));
 		auto result = analyze(bitmap, source32);
 		testAssert(result.averageError < 2);
 	}
-	{// 565Œ`®‚Í32bit‰æ‘œ‚Æ‚µ‚Ä•Û‘¶‚³‚ê‚éB
+	{// 565 í˜•ì‹ì€ 32bit í™”ìƒìœ¼ë¡œ ì €ì¥ëœë‹¤ 
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp565));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::png);
@@ -650,7 +572,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.format() == Bitmap::Format::argb32bpp);
 
-		// ƒIƒ}ƒP‚É•ÏŠ·Œë·‚ª‚Â‚­
+		// ë¤ìœ¼ë¡œ ë³€í™˜ ì˜¤ì°¨ê°€ ë¶™ëŠ”ë‹¤
 		Bitmap source32 = getTestBitmap(Bitmap(source.width(), source.height(), Bitmap::Format::argb32bpp));
 		auto result = analyze(bitmap, source32);
 		testAssert(result.averageError == 0);
@@ -681,9 +603,9 @@ testCase(streamConstruct) {
 		testAssert(bitmap.equalsBits(source));
 	}
 
-	{// tiff‚ÌŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì“Ç‚İ‚İ
+	{// tiff ê° í™”ìƒ í¬ë§· ì½ê¸°
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::palette1bpp));
-		// tiff‚Ìƒ‚ƒmƒNƒ‰æ‘œ‚Í•‚Æ”’‚ÌF‚Ì‚İ‹–‚³‚ê‚é
+		// tiffì˜ ëª¨ë…¸í¬ë¡¬ í™”ìƒì€ í‘ê³¼ ë°±ìƒ‰ë§Œ í—ˆìš©í•œë‹¤
 		Color colors[] = {Color::black(), Color::white()};
 		source.palette(colors);
 		MemoryStream stream;
@@ -710,7 +632,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.equalsBits(source));
 	}
-	{// 555Œ`®‚Í24bit‰æ‘œ‚Æ‚µ‚Ä•Û‘¶‚³‚ê‚éB
+	{// 555 í˜•ì‹ì€ 24bit í™”ìƒìœ¼ë¡œ ì €ì¥ëœë‹¤
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::tiff);
@@ -718,12 +640,12 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.format() == Bitmap::Format::rgb24bpp);
 
-		// ƒIƒ}ƒP‚É•ÏŠ·Œë·‚ª‚Â‚­
+		// ë¤ìœ¼ë¡œ ë³€í™˜ ì˜¤ì°¨ê°€ ë¶™ëŠ”ë‹¤
 		Bitmap source24 = getTestBitmap(Bitmap(source.width(), source.height(), Bitmap::Format::rgb24bpp));
 		auto result = analyze(bitmap, source24);
 		testAssert(result.averageError < 2);
 	}
-	{// 565Œ`®‚Í24bit‰æ‘œ‚Æ‚µ‚Ä•Û‘¶‚³‚ê‚éB
+	{// 565 í˜•ì‹ì€ 24bit í™”ìƒìœ¼ë¡œ ì €ì¥ëœë‹¤
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb16bpp565));
 		MemoryStream stream;
 		source.save(stream, Bitmap::FileFormat::tiff);
@@ -731,7 +653,7 @@ testCase(streamConstruct) {
 		Bitmap bitmap(stream);
 		testAssert(bitmap.format() == Bitmap::Format::rgb24bpp);
 
-		// ƒIƒ}ƒP‚É•ÏŠ·Œë·‚ª‚Â‚­
+		// ë¤ìœ¼ë¡œ ë³€í™˜ ì˜¤ì°¨ê°€ ë¶™ëŠ”ë‹¤
 		Bitmap source24 = getTestBitmap(Bitmap(source.width(), source.height(), Bitmap::Format::rgb24bpp));
 		auto result = analyze(bitmap, source24);
 		testAssert(result.averageError == 0);
@@ -762,22 +684,7 @@ testCase(streamConstruct) {
 		testAssert(bitmap.equalsBits(source));
 	}
 
-	//{// Gdiplus ‚Ì‰Šú‰»ˆ—‚Íƒg[ƒNƒ“H‚ªˆá‚¦‚Îd•¡‚µ‚Ä‚àxá‚ª‚È‚¢
-	//	Gdiplus::GdiplusStartupInput startupInput;
-	//	ULONG_PTR token;
-	//	testAssert(Gdiplus::GdiplusStartup(&token, &startupInput, nullptr) == Gdiplus::Ok);
 
-	//	Bitmap source = getTestBitmap(Bitmap(150, 205, Bitmap::Format::argb32bpp));
-	//	MemoryStream stream;
-	//	source.save(stream, Bitmap::FileFormat::bmp);
-	//	stream.position(0);
-	//	Bitmap bitmap(stream, false);
-	//	testAssert(bitmap.isDDB());
-	//	Bitmap ddbSource(source, false);
-	//	testAssert(bitmap == ddbSource);
-
-	//	Gdiplus::GdiplusShutdown(token);
-	//}
 }
 
 
@@ -837,7 +744,7 @@ testCase(stringConstruct) {
 
 
 testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap(nullptr, 1, 1));
 	testAssertionFailed(Bitmap(Bitmap(10, 10, Bitmap::Format::palette8bpp), 1, 1, Bitmap::Format::palette4bpp));
 
@@ -852,7 +759,7 @@ testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
 		bitmap = Bitmap(bitmap, source.width(), source.height(), source.format());
 		source = Bitmap::toDIB(source);
 		auto result = analyze(bitmap, source);
-		testAssert(result.averageError == 0); // k¬‚Ìƒn[ƒtƒg[ƒ“ˆ—‚ÅŒë·
+		testAssert(result.averageError == 0); // ì¶•ì†Œ í•˜í”„í†¤ ì²˜ë¦¬ë¡œ ì˜¤ì°¨
 		bitmap = Bitmap(bitmap, source.width(), source.height(), source.format(), false);
 		testAssert(!bitmap.bottomUp());
 	}
@@ -866,11 +773,11 @@ testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
 		//testAssert(bitmap.equalsBits(source));
 		bitmap = Bitmap(bitmap, source.width(), source.height(), Bitmap::Format::rgb24bpp);
 		auto result = analyze(bitmap, source);
-		testAssert(result.averageError == 0); // k¬‚Ìƒn[ƒtƒg[ƒ“ˆ—‚ÅŒë·
+		testAssert(result.averageError == 0); // ì¶•ì†Œ í•˜í”„í†¤ ì²˜ë¦¬ë¡œ ì˜¤ì°¨
 		bitmap = Bitmap(bitmap, source.width(), source.height(), Bitmap::Format::rgb24bpp, false);
 		testAssert(!bitmap.bottomUp());
 	}
-	{// ƒpƒŒƒbƒg‚È‚µ
+	{// íŒ”ë ˆíŠ¸ ì—†ìŒ
 		Bitmap source = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
 		Bitmap bitmap(source, 10, 10, Bitmap::Format::argb32bpp);
 		testAssert(bitmap.bottomUp());
@@ -882,7 +789,7 @@ testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
 		bitmap = Bitmap(bitmap, source.width(), source.height(), Bitmap::Format::argb32bpp, false);
 		testAssert(!bitmap.bottomUp());
 	}
-	{// ƒpƒŒƒbƒg‚ ‚è
+	{// ê¸¬ê¹’ê¸ê¸£ê¶‡ê·Ÿ
 		Bitmap source = getTestBitmap(Bitmap(10, 10, Bitmap::Format::palette4bpp));
 		Bitmap bitmap(source, 10, 10, Bitmap::Format::palette8bpp);
 		testAssert(bitmap.bottomUp());
@@ -894,7 +801,7 @@ testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
 		testAssert(!bitmap.bottomUp());
 	}
 
-	{// Size ƒo[ƒWƒ‡ƒ“
+	{// Size ë²„ì „
 		Bitmap source = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
 		Bitmap bitmap(source, source.size(), Bitmap::Format::argb32bpp);
 		testAssert(bitmap.bottomUp());
@@ -910,7 +817,7 @@ testCase(HBITMAPAndWidthAndHeightAndFormatConstruct) {
 
 
 testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		char buffer[3] = {0};
 		testAssertionFailed(Bitmap bitmap(0, 1, Bitmap::Format::rgb16bpp, true, nullptr, 0));
 		testAssertionFailed(Bitmap bitmap(1, 0, Bitmap::Format::rgb16bpp, true, nullptr, 0));
@@ -919,13 +826,13 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testNoThrow        (Bitmap bitmap(1, 1, Bitmap::Format::rgb24bpp, true, buffer , 3));
 	}
 
-	{// DIB‚È‚ç‹‘å‚ÈƒTƒCƒY‚àì¬‚n‚j
+	{// DIB ë¼ë©´ ê±°ëŒ€ ì‚¬ì´ì¦ˆ ì‘ì„±ë„ OK
 		testNoThrow(Bitmap bitmap(10000, 10000, Bitmap::Format::argb32bpp, nullptr, 0));
-		// ‚Æ‚Í‚¢‚¦‚S‚O‚f‚Ì‰æ‘œ‚Íì‚ê‚Ü‚¢
-		//testThrow(Bitmap bitmap(100000, 100000, 0, Bitmap::Format::argb32bpp, nullptr), OutOfMemoryException); // OutoOfMemory‚ª•ñ‚³‚ê‚È‚¢‚±‚Æ‚ª‚ ‚èAˆÀ’è‚µ‚È‚¢Bƒƒ‚ƒŠ‚ª‘«‚è‚È‚¢‚Æ“®ì‚ª•sˆÀ’è‚É‚È‚é‚Ì‚©
+		// ë¼ê³  í•˜ì§€ë§Œ 40GB í™”ìƒì€ ë§Œë“¤ ìˆ˜ ì˜¶ë‹¤
+		//testThrow(Bitmap bitmap(100000, 100000, 0, Bitmap::Format::argb32bpp, nullptr), OutOfMemoryException); // OutoOfMemoryê°€ ë³´ê³  ë˜ì§€ë„ ì•Šê³ , ë¶ˆì•ˆì •. ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•˜ë©´ ë¶ˆì•ˆì • í•˜ëŠ” ë“¯
 	}
 
-	// ŠeƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg‚ÌDIBì¬‚ÌŒŸØ
+	// ê° í”½ì…€ í¬ë§·ì˜ DIB ì‘ì„± ê²€ì¦˜
 	{// Bitmap::Format::palette1bpp
 		Bitmap source = getTestBitmap(Bitmap(17, 40, Bitmap::Format::palette1bpp, false));
 		Bitmap bitmap(17, 40, Bitmap::Format::palette1bpp, false, source.pixels(), source.stride(), false);
@@ -941,7 +848,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Color palette[] = {Color::red(), Color::blue()};
 		bitmap.palette(palette);
 		Graphics::flush();
@@ -993,7 +900,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Color palette[] = {Color::red(), Color::blue(), Color::lime(), Color::white(), Color::black()};
 		bitmap.palette(palette);
 		Graphics::flush();
@@ -1048,7 +955,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Color palette[] = {Color::red(), Color::blue(), Color::lime(), Color::white(), Color::black()};
 		bitmap.palette(palette);
 		Graphics::flush();
@@ -1099,7 +1006,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1150,7 +1057,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1199,7 +1106,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1252,7 +1159,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1289,7 +1196,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(*reinterpret_cast<unsigned int*>(bits + stride * y + (x * bitCount / 8)) == 0x00FFFFFF);
 	}
 
-	{// Size ƒo[ƒWƒ‡ƒ“B
+	{// Size ë²„ì „
 		Bitmap source = getTestBitmap(Bitmap(17, 40, Bitmap::Format::argb32bpp, false));
 		Bitmap bitmap(Size(17, 40), Bitmap::Format::argb32bpp, false, source.pixels(), source.stride(), false);
 		testAssert(bitmap.width() == 17);
@@ -1302,7 +1209,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1339,7 +1246,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(*reinterpret_cast<unsigned int*>(bits + stride * y + (x * bitCount / 8)) == 0x00FFFFFF);
 	}
 
-	{// ƒJƒ‰[ƒ}ƒXƒN‚Ìw’è
+	{// ì»¬ëŸ¬ ë§ˆìŠ¤í¬ ì§€ì •
 		Bitmap::Format format(32, 0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF);
 		Bitmap source = getTestBitmap(Bitmap(17, 40, format, false));
 		Bitmap bitmap(17, 40, format, false, source.pixels(), source.stride(), false);
@@ -1353,7 +1260,7 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 		testAssert(!bitmap.isDDB());
 		testAssert(((bitmap.width() * bitmap.bitsPerPixel() + 7) / 8) <= bitmap.stride());
 
-		// ƒƒ‚ƒŠ”z’u‚ÌŒŸØ
+		// ë©”ëª¨ë¦¬ ë°°ì¹˜ ê²€ì¦
 		Graphics::flush();
 		unsigned char* bits = reinterpret_cast<unsigned char*>(bitmap.pixels());
 		std::memset(bits, 0, bitmap.stride() * bitmap.height());
@@ -1394,17 +1301,17 @@ testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) {
 
 testCase(destruct) {
 	balor::test::HandleLeakChecker checker;
-	{// ‹ó‚Ì Bitmap
+	{// ë¹ˆ Bitmap
 		Bitmap bitmap;
 		testAssert(checker.getGdiHandleChange() == 0);
 	}
 	testAssert(checker.getGdiHandleChange() == 0);
-	{// ƒnƒ“ƒhƒ‹Š—L
+	{// í•¸ë“¤ ì†Œìœ 
 		Bitmap bitmap = Bitmap::createDDB(1, 1);
 		testAssert(checker.getGdiHandleChange() == 1);
 	}
 	testAssert(checker.getGdiHandleChange() == 0);
-	{// ƒnƒ“ƒhƒ‹–¢Š—L
+	{// í•¸ë“¤ ë¯¸ ì†Œìœ  
 		Bitmap bitmap = Bitmap::createDDB(1, 1);
 		testAssert(checker.getGdiHandleChange() == 1);
 		{
@@ -1444,16 +1351,16 @@ testCase(operatorRvalueAssignment) {
 
 
 testCase(bitsPerPixel) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.bottomUp());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct)ì„ ì°¸ì¡°
 }
 
 
 testCase(bottomUp) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.bitsPerPixel());
 
@@ -1480,7 +1387,7 @@ testCase(clone) {
 		Bitmap bitmap = source.clone();
 		testAssert(!bitmap);
 	}
-	{// DDB‚ÍDDB‚É
+	{// DDBëŠ” DDBë¡œ
 		Bitmap source = getTestBitmap(Bitmap::createDDB(10, 10));
 		Bitmap bitmap = source.clone();
 		testAssert(source);
@@ -1490,7 +1397,7 @@ testCase(clone) {
 		testAssert(bitmap.isDDB());
 		testAssert(bitmap.owned());
 	}
-	{// DIB‚ÍDIB‚É
+	{// DIBëŠ” DIBë¡œ
 		Bitmap source = getTestBitmap(Bitmap(11, 14, Bitmap::Format::argb32bpp));
 		Bitmap bitmap = source.clone();
 		testAssert(bitmap.equalsBits(source));
@@ -1499,14 +1406,14 @@ testCase(clone) {
 		testAssert(bitmap.owned());
 		testAssert(bitmap.bottomUp());
 	}
-	{// DIB‚ÍƒpƒŒƒbƒg‚àƒRƒs[‚·‚é
+	{// DIBëŠ” íŒ”ë ˆíŠ¸ë„ ë³µì‚¬í•œë‹¤
 		Bitmap source = getTestBitmap(Bitmap(13, 15, Bitmap::Format::palette4bpp, false));
 		Bitmap bitmap = source.clone();
 		testAssert(bitmap.equalsBits(source));
 		testAssert(!bitmap.isDDB());
 		testAssert(!bitmap.bottomUp());
 	}
-	{// ƒnƒ“ƒhƒ‹QÆ‚ÌƒRƒs[
+	{// í•¸ë“¤ ì°¸ì¡° ë³µì‚¬ 
 		Bitmap sourceSource = getTestBitmap(Bitmap(11, 14, Bitmap::Format::argb32bpp));
 		Bitmap source(static_cast<HBITMAP>(sourceSource));
 		Bitmap bitmap = source.clone();
@@ -1518,7 +1425,7 @@ testCase(clone) {
 
 
 testCase(cloneWithHBITMAP) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap::clone(nullptr));
 
 	{// DDB > DDB
@@ -1541,7 +1448,7 @@ testCase(cloneWithHBITMAP) {
 		testAssert(bitmap.owned());
 		testAssert(!bitmap.bottomUp());
 	}
-	{// DIB > DIB ƒpƒŒƒbƒgƒRƒs[
+	{// DIB > DIB íŒ”ë ˆíŠ¸ ë³µì‚¬
 		Bitmap source = getTestBitmap(Bitmap(102, 11, Bitmap::Format::palette8bpp));
 		HBITMAP sourceHandle = source;
 		Bitmap bitmap = Bitmap::clone(sourceHandle);
@@ -1554,13 +1461,13 @@ testCase(cloneWithHBITMAP) {
 
 
 testCase(createDDB) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap::createDDB(0, 1));
 	testAssertionFailed(Bitmap::createDDB(1, 0));
 	testNoThrow(Bitmap::createDDB(1, 1));
 
-	// ‚à‚µƒ‚ƒjƒ^‚Å‚Q‚T‚UFƒ‚[ƒh‚ğ‘I‘ğ‚Å‚«‚éƒŒƒKƒV[‚Èƒn[ƒh‚ª‚ ‚ê‚Î assert‚É¸”s‚·‚é‚±‚Æ‚ğƒeƒXƒg‚Å‚«‚é
-	// DDB‚ÌƒpƒŒƒbƒgƒ‚[ƒh‚ÍƒTƒ|[ƒg‚µ‚È‚¢
+	// ë§Œì•½ ëª¨ë‹ˆí„°ê°€ 256ìƒ‰ ëª¨ë“œë¥¼ ì„ íƒí•  ìˆ˜ ìˆëŠ” ë ˆê±°ì‹œ í•˜ë“œë¼ë©´ assertì— ì‹¤íŒ¨í•˜ëŠ” ê²ƒì„ í…ŒìŠ¤íŠ¸ í•  ìˆ˜ ìˆë‹¤
+	// DDBì˜ íŒ”ë ˆíŠ¸ ëª¨ë“œëŠ” ì§€ì›í•˜ì§€ ì•ŠëŠ”ë‹¤
 	{
 		Bitmap bitmap = Bitmap::createDDB(101, 203);
 		testAssert(bitmap.size() == Size(101, 203));
@@ -1569,7 +1476,7 @@ testCase(createDDB) {
 		testAssert(bitmap.bottomUp());
 	}
 
-	{// Size ƒo[ƒWƒ‡ƒ“
+	{// Size ë²„ì „
 		Bitmap bitmap = Bitmap::createDDB(Size(101, 203));
 		testAssert(bitmap.size() == Size(101, 203));
 		testAssert(bitmap.isDDB());
@@ -1580,23 +1487,23 @@ testCase(createDDB) {
 
 
 testCase(equalsBits) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Bitmap bitmap = getTestBitmap(Bitmap::createDDB(10, 10));
 		testAssertionFailed(bitmap.equalsBits(Bitmap()));
 		testAssertionFailed(Bitmap().equalsBits(bitmap));
 	}
-	{// ƒTƒCƒY‚Ì•sˆê’v
+	{// ì‚¬ì´ì¦ˆ ë¶ˆì¼ì¹˜ 
 		Bitmap bitmap = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
 		testAssert(!Bitmap::equalsBits(bitmap, Bitmap(bitmap, bitmap.width() - 1, bitmap.height()    , bitmap.format())));
 		testAssert(!Bitmap::equalsBits(bitmap, Bitmap(bitmap, bitmap.width()    , bitmap.height() - 1, bitmap.format())));
 		testAssert( Bitmap::equalsBits(bitmap, Bitmap(bitmap, bitmap.width()    , bitmap.height()    , bitmap.format())));
 	}
-	{// ƒtƒH[ƒ}ƒbƒg‚Ì•sˆê’v
+	{// í¬ë§· ë¶ˆì¼ì¹˜
 		Bitmap bitmap = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
 		testAssert(!Bitmap::equalsBits(bitmap, Bitmap(bitmap, bitmap.width(), bitmap.height(), Bitmap::Format::argb32bpp)));
 		testAssert( Bitmap::equalsBits(bitmap, Bitmap(bitmap, bitmap.width(), bitmap.height(), bitmap.format()         )));
 	}
-	{// DDB‚ÆDIB‚Ì•sˆê’v
+	{// DDBì™€ DIB ë¶ˆì¼ì¹˜
 		Bitmap ddb0 = getTestBitmap(Bitmap::createDDB(10, 10));
 		Bitmap ddb1 = ddb0.clone();
 		Bitmap dib0 = Bitmap::toDIB(ddb0);
@@ -1606,7 +1513,7 @@ testCase(equalsBits) {
 		testAssert( ddb0.equalsBits(ddb1));
 		testAssert( dib0.equalsBits(dib1));
 	}
-	{// ƒpƒŒƒbƒg‚Ì•sˆê’v
+	{// íŒ”ë ˆíŠ¸ ë¶ˆì¼ì¹˜
 		Bitmap lhs = getTestBitmap(Bitmap(10, 10, Bitmap::Format::palette1bpp));
 		Bitmap rhs = lhs.clone();
 		Color palette0[] = {Color::black(), Color::red()};
@@ -1619,7 +1526,7 @@ testCase(equalsBits) {
 		lhs.palette(palette0);
 		testAssert( lhs.equalsBits(rhs));
 	}
-	{// ƒ{ƒgƒ€ƒAƒbƒv‚Ì•sˆê’v
+	{// ë³´í†°ì—… ë¶ˆì¼ì¹˜ 
 		Bitmap bitmap0 = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
 		Bitmap bitmap1 = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp, false));
 		Bitmap bitmap2 = getTestBitmap(Bitmap(10, 10, Bitmap::Format::rgb24bpp));
@@ -1628,7 +1535,7 @@ testCase(equalsBits) {
 		testAssert( bitmap0.equalsBits(bitmap2));
 		testAssert( bitmap1.equalsBits(bitmap3));
 	}
-	// ƒsƒNƒZƒ‹‚Ì•sˆê’v ‰æ‘f‚S‹÷‚É‚Â‚¢‚Äƒ`ƒFƒbƒN
+	// í”½ì…€ ë¶ˆì¼ì¹˜ í™”ì†Œ 4 êµ¬ì„ì— ëŒ€í•´ì„œë„ ì²´í¬ 
 	{// DDB
 		Bitmap lhs = getTestBitmap(Bitmap::createDDB(10, 10));
 		Bitmap rhs = lhs.clone();
@@ -1806,7 +1713,7 @@ testCase(equalsBits) {
 		testAssert( lhs.equalsBits(rhs));
 	}
 
-	// ƒ}ƒXƒNƒrƒbƒg‚ÌŒŸØ
+	// ë§ˆìŠ¤í¬ ë¹„íŠ¸ ê²€ì¦
 	{// format1bppIndexed
 		Bitmap lhs = getTestBitmap(Bitmap(10, 10, Bitmap::Format::palette1bpp));
 		Bitmap rhs = lhs.clone();
@@ -1852,20 +1759,19 @@ testCase(equalsBits) {
 
 
 testCase(format) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.format());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 
-
 testCase(height) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.height());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 
 
@@ -1884,7 +1790,7 @@ testCase(owned) {
 #pragma warning (push)
 #pragma warning (disable : 4189)
 testCase(palette) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Bitmap emptyBitmap;
 		Bitmap ddbBitmap = Bitmap::createDDB(10, 10);
 		Bitmap bitmap2(10, 10, Bitmap::Format::palette1bpp);
@@ -1910,10 +1816,10 @@ testCase(palette) {
 	{
 		Bitmap bitmap(10, 10, Bitmap::Format::palette1bpp);
 
-		// İ’è‚µ‚È‚­‚Æ‚àƒpƒŒƒbƒg‚Í‚Á‚Ä‚¢‚é
+		// ì„¤ì • í•˜ì§€ ì•Šì•„ë„ íŒ”ë ˆíŠ¸ëŠ” ê°€ì§€ê³  ìˆë‹¤
 		testAssert(bitmap.palette().size() == 2);
 
-		// İ’è‚µ‚½ƒpƒŒƒbƒg‚ğ³‚µ‚­æ“¾‚Å‚«‚é
+		// ì„¤ì •í•œ íŒ”ë ˆíŠ¸ë¥¼ ì˜¬ë°”ë¥´ê²Œ ì–»ì„ ìˆ˜ ìˆë‹¤
 		Color sourcePalette[] = {Color::black(), Color::white()};
 		bitmap.palette(sourcePalette);
 		auto palette = bitmap.palette();
@@ -1921,7 +1827,7 @@ testCase(palette) {
 		testAssert(palette[0] == sourcePalette[0]);
 		testAssert(palette[1] == sourcePalette[1]);
 
-		// ƒrƒbƒg”‚æ‚è­‚È‚¢ƒpƒŒƒbƒg‚ğİ’è‚µ‚Ä‚à”‚ÍŒ¸‚ç‚È‚¢
+		// ë¹„íŠ¸ ìˆ˜ ë³´ë‹¤ ì ì€ íŒ”ë ˆíŠ¸ë¥¼ ì„¤ì •í•˜ì—¬ë„ ìˆ˜ëŠ” ì¤„ì–´ë“¤ì§€ ì•ŠëŠ”ë‹¤
 		Color sourcePalette2[] = {Color::red()};
 		bitmap.palette(sourcePalette2);
 		palette = bitmap.palette();
@@ -1930,7 +1836,7 @@ testCase(palette) {
 		testAssert(palette[1] == sourcePalette[1]);
 	}
 
-	// ‚»‚Ì‘¼‚Ì³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ê·¸ ì™¸ ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 #pragma warning (pop)
 
@@ -1938,19 +1844,19 @@ testCase(palette) {
 #pragma warning (push)
 #pragma warning (disable : 4189)
 testCase(pixels) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	Bitmap bitmap;
 	const Bitmap& constBitmap = bitmap;
 	testAssertionFailed(bitmap.pixels());
 	testAssertionFailed(constBitmap.pixels());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 #pragma warning (pop)
 
 
 testCase(saveStreamAndFormatAndQuality) {
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Bitmap bitmap = Bitmap::createDDB(10, 10);
 		MemoryStream stream;
 		char buffer[1] = {0};
@@ -1964,9 +1870,9 @@ testCase(saveStreamAndFormatAndQuality) {
 		testNoThrow        (bitmap.save(stream, Bitmap::FileFormat::bmp, 100));
 	}
 
-	// Še‰æ‘œƒtƒH[ƒ}ƒbƒg‚ÆƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg‚É‚æ‚é•Û‘¶‚ÌƒeƒXƒg‚Í testCase(streamConstruct) ‚É‚Äs‚Á‚½
+	
 
-	{// quality‚ÌŒŸØ
+	{// quality ê²€ì¦
 		Bitmap source = getTestBitmap(Bitmap(300, 300, Bitmap::Format::rgb24bpp));
 		MemoryStream stream000, stream030, stream100;
 		source.save(stream000, Bitmap::FileFormat::jpeg,   0);
@@ -1993,7 +1899,7 @@ testCase(saveRvalueStreamAndFormatAndQuality) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap().save(MemoryStream(), Bitmap::FileFormat::bmp));
 
 	File file(dir, L"file.png");
@@ -2008,13 +1914,13 @@ testCase(saveFileNameAndQuality) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	{// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	{// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 		Bitmap bitmap = Bitmap::createDDB(10, 10);
 		testAssertionFailed(Bitmap().save(L" "));
 		testAssertionFailed(bitmap.save(L""));
 	}
 
-	// Šg’£q‚©‚çŠe‰æ‘œƒtƒH[ƒ}ƒbƒg‚Ì”»•Ê‚ÌŒŸØ
+	// í™•ì¥ìë¡œ ê° í™”ìƒ í¬ë§· íŒë³„ì„ ê²€ì¦
 	{
 		Bitmap bitmap = getTestBitmap(Bitmap::createDDB(100, 100));
 		File file(dir, L"file.bmp");
@@ -2144,7 +2050,7 @@ testCase(saveFileNameAndQuality) {
 		testAssert(std::memcmp(stream0.buffer(), stream1.buffer(), static_cast<size_t>(stream0.length())) == 0);
 	}
 
-	// ‚È‚ñ‚¾‚©‚í‚©‚ç‚È‚¢Šg’£q‚Ípng‚É‚È‚é
+	// ë­”ì§€ ì•Œ ìˆ˜ ì—†ëŠ” í™•ì¥ìëŠ” pngê°€ ëœë‹¤
 	{
 		Bitmap bitmap = getTestBitmap(Bitmap(120, 120, Bitmap::Format::rgb24bpp));
 		File file(dir, L"file.wst");
@@ -2162,7 +2068,7 @@ testCase(saveFileNameAndQuality) {
 		testAssert(std::memcmp(stream0.buffer(), stream1.buffer(), static_cast<size_t>(stream0.length())) == 0);
 	}
 
-	// quality‚ÌŒŸØ
+	// quality ê²€ì¦
 	{
 		Bitmap bitmap = getTestBitmap(Bitmap(120, 120, Bitmap::Format::rgb24bpp));
 		File file0(dir, L"file0.jpeg");
@@ -2180,7 +2086,7 @@ testCase(saveFileNameAndFormatAndQuality) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
 
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap().save(L" ", Bitmap::FileFormat::bmp));
 
 	File file(dir, L"file.png");
@@ -2192,25 +2098,25 @@ testCase(saveFileNameAndFormatAndQuality) {
 
 
 testCase(size) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.size());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 
 
 testCase(stride) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.stride());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 
 
 testCase(toDDB) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap::toDDB(nullptr));
 
 	{// DDB > DDB
@@ -2234,7 +2140,7 @@ testCase(toDDB) {
 
 
 testCase(toDIB) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Bitmap::toDIB(nullptr));
 
 	{// DDB > DIB
@@ -2257,7 +2163,7 @@ testCase(toDIB) {
 		testAssert(bitmap.bottomUp());
 		testAssert(bitmap.equalsBits(source));
 	}
-	{// DIB > DIB ƒpƒŒƒbƒgƒRƒs[
+	{// DIB > DIB íŒ”ë ˆíŠ¸ ë³µì‚¬
 		Bitmap source = getTestBitmap(Bitmap(433, 351, Bitmap::Format::palette1bpp));
 		HBITMAP sourceHandle = source;
 		Bitmap bitmap = Bitmap::toDIB(sourceHandle);
@@ -2266,7 +2172,7 @@ testCase(toDIB) {
 		testAssert(bitmap.bottomUp());
 		testAssert(bitmap.equalsBits(source));
 	}
-	{// ƒgƒbƒvƒ_ƒEƒ“
+	{// íƒ‘ ë‹¤ìš´
 		Bitmap source = getTestBitmap(Bitmap(5, 25, Bitmap::Format::rgb24bpp, false));
 		HBITMAP sourceHandle = source;
 		Bitmap bitmap = Bitmap::toDIB(sourceHandle, false);
@@ -2279,11 +2185,11 @@ testCase(toDIB) {
 
 
 testCase(width) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	const Bitmap bitmap;
 	testAssertionFailed(bitmap.width());
 
-	// ³íƒP[ƒX‚É‚Â‚¢‚Ä‚Í testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ‚ğQÆ
+	// ì •ìƒ ì¼€ì´ìŠ¤ì— ëŒ€í•´ì„œëŠ” testCase(widthAndHeightAndFormatAndPixelsAndStrideConstruct) ë¥¼ ì°¸ì¡°
 }
 
 

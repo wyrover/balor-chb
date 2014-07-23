@@ -534,7 +534,7 @@ testCase(compareOrdinalWithIndexAndLength) {
 
 
 testCase(compareWithIndexAndLengthAndLocale) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String::compare(L"a", -1, L"b",  0,  0, Locale::current()));
 		testNoThrow        (String::compare(L"a",  0, L"b",  0,  0, Locale::current()));
 		testAssertionFailed(String::compare(L"a",  2, L"b",  0,  0, Locale::current()));
@@ -1035,7 +1035,7 @@ testCase(equalsWithCharPointer) {
 
 
 testCase(equalsWithLhsAndRhsAndLocaleAndComparison) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String::equals(L"abc", L"def", Locale::current(), String::CompareOptions::_enum(-1)));
 	}
 
@@ -1113,7 +1113,7 @@ testCase(equalTo) {
 
 
 testCase(equalToWithLocale) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String(L"abc").equalTo(L"def", Locale::current(), String::CompareOptions::_enum(-1)));
 	}
 
@@ -1145,7 +1145,7 @@ testCase(equalToWithLocale) {
 
 
 testCase(erase) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		testAssertionFailed(string0.erase(-1));
 		testNoThrow        (string0.erase( 0));
@@ -1169,7 +1169,7 @@ testCase(erase) {
 
 
 testCase(eraseWithStartIndexAndCount) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		// startIndex out of range
 		testAssertionFailed(string0.erase(-1,  0));
@@ -1222,7 +1222,7 @@ testCase(getLengthWithCharPointer) {
 
 
 testCase(getNextLetterIndex) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		testAssertionFailed(string0.getNextLetterIndex(-1));
 		testNoThrow        (string0.getNextLetterIndex( 0));
@@ -2965,7 +2965,7 @@ testCase(normalize) {
 
 
 testCase(padLeft) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String().padLeft(-1));
 		testNoThrow        (String().padLeft( 0));
 	}
@@ -2988,7 +2988,7 @@ testCase(padLeft) {
 
 
 testCase(padRight) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String().padRight(-1));
 		testNoThrow        (String().padRight( 0));
 	}
@@ -3011,7 +3011,7 @@ testCase(padRight) {
 
 
 testCase(refer) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		testAssertionFailed(String::refer(nullptr));
 	}
 
@@ -3033,7 +3033,7 @@ testCase(refer) {
 
 
 testCase(referWithValueAndLength) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		const wchar_t* string0 = L"";
 		const wchar_t* string1 = L"a";
 		testAssertionFailed(String::refer(nullptr,  0));
@@ -3081,7 +3081,7 @@ testCase(replace) {
 
 
 testCase(replaceWithOldValueAndNewValue) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"";
 		testAssertionFailed(string0.replace(L"" , L""));
 		testNoThrow        (string0.replace(L"a", L""));
@@ -3376,7 +3376,7 @@ testCase(startsWithWithLocale) {
 
 
 testCase(substring) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		testAssertionFailed(string0.substring(-1));
 		testNoThrow        (string0.substring( 0));
@@ -3400,7 +3400,7 @@ testCase(substring) {
 
 
 testCase(substringWithStartIndexAndCount) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		// startIndex out of range
 		testAssertionFailed(string0.substring(-1,  0));
@@ -3598,7 +3598,7 @@ testCase(operatorStringRange) {
 
 
 testCase(operatorBracket) {
-	{// 뼰뚼궶긬깋긽??
+	{// 무효한 파라미터
 		String string0 = L"abc";
 		testAssertionFailed(string0[-1]);
 		testNoThrow        (string0[ 0]);

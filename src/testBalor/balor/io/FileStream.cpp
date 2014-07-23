@@ -42,7 +42,7 @@ void removeTestDirectory() {
 testCase(construct) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -51,24 +51,24 @@ testCase(construct) {
 	File file1(dir, L"file1.txt");
 	File file2(dir, L"sub0\\file2.txt");
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(FileStream(L"", FileStream::Mode::createAlways));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::write, FileStream::Share::_enum(-1)));
 	testAssertionFailed(FileStream(file0.path(), FileStream::Mode::createAlways, FileStream::Access::write, FileStream::Share::write, FileStream::Options::_enum(-1)));
 
-	// 뫔띪궢궶궋긲?귽깑
+	// 존재하지 않는 파일
 	testThrow(FileStream(file1.path(), FileStream::Mode::open), FileStream::NotFoundException);
 	testThrow(FileStream(file1.path(), FileStream::Mode::truncate), FileStream::NotFoundException);
 
-	// 뫔띪궢궶궋긢귻깒긏긣깏
+	// 존재하지 않는 디렉토리
 	testThrow(FileStream(file2.path(), FileStream::Mode::openAlways), FileStream::NotFoundException);
 
-	{// 딓궸긲?귽깑궕뫔띪궥귡
+	{// 이미 파일이 존재한다
 		testThrow(FileStream(file0.path(), FileStream::Mode::create), FileStream::AlreadyExistsException);
 	}
-	{// 귺긏긜긚뙛뙽궕뼰궋
+	{// 접근 권한이 없다
 		file0.attributes(file0.attributes() | File::Attributes::readOnly);
 		testThrow(FileStream(file0.path(), FileStream::Mode::append, FileStream::Access::write), FileStream::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~File::Attributes::readOnly);
@@ -76,7 +76,7 @@ testCase(construct) {
 		testThrow(FileStream(file0.path(), FileStream::Mode::createAlways), FileStream::AccessDeniedException);
 		file0.attributes(file0.attributes() & ~ File::Attributes::hidden);
 	}
-	{// 귺긏긜긚떎뾎궕궳궖궶궋
+	{// 접근 공유를 할 수 없다
 		FileStream stream0(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::none);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::read), FileStream::SharingViolationException);
 	}
@@ -90,7 +90,7 @@ testCase(construct) {
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::write), FileStream::SharingViolationException);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::write, FileStream::Share::read), FileStream::SharingViolationException);
 	}
-	{// 묈?궻FileAccess궴FileShare궼덇뭭궠궧궶궋궴궎귏궘궋궔궶궋귝궎궬
+	{// FileAccess와 FileShare가 일치하지 않으면 잘 되지 않는듯
 		FileStream stream0(file0.path(), FileStream::Mode::open, FileStream::Access::readWrite, FileStream::Share::read);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::read, FileStream::Share::read), FileStream::SharingViolationException);
 		testThrow(FileStream(file0.path(), FileStream::Mode::open, FileStream::Access::write, FileStream::Share::read), FileStream::SharingViolationException);
@@ -109,7 +109,7 @@ testCase(construct) {
 		file1.remove();
 	}
 	{// FileStream::Mode::createAlways
-		{// 뫔띪궥귡긲?귽깑궻뤵룕궖
+		{// 존재하는 파일 덮어 쓰기
 			testAssert(file0.openRead().length() == 3);
 			FileStream stream(file0.path(), FileStream::Mode::createAlways);
 			testAssert(stream.position() == 0);
@@ -117,7 +117,7 @@ testCase(construct) {
 			stream.write("abc", 0, 3);
 			testAssert(stream.length() == 3);
 		}
-		{// 긲?귽깑궻륷딮띿맟
+		{// 파일 신규 작성 
 			testAssert(!file1.exists());
 			FileStream stream(file1.path(), FileStream::Mode::createAlways);
 			testAssert(file1.exists());
@@ -167,7 +167,7 @@ testCase(construct) {
 		testAssert(stream.length() == 3);
 	}
 	{// FileStream::Mode::append
-		{// 믁돿
+		{// 추가
 			testAssert(file0.openRead().length() == 3);
 			FileStream stream(file0.path(), FileStream::Mode::append);
 			testAssert(stream.position() == 3);
@@ -175,7 +175,7 @@ testCase(construct) {
 			stream.write("abc", 0, 3);
 			testAssert(stream.length() == 6);
 		}
-		{// 륷딮
+		{// 신규
 			testAssert(!file1.exists());
 			FileStream stream(file1.path(), FileStream::Mode::append);
 			testAssert(file1.exists());
@@ -249,7 +249,7 @@ testCase(construct) {
 testCase(moveConstructAndAssignment) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	file0.create();
 	File file1(dir, L"file1.txt");
@@ -278,7 +278,7 @@ testCase(moveConstructAndAssignment) {
 testCase(destruct) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 
 	balor::test::HandleLeakChecker checker;
@@ -293,7 +293,7 @@ testCase(destruct) {
 testCase(flush) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	file0.create();
 
@@ -308,7 +308,7 @@ testCase(flush) {
 testCase(lengthAndPosition) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -324,7 +324,7 @@ testCase(lengthAndPosition) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openRead();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.length());
 	testAssertionFailed(stream0.position());
 	testAssertionFailed(stream0.position(0));
@@ -346,7 +346,7 @@ testCase(lengthAndPosition) {
 testCase(lock) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -357,30 +357,30 @@ testCase(lock) {
 		auto stream0 = file0.openRead();
 		auto stream1 = move(stream0);
 		
-		// 뼰뚼궶긬깋긽??
+		// 무효한 파라미터
 		testAssertionFailed(stream0.lock(0, 2));
 		testAssertionFailed(stream1.lock(-1, 2));
 		testAssertionFailed(stream1.lock(0, -1));
 		testNoThrow        (stream1.lock(0, 0));
 
 		auto stream2 = file0.openRead();
-		{// 깓긞긏
+		{// 락
 			auto lock = stream1.lock(0, 2);
 			char buffer[3] = {0};
 			stream1.read(buffer, 0, 2);
 			testAssert(String::equals(buffer, "01"));
 
-			// 깓긞긏붝댪궻뢣븸
+			// 락 범위 중복
 			testThrow(stream1.lock(1, 2), FileStream::LockViolationException);
 
-			// 깓긞긏붝댪궻벶귒뢯궢
+			// 락 범위 읽기
 			char buffer2[3] = {0};
 			testThrow(stream2.read(buffer2, 0, 2), FileStream::LockViolationException);
 			stream2.position(2);
 			stream2.read(buffer2, 0, 2);
 			testAssert(String::equals(buffer2, "23"));
 		}
-		{// 깓긞긏됶룣
+		{// 락 해제
 			stream2.position(0);
 			char buffer2[3] = {0};
 			stream2.read(buffer2, 0, 2);
@@ -393,7 +393,7 @@ testCase(lock) {
 testCase(read) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -406,7 +406,7 @@ testCase(read) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openWrite();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	char buffer[5] = {0};
 	testAssertionFailed(stream0.read(buffer, 0, 4));
 	testAssertionFailed(stream1.read(nullptr, 0, 4));
@@ -416,13 +416,13 @@ testCase(read) {
 	testNoThrow        (stream1.read(buffer, 0, 0));
 	testAssertionFailed(stream2.read(buffer, 0, 4));
 
-	{// 깓긞긏붝댪궻벶귒뢯궢
+	{// 락 범위 읽기
 		auto stream3 = file0.openRead();
 		auto lock = stream3.lock(0, 4);
 		testThrow(stream1.read(buffer, 0, 4), FileStream::LockViolationException);
 	}
 
-	// 벶귒뢯궢
+	// 읽기
 	testAssert(stream1.read(buffer, 0, 4) == 4);
 	testAssert(stream1.position() == 4);
 	testAssert(String::equals(buffer, "0123"));
@@ -437,7 +437,7 @@ testCase(read) {
 	testAssert(stream1.position() == 2);
 	testAssert(String::equals(buffer, "0013"));
 
-	// 붝댪둖벶귒뢯궢
+	// 락 범위 외 읽기 
 	testAssert(stream1.read(buffer, 0, 4) == 2);
 	testAssert(String::equals(buffer, "2313"));
 
@@ -448,14 +448,14 @@ testCase(read) {
 }
 
 
-//testCase(readable) { // testCase(construct) 궸궲긡긚긣띙귒
+//testCase(readable) { // testCase(construct) 에서 테스트 완료
 //}
 
 
 testCase(skip) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -465,14 +465,14 @@ testCase(skip) {
 	auto stream0 = file0.openRead();
 	auto stream1 = move(stream0);
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.skip(1));
 
-	// 븠궻댧뭫귉궻긘?긏
+	// 틀린 위치 seek
 	stream1.position(0);
 	testAssert(stream1.skip(-1) == 0);
 
-	// 긘?긏긡긚긣
+	// seek 테스트
 	char buffer[2] = {0};
 	stream1.position(0);
 	testAssert(stream1.skip(1) == 1);
@@ -485,7 +485,7 @@ testCase(skip) {
 	stream1.read(buffer, 0, 1);
 	stream1.position(0);
 
-	// 붝댪둖귉궻긘?긏
+	// 범위 외 seek 
 	testAssert(stream1.skip(5) == 5);
 	testAssert(stream1.length() == 4);
 	stream1.position(4);
@@ -496,7 +496,7 @@ testCase(skip) {
 testCase(write) {
 	scopeExit(&removeTestDirectory);
 	File dir = getTestDirectory();
-	// 긡긚긣긢??띿맟
+	// 테스트 데이터 작성
 	File file0(dir, L"file0.txt");
 	{
 		auto stream = file0.create();
@@ -509,7 +509,7 @@ testCase(write) {
 	auto stream1 = move(stream0);
 	auto stream2 = file1.openRead();
 
-	// 뼰뚼궶긬깋긽??
+	// 무효한 파라미터
 	testAssertionFailed(stream0.write("0123", 0, 4));
 	testAssertionFailed(stream1.write(nullptr, 0, 4));
 	testAssertionFailed(stream1.write("0123", -1, 4));
@@ -517,13 +517,13 @@ testCase(write) {
 	testNoThrow        (stream1.write("0123", 0, 0));
 	testAssertionFailed(stream2.write("0123", 0, 4));
 
-	{// 깓긞긏붝댪궻룕궖뜛귒
+	{// 락 범위 쓰기
 		FileStream stream3(file0, FileStream::Mode::open, FileStream::Access::readWrite, FileStream::Share::read | FileStream::Share::write);
 		auto lock = stream3.lock(0, 4);
 		testThrow(stream1.write("0123", 0, 4), FileStream::LockViolationException);
 	}
 
-	// 룕궖뜛귒
+	// 쓰기
 	char buffer[10] = {0};
 	stream1.write("abcd", 0, 4);
 	testAssert(stream1.length() == 4);
@@ -546,7 +546,7 @@ testCase(write) {
 	stream1.read(buffer, 0, 6);
 	testAssert(String::equals(buffer, "abcd12"));
 
-	// 붝댪둖룕궖뜛귒
+	// 락 범위 외 쓰기
 	stream1.position(7);
 	stream1.write("+", 0, 1);
 	testAssert(stream1.length() == 8);
@@ -556,7 +556,7 @@ testCase(write) {
 }
 
 
-//testCase(writable) { // testCase(construct) 궸궲긡긚긣띙귒
+//testCase(writable) { // testCase(construct) 에서 테스트 완료
 //}
 
 

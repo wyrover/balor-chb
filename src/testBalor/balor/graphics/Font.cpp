@@ -1,4 +1,4 @@
-#include <balor/graphics/Font.hpp>
+ï»¿#include <balor/graphics/Font.hpp>
 
 #include <vector>
 
@@ -44,7 +44,7 @@ Bitmap getTestBitmap(const String& name) {
 }
 
 
-bool makeTestData = false; // ƒeƒXƒgƒf[ƒ^ì¬—pB’ˆÓIì¬‚É‚Í‚©‚È‚ç‚¸‰æ‘œ‚ğ–Ú‹‚ÅŠm”F‚·‚é‚±‚ÆI
+bool makeTestData = false; // í…ŒìŠ¤íŠ¸ ë°ì´í„° ì‘ì„±. ì£¼ì˜! ì‘ì„± ì‹œì—ëŠ” ê¼­ í™”ìƒì„ ëˆˆìœ¼ë¡œ í™•ì¸í•  ê²ƒ 
 
 
 bool testFontDraw(const Font& font, int width, int height, const String& text, const String& sourceName, int x = 0, int y = 0) {
@@ -68,19 +68,19 @@ bool testFontDraw(const Font& font, int width, int height, const String& text, c
 
 
 
-testCase(startup) { // ƒnƒ“ƒhƒ‹‚ğÅ‰‚ÌŒÄ‚Ño‚µ‚ÅŠm•Û‚µA“à•”‚Å•Û‚µ‘±‚¯‚éiˆêŒ©ƒŠ[ƒN‚ÉŒ©‚¦‚éjŠÖ”‚ğ‚ ‚ç‚©‚¶‚ßŒÄ‚ñ‚Å‚¨‚­
+testCase(startup) { // í•¸ë“¤ì„ ì²˜ìŒ í˜¸ì¶œì—ì„œ í™•ë³´í•˜ê³  ë‚´ë¶€ì—ì„œ ê³„ì† ìœ ì§€í•˜ëŠ”(ì¼ê²¬ ë¦­ìœ¼ë¡œ ë³´ì´ëŠ”) í•¨ìˆ˜ë¥¼ ì²˜ìŒë¶€í„° í˜¸ì¶œí•´ ë‘”ë‹¤ 
 	balor::test::UnitTest::ignoreHandleLeakCheck();
 
-	getTestBitmap(L"test00.png"); // GdiplusStartup ŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	getTestBitmap(L"test00.png"); // GdiplusStartup í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 
-	//Font::names(); // EnumFontFamiliesW ŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	//Font::names(); // EnumFontFamiliesW í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 
 	Bitmap bitmap = Bitmap::createDDB(100, 100);
-	Font font(L"‚l‚r ƒSƒVƒbƒN", 16);
+	Font font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 16);
 	Graphics graphics(bitmap);
 	graphics.font(font);
 	graphics.textColor(Color::black());
-	graphics.drawText(L"‚ ‚¢", 0, 0); // TextOutW ŠÖ”‚ÍÅ‰‚ÌŒÄ‚Ño‚µ‚Å‚¾‚¯ƒnƒ“ƒhƒ‹‚ğ•¡”ŠJ‚¢‚Ä•Û‚·‚é
+	graphics.drawText(L"ã‚ã„", 0, 0); // TextOutW í•¨ìˆ˜ëŠ” ì²˜ìŒ í˜¸ì¶œì—ì„œ í•¸ë“¤ì„ ë³µìˆ˜ ì—´ê³  ìœ ì§€í•œë‹¤
 }
 
 
@@ -124,56 +124,56 @@ testCase(fontAndHeightAndStyleConstruct) {
 
 
 testCase(fontFamilyNameConstruct) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font(L"", 1));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 0));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::_enum(-1)));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::_enum(-1)));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof, -3601));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof,  3601));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof,  3600, -3601));
-	testAssertionFailed(Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof,  3600,  3601));
-	testNoThrow        (Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof,  3600,  3600));
-	testNoThrow        (Font(L"‚l‚r ƒSƒVƒbƒN", 1, Font::Style::regular, Font::Quality::proof, -3600, -3600));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 0));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::_enum(-1)));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::_enum(-1)));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof, -3601));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof,  3601));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof,  3600, -3601));
+	testAssertionFailed(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof,  3600,  3601));
+	testNoThrow        (Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof,  3600,  3600));
+	testNoThrow        (Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 1, Font::Style::regular, Font::Quality::proof, -3600, -3600));
 
-	{// ‚ ‚è‚¦‚È‚¢ƒtƒHƒ“ƒg–¼‚ğw’è‚µ‚Ä‚àƒVƒXƒeƒ€‚ªŸè‚É‚È‚ñ‚Æ‚©‚µ‚Ä‚­‚ê‚é
-		Font font(L"‚ ‚è‚¦‚È‚¢ƒtƒHƒ“ƒg–¼", 160);
+	{// ì˜ë¯¸ ì—†ëŠ” í°íŠ¸ ì´ë¦„ì„ ì„¤ì •í•˜ì—¬ë„ ì‹œìŠ¤í…œì´ ì–´ë–»ê²Œë“  í•´ì¤€ë‹¤
+		Font font(L"ì´ìƒí•œí°íŠ¸", 160);
 		testAssert(font);
-		testAssert(font.name() != L"‚ ‚è‚¦‚È‚¢ƒtƒHƒ“ƒg–¼");
+		testAssert(font.name() != L"ì´ìƒí•œí°íŠ¸");
 	}
 
-	// name ‚Ì”½‰f
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test00.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ‚o–¾’©", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test01.png"));
+	// name ë°˜ì˜
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test00.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ï¼°æ˜æœ", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test01.png"));
 
-	// height ‚Ì”½‰f
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 16, Font::Style::regular, Font::Quality::antialiased), 40, 20, L"‚ ‚¢", L"test02.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 96, Font::Style::regular, Font::Quality::antialiased), 200, 100, L"‚ ‚¢", L"test03.png"));
+	// height ë°˜ì˜
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 16, Font::Style::regular, Font::Quality::antialiased), 40, 20, L"ã‚ã„", L"test02.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 96, Font::Style::regular, Font::Quality::antialiased), 200, 100, L"ã‚ã„", L"test03.png"));
 
-	// style ‚Ì”½‰f
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::bold, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test04.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::italic, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test05.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::strikeout, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test06.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::underline, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test07.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::_enum(0x0F), Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test08.png"));
+	// style ë°˜ì˜
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::bold, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test04.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::italic, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test05.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::strikeout, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test06.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::underline, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test07.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::_enum(0x0F), Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test08.png"));
 
-	// quality ‚Ì”½‰fiCaution: antialiased ‚Æ nonantialiasedˆÈŠO‚Í‚n‚r‚É‚æ‚Á‚Ä‹““®‚ªˆá‚¤‚Ì‚Å–Ú‹‚ÅŠm”Fj
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"‚ ‚¢", L"test09.png"));
-	testAssert(testFontDraw(Font(L"‚l‚r ƒSƒVƒbƒN", 160, Font::Style::regular, Font::Quality::nonantialiased), 400, 200, L"‚ ‚¢", L"test10.png"));
+	// quality ë°˜ì˜(Caution: antialiased ì™€ nonantialiased ì´ì™¸ëŠ” OSì— ë”°ë¼ì„œ í–‰ë™ì´ ë‹¤ë¥´ë¯€ë¡œ ëˆˆìœ¼ë¡œ í™•ì¸)
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::regular, Font::Quality::antialiased), 400, 200, L"ã‚ã„", L"test09.png"));
+	testAssert(testFontDraw(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::regular, Font::Quality::nonantialiased), 400, 200, L"ã‚ã„", L"test10.png"));
 
-	// c‘‚«‚ÌƒeƒXƒg
-	testAssert(testFontDraw(Font(L"@‚l‚r ƒSƒVƒbƒN", 160, Font::Style::regular, Font::Quality::antialiased, 2700, 2700), 200, 600, L"‚ ‚ŸB", L"test11.png", 160));
+	// ì„¸ë¡œ ì“°ê¸° í…ŒìŠ¤íŠ¸
+	testAssert(testFontDraw(Font(L"@ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160, Font::Style::regular, Font::Quality::antialiased, 2700, 2700), 200, 600, L"ê¶‡ê¶†ê°ƒ", L"test11.png", 160));
 }
 
 
 testCase(destruct) {
 	balor::test::HandleLeakChecker checker;
-	{// Š—LŒ ‚ğ‚Âê‡
-		Font font(L"‚l‚r ƒSƒVƒbƒN", 16);
+	{// ì†Œìœ ê¶Œì„ ê°€ì§„ ê²½ìš°
+		Font font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 16);
 		testAssert(checker.getGdiHandleChange() == 1);
 	}
 	testAssert(checker.getGdiHandleChange() == 0);
-	{// Š—LŒ ‚ğ‚½‚È‚¢ê‡
+	{// ì†Œìœ ê¶Œì„ ê°€ì§€ì§€ ì•Šì€ ê²½ìš°
 		Font font = Font::defaultGui();
 		testAssert(checker.getGdiHandleChange() == 0);
 	}
@@ -182,7 +182,7 @@ testCase(destruct) {
 
 
 testCase(rvalueAssignment) {
-	{// Š—LŒ ‚ğ‚à‚Âê‡
+	{// ì†Œìœ ê¶Œì„ ê°€ì§„ ê²½ìš°
 		Font source(L"MS UI Gothic", 24);
 		Font font;
 		font = move(source);
@@ -193,7 +193,7 @@ testCase(rvalueAssignment) {
 		font = move(font);
 		testAssert(font);
 	}
-	{// Š—LŒ ‚ğ‚½‚È‚¢ê‡
+	{// ì†Œìœ ê¶Œì„ ê°€ì§€ì§€ ì•Šì€ ê²½ìš°
 		Font source(L"MS UI Gothic", 24);
 		Font source2 = Font((HFONT)source);
 		Font font;
@@ -210,12 +210,12 @@ testCase(rvalueAssignment) {
 
 
 testCase(clone) {
-	{// ‹ó‚ÌƒtƒHƒ“ƒg
+	{// ë¹ˆ í°íŠ¸
 		Font source;
 		Font font = source.clone();
 		testAssert(!font);
 	}
-	{// Š—LŒ ‚ğ‚Á‚½ƒnƒ“ƒhƒ‹
+	{// ì†Œìœ ê¶Œì„ ê°€ì§„ í•¸ë“¤
 		Font source(L"MS UI Gothic", 24);
 		Font font = source.clone();
 		testAssert(font);
@@ -223,7 +223,7 @@ testCase(clone) {
 		testAssert(source.name() == L"MS UI Gothic");
 		testAssert(font.name() == source.name());
 	}
-	{// Š—LŒ ‚ğ‚½‚È‚¢ƒnƒ“ƒhƒ‹
+	{// ì†Œìœ ê¶Œì„ ê°€ì§€ì§€ ì•Šì€ í•¸ë“¤ 
 		Font source(L"MS UI Gothic", 24);
 		Font source2 = Font((HFONT)source);
 		Font font = source2.clone();
@@ -236,7 +236,7 @@ testCase(clone) {
 
 
 testCase(cloneWithHFONT) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font::clone(nullptr));
 
 	Font source(L"MS UI Gothic", 24);
@@ -253,7 +253,7 @@ testCase(cloneWithHFONT) {
 
 
 testCase(escapement) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().escapement());
 
 	testAssert(Font(L"MS UI Gothic", 24, Font::Style::regular, Font::Quality::proof).escapement() == 0);
@@ -262,7 +262,7 @@ testCase(escapement) {
 //
 //
 //testCase(fromHdc) {
-//	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+//	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 //	testAssertionFailed(Font::fromHdc(nullptr));
 //
 //	Bitmap bitmap(200, 200, Bitmap::PixelFormat::argb32bpp);
@@ -289,7 +289,7 @@ testCase(fromLogFont) {
 	Font source(L"MS UI Gothic", 24);
 	LOGFONTW logfont;
 	memset(&logfont, 0, sizeof(logfont));
-	//testThrow(Font::fromLogFont(logfont), Win32Exception); // ¬Œ÷‚µ‚Ä‚µ‚Ü‚Á‚½
+	//testThrow(Font::fromLogFont(logfont), Win32Exception); // ì„±ê³µí•´ë²„ë ¸ë‹¤..
 
 	testAssert(GetObjectW(source, sizeof(logfont), &logfont) != 0);
 	Font font = Font::fromLogFont(logfont);
@@ -300,20 +300,20 @@ testCase(fromLogFont) {
 
 
 testCase(height) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().height());
 
-	testAssert(Font(L"‚l‚r ƒSƒVƒbƒN", 16).height() == 16);
-	testAssert(Font(L"‚l‚r ƒSƒVƒbƒN", 160).height() == 160);
+	testAssert(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 16).height() == 16);
+	testAssert(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 160).height() == 160);
 }
 
 
 testCase(name) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().name());
 
-	testAssert(Font(L"‚l‚r ƒSƒVƒbƒN", 16).name() == L"‚l‚r ƒSƒVƒbƒN");
-	testAssert(Font(L"‚l‚r ‚o–¾’©", 16).name() == L"‚l‚r ‚o–¾’©");
+	testAssert(Font(L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯", 16).name() == L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯");
+	testAssert(Font(L"ï¼­ï¼³ ï¼°æ˜æœ", 16).name() == L"ï¼­ï¼³ ï¼°æ˜æœ");
 }
 
 
@@ -324,7 +324,7 @@ testCase(names) {
 
 
 testCase(orientation) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().orientation());
 
 	testAssert(Font(L"MS UI Gothic", 24, Font::Style::regular, Font::Quality::proof).orientation() == 0);
@@ -333,7 +333,7 @@ testCase(orientation) {
 
 
 testCase(quality) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().quality());
 
 	testAssert(Font(L"MS UI Gothic", 24, Font::Style::regular).quality() == Font::Quality::proof);
@@ -348,7 +348,7 @@ testCase(quality) {
 
 
 testCase(style) {
-	// –³Œø‚Èƒpƒ‰ƒ[ƒ^
+	// ë¬´íš¨í•œ íŒŒë¼ë¯¸í„°
 	testAssertionFailed(Font().style());
 
 	testAssert(Font(L"MS UI Gothic", 24).style() == Font::Style::regular);

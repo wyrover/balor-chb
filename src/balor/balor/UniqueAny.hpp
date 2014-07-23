@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <typeinfo>
 #include <utility>
@@ -12,13 +12,13 @@ namespace balor {
 
 
 /**
- * ”CˆÓ‚Ì?‚Ì’l‚ğ´ëÀÔ‚Å‚«‚éƒNƒ‰ƒXB
+ * ë´€ëŒ°ê¶»?ê¶»ë­ ê·©ëŒ€ì…ê¶³ê¶–ê·¡ê¸ê¹‹ê¸šê°ƒ
  * 
- * boost::any ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ªAƒRƒs?‚ğ‹Ö?‚µ‚Ä‚¢‚é‚Ì‚ÅƒRƒs?‚Å‚«‚È‚¢?‚à´ëÀÔ‚Å‚«‚éB
- * Œ»ó‚Å‚Í‚Ç‚ñ‚ÈƒTƒCƒY‚Ì?‚Å‚ ‚ë‚¤‚Æ´ëÀÔ‚·‚é‚Æƒƒ‚ƒŠŠ„‚è“–‚Ä‚ğ”º‚¤B¡ŒãÅ“K‰»‚Ì?’n‚Í‚ ‚é‚©‚à‚µ‚ê‚È‚¢‚ª
- * ƒNƒ‰ƒX‚ÌƒTƒCƒY‚Íí‚É?ƒCƒ“?ˆêŒÂ•ª‚Å‚ ‚èAbalor::gui::ListBox ‚â balor::gui::ListView ‚â balor::gui::TreeView “™‚ÌƒNƒ‰ƒX‚Í‚±‚ê‚ğ—˜—p‚µ‚ÄÀ‘•‚µ‚Ä‚¢‚éB
+ * boost::any ê¶´ê¶¬ê¶‹ê¶«ê¶‹ë²ê¶£ê¶¬ê¶•ê°‚ê¸“ê¸¯?ê·©ë—•?ê¶¢ê¶²ê¶‹ê·¡ê¶»ê¶³ê¸“ê¸¯?ê¶³ê¶–ê¶¶ê¶‹?ê·–ëŒ€ì…ê¶³ê¶–ê·¡ê°ƒ
+ * ë™¸ë¥‰ê¶³ê¶¼ê¶µê·ªê¶¶ê¸–ê·½ê¸›ê¶»?ê¶³ê¶‡ê·£ê¶ê¶´ëŒ€ì…ê¶¥ê·¡ê¶´ê¸½ê¸¾ê¹ë’†ê·Ÿë±°ê¶²ê·©ëµ¼ê¶ê°ƒëœëš£ëë°™ë¸ê¶»?ë­¤ê¶¼ê¶‡ê·¡ê¶”ê·–ê¶¢ê·¢ê¶¶ê¶‹ê¶•
+ * ê¸ê¹‹ê¸šê¶»ê¸–ê·½ê¸›ê¶¼ë¥‚ê¶¸?ê·½ê¹›?ë‡ë™¿ë¹ê¶³ê¶‡ê·Ÿê°‚balor::gui::ListBox ê·˜ balor::gui::ListView ê·˜ balor::gui::TreeView ë±³ê¶»ê¸ê¹‹ê¸šê¶¼ê¶ê·¢ê·©ë¿•ë¾­ê¶¢ê¶²ë ³ëª§ê¶¢ê¶²ê¶‹ê·¡ê°ƒ
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
+ * <h3>ê°‹ê¸–ê¹›ê¸µê¹‘ê¸“?ê¸¤</h3>
  * <pre><code>
 	UniqueAny any;
 
@@ -32,18 +32,18 @@ namespace balor {
  * </code></pre>
  */
 #pragma warning(push)
-#pragma warning(disable : 4521) // '::balor::Any' : •¡”‚ÌƒRƒs? ƒRƒ“ƒXƒgƒ‰ƒN??‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚·B
-#pragma warning(disable : 4522) // '::balor::Any' : •¡”‚Ì´ëÀÔ‰‰Zq‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4521) // '::balor::Any' : ë¸¸ë¦¶ê¶»ê¸“ê¸¯? ê¸“ê¹›ê¸šê¸£ê¹‹ê¸??ê¶•ëŸšë¯¦ê¶ ê·¢ê¶²ê¶‹ê·ê¶¥ê°ƒ
+#pragma warning(disable : 4522) // '::balor::Any' : ë¸¸ë¦¶ê¶»ëŒ€ì…ë¶ëŸëŸ”ê¶•ëŸšë¯¦ê¶ ê·¢ê¶²ê¶‹ê·ê¶¥ê°ƒ
 class UniqueAny : private NonCopyable {
 public:
-	/// any_cast ‚µ‚½ Any ‚Ì“à—e‚ª‹ó‚¾‚Á‚½‚èA?‚ªŠÔˆá‚Á‚Ä‚¢‚½ê‡‚É“Š‚°‚ç‚ê‚é—áŠOB
+	/// any_cast ê¶¢ê¶« Any ê¶»ë³™ë¾¢ê¶•ë—´ê¶¬ê¶¯ê¶«ê·Ÿê°‚?ê¶•ë“©ëŒ¾ê¶¯ê¶²ê¶‹ê¶«ë¤¾ëœƒê¶¸ë±¤ê¶›ê·ê·¢ê·¡ì€¡ë‘–ê°ƒ
 	class BadCastException : public Exception {};
 
 public:
-	/// ‹ó‚Ìó‘Ô‚Åì¬B
+	/// ë—´ê¶»ë¥‰ë«´ê¶³ë¿ë§Ÿê°ƒ
 	UniqueAny() : _holder(nullptr) {}
 	UniqueAny(UniqueAny&& value) : _holder(value._holder) { value._holder = nullptr; }
-	/// ”CˆÓ‚Ì?‚Ì’l‚©‚çì¬B
+	/// ë´€ëŒ°ê¶»?ê¶»ë­ ê¶”ê·ë¿ë§Ÿê°ƒ
 	template<typename T>
 	UniqueAny(T&& value) : _holder(new ConcreteHolder<std::remove_const<std::remove_reference<T>::type>::type>(std::forward<T>(value))) {}
 	~UniqueAny() {
@@ -55,7 +55,7 @@ public:
 		std::swap(_holder, value._holder);
 		return *this;
 	}
-	/// ”CˆÓ‚Ì?‚Ì’l‚ğ´ëÀÔB
+	/// ë´€ëŒ°ê¶»?ê¶»ë­ ê·©ëŒ€ì…ê°ƒ
 	template<typename T>
 	UniqueAny& operator=(T&& value) {
 		UniqueAny temp(std::forward<T>(value));
@@ -64,19 +64,19 @@ public:
 	}
 
 public:
-	/// ƒeƒ“ƒvƒŒ?ƒgˆø”‚Åw’è‚µ‚½?‚ÅƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒg‚µ‚Ä‚»‚ÌQÆ‚ğ•Ô‚·BƒRƒs?‚âˆÚ“®‚ª’è?‚³‚ê‚È‚¢?—pB
+	/// ê¸¡ê¹›ê¸µê¹’?ê¸£ë™ë¦¶ê¶³ëŸšë¯¦ê¶¢ê¶«?ê¶³ê¸¢ê¸²ê¸…ê¹‘ê¸£ê¸“ê¹›ê¸šê¸£ê¹‹ê¸ê¸£ê¶¢ê¶²ê¶©ê¶»ë·ë¤–ê·©ëº…ê¶¥ê°ƒê¸“ê¸¯?ê·˜ëŒ·ë²ê¶•ë¯¦?ê¶ ê·¢ê¶¶ê¶‹?ë¾­ê°ƒ
 	template<typename T>
 	T& assign() {
 		delete _holder;
 		_holder = new ConcreteHolder<T>();
 		return static_cast<ConcreteHolder<T>*>(_holder)->content;
 	}
-	///	’l‚ª´ëÀÔ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	///	ë­ ê¶•ëŒ€ì…ê¶ ê·¢ê¶²ê¶‹ê·¡ê¶”ê¶µê¶ê¶”ê°ƒ
 	bool empty() const { return _holder == nullptr; }
-	/// ´ëÀÔ‚³‚ê‚Ä‚¢‚é’l‚Ì?î•ñB´ëÀÔ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í void ‚Ì?î•ñ‚ğ•Ô‚·B
+	/// ëŒ€ì…ê¶ ê·¢ê¶²ê¶‹ê·¡ë­ ê¶»?ë¥ƒëºªê°ƒëŒ€ì…ê¶ ê·¢ê¶²ê¶‹ê¶¶ê¶‹ë¤¾ëœƒê¶¼ void ê¶»?ë¥ƒëºªê·©ëº…ê¶¥ê°ƒ
 	const type_info& type() const { return _holder ? _holder->type() : typeid(void); }
 
-	/// ’l‚ğ?‚ğw’è‚µ‚Äæ“¾‚·‚éB´ëÀÔ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚â?‚ªŠÔˆá‚Á‚Ä‚¢‚éê‡‚Í UniqueAny::BadCastException ‚ğ“Š‚°‚éB
+	/// ë­ ê·©?ê·©ëŸšë¯¦ê¶¢ê¶²ë¡¦ë²¦ê¶¥ê·¡ê°ƒëŒ€ì…ê¶ ê·¢ê¶²ê¶‹ê¶¶ê¶‹ë¤¾ëœƒê·˜?ê¶•ë“©ëŒ¾ê¶¯ê¶²ê¶‹ê·¡ë¤¾ëœƒê¶¼ UniqueAny::BadCastException ê·©ë±¤ê¶›ê·¡ê°ƒ
 	template<typename T>
 	friend T any_cast(UniqueAny& any) {
 		typedef std::remove_const<std::remove_reference<T>::type>::type PureT;
