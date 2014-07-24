@@ -90,7 +90,7 @@ public:
 	/// capacity 를 지정한 길이 이상으로 한다
 	void reserve(int maxLength);
 	/// capacity 를 현재의 길이 + 추가 길이 이상으로 한다
-	void reserveAdditionally(int addition alLength);
+	void reserveAdditionally(int additionalLength);
 	/// 선두와 마지막의 trimChars에 포함되는 문자를 빼낸다. trimChars는 빈 문자열의 경우는 whiteSpace로 본다
 	void trim(StringRange trimChars = L"");
 
