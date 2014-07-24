@@ -1,4 +1,4 @@
-#include "String.hpp"
+ï»¿#include "String.hpp"
 
 #include <algorithm>
 #include <cstring>
@@ -14,6 +14,8 @@
 #include <balor/Singleton.hpp>
 #include <balor/StringBuffer.hpp>
 
+
+// Vista ì´í›„ê°€ ì•„ë‹ˆë©´ ì´ ì„ ì–¸ì´ WinNls.hì— í¬í•¨ë˜ì§€ ì•ŠëŠ”ë‹¤ 
 
 typedef enum _NORM_FORM {
     NormalizationOther  = 0,       // Not supported
@@ -67,10 +69,10 @@ static_assert(String::NormalizationForm::d  == NormalizationD, "Innvalid enum va
 static_assert(String::NormalizationForm::kc == NormalizationKC, "Innvalid enum value");
 static_assert(String::NormalizationForm::kd == NormalizationKD, "Innvalid enum value");
 
-wchar_t nullString[] = L""; // DLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚à‚Á‚Ä‚à‚©‚Ü‚í‚È‚¢
+wchar_t nullString[] = L""; // DLL ë§ˆë‹¤ êµ¬í˜„ì„ ê°€ì ¸ìˆì–´ë„ ê´œì°®ë‹¤
 
 
-bool isValidStringCompareOptionsForSearch(String::CompareOptions value) { // ŒŸõŒnˆ—‚Å‚Í?ƒb?‚·‚é•¶š”‚ª•Ï“®‚·‚é‚æ‚¤‚ÈŒŸõ‚ğƒT??ƒg‚µ‚È‚¢
+bool isValidStringCompareOptionsForSearch(String::CompareOptions value) { // ê²€ìƒ‰ê³„ ì²˜ë¦¬ì—ì„œëŠ” ë§¤ì¹˜í•˜ëŠ” ë¬¸ììˆ˜ê°€ ë³€ë™í•˜ë„ë¡ í•˜ëŠ” ê²€ìƒ‰ì„ ì§€ì›í•˜ì§€ ì•ŠëŠ”ë‹¤
 	return (value & ~(
 		  String::CompareOptions::none
 		| String::CompareOptions::ignoreCase
@@ -94,8 +96,8 @@ inline const wchar_t* nextElement(const wchar_t* c_str, const wchar_t* end) {
 	assert(c_str);
 	assert(c_str <= end);
 
-	// ‚±‚Ì‚â‚è•û‚ÍŒ‹‡•¶š‚ªƒTƒƒQ?ƒgƒyƒA‚Å‚ ‚Á‚½ê‡‚É³‚µ‚­‘Îˆ‚Å‚«‚È‚¢B
-	// ‚Ç‚Ì‚İ‚¿ CharNextW ‚Æ GetStringTypeW ‚ªƒTƒƒQ?ƒg‚É‘Î‰‚µ‚È‚¯‚ê‚ÎŠ®àø‚É‚È‚è‚Í‚µ‚È‚¢B
+	// ì´ ë°©ë²•ì€ ê²°í•¨ ë¬¸ìê°€ ì„œë¡œê²Œì´íŠ¸ í˜ì–´ì¸ ê²½ìš°ë„¤ ì˜¬ë°”ë¥´ê²Œ ëŒ€ì²˜í•  ìˆ˜ ì—†ë‹¤.
+	// ì–´ì°¨í”¼ CharNextWì™€ GetStringTypeW ê°€ ì„œë¡œê²Œì´íŠ¸ì— ëŒ€ì‘í•˜ì§€ ì•Šìœ¼ë©´ ì™„ë²½í•˜ê²ŒëŠ” ë˜ì§€ ì•ŠëŠ”ë‹¤
 	if (c_str == end) {
 		return nullptr;
 	}
@@ -104,8 +106,8 @@ inline const wchar_t* nextElement(const wchar_t* c_str, const wchar_t* end) {
 			continue;
 		}
 		WORD type;
-		// Vista ˆÈ?‚Å‚ ‚ê‚Î C3_LOWSURROGATE ‚â C3_LOWSURROGATE ‚ª‹A‚Á‚Ä‚­‚é‚æ‚¤‚¾B
-		// ‚µ‚©‚µ C3_LOWSURROGATE ‚â C3_LOWSURROGATE ‚ª‹A‚Á‚½‚Æ‚µ‚Ä‚à‚»‚êˆÈŠO‚Ìƒtƒ‰ƒO‚ª‚½‚Á‚Ä‚¢‚È‚¢‚Ì‚Å•¶ší‚ª”»‚ç‚È‚¢B
+		// Vista ì´í›„ë¼ë©´ C3_LOWSURROGATE ë‚˜ C3_LOWSURROGATE ê°€ ëŒì•„ì˜¤ë„ë¡
+		// ê·¸ëŸ¬ë‚˜ C3_LOWSURROGATE ë‚˜ C3_LOWSURROGATEê°€ ëŒì•„ì˜¤ë”ë¼ë„ ê·¸ ì´í›„ì˜ í”Œë˜ê·¸ê°€ ì„œì§€ ì•Šê³  ìˆìœ¼ë¯€ë¡œ ë¬¸ìì¢…ì„ ì•Œìˆ˜ ì—†ë‹¤.
 		if (!GetStringTypeW(CT_CTYPE3, c_str, 1, &type)) {
 			break;
 		}
@@ -115,8 +117,9 @@ inline const wchar_t* nextElement(const wchar_t* c_str, const wchar_t* end) {
 	}
 	return c_str;
 
-	// ‚±‚ê‚ªVista‚Ì CharNextW‚ÌÀ‘•i‘½•ªjBƒTƒƒQ?ƒgƒyƒA‚Í‘Î‰‚³‚ê‚Ä‚¢‚é‚æ‚¤‚ÉŒ©‚¦‚Ä‘Î‰‚³‚ê‚Ä‚¢‚È‚¢B
-	// •¶š—ñ‚Ì“ª‚ÉƒTƒƒQ?ƒgƒyƒA‚ª‚ ‚Á‚½ê‡‚Í‚Q•¶š•ªƒJƒEƒ“ƒg‚³‚êA•¶š—ñ‚Ì“r’†‚É‚ ‚Á‚½ê‡‚Í‚P•¶šƒJƒEƒ“ƒg‚É‚È‚éB‚¨‚Ü‚¯‚É?ƒCƒ“?‚Í”¼?‚ÈˆÊ’u‚ğw‚·B
+	// ì´ê²ƒì´ Vistaì˜ CharNextW êµ¬í˜„(ì•„ë§ˆ). ì„œë¡œê²Œì´íŠ¸ í˜ì–´ëŠ” ëŒ€ì‘ ë˜ê³  ìˆë„ë¡ ë³´ì´ì§€ë§Œ ëŒ€ì‘í•˜ê³  ìˆì§€ ì•Šë‹¤.
+	// ë¬¸ìì—´ì˜ ë¨¸ë¦¬ì— ì„œë¡œê²Œì´íŠ¸ í˜ì–´ê°€ ìˆëŠ” ê²½ìš°ëŠ” 2 ë¬¸ìë¶„ ì¹´ìš´íŠ¸ ë˜ê³ , ë¬¸ìì—´ì˜ ë„ì¤‘ì— ìˆëŠ” ê²½ìš°ëŠ” 1 ë¬¸ìì—´ë¡œ ì¹´ìš´íŠ¸ ëœë‹¤.
+	// ë¤ìœ¼ë¡œ í¬ì¸í„°ëŠ” ì¤‘ê°„ ìœ„ì¹˜ë¥¼ ì§€ì •
 
 	//if (!*c_str) {
 	//	return c_str;
@@ -141,7 +144,7 @@ inline const wchar_t* prevElement(const wchar_t* start, const wchar_t* c_str) {
 	assert(start);
 	assert(start <= c_str);
 
-	// ‚±‚Ì‚â‚è•û‚ÍŒ‹‡•¶š‚ªƒTƒƒQ?ƒgƒyƒA‚Å‚ ‚Á‚½ê‡‚É³‚µ‚­‘Îˆ‚Å‚«‚È‚¢B
+	// ì´ ë°©ë²•ì€ ê²°í•© ë¬¸ìê°€ ì„œë¡œê²Œì´íŠ¸ì¸ ê²½ìš°ì— ì˜¬ë°”ë¥´ê²Œ ëŒ€ì²˜í•  ìˆ˜ ì—†ë‹¤.
 	if (c_str == start) {
 		return nullptr;
 	}
@@ -152,8 +155,8 @@ inline const wchar_t* prevElement(const wchar_t* start, const wchar_t* c_str) {
 			return start < c_str ? --c_str : start;
 		}
 		WORD type;
-		// Vista ˆÈ?‚Å‚ ‚ê‚Î C3_LOWSURROGATE ‚â C3_LOWSURROGATE ‚ª‹A‚Á‚Ä‚­‚é‚æ‚¤‚¾B
-		// ‚µ‚©‚µ C3_LOWSURROGATE ‚â C3_LOWSURROGATE ‚ª‹A‚Á‚½‚Æ‚µ‚Ä‚à‚»‚êˆÈŠO‚Ìƒtƒ‰ƒO‚ª‚½‚Á‚Ä‚¢‚È‚¢‚Ì‚Å•¶ší‚ª”»‚ç‚È‚¢B
+		// Vista ì´í›„ë¼ë©´ C3_LOWSURROGATE ë‚˜ C3_LOWSURROGATE ê°€ ëŒì•„ì˜¤ë„ë¡
+		// ê·¸ëŸ¬ë‚˜ C3_LOWSURROGATE ë‚˜ C3_LOWSURROGATEê°€ ëŒì•„ì˜¤ë”ë¼ë„ ê·¸ ì´í›„ì˜ í”Œë˜ê·¸ê°€ ì„œì§€ ì•Šê³  ìˆìœ¼ë¯€ë¡œ ë¬¸ìì¢…ì„ ì•Œìˆ˜ ì—†ë‹¤.
 		if (!GetStringTypeW(CT_CTYPE3, c_str, 1, &type)) {
 			return c_str;
 		}
@@ -162,10 +165,10 @@ inline const wchar_t* prevElement(const wchar_t* start, const wchar_t* c_str) {
 		}
 	} while(start < c_str);
 
-	// ‚±‚±‚É—ˆ‚½‚Æ‚¢‚¤–‚ÍÅŒã‚Ü‚ÅŒ‹‡•¶š‚¾‚Á‚½‚Æ‚¢‚¤‚±‚ÆB‚Pƒ?ƒh•ª‚¾‚¯–ß‚·iCharPrevW?‹’j
+	// ì—¬ê¸°ì— ì™”ë‹¤ëŠ” ê²ƒì€ ìµœí›„ê¹Œì§€ ê²°í•©ë¬¸ìë¼ëŠ” ê²ƒ. 1 ì›Œë“œë¶„ë§Œí¼ ë°˜í™˜(CharPrevW ì¤€ê±°)
 	return --last;
 
-	//// ‚±‚ê‚ªVista‚Ì CharPrevW‚ÌÀ‘•i‘½•ªjBƒTƒƒQ?ƒgƒyƒA‚Í‘Î‰‚³‚ê‚Ä‚¢‚é‚æ‚¤‚ÉŒ©‚¦‚Ä‘Î‰‚³‚ê‚Ä‚¢‚È‚¢B
+	// ì´ê²ƒì´ Vistaì˜ CharPrevWêµ¬í˜„(ì•„ë§ˆ). ì„œë¡œê²Œì´íŠ¸ í˜ì–´ëŠ” ëŒ€ì‘ ë˜ê³  ìˆë„ë¡ ë³´ì´ì§€ë§Œ ëŒ€ì‘í•˜ê³  ìˆì§€ ì•Šë‹¤.
 	//wchar_t* i = c_str;
 	//if (c_str == start) {
 	//	return i;
@@ -229,7 +232,7 @@ inline wchar_t toLower(wchar_t c) {
 }
 
 
-// _wcsicmp ‚ÍƒƒP?ƒ‹‚ÉˆË‘¶‚µ‚Ä‚µ‚Ü‚¤B_wcsicmp_l‚Éí‚É‚bƒƒP?ƒ‹‚ğ?‚¦‚é‚Æ‚¢‚¤è‚à‚ ‚é‚ª‚±‚±‚ÍŒø—¦‚ğæ‚è‚½‚¢B
+// _wcsicmp ì€ ë¡œì¼€ì¼ì— ì˜ì¡´í•´ë²„ë¦°ë‹¤. _wcsicmp_lì€ ë³´í†µ C ë¡œì¼€ì¼ë¡œ ì¤€ë‹¤ëŠ” ìˆ˜ê°€ ìˆì§€ë§Œ ì—¬ê¸°ëŠ” íš¨ìœ¨ì„ ì–»ê³  ì‹¶ë‹¤
 int compareOrdinalIgnoreCase(const wchar_t* lhs, const wchar_t* rhs) {
 	wchar_t l, r;
 	do {
@@ -248,7 +251,7 @@ int compareOrdinalIgnoreCase(const wchar_t* lhs, const wchar_t* rhs) {
 }
 
 
-// _wcsnicmp ‚ÍƒƒP?ƒ‹‚ÉˆË‘¶‚µ‚Ä‚µ‚Ü‚¤B_wcsnicmp_l‚Éí‚É‚bƒƒP?ƒ‹‚ğ?‚¦‚é‚Æ‚¢‚¤è‚à‚ ‚é‚ª‚±‚±‚ÍŒø—¦‚ğæ‚è‚½‚¢B
+// _wcsnicmp ì€ ë¡œì¼€ì¼ì— ì˜ì¡´í•´ë²„ë¦°ë‹¤. _wcsnicmp_lì€ ë³´í†µ C ë¡œì¼€ì¼ë¡œ ì¤€ë‹¤ëŠ” ìˆ˜ê°€ ìˆì§€ë§Œ ì—¬ê¸°ëŠ” íš¨ìœ¨ì„ ì–»ê³  ì‹¶ë‹¤
 int compareOrdinalIgnoreCase(const wchar_t* lhs, const wchar_t* rhs, int length) {
 	wchar_t l, r;
 	if (length) {
@@ -606,7 +609,7 @@ bool String::contains(StringRange value) const {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'destinationSize' : ˆø”‚ÍŠÖ”‚Ì?‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'destinationSize' : ì¸ìˆ˜ëŠ” í•¨ìˆ˜ì˜ ë³¸ì²´ë¶€ë¡œ í•œë²ˆë„ ì°¸ì¡° ë˜ì§€ ì•ŠëŠ”ë‹¤ 
 void String::copyTo(wchar_t* array, int arraySize) const {
 	assert("Null array" && array);
 	assert("not enough arraySize" && length() < arraySize);
@@ -653,7 +656,7 @@ bool String::endsWith(StringRange value, bool ignoreCase) const {
 bool String::endsWith(StringRange value, const Locale& locale, String::CompareOptions options) const {
 	assert("Invalid options" && isValidStringCompareOptionsForSearch(options));
 
-	// Vista ˆÈ?‚È‚ç‚Î FindNLSString ‚ªg‚¦‚ÄŠy‚È‚Ì‚¾‚ªEE
+	// Vista ì´í›„ë¼ë©´ FindNLSStringì„ ì‚¬ìš©í•  ìˆ˜ ìˆì–´ì„œ í¸ë¦¬í•˜ì§€ë§Œ....
 	const int valueLength = value.length();
 	if (!valueLength) {
 		return true;
@@ -846,7 +849,7 @@ int String::indexOf(StringRange value, int beginIndex, int length, const Locale&
 	assert("length out of range" && length <= this->length() - beginIndex);
 	assert("Invalid options" && isValidStringCompareOptionsForSearch(options));
 
-	// Vista ˆÈ?‚È‚ç‚Î FindNLSString ‚ªg‚¦‚ÄŠy‚È‚Ì‚¾‚ªEE
+	// Vista ì´í›„ë¼ë©´ FindNLSString ì„ ì‚¬ìš©í•  ìˆ˜ ìˆì–´ì„œ í¸ë¦¬í•˜ì§€ë§Œ.....
 	const int valueLength = value.length();
 	if (!valueLength) {
 		return beginIndex;
@@ -1040,7 +1043,7 @@ int String::lastIndexOf(StringRange value, int beginIndex, int length, const Loc
 	assert("length out of range" && length <= this->length() - beginIndex);
 	assert("Invalid options" && isValidStringCompareOptionsForSearch(options));
 
-	// Vista ˆÈ?‚È‚ç‚Î FindNLSString ‚ªg‚¦‚ÄŠy‚È‚Ì‚¾‚ªEE
+	// Vista ì´í›„ë¼ë©´ FindNLSString ì„ ì‚¬ìš©í•  ìˆ˜ ìˆì–´ì„œ í¸ë¦¬í•˜ì§€ë§Œ.....
 	const int valueLength = value.length();
 	if (!valueLength) {
 		return beginIndex;
@@ -1196,7 +1199,7 @@ String String::replace(wchar_t oldValue, wchar_t newValue) const {
 String String::replace(StringRange oldValue, StringRange newValue) const {
 	assert("Empty oldValue" && !oldValue.empty());
 
-	// Åˆ«ƒP?ƒX‚Ì’·‚³‚ğŒvZ‚µ‚Äƒƒ‚ƒŠŠ„‚è“–‚Ä‚µ‚Ä‚¨‚­
+	// ìµœì•…ì˜ ì¼€ì´ìŠ¤ ê¸¸ì´ë¥¼ ê³„ì‚°í•´ì„œ ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•´ë‘”ë‹¤ 
 	const int oldValueLength = oldValue.length();
 	const int newValueLength = newValue.length();
 	const int oldLength = length();
@@ -1221,7 +1224,7 @@ String String::replace(StringRange oldValue, StringRange newValue) const {
 	const int trueLength = startNew + rest;
 	assert(trueLength <= newLength);
 	buffer[trueLength] = L'\0';
-	return String(temp.c_str(), trueLength); // ?•ª‚ÉŠ„‚è“–‚Ä‚µ‚Ä‚é‚©‚à‚µ‚ê‚ñ‚Ì‚Åì‚è’¼‚·
+	return String(temp.c_str(), trueLength); // ì—¬ìœ ë¡­ê²Œ í• ë‹¹ë˜ì–´ ìˆì„ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ë‹¤ì‹œ ë§Œë“ ë‹¤ 
 }
 
 
@@ -1284,7 +1287,7 @@ bool String::startsWith(StringRange value, bool ignoreCase) const {
 bool String::startsWith(StringRange value, const Locale& locale, String::CompareOptions options) const {
 	assert("Invalid options" && isValidStringCompareOptionsForSearch(options));
 
-	// Vista ˆÈ?‚È‚ç‚Î FindNLSString ‚ªg‚¦‚ÄŠy‚È‚Ì‚¾‚ªEE
+	// Vista ì´í›„ë¼ë©´ FindNLSString ì„ ì‚¬ìš©í•  ìˆ˜ ìˆì–´ì„œ í¸ë¦¬í•˜ì§€ë§Œ.....
 	const int valueLength = value.length();
 	if (!valueLength) {
 		return true;

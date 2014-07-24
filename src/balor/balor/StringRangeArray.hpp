@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/test/noMacroAssert.hpp>
 #include <balor/StringRange.hpp>
@@ -32,17 +32,17 @@ class StringBuffer;
 
 
 /**
- * Œ©‚©‚¯ã StringRange ‚Ì”z—ñ‚ÉŒ©‚¦‚éƒNƒ‰ƒXB
+ * StringRange ë°°ì—´ë¡­ ë³´ì—¬ì£¼ëŠ” í´ë˜ìŠ¤
  * 
- * balor::String ‚Ü‚½‚Í balor::StringBufferAbalor::io::FileAstd::wstringA•¶š—ñƒ|ƒCƒ“ƒ^‚ğ—v‘f‚Æ‚·‚éŒÅ’è’·”z—ñ‚Ü‚½‚Íƒ|ƒCƒ“ƒ^[Astd::vectorAstd::array ‚ğ‹¤’Ê‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚Åˆµ‚¦‚é‚æ‚¤‚É‚·‚éB
- * ‚ ‚Ü‚èŒø—¦“I‚Å‚Í‚È‚¢‚Ì‚Å‹‘å”z—ñ‚È‚ç•‰‰×‚É’ˆÓ‚·‚éB
- * •¶š—ñ‚Æ”z—ñ‚Ü‚í‚è‚ÌƒJƒIƒX‚³‚ÉÁ‚¯‚»‚¤‚É‚È‚é‚ª‚Å‚«‚é‚¾‚¯’Pƒ‰»‚µ‚Ä‚¢‚«‚½‚¢B
+ * balor::String ë˜ëŠ” balor::StringBuffer, balor::io::Fileê°‚std::wstring, ë¬¸ìì—´ í¬ì¸í„°ë¥¼ ìš”ì†Œë¡œ í•˜ëŠ” ê³ ì • ê¸¸ì´ ë°°ì—´ ë˜ëŠ” í¬ì¸í„°, std::vector, std::array ë¥¼ ê³µí†µ ì¸í„°í˜ì´ìŠ¤ë¡œ ê°–ì¶”ê³  ìˆë‹¤
+ * ê·¸ë‹¤ì§€ íš¨ìœ¨ì ì´ì§€ ì•Šìœ¼ë¯€ë¡œ ê±°ëŒ€í•œ ë°°ì—´ì´ë¼ë©´ ë¶€í•˜ì— ì£¼ì˜
+ * æ–‡å­—åˆ—ã¨é…åˆ—ã¾ã‚ã‚Šã®ã‚«ã‚ªã‚¹ã•ã«æŒ«ã‘ãã†ã«ãªã‚‹ãŒã§ãã‚‹ã ã‘å˜ç´”åŒ–ã—ã¦ã„ããŸã„
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ìƒ˜í”Œ ì½”ë“œ</h3>
  * <pre><code>
 	String s(L"abc");
 
-	// String::split ‚Í StringRangeArray ‚ğˆø”‚Éæ‚é‚Ì‚Å •¶š—ñƒ|ƒCƒ“ƒ^AStringAwstring “™‚ÌŒÅ’è’·”z—ñAvector “™‚ğ“n‚·‚±‚Æ‚ª‚Å‚«‚éB
+	// String::splitëŠ” StringRangeArrayë¥¼ ì¸ìˆ˜ë¡œ ì·¨í•˜ë¯€ë¡œ String, wstring ë“±ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´, vector ë“±ì„ ë°˜í™˜ í•  ìˆ˜ ìˆë‹¤.
 	const wchar_t* pointers[] = {L"abc", L"def"};
 	s.split(pointers);
 
@@ -59,98 +59,98 @@ class StringRangeArray {
 	typedef ::balor::io::File File;
 
 public:
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚ÌŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(wchar_t* (&array)[Size]) : _begin(array), _length(Size), _accessor(_charPointerAccessor) {}
 	template<int Size> StringRangeArray(const wchar_t* (&array)[Size]) : _begin(array), _length(Size), _accessor(_charPointerAccessor) {}
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì˜ í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	StringRangeArray(const wchar_t* const * begin, int length) : _begin(begin), _length(length), _accessor(_charPointerAccessor) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚Ì vector ‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì˜ vectorë¡œ ì´ˆê¸°í™”
 	template<typename Allocator> StringRangeArray(const std::vector<wchar_t*, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_charPointerAccessor) {}
 	template<typename Allocator> StringRangeArray(const std::vector<const wchar_t*, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_charPointerAccessor) {}
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚Ì array ‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì˜ arrayë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const std::tr1::array<wchar_t*, Size >& array) : _begin(array.data()), _length(Size), _accessor(_charPointerAccessor) {}
 	template<int Size> StringRangeArray(const std::tr1::array<const wchar_t*, Size >& array) : _begin(array.data()), _length(Size), _accessor(_charPointerAccessor) {}
 
 
-	/// File ‚ÌŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// Fileì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const File (&array)[Size]) : _begin(array), _length(Size), _accessor(_fileAccessor) {}
-	/// File ‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// Fileì˜ í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	StringRangeArray(const File* begin, int length) : _begin(begin), _length(length), _accessor(_fileAccessor) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// File ‚Ì vector ‚Å‰Šú‰»B
+	/// Fileì˜ vectorë¡œ ì´ˆê¸°í™”
 	template<typename Allocator> StringRangeArray(const std::vector<File, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_fileAccessor) {}
 	template<typename Allocator> StringRangeArray(const std::vector<const File, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_fileAccessor) {}
-	/// File ‚Ì array ‚Å‰Šú‰»B
+	/// Fileì˜ arrayë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const std::tr1::array<File, Size >& array) : _begin(array.data()), _length(Size), _accessor(_fileAccessor) {}
 	template<int Size> StringRangeArray(const std::tr1::array<const File, Size >& array) : _begin(array.data()), _length(Size), _accessor(_fileAccessor) {}
 
 
-	/// String ‚ÌŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// String ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const String (&array)[Size]) : _begin(array), _length(Size), _accessor(_stringAccessor) {}
-	/// String ‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// String ì˜ í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	StringRangeArray(const String* begin, int length) : _begin(begin), _length(length), _accessor(_stringAccessor) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// String ‚Ì vector ‚Å‰Šú‰»B
+	/// String ì˜ vector ë¡œ ì´ˆê¸°í™”
 	template<typename Allocator> StringRangeArray(const std::vector<String, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stringAccessor) {}
 	template<typename Allocator> StringRangeArray(const std::vector<const String, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stringAccessor) {}
-	/// String ‚Ì array ‚Å‰Šú‰»B
+	/// String ì˜ array ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const std::tr1::array<String, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stringAccessor) {}
 	template<int Size> StringRangeArray(const std::tr1::array<const String, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stringAccessor) {}
 
 
-	/// StringBuffer ‚ÌŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// StringBuffer ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const StringBuffer (&array)[Size]) : _begin(array), _length(Size), _accessor(_stringBufferAccessor) {}
-	/// StringBuffer ‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// StringBuffer ì˜ í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	StringRangeArray(const StringBuffer* begin, int length) : _begin(begin), _length(length), _accessor(_stringBufferAccessor) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// StringBuffer ‚Ì vector ‚Å‰Šú‰»B
+	/// StringBuffer ì˜ vector ë¡œ ì´ˆê¸°í™”
 	template<typename Allocator> StringRangeArray(const std::vector<StringBuffer, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stringBufferAccessor) {}
 	template<typename Allocator> StringRangeArray(const std::vector<const StringBuffer, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stringBufferAccessor) {}
-	/// StringBuffer ‚Ì array ‚Å‰Šú‰»B
+	/// StringBuffer ì˜ array ë¡œ ì´ˆê¸°í™”
 	template<int Size> StringRangeArray(const std::tr1::array<StringBuffer, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stringBufferAccessor) {}
 	template<int Size> StringRangeArray(const std::tr1::array<const StringBuffer, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stringBufferAccessor) {}
 
 
-	/// wstring ‚ÌŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// wstring ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ë¡œ ì´ˆê¸°í™”
 	template<typename Traits, typename Allocator, int Size> StringRangeArray(const std::basic_string<wchar_t, Traits, Allocator> (&array)[Size]) : _begin(array), _length(Size), _accessor(_stdStringAccessor) {}
-	/// wstring ‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// wstring ì˜ í¬ì¸í„°ì™€ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	template<typename Traits, typename Allocator> StringRangeArray(const std::basic_string<wchar_t, Traits, Allocator>* begin, int length) : _begin(begin), _length(length), _accessor(_stdStringAccessor) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// wstring ‚Ì vector ‚Å‰Šú‰»B
+	/// wstring ì˜ vector ë¡œ ì´ˆê¸°í™”
 	template<typename Traits, typename Allocator, typename VectorAllocator> StringRangeArray(const std::vector<std::basic_string<wchar_t, Traits, Allocator>, VectorAllocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stdStringAccessor) {}
 	template<typename Traits, typename Allocator, typename VectorAllocator> StringRangeArray(const std::vector<const std::basic_string<wchar_t, Traits, VectorAllocator>, Allocator>& array) : _begin(array.data()), _length(array.size()), _accessor(_stdStringAccessor) {}
-	/// wstring ‚Ì array ‚Å‰Šú‰»B
+	/// wstring ì˜ array ë¡œ ì´ˆê¸°í™”
 	template<typename Traits, typename Allocator, int Size> StringRangeArray(const std::tr1::array<std::basic_string<wchar_t, Traits, Allocator>, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stdStringAccessor) {}
 	template<typename Traits, typename Allocator, int Size> StringRangeArray(const std::tr1::array<const std::basic_string<wchar_t, Traits, Allocator>, Size >& array) : _begin(array.data()), _length(Size), _accessor(_stdStringAccessor) {}
 
 public:
-	/// ”z—ñ‚ª‹ó‚©‚Ç‚¤‚©B
+	/// ë°°ì—´ì´ ë¹ˆì§€ ì–´ë–¤ì§€
 	bool empty() const {
 		return !_length;
 	}
-	/// ”z—ñ‚Ì’·‚³B
+	/// ë°°ì—´ì˜ ê¸¸ì´
 	int length() const {
 		return _length;
 	}
 
 public:
-	/// ”z—ñ—v‘f‚Ö‚ÌƒAƒNƒZƒX
+	/// ë°°ì—´ ìš”ì†Œë¡œì˜ ì ‘ê·¼ 
 	StringRange operator[](int index) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= index);

@@ -1,4 +1,4 @@
-#include "StringRangeArray.hpp"
+﻿#include "StringRangeArray.hpp"
 
 #include <string>
 

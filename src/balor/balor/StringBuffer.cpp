@@ -1,4 +1,4 @@
-#include "StringBuffer.hpp"
+ï»¿#include "StringBuffer.hpp"
 
 #include <algorithm>
 #include <cstring>
@@ -29,7 +29,7 @@ bool isOverlapped(const wchar_t* lhs, int llength, const wchar_t* rhs, int rleng
 	return lhs <= rhsend && rhs <= lhsend;
 }
 
-wchar_t nullString[] = L""; // DLL‚²‚Æ‚ÉŽÀ‘Ì‚ð‚à‚Á‚Ä‚à‚©‚Ü‚í‚È‚¢
+wchar_t nullString[] = L""; // DLL ë§ˆë‹¤ êµ¬í˜„ì„ ê°€ì ¸ë„ ìƒê´€ ì—†ë‹¤ 
 } // namespace
 
 

@@ -8,14 +8,14 @@ class Point;
 
 
 /**
- * 幅と高さによる寸法を表す構造体。
+ * 幅と高さによる寸?を?す?造体。
  */
 class Size {
 public:
 	/// 初期化せずに作成。
 	Size() {}
 	Size(const Size& size);
-	/// Point 構造体で初期化。
+	/// Point ?造体で初期化。
 	Size(const Point& point);
 	/// 幅と高さで初期化。
 	Size(int width, int height);
@@ -29,7 +29,7 @@ public:
 	bool negative() const;
 
 public:
-	/// Point 構造体への変換。
+	/// Point ?造体への変換。
 	operator Point() const;
 	Size& operator += (const Size& rhs);
 	friend Size operator + (const Size& lhs, const Size& rhs);

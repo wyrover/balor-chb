@@ -12,13 +12,13 @@ namespace balor {
 
 
 /**
- * 봀댰궻?궻뭠귩대입궳궖귡긏깋긚갃
+ * 다양한 타입의 값을 대입할 수 있는 클래스
  * 
- * boost::any 궴궬궋궫궋벏궣궬궕갂긓긯?귩뗕?궢궲궋귡궻궳긓긯?궳궖궶궋?귖대입궳궖귡갃
- * 뙸륉궳궼궵귪궶긖귽긛궻?궳궇귣궎궴대입궥귡궴긽긾깏뒆귟뱰궲귩뵼궎갃뜞뚣띍밙돸궻?뭤궼궇귡궔귖궢귢궶궋궕
- * 긏깋긚궻긖귽긛궼륂궸?귽깛?덇뙿빁궳궇귟갂balor::gui::ListBox 귘 balor::gui::ListView 귘 balor::gui::TreeView 뱳궻긏깋긚궼궞귢귩뿕뾭궢궲렳몧궢궲궋귡갃
+ * boost::any 와 대체로 비슷하지만 복사를 금지하고 있으므로 복사할 수 없는 형을 대입할 수 있다
+ * 현재는 어떤 사이즈의 형이라도 대입하면 메모리 할당을 한다. 이후 최적화 여지는 있을 듯
+ * 클래스 사이즈는 보통 포인터 1개분이고, balor::gui::ListBox 나 balor::gui::ListView 나 balor::gui::TreeView 등의 클래스는 이것을 이용하여 구현하고 있다
  *
- * <h3>갋긖깛긵깑긓?긤</h3>
+ * <h3>샘플 코드</h3>
  * <pre><code>
 	UniqueAny any;
 
@@ -32,18 +32,18 @@ namespace balor {
  * </code></pre>
  */
 #pragma warning(push)
-#pragma warning(disable : 4521) // '::balor::Any' : 븸릶궻긓긯? 긓깛긚긣깋긏??궕럚믦궠귢궲궋귏궥갃
-#pragma warning(disable : 4522) // '::balor::Any' : 븸릶궻대입뎶럁럔궕럚믦궠귢궲궋귏궥갃
+#pragma warning(disable : 4521) // '::balor::Any' : 복수의 복사 생성자가 지정되어 있다
+#pragma warning(disable : 4522) // '::balor::Any' : 복수의 대입 연산자가 지정되어 있다
 class UniqueAny : private NonCopyable {
 public:
-	/// any_cast 궢궫 Any 궻볙뾢궕뗴궬궯궫귟갂?궕듩댾궯궲궋궫뤾뜃궸뱤궛귞귢귡쀡둖갃
+	/// any_cast 한 Any의 내용이 비거나 형이 틀린 경우에 던져지는 예외
 	class BadCastException : public Exception {};
 
 public:
-	/// 뗴궻륉뫴궳띿맟갃
+	/// 빈 상태로 만든다
 	UniqueAny() : _holder(nullptr) {}
 	UniqueAny(UniqueAny&& value) : _holder(value._holder) { value._holder = nullptr; }
-	/// 봀댰궻?궻뭠궔귞띿맟갃
+	/// 임의의 형의 값에서 만든다
 	template<typename T>
 	UniqueAny(T&& value) : _holder(new ConcreteHolder<std::remove_const<std::remove_reference<T>::type>::type>(std::forward<T>(value))) {}
 	~UniqueAny() {
@@ -55,7 +55,7 @@ public:
 		std::swap(_holder, value._holder);
 		return *this;
 	}
-	/// 봀댰궻?궻뭠귩대입갃
+	/// 임의의 형의 값을 대입
 	template<typename T>
 	UniqueAny& operator=(T&& value) {
 		UniqueAny temp(std::forward<T>(value));
@@ -64,19 +64,19 @@ public:
 	}
 
 public:
-	/// 긡깛긵깒?긣덙릶궳럚믦궢궫?궳긢긲긅깑긣긓깛긚긣깋긏긣궢궲궩궻랷뤖귩뺅궥갃긓긯?귘댷벍궕믦?궠귢궶궋?뾭갃
+	/// 템플릿 인수에서 지정한 형으로 기본 생성자로 하여 그 참조를 돌려준다. 복사나 이동이 정의 되지 않은 형용
 	template<typename T>
 	T& assign() {
 		delete _holder;
 		_holder = new ConcreteHolder<T>();
 		return static_cast<ConcreteHolder<T>*>(_holder)->content;
 	}
-	///	뭠궕대입궠귢궲궋귡궔궵궎궔갃
+	///	값이 대입 되고 있는지 어떤지
 	bool empty() const { return _holder == nullptr; }
-	/// 대입궠귢궲궋귡뭠궻?륃뺪갃대입궠귢궲궋궶궋뤾뜃궼 void 궻?륃뺪귩뺅궥갃
+	/// 대입 되고 있는 값의 형 정보. 대입 되고 있지 않은 경우는 void 형 정보를 반환한다
 	const type_info& type() const { return _holder ? _holder->type() : typeid(void); }
 
-	/// 뭠귩?귩럚믦궢궲롦벦궥귡갃대입궠귢궲궋궶궋뤾뜃귘?궕듩댾궯궲궋귡뤾뜃궼 UniqueAny::BadCastException 귩뱤궛귡갃
+	/// 값을 형을 지정하여 얻는다. 대입되고 있지 않은 경우나 형이 틀린 경우는 UniqueAny::BadCastException 예외를 던진다 
 	template<typename T>
 	friend T any_cast(UniqueAny& any) {
 		typedef std::remove_const<std::remove_reference<T>::type>::type PureT;

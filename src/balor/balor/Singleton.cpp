@@ -38,20 +38,20 @@ public:
 };
 
 
-recursive_mutex& getSingletonMutex() { // mutex をグローバル変数初期化処理からも使えるように関数から取得するようにしておく
-	static recursive_mutex singletonMutex; // このインスタンスは DLL ごとに作成される。初期化処理の中でさらに他の型の Singleton を作成できるように recursive_mutex にしておく。
+recursive_mutex& getSingletonMutex() { // mutex をグロ?バル変数初期化処理からも使えるように関数から取得するようにしておく
+	static recursive_mutex singletonMutex; // このインス?ンスは DLL ごとに作成される。初期化処理の中でさらに他の?の Singleton を作成できるように recursive_mutex にしておく。
 	return singletonMutex;
 }
 
 
-recursive_mutex& singletonMutex = getSingletonMutex(); // このグローバル変数でマルチスレッドでアクセスした時の mutex の初期化が保証される。（グローバル変数の初期化処理でマルチスレッドになったりはすまい）
+recursive_mutex& singletonMutex = getSingletonMutex(); // このグロ?バル変数で?ル?スレッドでアクセスした時の mutex の初期化が保証される。（グロ?バル変数の初期化処理で?ル?スレッドになったりはすまい）
 } // namespace
 
 
 
 void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction)()) {
-	recursive_mutex::scoped_lock lock(getSingletonMutex()); // mutex のインスタンスは DLL ごとに作成されるので唯一ではなく DLL ごとにロックされてしまう。
-	static BalorSingletonModule module; // このインスタンスは DLL ごとに作成されるので DLL ごとのロックで問題ない。LoadLibrary は単に DLL ごとにカウンタを増やすだけ。
+	recursive_mutex::scoped_lock lock(getSingletonMutex()); // mutex のインス?ンスは DLL ごとに作成されるので唯一ではなく DLL ごとにロックされてしまう。
+	static BalorSingletonModule module; // このインス?ンスは DLL ごとに作成されるので DLL ごとのロックで問題ない。LoadLibrary は単に DLL ごとにカウン?を増やすだけ。
 	if (module.empty()) {
 		return (*createInstanceFunction)(); // balor_singletone.dll が無い場合は DLL を使わないとみなす。よってロックは唯一であり、この関数を超えてメモリ最適化は起きないので呼び出し元でメモリバリアは必要ない。
 	} else {

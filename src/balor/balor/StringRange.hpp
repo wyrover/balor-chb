@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/test/noMacroAssert.hpp>
 
@@ -23,17 +23,17 @@ class StringBuffer;
 
 
 /**
- * •¶š—ñ‚Ìƒ|ƒCƒ“ƒ^‚Æ’·‚³‚ğ‚¿Abalor::StringAbalor::StringBufferAstd::wstring ‚Æ•¶š—ñƒ|ƒCƒ“ƒ^‚©‚ç•ÏŠ·‚Å‚«‚éB—lX‚È•¶š—ñ•\Œ»‚ğ‹¤’Ê‚ÌŠÖ”ƒCƒ“ƒ^[ƒtƒF[ƒX‚ÅÀ‘•‚Å‚«‚é‚æ‚¤‚É‚·‚éB
+ * ë¬¸ìì—´ í¬ì¸í„°ì™€ ê¸¸ì´ë¥¼ ê°€ì§€ê³  balor::String,balor::StringBuffer, std::wstringê³¼ ë¬¸ìì—´ í¬ì¸í„°ë¡œ ë³€í™˜ í•  ìˆ˜ ìˆë‹¤. ë‹¤ì–‘í•œ ë¬¸ìì—´ í‘œí˜„ì„ ê³µí†µì˜ í•¨ìˆ˜ ì¸í„°í˜ì´ìŠ¤ë¡œ êµ¬í˜„í•  ìˆ˜ ìˆë„ë¡ í•œë‹¤.
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍŠÖ”‚Ìˆø”‚É‚Ì‚İg‚¤–‚ğ‘z’è‚µ‚Ä‚¢‚é‚Ì‚ÅAƒ[ƒJƒ‹•Ï”‚âƒNƒ‰ƒX•Ï”‚Åg—p‚µ‚È‚¢‚±‚ÆB
- * —á‚¦‚ÎƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É wstring ‚Ìƒeƒ“ƒ|ƒ‰ƒŠƒIƒuƒWƒFƒNƒg‚ğ“n‚µ‚Ä StringRange ‚Ìƒ[ƒJƒ‹•Ï”‚ğì¬‚·‚é‚ÆA
- * StringRange ‚ÍŠù‚É”j‰ó‚³‚ê‚½ƒƒ‚ƒŠ“à—e‚ğQÆ‚µ‚Ä‚¢‚é‚Ì‚ÅƒAƒNƒZƒX‚·‚ê‚ÎƒvƒƒOƒ‰ƒ€‚ÍƒNƒ‰ƒbƒVƒ…‚·‚éB
+ * ì´ í´ë˜ìŠ¤ëŠ” í•¨ìˆ˜ì˜ ì¸ìˆ˜ë¡œë§Œ ì‚¬ìš©í•˜ëŠ” ê²ƒì„ ìƒì •í•˜ê³  ìˆìœ¼ë¯€ë¡œ ë¡œì»¬ ë³€ìˆ˜ë‚˜ í´ë˜ìŠ¤ ë³€ìˆ˜ë¡œ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+ * ì˜ˆë¥¼ë“¤ë©´ ìƒì„±ìì— wstring í…œí”Œë¦¿ ì˜¤ë¸Œì íŠ¸ë¥¼ ë„˜ê²¨ì„œ StringRange ë¡œì»¬ ë³€ìˆ˜ë¥¼ ë§Œë“¤ë©´
+ * StringRangeëŠ” ê¸°ì¡´ì— íŒŒê´´ëœ ë©”ëª¨ë¦¬ ë‚´ìš©ì„ ì°¸ê³ í•˜ê³  ìˆìœ¼ë¯€ë¡œ ì ‘ê·¼í•˜ë©´ í”„ë¡œê·¸ë¨ì€ ì£½ëŠ”ë‹¤.
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ìƒ˜í”Œ ì½”ë“œ</h3>
  * <pre><code>
 	String s(L"abc");
 
-	// String::compareTo ‚Í StringRange ‚ğˆø”‚Éæ‚é‚Ì‚Å•¶š—ñƒ|ƒCƒ“ƒ^, String, StringBuffer, wstring ‚ğ“n‚·‚±‚Æ‚ª‚Å‚«‚éB
+	// String::compareToëŠ” StringRangeë¥¼ ì¸ìˆ˜ë¡œ ì·¨í•˜ë¯€ë¡œ ë¬¸ìì—´ í¬ì¸í„°, String, StringBuffer, wstringì„ ëŒë ¤ ì¤„ìˆ˜ ìˆë‹¤
 	s.compareTo(L"abc");
 	s.compareTo(String(L"abc"));
 	s.compareTo(StringBuffer(L"abc"));
@@ -43,37 +43,37 @@ class StringBuffer;
 template<typename T>
 class BasicStringRange {
 public:
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 	BasicStringRange(const T* string) : _c_str(string), _rawLength(-1) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(string != nullptr);
 #endif
 	}
-	/// •¶š—ñƒ|ƒCƒ“ƒ^‚Æ•¶š—ñƒTƒCƒY‚Å‰Šú‰»B
-	/// ƒTƒCƒY‚ªŠù‚É‚í‚©‚Á‚Ä‚¢‚Ä•¶š—ñ‚ÌƒTƒCƒY‚ğ’²‚×‚éˆ—‚ğÈ‚«‚½‚¢ê‡‚É‚±‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğg‚¤B
-	/// StringRange ‚ğˆø”‚Éæ‚é‘½‚­‚ÌŠÖ”‚Í length ˆÊ’u‚Ì•¶š‚ª L'\0' ‚Å‚ ‚é‚±‚Æ‚ğŠú‘Ò‚µ‚Ä‚¢‚é‚Ì‚Å•”•ª•¶š—ñ‚ğw’è‚µ‚È‚¢‚±‚ÆB
+	/// ë¬¸ìì—´ í¬ì¸í„°ì™€ ë¬¸ìì—´ ì‚¬ì´ì¦ˆë¡œ ì´ˆê¸°í™”
+	/// ì‚¬ì´ì¦ˆë¥¼ ì´ë¯¸ ì•Œê³  ìˆì–´ì„œ ë¬¸ìì—´ ì‚¬ì´ì¦ˆë¥¼ ì¡°ì‚¬í•˜ëŠ” ì²˜ë¦¬ë¥¼ ìƒëµí•˜ê³  ì‹¶ì€ ê²½ìš°ì— ì´ ìƒì„±ìë¥¼ ì‚¬ìš©í•œë‹¤
+	/// StringRange ë¥¼ ì¸ìˆ˜ë¡œ ì·¨í•˜ëŠ” ë§ì€ í•¨ìˆ˜ëŠ” length ìœ„ì¹˜ì˜ ë¬¸ìì—´ì´ L'\0' ì¸ ê²ƒì„ ê¸°ëŒ€í•˜ê³  ìˆìœ¼ë¯€ë¡œ ë¶€ë¶„ ë¬¸ìì—´ì„ ì§€ì •í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	BasicStringRange(const T* string, int length) : _c_str(string), _rawLength(length) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(string != nullptr);
 		::balor::test::noMacroAssert(-1 <= length);
 #endif
 	}
-	/// std::basic_string ‚Å‰Šú‰»B
+	/// std::basic_string ë¡œ ì´ˆê¸°í™”
 	template<typename Traits, typename Allocator> BasicStringRange(const std::basic_string<T, Traits, Allocator>& string) : _c_str(string.c_str()), _rawLength(string.length()) {}
 
 public:
-	/// ‹ó•¶š—ñ‚©‚Ç‚¤‚©B’·‚³‚ª‚O‚Å‚Í‚È‚­‚Ä‚à‹ó•¶š—ñ‚É‚È‚è‚¦‚é‚±‚Æ‚É’ˆÓB
+	/// ë¹ˆ ë¬¸ìì—´ì¸ì§€ ì–´ë–¤ì§€. ê¸¸ì´ê°€ 0 ì´ ì•„ë‹ˆì–´ë„ ë¹ˆ ë¬¸ìì—´ë¡œ ë  ìˆ˜ ìˆìŒì„ ì£¼ì˜.
 	bool empty() const { return *_c_str == 0; }
-	/// •¶š—ñƒ|ƒCƒ“ƒ^B
+	/// ë¬¸ìì—´ í¬ì¸í„°
 	const T* c_str() const { return _c_str; }
-	/// •¶š—ñ‚Ì’·‚³B
+	/// ë¬¸ìì—´ì˜ ê¸¸ì´
 	int length() const {
 		if (_rawLength == -1) {
 			const_cast<BasicStringRange*>(this)->_rawLength = String::getLength(_c_str);
 		}
 		return _rawLength;
 	}
-	/// •¶š—ñ‚Ì’·‚³B’·‚³‚ª‚Ü‚¾”»‚Á‚Ä‚¢‚È‚¢‚Æ‚«‚Í -1‚ğ•Ô‚·B
+	/// ë¬¸ìì—´ì˜ ê¸¸ì´ ê¸¸ì´ê°€ ì•„ì§ ì•Œìˆ˜ ì—†ëŠ” ê²½ìš°ëŠ” -1ì„ ë°˜í™˜í•œë‹¤
 	int rawLength() const { return _rawLength; }
 
 private:
@@ -82,11 +82,11 @@ private:
 };
 
 
-/// ƒoƒCƒg•¶š—ñ—pB
+/// ë°”ì´íŠ¸ ë¬¸ìì—´ ìš©
 typedef BasicStringRange<char> ByteStringRange;
 
 
-/// ƒƒCƒh•¶š—ñ—pB
+/// ì™€ì´ë“œ ë¬¸ìì—´ ìš©
 typedef BasicStringRange<wchar_t> StringRange;
 
 

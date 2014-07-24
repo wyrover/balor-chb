@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Convert.hpp>
@@ -21,40 +21,40 @@ class StringBuffer;
 
 
 /**
- * •¶š—ñ‚ğ?‚·B
+* ë¬¸ìì—´ ë‚˜íƒ€ë‚¸ë‹¤.
+*
+* Java ë‚˜ .NETì˜ Stringê³¼ ë¹„ìŠ·. Unicodeë§Œì„ ë‹¤ë£¨ëŠ” ë¬¸ìì—´ í¬ì¸í„°ì˜ ë‚´ìš©ì„ ë³€ê²½í•˜ëŠ” ê²ƒì„ í—ˆë½í•˜ì§€ ì•ŠëŠ”ë‹¤
+* std::wstringê³¼ í˜¸í™˜ ë³€í™˜ ê°€ëŠ¥. ë‹¨ basic_stringì„ ì¸ìˆ˜ë¡œ ì·¨í•˜ëŠ” í…œí”Œë¦¿ í•¨ìˆ˜ì—ëŠ” ë„˜ê²¨ì•¼ í•˜ëŠ” ê²ƒì´ ë§ìœ¼ë¯€ë¡œ ì´ ê²½ìš°ëŠ” begin, end í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•œë‹¤.
+* í•¨ìˆ˜ ì¸ìˆ˜ì— balor::locale::Localeì„ ë„˜ê¸°ì§€ ì•ŠëŠ” ê²½ìš°ëŠ” ë³´í†µ ì„œìˆ˜ ì²˜ë¦¬ë¥¼ í•œë‹¤.(ì§€ì—­ì°¨ë¥¼ ë¬´ì‹œí•˜ê³  ë¬¸ì ì½”ë“œë¥¼ ìˆ˜ì¹˜ë¡œì„œ ë¹„êµí•œë‹¤)
+* íŠ¹íˆ operator < ë“±ì˜ ì—°ì‚°ì ì²˜ë¦¬ì—ì„œëŠ” Localeì„ ì§€ì •í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ëª¨ë‘ ì„œìˆ˜ ì²˜ë¦¬ê°€ ë˜ëŠ” ê²ƒì„ ì£¼ì˜.
+* ì„œìˆ˜ ì²˜ë¦¬ì—ì„œëŠ” ì „ê° ì•ŒíŒŒë²³ì— ëŒ€í•œ ignoreCaseëŠ” ì§€ì›í•˜ì§€ ì•ŠëŠ”ë‹¤.
+* Convert::to<String> í•¨ìˆ˜ë¡œ ë³€í™˜ ê°€ëŠ¥í•œ í˜•ê³¼ Stringì€ + ì—°ì‚°ìë¡œ ì—°ê²°í•  ìˆ˜ ìˆë‹¤.
+*
+* Unicode ì •ê·œí™”ë¥¼ ìœ„í•´ isNormalized, normalize í•¨ìˆ˜ëŠ” Vista ì´í›„ë‚˜ IE7 ì´í›„ê°€ ì„¤ì¹˜ëœ XPë‚˜ ë˜ëŠ” normaliz.dllì„ ì„¤ì¹˜í•œ XPì—ì„œë§Œ ì§€ì›í•œë‹¤.
+*
+* Vista ì´í›„ë¼ë©´ ::FindNLSString í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆì§€ë§Œ balorëŠ” XP ì´í›„ ì§€ì›ì´ë¯€ë¡œ
+* indexOf, lastIndexOf, startsWith ë° endsWith í•¨ìˆ˜ëŠ” ìë ¥ìœ¼ë¡œ êµ¬í˜„í•˜ì˜€ë‹¤
+* API ê°€ ëŒ€ì‘í•˜ê³  ìˆì§€ ì•Šìœ¼ë¯€ë¡œ ì„œë¡œê²Œì´íŠ¸ í˜ì–´ë©´ì„œ ê²°í•©ë¬¸ìì¸ ë¬¸ì ì½”ë“œë¼ê³  íŒë‹¨í•  ìˆ˜ ì—†ë‹¤.
+*
+* ë‚´ìš©ì„ ë³€ê²½í•˜ì§€ ì•ŠëŠ”ë‹¤ëŠ” ì‚¬ì–‘ì„ ì‚´ë¦¬ê¸° ìœ„í•´ refer, literal í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ë¬¸ìì—´ í¬ì¸í„°ë¥¼ ì°¸ì¡°í•˜ëŠ” ê²ƒë§Œìœ¼ë¡œ í•  ìˆ˜ ìˆì§€ë§Œ í¬ì¸í„° ì°¸ì¡°ì˜ ìœ„í—˜ì„±ì„ ì¶©ë¶„íˆ ê³ ë ¤í•´ì•¼ í•œë‹¤.
+*
+* ë¬¸ìì—´ í´ë˜ìŠ¤ ìì²´ëŠ” ë°”í€´ì˜ ì¬ë°œëª…ì´ê³  ê°€ëŠ¥í•˜ë©´ í”¼í•˜ê³  ì‹¶ì—ˆì§€ë§Œ 
+* std::wstring ë° Boost.string algo ì—ì„œëŠ” ë¡œì¼€ì¼ì´ë‚˜ Unicode ê´€ë ¨ ì²˜ë¦¬ë¥¼ ì™„ì „í•˜ê²Œ ë¬´ì‹œí•˜ê³  ìˆìœ¼ë¯€ë¡œ ëŒ€ì‘í•œ ë¬¸ìì—´ í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ì—ˆë‹¤.
+*
+* â€»ì„œë¡œê²Œì´íŠ¸ í˜ì–´, ì •ê·œí™”, ê²°í•©ë¬¸ìëŠ” Unicode ì‚¬ì–‘
  *
- * Java ‚â .NET ‚Ì String ‚Æ“¯—lAUnicode ‚Ì‚İ‚ğˆµ‚¢•¶š—ñ?ƒCƒ“?‚Ì“à—e‚Ì•ÏX‚ğ‹–‰Â‚µ‚È‚¢B
- * std::wstring ‚Æ‘ŠŒİ‚É•ÏŠ·‰Â?B‚½‚¾‚µ basic_string ‚ğˆø”‚Éæ‚éƒeƒ“ƒvƒŒ?ƒgŠÖ”‚É‚Í“n‚¹‚È‚¢‚à‚Ì‚ª‘½‚¢‚Ì‚Å‚»‚Ìê‡‚Í beginAend ŠÖ”‚ğg‚¤B
- * ŠÖ”ˆø”‚É balor::locale::Locale ‚ğ“n‚³‚È‚¢ê‡‚Íí‚É˜”ˆ—‚ğs‚¤Bi’nˆæ·‚ğ–³‹‚µ‚Ä•¶šƒR?ƒh‚ğ”’l‚Æ‚µ‚Ä”äŠr‚·‚éj
- * “Á‚É operator < “™‚Ì‰‰Zq‚Ìˆ—‚Å‚Í Locale ‚ğw’è‚Å‚«‚È‚¢‚Ì‚Å‘S‚Ä˜”ˆ—‚É‚È‚é‚±‚Æ‚É’ˆÓB
- * ˜”ˆ—‚Å‚Í‘SŠpƒAƒ‹ƒt?ƒxƒbƒg‚É‘Î‚·‚é ignoreCase ‚ÍƒT??ƒg‚µ‚È‚¢B
- * Convert::to<String> ŠÖ”‚Å•ÏŠ·‰Â?‚È?‚Æ String ‚Í + ‰‰Zq‚Å˜AŒ‹‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
- *
- * Unicode ³‹K‰»‚Ìˆ×‚Ì isNormalized, normalize ŠÖ”‚Í Vista ˆÈ?‚©AIE7 ˆÈ?‚ÌƒCƒ“ƒXƒg?ƒ‹‚³‚ê‚½ XP ‚©A‚Ü‚½‚Í normaliz.dll ‚ğƒCƒ“ƒXƒg?ƒ‹‚µ‚½ XP ‚Å‚Ì‚İƒT??ƒg‚·‚éB
- *
- * Vista ˆÈ?‚Å‚ ‚ê‚Î ::FindNLSString ŠÖ”‚ªg‚¦‚é‚Ì‚¾‚ª balor ‚Í XP ˆÈ?‚ÌƒT??ƒg‚È‚Ì‚Å
- * indexOf, lastIndexOf, startsWith ‹y‚Ñ endsWith ŠÖ”‚Í©—ÍÀ‘•‚Æ‚È‚Á‚Ä‚¢‚éB
- * API ‚ª‘Î‰‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅƒTƒƒQ?ƒgƒyƒA‚Å‚©‚ÂŒ‹‡•¶š‚Å‚ ‚é•¶šƒR?ƒh‚ğŒ‹‡•¶š‚Æ”»’f‚Å‚«‚È‚¢B
- *
- * “à—e‚ğ•ÏX‚µ‚È‚¢‚Æ‚¢‚¤d—l‚ğ¶‚©‚µ‚Ä refer, literal ŠÖ”‚ğg‚Á‚Ä•¶š—ñ?ƒCƒ“?‚ğQÆ‚¾‚¯‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚ªA?ƒCƒ“?QÆ‚ÌŠëŒ¯«‚ğ?•ª‚Él—¶‚·‚é•K—v‚ª‚ ‚éB
- *
- * •¶š—ñƒNƒ‰ƒX‚Ì©ì‚ÍÔ—Ö‚ÌÄ”­–¾‚Å‚ ‚èA‚Å‚«‚ê‚Î‚â‚è‚½‚­‚Í‚È‚¢‚ª
- * std::wstring ‹y‚Ñ Boost.string algo ‚Å‚ÍƒƒP?ƒ‹‚â Unicode ŠÖ˜A‚Ìˆ—‚ğŠ®‘S‚É–³‹‚µ‚Ä‚¢‚é‚Ì‚Å‘Î‰‚µ‚½•¶š—ñƒNƒ‰ƒX‚ğì¬‚µ‚½B
- *
- * ¦ƒTƒƒQ?ƒgƒyƒAA³‹K‰»AŒ‹‡•¶š‚Í Unicode ‚Ìd—l
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
+ * <h3>ìƒ˜í”Œ ì½”ë“œ</h3>
  * <pre><code>
 	String s(L"abc");
 
-	// std::wstring ‚Æ‚Ì‘ŠŒİ•ÏŠ·
+	// std::wstringê³¼ ìƒí˜¸í˜¸í™˜
 	std::wstring ws = s;
 	s = ws;
 
-	// ƒƒP?ƒ‹‚ğl—¶‚µ‚½”äŠr
-	bool result = String::compare(s, L"‚ ‚¢‚¤", Locale::current());
+	// ë¡œì¼€ì¼ì„ ê³ ë ¤í•œ ë¹„êµ
+	bool result = String::compare(s, L"ê°€ë‚˜ë‹¤", Locale::current());
 
-	// •¶š—ñ“¯mA‚Ü‚½‚Í”’l‚Æ‚Ì˜AŒ‹
+	// ë¬¸ìì—´ ë¼ë¦¬ ë˜ëŠ” ìˆ˜ì¹˜ì™€ ì—°ê²°
 	s = s + L"def";
 	s = String(L"(") + 128 + L", " + 256 + L")";
  * </code></pre>
@@ -72,114 +72,114 @@ public:
 
 	friend StringBuffer;
 
-	/// •¶š—ñ”äŠr‚ÌƒIƒvƒVƒ‡ƒ“B‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
-	/// •¶š—ñ‚ğŒŸõ‚·‚éŠÖ”iindexOf, lastIndexOf, startsWith, endsWith“™j‚Å‚Í ignoreNonSpace, ignoreSymbols ‚Íw’è‚Å‚«‚È‚¢B
+	/// ë¬¸ìì—´ ë¹„êµ ì˜µì…˜. ì¡°í•©í•˜ì—¬ ì§€ì •í•œë‹¤.
+	/// ë¬¸ìì—´ì„ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜(indexOf, lastIndexOf, startsWith, endsWithë“±) ignoreNonSpace, ignoreSymbolsì€ ì§€ì •í•  ìˆ˜ ì—†ë‹¤.
 	struct CompareOptions {
 		enum _enum {
 			none           = 0         , 
-			ignoreCase     = 0x00000001, /// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢B
-			ignoreNonSpace = 0x00000002, /// êŠ‚ğæ‚ç‚È‚¢Œ‹‡•¶š‚ğ–³‹‚·‚éB–³‹‚µ‚½Œ‹‰Ê‚ª“™‚µ‚¢‚©‡¬‚µ‚½Œ‹‰Ê‚ª“™‚µ‚¢ê‡‚ğ“™‚µ‚¢‚Æ‚·‚éB
-			ignoreSymbols  = 0x00000004, /// ‹L†‚ğ–³‹‚·‚éB
-			ignoreKanaType = 0x00010000, /// ‚Ğ‚ç‚ª‚È‚ÆƒJ?ƒJƒi‚ğ‹æ•Ê‚µ‚È‚¢B
-			ignoreWidth    = 0x00020000, /// ‘SŠp‚Æ”¼Šp‚ğ‹æ•Ê‚µ‚È‚¢B
-			stringSort     = 0x00001000, /// u-v‚âu'v‚ğ“Á•Êˆµ‚¢‚µ‚È‚¢Bw’è‚µ‚È‚©‚Á‚½ê‡‚Í‚±‚ê‚ç‚ª–³‚¢‚à‚Ì‚Æ‚µ‚Ä”äŠr‚³‚ê‚éB
+			ignoreCase     = 0x00000001, /// ëŒ€ë¬¸ìì™€ ì†Œë¬¸ìë¥¼ êµ¬ë³„í•˜ì§€ ì•ŠëŠ”ë‹¤
+			ignoreNonSpace = 0x00000002, /// ì¥ì†Œë¥¼ ì·¨í•˜ì§€ ì•ŠëŠ” ê²°í•©ë¬¸ìë¥¼ ë¬´ì‹œí•œë‹¤. ë¬´ì‹œí•œ ê²°ê³¼ê°€ ì˜³ì€ì§€, í•©ì„±í•œ ê²°ê³¼ê°€ ì˜³ì€ì§€ ê²½ìš°ë¥¼ í‰ê°€í•œë‹¤
+			ignoreSymbols  = 0x00000004, /// ê¸°í˜¸ë¥¼ ë¬´ì‹œí•œë‹¤.
+			ignoreKanaType = 0x00010000, /// íˆë¼ê°€ë‚˜ ê°€íƒ€ê°€ë‚˜ë¥¼ êµ¬ë³„í•˜ì§€ ì•ŠëŠ”ë‹¤
+			ignoreWidth    = 0x00020000, /// ì „ê°ê³¼ ë°˜ê°ì„ êµ¬ë³„í•˜ì§€ ì•ŠëŠ”ë‹¤
+			stringSort     = 0x00001000, /// ã€Œ-ã€ ë‚˜ ã€Œ'ã€ë¥¼ íŠ¹ë³„ ì·¨ê¸‰í•˜ì§€ ì•ŠëŠ”ë‹¤.ì§€ì •í•˜ì§€ ì•Šì€ ê²½ìš°ëŠ” ì´ê²ƒë“¤ì„ ì—†ëŠ” ê²ƒìœ¼ë¡œ ë¹„êµí•œë‹¤.
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(CompareOptions);
 	};
 
-	/// Unicode ‚Ì³‹K‰»?®B
+	/// Unicode ì˜ ì •ê·œí™” í˜•ì‹
 	struct NormalizationForm {
 		enum _enum {
-			c  = 0x1, /// ³‹K‰»?® C
-			d  = 0x2, /// ³‹K‰»?® D
-			kc = 0x5, /// ³‹K‰»?® KC
-			kd = 0x6, /// ³‹K‰»?® KD
+			c  = 0x1, /// ì •ê·œí™” í˜•ì‹ C
+			d  = 0x2, /// ì •ê·œí™” í˜•ì‹ D
+			kc = 0x5, /// ì •ê·œí™” í˜•ì‹ KC
+			kd = 0x6, /// ì •ê·œí™” í˜•ì‹ KD
 		};
 		BALOR_NAMED_ENUM_MEMBERS(NormalizationForm);
 	};
 
-	/// normaliz.dll ‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚É“Š‚°‚ç‚ê‚éB
+	/// normaliz.dll ì´ ë°œê²¬ë˜ì§€ ì•Šì€ ê²½ìš° ì˜ˆì™¸ê°€ ë˜ì ¸ì§„ë‹¤
 	class NormalizeDllNotFoundException : public Exception {};
 
-	/// Œ‡‚¯‚½ƒTƒƒQ?ƒgƒyƒA‚È‚Ç‚Ì³‹K‰»•s?‚È•¶š‚ğ³‹K‰»‚µ‚æ‚¤‚Æ‚µ‚½‚Æ‚«‚É“Š‚°‚ç‚ê‚éB
+	/// ë¹ ì§„ ì„œë¡œê²Œì´íŠ¸ ë“±ì˜ ì •ê·œí™” ë¶ˆê°€ëŠ¥í•œ ë¬¸ìë¥¼ ì •ê·œí™” í•˜ë ¤ê³  í•  ë•Œ ì˜ˆì™¸ ë°œìƒ
 	class NormalizeFailedException : public Exception {};
 
 public:
-	/// ‹ó•¶š—ñiL""j‚Å‰Šú‰»B
+	/// ë¹ˆ ë¬¸ìì—´ L""ë¡œ ì´ˆê¸°í™”
 	String();
 	String(const String& value);
 	String(String&& value);
-	/// StringBuffer ‚©‚ç•ÏŠ·B
+	/// StringBufferì—ì„œ ë³€í™˜ 
 	String(const StringBuffer& value);
 	String(StringBuffer&& value);
-	/// std::wstring ‚Å‰Šú‰»B
+	/// std::wstring ë¡œ ì´ˆê¸°í™”
 	String(const wstring& value);
-	/// •¶š—ñ?ƒCƒ“?‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 	String(const wchar_t* value);
-	/// ƒLƒƒƒ‰ƒN??‚ÆŒJ‚è•Ô‚µ”‚Å‰Šú‰»B
+	/// ìºë¦­í„°ì™€ ë°˜ë³µ ìˆ˜ë¡œ ì´ˆê¸°í™”
 	String(wchar_t c, int count);
-	/// •¶š—ñ?ƒCƒ“?‚Æ•¶š—ñ‚Ì’·‚³‚Å‰Šú‰»B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì™€ ë¬¸ìì—´ì˜ ê¸¸ì´ë¡œ ì´ˆê¸°í™”
 	String(const wchar_t* value, int length);
-	/// ƒoƒCƒg•¶š—ñ‚ğƒLƒƒƒ‰ƒN??ƒZƒbƒg‚ÅƒfƒR?ƒh‚µ‚Ä‰Šú‰»B
+	/// ë°”ì´íŠ¸ ë¬¸ìì—´ì„ ìºë¦­í„°ì…‹ìœ¼ë¡œ ë””ì½”ë“œí•˜ê³  ì´ˆê¸°í™” 
 	String(ByteStringRange value, const ::balor::locale::Charset& charset);
 	~String();
 
 	String& operator=(const String& value);
 	String& operator=(String&& value);
-	/// StringBuffer ‚ğ´ëÀÔB
+	/// StringBufferë¥¼ ëŒ€ì…
 	String& operator=(const StringBuffer& value);
 	String& operator=(StringBuffer&& value);
-	/// std::wstring ‚ğ´ëÀÔB
+	/// std::wstring ë¥¼ ëŒ€ì…
 	String& operator=(const wstring& value);
-	/// •¶š—ñ?ƒCƒ“?‚ğ´ëÀÔB
+	/// ë¬¸ìì—´ í¬ì¸í„°ë¥¼ ëŒ€ì…
 	String& operator=(const wchar_t* value);
 
 public:
-	/// •¶š—ñ‚Ö‚Ì?ƒCƒ“?B
+	/// ë¬¸ìì—´ë¡œì˜ í¬ì¸í„°
 	const wchar_t* begin() const { return _c_str; }
-	/// •¶š—ñ‚Ö‚Ì?ƒCƒ“?B
+	/// ë¬¸ìì—´ë¡œì˜ í¬ì¸í„°
 	const wchar_t* c_str() const { return _c_str; }
-	/// •¶š—ñ‚Ì”äŠrB–ß‚è’l‚Í C Œ¾Œê‚Ì strcmp Œn‚ÌŠÖ”‚Æ“¯‚¶B
+	/// ë¬¸ìì—´ ë¹„êµ. ë°˜í™˜ ê°’ì€ C ì–¸ì–´ì˜ strcmp ê³„ í•¨ìˆ˜ì™€ ê°™ë‹¤
 	static int compare(StringRange lhs, StringRange rhs, bool ignoreCase = false);
 	static int compare(StringRange lhs, StringRange rhs, const Locale& locale, String::CompareOptions options = CompareOptions::none);
 	static int compare(StringRange lhs, int lindex, StringRange rhs, int rindex, int length, bool ignoreCase = false);
 	static int compare(StringRange lhs, int lindex, StringRange rhs, int rindex, int length, const Locale& locale, String::CompareOptions options = CompareOptions::none);
-	/// •¶š—ñ‚Ì”äŠrB–ß‚è’l‚Í C Œ¾Œê‚Ì strcmp Œn‚ÌŠÖ”‚Æ“¯‚¶B
+	/// ë¬¸ìì—´ ë¹„êµ. ë°˜í™˜ ê°’ì€ C ì–¸ì–´ì˜ strcmp ê³„ í•¨ìˆ˜ì™€ ê°™ë‹¤
 	int compareTo(StringRange rhs) const;
-	/// •¶š—ñ“à‚Å value ‚ªŒ©‚Â‚©‚é‚©‚Ç‚¤‚©B
+	/// ë¬¸ìì—´ ë‚´ì—ì„œ value ë¥¼ ì°¾ì•˜ëŠ”ì§€
 	bool contains(StringRange value) const;
-	/// •¶š”z—ñ‚É nullI?‚ğŠÜ‚Ş•¶š—ñ‘S‘Ì‚ğƒRƒs?‚·‚éB
+	/// ë¬¸ìë°°ì—´ì— null ì¢…ë‹¨ì„ í¬í•¨í•˜ëŠ” ë¬¸ìì—´ ì „ì²´ë¥¼ ë³µì‚¬í•œë‹¤.
 	template<int Size> void copyTo(wchar_t (&array)[Size]) const { copyTo(array, Size); }
 	void copyTo(wchar_t* array, int arraySize) const;
-	/// •¶š”z—ñ‚É•”•ª•¶š—ñ‚ğƒRƒs?‚·‚éB
+	/// ë¬¸ì ë°°ì—´ì— í¬í•¨ ë¬¸ìì—´ì„ ë³µì‚¬í•œë‹¤
 	template<int Size> void copyTo(int beginIndex, wchar_t (&array)[Size], int arrayIndex, int length) const { copyTo(beginIndex, array, Size, arrayIndex, length); }
 	void copyTo(int beginIndex, wchar_t* array, int arraySize, int arrayIndex, int length) const;
-	/// ‹ó•¶š—ñ‚©‚Ç‚¤‚©B’·‚³‚ª‚O‚Å‚Í‚È‚­‚Ä‚à‹ó•¶š—ñ‚É‚È‚è‚¦‚é‚±‚Æ‚É’ˆÓB
+	/// ë¹ˆ ë¬¸ìì—´ì¸ì§€. ê¸¸ì´ê°€ 0ì´ ì•„ë‹ˆë¼ë„ ë¹ˆ ë¬¸ìì—´ì— ë³´ì¼ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ì£¼ì˜
 	bool empty() const;
-	/// •¶š—ñI?‚Ö‚Ì?ƒCƒ“?B
+	/// ë¬¸ìì—´ ì¢…ë‹¨ì˜ í¬ì¸í„°
 	const wchar_t* end() const { return _c_str + length(); }
-	/// w’è‚µ‚½•¶š—ñ‚ÅI‚í‚é‚©‚Ç‚¤‚©B
+	/// ì§€ì •í•œ ë¬¸ìì—´ë¡œ ëë‚˜ëŠ”ì§€
 	bool endsWith(StringRange value, bool ignoreCase = false) const;
 	bool endsWith(StringRange value, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
-	/// •¶š—ñ‚ª“™‚µ‚¢‚©‚Ç‚¤‚©B
+	/// ë¬¸ìì—´ì´ ê°™ì€ì§€ 
 	static bool equals(ByteStringRange lhs, ByteStringRange rhs, bool ignoreCase = false);
 	static bool equals(StringRange lhs, StringRange rhs, bool ignoreCase = false);
 	static bool equals(StringRange lhs, StringRange rhs, const Locale& locale, String::CompareOptions options = CompareOptions::none);
-	/// •¶š—ñ‚ª“™‚µ‚¢‚©‚Ç‚¤‚©B
+	/// ë¬¸ìì—´ì´ ê°™ì€ì§€
 	bool equalTo(StringRange rhs, bool ignoreCase = false) const;
 	bool equalTo(StringRange rhs, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
-	/// w’è‚µ‚½•”•ª‚ğíœ‚µ‚½•¶š—ñ‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë¶€ë¶„ì„ ì œê±°í•œ ë¬¸ìì—´ì„ ë°˜í™˜
 	String erase(int beginIndex) const;
 	String erase(int beginIndex, int length) const;
-	/// ƒoƒCƒg•¶š—ñ?ƒCƒ“?‚Ì‚³‚·•¶š—ñ‚Ì’·‚³‚ğ•Ô‚·B
+	/// ë°”ì´íŠ¸ ë¬¸ìì—´ í¬ì¸í„°ì˜ ë¬¸ìì—´ ê¸¸ì´ë¥¼ ë°˜í™˜
 	static int getLength(const char* value);
-	/// •¶š—ñ?ƒCƒ“?‚Ì‚³‚·•¶š—ñ‚Ì’·‚³‚ğ•Ô‚·B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì˜ ë¬¸ìì—´ ê¸¸ì´ë¥¼ ë°˜í™˜
 	static int getLength(const wchar_t* value);
-	/// Œ‹‡•¶š‚âƒTƒƒQ?ƒgƒyƒA‚ğl—¶‚µ‚Ä beginIndex ‚ÌŸ‚Ì•¶š‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ•Ô‚·B
+	/// ê²°í•© ë¬¸ìë‚˜ ì„œë¡œê²Œì´íŠ¸ í˜ì–´ë¥¼ ê³ ë ¤í•œ beginIndex ì˜ ë‹¤ìŒ ë¬¸ì ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜
 	int getNextLetterIndex(int beginIndex = 0) const;
-	/// •¶š—ñ‚ÌƒnƒbƒVƒ…’lB
+	/// ë¬¸ìì—´ í•´ì‹œ ê°’
 	SizeType hashCode() const;
-	/// w’è‚µ‚½•¶š‚â•¶š—ñ‚ªÅ‰‚ÉŒ©‚Â‚©‚Á‚½ˆÊ’u‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë¬¸ìë‚˜ ë¬¸ìì—´ì´ ì²˜ìŒì— ë°œê²¬ëœ ìœ„ì¹˜ ë°˜í™˜
 	int indexOf(StringRange value, bool ignoreCase = false) const;
 	int indexOf(StringRange value, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
 	int indexOf(wchar_t value, int beginIndex = 0) const;
@@ -188,18 +188,18 @@ public:
 	int indexOf(wchar_t value, int beginIndex, int length) const;
 	int indexOf(StringRange value, int beginIndex, int length, bool ignoreCase = false) const;
 	int indexOf(StringRange value, int beginIndex, int length, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
-	/// w’è‚µ‚½•¶š—ñ‚Ì’†‚Ì•¶š‚Ì‚Ç‚ê‚©‚ªÅ‰‚ÉŒ©‚Â‚©‚Á‚½ˆÊ’u‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë¬¸ìì—´ ì¤‘ì˜ ë¬¸ìì˜ ì–´ë”˜ê°€ê°€ ì²˜ìŒ ë°œê²¬ëœ ìœ„ì¹˜ë¥¼ ë°˜í™˜
 	int indexOfAny(StringRange anyOf, int beginIndex = 0) const;
 	int indexOfAny(StringRange anyOf, int beginIndex, int length) const;
-	/// •¶š—ñ‚ğ?“ü‚µ‚Ä•Ô‚·B
+	/// ë¬¸ìì—´ ì‚½ì…í•˜ê³  ë°˜í™˜
 	String insert(int beginIndex, StringRange value) const;
-	/// w’è‚µ‚½³‹K‰»?®‚Å³‹K‰»‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ì§€ì •í•œ ì •ê·œí™” í˜•ì‹ìœ¼ë¡œ ì •ê·œí™” ë˜ì–´ ìˆëŠ”ì§€
 	bool isNormalized(String::NormalizationForm frame = NormalizationForm::c) const;
-	/// ‹ó”’•¶š‚µ‚©ŠÜ‚Ü‚ê‚È‚¢‚©‚Ç‚¤‚©B
+	/// ë¹ˆ ë¬¸ìì—´ë§Œ í¬í•¨ë˜ì—ˆëŠ”ì§€
 	bool isWhiteSpace() const;
-	/// •¡”‚Ì•¶š—ñ‚ğ separator ‚ÅŒ‹‡‚µ‚Ä•Ô‚·B
+	/// ë³µìˆ˜ì˜ ë¬¸ìì—´ì„ separatorë¡œ ê²°í•©í•˜ì—¬ ë°˜í™˜.
 	static String join(StringRange separator, StringRangeArray values);
-	/// w’è‚µ‚½•¶š‚â•¶š—ñ‚ªÅŒã‚ÉŒ©‚Â‚©‚Á‚½ˆÊ’u‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë¬¸ìë‚˜ ë¬¸ìì—´ì´ ìµœí›„ì— ë°œê²¬ëœ ìœ„ì¹˜ë¥¼ ë°˜í™˜ 
 	int lastIndexOf(StringRange value, bool ignoreCase = false) const;
 	int lastIndexOf(StringRange value, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
 	int lastIndexOf(wchar_t value, int beginIndex = 0) const;
@@ -208,64 +208,64 @@ public:
 	int lastIndexOf(wchar_t value, int beginIndex, int length) const;
 	int lastIndexOf(StringRange value, int beginIndex, int length, bool ignoreCase = false) const;
 	int lastIndexOf(StringRange  value, int beginIndex, int length, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
-	/// w’è‚µ‚½•¶š—ñ‚Ì’†‚Ì•¶š‚Ì‚Ç‚ê‚©‚ªÅŒã‚ÉŒ©‚Â‚©‚Á‚½ˆÊ’u‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë¬¸ìì—´ ì¤‘ì˜ ë¬¸ì ì–´ë”˜ê°€ê°€ ë§ˆì§€ë§‰ì— ë°œê²¬ëœ ìœ„ì¹˜ ë°˜í™˜
 	int lastIndexOfAny(StringRange anyOf, int beginIndex = 0) const;
 	int lastIndexOfAny(StringRange anyOf, int beginIndex, int length) const;
-	/// •¶š—ñ‚Ì’·‚³B
+	/// ë¬¸ìì—´ì˜ ê¸¸ì´
 	int length() const;
-	/// Œ‹‡•¶š‚âƒTƒƒQ?ƒgƒyƒA‚ğl—¶‚µ‚½?¦‚³‚ê‚é•¶š—ñ‚Ì’·‚³B
+	/// ê²°í•© ë¬¸ìë‚˜ ì„œë¡œê²Œì´íŠ¸ í˜ì–´ë¥¼ ê³ ë ¤í•˜ì—¬ í‘œì‹œë˜ëŠ” ë¬¸ìì—´ì˜ ê¸¸ì´
 	int lengthInLetter() const;
-	/// •¶š—ñƒŠƒeƒ‰ƒ‹‚ğQÆ‚·‚é String ‚ğì¬‚·‚éB
+	/// ë¬¸ìì—´ ë¦¬í„°ëŸ´ì„ ì°¸ì¡°í•˜ëŠ” Stringì„ ë§Œë“ ë‹¤
 	template<int Size> static String literal(const wchar_t (&string)[Size]) { return String(1 - Size, string); }
-	/// w’è‚µ‚½³‹K‰»?®‚Å³‹K‰»‚µ‚Ä•Ô‚·B
+	/// ì§€ì •í•œ ì •ê·œí™” í˜•ì‹ìœ¼ë¡œ ì •ê·œí™”ë¥¼ ë°˜í™˜
 	String normalize(String::NormalizationForm frame = NormalizationForm::c) const;
-	/// w’è‚µ‚½’·‚³‚É‚È‚é‚Ü‚Åæ“ª‚É•¶š‚ğ–„‚ß‚ñ‚Å•Ô‚·B
+	/// ì§€ì •í•œ ê¸¸ì´ê°€ ë ë•Œê¹Œì§€ ì„ ë‘ì— ë¬¸ìë¥¼ ë°•ì•„ì„œ ë°˜í™˜
 	String padLeft(int length, wchar_t paddingChar = L' ') const;
-	/// w’è‚µ‚½’·‚³‚É‚È‚é‚Ü‚Å––”ö‚É•¶š‚ğ–„‚ß‚ñ‚Å•Ô‚·B
+	/// ì§€ì •í•œ ê¸¸ì´ê°€ ë ë•Œê¹Œì§€ ë§ˆì§€ë§‰ì— ë¬¸ìë¥¼ ë°•ì•„ì„œ ë°˜í™˜
 	String padRight(int length, wchar_t paddingChar = L' ') const;
-	/// •¶š—ñ?ƒCƒ“?‚ğQÆ‚·‚é String ‚ğì¬‚·‚éBString ‚Í“à—e‚Ì•ÏX‚ğ‹–‚³‚È‚¢‚ªAQÆŒ³‚ªæ‚É”j‰ó‚³‚ê‚é‚ÆŠëŒ¯B
+	/// ë¬¸ìì—´ í¬ì¸í„°ë¥¼ ê³ ë ¤í•˜ëŠ” Stringì„ ë§Œë“ ë‹¤. Stringì€ ë‚´ìš© ë³€ê²½ì„ í—ˆë½í•˜ì§€ ì•Šì§€ë§Œ ì°¸ì¡°ì²˜ê°€ ë¨¼ì € íŒŒê´´ë˜ë©´ ìœ„í—˜ 
 	static String refer(StringRange value);
 	static String refer(const wchar_t* value, int length);
-	/// •¶š—ñ?ƒCƒ“?‚ğQÆ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ë¬¸ìì—´ í¬ì¸í„°ì„ ì°¸ì¡°í•˜ê³  ìˆëŠ”ì§€
 	bool referred() const { return _length <= 0; }
-	/// w’è‚µ‚½•¶š‚â•¶š—ñ‚ğ’uŠ·‚µ‚Ä•Ô‚·B
+	/// ì§€ì •í•œ ë¬¸ìë‚˜ ë¬¸ìì—´ ì¹˜í™˜í•´ì„œ ë°˜í™˜
 	String replace(wchar_t oldValue, wchar_t newValue) const;
 	String replace(StringRange oldValue, StringRange newValue) const;
-	/// w’è‚µ‚½•¡”‚Ì‹æØ‚è•¶š‚Å•ªŠ„‚µ‚½•¶š—ñ”z—ñ‚ğ•Ô‚·Bseparators ‚ª‹ó‚Ìê‡‚Í‹æØ‚è•¶š‚ğ whiteSpace ‚Æ‚İ‚È‚·B
+	/// ì§€ì •í•œ ë³µìˆ˜ì˜ êµ¬ë³„ ë¬¸ìë¡œ ë¶„í™œí•œ ë¬¸ìì—´ ë°°ì—´ì„ ë°˜í™˜. separatorsê°€ ë¹ˆ ê²½ìš°ëŠ” êµ¬ë³„ ë¬¸ìë¥¼ whiteSpaceë¡œ ë³¸ë‹¤
 	std::vector<String, std::allocator<String> > split(StringRange separators = L"") const;
-	/// w’è‚µ‚½•¡”‚Ì‹æØ‚è•¶š—ñ‚Å•ªŠ„‚µ‚½•¶š—ñ”z—ñ‚ğ•Ô‚·B
+	/// ì§€ì •í•œ ë³µìˆ˜ì˜ êµ¬ë³„ ë¬¸ìì—´ì—ì„œ ë¶„í• í•œ ë¬¸ìì—´ ë°°ì—´ì„ ë°˜í™˜.
 	std::vector<String, std::allocator<String> > split(StringRangeArray separators) const;
-	/// w’è‚µ‚½•¶š—ñ‚Ån‚Ü‚é‚©‚Ç‚¤‚©B
+	/// ì§€ì •í•œ ë¬¸ìì—´ë¡œ ì‹œì‘í•˜ëŠ”ì§€
 	bool startsWith(StringRange value, bool ignoreCase = false) const;
 	bool startsWith(StringRange value, const Locale& locale, String::CompareOptions options = CompareOptions::none) const;
-	/// •”•ª•¶š—ñ‚ğ•Ô‚·B
+	/// ë¶€ë¶„ ë¬¸ìì—´ì„ ë°˜í™˜
 	String substring(int beginIndex) const;
 	String substring(int beginIndex, int length) const;
-	/// ‘å•¶š‚ğ¬•¶š‚É‚µ‚Ä•Ô‚·B
+	/// ë¬¸ìì—´ì„ ì†Œë¬¸ìë¡œ ë°˜í™˜
 	String toLower() const;
 	String toLower(const Locale& locale) const;
-	/// ¬•¶š‚ğ‘å•¶š‚É‚µ‚Ä•Ô‚·B
+	/// ì†Œë¬¸ìë¥¼ ëŒ€ë¬¸ìë¡œ í•´ì„œ ë°˜í™˜
 	String toUpper() const;
 	String toUpper(const Locale& locale) const;
-	/// æ“ª‚Æ––”ö‚Ì trimChars ‚ÉŠÜ‚Ü‚ê‚é•¶š‚ğ‘S‚Äæ‚èœ‚¢‚Ä•Ô‚·BtrimChars ‚ª‹ó•¶š—ñ‚Ìê‡‚Í whiteSpace ‚Æ‚İ‚È‚·B
+	/// ì„ ë‘ì™€ ë§ˆì§€ë§‰ì˜ trimCharsì— í¬í•¨ë˜ëŠ” ë¬¸ìì„ ëª¨ë‘ ì œê±°í•˜ê³  ë°˜í™˜. trimCharsê°€ ë¹ˆ ë¬¸ìì—´ì¸ ê²½ìš°ëŠ” whiteSpaceë¡œ ë³¸ë‹¤.
 	String trim(StringRange trimChars = String()) const;
 
 public:
-	/// wstring ‚Ö‚Ì•ÏŠ·B
+	/// wstring ìœ¼ë¡œ ë³€í™˜
 	operator wstring() const;
-	/// StringRange ‚Ö‚Ì•ÏŠ·B
+	/// StringRange ìœ¼ë¡œ ë³€í™˜
 	operator StringRange() const { return StringRange(_c_str, length()); }
-	/// •¶š—v‘f‚ğ•Ô‚·B
+	/// ë¬¸ì ìš”ì†Œ ë°˜í™˜
 	wchar_t operator[] (int index) const;
-	/// •¶š—ñ‚Ì’Ç‰ÁB
+	/// ë¬¸ìì—´ ì¶”ê°€
 	String& operator+=(const String& rhs);
 	String& operator+=(const wstring& rhs);
 	String& operator+=(const wchar_t* rhs);
 	String& operator+=(wchar_t* rhs);
 	String& operator+=(wchar_t rhs);
-	/// Convert::to<String> ‚ª‰Â?‚È?‚Ì += ‰‰ZB
+	/// Convert::to<String> ì´ ê°€ëŠ¥í•œ í˜•ì˜ += ì—°ì‚°.
 	template<typename T> String& operator+=(const T& rhs) { return *this += Convert::to<String>(rhs); }
-	/// •¶š—ñ‚Ì‰ÁZB
+	/// ë¬¸ìì—´ ê°€ì‚°.
 	friend String operator+(const String& lhs, const String& rhs);
 	friend String operator+(const String& lhs, const wstring& rhs);
 	friend String operator+(const String& lhs, const wchar_t* rhs);
@@ -275,10 +275,10 @@ public:
 	friend String operator+(const wchar_t* lhs, const String& rhs);
 	friend String operator+(wchar_t* lhs, const String& rhs);
 	friend String operator+(wchar_t lhs, const String& rhs);
-	/// Convert::to<String> ‚ª‰Â?‚È?‚Æ‚Ì + ‰‰ZB
+	/// Convert::to<String> ì´ ê°€ëŠ¥í•œ í˜•ê³¼ì˜ + ì—°ì‚°.
 	template<typename T> friend String operator+(const String& lhs, const T& rhs) { return lhs + Convert::to<String>(rhs); }
 	template<typename T> friend String operator+(const T& lhs, const String& rhs) { return Convert::to<String>(lhs) + rhs; }
-	/// ”äŠr‰‰ZB
+	/// ë¹„êµ ì—°ì‚° 
 	friend bool operator==(StringRange lhs, StringRange rhs);
 	friend bool operator!=(StringRange lhs, StringRange rhs);
 	friend bool operator< (StringRange lhs, StringRange rhs);

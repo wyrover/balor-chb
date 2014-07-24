@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Convert.hpp>
 #include <balor/StringRange.hpp>
@@ -9,13 +9,13 @@ namespace balor {
 
 
 /**
- * •¶š—ñ‚Ì˜AŒ‹A‘}“üAíœ‚â’uŠ·‚ğs‚¦‚é•¶š—ñƒoƒbƒtƒ@B
+  * ë¬¸ìì—´ ì—°ê²°, ì‚½ì…, ì‚­ì œë‚˜ êµí™˜ì„ í•  ìˆ˜ ìˆëŠ” ë¬¸ìì—´ ë²„í¼
  * 
- * String ‚ª˜AŒ‹A‘}“üAíœA’uŠ·ˆ—‚ğs‚¤‚½‚Ñ‚ÉV‚½‚Éƒƒ‚ƒŠŠ„‚è“–‚Ä‚ğs‚¤‚Ì‚É‘Î‚µAStringBuffer ‚Íƒoƒbƒtƒ@ƒTƒCƒY‚ª‹–‚·ŒÀ‚èƒƒ‚ƒŠŠ„‚è“–‚Ä‚ğs‚í‚È‚¢B
- * ƒoƒbƒtƒ@‚ÉŠO•”‚ÌŒÅ’è’·”z—ñ‚ğw’è‚·‚é‚±‚Æ‚à‚Å‚«A‚±‚Ìê‡‚ÍŒÅ’è’·‚ğ’´‚¦‚Ä•¶š‚ğ‘‚«‚ß‚È‚¢B
- * String::refer ‚â String::literal ‚Æ‘g‚İ‡‚í‚¹‚é‚±‚Æ‚Åƒƒ‚ƒŠŠ„‚è“–‚Ä‚ğŠ®‘S‚É”rœ‚Å‚«‚éB
+ * Stringì´ ì—°ê²°, ì‚½ì…, ì‚­ì œ, ìœ„ì¹˜ êµí™˜ ì²˜ë¦¬ë¥¼ í•  ë•Œ ìƒˆë¡œìš´ ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•˜ëŠ” ê²ƒì— ë¹„í•´ StringBufferëŠ” ë²„í¼ ì‚¬ì´ì¦ˆê°€ í—ˆë½í•˜ëŠ”í•œ ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
+ * ë²„í¼ì— ì™¸ë¶€ì˜ ê³ ì • ê¸¸ì´ ë°°ì—´ì„ ì§€ì •í• ìˆ˜ë„ ìˆê³  ì´ ê²½ìš° ê³ ì • ê¸¸ì´ë¥¼ ë„˜ëŠ” ë¬¸ìëŠ” ì“°ì—¬ì§€ì§€ ì•ŠëŠ”ë‹¤
+ * String::referë‚˜ String::literalê³¼ ì¡°í•©í•˜ëŠ” ê²ƒìœ¼ë¡œ ë©”ëª¨ë¦¬ í• ë‹¹ì„ ì™„ì „í•˜ê²Œ ë°°ì œí•  ìˆ˜ ìˆë‹¤
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ìƒ˜í”Œ ì½”ë“œ</h3>
  * <pre><code>
 	wchar_t buffer[256];
 	StringBuffer s(buffer);
@@ -30,16 +30,16 @@ public:
 	friend String;
 
 public:
-	/// ƒLƒƒƒpƒVƒeƒB = 1 ‚Å‰Šú‰»B
+	/// ìºíŒŒì‹œí‹° = 1 ë¡œ ì´ˆê¸°í™”
 	StringBuffer();
 	StringBuffer(const StringBuffer& value);
 	StringBuffer(StringBuffer&& value);
-	/// String ‚Ì’·‚³ + 1 ‚ÌƒLƒƒƒpƒVƒeƒB‚Å•¶š—ñ‚ğƒRƒs[‚µ‚Ä‰Šú‰»B
+	/// String ì˜ ê¸¸ì´ + 1 ì˜ ìºíŒŒì‹œí‹°ë¡œ ë¬¸ìì—´ì„ ë³µì‚¬í•˜ê³  ì´ˆê¸°í™”
 	explicit StringBuffer(const String& value);
 	explicit StringBuffer(String&& value);
-	/// w’è‚µ‚½ƒLƒƒƒpƒVƒeƒB‚Å‰Šú‰»B
+	/// ì§€ì •í•œ ìºíŒŒì‹œí‹°ë¡œ ì´ˆê¸°í™”
 	explicit StringBuffer(int capacity);
-	/// ŒÅ’è’·”z—ñ‚ğƒoƒbƒtƒ@‚Æ‚µ‚Ä‰Šú‰»B
+	/// ê³ ì • ê¸¸ì´ ë°°ì—´ì„ ë²„í¼ë¡œì„œ ì´ˆê¸°í™” 
 	template<int Capacity> explicit StringBuffer(wchar_t (&buffer)[Capacity], int length = 0) : _begin(buffer), _length(length), _capacity(Capacity), _allocatable(false) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
@@ -47,7 +47,7 @@ public:
 #endif
 		_begin[length] = L'\0';
 	}
-	/// ƒƒ‚ƒŠƒ|ƒCƒ“ƒ^‚Å‰Šú‰»B
+	/// ë©”ëª¨ë¦¬ í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 	StringBuffer(wchar_t* buffer, int capacity, int length = 0);
 	~StringBuffer();
 
@@ -55,61 +55,61 @@ public:
 	StringBuffer& operator=(StringBuffer&& value);
 
 public:
-	/// ƒoƒbƒtƒ@‚ğŠg’£‚Å‚«‚é‚©‚Ç‚¤‚©B
+	/// ë²„í¼ë¥¼ í™•ì¥í•  ìˆ˜ ìˆëŠ”ì§€ ì–´ë–¤ì§€
 	bool allocatable() const;
-	/// •¶š—ñ‚Ìæ“ªB
+	/// ë¬¸ìì—´ì˜ ì„ ë‘
 	wchar_t* begin() { return _begin; }
 	const wchar_t* begin() const { return _begin; }
-	/// I’[•¶š‚ğŠÜ‚ñ‚¾ƒoƒbƒtƒ@‚ÌƒTƒCƒYB
+	/// ë ë¬¸ìë¥¼ í¬í•¨í•œ ë²„í¼ ì‚¬ì´ì¦ˆ
 	int capacity() const;
 	void capacity(int value);
-	/// •¶š—ñ‚Ì’·‚³‚ğ‚O‚É‚·‚éB
+	/// ë¬¸ìì—´ì˜ ê¸¸ì´ë¥¼ 0ìœ¼ë¡œ í•œë‹¤
 	void clear() { length(0); }
-	/// ‹ó•¶š—ñ‚©‚Ç‚¤‚©B
+	/// ë¹ˆ ë¬¸ìì—´ì¸ì§€ ì–´ë–¤ì§€
 	bool empty() const;
-	/// •¶š—ñ‚ÌI’[B
+	/// ë¬¸ìì—´ì˜ ë
 	wchar_t* end() { return _begin + _length; }
 	const wchar_t* end() const { return _begin + _length; }
-	/// w’è‚µ‚½•”•ª‚ğíœ‚·‚éB
+	/// ì§€ì •í•œ ë¶€ë¶„ì„ ì‚­ì œí•œë‹¤ 
 	void erase(int beginIndex);
 	void erase(int beginIndex, int length);
-	/// end() ‚©‚çI’[•¶š‚ğŒŸõ‚µ‚ÄV‚µ‚­’·‚³‚ğİ’è‚µ’¼‚·B
+	/// end() ì—ì„œ ë ë¬¸ìì„ ê²€ìƒ‰í•˜ê³  ìƒˆë¡œìš´ ê¸¸ì´ë¥¼ ë‹¤ì‹œ ì„¤ì •í•œë‹¤
 	void expandLength();
-	/// ’·‚³‚ğw’è‚µ‚½•ª‚¾‚¯‘å‚«‚­‚·‚éBI’[•¶š‚Í‘‚«‚Ü‚È‚¢B
+	/// ê¸¸ì´ë¥¼ ì§€ì •í•œ ë¶„ë§Œí¼ í¬ê²Œí•œë‹¤. ë ë¬¸ìëŠ” ì“°ì§€ ì•ŠëŠ”ë‹¤.
 	void expandLength(int delta);
-	/// •¶š—ñ‚ğ‘}“ü‚·‚éB
+	/// ë¹’ëŸ»ì€±ê·©?ë³ºê¶¥ê·¡ê°ƒ
 	void insert(int beginIndex, wchar_t value, int count);
 	void insert(int beginIndex, StringRange value);
-	/// •¶š—ñ‚Ì’·‚³B
+	/// ë¬¸ìì—´ í¬ì¸í„°
 	int length() const { return _length; }
 	void length(int value);
-	/// w’è‚µ‚½•¶š‚â•¶š—ñ‚ğ’uŠ·‚·‚éB
+	/// ì§€ì •í•œ ë¬¸ìë‚˜ ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤
 	void replace(wchar_t oldValue, wchar_t newValue);
 	void replace(StringRange oldValue, StringRange newValue);
 	void replace(int beginIndex, int length, StringRange value);
-	/// capacity ‚ğw’è‚µ‚½’·‚³ˆÈã‚É‚·‚éB
+	/// capacity ë¥¼ ì§€ì •í•œ ê¸¸ì´ ì´ìƒìœ¼ë¡œ í•œë‹¤
 	void reserve(int maxLength);
-	/// capacity ‚ğŒ»İ‚Ì’·‚³ + ’Ç‰Á‚Ì’·‚³ˆÈã‚É‚·‚éB
-	void reserveAdditionally(int additionalLength);
-	/// æ“ª‚Æ––”ö‚Ì trimChars ‚ÉŠÜ‚Ü‚ê‚é•¶š‚ğæ‚èœ‚­BtrimChars ‚ª‹ó•¶š—ñ‚Ìê‡‚Í whiteSpace ‚Æ‚İ‚È‚·B
+	/// capacity ë¥¼ í˜„ì¬ì˜ ê¸¸ì´ + ì¶”ê°€ ê¸¸ì´ ì´ìƒìœ¼ë¡œ í•œë‹¤
+	void reserveAdditionally(int addition alLength);
+	/// ì„ ë‘ì™€ ë§ˆì§€ë§‰ì˜ trimCharsì— í¬í•¨ë˜ëŠ” ë¬¸ìë¥¼ ë¹¼ë‚¸ë‹¤. trimCharsëŠ” ë¹ˆ ë¬¸ìì—´ì˜ ê²½ìš°ëŠ” whiteSpaceë¡œ ë³¸ë‹¤
 	void trim(StringRange trimChars = L"");
 
 public:
-	/// wstring ‚Ö‚Ì•ÏŠ·B
+	/// wstringìœ¼ë¡œ ë³€í™˜
 	operator wstring() const;
-	/// StringRange ‚Ö‚Ì•ÏŠ·B
+	/// StringRange ìœ¼ë¡œ ë³€í™˜ 
 	operator StringRange() const { return StringRange(_begin, _length); }
-	/// •¶š—v‘f‚ğ•Ô‚·B
+	/// ë¬¸ì ìš”ì†Œë¥¼ ëŒë ¤ì¤€ë‹¤
 	wchar_t& operator[] (int index);
 	const wchar_t& operator[] (int index) const;
-	/// •¶š—ñ‚Ì’Ç‰Á‰‰ZqB
+	/// ë¬¸ìì—´ì˜ ì¶”ê°€ ì—°ì‚°ì
 	StringBuffer& operator+=(const StringBuffer& rhs);
 	StringBuffer& operator+=(const String& rhs);
 	StringBuffer& operator+=(const wstring& rhs);
 	StringBuffer& operator+=(const wchar_t* rhs);
 	StringBuffer& operator+=(wchar_t* rhs);
 	StringBuffer& operator+=(wchar_t rhs);
-	/// Convert::to<StringBuffer> ‚ª‰Â”\‚ÈŒ^‚Ì += ‰‰ZB
+	/// Convert::to<StringBuffer> ì´ ê°€ëŠ¥í•œ í˜•ì˜ += ì—°ì‚°
 	template<typename T> StringBuffer& operator+=(const T& rhs) {
 		Convert::to<StringBuffer>(*this, rhs);
 		return *this;
