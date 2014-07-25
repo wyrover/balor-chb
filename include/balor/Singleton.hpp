@@ -10,76 +10,73 @@ void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction
 
 
 /**
- * ƒVƒ“ƒOƒ‹ƒgƒ“ƒpƒ^[ƒ“‚ÌŽÀ‘•‚ð’ñ‹Ÿ‚·‚éB
+ * ½Ì±ÛÅÏ ÆÐÅÏÀÇ ±¸ÇöÀ» Á¦°øÇÑ´Ù.
  *
- * •¡»•s‰Â”\‚ÈƒOƒ[ƒoƒ‹•Ï”‚ðAƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚Å‚àDLL‚ð’´‚¦‚Ä‚àˆÀ‘S‚ÉŠÇ—‚·‚éB
- * ƒeƒ“ƒvƒŒ[ƒgˆø”‚É“n‚·ƒNƒ‰ƒX‚Í Singleton ƒNƒ‰ƒX‚É‘Î‚µ‚Ä friend éŒ¾‚µ‚½ã‚ÅƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÆƒfƒXƒgƒ‰ƒNƒ^‚ð private éŒ¾‚·‚é‚Æ—Ç‚¢B
- * DLL ƒvƒƒWƒFƒNƒg‚ðŠÜ‚Þ•¡”‚ÌƒvƒƒWƒFƒNƒg‚Å balor ‚ðŽg—p‚·‚éê‡AŽÀsƒtƒ@ƒCƒ‹‚Æ“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É balor_singleton.dll ‚ð’u‚­‚±‚ÆB
- * ‚±‚Ì DLL ‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í DLL ‚Ì‚±‚Æ‚ðl—¶‚µ‚È‚¢ƒVƒ“ƒOƒ‹ƒgƒ“‚É‚È‚éB
+ * º¹Á¦ºÒ°¡´ÉÇÑ ±Û·Î¹úº¯¼ö¸¦, ¸ÖÆ¼¾²·¹µå¿¡¼­µµ DLLÀ» ÅëÇØ¼­µµ ¾ÈÀüÇÏ°Ô °ü¸®ÇÑ´Ù.
+ * ÅÛÇÃ¸´ ÀÎ¼ö·Î ³Ñ±â´Â Å¬·¡½º´Â ½Ì±ÛÅæ Å¬·¡½º¸¦ friend ¼±¾ðÇÑ ÈÄ ÄÁ½ºÆ®·°ÅÍ¿Í µð½ºÆ®·°ÅÍ¸¦ privateÀ¸·Î ¼±¾ðÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+ * DLL ÇÁ·ÎÁ§Æ®¸¦ Æ÷ÇÔÇÑ º¹¼öÀÇ ÇÁ·ÎÁ§Æ®¿¡¼­ balor¸¦ »ç¿ëÇÏ´Â °æ¿ì, ½ÇÇàÆÄÀÏ°ú µ¿ÀÏÇÑ µð·ºÅä¸®¿¡ balor_singleton.dll À» ³õ¾Æ µÑ °Í.
+ * ÀÌ DLLÀ» Ã£Áö ¸øÇÏ´Â °æ¿ì¿¡´Â DLLÀ» °í·ÁÇÏÁö ¾ÊÀº ½Ì±ÛÅÏÀÌ µÈ´Ù.
  *
- * ’ˆÓI DLL “à‚ÅƒVƒ“ƒOƒ‹ƒgƒ“‚É‰‚ß‚ÄƒAƒNƒZƒX‚µAƒVƒ“ƒOƒ‹ƒgƒ“‚ÌƒCƒ“ƒXƒ^ƒ“ƒX“o˜^‚ð‚µ‚½ê‡‚Í‚»‚Ì DLL ‚ðƒAƒ“ƒ[ƒh‚·‚éƒ^ƒCƒ~ƒ“ƒO‚É’ˆÓ‚·‚é‚±‚ÆB
- * ƒAƒ“ƒ[ƒh‚µ‚½Žž“_‚Å“o˜^‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚Ìƒ|ƒCƒ“ƒ^‚ª–³Œø‚É‚È‚Á‚Ä‚µ‚Ü‚¤‚Î‚©‚è‚©AƒCƒ“ƒXƒ^ƒ“ƒX‚ª“o˜^‚¸‚Ý‚©‚Ç‚¤‚©‚Ì’²¸‚à•s³‚Èˆ—‚Å—Ž‚¿‚Ä‚µ‚Ü‚¤B
+ * ÁÖÀÇ£¡ DLL ³»ºÎ¿¡¼­ ½Ì±ÛÅÏ¿¡ Ã³À½À¸·Î Á¢±ÙÇÒ ½Ã, ½Ì±ÛÅæÀÇ ÀÎ½ºÅÏ½º µî·ÏÀ» ÇÑ °æ¿ì¿¡´Â ±× DLLÀ» ¾ð·ÎµåÇÏ´Â Å¸ÀÌ¹Ö¿¡ ÁÖÀÇÇÒ °Í.
+ * ¾ð·ÎµåÇÑ ½ÃÁ¡¿¡¼­ µî·ÏÇß´ø ÀÎ½ºÅÏ½ºÀÇ Æ÷ÀÎÅÍ°¡ ¹«È¿È­µÇ±â ¶§¹®¿¡, ÀÎ½ºÅÏ½º¸¦ µî·ÏÇß´ÂÁö ÇÏÁö ¾Ê¾Ò´ÂÁöÀÇ Á¶»çµµ À¯È¿ÇÏÁö ¾Ê°Ô µÈ´Ù.
  *
- * C++ ‚É‚¨‚¯‚éƒVƒ“ƒOƒ‹ƒgƒ“‚ÌŽÀ‘•‚É‚Í‚¢‚­‚Â‚©–â‘è‚ª‚ ‚èA‚»‚ê‚¼‚ê‰ðŒˆ‚·‚é•K—v‚ª‚ ‚éB
+ * C++ ÀÇ ½Ì±ÛÅÏ ±¸Çö¿¡´Â ¸î°¡Áö ¹®Á¦Á¡ÀÌ ÀÖ¾î¼­, °¢°¢ ÇØ°áÇØ¾ßÇÒ ÇÊ¿ä°¡ ÀÖ´Ù.
  * 
- * <h3>–â‘è‚PFƒXƒ^ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚ð DLL ‚ÉƒŠƒ“ƒN‚·‚é‚Æ DLL ‚²‚Æ‚ÉƒOƒ[ƒoƒ‹•Ï”—Ìˆæ‚ª•¡»‚³‚ê‚éB</h3>
- * DLL ‚²‚Æ‚ÉƒŠƒ“ƒN‚³‚ê‚é‚Ì‚Å‚±‚ê‚Í“–‘R‚Å‚ ‚èAƒOƒ[ƒoƒ‹•Ï”‚ÌƒAƒhƒŒƒX‚¾‚¯‚Å‚È‚­AŠÖ”ƒ|ƒCƒ“ƒ^‚à DLL ‚²‚Æ‚ÉˆÙ‚È‚éB
- * ‚½‚Æ‚¦ DLL ‚ªˆêŒÂ‚Å‚ ‚Á‚½‚Æ‚µ‚Ä‚àAƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì exe ƒtƒ@ƒCƒ‹‚Æ‚»‚ê‚ðŠg’£‚·‚éƒvƒ‰ƒOƒCƒ“‚Ì DLL ‚Å
- * “¯‚¶ƒXƒ^ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚ðŽg—p‚·‚éê‡AƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Æ DLL ‚Å•ÊX‚Éƒ‰ƒCƒuƒ‰ƒŠ‚ªƒŠƒ“ƒN‚³‚ê‚éB
- * ‚±‚Ì–â‘è‚Í‚»‚à‚»‚àƒXƒ^ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚ðŽg—p‚µ‚È‚¯‚ê‚Î‰ðŒˆ‚·‚é‚ªA
- * ‚±‚±‚Å‚Íƒ†[ƒU‚ªƒXƒ^ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚É‚·‚é‚Ì‚© DLL ‚É‚·‚é‚Ì‚©‘I‘ð‚Å‚«‚é‚æ‚¤‚É‚µ‚½‚¢ê‡‚Ç‚¤‚·‚é‚©‚ðl‚¦‚éB
+ * <h3> ¹®Á¦£±£ºstatic ¶óÀÌºê·¯¸®¸¦ DLL¿¡ ¸µÅ©ÇÏ¸é DLL¸¶´Ù ±Û·Î¹ú º¯¼ö ¿µ¿ªÀÌ º¹Á¦µÈ´Ù. </h3>
+ * DLL¸¶´Ù ¸µÅ©µÇ±â ¶§¹®¿¡ ÀÌ°ÍÀº ´ç¿¬ÇØ¼­, ±Û·Î¹ú º¯¼öÀÇ ÁÖ¼Ò»Ó¸¸ ¾Æ´Ï¶ó ÇÔ¼ö Æ÷ÀÎÅÍµµ DLL¸¶´Ù ´Ù¸£´Ù.
+ * ¸¸¾à DLLÀÌ ÇÑ °³ ÀÖ´Ù°í ÇÏ´õ¶óµµ ¾îÇÃ¸®ÄÉÀÌ¼Ç exe ÆÄÀÏ°ú ±×°É È®ÀåÇÏ´Â ÇÃ·¯±×ÀÎ DLL·Î °°Àº Á¤Àû ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇÏ´Â °æ¿ì ¾îÇÃ¸®ÄÉÀÌ¼Ç°ú DLL¿¡¼­ Á¦°¢°¢ ¶óÀÌºê·¯¸®°¡ ¸µÅ©µÈ´Ù.
+ * ÀÌ ¹®Á¦´Â ¾ÖÃÊ¿¡ Á¤Àû ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇÏÁö ¾ÊÀ¸¸é ÇØ°áµÇÁö¸¸,
+ * ¿©±â¼­´Â À¯Àú°¡ Á¤Àû ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇÒ °ÍÀÎÁö DLLÀ» »ç¿ëÇÒ °ÍÀÎÁö¸¦ ¼±ÅÃÇÏ°í ½ÍÀ»½Ã ¾î¶»°Ô ÇØ¾ßÇÒÁö¸¦ °í·ÁÇß´Ù.
  * 
- * <h3>–â‘è‚QFstatic •Ï”‚Ì‰Šú‰»‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚Å‚Í‚¤‚Ü‚­‚¢‚©‚È‚¢B</h3>
- * ƒXƒŒƒbƒh‚P‚ªÅ‰‚ÉŠÖ”‚ðŒÄ‚Ño‚µ‚Ästatic•Ï”‚Ì‰Šú‰»ˆ—‚É“ü‚Á‚½ŒãA
- * ƒXƒŒƒbƒh‚Q‚ª“¯Žž‚ÉŠÖ”‚ðŒÄ‚Ño‚·‚ÆAˆ—Œn‚É‚à‚æ‚é‚ª‰Šú‰»ˆ—‚ªd•¡‚µ‚Ä‘–‚Á‚Ä‚µ‚Ü‚¤‚©A‚ ‚é‚¢‚Í
- * Šù‚É‰Šú‰»Ï‚Ý‚Å‚ ‚é‚Æ”»’f‚µ‚Ä‰Šú‰»ˆ—‚ðƒXƒLƒbƒv‚µA–¢‰Šú‰»‚ÌƒIƒuƒWƒFƒNƒg‚ÉG‚ê‚Ä‚µ‚Ü‚¤B
- * ‚±‚Ì–â‘è‚Ì‰ðŒˆô‚Æ‚µ‚Ä—Ç‚­’m‚ç‚ê‚Ä‚¢‚é‚Ì‚ª DCLPiThe Double-Checked Locking Optimization Patternj‚¾‚ª
- * ‚±‚ÌŽè–@‚ÍŠÂ‹«‚ÉˆË‘¶‚µ‚½•û–@‚ðŽg‚í‚È‚¢ŒÀ‚èˆÀ‘S‚Å‚Í‚È‚¢B
+ * <h3>¡Ý¹®Á¦£²£ºstatic º¯¼öÀÇ ÃÊ±âÈ­´Â ¸ÖÆ¼¾²·¹µå¿¡¼­´Â ÀßµÇÁö ¾Ê´Â´Ù.</h3>
+ * ½º·¹µå1ÀÌ ÃÊ±â¿¡ ÇÔ¼ö¸¦ È£ÃâÇØ¼­ static º¯¼öÀÇ ÃÊ±âÈ­ Ã³¸®¿¡ µé¾î°£ ÈÄ,
+ * ½º·¹µå2°¡ µ¿½Ã¿¡ ÇÔ¼ö¸¦ È£ÃâÇÏ¸é, Ã³¸®ºÎºÐ¿¡ ÀÖ¾î¼­ ÃÊ±âÈ­ Ã³¸®°¡ Áßº¹µÇ¾î ÁøÇàµÉÁö, È¤Àº ÃÊ±âÈ­µÇ¾ú´Ù°í ÆÇ´ÜÇØ¼­ ÃÊ±âÈ­¸¦ ½ºÅµÇØ¼­, ¹ÌÃÊ±âÈ­µÈ ¿ÀºêÁ§Æ®°¡ µÇ¹ö¸± ¼ö ÀÖ´Ù.
+ * ÀÌ ¹®Á¦ÀÇ ÇØ°áÃ¥À¸·Î½á Àß ¾Ë·ÁÁø °ÍÀÌ DLCP£¨The Double-Checked Locking Optimization Pattern£©ÀÌÁö¸¸
+ * ÀÌ ¹æ¹ýÀº È¯°æ¿¡ ÀÇÁ¸ÇÑ ¹æ¹ýÀ» »ç¿ëÇÏÁö ¾Ê´ÂÇÑ ¾ÈÀüÇÏÁö´Â ¾Ê´Ù.
  *
  * http://www.nwcpp.org/Downloads/2004/DCLP_notes.pdf
  * http://d.hatena.ne.jp/yupo5656/20041011/p1
  *
- * DCLP ‚ÍˆÈ‰º‚Ì‚æ‚¤‚ÈƒR[ƒh‚É‚È‚é‚ª
+ * DCLP ´Â ¾Æ·¡¿Í °°Àº ÄÚµåÀÌÁö¸¸
  * <pre><code>
  * static T* instance = 0;
- * if (instance == 0) { // ƒ‰ƒCƒ“‚P
+ * if (instance == 0) { // ¶óÀÎ 1
  *     mutex::scoped_lock lock(mutex);
- *     if (instance == 0) { // Ä“xƒ`ƒFƒbƒN‚µ‚È‚¯‚ê‚Î“ñd‚Énew‹y‚ÑƒRƒ“ƒXƒgƒ‰ƒNƒg‚³‚ê‚é‹°‚ê‚ª‚ ‚é
- *         instance = new T(); // ƒ‰ƒCƒ“‚Q
+ *     if (instance == 0) { // ´Ù½Ã Ã¼Å©ÇÏÁö ¾ÊÀ¸¸é ÀÌÁßÀ¸·Î new ¹× ÄÁ½ºÆ®·°Æ®µÉ ¼ÒÁö°¡ ÀÖ´Ù.
+ *         instance = new T(); // ¶óÀÎ 2
  *     }
  * }
  * </code></pre>
- * –â‘è‚Íƒ‰ƒCƒ“‚Q‚ÅA‚±‚±‚Å‚Í (1)T‚Ìƒƒ‚ƒŠŠ„‚è“–‚ÄA(2)T‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^A(3)instance‚Ö‚Ì‘ã“ü ‚ÌŽO‚Â‚Ìˆ—‚ðs‚¤‚ªA
- * (1)¨(2)¨(3)‚Ì‡‚Éˆ—‚³‚ê‚é‚È‚ç‚Î–â‘è‚Í”­¶‚µ‚È‚¢‚ªƒRƒ“ƒpƒCƒ‰‚ÌÅ“K‰»‚â CPU ‚Ì•À—ñŽÀs‚É‚æ‚Á‚Ä(1)¨(3)¨(2)‚Ì‚æ‚¤‚ÉŽÀs‚³‚ê‚é‚±‚Æ‚ª‚ ‚è‚¤‚éB
- * ‚»‚¤‚È‚é‚Æƒ‰ƒCƒ“‚P‚Ì”»’è‚Å‰Šú‰»‚ªI‚í‚Á‚Ä‚¢‚È‚¢‚Ì‚É‰Šú‰»‚³‚ê‚½‚Æ”»’f‚³‚ê‚¤‚éB
- * ƒy[ƒp[‚É‚ ‚é‚æ‚¤‚ÉŠÂ‹«‚ÉˆË‘¶‚·‚é•û–@‚Å‰ñ”ð‚·‚é‚±‚Æ‚Í‰Â”\‚¾‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚Ì‰Šú‰»‚ª‰ðŒˆ‚µ‚Ä‚à
- * mutex ‚Ì‰Šú‰»‚É‚Â‚¢‚Ä‚Í“°X„‚è‚Æ‚È‚Á‚Ä‚¨‚èA‰ðŒˆ‚³‚ê‚È‚¢B‚Ü‚½A–â‘è‚PF‚àˆË‘R‚Æ‚µ‚ÄŽc‚éB
+ * ¹®Á¦´Â ¶óÀÎ2·Î, ¿©±â¼­´Â (1)TÀÇ ¸Þ¸ð¸® ÇÒ´çÀ¸·Î (2)TÀÇ ÄÁ½ºÆ®·°ÅÍ¡¢(3)instance º¯¼ö¿¡ ´ëÀÔ, ÃÑ 3¹øÀÇ Ã³¸®¸¦ ¼öÇàÇÏ´Âµ¥,
+ * (1)¡æ(2)¡æ(3)ÀÇ ¼ø¼­·Î Ã³¸®°¡ µÈ´Ù¸é ¹®Á¦´Â ¹ß»ýÇÏÁö ¾ÊÁö¸¸ ÄÄÆÄÀÏ·¯ÀÇ ÃÖÀûÈ­³ª CPUÀÇ º´·Ä ½ÇÇà¿¡ ÀÇÇØ (1)->(3)->(2)Ã³·³ ½ÇÇàµÉ ¼öµµ ÀÖ´Ù.
+ * ±×·¸°Ô µÇ¸é ¶óÀÎ1ÀÇ ÆÇ´Ü¿¡¼­ ÃÊ±âÈ­°¡ ³¡³ªÁö ¾Ê¾Ò´Âµ¥ ÃÊ±âÈ­µÇ¾ú´Ù°í ÆÇ´ÜµÉ ¼ö ÀÖ´Ù.
+ * ¹®¼­¿¡ ÀÖµíÀÌ È¯°æ¿¡ ÀÇÁ¸ÇÏ´Â ¹æ¹ýÀ¸·Î È¸ÇÇÇÏ´Â °ÍÀº °¡´ÉÇÏÁö¸¸ ÀÎ½ºÅÏ½ºÀÇ ÃÊ±âÈ­¸¦ ÇØ°áÇØµµ mutexÀÇ ÃÊ±âÈ­¿¡ ´ëÇØ¼­´Â Á¦ÀÚ¸® °ÉÀ½ÀÌ µÇ¾î ÇØ°áµÇÁö ¾Ê´Â´Ù. ¶ÇÇÑ ¹®Á¦ 1µµ ¿©ÀüÈ÷ ³²´Â´Ù.
  *
- * <h3>œ‰ðŒˆô:</h3>
- * –â‘è‚PF‚ð‰ðŒˆ‚·‚éˆ×‚ÉAtype_info\‘¢‘Ì‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ÆŠ„‚è“–‚Ä‚ç‚ê‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^‚Ì‘g‚ð
- * ¬‚³‚ÈDLL‚Ì’†‚É•Û‘¶‚·‚éBstatic•Ï”‚Ì‰Šú‰»ˆ—‚ª‘–‚é‚½‚Ñ‚É‚±‚Ì DLL ‚ÌŠÖ”‚ðŒÄ‚ñ‚Å
- * type_info::oprator== ‚ª¬‚è—§‚Â type_info \‘¢‘Ì‚Ìƒ|ƒCƒ“ƒ^‚ªŠù‚É“o˜^‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©’²‚×A
- * “o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍƒCƒ“ƒXƒ^ƒ“ƒX‚ðì¬‚µ‚ÄV‚½‚É“o˜^‚µA“o˜^‚³‚ê‚Ä‚¢‚éê‡‚Í“o˜^Ï‚Ý‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìƒ|ƒCƒ“ƒ^‚ð•Ô‚·‚æ‚¤‚É‚·‚éB
- * DLL ‚²‚Æ‚É•ÊX‚ÉƒŠƒ“ƒN‚³‚ê‚½‚»‚ê‚¼‚ê‚ÌƒR[ƒh“à‚ÅA“¯‚¶Œ^‚É‘Î‚µ‚Ä &typeid(Œ^–¼) ‚ðs‚¤‚Æ‚»‚ê‚¼‚êˆá‚¤ƒAƒhƒŒƒX‚ª•Ô‚Á‚Ä‚­‚é‚ªA
- * —¼ŽÒ‚Å typeid::operator== ‚ðs‚¤‚Æ‚¿‚á‚ñ‚Æ true ‚ª•Ô‚é‹““®‚ÉˆË‘¶‚µ‚Ä‚¢‚éB
- * ‚±‚ê‚ÅˆÙ‚È‚éDLLŠÔ‚Å‚ ‚Á‚Ä‚à“¯‚¶ƒAƒhƒŒƒX‚ð•Ô‚·‚±‚Æ‚ª•ÛØ‚³‚ê‚éB
- * ‚Ü‚½A‚±‚Ì DLL ŠÖ”ˆ—‚Í boost::mutex ‚ÅŠ®‘S‚ÉƒƒbƒN‚·‚éB•¡”‰ñŽÀs‚³‚ê‚Ä‚à–â‘è‚Ì‚È‚¢ˆ—‚Å‚ ‚èA
- * ƒƒbƒN‚Éƒƒ‚ƒŠƒoƒŠƒA‚ªŠÜ‚Ü‚ê‚éˆ×ADCLP ‚Ì‚æ‚¤‚ÈŽè–@‚ª•s—v‚Æ‚È‚éB
- * DLL‚ÌƒOƒ[ƒoƒ‹•Ï”‚ÍƒvƒƒZƒX‚ÉƒAƒ^ƒbƒ`‚·‚é‘O‚É‰Šú‰»‚³‚ê‚é‚±‚Æ‚ª•ÛØ‚³‚ê‚Ä‚¢‚éˆ×A
+ * <h3>¡ÜÇØ°áÃ¥:</h3>
+ * ¹®Á¦1£ºÀ» ÇØ°áÇÏ±â À§ÇØ, type_info±¸Á¶Ã¼·ÎÀÇ Æ÷ÀÎÅÍ¿Í ÇÒ´çµÈ ÀÎ½ºÅÏ½º·ÎÀÇ Æ÷ÀÎÅÍ ½ÖÀ» 
+ * ÀÚ±×¸¶ÇÑ DLL ¼Ó¿¡ º¸Á¸ÇÏµµ·Ï 'static º¯¼öÀÇ ÃÊ±âÈ­ Ã³¸®°¡ ÁøÇàµÉ¶§¸¶´Ù ÀÌ  DLLÀÇ ÇÔ¼ö¸¦ È£ÃâÇØ¼­
+ * type_info::oprator== °¡ ¼º¸³µÇ´ÂÁö, type_info ±¸Á¶Ã¼ÀÇ Æ÷ÀÎÅÍ°¡ ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ´ÂÁö¸¦ Á¶»çÇØ¼­,
+ * µî·ÏµÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì´Â ÀÎ½ºÅÏ½º¸¦ ÀÛ¼ºÇØ¼­ »õ·Ó°Ô µî·ÏÇÏ°í, µî·ÏµÇ¾î ÀÖ´Â °æ¿ì´Â µî·ÏµÈ ÀÎ½ºÅÏ½º Æ÷ÀÎÅÍ¸¦ ¹ÝÈ¯ÇÏµµ·Ï ÇÑ´Ù.
+ * DLL¸¶´Ù µû·Î ¿¬°áµÈ °¢°¢ÀÇ ÄÚµå ³»ºÎ¿¡¼­ °°Àº Çü¿¡ ´ëÇØ¼­ &typeid(Çü¸í)À» ¼öÇàÇÏ¸é Á¦°¢°¢ ´Ù¸¥ ¾îµå·¹½º¸¦ ¹ÝÈ¯ÇÏÁö¸¸,
+ * ¾çÂÊ¿¡¼­ typeid::operator== À» ¼öÇàÇÏ¸é Á¦´ë·Î true¸¦ µ¹·ÁÁØ´Ù.
+ * ÀÌ°É·Î ´Ù¸¥ DLL »çÀÌ¿¡¼­µµ µ¿ÀÏÇÑ ¾îµå·¹½º¸¦ µ¹·ÁÁÖ´Â °ÍÀÌ º¸ÁõµÈ´Ù.
+ * ¶ÇÇÑ ÀÌ DLL ÇÔ¼öÃ³¸®´Â boost::mutex·Î ¿ÏÀüÈ÷ ¶ôÀ» °Å´Â '¿©·¯¹ø ½ÇÇàµÇ¾îµµ ¹®Á¦°¡ ¾ø´Â Ã³¸®ÀÌ±âµµ ÇØ¼­'
+ *  ¶ôÀ¸·Î ¸Þ¸ð¸® ¹è¸®¾î¸¦ Æ÷ÇÔÇÏ±â À§ÇØ 'DLCP°°Àº ¹æ¹ýÀÌ ºÒÇÊ¿äÇÏ°Ô µÈ´Ù.
+ * DLLÀÇ ±Û·Î¹ú º¯¼ö´Â ÇÁ·Î¼¼½º¿¡ AttatchÇÏ±â Àü¿¡ ÃÊ±âÈ­µÇ´Â °ÍÀÌ º¸ÁõµÇ±â ¶§¹®¿¡,
  * (http://msdn.microsoft.com/ja-jp/library/988ye33t(VS.80).aspx)
- * mutex ‚Ì‰Šú‰»‚Í–â‘è‚È‚¢B
- * ‚½‚¾‚µADLL ‚ðŽg—p‚µ‚È‚¢ƒvƒƒWƒFƒNƒg‚Å‚Í‚±‚Ìˆ—Ž©‘Ì‚ª–³‘Ê‚É‚È‚éˆ×A¬‚³‚È DLL ‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚É‚Í‚±‚ê‚ç‚Ìˆ—‚ðs‚í‚È‚¢‚æ‚¤‚É‚·‚éB
+ *  mutexÀÇ ÃÊ±âÈ­¿¡´Â ¹®Á¦°¡ ¾ø´Ù.
+ * ´Ù¸¸ 'DLLÀ» »ç¿ëÇÏÁö ¾Ê´Â ÇÁ·ÎÁ§Æ®¿¡¼­´Â ÀÌ Ã³¸®ÀÚÃ¼°¡ ÇêÀÏÀÌ±â ¶§¹®¿¡ ÀÛÀº DLLÀ» Ã£Áö ¸øÇÏ´Â °æ¿ì¿¡´Â ÀÌ·± Ã³¸®¸¦ ¼öÇàÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
  * 
  *
- * <h3>Œ‡“_F</h3>
- * ¬‚³‚ÈDLL‚ð exe ‚É•t‘®‚³‚¹‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
- * ƒOƒ[ƒoƒ‹•Ï”‚Ì mutex ‚ðŽg—p‚·‚éˆ×A‚ ‚ç‚ä‚éŒ^‚Ì‰Šú‰»ˆ—‚ª‹¤’Ê‚µ‚ÄƒƒbƒN‚³‚ê‚éB
- * ‚Ü‚½Atype_info \‘¢‘Ì‚É‚Í operator== ‚µ‚©‚È‚¢‚Ì‚Å map ‚ªŽg‚¦‚¸Avector ‚É‚æ‚é‘SŒŸõ‚ðs‚¤B
- * ‚±‚Ìˆ×Astatic •Ï”‚Ì‰Šú‰»Žž‚Ì‚ÝƒpƒtƒH[ƒ}ƒ“ƒX‚ª‹]µ‚É‚È‚éB
- * ‚È‚¨ type_info::name ŠÖ”‚ÍŒ^‚Ì”äŠr‚É—p‚¢‚é‚±‚Æ‚Í‚Å‚«‚È‚¢B
- * –³–¼–¼‘O‹óŠÔ‚ðŽg‚Á‚Äd•¡‚·‚éŒ^–¼‚ð’è‹`‚µ‚½ê‡Atype_info::name ŠÖ”‚Å‚Í—¼ŽÒ‚ð‹æ•Ê‚Å‚«‚È‚¢B
+ * <h3>°áÁ¡£º</h3>
+ * ÀÛÀº dllÀ» exe ÆÄÀÏ¿¡ ºÙÀÌÁö ¾ÊÀ¸¸é ¾ÈµÈ´Ù.
+ * ±Û·Î¹ú º¯¼ö mutex¸¦ »ç¿ëÇÏ±â À§ÇØ ¸ðµç ÇüÀÇ ÃÊ±âÈ­ Ã³¸®°¡ °øÅëÀ¸·Î ¶ôµÈ´Ù.
+ * ¶ÇÇÑ, type_info ±¸Á¶Ã¼¿¡´Â operator== ¹Û¿¡ ¾ø±â ¶§¹®¿¡ mapÀ» »ç¿ëÇÏÁö ¾Ê°í vector·Î ÀüÃ¼ °Ë»öÀ» ¼öÇàÇÑ´Ù.
+ * ÀÌ¸¦ À§ÇØ static º¯¼öÀÇ ÃÊ±âÈ­¶§¸¸ ÆÛÆ÷¸Õ½º°¡ Èñ»ýµÈ´Ù.
+ * µ¡ºÙ¿© type_info::name ÇÔ¼ö´Â Çü ºñ±³¿¡ »ç¿ëÇÏ´Â °ÍÀº °¡´ÉÇÏÁö ¾Ê´Ù.
+ * ÀÌ¸§¾ø´Â ³×ÀÓ½ºÆäÀÌ½º¸¦ »ç¿ëÇØ¼­ Áßº¹µÇ´Â Çü¸íÀ» Á¤ÀÇÇÏ´Â °æ¿ì, type_info::name ÇÔ¼ö·Î´Â ¾çÀÚ¸¦ ½Äº°ÇÒ ¼ö ¾ø´Ù.
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>»ùÇÃÄÚµå</h3>
  * <pre><code>
 	class MySingleton {
 		friend Singleton<MySingleton>;
@@ -95,27 +92,27 @@ void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction
 template<typename T>
 class Singleton {
 public:
-	/// ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX‚ÌŽæ“¾
+	/// ½Ì±ÛÅÏ ÀÎ½ºÅÏ½ºÀÇ Ãëµæ
 	static T& get() {
 		static T* instance = nullptr;
 
 		if (!instance) {
-			// ‚±‚ÌŠÖ”‚Í•¡”‰ñŽÀs‚³‚ê‚Ä‚à‚©‚Ü‚í‚È‚¢
+			// ÀÌ ÇÔ¼ö´Â ¿©·¯¹ø »ç¿ëµÇµµ »ó°ü¾ø´Ù.
 			instance = static_cast<T*>(::balor::detail::getSingletonInstance(typeid(T), Singleton<T>::createInstance));
-			// lock ‚Éƒƒ‚ƒŠƒoƒŠƒA‚ªŠÜ‚Ü‚ê‚é‚Ì‚Åƒƒ‚ƒŠÅ“K‰»‚Í‚³‚ê‚È‚¢
+			// lock¿¡ ¸Þ¸ð¸® ¹è¸®¾î°¡ Æ÷ÇÔµÇ¾î ÀÖ±â ¶§¹®¿¡ ¸Þ¸ð¸® ÃÖÀûÈ­´Â µÇÁö ¾Ê´Â´Ù.
 		}
 		return *instance;
 	}
 
-	// ƒ‰ƒCƒuƒ‰ƒŠ‚ðƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚ÅŽg‚í‚È‚¢‚µADLL ƒvƒƒWƒFƒNƒg‚àŽg‚í‚È‚¢‚Æ‚¢‚¤ê‡‚Í‚±‚ÌŽÀ‘•‚Å—Ç‚¢BŠÈ’P‚ÈƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì‚Ù‚Æ‚ñ‚Ç‚É“–‚Ä‚Í‚Ü‚é‚¾‚ë‚¤B
-	// ‚ ‚é‚¢‚Í C++0x ‚ÉŠ®‘S‚É€‹’‚µ‚½ƒRƒ“ƒpƒCƒ‰‚Å‚ ‚ê‚Î‚±‚ÌŽÀ‘•‚Åƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚Í–â‘è‚ª–³‚­‚È‚éB
+	// ¶óÀÌºê·¯¸®¸¦ ¸ÖÆ¼¾²·¹µå¿¡¼­ »ç¿ëÇÏÁö ¾Ê°í, DLL ÇÁ·ÎÁ§Æ®¿¡¼­µµ »ç¿ëÇÏÁö ¾Ê´Â °æ¿ì´Â ÀÌ ±¸ÇöÃ¼·Î ÁÁ´Ù. °£´ÜÇÑ ¾îÇÃ¸®ÄÉÀÌ¼Ç ´ëºÎºÐ¿¡ ÇØ´çµÉ °ÍÀÌ´Ù.
+	// ¶Ç´Â C++0xÀ» ¿ÏÀüÈ÷ ÁØ¼öÇÑ ÄÄÆÄÀÏ·¯¶ó¸é ÀÌ ±¸ÇöÃ¼·Î ¸ÖÆ¼¾²·¹µå´Â ¹®Á¦°¡ µÇÁö ¾Ê°Ô µÈ´Ù.
 	//static T& get() {
 	//	static T instance;
 	//	return instance;
 	//}
 
 
-private: // ˆêØ‚Ì¶¬AƒRƒs[A”jŠü‚ð‹Ö‚¸‚é
+private: // ÀÏÃ¼ÀÇ »ý¼º, º¹»ç, ÆÄ±«¸¦ ±ÝÁöÇÑ´Ù.
 	Singleton();
 	Singleton(const Singleton& );
 	~Singleton();
