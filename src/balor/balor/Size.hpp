@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -8,28 +8,28 @@ class Point;
 
 
 /**
- * •‚Æ‚‚³‚É‚æ‚é¡?‚ğ?‚·?‘¢‘ÌB
+ * í­ê³¼ ë†’ì´ì— ì˜í•œ ìˆ˜ì¹˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” êµ¬ì¡°ì²´
  */
 class Size {
 public:
-	/// ‰Šú‰»‚¹‚¸‚Éì¬B
+	
 	Size() {}
 	Size(const Size& size);
-	/// Point ?‘¢‘Ì‚Å‰Šú‰»B
+	/// Point êµ¬ì¡°ì²´ë¡œ ì´ˆê¸°í™”
 	Size(const Point& point);
-	/// •‚Æ‚‚³‚Å‰Šú‰»B
+	/// í­ê³¼ ë†’ì´ë¡œ ì´ˆê¸°í™”
 	Size(int width, int height);
 
 public:
-	/// —v‘f‚²‚Æ‚ÉÅ¬’l‚ğ‹‚ß‚éB
+	/// ìš”ì†Œë§ˆë‹¤ ìµœì†Œ ê°’ì„ êµ¬í•œë‹¤
 	static Size minimize(const Size& lhs, const Size& rhs);
-	/// —v‘f‚²‚Æ‚ÉÅ‘å’l‚ğ‹‚ß‚éB
+	/// ìš”ì†Œë§ˆë‹¤ ìµœëŒ€ ê°’ì„ êµ¬í•œë‹¤
 	static Size maximize(const Size& lhs, const Size& rhs);
-	/// —v‘f‚É•‰”‚ªŠÜ‚Ü‚ê‚é‚©‚Ç‚¤‚©
+	/// ìš”ì†Œì— ë§ˆì´ë„ˆìŠ¤ ê°’ì´ í¬í•¨ ë˜ì—ˆëŠ”ì§€ ì¡°ì‚¬
 	bool negative() const;
 
 public:
-	/// Point ?‘¢‘Ì‚Ö‚Ì•ÏŠ·B
+	/// Point êµ¬ì¡°ì²´ë¡œ ë³€í™˜
 	operator Point() const;
 	Size& operator += (const Size& rhs);
 	friend Size operator + (const Size& lhs, const Size& rhs);

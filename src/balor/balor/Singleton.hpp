@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -10,76 +10,76 @@ void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction
 
 
 /**
- * �V���O���g���p??���̎�����񋟂���B
+* シングルトンパターンの実装を提供する。
+*
+* 複製不可能なグローバル変数を、マルチスレッドでもDLLを超えても安全に管理する。
+* テンプレート引数に渡すクラスは Singleton クラスに対して friend 宣言した上でコンストラクタとデストラクタを private 宣言すると良い。
+* DLL プロジェクトを含む複数のプロジェクトで balor を使用する場合、実行ファイルと同じディレクトリに balor_singleton.dll を置くこと。
+* この DLL が見つからない場合は DLL のことを考慮しないシングルトンになる。
+*
+* 注意！ DLL 内でシングルトンに初めてアクセスし、シングルトンのインスタンス登録をした場合はその DLL をアンロードするタイミングに注意すること。
+* アンロードした時点で登録したインスタンスのポインタが無効になってしまうばかりか、インスタンスが登録ずみかどうかの調査も不正な処理で落ちてしまう。
+*
+* C++ におけるシングルトンの実装にはいくつか問題があり、それぞれ解決する必要がある。
+*
+* <h3>◎問題１：スタティックライブラリを DLL にリンクすると DLL ごとにグローバル変数領域が複製される。</h3>
+* DLL ごとにリンクされるのでこれは当然であり、グローバル変数のアドレスだけでなく、関数ポインタも DLL ごとに異なる。
+* たとえ DLL が一個であったとしても、アプリケーションの exe ファイルとそれを拡張するプラグインの DLL で
+* 同じスタティックライブラリを使用する場合、アプリケーションと DLL で別々にライブラリがリンクされる。
+* この問題はそもそもスタティックライブラリを使用しなければ解決するが、
+* ここではユーザがスタティックライブラリにするのか DLL にするのか選択できるようにしたい場合どうするかを考える。
+*
+* <h3>◎問題２：static 変数の初期化はマルチスレッドではうまくいかない。</h3>
+* スレッド１が最初に関数を呼び出してstatic変数の初期化処理に入った後、
+* スレッド２が同時に関数を呼び出すと、処理系にもよるが初期化処理が重複して走ってしまうか、あるいは
+* 既に初期化済みであると判断して初期化処理をスキップし、未初期化のオブジェクトに触れてしまう。
+* この問題の解決策として良く知られているのが DCLP（The Double-Checked Locking Optimization Pattern）だが
+* この手法は環境に依存した方法を使わない限り安全ではない。
+*
+* http://www.nwcpp.org/Downloads/2004/DCLP_notes.pdf
+* http://d.hatena.ne.jp/yupo5656/20041011/p1
  *
- * �����s��?�ȃO��?�o���ϐ����A?��?�X���b�h�ł�DLL�𒴂��Ă����S�ɊǗ�����B
- * �e���v��?�g�����ɓn���N���X�� Singleton �N���X�ɑ΂��� friend �錾������ŃR���X�g���N?�ƃf�X�g���N?�� private �錾����Ɨǂ��B
- * DLL �v���W�F�N�g���܂ޕ����̃v���W�F�N�g�� balor ���g�p����ꍇ�A���s�t?�C���Ɠ����f�B���N�g���� balor_singleton.dll ��u�����ƁB
- * ���� DLL ��������Ȃ��ꍇ�� DLL �̂��Ƃ��l�����Ȃ��V���O���g���ɂȂ�B
- *
- * ���ӁI DLL ���ŃV���O���g���ɏ��߂ăA�N�Z�X���A�V���O���g���̃C���X?���X�o?�������ꍇ�͂��� DLL ���A����?�h����?�C?���O�ɒ��ӂ��邱�ƁB
- * �A����?�h������?�œo?�����C���X?���X��?�C��?�������ɂȂ��Ă��܂��΂��肩�A�C���X?���X���o?���݂��ǂ����̒������s���ȏ����ŗ����Ă��܂��B
- *
- * C++ �ɂ�����V���O���g���̎����ɂ͂�������肪����A���ꂼ���������K�v������B
- * 
- * <h3>�����P�F�X?�e�B�b�N���C�u������ DLL �Ƀ����N����� DLL ���ƂɃO��?�o���ϐ��̈悪���������B</h3>
- * DLL ���ƂɃ����N�����̂ł���͓��R�ł���A�O��?�o���ϐ��̃A�h���X�����łȂ��A�֐�?�C��?�� DLL ���ƂɈقȂ�B
- * ���Ƃ� DLL ����ł������Ƃ��Ă��A�A�v���P?�V������ exe �t?�C���Ƃ�����g������v���O�C���� DLL ��
- * �����X?�e�B�b�N���C�u�������g�p����ꍇ�A�A�v���P?�V������ DLL �ŕʁX�Ƀ��C�u�����������N�����B
- * ���̖��͂��������X?�e�B�b�N���C�u�������g�p���Ȃ���Ή������邪�A
- * �����ł̓�?�U���X?�e�B�b�N���C�u�����ɂ���̂� DLL �ɂ���̂��I���ł���悤�ɂ������ꍇ�ǂ����邩���l����B
- * 
- * <h3>�����Q�Fstatic �ϐ��̏�������?��?�X���b�h�ł͂��܂������Ȃ��B</h3>
- * �X���b�h�P���ŏ��Ɋ֐����Ăяo����static�ϐ��̏����������ɓ�������A
- * �X���b�h�Q�������Ɋ֐����Ăяo���ƁA�����n�ɂ���邪�������������d�����đ����Ă��܂����A���邢��
- * ���ɏ������ς݂ł���Ɣ��f���ď������������X�L�b�v���A���������̃I�u�W�F�N�g�ɐG��Ă��܂��B
- * ���̖��̉�����Ƃ��ėǂ��m���Ă���̂� DCLP�iThe Double-Checked Locking Optimization Pattern�j����
- * ���̎�?�͊��Ɉˑ�������?���g��Ȃ�������S�ł͂Ȃ��B
- *
- * http://www.nwcpp.org/Downloads/2004/DCLP_notes.pdf
- * http://d.hatena.ne.jp/yupo5656/20041011/p1
- *
- * DCLP �͈ȉ��̂悤�ȃR?�h�ɂȂ邪
+ * DCLP은 아래와 같은 코드가 된다
  * <pre><code>
  * static T* instance = 0;
- * if (instance == 0) { // ���C���P
+ * if (instance == 0) { // 라인 1
  *     mutex::scoped_lock lock(mutex);
- *     if (instance == 0) { // �ēx?�F�b�N���Ȃ���Γ�d��new�y�уR���X�g���N�g����鋰�ꂪ����
- *         instance = new T(); // ���C���Q
+ *     if (instance == 0) { // 다시 조사하지 않으면 이중으로 new로 생성될 수 있다 
+ *         instance = new T(); // 깋귽깛괧
  *     }
  * }
  * </code></pre>
- * ���̓��C���Q�ŁA�����ł� (1)T�̃��������蓖�āA(2)T�̃R���X�g���N?�A(3)instance�ւ̴��� �̎O�̏������s�����A
- * (1)��(2)��(3)�̏��ɏ��������Ȃ�Ζ��͔������Ȃ����R���p�C���̍œK���� CPU �̕�����s�ɂ����(1)��(3)��(2)�̂悤�Ɏ��s����邱�Ƃ����肤��B
- * �����Ȃ�ƃ��C���P�̔���ŏ��������I����Ă��Ȃ��̂ɏ��������ꂽ�Ɣ��f���ꂤ��B
- * �y?�p?�ɂ���悤�Ɋ��Ɉˑ������?�ŉ�����邱�Ƃ͉�?�����C���X?���X�̏��������������Ă�
- * mutex �̏������ɂ��Ă͓��X����ƂȂ��Ă���A��������Ȃ��B�܂��A���P�F���ˑR�Ƃ��Ďc��B
+ * 問題はライン２で、ここでは (1)Tのメモリ割り当て、(2)Tのコンストラクタ、(3)instanceへの代入 の三つの処理を行うが、
+ * (1)→(2)→(3)の順に処理されるならば問題は発生しないがコンパイラの最適化や CPU の並列実行によって(1)→(3)→(2)のように実行されることがありうる。
+ * そうなるとライン１の判定で初期化が終わっていないのに初期化されたと判断されうる。
+ * ペーパーにあるように環境に依存する方法で回避することは可能だがインスタンスの初期化が解決しても
+ * mutex の初期化については堂々巡りとなっており、解決されない。また、問題１：も依然として残る。
  *
- * <h3>��������:</h3>
- * ���P�F����������ׂɁAtype_info?���̂ւ�?�C��?�Ɗ��蓖�Ă�ꂽ�C���X?���X�ւ�?�C��?�̑g��
- * ������DLL�̒��ɕۑ�����Bstatic�ϐ��̏��������������邽�тɂ��� DLL �̊֐����Ă��
- * type_info::oprator== �����藧�� type_info ?���̂�?�C��?�����ɓo?����Ă��邩�ǂ������ׁA
- * �o?����Ă��Ȃ��ꍇ�̓C���X?���X���쐬���ĐV���ɓo?���A�o?����Ă���ꍇ�͓o?�ς݂̃C���X?���X��?�C��?��Ԃ��悤�ɂ���B
- * DLL ���ƂɕʁX�Ƀ����N���ꂽ���ꂼ��̃R?�h���ŁA����?�ɑ΂��� &typeid(?��) ���s���Ƃ��ꂼ��Ⴄ�A�h���X���Ԃ��Ă��邪�A
- * ���҂� typeid::operator== ���s���Ƃ����� true ���Ԃ鋓���Ɉˑ����Ă���B
- * ����ňقȂ�DLL�Ԃł����Ă������A�h���X��Ԃ����Ƃ��ۏ؂����B
- * �܂��A���� DLL �֐������� boost::mutex �Ŋ��S�Ƀ��b�N����B��������s����Ă����̂Ȃ������ł���A
- * ���b�N�Ƀ������o���A���܂܂��ׁADCLP �̂悤�Ȏ�?���s�v�ƂȂ�B
- * DLL�̃O��?�o���ϐ��̓v���Z�X�ɃA?�b?����O�ɏ���������邱�Ƃ��ۏ؂���Ă���ׁA
+ * <h3>●解決策:</h3>
+ * 問題１：を解決する為に、type_info構造体へのポインタと割り当てられたインスタンスへのポインタの組を
+ * 小さなDLLの中に保存する。static変数の初期化処理が走るたびにこの DLL の関数を呼んで
+ * type_info::oprator== が成り立つ type_info 構造体のポインタが既に登録されているかどうか調べ、
+ * 登録されていない場合はインスタンスを作成して新たに登録し、登録されている場合は登録済みのインスタンスのポインタを返すようにする。
+ * DLL ごとに別々にリンクされたそれぞれのコード内で、同じ型に対して &typeid(型名) を行うとそれぞれ違うアドレスが返ってくるが、
+ * 両者で typeid::operator== を行うとちゃんと true が返る挙動に依存している。
+ * これで異なるDLL間であっても同じアドレスを返すことが保証される。
+ * また、この DLL 関数処理は boost::mutex で完全にロックする。複数回実行されても問題のない処理であり、
+ * ロックにメモリバリアが含まれる為、DCLP のような手法が不要となる。
+ * DLLのグローバル変数はプロセスにアタッチする前に初期化されることが保証されている為、
  * (http://msdn.microsoft.com/ja-jp/library/988ye33t(VS.80).aspx)
- * mutex �̏������͖��Ȃ��B
- * �������ADLL ���g�p���Ȃ��v���W�F�N�g�ł͂��̏������̂����ʂɂȂ�ׁA������ DLL ��������Ȃ��ꍇ�ɂ͂����̏������s��Ȃ��悤�ɂ���B
+ * mutex の初期化は問題ない。
+ * ただし、DLL を使用しないプロジェクトではこの処理自体が無駄になる為、小さな DLL が見つからない場合にはこれらの処理を行わないようにする。
  * 
  *
- * <h3>����?�F</h3>
- * ������DLL�� exe �ɕt�������Ȃ���΂Ȃ�Ȃ��B
- * �O��?�o���ϐ��� mutex ���g�p����ׁA������?�̏��������������ʂ��ă��b�N�����B
- * �܂��Atype_info ?���̂ɂ� operator== �����Ȃ��̂� map ���g�����Avector �ɂ��S�������s���B
- * ���ׁ̈Astatic �ϐ��̏��������̂݃p�t�H??���X��?���ɂȂ�B
- * �Ȃ� type_info::name �֐���?�̔�r�ɗp���邱�Ƃ͂ł��Ȃ��B
- * �������O��Ԃ��g���ďd������?�����?�����ꍇ�Atype_info::name �֐��ł͗��҂���ʂł��Ȃ��B
+ * <h3>◎欠点：</h3>
+ * 小さなDLLを exe に付属させなければならない。
+ * グローバル変数の mutex を使用する為、あらゆる型の初期化処理が共通してロックされる。
+ * また、type_info 構造体には operator== しかないので map が使えず、vector による全検索を行う。
+ * この為、static 変数の初期化時のみパフォーマンスが犠牲になる。
+ * なお type_info::name 関数は型の比較に用いることはできない。
+ * 無名名前空間を使って重複する型名を定義した場合、type_info::name 関数では両者を区別できない。
  *
- * <h3>�E�T���v���R?�h</h3>
+ * <h3>・サンプルコード</h3>
  * <pre><code>
 	class MySingleton {
 		friend Singleton<MySingleton>;
@@ -95,27 +95,27 @@ void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction
 template<typename T>
 class Singleton {
 public:
-	/// �V���O���g���C���X?���X�̎擾
+	/// 싱글톤 인스턴스 취득
 	static T& get() {
 		static T* instance = nullptr;
 
 		if (!instance) {
-			// ���̊֐��͕�������s����Ă����܂�Ȃ�
+			// 이 함수는 복수회 실행되어도 괜찮다.
 			instance = static_cast<T*>(::balor::detail::getSingletonInstance(typeid(T), Singleton<T>::createInstance));
-			// lock �Ƀ������o���A���܂܂��̂Ń������œK���͂���Ȃ�
+			// lock 으로 메모리 베리어가 포함되므로 메모리 최적화는 되지 않는다
 		}
 		return *instance;
 	}
 
-	// ���C�u������?��?�X���b�h�Ŏg��Ȃ����ADLL �v���W�F�N�g���g��Ȃ��Ƃ����ꍇ�͂��̎����ŗǂ��B�ȒP�ȃA�v���P?�V�����̂قƂ�ǂɓ��Ă͂܂邾�낤�B
-	// ���邢�� C++0x �Ɋ��S��?�������R���p�C���ł���΂��̎�����?��?�X���b�h�͖�肪�����Ȃ�B
+	// ライブラリをマルチスレッドで使わないし、DLL プロジェクトも使わないという場合はこの実装で良い。簡単なアプリケーションのほとんどに当てはまるだろう。
+	// あるいは C++0x に完全に準拠したコンパイラであればこの実装でマルチスレッドは問題が無くなる。
 	//static T& get() {
 	//	static T instance;
 	//	return instance;
 	//}
 
 
-private: // ��؂̐����A�R�s?�A�j�����ւ���
+private: // 절대 생성, 복사, 파괴를 금지한다
 	Singleton();
 	Singleton(const Singleton& );
 	~Singleton();

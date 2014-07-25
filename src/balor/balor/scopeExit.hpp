@@ -1,18 +1,18 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
 
 
 namespace detail {
-/// scopeExit ‚Åg‚¤ŠÖ”ÀsƒNƒ‰ƒXB
+/// scopeExit ë¥¼ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰ í´ë˜ìŠ¤
 template<typename Function>
 class ScopeExitFunctionHolder {
 public:
 	ScopeExitFunctionHolder(const Function& function) : function(function) {
 	}
 	ScopeExitFunctionHolder(const ScopeExitFunctionHolder& value) : function(value.function) {
-		static_assert(false, "RVO (Return Value Optimization) is indispensable!"); // –ß‚è’lÅ“K‰»‚³‚ê‚È‚©‚Á‚½‚ç“ñ‰ñŠÖ”‚ªŒÄ‚Î‚ê‚Ä‚µ‚Ü‚¤‚Ì‚ÅƒGƒ‰?‚É‚·‚é
+		static_assert(false, "RVO (Return Value Optimization) is indispensable!"); // ë°˜í™˜ê°’ ìµœì í™” ë˜ì§€ ì•ŠëŠ”ë‹¤ë©´ ì´ì¤‘ í•¨ìˆ˜ í˜¸ì¶œì´ë˜ë¯€ë¡œ ì—ëŸ¬ê°€ ëœë‹¤.
 	}
 	~ScopeExitFunctionHolder() {
 		function();
@@ -34,19 +34,19 @@ template<typename Function>
 #if defined BALOR_DETAIL_CAT_STRING
 #error BALOR_DETAIL_CAT_STRING macro is already defined
 #endif
-/// ?ƒNƒ’è”‚àŠÜ‚ß‚Ä•¶š—ñ‚ğ˜AŒ‹‚·‚é?ƒNƒŠÖ”
+/// ë©”í¬ë¡œ ì •ìˆ˜ë„ í¬í•¨í•˜ì—¬ ë¬¸ìì—´ì„ ì—°ê²°í•˜ëŠ” ë§¤í¬ë¡œ í•¨ìˆ˜
 #define BALOR_DETAIL_CAT_STRING(a, b) BALOR_DETAIL_CAT_STRING_IMPL(a, b)
 #define BALOR_DETAIL_CAT_STRING_IMPL(a, b) a ## b
 
 
 /**
- * ŠÖ”ƒIƒuƒWƒFƒNƒg‚ğƒfƒXƒgƒ‰ƒNƒg‚ÉÀs‚·‚éƒIƒuƒWƒFƒNƒg‚ğ©“®¶¬‚·‚é?ƒNƒŠÖ”B
+ * í•¨ìˆ˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ì†Œë©¸í•  ë•Œ ì‹¤í–‰í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ìë™ìƒì„±í•˜ëŠ” ë§¤í¬ë¡œ í•¨ìˆ˜
  *
- * boost/scope_exit.hpp ‚Æ‚¾‚¢‚½‚¢“¯‚¶B‚¢‚í‚ä‚é RAII ƒCƒfƒBƒI?‚Ég—p‚·‚éB
- * ‚±‚Ì‹°‚ë‚µ‚¢?ƒNƒ‚ÍƒvƒƒOƒ‰?‚Ì scopeExit ‚Æ‚¢‚¤’PŒê‚ğ‘S‚Ä‘‚«Š·‚¦‚Ä‚µ‚Ü‚¤‚Ì‚ÅŒˆ‚µ‚Äƒwƒb?ƒt?ƒCƒ‹‚É include ‚µ‚Ä‚Í‚È‚ç‚È‚¢B
- * À‘•‚ÍƒRƒ“ƒpƒCƒ‰‚Ì–ß‚è’lÅ“K‰»‚Ì‹““®‚ÉˆË‘¶‚µ‚Ä‚¨‚èA–ß‚è’lÅ“K‰»‚³‚ê‚È‚©‚Á‚½ê‡‚ğ static_assert ‚ÅŒŸo‚µ‚Ä‚¢‚éB
+ * boost/scope_exit.hpp ì™€ ëŒ€ë¶€ë¶„ ë¹„ìŠ·í•˜ë‹¤. ì´ë¥¼í…Œë©´ RAII ì´ë°ì›€ì„ ì‚¬ìš©í•œë‹¤.
+ * ì´ ë¬´ì„œìš´ ë§¤í¬ë¡œëŠ” í”„ë¡œê·¸ë¨ì˜ scopeExit ë¼ëŠ” ë‹¨ì–´ë¥¼ ëª¨ë‘ ë‹¤ì‹œ ì ì–´ì„œ ì ˆëŒ€ í—¤ë” íŒŒì¼ì— include í•´ì„œëŠ” ì•ˆëœë‹¤.
+ * ì‚¬ì‹¤ ì»´íŒŒì¼ëŸ¬ ë°˜í™˜ê°’ ìµœì í™” í–‰ë™ì— ì˜ì¡´í•˜ì—¬ ë°˜í™˜ê°’ ìµœì í™”ê°€ ë˜ì§€ ì•ŠëŠ” ê²½ìš°ëŠ” static_assertë¥¼ ê²€ì¶œí•˜ê³  ìˆë‹¤.
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
+ * <h3>ìƒ˜í”Œ ì½”ë“œ</h3>
  * <pre><code>
 	Debug::enableMemoryLeakCheck();
 	try {
@@ -55,7 +55,7 @@ template<typename Function>
 			delete [] buffer;
 		});
 		throw 0;
-	} catch (...) { // ‚±‚±‚Åƒƒ‚ƒŠŠJ•ú‚³‚ê‚Ä‚¢‚éB
+	} catch (...) { // ì—¬ê¸°ì—ì„œ ë©”ëª¨ë¦¬ í•´ì œëœë‹¤
 	}
  * </code></pre>
  */

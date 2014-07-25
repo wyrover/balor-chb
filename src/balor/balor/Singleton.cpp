@@ -1,4 +1,4 @@
-#include "Singleton.hpp"
+ï»¿#include "Singleton.hpp"
 
 #include <typeinfo>
 #define BOOST_DATE_TIME_NO_LIB
@@ -38,24 +38,24 @@ public:
 };
 
 
-recursive_mutex& getSingletonMutex() { // mutex ‚ğƒOƒ?ƒoƒ‹•Ï”‰Šú‰»ˆ—‚©‚ç‚àg‚¦‚é‚æ‚¤‚ÉŠÖ”‚©‚çæ“¾‚·‚é‚æ‚¤‚É‚µ‚Ä‚¨‚­
-	static recursive_mutex singletonMutex; // ‚±‚ÌƒCƒ“ƒX?ƒ“ƒX‚Í DLL ‚²‚Æ‚Éì¬‚³‚ê‚éB‰Šú‰»ˆ—‚Ì’†‚Å‚³‚ç‚É‘¼‚Ì?‚Ì Singleton ‚ğì¬‚Å‚«‚é‚æ‚¤‚É recursive_mutex ‚É‚µ‚Ä‚¨‚­B
+recursive_mutex& getSingletonMutex() { // mutex ë¥¼ ì „ì—­ ë³€ìˆ˜ ì´ˆê¸°í™”ì—ì„œë„ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ í•¨ìˆ˜ì—ì„œ ì–»ë„ë¡ í•œë‹¤.
+	static recursive_mutex singletonMutex; // ì´ ì¸ìŠ¤í„´ìŠ¤ëŠ” DLL ë§ˆë‹¤ ë§Œë“¤ì–´ì§„ë‹¤. ì´ˆê¸°í™” ì²˜ë¦¬ ì¤‘ì—ì„œ ë‹¤ë¥¸ í˜•ì˜ Singleton ì„ ë§Œë“¤ ìˆ˜ ìˆë„ë¡ recursive_mutexë¡œ í•¸ë‘”ë‹¤
 	return singletonMutex;
 }
 
 
-recursive_mutex& singletonMutex = getSingletonMutex(); // ‚±‚ÌƒOƒ?ƒoƒ‹•Ï”‚Å?ƒ‹?ƒXƒŒƒbƒh‚ÅƒAƒNƒZƒX‚µ‚½‚Ì mutex ‚Ì‰Šú‰»‚ª•ÛØ‚³‚ê‚éBiƒOƒ?ƒoƒ‹•Ï”‚Ì‰Šú‰»ˆ—‚Å?ƒ‹?ƒXƒŒƒbƒh‚É‚È‚Á‚½‚è‚Í‚·‚Ü‚¢j
+recursive_mutex& singletonMutex = getSingletonMutex(); // ì´ ì „ì—­ ë³€ìˆ˜ë¡œ ë©€í‹°ìŠ¤ë ˆë“œì—ì„œ ì ‘ê·¼í–ˆì„ ë•Œ mutex ì´ˆê¸°í™”ê°€ ë³´ì¦ëœë‹¤.
 } // namespace
 
 
 
 void* getSingletonInstance(const type_info& info, void* (*createInstanceFunction)()) {
-	recursive_mutex::scoped_lock lock(getSingletonMutex()); // mutex ‚ÌƒCƒ“ƒX?ƒ“ƒX‚Í DLL ‚²‚Æ‚Éì¬‚³‚ê‚é‚Ì‚Å—Bˆê‚Å‚Í‚È‚­ DLL ‚²‚Æ‚ÉƒƒbƒN‚³‚ê‚Ä‚µ‚Ü‚¤B
-	static BalorSingletonModule module; // ‚±‚ÌƒCƒ“ƒX?ƒ“ƒX‚Í DLL ‚²‚Æ‚Éì¬‚³‚ê‚é‚Ì‚Å DLL ‚²‚Æ‚ÌƒƒbƒN‚Å–â‘è‚È‚¢BLoadLibrary ‚Í’P‚É DLL ‚²‚Æ‚ÉƒJƒEƒ“?‚ğ‘‚â‚·‚¾‚¯B
+	recursive_mutex::scoped_lock lock(getSingletonMutex()); // mutex ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ DLL ã”ã¨ã«ä½œæˆã•ã‚Œã‚‹ã®ã§å”¯ä¸€ã§ã¯ãªã DLL ã”ã¨ã«ãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã—ã¾ã†ã€‚
+	static BalorSingletonModule module; // ã“ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ DLL ã”ã¨ã«ä½œæˆã•ã‚Œã‚‹ã®ã§ DLL ã”ã¨ã®ãƒ­ãƒƒã‚¯ã§å•é¡Œãªã„ã€‚LoadLibrary ã¯å˜ã« DLL ã”ã¨ã«ã‚«ã‚¦ãƒ³ã‚¿ã‚’å¢—ã‚„ã™ã ã‘ã€‚
 	if (module.empty()) {
-		return (*createInstanceFunction)(); // balor_singletone.dll ‚ª–³‚¢ê‡‚Í DLL ‚ğg‚í‚È‚¢‚Æ‚İ‚È‚·B‚æ‚Á‚ÄƒƒbƒN‚Í—Bˆê‚Å‚ ‚èA‚±‚ÌŠÖ”‚ğ’´‚¦‚Äƒƒ‚ƒŠÅ“K‰»‚Í‹N‚«‚È‚¢‚Ì‚ÅŒÄ‚Ño‚µŒ³‚Åƒƒ‚ƒŠƒoƒŠƒA‚Í•K—v‚È‚¢B
+		return (*createInstanceFunction)(); // balor_singletone.dll ãŒç„¡ã„å ´åˆã¯ DLL ã‚’ä½¿ã‚ãªã„ã¨ã¿ãªã™ã€‚ã‚ˆã£ã¦ãƒ­ãƒƒã‚¯ã¯å”¯ä¸€ã§ã‚ã‚Šã€ã“ã®é–¢æ•°ã‚’è¶…ãˆã¦ãƒ¡ãƒ¢ãƒªæœ€é©åŒ–ã¯èµ·ããªã„ã®ã§å‘¼ã³å‡ºã—å…ƒã§ãƒ¡ãƒ¢ãƒªãƒãƒªã‚¢ã¯å¿…è¦ãªã„ã€‚
 	} else {
-		return module.getSingletonInstance(info, createInstanceFunction); // ‚±‚ÌŠÖ”ˆ—‚ÍŒÄ‚Ño‚µæ‚Ì DLL “à‚Å‚ ‚ç‚½‚ß‚ÄƒƒbƒN‚³‚ê‚éB
+		return module.getSingletonInstance(info, createInstanceFunction); // ã“ã®é–¢æ•°å‡¦ç†ã¯å‘¼ã³å‡ºã—å…ˆã® DLL å†…ã§ã‚ã‚‰ãŸã‚ã¦ãƒ­ãƒƒã‚¯ã•ã‚Œã‚‹ã€‚
 	}
 }
 
