@@ -1,4 +1,4 @@
-#include "Graphics.hpp"
+ï»¿#include "Graphics.hpp"
 
 #include <algorithm>
 #include <memory>
@@ -87,7 +87,7 @@ inline double angleToRadian(double angle) {
 } 
 
 
-// ŒÊ‚ğ•`‰æ‚·‚éGDIŠÖ”Œü‚¯‚ÉAŠJnŠp“x‚ÆŒÊ‚ÌŠp“x•‚©‚çAŠJn“_‚ÆI—¹“_‚ğ‹‚ß‚é
+// å¼§ã‚’æç”»ã™ã‚‹GDIé–¢æ•°å‘ã‘ã«ã€é–‹å§‹è§’åº¦ã¨å¼§ã®è§’åº¦å¹…ã‹ã‚‰ã€é–‹å§‹ç‚¹ã¨çµ‚äº†ç‚¹ã‚’æ±‚ã‚ã‚‹
 inline void calculateArcStartAndEnd(const Rectangle& rectangle, double startAngle, double sweepAngle, Point& start, Point& end) {
 	const double radiusX = static_cast<double>(rectangle.width ) / 2;
 	const double radiusY = static_cast<double>(rectangle.height) / 2;
@@ -130,7 +130,7 @@ bool Graphics::CopyOperation::_validate(CopyOperation /*value*/) {
 ////		case whiteness         : return true;
 //		default                : return false;
 //	}
-	return true; // ‘g‚İ‡‚í‚¹•û‚ª‚ ‚è‚·‚¬‚Ä‚í‚©‚ç‚È‚¢
+	return true; // çµ„ã¿åˆã‚ã›æ–¹ãŒã‚ã‚Šã™ãã¦ã‚ã‹ã‚‰ãªã„
 }
 
 
@@ -203,7 +203,7 @@ Graphics::Graphics(HBITMAP bitmap) : _owned(true) {
 
 	_handle = CreateCompatibleDC(0);
 	assert("Failed to CreateCompatibleDC" && _handle);
-	verify(SelectObject(_handle, bitmap)); // ¸”s‚·‚é‚È‚çbitmapƒnƒ“ƒhƒ‹‚ª—LŒø‚Å‚Í‚È‚¢‚©AŠù‚ÉSelectObject‚³‚ê‚Ä‚¢‚é
+	verify(SelectObject(_handle, bitmap)); // å¤±æ•—ã™ã‚‹ãªã‚‰bitmapãƒãƒ³ãƒ‰ãƒ«ãŒæœ‰åŠ¹ã§ã¯ãªã„ã‹ã€æ—¢ã«SelectObjectã•ã‚Œã¦ã„ã‚‹
 }
 
 
@@ -269,7 +269,7 @@ bool Graphics::backTransparent(bool value) const {
 
 //int Graphics::bitsPerPixel() const {
 //	assert("Null Graphics handle" && *this);
-//	return GetDeviceCaps(*this, BITSPIXEL); // ‚Ç‚ñ‚ÈƒtƒH[ƒ}ƒbƒg‚Ì‰æ‘œ‚©‚çì¬‚µ‚Ä‚à‰æ–Ê‚Æ“¯‚¶ƒrƒbƒg[“x‚ª‹A‚é
+//	return GetDeviceCaps(*this, BITSPIXEL); // ã©ã‚“ãªãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ç”»åƒã‹ã‚‰ä½œæˆã—ã¦ã‚‚ç”»é¢ã¨åŒã˜ãƒ“ãƒƒãƒˆæ·±åº¦ãŒå¸°ã‚‹
 //}
 
 
@@ -315,10 +315,10 @@ void Graphics::blend(const Rectangle& dstRect, HDC src, const Rectangle& srcRect
 void Graphics::blend(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, float alpha, bool srcAlphaChannel) {
 	assert("Null Graphics handle" && *this);
 	assert("Null src handle" && src);
-	assert("Mirror copy not supported" && 0 <= dstWidth ); // AlphaBlend ‚Ì”½“]ƒRƒs[‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢
-	assert("Mirror copy not supported" && 0 <= dstHeight); // AlphaBlend ‚Ì”½“]ƒRƒs[‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢
-	assert("Mirror copy not supported" && 0 <= srcWidth ); // AlphaBlend ‚Ì”½“]ƒRƒs[‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢
-	assert("Mirror copy not supported" && 0 <= srcHeight); // AlphaBlend ‚Ì”½“]ƒRƒs[‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢
+	assert("Mirror copy not supported" && 0 <= dstWidth ); // AlphaBlend ã®åè»¢ã‚³ãƒ”ãƒ¼ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„
+	assert("Mirror copy not supported" && 0 <= dstHeight); // AlphaBlend ã®åè»¢ã‚³ãƒ”ãƒ¼ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„
+	assert("Mirror copy not supported" && 0 <= srcWidth ); // AlphaBlend ã®åè»¢ã‚³ãƒ”ãƒ¼ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„
+	assert("Mirror copy not supported" && 0 <= srcHeight); // AlphaBlend ã®åè»¢ã‚³ãƒ”ãƒ¼ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„
 	const BYTE byteAlpha = static_cast<BYTE>(max(0, min(255, static_cast<int>(alpha * 255 + 0.5f))));
 	BLENDFUNCTION function = {AC_SRC_OVER, 0, byteAlpha, 0};
 	if (srcAlphaChannel) {
@@ -486,7 +486,7 @@ void Graphics::copy(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, in
 	assert("Null src handle" && src);
 	assert("Invalid Graphics::CopyOperation" && CopyOperation::_validate(operation));
 
-	if (dstWidth  < 0 && srcWidth  < 0) { // ‚±‚Ìˆ—‚ğ‚µ‚È‚¢‚Æ”½“]‘ÅÁ‚µ‚Ìê‡‚É•\¦ˆÊ’u‚ª‚¸‚ê‚é
+	if (dstWidth  < 0 && srcWidth  < 0) { // ã“ã®å‡¦ç†ã‚’ã—ãªã„ã¨åè»¢æ‰“æ¶ˆã—ã®å ´åˆã«è¡¨ç¤ºä½ç½®ãŒãšã‚Œã‚‹
 		dstWidth  = -dstWidth;
 		srcWidth  = -srcWidth;
 	}
@@ -535,16 +535,16 @@ int Graphics::dpiY() const {
 void Graphics::drawArc(const Rectangle& rect, float startAngle, float sweepAngle) {
 	assert("Null Graphics handle" && *this);
 
-	if (rect.width <= 0 || rect.height <= 0) { // ”¼Œa‚O‚È‚Ì‚É“_‚ªc‚é‚Ì‚ğ–h‚®
+	if (rect.width <= 0 || rect.height <= 0) { // åŠå¾„ï¼ãªã®ã«ç‚¹ãŒæ®‹ã‚‹ã®ã‚’é˜²ã
 		return;
 	}
 	const float absSweepAngle = abs(sweepAngle);
-	if (absSweepAngle < FLT_EPSILON) { // •`‰æŠp“x‚O‚È‚Ì‚É“_‚ªc‚é‚Ì‚ğ–h‚®
+	if (absSweepAngle < FLT_EPSILON) { // æç”»è§’åº¦ï¼ãªã®ã«ç‚¹ãŒæ®‹ã‚‹ã®ã‚’é˜²ã
 		return;
 	}
-	if (360.f - FLT_EPSILON < absSweepAngle) { // ‰~‚ğ•`‚±‚¤‚Æ‚·‚é‚ÆŠJn“_‚ÆI—¹“_‚ªd‚È‚Á‚Ä‚µ‚Ü‚¤
+	if (360.f - FLT_EPSILON < absSweepAngle) { // å††ã‚’æã“ã†ã¨ã™ã‚‹ã¨é–‹å§‹ç‚¹ã¨çµ‚äº†ç‚¹ãŒé‡ãªã£ã¦ã—ã¾ã†
 		float delta = 0.f <= sweepAngle ? 180.f : -180.f;
-		drawArc(rect, startAngle, delta); // ”¼‰~‚¸‚Â•`‚­
+		drawArc(rect, startAngle, delta); // åŠå††ãšã¤æã
 		drawArc(rect, startAngle + delta, delta);
 	} else {
 		Point start, end;

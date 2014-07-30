@@ -1,4 +1,4 @@
-#include "GdiplusInitializer.hpp"
+ï»¿#include "GdiplusInitializer.hpp"
 
 #include <utility>
 #define BOOST_DATE_TIME_NO_LIB
@@ -7,7 +7,7 @@
 
 #include <balor/test/verify.hpp>
 #define ENABLE_WIN32_LEAN_AND_MEAN
-#define ENABLE_MINMAX // gdiplus.h‚ª’†‚Åmin, maxƒ}ƒNƒ‚ğg‚Á‚Ä‚¢‚éI
+#define ENABLE_MINMAX // gdiplus.hãŒä¸­ã§min, maxãƒã‚¯ãƒ­ã‚’ä½¿ã£ã¦ã„ã‚‹ï¼
 #include <balor/system/windows.hpp>
 #include <balor/Singleton.hpp>
 
@@ -54,7 +54,7 @@ void GdiplusInitializer::initialize() {
 
 
 bool GdiplusInitializer::initialized() {
-	return Singleton<Global>::get().initialized; // —á‚¦‚±‚ÌŠÖ”‚ğ“¯Šú‚µ‚½‚Æ‚µ‚Ä‚àŠÖ”‚©‚ç‹A‚Á‚½Œã‚É‚¢‚Â•Ï‰»‚·‚é‚Æ‚àŒÀ‚ç‚È‚¢
+	return Singleton<Global>::get().initialized; // ä¾‹ãˆã“ã®é–¢æ•°ã‚’åŒæœŸã—ãŸã¨ã—ã¦ã‚‚é–¢æ•°ã‹ã‚‰å¸°ã£ãŸå¾Œã«ã„ã¤å¤‰åŒ–ã™ã‚‹ã¨ã‚‚é™ã‚‰ãªã„
 }
 
 

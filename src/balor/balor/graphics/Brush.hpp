@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/NonCopyable.hpp>
@@ -15,65 +15,65 @@ class Color;
 
 
 /**
- * GDI �u���V��\���B
- */
+* GDI ブラシを表す。
+*/
 class Brush : private NonCopyable {
 public:
 	typedef ::HBITMAP__* HBITMAP;
 	typedef ::HBRUSH__* HBRUSH;
 
-	/// �n�b�`�u���V�̎�ށB
+	/// ハッチブラシの種類。
 	struct Hatch {
 		enum _enum {
-			none             = -1, /// �P�F�u���V
-			horizontal       =  0, /// ���Ȗ͗l�B
-			vertical         =  1, /// �c�Ȗ͗l�B
-			forwardDiagonal  =  2, /// �S�T�x�E�オ��Ȗ͗l�B
-			backwardDiagonal =  3, /// �S�T�x�E������Ȗ͗l�B
-			cross            =  4, /// �c���Ȗ͗l�B
-			diagonalCross    =  5, /// �S�T�x�E�オ��E����������Ȗ͗l�B
+			none = -1, /// 単色ブラシ
+			horizontal = 0, /// 横縞模様。
+			vertical = 1, /// 縦縞模様。
+			forwardDiagonal = 2, /// ４５度右上がり縞模様。
+			backwardDiagonal = 3, /// ４５度右下がり縞模様。
+			cross = 4, /// 縦横縞模様。
+			diagonalCross = 5, /// ４５度右上がり右下がり交差縞模様。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Hatch);
 	};
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Brush();
 	Brush(Brush&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit Brush(HBRUSH handle, bool owned = false);
-	/// �r�b�g�}�b�v����p�^�[���u���V���쐬����B�쐬��A�r�b�g�}�b�v�n���h���͎Q�Ƃ���Ȃ��B
+	/// ビットマップからパターンブラシを作成する。作成後、ビットマップハンドルは参照されない。
 	explicit Brush(HBITMAP bitmap);
-	/// �F�ƃn�b�`�̎�ނ���P�F�u���V�܂��̓n�b�`�u���V���쐬����B
+	/// 色とハッチの種類から単色ブラシまたはハッチブラシを作成する。
 	explicit Brush(const Color& color, Brush::Hatch hatch = Hatch::none);
 	~Brush();
 
 	Brush& operator=(Brush&& value);
 
 public:
-	/// �p�^�[���u���V�̃r�b�g�}�b�v��Ԃ��B�p�^�[���u���V�łȂ��ꍇ�̓k���n���h���̃r�b�g�}�b�v���Ԃ�B
+	/// パターンブラシのビットマップを返す。パターンブラシでない場合はヌルハンドルのビットマップが返る。
 	Bitmap bitmap() const;
-	/// �������ĕԂ��B
+	/// 複製して返す。
 	Brush clone() const;
 	static Brush clone(HBRUSH handle);
-	/// �P�F�܂��̓n�b�`�u���V�̐F�B�p�^�[���u���V�̏ꍇ�͖��Ӗ��B
+	/// 単色またはハッチブラシの色。パターンブラシの場合は無意味。
 	Color color() const;
-	/// �n�b�`�u���V�̎�ނ�Ԃ��B
+	/// ハッチブラシの種類を返す。
 	Brush::Hatch hatch() const;
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
 
-public: // �V�X�e���u���V�ꗗ
-	/// �����u���V�B
+public: // システムブラシ一覧
+	/// 白いブラシ。
 	static Brush white();
-	/// ���邢�D�F�u���V�B
+	/// 明るい灰色ブラシ。
 	static Brush lightGray();
-	/// �Â��D�F�u���V�B
+	/// 暗い灰色ブラシ。
 	static Brush darkGray();
-	/// �����u���V�B
+	/// 黒いブラシ。
 	static Brush black();
-	/// �`�悵�Ȃ��u���V�B
+	/// 描画しないブラシ。
 	static Brush hollow();
 
 	static Brush activeBorder();
@@ -108,7 +108,7 @@ public: // �V�X�e���u���V�ꗗ
 	static Brush windowText();
 
 public:
-	/// HBRUSH �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HBRUSH への自動変換 ＆ null チェック用
 	operator HBRUSH() const { return _handle; }
 
 private:

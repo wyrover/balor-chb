@@ -1,4 +1,4 @@
-#include "Brush.hpp"
+ï»¿#include "Brush.hpp"
 
 #include <utility>
 
@@ -68,7 +68,7 @@ Brush::Brush(const Color& color, Brush::Hatch hatch) {
 
 Brush::~Brush() {
 	if (_handle && _owned) {
-		verify(DeleteObject(_handle)); // ƒuƒ‰ƒV‚ªSelectObject‚³‚ê‚½‚Ü‚Ü‚©A‚Ü‚½‚ÍŠù‚É—LŒø‚Èƒnƒ“ƒhƒ‹‚Å‚Í‚È‚¢
+		verify(DeleteObject(_handle)); // ãƒ–ãƒ©ã‚·ãŒSelectObjectã•ã‚ŒãŸã¾ã¾ã‹ã€ã¾ãŸã¯æ—¢ã«æœ‰åŠ¹ãªãƒãƒ³ãƒ‰ãƒ«ã§ã¯ãªã„
 	}
 	//_owned = false;
 	//_handle = nullptr;

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Exception.hpp>
@@ -25,41 +25,41 @@ class Color;
 
 
 /**
- * �A�C�R����\���B
- *
- * TODO: �A�C�R���̃X�g���[���ǂݍ��݁B
- * TODO: �V�X�e���A�C�R���͂ǂ�ȃT�C�Y���w�肵�Ă��W���T�C�Y�ɂȂ��Ă��܂��B
- */
+* アイコンを表す。
+*
+* TODO: アイコンのストリーム読み込み。
+* TODO: システムアイコンはどんなサイズを指定しても標準サイズになってしまう。
+*/
 class Icon : private NonCopyable {
 public:
 	typedef ::HBITMAP__* HBITMAP;
 	typedef ::HICON__* HICON;
 	typedef ::balor::io::Stream Stream;
 
-	/// �t�@�C����������Ȃ������B
+	/// ファイルが見つからなかった。
 	class NotFoundException : public Exception {};
 
-	/// ���[�h�Ɏ��s�����B
+	/// ロードに失敗した。
 	class LoadFailedException : public Exception {};
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Icon();
 	Icon(Icon&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit Icon(HICON handle, bool owned = false);
-	/// �摜�ƃ}�X�N�摜����쐬�B�}�X�N�摜�̓��m�N���r�b�g�}�b�v�Ŕ��������𓧉߂���B�쐬��A�摜�n���h���͎Q�Ƃ���Ȃ��B
-	/// bitmap �� 32 �r�b�g�摜�ł��P�h�b�g�ł��O�ł͂Ȃ��A���t�@�����Ȃ�}�X�N�摜�𖳎����ăA���t�@�`�����l���œ��߂���B
+	/// 画像とマスク画像から作成。マスク画像はモノクロビットマップで白い部分を透過する。作成後、画像ハンドルは参照されない。
+	/// bitmap が 32 ビット画像でかつ１ドットでも０ではないアルファを持つならマスク画像を無視してアルファチャンネルで透過する。
 	Icon(HBITMAP bitmap, HBITMAP mask);
-	/// �摜�ƃJ���[�L�[����쐬�B�J���[�L�[�̐F�̕����𓧉߂���B�쐬��A�摜�n���h���͎Q�Ƃ���Ȃ��B
-	/// bitmap �� 32 �r�b�g�摜�ł��P�h�b�g�ł��O�ł͂Ȃ��A���t�@�����Ȃ�J���[�L�[�𖳎����ăA���t�@�`�����l���œ��߂���B
+	/// 画像とカラーキーから作成。カラーキーの色の部分を透過する。作成後、画像ハンドルは参照されない。
+	/// bitmap が 32 ビット画像でかつ１ドットでも０ではないアルファを持つならカラーキーを無視してアルファチャンネルで透過する。
 	Icon(HBITMAP bitmap, const Color& colorKey);
-	/// �X�g���[���ƃT�C�Y���w�肵�č쐬�Bsize �� Size(0, 0) ���w�肷��ƍŏ��Ɍ��������A�C�R���̌����ō쐬�����B
+	/// ストリームとサイズを指定して作成。size に Size(0, 0) を指定すると最初に見つかったアイコンの原寸で作成される。
 	/*explicit Icon(Stream&& stream, const Size& size = Icon::largeSize());
 	explicit Icon(Stream& stream, const Size& size = Icon::largeSize());
 	Icon(Stream&& stream, int width, int height);
 	Icon(Stream& stream, int width, int height); *//**/
-	/// �t�@�C�����ƃT�C�Y���w�肵�č쐬�Bsize �� Size(0, 0) ���w�肷��ƍŏ��Ɍ��������A�C�R���̌����ō쐬�����B
+	/// ファイル名とサイズを指定して作成。size に Size(0, 0) を指定すると最初に見つかったアイコンの原寸で作成される。
 	explicit Icon(StringRange filePath, const Size& size = Icon::largeSize());
 	Icon(StringRange filePath, int width, int height);
 	~Icon();
@@ -67,55 +67,55 @@ public:
 	Icon& operator=(Icon&& value);
 
 public:
-	/// �A�C�R���̉摜�B
+	/// アイコンの画像。
 	Bitmap bitmap() const;
-	/// �A�C�R���̕�����Ԃ��B
+	/// アイコンの複製を返す。
 	Icon clone() const;
 	static Icon clone(HICON handle);
-	/// �傫�ȃA�C�R���̕W���T�C�Y�B
+	/// 大きなアイコンの標準サイズ。
 	static Size largeSize();
-	/// �A�C�R���̔w�i�𓧉߂��郂�m�N���r�b�g�}�b�v�B���������𓧉߂���B
+	/// アイコンの背景を透過するモノクロビットマップ。白い部分を透過する。
 	Bitmap mask() const;
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
-	/// �X�g���[���ɕۑ�����B
+	/// ストリームに保存する。
 	void save(Stream&& stream) const;
 	void save(Stream& stream) const;
-	/// �t�@�C���ɕۑ�����B
+	/// ファイルに保存する。
 	void save(StringRange filePath) const;
-	/// �����̃A�C�R������̃t�@�C���ɂ܂Ƃ߂ăX�g���[���ɕۑ�����B
+	/// 複数のアイコンを一つのファイルにまとめてストリームに保存する。
 	static void save(ArrayRange<const Icon> icons, Stream&& stream);
 	static void save(ArrayRange<const Icon> icons, Stream& stream);
-	/// �����̃A�C�R������̃t�@�C���ɂ܂Ƃ߂ăt�@�C���ɕۑ�����B
+	/// 複数のアイコンを一つのファイルにまとめてファイルに保存する。
 	static void save(ArrayRange<const Icon> icons, StringRange filePath);
-	/// �A�C�R���̃T�C�Y�B
+	/// アイコンのサイズ。
 	Size size() const;
-	/// �����ȃA�C�R���̕W���T�C�Y�B
+	/// 小さなアイコンの標準サイズ。
 	static Size smallSize();
 
-public: // �V�X�e���A�C�R���ꗗ�B
-	/// �A�v���P�[�V�����A�C�R���B
+public: // システムアイコン一覧。
+	/// アプリケーションアイコン。
 	static Icon application(const Size& size = Icon::largeSize());
-	/// �A�X�^���X�N�A�C�R���B
+	/// アスタリスクアイコン。
 	static Icon asterisk(const Size& size = Icon::largeSize());
-	/// �G���[�A�C�R���B
+	/// エラーアイコン。
 	static Icon error(const Size& size = Icon::largeSize());
-	/// ���Q���A�C�R���B
+	/// 感嘆符アイコン。
 	static Icon exclamation(const Size& size = Icon::largeSize());
-	/// ��̌`�̃A�C�R���B
+	/// 手の形のアイコン。
 	static Icon hand(const Size& size = Icon::largeSize());
-	/// ���A�C�R���B
+	/// 情報アイコン。
 	static Icon information(const Size& size = Icon::largeSize());
-	/// �^�╄�A�C�R���B
+	/// 疑問符アイコン。
 	static Icon question(const Size& size = Icon::largeSize());
-	/// �x���A�C�R���B
+	/// 警告アイコン。
 	static Icon warning(const Size& size = Icon::largeSize());
-	/// Windos ���S�A�C�R���B
+	/// Windos ロゴアイコン。
 	static Icon windowsLogo(const Size& size = Icon::largeSize());
 
 public:
-	/// HICON �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HICON への自動変換 ＆ null チェック用
 	operator HICON() const { return _handle; }
 
 private:

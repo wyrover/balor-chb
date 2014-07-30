@@ -1,4 +1,4 @@
-#include "GraphicsPath.hpp"
+ï»¿#include "GraphicsPath.hpp"
 
 #include <balor/graphics/Font.hpp>
 #include <balor/graphics/Graphics.hpp>
@@ -19,40 +19,40 @@ using std::swap;
 
 
 namespace {
-void getPathData(HDC handle, GraphicsPath::Data& data) {
-	const int size = GetPath(handle, nullptr, nullptr, 0);
-	assert(size != -1);
-	if (0 < size) {
-		data.points.resize(size);
-		data.types.resize(size);
-		verify(GetPath(handle, reinterpret_cast<POINT*>(data.points.data()), data.types.data(), size) == size);
+	void getPathData(HDC handle, GraphicsPath::Data& data) {
+		const int size = GetPath(handle, nullptr, nullptr, 0);
+		assert(size != -1);
+		if (0 < size) {
+			data.points.resize(size);
+			data.types.resize(size);
+			verify(GetPath(handle, reinterpret_cast<POINT*>(data.points.data()), data.types.data(), size) == size);
+		}
+		verify(BeginPath(handle));
+		if (0 < size) { // å–å¾—ã—ãŸãƒ‘ã‚¹ãƒ‡ãƒ¼ã‚¿ã®æ›¸ãæˆ»ã—
+			verify(PolyDraw(handle, reinterpret_cast<const POINT*>(data.points.data()), data.types.data(), size));
+		}
 	}
-	verify(BeginPath(handle));
-	if (0 < size) { // æ“¾‚µ‚½ƒpƒXƒf[ƒ^‚Ì‘‚«–ß‚µ
-		verify(PolyDraw(handle, reinterpret_cast<const POINT*>(data.points.data()), data.types.data(), size));
+
+
+	inline double angleToRadian(double angle) {
+		const double pi = 3.14159265358979323846;
+		return angle * pi / 180;
 	}
-}
 
 
-inline double angleToRadian(double angle) {
-	const double pi = 3.14159265358979323846;
-	return angle * pi / 180;
-} 
-
-
-// ŒÊ‚ğ•`‰æ‚·‚éGDIŠÖ”Œü‚¯‚ÉAŠJnŠp“x‚ÆŒÊ‚ÌŠp“x•‚©‚çAŠJn“_‚ÆI—¹“_‚ğ‹‚ß‚é
-inline void calculateArcStartAndEnd(const Rectangle& rectangle, double startAngle, double sweepAngle, Point& start, Point& end) {
-	const double radiusX = static_cast<double>(rectangle.width ) / 2;
-	const double radiusY = static_cast<double>(rectangle.height) / 2;
-	const double x0 = rectangle.x + rectangle.width  / 2.f + 0.5f;
-	const double y0 = rectangle.y + rectangle.height / 2.f + 0.5f;
-	const double startRadian = angleToRadian(startAngle             );
-	const double endRadian   = angleToRadian(startAngle + sweepAngle);
-	start.x = static_cast<int>(x0 + cos(startRadian) * radiusX);
-	start.y = static_cast<int>(y0 - sin(startRadian) * radiusY);
-	end.x   = static_cast<int>(x0 + cos(endRadian  ) * radiusX);
-	end.y   = static_cast<int>(y0 - sin(endRadian  ) * radiusY);
-}
+	// å¼§ã‚’æç”»ã™ã‚‹GDIé–¢æ•°å‘ã‘ã«ã€é–‹å§‹è§’åº¦ã¨å¼§ã®è§’åº¦å¹…ã‹ã‚‰ã€é–‹å§‹ç‚¹ã¨çµ‚äº†ç‚¹ã‚’æ±‚ã‚ã‚‹
+	inline void calculateArcStartAndEnd(const Rectangle& rectangle, double startAngle, double sweepAngle, Point& start, Point& end) {
+		const double radiusX = static_cast<double>(rectangle.width) / 2;
+		const double radiusY = static_cast<double>(rectangle.height) / 2;
+		const double x0 = rectangle.x + rectangle.width / 2.f + 0.5f;
+		const double y0 = rectangle.y + rectangle.height / 2.f + 0.5f;
+		const double startRadian = angleToRadian(startAngle);
+		const double endRadian = angleToRadian(startAngle + sweepAngle);
+		start.x = static_cast<int>(x0 + cos(startRadian) * radiusX);
+		start.y = static_cast<int>(y0 - sin(startRadian) * radiusY);
+		end.x = static_cast<int>(x0 + cos(endRadian) * radiusX);
+		end.y = static_cast<int>(y0 - sin(endRadian) * radiusY);
+	}
 } // namespace
 
 
@@ -91,7 +91,7 @@ GraphicsPath::GraphicsPath(const Data& data) : _handle(nullptr), _closed(true) {
 
 GraphicsPath::~GraphicsPath() {
 	if (_handle) {
-		verify(AbortPath(_handle)); // ˆÓ–¡‚Í–³‚¢‚©‚à‚µ‚ê‚È‚¢‚ªˆê‰
+		verify(AbortPath(_handle)); // æ„å‘³ã¯ç„¡ã„ã‹ã‚‚ã—ã‚Œãªã„ãŒä¸€å¿œ
 		verify(DeleteDC(_handle));
 		//_handle = nullptr;
 	}
@@ -138,13 +138,13 @@ void GraphicsPath::addArc(int x, int y, int width, int height, float startAngle,
 
 
 void GraphicsPath::addBezier(const Point& p0, const Point& p1, const Point& p2, const Point& p3) {
-	const Point points[] = {p0, p1, p2, p3};
+	const Point points[] = { p0, p1, p2, p3 };
 	addBeziers(points);
 }
 
 
 void GraphicsPath::addBezier(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3) {
-	const Point points[] = {Point(x0, y0), Point(x1, y1), Point(x2, y2), Point(x3, y3)};
+	const Point points[] = { Point(x0, y0), Point(x1, y1), Point(x2, y2), Point(x3, y3) };
 	addBeziers(points);
 }
 
@@ -154,7 +154,8 @@ void GraphicsPath::addBeziers(ArrayRange<const Point> points) {
 	assert("Invalid points size" && 4 <= points.size() && (points.size() % 3) == 1);
 	if (_closed) {
 		verify(MoveToEx(_handle, points[0].x, points[0].y, nullptr));
-	} else {
+	}
+	else {
 		verify(LineTo(_handle, points[0].x, points[0].y));
 	}
 	verify(PolyBezierTo(_handle, reinterpret_cast<const POINT*>(points.begin() + 1), static_cast<DWORD>(points.size() - 1)));
@@ -187,13 +188,13 @@ void GraphicsPath::addEllipse(int x, int y, int width, int height) {
 
 
 void GraphicsPath::addLine(const Point& p0, const Point& p1) {
-	const Point points[] = {p0, p1};
+	const Point points[] = { p0, p1 };
 	addLines(points);
 }
 
 
 void GraphicsPath::addLine(int x0, int y0, int x1, int y1) {
-	const Point points[] = {Point(x0, y0), Point(x1, y1)};
+	const Point points[] = { Point(x0, y0), Point(x1, y1) };
 	addLines(points);
 }
 
@@ -233,7 +234,8 @@ void GraphicsPath::addPie(const Rectangle& rect, float startAngle, float sweepAn
 	}
 	if (360.f - FLT_EPSILON < absSweepAngle) {
 		addEllipse(rect);
-	} else {
+	}
+	else {
 		Point start, end;
 		int oldArcDirection = SetArcDirection(_handle, 0.f < sweepAngle ? AD_COUNTERCLOCKWISE : AD_CLOCKWISE);
 		assert(oldArcDirection);
@@ -355,7 +357,7 @@ void GraphicsPath::flatten() {
 	verify(EndPath(_handle));
 	verify(FlattenPath(_handle));
 	Data data;
-	getPathData(_handle, data); // ˆê“xƒf[ƒ^‰»‚µ‚Ä‘‚«–ß‚·
+	getPathData(_handle, data); // ä¸€åº¦ãƒ‡ãƒ¼ã‚¿åŒ–ã—ã¦æ›¸ãæˆ»ã™
 }
 
 
@@ -407,33 +409,33 @@ void GraphicsPath::widen(HPEN pen) {
 	assert("Null GraphicsPath handle" && _handle);
 	assert("Null pen" && pen);
 
-	const HPEN oldPen = static_cast<HPEN>(SelectObject(_handle, pen)); // 1. ‘¾‚¢ƒyƒ“‚ğİ’è
+	const HPEN oldPen = static_cast<HPEN>(SelectObject(_handle, pen)); // 1. å¤ªã„ãƒšãƒ³ã‚’è¨­å®š
 	assert(oldPen);
 	Data data;
 	verify(EndPath(_handle));
-	getPathData(_handle, data);            // 2.‘¾‚¢ƒyƒ“‚Å‘‚«’¼‚·
-	verify(SelectObject(_handle, oldPen)); // 3.ƒyƒ“‚ğŒ³‚É–ß‚·
+	getPathData(_handle, data);            // 2.å¤ªã„ãƒšãƒ³ã§æ›¸ãç›´ã™
+	verify(SelectObject(_handle, oldPen)); // 3.ãƒšãƒ³ã‚’å…ƒã«æˆ»ã™
 	verify(EndPath(_handle));
-	BOOL result = WidenPath(_handle);      // 4.‘¾‚­‚È‚Á‚½ƒpƒX‚ğ“h‚è‚Â‚Ô‚µ—Ìˆæ‚É•ÏŠ·
-	getPathData(_handle, data);            // 5.•ÏŠ·‚µ‚½—Ìˆæ‚ğ‘‚«’¼‚·
+	BOOL result = WidenPath(_handle);      // 4.å¤ªããªã£ãŸãƒ‘ã‚¹ã‚’å¡—ã‚Šã¤ã¶ã—é ˜åŸŸã«å¤‰æ›
+	getPathData(_handle, data);            // 5.å¤‰æ›ã—ãŸé ˜åŸŸã‚’æ›¸ãç›´ã™
 
-	if (!result) { // ¸”s‚µ‚½‚Ì‚È‚ç‚¨‚»‚ç‚­ƒRƒXƒƒeƒBƒbƒNƒyƒ“‚¾‚Á‚½‚Ì‚ÅƒWƒIƒƒgƒŠƒbƒNƒyƒ“‚Å‘‚«’¼‚·
+	if (!result) { // å¤±æ•—ã—ãŸã®ãªã‚‰ãŠãã‚‰ãã‚³ã‚¹ãƒ¡ãƒ†ã‚£ãƒƒã‚¯ãƒšãƒ³ã ã£ãŸã®ã§ã‚¸ã‚ªãƒ¡ãƒˆãƒªãƒƒã‚¯ãƒšãƒ³ã§æ›¸ãç›´ã™
 		int size = GetObjectW(pen, 0, nullptr);
-		assert("Failed to WidenPath" && sizeof(EXTLOGPEN) < size); // ƒWƒIƒƒgƒŠƒbƒNƒyƒ“‚È‚Ì‚É¸”s‚µ‚½Hiƒ†[ƒUƒ_ƒbƒVƒ…ƒpƒ^[ƒ“‚Ìw’è‚ÍƒWƒIƒƒgƒŠƒbƒNƒyƒ“‚Ì‚İj
+		assert("Failed to WidenPath" && sizeof(EXTLOGPEN) < size); // ã‚¸ã‚ªãƒ¡ãƒˆãƒªãƒƒã‚¯ãƒšãƒ³ãªã®ã«å¤±æ•—ã—ãŸï¼Ÿï¼ˆãƒ¦ãƒ¼ã‚¶ãƒ€ãƒƒã‚·ãƒ¥ãƒ‘ã‚¿ãƒ¼ãƒ³ã®æŒ‡å®šã¯ã‚¸ã‚ªãƒ¡ãƒˆãƒªãƒƒã‚¯ãƒšãƒ³ã®ã¿ï¼‰
 		EXTLOGPEN info;
 		ZeroMemory(&info, sizeof(info));
 		verify(GetObjectW(pen, size, &info));
-		assert("Failed to WidenPath" && (info.elpPenStyle & PS_GEOMETRIC) != 0); // ƒWƒIƒƒgƒŠƒbƒNƒyƒ“‚È‚Ì‚É¸”s‚µ‚½H
+		assert("Failed to WidenPath" && (info.elpPenStyle & PS_GEOMETRIC) != 0); // ã‚¸ã‚ªãƒ¡ãƒˆãƒªãƒƒã‚¯ãƒšãƒ³ãªã®ã«å¤±æ•—ã—ãŸï¼Ÿ
 		info.elpPenStyle |= PS_GEOMETRIC;
 
 		LOGBRUSH logbrush;
 		logbrush.lbStyle = info.elpBrushStyle;
-		logbrush.lbColor = info.elpColor     ;
-		logbrush.lbHatch = info.elpHatch     ;
-		HPEN geometricPen= ExtCreatePen(info.elpPenStyle, info.elpWidth, &logbrush, 0, nullptr);
+		logbrush.lbColor = info.elpColor;
+		logbrush.lbHatch = info.elpHatch;
+		HPEN geometricPen = ExtCreatePen(info.elpPenStyle, info.elpWidth, &logbrush, 0, nullptr);
 		assert(geometricPen);
-		scopeExit([&] () {
-			verify(DeleteObject(geometricPen)); 
+		scopeExit([&]() {
+			verify(DeleteObject(geometricPen));
 		});
 		widen(geometricPen);
 	}

@@ -1,6 +1,5 @@
-#pragma once
+ï»¿#pragma once
 
-/// balor À‘•‚ÌªŠ²‚Æ‚È‚éƒNƒ‰ƒXŒQ
 namespace balor {
 }
 
@@ -15,7 +14,6 @@ namespace balor {
 #include <balor/Point.hpp>
 #include <balor/Rectangle.hpp>
 #include <balor/Reference.hpp>
-//#include <balor/scopeExit.hpp> // ƒ}ƒNƒ‚È‚Ì‚Åˆê‰œŠO‚µ‚Ä‚¨‚­
 #include <balor/Singleton.hpp>
 #include <balor/Size.hpp>
 #include <balor/String.hpp>

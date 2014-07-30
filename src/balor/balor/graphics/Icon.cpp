@@ -1,4 +1,4 @@
-#include "Icon.hpp"
+ï»¿#include "Icon.hpp"
 
 #include <utility>
 #include <olectl.h>
@@ -86,32 +86,6 @@ Icon::Icon(HBITMAP bitmap, const Color& colorKey) : _handle(nullptr), _owned(tru
 }
 
 
-//// ‚Ç‚¤‚É‚à‚¨‚©‚µ‚¢BLoadImageŠÖ”‚ğg‚Á‚½ê‡‚ÆŒ‹‰Ê‚ªˆá‚¤B
-//Icon::Icon(Stream& stream) : _handle(nullptr), _owned(false) {
-//	assert("stream read unsupported" && stream.canRead());
-//
-//	{
-//		StreamBridge bridge(stream);
-//		IPicture* picture = nullptr;
-//		const HRESULT result = OleLoadPicture(&bridge, 0, FALSE, IID_IPicture, reinterpret_cast<LPVOID*>(&picture));
-//		if (!FAILED(result)) {
-//			auto releaser = scopeExit([&] () { picture->Release(); });
-//			SHORT type = 0;
-//			verify(SUCCEEDED(picture->get_Type(&type)));
-//			if (type != PICTYPE_ICON) {
-//				throw FileFormatException(L"failed to load Icon");
-//			}
-//			HICON icon = nullptr;
-//			verify(SUCCEEDED(picture->get_Handle(reinterpret_cast<OLE_HANDLE*>(&icon))));// ‚±‚Ìƒnƒ“ƒhƒ‹‚Ípicture‚ª”jŠü‚³‚ê‚é‚Éˆê‚É”jŠü‚³‚ê‚é‚©‚çƒRƒs[‚ª•K—viƒƒ‚ƒŠÁ”ï“ñ”{j
-//			*this = Icon(icon);
-//		}
-//		if (result == E_OUTOFMEMORY) {
-//			throw OutOfMemoryException(L"failed to OleLoadPicture");
-//		}
-//	}
-//}
-
-
 Icon::Icon(StringRange filePath, const Size& size) : _handle(nullptr), _owned(false) {
 	assert("Empty filePath" && !filePath.empty());
 
@@ -121,9 +95,9 @@ Icon::Icon(StringRange filePath, const Size& size) : _handle(nullptr), _owned(fa
 
 	const HINSTANCE instance = GetModuleHandleW(nullptr);
 	assert(instance);
-	/// ƒTƒCƒY‚É‚à‚Á‚Æ‚à‹ß‚¢ƒAƒCƒRƒ“‚ğæ‚Á‚Ä‚³‚ç‚ÉŠgk‚·‚é
+	/// ã‚µã‚¤ã‚ºã«ã‚‚ã£ã¨ã‚‚è¿‘ã„ã‚¢ã‚¤ã‚³ãƒ³ã‚’å–ã£ã¦ã•ã‚‰ã«æ‹¡ç¸®ã™ã‚‹
 	_handle = static_cast<HICON>(LoadImageW(instance, filePath.c_str(), IMAGE_ICON, size.width, size.height, LR_LOADFROMFILE));
-	if (!_handle) { // FileFormatException ‚ğŒŸo‚µ‚½‚¢‚ª GetLastError ‚Í 0 ‚ª•Ô‚é‚æ‚¤‚¾B
+	if (!_handle) { // FileFormatException ã‚’æ¤œå‡ºã—ãŸã„ãŒ GetLastError ã¯ 0 ãŒè¿”ã‚‹ã‚ˆã†ã 
 		throw LoadFailedException();
 	}
 	_owned = true;
@@ -224,33 +198,33 @@ void Icon::save(ArrayRange<const Icon> icons, Stream& stream) {
 	assert("Empty icons" && !icons.empty());
 	assert("Can't write stream" && stream.writable());
 
-	// ƒAƒCƒRƒ“iƒJ[ƒ\ƒ‹j‚ª n ŒÂŠÜ‚Ü‚ê‚éƒAƒCƒRƒ“iƒJ[ƒ\ƒ‹jƒtƒ@ƒCƒ‹‚Ì\‘¢‚ÍˆÈ‰º‚Ì’Ê‚èB 
+	// ã‚¢ã‚¤ã‚³ãƒ³ï¼ˆã‚«ãƒ¼ã‚½ãƒ«ï¼‰ãŒ n å€‹å«ã¾ã‚Œã‚‹ã‚¢ã‚¤ã‚³ãƒ³ï¼ˆã‚«ãƒ¼ã‚½ãƒ«ï¼‰ãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹é€ ã¯ä»¥ä¸‹ã®é€šã‚Šã€‚ 
 	//
-	// IconDir + IconDirEntry * n + DIB ƒrƒbƒgƒ}ƒbƒvƒf[ƒ^ * n
+	// IconDir + IconDirEntry * n + DIB ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ * n
 	// 
-	// DIB ƒrƒbƒgƒ}ƒbƒvƒf[ƒ^‚Í BITMAPINFOHEADER ‚©‚çn‚Ü‚Á‚Ä RGBQUAD ‚ÌƒpƒŒƒbƒgƒe[ƒuƒ‹AƒrƒNƒZƒ‹ƒf[ƒ^‚Æ‘±‚­
-	// ˆê”Ê“I‚È DIB ƒf[ƒ^\‘¢‚¾‚ªABITMAPINFOHEADER ‚Ìƒƒ“ƒo‚Í biSize, biWidth, biHeight, biPlanes, biBitCount, biSizeImage ˆÈŠO‘S‚Ä‚O‚Å‚ ‚èA
-	// ‚Ü‚½ƒsƒNƒZƒ‹ƒf[ƒ^‚ÌŒã‚É“¯‚¶‰ğ‘œ“x‚ğ‚Á‚½ƒ}ƒXƒN—p‚Ì‚Pƒrƒbƒg‚Ìƒ‚ƒmƒNƒ‰æ‘œ‚ÌƒsƒNƒZƒ‹ƒf[ƒ^‚ª‚­‚Á‚Â‚¢‚Ä‚¢‚éB
-	// ‚±‚Ìˆ× BITMAPINFOHEADER ‚Ì biHeight ƒƒ“ƒo‚Í“ñ”{‚µ‚½‚à‚Ì‚É‚È‚Á‚Ä‚¢‚éB
+	// DIB ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ã¯ BITMAPINFOHEADER ã‹ã‚‰å§‹ã¾ã£ã¦ RGBQUAD ã®ãƒ‘ãƒ¬ãƒƒãƒˆãƒ†ãƒ¼ãƒ–ãƒ«ã€ãƒ“ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã¨ç¶šã
+	// ä¸€èˆ¬çš„ãª DIB ãƒ‡ãƒ¼ã‚¿æ§‹é€ ã ãŒã€BITMAPINFOHEADER ã®ãƒ¡ãƒ³ãƒã¯ biSize, biWidth, biHeight, biPlanes, biBitCount, biSizeImage ä»¥å¤–å…¨ã¦ï¼ã§ã‚ã‚Šã€
+	// ã¾ãŸãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã®å¾Œã«åŒã˜è§£åƒåº¦ã‚’æŒã£ãŸãƒã‚¹ã‚¯ç”¨ã®ï¼‘ãƒ“ãƒƒãƒˆã®ãƒ¢ãƒã‚¯ãƒ­ç”»åƒã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ãŒãã£ã¤ã„ã¦ã„ã‚‹ã€‚
+	// ã“ã®ç‚º BITMAPINFOHEADER ã® biHeight ãƒ¡ãƒ³ãƒã¯äºŒå€ã—ãŸã‚‚ã®ã«ãªã£ã¦ã„ã‚‹ã€‚
 	// http://msdn.microsoft.com/en-us/library/ms997538.aspx
 
 #pragma pack(push)
 #pragma pack(2)
 	struct IconDir {
 		WORD reserved; // 0
-		WORD type;     // 1 = ƒAƒCƒRƒ“, 2 = ƒJ[ƒ\ƒ‹
-		WORD count;    // ƒAƒCƒRƒ“‚Ì”
+		WORD type;     // 1 = ã‚¢ã‚¤ã‚³ãƒ³, 2 = ã‚«ãƒ¼ã‚½ãƒ«
+		WORD count;    // ã‚¢ã‚¤ã‚³ãƒ³ã®æ•°
 	};
 
 	struct IconDirEntry {
-		BYTE width;        // ƒAƒCƒRƒ“‚Ì•
-		BYTE height;       // ƒAƒCƒRƒ“‚Ì‚‚³
-		BYTE paletteCount; // ƒpƒŒƒbƒg‚ÌF‚Ì”
+		BYTE width;        // ã‚¢ã‚¤ã‚³ãƒ³ã®å¹…
+		BYTE height;       // ã‚¢ã‚¤ã‚³ãƒ³ã®é«˜ã•
+		BYTE paletteCount; // ãƒ‘ãƒ¬ãƒƒãƒˆã®è‰²ã®æ•°
 		BYTE reserved;     // 0
-		WORD planes;       // 1iƒJ[ƒ\ƒ‹‚Ìê‡‚ÍƒzƒbƒgƒXƒ|ƒbƒg‚Ì‚˜À•Wj
-		WORD bitCount;     // ƒsƒNƒZƒ‹‚Ìƒrƒbƒg[“xiƒJ[ƒ\ƒ‹‚Ìê‡‚ÍƒzƒbƒgƒXƒ|ƒbƒg‚Ì‚™À•Wj
-		DWORD imageSize;   // ‰æ‘œ‚Ìƒf[ƒ^ƒTƒCƒY
-		DWORD imageOffset; // ƒtƒ@ƒCƒ‹æ“ª‚©‚ç‰æ‘œƒf[ƒ^‚Ü‚Å‚ÌƒoƒCƒg”
+		WORD planes;       // 1ï¼ˆã‚«ãƒ¼ã‚½ãƒ«ã®å ´åˆã¯ãƒ›ãƒƒãƒˆã‚¹ãƒãƒƒãƒˆã®ï½˜åº§æ¨™ï¼‰
+		WORD bitCount;     // ãƒ”ã‚¯ã‚»ãƒ«ã®ãƒ“ãƒƒãƒˆæ·±åº¦ï¼ˆã‚«ãƒ¼ã‚½ãƒ«ã®å ´åˆã¯ãƒ›ãƒƒãƒˆã‚¹ãƒãƒƒãƒˆã®ï½™åº§æ¨™ï¼‰
+		DWORD imageSize;   // ç”»åƒã®ãƒ‡ãƒ¼ã‚¿ã‚µã‚¤ã‚º
+		DWORD imageOffset; // ãƒ•ã‚¡ã‚¤ãƒ«å…ˆé ­ã‹ã‚‰ç”»åƒãƒ‡ãƒ¼ã‚¿ã¾ã§ã®ãƒã‚¤ãƒˆæ•°
 	};
 #pragma pack(pop)
 
@@ -289,7 +263,7 @@ void Icon::save(ArrayRange<const Icon> icons, Stream& stream) {
 
 		stream.write(&entry, 0, sizeof(entry));
 	}
-	for (int i = 0, end = icons.size(); i < end; ++i) { // ƒAƒCƒRƒ“‰æ‘œƒf[ƒ^
+	for (int i = 0, end = icons.size(); i < end; ++i) { // ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒãƒ‡ãƒ¼ã‚¿
 		IconInfo info(icons[i]);
 		Bitmap bitmap(info.hbmColor);
 		if (bitmap.isDDB()) {

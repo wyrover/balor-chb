@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Enum.hpp>
@@ -31,17 +31,17 @@ class Color;
 
 
 /**
- * GDI �r�b�g�}�b�v��\���B
+ * GDI ビットマップを表す。
  * 
- * �摜�̃R�s�[�ɂ� Graphics::copy �֐����A�F�̎擾�ɂ� Graphics::getPixel �֐����g�p�ł���B���邢�� pixels �֐��Ŏ��͂ŏ�������B
- * �t�@�C����X�g���[���ւ̓��o�͂ɂ� GDI+ ���g�p���Abmp, gif, jpeg, png, tiff �̃t�@�C���`���y�уA���t�@�`�����l���t���摜�`�����T�|�[�g����B
- * �R���X�g���N�^�ō쐬�����ꍇ�͏�� DIB �r�b�g�}�b�v���쐬����BDDB �r�b�g�}�b�v���쐬����ɂ� createDDB �܂��� toDDB �֐����g�p����B
- * DDB�͈��ȏ�̑傫���i�Ⴆ��4096 * 4096�j�ō쐬������A���ʈȏ�̗e�ʁi���������C���������ɂ͏\������j�𒴂����
- * OutOfMemoryException �𔭐�������B����͎�Ƀr�f�I�J�[�h�̐����ɂ��B�p���b�g���g�p���� DDB �̓T�|�[�g���Ȃ��B
- * ������ HBITMAP ��n���֐��� bottomUp, palette, save �֐����� HBITMAP �� Bitmap �� Graphics �N���X�ɎQ�Ƃ��ꂽ�܂܂��Ɗ֐������s����̂Œ��ӂ��邱�ƁB
+ * 画像のコピーには Graphics::copy 関数を、色の取得には Graphics::getPixel 関数を使用できる。あるいは pixels 関数で自力で処理する。
+ * ファイルやストリームへの入出力には GDI+ を使用し、bmp, gif, jpeg, png, tiff のファイル形式及びアルファチャンネル付き画像形式をサポートする。
+ * コンストラクタで作成した場合は常に DIB ビットマップを作成する。DDB ビットマップを作成するには createDDB または toDDB 関数を使用する。
+ * DDBは一定以上の大きさ（例えば4096 * 4096）で作成したり、一定量以上の容量（しかしメインメモリには十分入る）を超えると
+ * OutOfMemoryException を発生させる。これは主にビデオカードの制限による。パレットを使用する DDB はサポートしない。
+ * 引数に HBITMAP を渡す関数や bottomUp, palette, save 関数等は HBITMAP や Bitmap が Graphics クラスに参照されたままだと関数が失敗するので注意すること。
  * 
- * �� DDB �Ƃ̓f�B�X�v���C�Ɠ����s�N�Z���t�H�[�}�b�g�������A�����ɉ�ʂɕ`�悪�ł��邪���e�̃������|�C���^�������Ȃ��r�b�g�}�b�v�ŁA
- *    DIB �̓I���W�i���̃t�H�[�}�b�g�����Ă锽�ʁA��ʂɕ`����s���Ɠ����ł͕ϊ����������邽�߂Ƀp�t�H�[�}���X���ቺ���鋰�ꂪ����r�b�g�}�b�v�B
+ * ※ DDB とはディスプレイと同じピクセルフォーマットを持ち、高速に画面に描画ができるが内容のメモリポインタが得られないビットマップで、
+ *    DIB はオリジナルのフォーマットを持てる反面、画面に描画を行うと内部では変換処理が走るためにパフォーマンスが低下する恐れがあるビットマップ。
  */
 class Bitmap : private NonCopyable {
 public:
@@ -49,138 +49,138 @@ public:
 	typedef ::balor::io::Stream Stream;
 
 
-	/// ������������Ȃ������B
+	/// メモリが足りなかった。
 	struct OutOfMemoryException : public ::balor::OutOfMemoryException {};
 
-	/// �t�@�C���t�H�[�}�b�g���s���B
+	/// ファイルフォーマットが不正
 	class FileFormatException : public Exception {};
 
 
-	/// �t�@�C���ɕۑ�����`���BGDI+ �ŃT�|�[�g�����`���̂݁B
+	/// ファイルに保存する形式。GDI+ でサポートされる形式のみ
 	struct FileFormat {
 		enum _enum {
-			bmp , /// �r�b�g�}�b�v�摜�t�@�C���`���B
-			gif , /// GIF�摜�t�@�C���`���B
-			jpeg, /// jpeg�摜�t�@�C���`���B
-			png , /// PNG�摜�t�@�C���`���B
-			tiff, /// TIFF�摜�t�@�C���`���B
+			bmp, /// ビットマップ画像ファイル形式。
+			gif, /// GIF画像ファイル形式。
+			jpeg, /// jpeg画像ファイル形式。
+			png, /// PNG画像ファイル形式。
+			tiff, /// TIFF画像ファイル形式。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(FileFormat);
 	};
 
 
-	/// �r�b�g�}�b�v�̌`���B
+	/// ビットマップの形式。
 	struct Format {
 		Format();
-		/// �P�s�N�Z��������̃r�b�g���� RGB �̃r�b�g�}�X�N����쐬�B
+		/// １ピクセルあたりのビット数と RGB のビットマスクから作成。
 		explicit Format(int bitsPerPixel, int rMask = 0, int gMask = 0, int bMask = 0, int aMask = 0);
 
-		/// ���m�N���p���b�g�r�b�g�}�b�v�B
+		/// モノクロパレットビットマップ。
 		static const Format palette1bpp;
-		/// �P�U�F�p���b�g�r�b�g�}�b�v�B
+		/// １６色パレットビットマップ。
 		static const Format palette4bpp;
-		/// �Q�T�U�F�p���b�g�r�b�g�}�b�v�B
+		/// ２５６色パレットビットマップ。
 		static const Format palette8bpp;
-		/// Format(16, 0x7C00, 0x03E0, 0x001F) �ł���P�U�r�b�g�摜�B
+		/// Format(16, 0x7C00, 0x03E0, 0x001F) である１６ビット画像。
 		static const Format rgb16bpp;
-		/// Format(16, 0xF800, 0x07E0, 0x001F) �ł���P�U�r�b�g�摜�B
+		/// Format(16, 0xF800, 0x07E0, 0x001F) である１６ビット画像。
 		static const Format rgb16bpp565;
-		/// �o�C�g�z��̕��т� B, G, R �ł���Q�S�r�b�g�摜�B
+		/// バイト配列の並びが B, G, R である２４ビット画像。
 		static const Format rgb24bpp;
-		/// Format(32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000) �ł���R�Q�r�b�g�摜�B
+		/// Format(32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000) である３２ビット画像。
 		static const Format argb32bpp;
 
 		bool operator==(const Format& value) const;
 		bool operator!=(const Format& value) const;
 
-		/// �P�s�N�Z��������̃r�b�g���B
+		/// １ピクセルあたりのビット数。
 		int bitsPerPixel;
-		/// �P�s�N�Z���ŐԂ̐�߂�r�b�g�}�X�N�BbitsPerPixel �� 16 �܂��� 32 �̏ꍇ�̂ݗL���A����ȊO�ł� 0�B
+		/// １ピクセルで赤の占めるビットマスク。bitsPerPixel が 16 または 32 の場合のみ有効、それ以外では 0。
 		int rMask;
-		/// �P�s�N�Z���ŗ΂̐�߂�r�b�g�}�X�N�BbitsPerPixel �� 16 �܂��� 32 �̏ꍇ�̂ݗL���A����ȊO�ł� 0�B
+		/// １ピクセルで緑の占めるビットマスク。bitsPerPixel が 16 または 32 の場合のみ有効、それ以外では 0。
 		int gMask;
-		/// �P�s�N�Z���Ő̐�߂�r�b�g�}�X�N�BbitsPerPixel �� 16 �܂��� 32 �̏ꍇ�̂ݗL���A����ȊO�ł� 0�B
+		/// １ピクセルで青の占めるビットマスク。bitsPerPixel が 16 または 32 の場合のみ有効、それ以外では 0。
 		int bMask;
-		/// �P�s�N�Z���ŃA���t�@�`�����l���̐�߂�r�b�g�}�X�N�BbitsPerPixel �� 32 �̏ꍇ�̂ݗL���A����ȊO�ł� 0�B
+		/// １ピクセルでアルファチャンネルの占めるビットマスク。bitsPerPixel が 32 の場合のみ有効、それ以外では 0。
 		int aMask;
 	};
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Bitmap();
 	Bitmap(Bitmap&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit Bitmap(HBITMAP handle, bool owned = false);
-	/// �X�g���[������쐬�B
+	/// ストリームから作成。
 	explicit Bitmap(Stream& stream, bool bottomUp = true, bool useIcm = false);
 	explicit Bitmap(Stream&& stream, bool bottomUp = true, bool useIcm = false);
-	/// �t�@�C������ǂݍ���ō쐬�B
+	/// ファイルから読み込んで作成。
 	explicit Bitmap(StringRange filePath, bool bottomUp = true, bool useIcm = false);
-	/// �r�b�g�}�b�v�̑傫���A�t�H�[�}�b�g�ύX���č쐬�B
+	/// ビットマップの大きさ、フォーマット変更して作成。
 	Bitmap(HBITMAP bitmap, const Size& size, Bitmap::Format format, bool bottomUp = true);
 	Bitmap(HBITMAP bitmap, int width, int height, Bitmap::Format format, bool bottomUp = true);
-	/// �傫���ƃt�H�[�}�b�g�A�s�N�Z���̃������f�[�^����쐬�BsrcStride �� srcPixels �̂P���C��������̃o�C�g���B
+	/// 大きさとフォーマット、ピクセルのメモリデータから作成。srcStride は srcPixels の１ラインあたりのバイト数。
 	explicit Bitmap(const Size& size, Bitmap::Format format = Format::argb32bpp, bool bottomUp = true, const void* srcPixels = nullptr, int srcStride = 0, bool srcBottomUp = true);
 	Bitmap(int width, int height, Bitmap::Format format = Format::argb32bpp, bool bottomUp = true, const void* srcPixels = nullptr, int srcStride = 0, bool srcBottomUp = true);
 	~Bitmap();
 	Bitmap& operator=(Bitmap&& value);
 
 public:
-	/// �P�s�N�Z��������̃r�b�g���B
+	/// １ピクセルあたりのビット数。
 	int bitsPerPixel() const;
-	/// �s�N�Z���f�[�^����������n�܂邩�ǂ����BDDB �̏ꍇ�͏�� true ��Ԃ��B
+	/// ピクセルデータが左下から始まるかどうか。DDB の場合は常に true を返す。
 	bool bottomUp() const;
-	/// DIB �Ȃ�� DIB�ADDB �Ȃ�� DDB �̂܂ܕ������ĕԂ��B
+	/// DIB ならば DIB、DDB ならば DDB のまま複製して返す。
 	Bitmap clone() const;
 	static Bitmap clone(HBITMAP handle);
-	/// DDB �r�b�g�}�b�v���쐬����
+	/// DDB ビットマップを作成する
 	static Bitmap createDDB(const Size& size);
 	static Bitmap createDDB(int width, int height);
-	/// �t�H�[�}�b�g�ƃs�N�Z���f�[�^����v���邩�ǂ�����Ԃ��B�t�H�[�}�b�g�����܂��ܓ����ł������Ƃ��Ă��ADDB �� DIB �̔�r�͏��false��Ԃ��B
+	/// フォーマットとピクセルデータが一致するかどうかを返す。フォーマットがたまたま同じであったとしても、DDB と DIB の比較は常にfalseを返す。
 	bool equalsBits(const Bitmap& rhs, bool exceptAlpha = false) const;
 	static bool equalsBits(const Bitmap& lhs, const Bitmap& rhs, bool exceptAlpha = false);
-	/// �r�b�g�}�b�v�̌`���B�A���t�@�}�X�N���擾�����i�������̂� DIB �̂R�Q�r�b�g�摜�͑S�ăA���t�@�}�X�N�t���Ƃ݂Ȃ����Ƃɒ��ӁB
+	/// ビットマップの形式。アルファマスクを取得する手段が無いので DIB の３２ビット画像は全てアルファマスク付きとみなすことに注意。
 	Bitmap::Format format() const;
-	/// �摜�̍����B
+	/// 画像の高さ。
 	int height() const;
-	/// DDB ���ǂ����B
+	/// DDB かどうか。
 	bool isDDB() const;
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
-	/// �p���b�g�B�p���b�g�`���̃r�b�g�}�b�v�łȂ���Α���ł��Ȃ��B
+	/// パレット。パレット形式のビットマップでなければ操作できない。
 	std::vector<Color, std::allocator<Color> > palette() const;
 	void palette(ArrayRange<const Color> value);
-	/// �s�N�Z���f�[�^�ւ̃|�C���^�B�������z�u�� bottomUp �֐��ŁA�P���C���̃o�C�g���� stride �֐��Œ��ׂ���BisDDB() �� true �̏ꍇ�� nullptr ��Ԃ��B
-	/// GDI �̔񓯊��`��Ƃ̏Փ˂�����邽�߂Ƀ������ɃA�N�Z�X����O�� Graphics::flush �֐������s�����ق����悢�B
+	/// ピクセルデータへのポインタ。メモリ配置は bottomUp 関数で、１ラインのバイト数は stride 関数で調べられる。isDDB() が true の場合は nullptr を返す。
+	/// GDI の非同期描画との衝突を避けるためにメモリにアクセスする前に Graphics::flush 関数を実行したほうがよい。
 	unsigned char* pixels();
 	const unsigned char* pixels() const;
-	/// �A���t�@�`�����l����S�Ẵs�N�Z���ɏ�Z����BDIB �� 32�r�b�g�摜�̏ꍇ�̂ݗL���B
-	/// Graphics::blend �֐��ŃA���t�@�`�����l�����g���ꍇ�͂��炩���߂��̊֐����Ă�ł����K�v������B
+	/// アルファチャンネルを全てのピクセルに乗算する。DIB の 32ビット画像の場合のみ有効。
+	/// Graphics::blend 関数でアルファチャンネルを使う場合はあらかじめこの関数を呼んでおく必要がある。
 	void premultiplyAlpha();
-	/// �X�g���[���ɕۑ�����Bquality �� jpeg �`���ŕۑ�����ꍇ�̕i���� 0 �` 100 �Őݒ肷��B
+	/// ストリームに保存する。quality は jpeg 形式で保存する場合の品質で 0 ～ 100 で設定する。
 	void save(Stream& stream, Bitmap::FileFormat format, int quality = 75) const;
 	void save(Stream&& stream, Bitmap::FileFormat format, int quality = 75) const;
-	/// �t�@�C���ɕۑ�����B�t�@�C���`���͊g���q���画�ʂ���B���ʂł��Ȃ������ꍇ�� png �`���ŕۑ������Bquality �� jpeg �`���̕i���� 0 �` 100 �Őݒ肷��B
+	/// ファイルに保存する。ファイル形式は拡張子から判別する。判別できなかった場合は png 形式で保存される。quality は jpeg 形式の品質で 0 ～ 100 で設定する。
 	void save(StringRange filePath, int quality = 75) const;
-	/// �t�@�C���ɕۑ�����Bquality �� jpeg �`���̕i���� 0 �` 100 �Őݒ肷��B
+	/// ファイルに保存する。quality は jpeg 形式の品質で 0 ～ 100 で設定する。
 	void save(StringRange filePath, Bitmap::FileFormat format, int quality = 75) const;
-	/// �摜�̃T�C�Y�B
+	/// 画像のサイズ。
 	Size size() const;
-	/// �s�N�Z���f�[�^�̂P���C�������o�C�g���B
+	/// ピクセルデータの１ラインが何バイトか。
 	int stride() const;
-	/// DDB �r�b�g�}�b�v�Ƃ��ĕ�������B
+	/// DDB ビットマップとして複製する。
 	Bitmap toDDB() const;
 	static Bitmap toDDB(HBITMAP handle);
-	/// DIB �r�b�g�}�b�v�Ƃ��ĕ�������B
+	/// DIB ビットマップとして複製する。
 	Bitmap toDIB(bool bottomUp = true) const;
 	static Bitmap toDIB(HBITMAP handle, bool bottomUp = true);
-	/// �摜�̕��B
+	/// 画像の幅。
 	int width() const;
 
 public:
-	/// HBITMAP �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HBITMAP への自動変換 ＆ null チェック用
 	operator HBITMAP() const { return _handle; }
 
 private:

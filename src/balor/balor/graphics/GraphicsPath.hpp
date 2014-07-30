@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -24,20 +24,20 @@ namespace balor {
 
 
 /**
- * •`‰æ‚µ‚½ˆê˜A‚Ìü‚ÌW‡‚ğ•\‚·B
- *
- * GraphicsPath ‚Í Graphics ƒNƒ‰ƒX‚ÌŠÖ”‚Æ}Œ`‚Ì•`‰æŒ‹‰Ê‚ª”÷–­‚ÉˆÙ‚È‚é‚Ì‚Å‚Pƒhƒbƒg‚Ìˆá‚¢‚à‹–‚¹‚È‚¢ê‡‚É‚Íg—p‚·‚×‚«‚Å‚Í‚È‚¢B
- * Graphics::drawPath ‚µ‚½ê‡‚Í Graphics::draw`ŒnŠÖ”‚ÆŒ‹‰Ê‚ª‚¾‚¢‚½‚¢ˆê’v‚·‚é‚ªAGraphics::fillPath ‚µ‚½ê‡‚Í
- * }Œ`‚Ì‰E‰ºƒsƒNƒZƒ‹‚ğœ‚¢‚½Œ`‚É‚È‚é‚©A}Œ`‚É‚æ‚Á‚Ä‚Í—ÖŠs•”•ª‚ğœ‚¢‚½Œ`‚É‚È‚éB
- * ‚Ü‚½ GraphicsPath ‚©‚ç Region ‚ğì¬‚µ‚½ê‡‚Íå‚É fillPath ‚µ‚½ê‡‚Ì—Ìˆæ‚ªì¬‚³‚ê‚éB
- */
+* æç”»ã—ãŸä¸€é€£ã®ç·šã®é›†åˆã‚’è¡¨ã™ã€‚
+*
+* GraphicsPath ã¯ Graphics ã‚¯ãƒ©ã‚¹ã®é–¢æ•°ã¨å›³å½¢ã®æç”»çµæœãŒå¾®å¦™ã«ç•°ãªã‚‹ã®ã§ï¼‘ãƒ‰ãƒƒãƒˆã®é•ã„ã‚‚è¨±ã›ãªã„å ´åˆã«ã¯ä½¿ç”¨ã™ã¹ãã§ã¯ãªã„ã€‚
+* Graphics::drawPath ã—ãŸå ´åˆã¯ Graphics::drawï½ç³»é–¢æ•°ã¨çµæœãŒã ã„ãŸã„ä¸€è‡´ã™ã‚‹ãŒã€Graphics::fillPath ã—ãŸå ´åˆã¯
+* å›³å½¢ã®å³ä¸‹ãƒ”ã‚¯ã‚»ãƒ«ã‚’é™¤ã„ãŸå½¢ã«ãªã‚‹ã‹ã€å›³å½¢ã«ã‚ˆã£ã¦ã¯è¼ªéƒ­éƒ¨åˆ†ã‚’é™¤ã„ãŸå½¢ã«ãªã‚‹ã€‚
+* ã¾ãŸ GraphicsPath ã‹ã‚‰ Region ã‚’ä½œæˆã—ãŸå ´åˆã¯ä¸»ã« fillPath ã—ãŸå ´åˆã®é ˜åŸŸãŒä½œæˆã•ã‚Œã‚‹ã€‚
+*/
 class GraphicsPath : private NonCopyable {
 public:
 	typedef ::HDC__* HDC;
 	typedef ::HFONT__* HFONT;
 	typedef ::HPEN__* HPEN;
 
-	/// •`‰æ‚µ‚½ü‚Ìƒf[ƒ^B
+	/// æç”»ã—ãŸç·šã®ãƒ‡ãƒ¼ã‚¿ã€‚
 	class Data {
 	public:
 		Data() {}
@@ -52,74 +52,74 @@ public:
 
 
 public:
-	/// ‚Ü‚Á‚³‚ç‚È•`‰æó‘Ô‚Åì¬B
+	/// ã¾ã£ã•ã‚‰ãªæç”»çŠ¶æ…‹ã§ä½œæˆã€‚
 	GraphicsPath();
 	GraphicsPath(GraphicsPath&& value);
-	/// }Œ`ƒf[ƒ^‚©‚çì¬B
+	/// å›³å½¢ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰ä½œæˆã€‚
 	explicit GraphicsPath(const Data& data);
 	~GraphicsPath();
 
 	GraphicsPath& operator=(GraphicsPath&& value);
 
 public:
-	/// ‰~ŒÊ‚ğ’Ç‰Á‚·‚éB
+	/// å††å¼§ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addArc(const Rectangle& rect, float startAngle, float sweepAngle);
 	void addArc(int x, int y, int width, int height, float startAngle, float sweepAngle);
-	/// ƒxƒWƒF‹Èü‚ğ’Ç‰Á‚·‚éBI“_‚ÌƒsƒNƒZƒ‹‚Í•`‰æ‚³‚ê‚È‚¢B
+	/// ãƒ™ã‚¸ã‚§æ›²ç·šã‚’è¿½åŠ ã™ã‚‹ã€‚çµ‚ç‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«ã¯æç”»ã•ã‚Œãªã„ã€‚
 	void addBezier(const Point& p0, const Point& p1, const Point& p2, const Point& p3);
 	void addBezier(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3);
-	/// ƒxƒWƒF‹Èü‚ğ˜A‘±‚Å’Ç‰Á‚·‚éBI“_‚ÌƒsƒNƒZƒ‹‚Í•`‰æ‚³‚ê‚È‚¢B
+	/// ãƒ™ã‚¸ã‚§æ›²ç·šã‚’é€£ç¶šã§è¿½åŠ ã™ã‚‹ã€‚çµ‚ç‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«ã¯æç”»ã•ã‚Œãªã„ã€‚
 	void addBeziers(ArrayRange<const Point> points);
-	/// ‰~‚ğ’Ç‰Á‚·‚éB
+	/// å††ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addCircle(const Point& point, int radius);
 	void addCircle(int x, int y, int radius);
-	/// ‘È‰~‚ğ’Ç‰Á‚·‚éB
+	/// æ¥•å††ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addEllipse(const Rectangle& rect);
 	void addEllipse(int x, int y, int width, int height);
-	/// ü•ª‚ğ’Ç‰Á‚·‚éBI“_‚ÌƒsƒNƒZƒ‹‚Í•`‰æ‚³‚ê‚È‚¢B
+	/// ç·šåˆ†ã‚’è¿½åŠ ã™ã‚‹ã€‚çµ‚ç‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«ã¯æç”»ã•ã‚Œãªã„ã€‚
 	void addLine(const Point& p0, const Point& p1);
 	void addLine(int x0, int y0, int x1, int y1);
-	/// ü•ª‚ğ˜A‘±‚Å’Ç‰Á‚·‚éBI“_‚ÌƒsƒNƒZƒ‹‚Í•`‰æ‚³‚ê‚È‚¢B
+	/// ç·šåˆ†ã‚’é€£ç¶šã§è¿½åŠ ã™ã‚‹ã€‚çµ‚ç‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«ã¯æç”»ã•ã‚Œãªã„ã€‚
 	void addLines(ArrayRange<const Point> points);
-	/// ƒpƒX‚ğ’Ç‰Á‚·‚éB
+	/// ãƒ‘ã‚¹ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addPath(const GraphicsPath& path);
-	/// îŒ`‚ğ’Ç‰Á‚·‚éB
+	/// æ‰‡å½¢ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addPie(const Rectangle& rectangle, float startAngle, float sweepAngle);
 	void addPie(int x, int y, int width, int height, float startAngle, float sweepAngle);
-	/// ‘½ŠpŒ`‚ğ’Ç‰Á‚·‚éB
+	/// å¤šè§’å½¢ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addPolygon(ArrayRange<const Point> points);
-	/// ’·•ûŒ`‚ğ’Ç‰Á‚·‚éB
+	/// é•·æ–¹å½¢ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addRectangle(const Rectangle& rect);
 	void addRectangle(int x, int y, int width, int height);
-	/// ’·•ûŒ`‚ğ˜A‘±‚Å’Ç‰Á‚·‚éB
+	/// é•·æ–¹å½¢ã‚’é€£ç¶šã§è¿½åŠ ã™ã‚‹ã€‚
 	void addRectangles(ArrayRange<const Rectangle> rects);
-	/// •¶š—ñ‚ğ’Ç‰Á‚·‚éB
+	/// æ–‡å­—åˆ—ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void addText(StringRange s, const Point& point);
 	void addText(StringRange s, int x, int y);
 	void addText(StringRange s, const Rectangle& rect, Graphics::TextFormat format = Graphics::TextFormat::default);
-	/// }Œ`‚ğŠÜ‚Ş‹éŒ`B
+	/// å›³å½¢ã‚’å«ã‚€çŸ©å½¢ã€‚
 	Rectangle bounds() const;
-	/// •¡»‚ğ•Ô‚·B
+	/// è¤‡è£½ã‚’è¿”ã™ã€‚
 	GraphicsPath clone() const;
-	/// ’¼‘O‚É•`‚¢‚½}Œ`‚ğ•Â‚¶‚éB
+	/// ç›´å‰ã«æã„ãŸå›³å½¢ã‚’é–‰ã˜ã‚‹ã€‚
 	void closeFigure();
-	/// }Œ`ƒf[ƒ^B
+	/// å›³å½¢ãƒ‡ãƒ¼ã‚¿ã€‚
 	Data data() const;
-	/// ‹Èüƒf[ƒ^‚ğ’¼ü‚É•ª‰ğ‚·‚éB
+	/// æ›²ç·šãƒ‡ãƒ¼ã‚¿ã‚’ç›´ç·šã«åˆ†è§£ã™ã‚‹ã€‚
 	void flatten();
-	/// •¶š‚ğ•`‰æ‚·‚éƒtƒHƒ“ƒgB
+	/// æ–‡å­—ã‚’æç”»ã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã€‚
 	Font font() const;
 	Font font(HFONT value);
-	/// HDC ‚ğ•Ô‚·B
+	/// HDC ã‚’è¿”ã™ã€‚
 	HDC hdc() const { return _handle; }
-	/// “_‚ª}Œ`‚ÉŠÜ‚Ü‚ê‚é‚©‚Ç‚¤‚©B
+	/// ç‚¹ãŒå›³å½¢ã«å«ã¾ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	bool isVisible(const Point& point) const;
 	bool isVisible(int x, int y) const;
-	/// ÅŒã‚Ì}Œ`‚ğ‘‚«I‚í‚Á‚½“_B
+	/// æœ€å¾Œã®å›³å½¢ã‚’æ›¸ãçµ‚ã‚ã£ãŸç‚¹ã€‚
 	Point lastPoint() const;
-	/// }Œ`‚ğ‘S‚ÄÁ‚·B
+	/// å›³å½¢ã‚’å…¨ã¦æ¶ˆã™ã€‚
 	void reset();
-	/// }Œ`‚Ìü‚ğw’è‚µ‚½ƒyƒ“‚Ì‘¾‚³‚É‚·‚éB‘¾‚­‚µ‚½ü©‘Ì‚ª}Œ`‚É‚È‚éB
+	/// å›³å½¢ã®ç·šã‚’æŒ‡å®šã—ãŸãƒšãƒ³ã®å¤ªã•ã«ã™ã‚‹ã€‚å¤ªãã—ãŸç·šè‡ªä½“ãŒå›³å½¢ã«ãªã‚‹ã€‚
 	void widen(HPEN pen);
 
 private:

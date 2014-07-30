@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Enum.hpp>
@@ -22,89 +22,89 @@ class GraphicsPath;
 
 
 /**
- * GDI ���[�W������\���B
- *
- * ���[�W�����̃n���h�����k���̏ꍇ�͖�����̗̈��\���BGraphics �� �E�C���h�E�Ƀ��[�W�������ݒ肳��Ă��Ȃ��ꍇ�̓k���n���h����Ԃ��̂ł��̂ق����s�����ǂ��B
- * from�` �֐��ɂ���č쐬���ꂽ�̈�� Graphics::fill�` �֐��Ɣ͈͂����S�Ɉ�v����B
- * ��� GraphicsPath ����Đ}�`��������ꍇ�� Graphics �̂ǂ̐}�`�`��֐��Ƃ����ʂ���v���Ȃ��̂Œ��ӂ��邱�ƁB
- */
+* GDI リージョンを表す。
+*
+* リージョンのハンドルがヌルの場合は無限大の領域を表す。Graphics や ウインドウにリージョンが設定されていない場合はヌルハンドルを返すのでこのほうが都合が良い。
+* from～ 関数によって作成された領域は Graphics::fill～ 関数と範囲が完全に一致する。
+* 一方 GraphicsPath を介して図形を作った場合は Graphics のどの図形描画関数とも結果が一致しないので注意すること。
+*/
 class Region : private NonCopyable {
 public:
 	typedef ::HRGN__* HRGN;
 	typedef ::HWND__* HWND;
 
-	/// ���[�W�����̍������Z�q�B
+	/// リージョンの合成演算子。
 	struct Operation {
 		enum _enum {
-			and  = 1, /// AND �����B��̗̈�̋��ʕ����B
-			or   = 2, /// OR �����B��̗̈�����킹�������B
-			xor  = 3, /// XOR �����B��̗̈�����킹���������狤�ʕ����������������B
-			diff = 4, /// ���ӗ̈悩��E�ӗ̈����菜���������B
+			and = 1, /// AND 合成。二つの領域の共通部分。
+			or = 2, /// OR 合成。二つの領域をあわせた部分。
+			xor = 3, /// XOR 合成。二つの領域をあわせた部分から共通部分を除いた部分。
+			diff = 4, /// 左辺領域から右辺領域を取り除いた部分。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Operation);
 	};
 
 public:
-	/// ������̗̈�Ƃ��č쐬�B
+	/// 無限大の領域として作成。
 	Region();
 	Region(Region&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit Region(HRGN handle, bool owned = false);
-	/// �����`�̈悩��쐬�B
+	/// 長方形領域から作成。
 	explicit Region(const Rectangle& rect);
 	Region(int x, int y, int width, int height);
 	~Region();
 	Region& operator=(Region&& value);
 
 public:
-	/// �̈�S�̂��܂ޒ����`�B
+	/// 領域全体を含む長方形。
 	Rectangle bounds() const;
-	/// �������ĕԂ��B
+	/// 複製して返す。
 	Region clone() const;
 	static Region clone(HRGN handle);
-	/// ��̗̈���w�肵�����Z�ō�������B���[�W�����̃n���h�����k���̏ꍇ�͖����̍L���̗̈�Ƃ��Ĉ�����B
+	/// 二つの領域を指定した演算で合成する。リージョンのハンドルがヌルの場合は無限の広さの領域として扱われる。
 	void combine(HRGN rhs, Region::Operation op);
 	static Region combine(HRGN lhs, HRGN rhs, Region::Operation op);
-	/// �̈�̖ʐς��O���ǂ����B�n���h�����k�����ǂ����ł͂Ȃ����Ƃɒ��ӁB
+	/// 領域の面積が０かどうか。ハンドルがヌルかどうかではないことに注意。
 	bool empty() const;
-	/// �̈悪���������ǂ����Boperator == �� operator HRGN() �ɂ���ăn���h���̔�r�ɂȂ�̂Œ��ӂ��邱�ƁB
+	/// 領域が等しいかどうか。operator == は operator HRGN() によってハンドルの比較になるので注意すること。
 	bool equals(HRGN rhs) const;
-	/// �~�̗̈���쐬�B
+	/// 円の領域を作成。
 	static Region fromCircle(const Point& point, int radius);
 	static Region fromCircle(int x, int y, int radius);
-	/// �ȉ~�̗̈���쐬�B
+	/// 楕円の領域を作成。
 	static Region fromEllipse(const Rectangle& rect);
 	static Region fromEllipse(int x, int y, int width, int height);
-	/// GraphicsPath �Ɉ͂܂ꂽ�̈���쐬�B
+	/// GraphicsPath に囲まれた領域を作成。
 	static Region fromGraphicsPath(const GraphicsPath& path);
-	/// ���p�`�̗̈���쐬�Balternate �����͓h��Ԃ����[�h�� ALTERNATE ���ǂ�����\���Bfalse �̏ꍇ�� WINDING �ƂȂ�B
+	/// 多角形の領域を作成。alternate 引数は塗りつぶしモードが ALTERNATE かどうかを表す。false の場合は WINDING となる。
 	static Region fromPolygon(ArrayRange<const Point> points, bool alternate = true);
-	/// �����`�̗̈���쐬�B
+	/// 長方形の領域を作成。
 	static Region fromRectangle(const Rectangle& rect);
 	static Region fromRectangle(int x, int y, int width, int height);
-	/// �p�̊ۂ������`�̗̈���쐬�B
+	/// 角の丸い長方形の領域を作成。
 	static Region fromRoundRectangle(const Rectangle& rect, const Size& ellipseSize);
 	static Region fromRoundRectangle(int x, int y, int width, int height, int ellipseWidth, int ellipseHeight);
-	/// �̈�̖ʐς��ɑ傩�ǂ����B�n���h�����k���̏ꍇ�� true�B
+	/// 領域の面積が極大かどうか。ハンドルがヌルの場合も true。
 	bool infinite() const;
-	/// �_���̈�Ɋ܂܂�邩�ǂ����B
+	/// 点が領域に含まれるかどうか。
 	bool isVisible(const Point& point) const;
 	bool isVisible(int x, int y) const;
-	/// �����`�S�̂��̈�Ɋ܂܂�邩�ǂ����B
+	/// 長方形全体が領域に含まれるかどうか。
 	bool isVisible(const Rectangle& rect) const;
 	bool isVisible(int x, int y, int width, int height) const;
-	/// �̈�̖ʐς��O�ɂ���B
+	/// 領域の面積を０にする。
 	void makeEmpty();
-	/// �̈�̖ʐς��ɑ�ɂ���B
+	/// 領域の面積を極大にする。
 	void makeInfinite();
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
-	/// �̈�𕽍s�ړ�����B
+	/// 領域を平行移動する。
 	void translate(int dx, int dy);
 
 public:
-	/// HRGN �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HRGN への自動変換 ＆ null チェック用
 	operator HRGN() const { return _handle; }
 
 private:

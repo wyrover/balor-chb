@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Exception.hpp>
@@ -26,97 +26,97 @@ class Color;
 
 
 /**
- * �J�[�\���̉摜��\���B
- */
+* カーソルの画像を表す。
+*/
 class Cursor : private NonCopyable {
 public:
 	typedef ::HBITMAP__* HBITMAP;
 	typedef ::HICON__* HCURSOR;
 	typedef ::balor::io::Stream Stream;
 
-	/// �t�@�C����������Ȃ������B
+	/// ファイルが見つからなかった。
 	class NotFoundException : public Exception {};
 
-	/// ���[�h�Ɏ��s�����B
+	/// ロードに失敗した。
 	class LoadFailedException : public Exception {};
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Cursor();
 	Cursor(Cursor&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit Cursor(HCURSOR handle, bool owned = false);
-	/// �摜�ƃ}�X�N�摜�ƃz�b�g�X�|�b�g����쐬�B�}�X�N�摜�̓��m�N���r�b�g�}�b�v�Ŕ��������𓧉߂���B
-	/// bitmap �� 32 �r�b�g�摜�ł��P�h�b�g�ł��O�ł͂Ȃ��A���t�@�����Ȃ�}�X�N�摜�𖳎����ăA���t�@�`�����l���œ��߂���B
+	/// 画像とマスク画像とホットスポットから作成。マスク画像はモノクロビットマップで白い部分を透過する。
+	/// bitmap が 32 ビット画像でかつ１ドットでも０ではないアルファを持つならマスク画像を無視してアルファチャンネルで透過する。
 	Cursor(HBITMAP bitmap, HBITMAP mask, int xHotSpot, int yHotSpot);
-	/// �摜�ƃJ���[�L�[�ƃz�b�g�X�|�b�g����쐬�B�J���[�L�[�̐F�̕����𓧉߂���B
-	/// bitmap �� 32 �r�b�g�摜�ł��P�h�b�g�ł��O�ł͂Ȃ��A���t�@�����Ȃ�J���[�L�[�𖳎����ăA���t�@�`�����l���œ��߂���B
+	/// 画像とカラーキーとホットスポットから作成。カラーキーの色の部分を透過する。
+	/// bitmap が 32 ビット画像でかつ１ドットでも０ではないアルファを持つならカラーキーを無視してアルファチャンネルで透過する。
 	Cursor(HBITMAP bitmap, const Color& colorKey, int xHotSpot, int yHotSpot);
-	/// �t�@�C������쐬�B.cur�A .ani �t�@�C���ɑΉ��B
+	/// ファイルから作成。.cur、 .ani ファイルに対応。
 	explicit Cursor(StringRange filePath);
 	~Cursor();
 	Cursor& operator=(Cursor&& value);
 
 public:
-	/// �J�[�\���̉摜�B
+	/// カーソルの画像。
 	Bitmap bitmap() const;
-	/// ������Ԃ��B
+	/// 複製を返す。
 	Cursor clone() const;
 	static Cursor clone(HCURSOR handle);
-	/// �W���̃T�C�Y�B
+	/// 標準のサイズ。
 	static Size defaultSize();
-	/// �J�[�\�����|�C���g����_�B�摜�̍�������_�Ƃ���s�N�Z���ʒu�B
+	/// カーソルがポイントする点。画像の左上を原点とするピクセル位置。
 	Point hotSpot();
-	/// �J�[�\���̔w�i�𓧉߂��郂�m�N���r�b�g�}�b�v�B���������𓧉߂���B
+	/// カーソルの背景を透過するモノクロビットマップ。白い部分を透過する。
 	Bitmap mask() const;
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
-	/// �X�g���[���ɕۑ�����B
+	/// ストリームに保存する。
 	void save(Stream&& stream) const;
 	void save(Stream& stream) const;
-	/// �t�@�C���ɕۑ�����B
+	/// ファイルに保存する。
 	void save(StringRange filePath) const;
-	/// �����̃J�[�\������̃t�@�C���ɂ܂Ƃ߂ăX�g���[���ɕۑ�����B
+	/// 複数のカーソルを一つのファイルにまとめてストリームに保存する。
 	static void save(ArrayRange<const Cursor> cursors, Stream&& stream);
 	static void save(ArrayRange<const Cursor> cursors, Stream& stream);
-	/// �����̃J�[�\������̃t�@�C���ɂ܂Ƃ߂ăt�@�C���ɕۑ�����B
+	/// 複数のカーソルを一つのファイルにまとめてファイルに保存する。
 	static void save(ArrayRange<const Cursor> cursors, StringRange filePath);
-	/// �J�[�\���̑傫���B
+	/// カーソルの大きさ。
 	Size size();
 
-public: // �V�X�e���J�[�\���ꗗ�B
-	/// ���J�[�\���ƍ����v�B
+public: // システムカーソル一覧。
+	/// 矢印カーソルと砂時計。
 	static Cursor appStarting();
-	/// ���J�[�\���B
+	/// 矢印カーソル。
 	static Cursor default();
-	/// �\���J�[�\���B
+	/// 十字カーソル。
 	static Cursor cross();
-	/// �n���h�J�[�\���B
+	/// ハンドカーソル。
 	static Cursor hand();
-	/// ���J�[�\���Ƌ^�╄�B
+	/// 矢印カーソルと疑問符。
 	static Cursor help();
-	/// �c���J�[�\���B
+	/// 縦線カーソル。
 	static Cursor iBeam();
-	/// �֎~�J�[�\���B
+	/// 禁止カーソル。
 	static Cursor no();
-	/// �S�����̖��J�[�\���B
+	/// ４方向の矢印カーソル。
 	static Cursor sizeAll();
-	/// �E��ƍ��������̖��J�[�\���B
+	/// 右上と左下方向の矢印カーソル。
 	static Cursor sizeNESW();
-	/// �㉺�����̖��J�[�\���B
+	/// 上下方向の矢印カーソル。
 	static Cursor sizeNS();
-	/// ����ƉE�������̖��J�[�\���B
+	/// 左上と右下方向の矢印カーソル。
 	static Cursor sizeNWSE();
-	/// ���E�����̖��J�[�\���B
+	/// 左右方向の矢印カーソル。
 	static Cursor sizeWE();
-	/// ������̖��J�[�\���B
+	/// 上方向の矢印カーソル。
 	static Cursor upAllow();
-	/// �����v�J�[�\���B
+	/// 砂時計カーソル。
 	static Cursor wait();
 
 public:
-	/// HCURSOR �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HCURSOR への自動変換 ＆ null チェック用
 	operator HCURSOR() const { return _handle; }
 
 private:

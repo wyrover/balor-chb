@@ -1,4 +1,4 @@
-#include "Color.hpp"
+ï»¿#include "Color.hpp"
 
 #include <type_traits>
 
@@ -77,7 +77,7 @@ Color Color::windowFrame()             { return Color::fromCOLORREF(GetSysColor(
 Color Color::windowText()              { return Color::fromCOLORREF(GetSysColor(COLOR_WINDOWTEXT             )); }
 
 
-// F–¼ˆê——B‚±‚Ì URL ‚ğQlBhttp://msdn.microsoft.com/en-us/library/aa358802(v=vs.85).aspx
+// è‰²åä¸€è¦§ã€‚ã“ã® URL ã‚’å‚è€ƒ http://msdn.microsoft.com/en-us/library/aa358802(v=vs.85).aspx
 Color Color::aliceBlue()            { return fromCOLORREF(0xFFFFF8F0); }
 Color Color::antiqueWhite()         { return fromCOLORREF(0xFFD7EBFA); }
 Color Color::aqua()                 { return fromCOLORREF(0xFFFFFF00); }

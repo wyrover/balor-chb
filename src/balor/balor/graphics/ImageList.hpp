@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/NonCopyable.hpp>
@@ -22,161 +22,161 @@ class Icon;
 
 
 /**
- * �摜���X�g�B
- *
- * �����傫���A�t�H�[�}�b�g�̉摜���܂Ƃ߂ĊǗ����A���߃J���[�L�[��A���t�@�`�����l���ɂ�锼�����������T�|�[�g����B
- */
+* 画像リスト。
+*
+* 同じ大きさ、フォーマットの画像をまとめて管理し、透過カラーキーやアルファチャンネルによる半透明合成をサポートする。
+*/
 class ImageList : private NonCopyable {
 public:
 	typedef ::_IMAGELIST* HIMAGELIST;
 	typedef ::HBITMAP__* HBITMAP;
 	typedef ::HICON__* HICON;
 
-	/// �摜���X�g�̃t�H�[�}�b�g�B
+	/// 画像リストのフォーマット。
 	struct Format {
 		enum _enum {
-			palette4bpp = 0x00000004, /// �P�U�F�p���b�g�B
-			palette8bpp = 0x00000008, /// �Q�T�U�F�p���b�g�B
-			rgb16bpp    = 0x00000010, /// �P�U�r�b�g�J���[�摜�B
-			rgb24bpp    = 0x00000018, /// �Q�S�r�b�g�J���[�摜�B
-			argb32bpp   = 0x00000020, /// �A���t�@�`�����l���t���R�Q�r�b�g�J���[�摜�B
+			palette4bpp = 0x00000004, /// １６色パレット。
+			palette8bpp = 0x00000008, /// ２５６色パレット。
+			rgb16bpp = 0x00000010, /// １６ビットカラー画像。
+			rgb24bpp = 0x00000018, /// ２４ビットカラー画像。
+			argb32bpp = 0x00000020, /// アルファチャンネル付き３２ビットカラー画像。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Format);
 	};
 
-	/// �摜�̕`���ԁBGraphics::drawImageList �֐��̈����Ɏg���B
+	/// 画像の描画状態。Graphics::drawImageList 関数の引数に使う。
 	struct State {
 		enum _enum {
-			normal    = 0x00000000, /// �}�X�N���g���ĕ`��B
-			drawMask  = 0x00000010, /// �}�X�N�摜��`��B
-			unmasked  = 0x00000020, /// �}�X�N���g�킸�ɕ`��B�������}�X�N�������Ȃ��A���t�@�`�����l���摜�ɂ͖����B
-			focused   = 0x00000002, /// �t�H�[�J�X��Ԃŕ`��B
-			selected  = 0x00000004, /// �I����Ԃŕ`��B
+			normal = 0x00000000, /// マスクを使って描画。
+			drawMask = 0x00000010, /// マスク画像を描画。
+			unmasked = 0x00000020, /// マスクを使わずに描画。ただしマスクを持たないアルファチャンネル画像には無効。
+			focused = 0x00000002, /// フォーカス状態で描画。
+			selected = 0x00000004, /// 選択状態で描画。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(State);
 	};
 
-	/// �V�X�e�����\�[�X�̉摜���X�g�̎�ށBfromSystemResource �֐��̈����Ɏg���B
+	/// システムリソースの画像リストの種類。fromSystemResource 関数の引数に使う。
 	struct SystemResource {
 		enum _enum {
-			smallStandardImages = 0, /// �W���I�ȃA�v���P�[�V�����Ŏg�p����鏬���ȃA�C�R���̉摜���X�g�B
-			largeStandardImages = 1, /// �W���I�ȃA�v���P�[�V�����Ŏg�p�����傫�ȃA�C�R���̉摜���X�g�B
-			smallViewImages     = 4, /// ���X�g�r���[�̑����\�������ȃA�C�R���̉摜���X�g�B
-			largeViewImages     = 5, /// ���X�g�r���[�̑����\���傫�ȃA�C�R���̉摜���X�g�B
-			smallExplorerImages = 8, /// �E�C���h�E�Y�G�N�X�v���[���Ŏg�p����鏬���ȃA�C�R���̉摜���X�g�B
-			largeExplorerImages = 9, /// �E�C���h�E�Y�G�N�X�v���[���Ŏg�p����鏬���ȃA�C�R���̉摜���X�g�B
+			smallStandardImages = 0, /// 標準的なアプリケーションで使用される小さなアイコンの画像リスト。
+			largeStandardImages = 1, /// 標準的なアプリケーションで使用される大きなアイコンの画像リスト。
+			smallViewImages = 4, /// リストビューの操作を表す小さなアイコンの画像リスト。
+			largeViewImages = 5, /// リストビューの操作を表す大きなアイコンの画像リスト。
+			smallExplorerImages = 8, /// ウインドウズエクスプローラで使用される小さなアイコンの画像リスト。
+			largeExplorerImages = 9, /// ウインドウズエクスプローラで使用される小さなアイコンの画像リスト。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(SystemResource);
 	};
 
-	/// �V�X�e�����\�[�X�̉摜���X�g�ismallStandardImages�AlargeStandardImages�j�̉摜�C���f�b�N�X�B
+	/// システムリソースの画像リスト（smallStandardImages、largeStandardImages）の画像インデックス。
 	struct StandardImage {
 		enum _enum {
-			cut          =  0, /// �؂���B
-			copy         =  1, /// �R�s�[�B
-			paste        =  2, /// �\��t���B
-			undo         =  3, /// ���ɖ߂��B
-			redo         =  4, /// ��蒼���B
-			remove       =  5, /// �폜�B
-			fileNew      =  6, /// �t�@�C���̐V�K�쐬�B
-			fileOpen     =  7, /// �t�@�C�����J���B
-			fileSave     =  8, /// �t�@�C���̕ۑ��B
-			printPreview =  9, /// ����v���r���[�B
-			properties   = 10, /// �v���p�e�B�B
-			help         = 11, /// �w���v�B
-			find         = 12, /// �����B
-			replace      = 13, /// �u���B
-			print        = 14, /// ����B
+			cut = 0, /// 切り取り。
+			copy = 1, /// コピー。
+			paste = 2, /// 貼り付け。
+			undo = 3, /// 元に戻す。
+			redo = 4, /// やり直し。
+			remove = 5, /// 削除。
+			fileNew = 6, /// ファイルの新規作成。
+			fileOpen = 7, /// ファイルを開く。
+			fileSave = 8, /// ファイルの保存。
+			printPreview = 9, /// 印刷プレビュー。
+			properties = 10, /// プロパティ。
+			help = 11, /// ヘルプ。
+			find = 12, /// 検索。
+			replace = 13, /// 置換。
+			print = 14, /// 印刷。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(StandardImage);
 	};
 
-	/// �V�X�e�����\�[�X�̉摜���X�g�ismallViewImages�AlargeViewImages�j�̉摜�C���f�b�N�X�B
+	/// システムリソースの画像リスト（smallViewImages、largeViewImages）の画像インデックス。
 	struct ViewImage {
 		enum _enum {
-			largeIcons    =  0, /// �傫�ȃA�C�R���B
-			smallIcons    =  1, /// �����ȃA�C�R���B
-			list          =  2, /// �ꗗ�B
-			details       =  3, /// �ڍׁB
-			sortName      =  4, /// ���O���Ń\�[�g�B
-			sortSize      =  5, /// �傫�����Ń\�[�g�B
-			sortDate      =  6, /// ���t���Ń\�[�g�B
-			sortType      =  7, /// ��ނŃ\�[�g�B
-			parentFolder  =  8, /// �e�t�H���_�ֈړ��B
-			netConnect    =  9, /// �l�b�g���[�N�h���C�u�ɐڑ��B
-			netDisconnect = 10, /// �l�b�g���[�N�h���C�u����ؒf�B
-			newFolder     = 11, /// �V�����t�H���_�B
-			viewMenu      = 12, /// ���j���[�B
+			largeIcons = 0, /// 大きなアイコン。
+			smallIcons = 1, /// 小さなアイコン。
+			list = 2, /// 一覧。
+			details = 3, /// 詳細。
+			sortName = 4, /// 名前順でソート。
+			sortSize = 5, /// 大きさ順でソート。
+			sortDate = 6, /// 日付順でソート。
+			sortType = 7, /// 種類でソート。
+			parentFolder = 8, /// 親フォルダへ移動。
+			netConnect = 9, /// ネットワークドライブに接続。
+			netDisconnect = 10, /// ネットワークドライブから切断。
+			newFolder = 11, /// 新しいフォルダ。
+			viewMenu = 12, /// メニュー。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ViewImage);
 	};
 
-	/// �V�X�e�����\�[�X�̉摜���X�g�ismallExplorerImages�AlargeExplorerImages�j�̉摜�C���f�b�N�X�B
+	/// システムリソースの画像リスト（smallExplorerImages、largeExplorerImages）の画像インデックス。
 	struct ExplorerImage {
 		enum _enum {
-			back           =  0, /// �߂�B
-			forward        =  1, /// �i�ށB
-			favorites      =  2, /// ���C�ɓ���B
-			addToFavorites =  3, /// ���C�ɓ���ɒǉ��B
-			viewTree       =  4, /// �c���[�\���B
+			back = 0, /// 戻る。
+			forward = 1, /// 進む。
+			favorites = 2, /// お気に入り。
+			addToFavorites = 3, /// お気に入りに追加。
+			viewTree = 4, /// ツリー表示。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ExplorerImage);
 	};
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	ImageList();
 	ImageList(ImageList&& value);
-	/// �n���h������쐬�Bowned �� true �Ȃ�΃f�X�g���N�^�Ńn���h����j������B
+	/// ハンドルから作成。owned が true ならばデストラクタでハンドルを破棄する。
 	explicit ImageList(HIMAGELIST handle, bool owned = false);
-	/// �傫���Ɖ摜�t�H�[�}�b�g����쐬�Bmasked �̓��m�N���̃}�X�N�摜���g�����ǂ����B
+	/// 大きさと画像フォーマットから作成。masked はモノクロのマスク画像を使うかどうか。
 	explicit ImageList(const Size& imageSize, ImageList::Format format = Format::argb32bpp, bool masked = true);
 	ImageList(int width, int height, ImageList::Format format = Format::argb32bpp, bool masked = true);
-	/// �V�X�e�����\�[�X����摜���X�g���쐬����B
+	/// システムリソースから画像リストを作成する。
 	explicit ImageList(ImageList::SystemResource systemResource);
 	~ImageList();
 	ImageList& operator=(ImageList&& value);
 
 public:
-	/// �摜�����X�g�̖����ɒǉ�����B�摜�̕��� imageSize().width �ȏ�łȂ���΂Ȃ�Ȃ��B�摜�̕��� imageSize().width �� n �{�ł���ꍇ�� n �̉摜��ǉ�����B
-	/// �}�X�N�摜�̓��m�N���r�b�g�}�b�v�ŁA�������������߂���B�J���[�L�[���w�肵���ꍇ�̓J���[�L�[�̐F�̕����𓧉߂���B
-	/// �r�b�g�}�b�v���R�Q�r�b�g�摜�łȂ����P�h�b�g�ł��O�ł͂Ȃ��A���t�@�����ꍇ�A�}�X�N�摜���J���[�L�[����������ăA���t�@�`�����l���œ��߂����B
-	/// �ǉ���Ƀr�b�g�}�b�v�n���h���͎Q�Ƃ���Ȃ��B
+	/// 画像をリストの末尾に追加する。画像の幅は imageSize().width 以上でなければならない。画像の幅が imageSize().width の n 倍である場合は n 個の画像を追加する。
+	/// マスク画像はモノクロビットマップで、白い部分が透過する。カラーキーを指定した場合はカラーキーの色の部分を透過する。
+	/// ビットマップが３２ビット画像でなおかつ１ドットでも０ではないアルファを持つ場合、マスク画像もカラーキーも無視されてアルファチャンネルで透過される。
+	/// 追加後にビットマップハンドルは参照されない。
 	void add(HBITMAP bitmap, HBITMAP mask = nullptr);
 	void add(HBITMAP bitmap, const Color& colorKey);
-	/// �A�C�R�������X�g�̖����ɒǉ�����B
-	/// ���\�[�X�A�C�R���ł������ꍇ�A���[�h���ꂽ���̃T�C�Y���Ȃ�ł��낤�ƁAimageSize() �ɍ����T�C�Y�̃A�C�R�����I�������B�����łȂ��ꍇ�� imageSize() �ɍ��킹�Ċg��k�������B
-	/// �ǉ���ɃA�C�R���n���h���͎Q�Ƃ���Ȃ��B
+	/// アイコンをリストの末尾に追加する。
+	/// リソースアイコンであった場合、ロードされた時のサイズがなんであろうと、imageSize() に合うサイズのアイコンが選択される。そうでない場合は imageSize() に合わせて拡大縮小される。
+	/// 追加後にアイコンハンドルは参照されない。
 	void add(HICON icon);
-	/// �摜���X�g����ɂ���B
+	/// 画像リストを空にする。
 	void clear();
-	/// �摜���X�g�𕡐�����B
+	/// 画像リストを複製する。
 	ImageList clone() const;
 	static ImageList clone(HIMAGELIST handle);
-	/// �摜�̐��B
+	/// 画像の数。
 	int count() const;
-	/// �摜�����X�g����폜����B
+	/// 画像をリストから削除する。
 	void erase(int index);
-	/// �摜�t�H�[�}�b�g�B
+	/// 画像フォーマット。
 	ImageList::Format format();
-	/*/// �V�X�e���A�C�R���̉摜���X�g�B�ҏW������n���h�����폜����Ƒ�ςȎ��ɂȂ�̂Œ��ӁB
+	/*/// システムアイコンの画像リスト。編集したりハンドルを削除すると大変な事になるので注意。
 	//static ImageList fromSystemIcons();*//**/
-	/// �P�s�N�Z��������̃r�b�g������摜���X�g�̃t�H�[�}�b�g�ɕϊ�����B
+	/// １ピクセルあたりのビット数から画像リストのフォーマットに変換する。
 	static ImageList::Format getFormatFromBitsPerPixel(int bitsPerPixel);
-	/// �摜���A�C�R���ɂ��Ď擾����B
+	/// 画像をアイコンにして取得する。
 	Icon getIcon(int index) const;
-	/// ���X�g���̉摜�̃T�C�Y�B
+	/// リスト内の画像のサイズ。
 	Size imageSize() const;
-	/// �f�X�g���N�^�Ńn���h����j�����邩�ǂ����B�ύX�͗v���ӁB
+	/// デストラクタでハンドルを破棄するかどうか。変更は要注意。
 	bool owned() const;
 	void owned(bool value);
-	/// �w�肵���C���f�b�N�X�̉摜��u��������B�C���f�b�N�X�ȊO�̈����� add �֐��Ɠ����B�u��������Ɉ����̃r�b�g�}�b�v�n���h���A�A�C�R���n���h���͎Q�Ƃ���Ȃ��B
+	/// 指定したインデックスの画像を置き換える。インデックス以外の引数は add 関数と同じ。置き換え後に引数のビットマップハンドル、アイコンハンドルは参照されない。
 	void replace(int index, HBITMAP bitmap, HBITMAP mask = nullptr);
 	void replace(int index, HBITMAP bitmap, const Color& colorKey);
 	void replace(int index, HICON icon);
 
 public:
-	/// HIMAGELIST �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HIMAGELIST への自動変換 ＆ null チェック用
 	operator HIMAGELIST() const { return _handle; }
 
 private:

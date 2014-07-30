@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/NonCopyable.hpp>
@@ -22,105 +22,105 @@ namespace balor {
 
 
 
-/**
- * GDI ƒtƒHƒ“ƒg‚ğ•\‚·B
- * 
- * ƒtƒHƒ“ƒgƒTƒCƒY‚Éƒ|ƒCƒ“ƒg’PˆÊ‚ªg‚¢‚½‚¢ê‡‚Í Graphics::pointToPixel ŠÖ”‚ğg‚¤B
- * c‘‚«w’è‚Í ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒtƒHƒ“ƒg–¼‚Ìæ“ª‚É@‚ğ‚Â‚¯Aescapement ‚Æ orientation ‚ğ 2700 ‚Éw’è‚·‚éB
- * c‘‚«ê—pƒtƒHƒ“ƒg‚Å‚È‚­‚Æ‚à escapement ‚Åˆê‰c‘‚«‚É‚Í‚È‚é‚ªuBv“™‚Ì¬‚³‚È•¶š‚ª¶‰º‚ÉŠñ‚¹‚ç‚ê‚é‚Ì‚Åg‚¢‚É‚­‚¢B
- * TODO:•½‹Ï•¶š•AƒAƒZƒ“ƒgAƒfƒBƒZƒ“ƒg¥¥“™‚Ìî•ñæ“¾B
- */
-class Font : private NonCopyable {
-public:
-	typedef ::HFONT__* HFONT;
-	typedef ::tagLOGFONTW LOGFONTW;
+		/**
+		* GDI ãƒ•ã‚©ãƒ³ãƒˆã‚’è¡¨ã™ã€‚
+		*
+		* ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºã«ãƒã‚¤ãƒ³ãƒˆå˜ä½ãŒä½¿ã„ãŸã„å ´åˆã¯ Graphics::pointToPixel é–¢æ•°ã‚’ä½¿ã†ã€‚
+		* ç¸¦æ›¸ãæŒ‡å®šã¯ ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒ•ã‚©ãƒ³ãƒˆåã®å…ˆé ­ã«@ã‚’ã¤ã‘ã€escapement ã¨ orientation ã‚’ 2700 ã«æŒ‡å®šã™ã‚‹ã€‚
+		* ç¸¦æ›¸ãå°‚ç”¨ãƒ•ã‚©ãƒ³ãƒˆã§ãªãã¨ã‚‚ escapement ã§ä¸€å¿œç¸¦æ›¸ãã«ã¯ãªã‚‹ãŒã€Œã€‚ã€ç­‰ã®å°ã•ãªæ–‡å­—ãŒå·¦ä¸‹ã«å¯„ã›ã‚‰ã‚Œã‚‹ã®ã§ä½¿ã„ã«ãã„ã€‚
+		* TODO:å¹³å‡æ–‡å­—å¹…ã€ã‚¢ã‚»ãƒ³ãƒˆã€ãƒ‡ã‚£ã‚»ãƒ³ãƒˆï½¥ï½¥ç­‰ã®æƒ…å ±å–å¾—ã€‚
+		*/
+		class Font : private NonCopyable {
+		public:
+			typedef ::HFONT__* HFONT;
+			typedef ::tagLOGFONTW LOGFONTW;
 
-	/// ƒtƒHƒ“ƒg‚Ì•`‰æ•i¿B
-	/// XP‚Å‚Í nonantialiased ˆÈŠO‚Í antialiased ‚Æ“™‚µ‚¢‚æ‚¤‚¾B
-	/// Vista‚Å‚Í antialiased ‚Æ nonantialiased ‚Í‚w‚o‚Æ“¯‚¶‚¾‚ª‚»‚êˆÈŠO‚Í ClearType ‚Ì‚Ú‚©‚µ‚ªŒ©‚ç‚ê‚éB
-	/// Vista‚É‚¨‚¢‚ÄA‚l‚r ƒSƒVƒbƒN‚ÍƒtƒHƒ“ƒg‚ÌƒsƒNƒZƒ‹ƒTƒCƒY‚ªƒAƒ“ƒ`ƒGƒCƒŠƒAƒX‚Í 25 –¢–A ClearType ‚Ì‚Ú‚©‚µ‚Í 23 –¢–‚¾‚Æ‚©‚©‚ç‚È‚­‚È‚é‚ªA
-	/// ƒƒCƒŠƒI‚Í 23 –¢–‚Å‚à—¼•û‚©‚©‚éB
-	struct Quality {
-		enum _enum {
-			default          = 0, /// •i¿‚ğd‹‚µ‚È‚¢B
-			draft            = 1, /// proof ‚ÌŸ‚É•i¿‚ğd‹‚·‚éB
-			proof            = 2, /// Å‚à•i¿‚ğd‹‚·‚éB
-			nonantialiased   = 3, /// ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX‚ğ‚©‚¯‚È‚¢B
-			antialiased      = 4, /// ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX‚ğ‚©‚¯‚éB
-			clearType        = 5, /// ƒNƒŠƒAƒ^ƒCƒv‚ÌƒAƒ“ƒ`ƒGƒCƒŠƒAƒX‚ğ‚©‚¯‚éB
+			/// ãƒ•ã‚©ãƒ³ãƒˆã®æç”»å“è³ªã€‚
+			/// XPã§ã¯ nonantialiased ä»¥å¤–ã¯ antialiased ã¨ç­‰ã—ã„ã‚ˆã†ã ã€‚
+			/// Vistaã§ã¯ antialiased ã¨ nonantialiased ã¯ï¼¸ï¼°ã¨åŒã˜ã ãŒãã‚Œä»¥å¤–ã¯ ClearType ã®ã¼ã‹ã—ãŒè¦‹ã‚‰ã‚Œã‚‹ã€‚
+			/// Vistaã«ãŠã„ã¦ã€ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯ã¯ãƒ•ã‚©ãƒ³ãƒˆã®ãƒ”ã‚¯ã‚»ãƒ«ã‚µã‚¤ã‚ºãŒã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹ã¯ 25 æœªæº€ã€ ClearType ã®ã¼ã‹ã—ã¯ 23 æœªæº€ã ã¨ã‹ã‹ã‚‰ãªããªã‚‹ãŒã€
+			/// ãƒ¡ã‚¤ãƒªã‚ªã¯ 23 æœªæº€ã§ã‚‚ä¸¡æ–¹ã‹ã‹ã‚‹ã€‚
+			struct Quality {
+				enum _enum {
+					default = 0, /// å“è³ªã‚’é‡è¦–ã—ãªã„ã€‚
+					draft = 1, /// proof ã®æ¬¡ã«å“è³ªã‚’é‡è¦–ã™ã‚‹ã€‚
+					proof = 2, /// æœ€ã‚‚å“è³ªã‚’é‡è¦–ã™ã‚‹ã€‚
+					nonantialiased = 3, /// ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹ã‚’ã‹ã‘ãªã„ã€‚
+					antialiased = 4, /// ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹ã‚’ã‹ã‘ã‚‹ã€‚
+					clearType = 5, /// ã‚¯ãƒªã‚¢ã‚¿ã‚¤ãƒ—ã®ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹ã‚’ã‹ã‘ã‚‹ã€‚
+				};
+				BALOR_NAMED_ENUM_MEMBERS(Quality);
+			};
+
+			/// ãƒ•ã‚©ãƒ³ãƒˆã®ã‚¹ã‚¿ã‚¤ãƒ«ã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
+			struct Style {
+				enum _enum {
+					regular = 0x00, /// æ™®é€šã®å­—ä½“ã€‚
+					bold = 0x01, /// å¤ªå­—ã€‚
+					italic = 0x02, /// æ–œä½“ã€‚
+					strikeout = 0x04, /// å–ã‚Šæ¶ˆã—ç·šä»˜ãã€‚
+					underline = 0x08, /// ä¸‹ç·šä»˜ãã€‚
+				};
+				BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Style);
+			};
+
+		public:
+			/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
+			Font();
+			Font(Font&& value);
+			/// ãƒãƒ³ãƒ‰ãƒ«ã‹ã‚‰ä½œæˆã€‚owned ãŒ true ãªã‚‰ã°ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã€‚
+			explicit Font(HFONT handle, bool owned = false);
+			/// ãƒ•ã‚©ãƒ³ãƒˆã‚’æ–°ã—ã„å¤§ãã•ã¨ã‚¹ã‚¿ã‚¤ãƒ«ã§è¤‡è£½ã™ã‚‹ã€‚
+			Font(const Font& font, int height, Font::Style style = Style::regular);
+			/// å„å¼•æ•°ã‚’å…ƒã«ãƒ•ã‚©ãƒ³ãƒˆã‚’ä½œæˆã™ã‚‹ã€‚height ã¯ãƒ”ã‚¯ã‚»ãƒ«ã‚µã‚¤ã‚ºã€‚
+			Font(StringRange name, int height, Font::Style style = Style::regular, Font::Quality quality = Quality::proof, int escapement = 0, int orientation = 0);
+			~Font();
+			Font& operator=(Font&& value);
+
+		public:
+			/// æ–‡å­—ã®å¹³å‡å¹…ã€‚
+			int averageWidth() const;
+			/// è¤‡è£½ã‚’ä½œæˆã—ã¦è¿”ã™ã€‚
+			Font clone() const;
+			static Font clone(HFONT handle);
+			/// æ–‡å­—é€ã‚Šæ–¹å‘ã®è§’åº¦ã€‚ï¼ˆ0ï½3600ï¼‰
+			int escapement() const;
+			/// LOGFONTW æ§‹é€ ä½“ã‹ã‚‰ä½œæˆã€‚
+			static Font fromLogFont(const LOGFONTW& logfont);
+			/// æ–‡å­—ã®ãƒ”ã‚¯ã‚»ãƒ«å˜ä½ã®é«˜ã•ã€‚
+			int height() const;
+			/// ãƒ•ã‚©ãƒ³ãƒˆåã€‚ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æŒ‡å®šã—ãŸåå‰ã¨ã¯é™ã‚‰ãªã„ã€‚æœ€çµ‚çš„ã«é¸ã°ã‚ŒãŸåå‰ã«ãªã‚‹ã€‚
+			String name() const;
+			/// ä½¿ç”¨ã§ãã‚‹ãƒ•ã‚©ãƒ³ãƒˆåãƒªã‚¹ãƒˆã€‚
+			static std::vector<String, std::allocator<String> > names();
+			/// æ–‡å­—ã®ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³ã«å¯¾ã™ã‚‹è¡¨ç¤ºæ–¹å‘ã®è§’åº¦ã€‚ï¼ˆ0ï½3600ï¼‰
+			int orientation() const;
+			/// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã‹ã©ã†ã‹ã€‚å¤‰æ›´ã¯è¦æ³¨æ„ã€‚
+			bool owned() const;
+			void owned(bool value);
+			/// æç”»å“è³ª
+			Font::Quality quality() const;
+			/// ãƒ•ã‚©ãƒ³ãƒˆã‚¹ã‚¿ã‚¤ãƒ«ã€‚
+			Font::Style style() const;
+
+		public:// ã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚©ãƒ³ãƒˆä¸€è¦§ã€‚
+			static Font ansiFixed();
+			static Font ansiVar();
+			static Font deviceDefault();
+			/// Control ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ³ãƒˆã€‚
+			static Font defaultGui();
+			static Font oemFixed();
+			static Font system();
+			static Font systemFixed();
+
+		public:
+			/// HFONT ã¸ã®è‡ªå‹•å¤‰æ› ï¼† null ãƒã‚§ãƒƒã‚¯ç”¨
+			operator HFONT() const { return _handle; }
+
+		private:
+			HFONT _handle;
+			bool _owned;
 		};
-		BALOR_NAMED_ENUM_MEMBERS(Quality);
-	};
-
-	/// ƒtƒHƒ“ƒg‚ÌƒXƒ^ƒCƒ‹B‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
-	struct Style {
-		enum _enum {
-			regular   = 0x00, /// •’Ê‚Ìš‘ÌB
-			bold      = 0x01, /// ‘¾šB
-			italic    = 0x02, /// Î‘ÌB
-			strikeout = 0x04, /// æ‚èÁ‚µü•t‚«B
-			underline = 0x08, /// ‰ºü•t‚«B
-		};
-		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Style);
-	};
-
-public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
-	Font();
-	Font(Font&& value);
-	/// ƒnƒ“ƒhƒ‹‚©‚çì¬Bowned ‚ª true ‚È‚ç‚ÎƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚éB
-	explicit Font(HFONT handle, bool owned = false);
-	/// ƒtƒHƒ“ƒg‚ğV‚µ‚¢‘å‚«‚³‚ÆƒXƒ^ƒCƒ‹‚Å•¡»‚·‚éB
-	Font(const Font& font, int height, Font::Style style = Style::regular);
-	/// Šeˆø”‚ğŒ³‚ÉƒtƒHƒ“ƒg‚ğì¬‚·‚éBheight ‚ÍƒsƒNƒZƒ‹ƒTƒCƒYB
-	Font(StringRange name, int height, Font::Style style = Style::regular, Font::Quality quality = Quality::proof, int escapement = 0, int orientation = 0);
-	~Font();
-	Font& operator=(Font&& value);
-
-public:
-	/// •¶š‚Ì•½‹Ï•B
-	int averageWidth() const;
-	/// •¡»‚ğì¬‚µ‚Ä•Ô‚·B
-	Font clone() const;
-	static Font clone(HFONT handle);
-	/// •¶š‘—‚è•ûŒü‚ÌŠp“xBi0`3600j
-	int escapement() const;
-	/// LOGFONTW \‘¢‘Ì‚©‚çì¬B
-	static Font fromLogFont(const LOGFONTW& logfont);
-	/// •¶š‚ÌƒsƒNƒZƒ‹’PˆÊ‚Ì‚‚³B
-	int height() const;
-	/// ƒtƒHƒ“ƒg–¼BƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åw’è‚µ‚½–¼‘O‚Æ‚ÍŒÀ‚ç‚È‚¢BÅI“I‚É‘I‚Î‚ê‚½–¼‘O‚É‚È‚éB
-	String name() const;
-	/// g—p‚Å‚«‚éƒtƒHƒ“ƒg–¼ƒŠƒXƒgB
-	static std::vector<String, std::allocator<String> > names();
-	/// •¶š‚Ìƒx[ƒXƒ‰ƒCƒ“‚É‘Î‚·‚é•\¦•ûŒü‚ÌŠp“xBi0`3600j
-	int orientation() const;
-	/// ƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚é‚©‚Ç‚¤‚©B•ÏX‚Í—v’ˆÓB
-	bool owned() const;
-	void owned(bool value);
-	/// •`‰æ•i¿
-	Font::Quality quality() const;
-	/// ƒtƒHƒ“ƒgƒXƒ^ƒCƒ‹B
-	Font::Style style() const;
-
-public:// ƒVƒXƒeƒ€ƒtƒHƒ“ƒgˆê——B
-	static Font ansiFixed();
-	static Font ansiVar();
-	static Font deviceDefault();
-	/// Control ‚ÌƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgB
-	static Font defaultGui();
-	static Font oemFixed();
-	static Font system();
-	static Font systemFixed();
-
-public:
-	/// HFONT ‚Ö‚Ì©“®•ÏŠ· • null ƒ`ƒFƒbƒN—p
-	operator HFONT() const { return _handle; }
-
-private:
-	HFONT _handle;
-	bool _owned;
-};
 
 
 

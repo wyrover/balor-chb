@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Enum.hpp>
@@ -17,99 +17,99 @@ class Color;
 
 
 /**
- * GDI ƒyƒ“‚ğ•\‚·B
- */
+* GDI ãƒšãƒ³ã‚’è¡¨ã™ã€‚
+*/
 class Pen : private NonCopyable {
 public:
 	typedef ::HBRUSH__* HBRUSH;
 	typedef ::HPEN__* HPEN;
 
-	/// ü‚Ìn“_‚ÆI“_‚ÌŒ`B
+	/// ç·šã®å§‹ç‚¹ã¨çµ‚ç‚¹ã®å½¢ã€‚
 	struct LineCap {
 		enum _enum {
-			round  = 0x00000000, /// ü‚Ì’[“_‚ğŠÛ‚­‚·‚éB
-			square = 0x00000100, /// ü‚Ì’[“_‚ğlŠp‚­‚·‚éB
-			flat   = 0x00000200, /// ü‚Ì’[“_‚ğ•½‚ç‚É‚·‚éBsquare ‚ª’[“_‚ÉlŠp‚Ì”¼•ª‚ğ’Ç‰Á‚·‚é‚Ì‚É‘Î‚µ flat ‚Í’[“_‚ÅƒJƒbƒg‚·‚éB
+			round = 0x00000000, /// ç·šã®ç«¯ç‚¹ã‚’ä¸¸ãã™ã‚‹ã€‚
+			square = 0x00000100, /// ç·šã®ç«¯ç‚¹ã‚’å››è§’ãã™ã‚‹ã€‚
+			flat = 0x00000200, /// ç·šã®ç«¯ç‚¹ã‚’å¹³ã‚‰ã«ã™ã‚‹ã€‚square ãŒç«¯ç‚¹ã«å››è§’ã®åŠåˆ†ã‚’è¿½åŠ ã™ã‚‹ã®ã«å¯¾ã— flat ã¯ç«¯ç‚¹ã§ã‚«ãƒƒãƒˆã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(LineCap);
 	};
 
 
-	/// ü‚ÌÚ‘±•”•ª‚ÌŒ`B
+	/// ç·šã®æ¥ç¶šéƒ¨åˆ†ã®å½¢ã€‚
 	struct LineJoin {
 		enum _enum {
-			round  = 0x00000000, /// Ú‘±•”•ª‚ğŠÛ‚­‚·‚éB
-			bevel  = 0x00001000, /// Ú‘±•”•ª‚ğ•½‚ç‚É‚·‚éB
-			mitter = 0x00002000, /// ü‚Æü‚Ì‹——£‚ª Graphics::mitterLimit() ˆÈ‰º‚È‚ç‚ÎÚ‘±•”•ª‚ğë‚ç‚¹‚éB‚»‚¤‚Å‚È‚¯‚ê‚Î bevel ‚Æ“¯‚¶B
+			round = 0x00000000, /// æ¥ç¶šéƒ¨åˆ†ã‚’ä¸¸ãã™ã‚‹ã€‚
+			bevel = 0x00001000, /// æ¥ç¶šéƒ¨åˆ†ã‚’å¹³ã‚‰ã«ã™ã‚‹ã€‚
+			mitter = 0x00002000, /// ç·šã¨ç·šã®è·é›¢ãŒ Graphics::mitterLimit() ä»¥ä¸‹ãªã‚‰ã°æ¥ç¶šéƒ¨åˆ†ã‚’å°–ã‚‰ã›ã‚‹ã€‚ãã†ã§ãªã‘ã‚Œã° bevel ã¨åŒã˜ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(LineJoin);
 	};
 
-	/// ƒyƒ“‚Ìü‚ÌƒXƒ^ƒCƒ‹B
+	/// ãƒšãƒ³ã®ç·šã®ã‚¹ã‚¿ã‚¤ãƒ«ã€‚
 	struct Style {
 		enum _enum {
-			solid       = 0, /// ÀüB
-			dash        = 1, /// ”jüB
-			dot         = 2, /// “_üB
-			dashDot     = 3, /// ˆê“_½üB
-			dashDotDot  = 4, /// “ñ“_½üB
-			null        = 5, /// ü‚ğ•`‰æ‚µ‚È‚¢B
-			insideFrame = 6, /// Àü‚ÅA}Œ`‚ğ•`‚­ê‡‚Éü•‚ª}Œ`“à‚ÉŠ®‘S‚Éû‚Ü‚é‚æ‚¤‚É‘‚­B
-			custom      = 7, /// ü‚Ìƒpƒ^[ƒ“‚ğƒ†[ƒU‚ªİ’è‚·‚éB
+			solid = 0, /// å®Ÿç·šã€‚
+			dash = 1, /// ç ´ç·šã€‚
+			dot = 2, /// ç‚¹ç·šã€‚
+			dashDot = 3, /// ä¸€ç‚¹é–ç·šã€‚
+			dashDotDot = 4, /// äºŒç‚¹é–ç·šã€‚
+			null = 5, /// ç·šã‚’æç”»ã—ãªã„ã€‚
+			insideFrame = 6, /// å®Ÿç·šã§ã€å›³å½¢ã‚’æãå ´åˆã«ç·šå¹…ãŒå›³å½¢å†…ã«å®Œå…¨ã«åã¾ã‚‹ã‚ˆã†ã«æ›¸ãã€‚
+			custom = 7, /// ç·šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ãƒ¦ãƒ¼ã‚¶ãŒè¨­å®šã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	Pen();
 	Pen(Pen&& value);
-	/// ƒnƒ“ƒhƒ‹‚©‚çì¬Bowned ‚ª true ‚È‚ç‚ÎƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚éB
+	/// ãƒãƒ³ãƒ‰ãƒ«ã‹ã‚‰ä½œæˆã€‚owned ãŒ true ãªã‚‰ã°ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã€‚
 	explicit Pen(HPEN handle, bool owned = false);
-	/// ƒuƒ‰ƒV‚Æ•‚ÆƒXƒ^ƒCƒ‹“™‚©‚çì¬Bì¬ŒãAƒuƒ‰ƒVƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚È‚¢B
+	/// ãƒ–ãƒ©ã‚·ã¨å¹…ã¨ã‚¹ã‚¿ã‚¤ãƒ«ç­‰ã‹ã‚‰ä½œæˆã€‚ä½œæˆå¾Œã€ãƒ–ãƒ©ã‚·ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œãªã„ã€‚
 	explicit Pen(HBRUSH brush, int width = 1, Pen::Style style = Style::solid, LineCap lineCap = LineCap::square, LineJoin lineJoin = LineJoin::mitter);
-	/// ƒuƒ‰ƒV‚Æ•‚Æ“_ü‚Ìƒpƒ^[ƒ““™‚©‚çì¬Bì¬ŒãAƒuƒ‰ƒVƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚È‚¢B
+	/// ãƒ–ãƒ©ã‚·ã¨å¹…ã¨ç‚¹ç·šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ç­‰ã‹ã‚‰ä½œæˆã€‚ä½œæˆå¾Œã€ãƒ–ãƒ©ã‚·ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œãªã„ã€‚
 	Pen(HBRUSH brush, int width, ArrayRange<const int> patten, LineCap lineCap = LineCap::square, LineJoin lineJoin = LineJoin::mitter);
-	/// F‚Æ•‚ÆƒXƒ^ƒCƒ‹“™‚©‚çì¬B
+	/// è‰²ã¨å¹…ã¨ã‚¹ã‚¿ã‚¤ãƒ«ç­‰ã‹ã‚‰ä½œæˆã€‚
 	explicit Pen(const Color& color, int width = 1, Pen::Style style = Style::solid, LineCap lineCap = LineCap::square, LineJoin lineJoin = LineJoin::mitter);
-	/// F‚Æ•‚Æ“_ü‚Ìƒpƒ^[ƒ““™‚©‚çì¬B
+	/// è‰²ã¨å¹…ã¨ç‚¹ç·šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ç­‰ã‹ã‚‰ä½œæˆã€‚
 	Pen(const Color& color, int width, ArrayRange<const int> patten, LineCap lineCap = LineCap::square, LineJoin lineJoin = LineJoin::mitter);
 	~Pen();
 
 	Pen& operator=(Pen&& value);
 
 public:
-	/// •`‰æ‚Ég‚¤ƒuƒ‰ƒVBƒuƒ‰ƒV‚ğg‚í‚È‚¢ê‡‚Íƒkƒ‹ƒnƒ“ƒhƒ‹‚Ìƒuƒ‰ƒV‚ª•Ô‚éB
+	/// æç”»ã«ä½¿ã†ãƒ–ãƒ©ã‚·ã€‚ãƒ–ãƒ©ã‚·ã‚’ä½¿ã‚ãªã„å ´åˆã¯ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®ãƒ–ãƒ©ã‚·ãŒè¿”ã‚‹ã€‚
 	Brush brush() const;
-	/// •¡»‚ğ•Ô‚·B
+	/// è¤‡è£½ã‚’è¿”ã™ã€‚
 	Pen clone() const;
 	static Pen clone(HPEN handle);
-	/// ü‚ÌFBƒuƒ‰ƒV‚ğg‚¤ê‡‚ÍˆÓ–¡‚ğ‚½‚È‚¢B
+	/// ç·šã®è‰²ã€‚ãƒ–ãƒ©ã‚·ã‚’ä½¿ã†å ´åˆã¯æ„å‘³ã‚’æŒãŸãªã„ã€‚
 	Color color() const;
-	/// ü‚Ìn“_‚ÆI“_‚ÌŒ`B
+	/// ç·šã®å§‹ç‚¹ã¨çµ‚ç‚¹ã®å½¢ã€‚
 	Pen::LineCap lineCap() const;
-	/// ü‚ÌÚ‘±“_‚ÌŒ`B
+	/// ç·šã®æ¥ç¶šç‚¹ã®å½¢ã€‚
 	Pen::LineJoin lineJoin() const;
-	/// ƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚é‚©‚Ç‚¤‚©B•ÏX‚Í—v’ˆÓB
+	/// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã‹ã©ã†ã‹ã€‚å¤‰æ›´ã¯è¦æ³¨æ„ã€‚
 	bool owned() const;
 	void owned(bool value);
-	/// “_ü‚Ìƒpƒ^[ƒ“BƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åw’è‚µ‚È‚©‚Á‚½ê‡‚Í‹ó‚Ì”z—ñB
+	/// ç‚¹ç·šã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æŒ‡å®šã—ãªã‹ã£ãŸå ´åˆã¯ç©ºã®é…åˆ—ã€‚
 	std::vector<int, std::allocator<int> > pattern() const;
-	/// “_ü‚ÌƒXƒ^ƒCƒ‹B
+	/// ç‚¹ç·šã®ã‚¹ã‚¿ã‚¤ãƒ«ã€‚
 	Pen::Style style() const;
-	/// ü‚Ì•B
+	/// ç·šã®å¹…ã€‚
 	int width() const;
 
-public: // ƒVƒXƒeƒ€ƒyƒ“ˆê——
-	/// ”’‚¢Àü‚Ìƒyƒ“B
+public: // ã‚·ã‚¹ãƒ†ãƒ ãƒšãƒ³ä¸€è¦§
+	/// ç™½ã„å®Ÿç·šã®ãƒšãƒ³ã€‚
 	static Pen white();
-	/// •‚¢Àü‚Ìƒyƒ“B
+	/// é»’ã„å®Ÿç·šã®ãƒšãƒ³ã€‚
 	static Pen black();
-	/// •`‰æ‚µ‚È‚¢ƒyƒ“B
+	/// æç”»ã—ãªã„ãƒšãƒ³ã€‚
 	static Pen hollow();
 
 public:
-	/// HPEN ‚Ö‚Ì©“®•ÏŠ· • null ƒ`ƒFƒbƒN—p
+	/// HPEN ã¸ã®è‡ªå‹•å¤‰æ› ï¼† null ãƒã‚§ãƒƒã‚¯ç”¨
 	operator HPEN() const { return _handle; }
 
 private:

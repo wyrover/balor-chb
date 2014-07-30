@@ -1,4 +1,4 @@
-#include "Pen.hpp"
+ï»¿#include "Pen.hpp"
 
 #include <vector>
 
@@ -51,7 +51,7 @@ HPEN createPen(const Color* color, HBRUSH brush, int width, Pen::Style penStyle,
 
 	LOGBRUSH logbrush;
 	if (brush) {
-		verify(GetObjectW(brush, sizeof(logbrush), &logbrush)); // ¸”s‚·‚é‚È‚ç brush ‚ª—LŒø‚Èƒuƒ‰ƒV‚Ìƒnƒ“ƒhƒ‹‚Å‚Í‚È‚¢
+		verify(GetObjectW(brush, sizeof(logbrush), &logbrush)); // å¤±æ•—ã™ã‚‹ãªã‚‰ brush ãŒæœ‰åŠ¹ãªãƒ–ãƒ©ã‚·ã®ãƒãƒ³ãƒ‰ãƒ«ã§ã¯ãªã„
 	} else {
 		logbrush.lbStyle = BS_SOLID;
 		logbrush.lbColor = color->toCOLORREF();
@@ -59,7 +59,7 @@ HPEN createPen(const Color* color, HBRUSH brush, int width, Pen::Style penStyle,
 	}
 	HPEN handle = ExtCreatePen(style, width, &logbrush, patten ? patten->length() : 0
 							 , reinterpret_cast<const DWORD*>(patten ? patten->begin() : nullptr));
-	assert("Failed to ExtCreatePen" && handle); // ƒyƒ“‚Ìì¬‚É¸”s‚µ‚½BƒeƒNƒXƒ`ƒƒƒuƒ‰ƒV‚Ìƒrƒbƒgƒ}ƒbƒv‚ªŠù‚É”jŠü‚³‚ê‚Ä‚È‚¢‚©H
+	assert("Failed to ExtCreatePen" && handle); // ãƒšãƒ³ã®ä½œæˆã«å¤±æ•—ã—ãŸã€‚ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ–ãƒ©ã‚·ã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãŒæ—¢ã«ç ´æ£„ã•ã‚Œã¦ãªã„ã‹ï¼Ÿ
 	return handle;
 }
 
@@ -71,7 +71,7 @@ struct PenInfo {
 		if (size <= sizeof(EXTLOGPEN)) {
 			verify(GetObjectW(handle, sizeof(EXTLOGPEN), &_logPen));
 			_fullLogPen = &_logPen;
-		} else { // ƒpƒ^[ƒ“î•ñ‚ª––”ö‚É’Ç‰Á‚³‚ê‚Ä‚¢‚é
+		} else { // ãƒ‘ã‚¿ãƒ¼ãƒ³æƒ…å ±ãŒæœ«å°¾ã«è¿½åŠ ã•ã‚Œã¦ã„ã‚‹
 			_fullLogPen = reinterpret_cast<EXTLOGPEN*>(new BYTE[size]);
 			verify(GetObjectW(handle, size, _fullLogPen));
 		}
@@ -173,7 +173,7 @@ Pen::Pen(const Color& color, int width, ArrayRange<const int> patten, Pen::LineC
 
 Pen::~Pen() {
 	if (_handle && _owned) {
-		verify(DeleteObject(_handle)); // ƒyƒ“‚ª SelectObject ‚³‚ê‚½‚Ü‚Ü‚©A‚Ü‚½‚ÍŠù‚É—LŒø‚Èƒnƒ“ƒhƒ‹‚Å‚Í‚È‚¢
+		verify(DeleteObject(_handle)); // ãƒšãƒ³ãŒ SelectObject ã•ã‚ŒãŸã¾ã¾ã‹ã€ã¾ãŸã¯æ—¢ã«æœ‰åŠ¹ãªãƒãƒ³ãƒ‰ãƒ«ã§ã¯ãªã„
 	}
 	//_owned = false;
 	//_handle = nullptr;
@@ -190,7 +190,7 @@ Pen& Pen::operator=(Pen&& value) {
 Brush Pen::brush() const {
 	PenInfo info(*this);
 	switch (info->elpBrushStyle) {
-		case BS_NULL          : { // ÀÛ‚É‚Í NULLƒuƒ‰ƒV‚©‚çì¬‚µ‚Ä‚à•‚Ìƒ\ƒŠƒbƒhƒuƒ‰ƒV‚É‚È‚é‚Ì‚Å‚±‚±‚É‚Í—ˆ‚È‚¢
+		case BS_NULL          : { // å®Ÿéš›ã«ã¯ NULLãƒ–ãƒ©ã‚·ã‹ã‚‰ä½œæˆã—ã¦ã‚‚é»’ã®ã‚½ãƒªãƒƒãƒ‰ãƒ–ãƒ©ã‚·ã«ãªã‚‹ã®ã§ã“ã“ã«ã¯æ¥ãªã„
 			return Brush::hollow();
 		}
 		case BS_HATCHED       : {

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/graphics/ImageList.hpp>
 #include <balor/graphics/Region.hpp>
@@ -36,17 +36,17 @@ class Pen;
 
 
 /**
- * GDI ‚É‚æ‚é•`‰æˆ—‚ğˆµ‚¤B
- * 
- * }Œ`‚ğ“h‚è‚Â‚Ô‚µ‚¹‚¸‚É—ÖŠs‚¾‚¯•`‚«‚½‚¢ê‡‚Í brush() ‚É Brush::hollow() ‚ğİ’è‚·‚éB
- * }Œ`‚ğ“h‚è‚Â‚Ô‚µ‚¾‚¯‚µ‚½‚¢ê‡‚Í pen() ‚É Pen::hollow() ‚ğİ’è‚·‚éB‚±‚Ìê‡}Œ`‚Ì‰E‰º•”•ª‚Í•`‰æ‚³‚ê‚È‚¢B
- * drawText ŠÖ”‚ğg‚¤ê‡‚Í backTransparent() ‚É’ˆÓ‚·‚éB
- * ƒrƒbƒgƒ}ƒbƒv‚ğ•`‰æ‚·‚é‚É‚Í Bitmap ‚©‚ç Graphics ‚ğì¬‚µ‚Ä copy ŠÖ”‚ğg‚¤B
- * Šg‘åk¬‚ğ”º‚Á‚Ä copy ŠÖ”‚ğg‚¤ê‡‚Í copyMode() ‚É’ˆÓ‚·‚éB
- * ”¼“§–¾•`‰æ‚âAƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚É‚æ‚é”¼“§–¾‡¬‚ğ‚·‚é‚É‚Í Bitmap::premultiplyAlpha ŠÖ”‚Æ blend ŠÖ”‚ğg‚¤B
- * ƒJƒ‰[ƒL[‚É‚æ‚éF”²‚«‚ğ‚·‚é‚É‚Í ImageList ‚Æ drawImageList ŠÖ”‚ğg‚¤
- * İ’è‚ğ•ÏX‚·‚éŠÖ”‚Å‚Í‹Œİ’è‚ğ•Ô‚·‚æ‚¤‚É‚È‚Á‚Ä‚¢‚éBİ’è‚ğ‚Ü‚Æ‚ß‚Ä•Û‘¶A•œŒ³‚·‚é‚É‚Í state ŠÖ”‚ğg‚¤B
- */
+* GDI ã«ã‚ˆã‚‹æç”»å‡¦ç†ã‚’æ‰±ã†ã€‚
+*
+* å›³å½¢ã‚’å¡—ã‚Šã¤ã¶ã—ã›ãšã«è¼ªéƒ­ã ã‘æããŸã„å ´åˆã¯ brush() ã« Brush::hollow() ã‚’è¨­å®šã™ã‚‹ã€‚
+* å›³å½¢ã‚’å¡—ã‚Šã¤ã¶ã—ã ã‘ã—ãŸã„å ´åˆã¯ pen() ã« Pen::hollow() ã‚’è¨­å®šã™ã‚‹ã€‚ã“ã®å ´åˆå›³å½¢ã®å³ä¸‹éƒ¨åˆ†ã¯æç”»ã•ã‚Œãªã„ã€‚
+* drawText é–¢æ•°ã‚’ä½¿ã†å ´åˆã¯ backTransparent() ã«æ³¨æ„ã™ã‚‹ã€‚
+* ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã‚’æç”»ã™ã‚‹ã«ã¯ Bitmap ã‹ã‚‰ Graphics ã‚’ä½œæˆã—ã¦ copy é–¢æ•°ã‚’ä½¿ã†ã€‚
+* æ‹¡å¤§ç¸®å°ã‚’ä¼´ã£ã¦ copy é–¢æ•°ã‚’ä½¿ã†å ´åˆã¯ copyMode() ã«æ³¨æ„ã™ã‚‹ã€‚
+* åŠé€æ˜æç”»ã‚„ã€ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã«ã‚ˆã‚‹åŠé€æ˜åˆæˆã‚’ã™ã‚‹ã«ã¯ Bitmap::premultiplyAlpha é–¢æ•°ã¨ blend é–¢æ•°ã‚’ä½¿ã†ã€‚
+* ã‚«ãƒ©ãƒ¼ã‚­ãƒ¼ã«ã‚ˆã‚‹è‰²æŠœãã‚’ã™ã‚‹ã«ã¯ ImageList ã¨ drawImageList é–¢æ•°ã‚’ä½¿ã†
+* è¨­å®šã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°ã§ã¯æ—§è¨­å®šã‚’è¿”ã™ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ã€‚è¨­å®šã‚’ã¾ã¨ã‚ã¦ä¿å­˜ã€å¾©å…ƒã™ã‚‹ã«ã¯ state é–¢æ•°ã‚’ä½¿ã†ã€‚
+*/
 class Graphics : private NonCopyable {
 public:
 	typedef ::_IMAGELIST* HIMAGELIST;
@@ -60,67 +60,67 @@ public:
 	typedef ::HWND__* HWND;
 
 
-	/// ƒRƒs[ˆ—ƒ‚[ƒhB
+	/// ã‚³ãƒ”ãƒ¼å‡¦ç†ãƒ¢ãƒ¼ãƒ‰ã€‚
 	struct CopyMode {
 		enum _enum {
-			andScans    = 1, /// k¬‚ÅÁ‚¦‚éƒsƒNƒZƒ‹‚ğc‚³‚ê‚éƒsƒNƒZƒ‹‚É AND ‰‰Z‚·‚éB
-			orScans     = 2, /// k¬‚ÅÁ‚¦‚éƒsƒNƒZƒ‹‚ğc‚³‚ê‚éƒsƒNƒZƒ‹‚É OR ‰‰Z‚·‚éB
-			deleteScans = 3, /// k¬‚ÅÁ‚¦‚éƒsƒNƒZƒ‹‚ğ‚»‚Ì‚Ü‚ÜÁ‚·B
-			halftone    = 4, /// k¬‚ÅÁ‚¦‚éƒsƒNƒZƒ‹‚ğc‚³‚ê‚éƒsƒNƒZƒ‹‚Æ¬F‚·‚éB
+			andScans = 1, /// ç¸®å°ã§æ¶ˆãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã‚’æ®‹ã•ã‚Œã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã« AND æ¼”ç®—ã™ã‚‹ã€‚
+			orScans = 2, /// ç¸®å°ã§æ¶ˆãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã‚’æ®‹ã•ã‚Œã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã« OR æ¼”ç®—ã™ã‚‹ã€‚
+			deleteScans = 3, /// ç¸®å°ã§æ¶ˆãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã‚’ãã®ã¾ã¾æ¶ˆã™ã€‚
+			halftone = 4, /// ç¸®å°ã§æ¶ˆãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã‚’æ®‹ã•ã‚Œã‚‹ãƒ”ã‚¯ã‚»ãƒ«ã¨æ··è‰²ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(CopyMode);
 	};
 
-	/// ƒRƒs[‚Ì‰‰Z•û–@B‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚³ãƒ”ãƒ¼ã®æ¼”ç®—æ–¹æ³•ã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct CopyOperation {
 		enum _enum {
-			captureBlt        = 0x40000000, /// ƒRƒs[Œ³‚ª”¼“§–¾‚ÈƒEƒCƒ“ƒhƒE‚Å‚ ‚Á‚Ä‚àƒsƒNƒZƒ‹‚ğƒRƒs[‚·‚éB
-			destinationInvert = 0x00550009, /// ƒRƒs[æ‚ÌF‚ğ”½“]‚·‚éB
-			mergeCopy         = 0x00C000CA, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚Ìƒuƒ‰ƒV‚ğ AND ‰‰Z‚·‚éB
-			mergePaint        = 0x00BB0226, /// ƒRƒs[Œ³‚ÌF‚ğ”½“]‚µ‚ÄƒRƒs[æ‚Æ OR ‰‰Z‚·‚éB
-			notSourceCopy     = 0x00330008, /// ƒRƒs[Œ³‚ÌF‚ğ”½“]‚µ‚ÄƒRƒs[‚·‚éB
-			notSourceErase    = 0x001100A6, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚ğ OR ‰‰Z‚µ‚½Œã”½“]‚·‚éB
-			patCopy           = 0x00F00021, /// ƒRƒs[æ‚Ìƒuƒ‰ƒV‚Å“h‚éB
-			patInvert         = 0x005A0049, /// ƒRƒs[æ‚Ìƒuƒ‰ƒV‚ÆƒRƒs[æ‚ğ XOR ‰‰Z‚·‚éB
-			patPaint          = 0x00FB0A09, /// ƒRƒs[Œ³‚ğ”½“]‚µ‚½F‚ÆƒRƒs[æ‚Ìƒuƒ‰ƒV‚ğ OR ‰‰Z‚µAŒ‹‰Ê‚ÆƒRƒs[æ‚ğ OR ‰‰Z‚·‚éB
-			sourceAnd         = 0x008800C6, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚ğ AND ‰‰Z‚·‚éB
-			sourceCopy        = 0x00CC0020, /// ƒRƒs[Œ³‚ğƒRƒs[‚·‚éB
-			sourceErase       = 0x00440328, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚ğ”½“]‚µ‚½F‚ğ AND ‰‰Z‚·‚éB
-			sourceInvert      = 0x00660046, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚ğ XOR ‰‰Z‚·‚éB
-			sourcePaint       = 0x00EE0086, /// ƒRƒs[Œ³‚ÆƒRƒs[æ‚ğ OR ‰‰Z‚·‚éB
+			captureBlt = 0x40000000, /// ã‚³ãƒ”ãƒ¼å…ƒãŒåŠé€æ˜ãªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã§ã‚ã£ã¦ã‚‚ãƒ”ã‚¯ã‚»ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã€‚
+			destinationInvert = 0x00550009, /// ã‚³ãƒ”ãƒ¼å…ˆã®è‰²ã‚’åè»¢ã™ã‚‹ã€‚
+			mergeCopy = 0x00C000CA, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ–ãƒ©ã‚·ã‚’ AND æ¼”ç®—ã™ã‚‹ã€‚
+			mergePaint = 0x00BB0226, /// ã‚³ãƒ”ãƒ¼å…ƒã®è‰²ã‚’åè»¢ã—ã¦ã‚³ãƒ”ãƒ¼å…ˆã¨ OR æ¼”ç®—ã™ã‚‹ã€‚
+			notSourceCopy = 0x00330008, /// ã‚³ãƒ”ãƒ¼å…ƒã®è‰²ã‚’åè»¢ã—ã¦ã‚³ãƒ”ãƒ¼ã™ã‚‹ã€‚
+			notSourceErase = 0x001100A6, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ OR æ¼”ç®—ã—ãŸå¾Œåè»¢ã™ã‚‹ã€‚
+			patCopy = 0x00F00021, /// ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ–ãƒ©ã‚·ã§å¡—ã‚‹ã€‚
+			patInvert = 0x005A0049, /// ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ–ãƒ©ã‚·ã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ XOR æ¼”ç®—ã™ã‚‹ã€‚
+			patPaint = 0x00FB0A09, /// ã‚³ãƒ”ãƒ¼å…ƒã‚’åè»¢ã—ãŸè‰²ã¨ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ–ãƒ©ã‚·ã‚’ OR æ¼”ç®—ã—ã€çµæœã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ OR æ¼”ç®—ã™ã‚‹ã€‚
+			sourceAnd = 0x008800C6, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ AND æ¼”ç®—ã™ã‚‹ã€‚
+			sourceCopy = 0x00CC0020, /// ã‚³ãƒ”ãƒ¼å…ƒã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã€‚
+			sourceErase = 0x00440328, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’åè»¢ã—ãŸè‰²ã‚’ AND æ¼”ç®—ã™ã‚‹ã€‚
+			sourceInvert = 0x00660046, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ XOR æ¼”ç®—ã™ã‚‹ã€‚
+			sourcePaint = 0x00EE0086, /// ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã‚’ OR æ¼”ç®—ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(CopyOperation);
 	};
 
-	/// •¶š—ñ•`‰æ‚Ìƒtƒ‰ƒOB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// æ–‡å­—åˆ—æç”»ã®ãƒ•ãƒ©ã‚°ã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct TextFormat {
 		enum _enum {
-			none                      = 0         , 
-			bottom                    = 0x00000028, /// ‹éŒ`‚Ì‰º’[‚É•¶š—ñ‚ğ‘µ‚¦‚éBsingleLine ‚àŠÜ‚ß‚éB
-			default                   = 0x00000810, /// noPrefix ‚©‚Â wordBreakB
-			editControl               = 0x00002000, /// •¡”sƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹‚Æ“¯‚¶‚æ‚¤‚É•`‰æ‚·‚éB
-			endEllipsis               = 0x00008000, /// •¶––‚ª‹éŒ`‚©‚ç‚Í‚İo‚·ê‡‚Éu...v‚ğ•\¦‚·‚éB
-			expandTabs                = 0x00000040, /// ƒ^ƒu‚ğ“WŠJ‚·‚éB
-			externalLeading           = 0x00000200, /// s‚Ì‚‚³‚ÉAŠO•”ƒŒƒfƒBƒ“ƒO‚Ì‚‚³‚ğ’Ç‰Á‚·‚éB
-			hidePrefix                = 0x00100000, /// L'&' ‚É‚æ‚Á‚Ä‰ºü‚ğ•\¦‚µ‚È‚¢B
-			horizontalCenter          = 0x00000001, /// ‹éŒ`‚Ì…•½•ûŒü‚Ì’†‰›‚É•¶š—ñ‚ğ‘µ‚¦‚éB
-			noClipping                = 0x00000100, /// ‹éŒ`‚©‚ç‚Í‚İo‚Ä‚à•`‰æ‚·‚éB
-			noFullWidthCharacterBreak = 0x00080000, /// ˆê‚Â‚Ì•¶š‚ğ•¡”‚Ì•¶šƒR[ƒh‚Ì˜A‘±‚Å•\‚·‚É“r’†‚Å‰üs‚³‚ê‚È‚¢‚æ‚¤‚É‚·‚éB
-			noPrefix                  = 0x00000800, /// L'&' ‚ğ“Áê•¶š‚Æ‚İ‚È‚³‚È‚¢‚æ‚¤‚É‚·‚éB
-			pathEllipsis              = 0x00004000, /// ƒtƒ@ƒCƒ‹ƒpƒX‚ğ•\¦‚µØ‚ê‚È‚¢ê‡‚É“KØ‚É’Zk‚·‚éB
-			prefixOnly                = 0x00200000, /// L'&' ‚É‚æ‚Á‚Ä•\¦‚³‚ê‚é‰ºü‚¾‚¯•`‰æ‚·‚éB
-			right                     = 0x00000002, /// ‹éŒ`‚Ì‰E’[‚É•¶š—ñ‚ğ‘µ‚¦‚éB
-			rightToLeft               = 0x00020000, /// ƒtƒHƒ“ƒg‚ªƒwƒuƒ‰ƒCŒê‚©ƒAƒ‰ƒrƒAŒê‚Ìê‡‚É‰E‚©‚ç¶‚É•¶š‚ğ•`‰æ‚·‚éB
-			singleLine                = 0x00000020, /// ‰üs‚¹‚¸‚É•`‰æ‚·‚éB
-			verticalCenter            = 0x00000024, /// ‹éŒ`‚Ì‚’¼•ûŒü‚Ì’†‰›‚É•¶š—ñ‚ğ‘µ‚¦‚éBsingleLine ‚àŠÜ‚ß‚éB
-			wordBreak                 = 0x00000010, /// ’PŒê‚Ì“r’†‚Å‰üs‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
-			wordEllipsis              = 0x00040000, /// ‹éŒ`‚©‚ç’PŒê‚Ì“r’†‚Å‚Í‚İo‚·ê‡‚Éu...v‚ğ•\¦‚·‚éB
+			none = 0,
+			bottom = 0x00000028, /// çŸ©å½¢ã®ä¸‹ç«¯ã«æ–‡å­—åˆ—ã‚’æƒãˆã‚‹ã€‚singleLine ã‚‚å«ã‚ã‚‹ã€‚
+			default = 0x00000810, /// noPrefix ã‹ã¤ wordBreakã€‚
+			editControl = 0x00002000, /// è¤‡æ•°è¡Œã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åŒã˜ã‚ˆã†ã«æç”»ã™ã‚‹ã€‚
+			endEllipsis = 0x00008000, /// æ–‡æœ«ãŒçŸ©å½¢ã‹ã‚‰ã¯ã¿å‡ºã™å ´åˆã«ã€Œ...ã€ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+			expandTabs = 0x00000040, /// ã‚¿ãƒ–ã‚’å±•é–‹ã™ã‚‹ã€‚
+			externalLeading = 0x00000200, /// è¡Œã®é«˜ã•ã«ã€å¤–éƒ¨ãƒ¬ãƒ‡ã‚£ãƒ³ã‚°ã®é«˜ã•ã‚’è¿½åŠ ã™ã‚‹ã€‚
+			hidePrefix = 0x00100000, /// L'&' ã«ã‚ˆã£ã¦ä¸‹ç·šã‚’è¡¨ç¤ºã—ãªã„ã€‚
+			horizontalCenter = 0x00000001, /// çŸ©å½¢ã®æ°´å¹³æ–¹å‘ã®ä¸­å¤®ã«æ–‡å­—åˆ—ã‚’æƒãˆã‚‹ã€‚
+			noClipping = 0x00000100, /// çŸ©å½¢ã‹ã‚‰ã¯ã¿å‡ºã¦ã‚‚æç”»ã™ã‚‹ã€‚
+			noFullWidthCharacterBreak = 0x00080000, /// ä¸€ã¤ã®æ–‡å­—ã‚’è¤‡æ•°ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®é€£ç¶šã§è¡¨ã™æ™‚ã«é€”ä¸­ã§æ”¹è¡Œã•ã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+			noPrefix = 0x00000800, /// L'&' ã‚’ç‰¹æ®Šæ–‡å­—ã¨ã¿ãªã•ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+			pathEllipsis = 0x00004000, /// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’è¡¨ç¤ºã—åˆ‡ã‚Œãªã„å ´åˆã«é©åˆ‡ã«çŸ­ç¸®ã™ã‚‹ã€‚
+			prefixOnly = 0x00200000, /// L'&' ã«ã‚ˆã£ã¦è¡¨ç¤ºã•ã‚Œã‚‹ä¸‹ç·šã ã‘æç”»ã™ã‚‹ã€‚
+			right = 0x00000002, /// çŸ©å½¢ã®å³ç«¯ã«æ–‡å­—åˆ—ã‚’æƒãˆã‚‹ã€‚
+			rightToLeft = 0x00020000, /// ãƒ•ã‚©ãƒ³ãƒˆãŒãƒ˜ãƒ–ãƒ©ã‚¤èªã‹ã‚¢ãƒ©ãƒ“ã‚¢èªã®å ´åˆã«å³ã‹ã‚‰å·¦ã«æ–‡å­—ã‚’æç”»ã™ã‚‹ã€‚
+			singleLine = 0x00000020, /// æ”¹è¡Œã›ãšã«æç”»ã™ã‚‹ã€‚
+			verticalCenter = 0x00000024, /// çŸ©å½¢ã®å‚ç›´æ–¹å‘ã®ä¸­å¤®ã«æ–‡å­—åˆ—ã‚’æƒãˆã‚‹ã€‚singleLine ã‚‚å«ã‚ã‚‹ã€‚
+			wordBreak = 0x00000010, /// å˜èªã®é€”ä¸­ã§æ”¹è¡Œã—ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+			wordEllipsis = 0x00040000, /// çŸ©å½¢ã‹ã‚‰å˜èªã®é€”ä¸­ã§ã¯ã¿å‡ºã™å ´åˆã«ã€Œ...ã€ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(TextFormat);
 	};
 
 
-	/// ƒyƒ“‚âƒuƒ‰ƒV“™‚Ìİ’è‚ğ•Û‘¶‚µ‚½ƒIƒuƒWƒFƒNƒgB
+	/// ãƒšãƒ³ã‚„ãƒ–ãƒ©ã‚·ç­‰ã®è¨­å®šã‚’ä¿å­˜ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
 	class State {
 	public:
 		State();
@@ -137,30 +137,30 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	Graphics();
 	Graphics(Graphics&& value);
-	/// ƒnƒ“ƒhƒ‹‚©‚çì¬Bowned ‚ª true ‚È‚ç‚ÎƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚éB
+	/// ãƒãƒ³ãƒ‰ãƒ«ã‹ã‚‰ä½œæˆã€‚owned ãŒ true ãªã‚‰ã°ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã€‚
 	explicit Graphics(HDC handle, bool owned = false);
-	/// ƒrƒbƒgƒ}ƒbƒv‚ÌƒfƒoƒCƒX‚ğì¬Bƒrƒbƒgƒ}ƒbƒv‚ğæ‚É”jŠü‚µ‚æ‚¤‚Æ‚·‚é‚Æ¸”s‚·‚é‚Ì‚ÅA•K‚¸ Graphics ‚Ì‚Ù‚¤‚ğæ‚É”jŠü‚·‚é‚±‚ÆB
+	/// ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®ãƒ‡ãƒã‚¤ã‚¹ã‚’ä½œæˆã€‚ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã‚’å…ˆã«ç ´æ£„ã—ã‚ˆã†ã¨ã™ã‚‹ã¨å¤±æ•—ã™ã‚‹ã®ã§ã€å¿…ãš Graphics ã®ã»ã†ã‚’å…ˆã«ç ´æ£„ã™ã‚‹ã“ã¨ã€‚
 	explicit Graphics(HBITMAP bitmap);
-	/// ƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚©‚çì¬B
+	/// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã‹ã‚‰ä½œæˆã€‚
 	explicit Graphics(HWND control);
 	~Graphics();
 
 	Graphics& operator=(Graphics&& value);
 
 public:
-	/// ”wŒiFB
+	/// èƒŒæ™¯è‰²ã€‚
 	Color backColor() const;
 	Color backColor(Color value);
-	/// ƒeƒLƒXƒgAƒnƒbƒ`ƒuƒ‰ƒVAƒyƒ“‚Å•`‰æ‚·‚é‚É”wŒi‚ğƒuƒ‰ƒV‚Å“h‚ç‚È‚¢‚©‚Ç‚¤‚©B
+	/// ãƒ†ã‚­ã‚¹ãƒˆã€ãƒãƒƒãƒãƒ–ãƒ©ã‚·ã€ãƒšãƒ³ã§æç”»ã™ã‚‹æ™‚ã«èƒŒæ™¯ã‚’ãƒ–ãƒ©ã‚·ã§å¡—ã‚‰ãªã„ã‹ã©ã†ã‹ã€‚
 	bool backTransparent() const;
 	bool backTransparent(bool value) const;
-	/// ”¼“§–¾‡¬‚ğs‚¤Balpha ‚É•s“§–¾“x‚O`‚P‚ğw’è‚·‚éBcopyMode() ‚Ì‰e‹¿‚Íó‚¯‚¸Aí‚É Graphics::CopyMode::deleteScans ‚Æ“¯‚¶‹““®‚É‚È‚éB
-	/// src ‚ªƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚ğ‚Á‚½ 32ƒrƒbƒg‚Ìƒrƒbƒgƒ}ƒbƒviDDB ‚Å‚à—Ç‚¢j‚Å‚ ‚éê‡‚ÉŒÀ‚èAsrcAlphaChannel ˆø”‚ğ true ‚É‚·‚é‚ÆƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚É‚æ‚é”¼“§–¾‡¬‚ğs‚¤B
-	/// ‚±‚Ìê‡ src ‚Ì‰æ‘œ‚Í Bitmap::premultiplyAlpha ŠÖ”‚Å‚ ‚ç‚©‚¶‚ßƒAƒ‹ƒtƒ@‚ğæZ‚µ‚Ä‚¨‚­•K—v‚ª‚ ‚éB‚Ü‚½ alpha ˆø”‚à“¯‚Éw’è‚Å‚«‚éB
-	/// copy ŠÖ”‚Ì‚æ‚¤‚È”½“]ƒRƒs[‚ÍƒTƒ|[ƒg‚³‚ê‚¸Aƒ\[ƒX‚Ì”ÍˆÍŠO‚ğƒRƒs[‚µ‚æ‚¤‚Æ‚·‚é‚ÆƒGƒ‰[‚É‚È‚éB
+	/// åŠé€æ˜åˆæˆã‚’è¡Œã†ã€‚alpha ã«ä¸é€æ˜åº¦ï¼ï½ï¼‘ã‚’æŒ‡å®šã™ã‚‹ã€‚copyMode() ã®å½±éŸ¿ã¯å—ã‘ãšã€å¸¸ã« Graphics::CopyMode::deleteScans ã¨åŒã˜æŒ™å‹•ã«ãªã‚‹ã€‚
+	/// src ãŒã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒã£ãŸ 32ãƒ“ãƒƒãƒˆã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ï¼ˆDDB ã§ã‚‚è‰¯ã„ï¼‰ã§ã‚ã‚‹å ´åˆã«é™ã‚Šã€srcAlphaChannel å¼•æ•°ã‚’ true ã«ã™ã‚‹ã¨ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã«ã‚ˆã‚‹åŠé€æ˜åˆæˆã‚’è¡Œã†ã€‚
+	/// ã“ã®å ´åˆ src ã®ç”»åƒã¯ Bitmap::premultiplyAlpha é–¢æ•°ã§ã‚ã‚‰ã‹ã˜ã‚ã‚¢ãƒ«ãƒ•ã‚¡ã‚’ä¹—ç®—ã—ã¦ãŠãå¿…è¦ãŒã‚ã‚‹ã€‚ã¾ãŸ alpha å¼•æ•°ã‚‚åŒæ™‚ã«æŒ‡å®šã§ãã‚‹ã€‚
+	/// copy é–¢æ•°ã®ã‚ˆã†ãªåè»¢ã‚³ãƒ”ãƒ¼ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãšã€ã‚½ãƒ¼ã‚¹ã®ç¯„å›²å¤–ã‚’ã‚³ãƒ”ãƒ¼ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹ã€‚
 	void blend(const Point& dstPos, HDC src, float alpha, bool srcAlphaChannel = false);
 	void blend(int dstX, int dstY, HDC src, float alpha, bool srcAlphaChannel = false);
 	void blend(const Point& dstPos, HDC src, const Point& srcPos, const Size& size, float alpha, bool srcAlphaChannel = false);
@@ -169,24 +169,24 @@ public:
 	void blend(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, float alpha, bool srcAlphaChannel = false);
 	void blend(const Rectangle& dstRect, HDC src, const Rectangle& srcRect, float alpha, bool srcAlphaChannel = false);
 	void blend(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, float alpha, bool srcAlphaChannel = false);
-	/// }Œ`‚ğ“h‚è‚Â‚Ô‚·ƒuƒ‰ƒVBF‚ğ’¼Úİ’è‚Å‚«‚éB“h‚ç‚È‚¢ê‡‚Í Brush::hollow() ‚ğİ’è‚·‚éB
+	/// å›³å½¢ã‚’å¡—ã‚Šã¤ã¶ã™ãƒ–ãƒ©ã‚·ã€‚è‰²ã‚’ç›´æ¥è¨­å®šã§ãã‚‹ã€‚å¡—ã‚‰ãªã„å ´åˆã¯ Brush::hollow() ã‚’è¨­å®šã™ã‚‹ã€‚
 	Brush brush() const;
 	Brush brush(HBRUSH value);
 	Brush brush(Color value);
-	/// ƒuƒ‰ƒV‚ÌŒ´“_BcopyMode ‚ğ Graphics::CopyMode::halftone ‚Éİ’è‚µ‚½ê‡‚ÍÄİ’è‚·‚é•K—v‚ª‚ ‚éB
+	/// ãƒ–ãƒ©ã‚·ã®åŸç‚¹ã€‚copyMode ã‚’ Graphics::CopyMode::halftone ã«è¨­å®šã—ãŸå ´åˆã¯å†è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 	Point brushOrigin() const;
 	Point brushOrigin(const Point& value);
-	/// Œ»İ‚Ìƒuƒ‰ƒV‚Å‘S‘Ì‚ğ“h‚è‚Â‚Ô‚·B
+	/// ç¾åœ¨ã®ãƒ–ãƒ©ã‚·ã§å…¨ä½“ã‚’å¡—ã‚Šã¤ã¶ã™ã€‚
 	void clear();
-	/// ƒNƒŠƒbƒv—ÌˆæB
+	/// ã‚¯ãƒªãƒƒãƒ—é ˜åŸŸã€‚
 	Region clip() const;;
 	void clip(HRGN region);
-	/// ƒNƒŠƒbƒv—Ìˆæ‚ğ‡¬‚·‚éB
+	/// ã‚¯ãƒªãƒƒãƒ—é ˜åŸŸã‚’åˆæˆã™ã‚‹ã€‚
 	void combineClip(HRGN region, Region::Operation operation);
 	void combineClip(const Rectangle rect, Region::Operation operation);
-	/// ƒsƒNƒZƒ‹‚ÌƒRƒs[‚ğs‚¤B‘å‚«‚³‚É•‰”‚ğw’è‚·‚é‚Æ”½“]ƒRƒs[‚É‚È‚éB
-	/// k¬‚âŠg‘åƒRƒs[‚·‚éê‡AcopyMode ‚ğ Graphics::CopyMode::halftone ‚É‚µ‚Ä‚¨‚©‚È‚¢‚Æ‚Æ‚Ä‚à‰˜‚­‚È‚éB‚½‚¾‚µ Graphics::CopyMode::halftone ‚¾‚ÆƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹î•ñ‚ª‚¨‚©‚µ‚­‚È‚éB
-	/// ãY—í‚É‚·‚é•K—v‚ª–³‚­‚Ä‚à­‚È‚­‚Æ‚à Graphics::CopyMode::deleteScans ‚É‚µ‚Ä‚¨‚©‚È‚¢‚Æv‚Á‚½‚æ‚¤‚ÈŒ‹‰Ê‚É‚Í‚È‚ç‚È‚¢B
+	/// ãƒ”ã‚¯ã‚»ãƒ«ã®ã‚³ãƒ”ãƒ¼ã‚’è¡Œã†ã€‚å¤§ãã•ã«è² æ•°ã‚’æŒ‡å®šã™ã‚‹ã¨åè»¢ã‚³ãƒ”ãƒ¼ã«ãªã‚‹ã€‚
+	/// ç¸®å°ã‚„æ‹¡å¤§ã‚³ãƒ”ãƒ¼ã™ã‚‹å ´åˆã€copyMode ã‚’ Graphics::CopyMode::halftone ã«ã—ã¦ãŠã‹ãªã„ã¨ã¨ã¦ã‚‚æ±šããªã‚‹ã€‚ãŸã ã— Graphics::CopyMode::halftone ã ã¨ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«æƒ…å ±ãŒãŠã‹ã—ããªã‚‹ã€‚
+	/// ç¶ºéº—ã«ã™ã‚‹å¿…è¦ãŒç„¡ãã¦ã‚‚å°‘ãªãã¨ã‚‚ Graphics::CopyMode::deleteScans ã«ã—ã¦ãŠã‹ãªã„ã¨æ€ã£ãŸã‚ˆã†ãªçµæœã«ã¯ãªã‚‰ãªã„ã€‚
 	void copy(const Point& dstPos, HDC src, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
 	void copy(int dstX, int dstY, HDC src, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
 	void copy(const Point& dstPos, HDC src, const Point& srcPos, const Size& size, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
@@ -195,139 +195,139 @@ public:
 	void copy(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
 	void copy(const Rectangle& dstRect, HDC src, const Rectangle& srcRect, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
 	void copy(int dstX, int dstY, int dstWidth, int dstHeight, HDC src, int srcX, int srcY, int srcWidth, int srcHeight, Graphics::CopyOperation operation = CopyOperation::sourceCopy);
-	/// ƒRƒs[ˆ—‚Ìƒ‚[ƒhBGraphics::CopyMode::halftone ‚Éİ’è‚µ‚½ê‡‚Í brushOrigin ‚ğÄİ’è‚·‚é•K—v‚ª‚ ‚éB
+	/// ã‚³ãƒ”ãƒ¼å‡¦ç†ã®ãƒ¢ãƒ¼ãƒ‰ã€‚Graphics::CopyMode::halftone ã«è¨­å®šã—ãŸå ´åˆã¯ brushOrigin ã‚’å†è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 	Graphics::CopyMode copyMode() const;
 	Graphics::CopyMode copyMode(Graphics::CopyMode value);
-	/// ‚˜²‚Ìƒhƒbƒg–§“xB
+	/// ï½˜è»¸ã®ãƒ‰ãƒƒãƒˆå¯†åº¦ã€‚
 	int dpiX() const;
-	/// ‚™²‚Ìƒhƒbƒg–§“xB
+	/// ï½™è»¸ã®ãƒ‰ãƒƒãƒˆå¯†åº¦ã€‚
 	int dpiY() const;
-	/// ‰~ŒÊ‚ğ•`‚­BŠp“x‚Í 0 ` 360 ‚Å”½Œvü‚èB
+	/// å††å¼§ã‚’æãã€‚è§’åº¦ã¯ 0 ï½ 360 ã§åæ™‚è¨ˆå‘¨ã‚Šã€‚
 	void drawArc(const Rectangle& rect, float startAngle, float sweepAngle);
 	void drawArc(int x, int y, int width, int height, float startAngle, float sweepAngle);
-	/// “_ p0 ‚©‚ç “_ p3 ‚ÉƒxƒWƒF‹Èü‚ğ•`‚­B
+	/// ç‚¹ p0 ã‹ã‚‰ ç‚¹ p3 ã«ãƒ™ã‚¸ã‚§æ›²ç·šã‚’æãã€‚
 	void drawBezier(const Point& p0, const Point& p1, const Point& p2, const Point& p3);
 	void drawBezier(int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3);
-	/// ˜A‘±‚µ‚½ƒxƒWƒF‹Èü‚ğ•`‚­B‚S“_w’è‚Å˜A‘±‚·‚én“_‚ÆI“_‚ğ‹¤’Ê‰»‚µ‚½“_‚Ì”z—ñ‚ÅA‚R‚ÅŠ„‚é‚Æ‚P—]‚é’·‚³‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
+	/// é€£ç¶šã—ãŸãƒ™ã‚¸ã‚§æ›²ç·šã‚’æãã€‚ï¼”ç‚¹æŒ‡å®šã§é€£ç¶šã™ã‚‹å§‹ç‚¹ã¨çµ‚ç‚¹ã‚’å…±é€šåŒ–ã—ãŸç‚¹ã®é…åˆ—ã§ã€ï¼“ã§å‰²ã‚‹ã¨ï¼‘ä½™ã‚‹é•·ã•ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
 	void drawBeziers(ArrayRange<const Point> points);
-	/// ‰~‚ğ•`‚­B
+	/// å††ã‚’æãã€‚
 	void drawCircle(const Point& point, int radius);
 	void drawCircle(int x, int y, int radius);
-	/// ‘È‰~‚ğ•`‚­B
+	/// æ¥•å††ã‚’æãã€‚
 	void drawEllipse(const Rectangle& rect);
 	void drawEllipse(int x, int y, int width, int height);
-	/// ƒAƒCƒRƒ“‚ğ•`‚­Bmasked ‚ğ false ‚É‚·‚é‚Æ”wŒi‚ğ“§‰ß‚µ‚È‚¢B
+	/// ã‚¢ã‚¤ã‚³ãƒ³ã‚’æãã€‚masked ã‚’ false ã«ã™ã‚‹ã¨èƒŒæ™¯ã‚’é€éã—ãªã„ã€‚
 	void drawIcon(HICON icon, const Point& point, bool masked = true);
 	void drawIcon(HICON icon, int x, int y, bool masked = true);
 	void drawIcon(HICON icon, const Rectangle& rect, bool masked = true);
 	void drawIcon(HICON icon, int x, int y, int width, int height, bool masked = true);
-	/// ƒCƒ[ƒWƒŠƒXƒg‚Ì’†‚Ì‰æ‘œ‚ğ•`‚­B‘å‚«‚³‚ğ‚O‚É‚·‚é‚ÆŒ´¡‚Å•`‰æ‚·‚éBalpha ‚ª 1 –¢–‚Ìê‡‚Í”¼“§–¾‡¬‚·‚éB‚½‚¾‚µƒOƒŒƒCƒXƒP[ƒ‹‚Æ“¯‚É‚Í—LŒø‚É‚È‚ç‚È‚¢B
+	/// ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒªã‚¹ãƒˆã®ä¸­ã®ç”»åƒã‚’æãã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨åŸå¯¸ã§æç”»ã™ã‚‹ã€‚alpha ãŒ 1 æœªæº€ã®å ´åˆã¯åŠé€æ˜åˆæˆã™ã‚‹ã€‚ãŸã ã—ã‚°ãƒ¬ã‚¤ã‚¹ã‚±ãƒ¼ãƒ«ã¨åŒæ™‚ã«ã¯æœ‰åŠ¹ã«ãªã‚‰ãªã„ã€‚
 	void drawImageList(HIMAGELIST imageList, int index, const Rectangle& rect, ImageList::State state = ImageList::State::normal, float alpha = 1.0f, bool grayscale = false);
 	void drawImageList(HIMAGELIST imageList, int index, int x, int y, int width = 0, int height = 0, ImageList::State state = ImageList::State::normal, float alpha = 1.0f, bool grayscale = false);
-	/// ü•ª‚ğ•`‚­BI“_‚ÌƒsƒNƒZƒ‹‚Í•`‚©‚ê‚È‚¢B
+	/// ç·šåˆ†ã‚’æãã€‚çµ‚ç‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«ã¯æã‹ã‚Œãªã„ã€‚
 	void drawLine(const Point& p0, const Point& p1);
 	void drawLine(int x0, int y0, int x1, int y1);
-	/// ü•ª‚ğ˜A‘±‚Å•`‚­B
+	/// ç·šåˆ†ã‚’é€£ç¶šã§æãã€‚
 	void drawLines(ArrayRange<const Point> points);
-	/// GraphicsPath ‚Å•`‚©‚ê‚½ü‚ğ•`‚­Bƒyƒ“‚Åü‚Ì‚İ•`‚­Bƒuƒ‰ƒV‚Å“h‚éê‡‚Í fillPath ŠÖ”‚ğg‚¤B
+	/// GraphicsPath ã§æã‹ã‚ŒãŸç·šã‚’æãã€‚ãƒšãƒ³ã§ç·šã®ã¿æãã€‚ãƒ–ãƒ©ã‚·ã§å¡—ã‚‹å ´åˆã¯ fillPath é–¢æ•°ã‚’ä½¿ã†ã€‚
 	void drawPath(GraphicsPath& path);
-	/// îŒ^‚ğ•`‚­BŠp“x‚Í 0 ` 360 ‚Å”½Œvü‚èB
+	/// æ‰‡å‹ã‚’æãã€‚è§’åº¦ã¯ 0 ï½ 360 ã§åæ™‚è¨ˆå‘¨ã‚Šã€‚
 	void drawPie(const Rectangle& rect, float startAngle, float sweepAngle);
 	void drawPie(int x, int y, int width, int height, float startAngle, float sweepAngle);
-	/// ‘½ŠpŒ`‚ğ•`‚­B“h‚è‚Â‚Ô‚µ•û–@‚Í fillAlternate ŠÖ”‚Åİ’è‚·‚éB
+	/// å¤šè§’å½¢ã‚’æãã€‚å¡—ã‚Šã¤ã¶ã—æ–¹æ³•ã¯ fillAlternate é–¢æ•°ã§è¨­å®šã™ã‚‹ã€‚
 	void drawPolygon(ArrayRange<const Point> points);
-	/// ’·•ûŒ`‚ğ•`‚­B
+	/// é•·æ–¹å½¢ã‚’æãã€‚
 	void drawRectangle(const Rectangle& rect);
 	void drawRectangle(int x, int y, int width, int height);
-	/// ’·•ûŒ`‚ğ˜A‘±‚Å•`‚­B
+	/// é•·æ–¹å½¢ã‚’é€£ç¶šã§æãã€‚
 	void drawRectangles(ArrayRange<const Rectangle> rects);
-	/// —Ìˆæ‚Ì—ÖŠs‚ğ•`‚­B‚â‚â“Áê‚¾‚ª—ÖŠs•`‰æ‚Ég‚¤ƒuƒ‰ƒV‚ğˆø”‚Åw’è‚·‚éB
+	/// é ˜åŸŸã®è¼ªéƒ­ã‚’æãã€‚ã‚„ã‚„ç‰¹æ®Šã ãŒè¼ªéƒ­æç”»ã«ä½¿ã†ãƒ–ãƒ©ã‚·ã‚’å¼•æ•°ã§æŒ‡å®šã™ã‚‹ã€‚
 	void drawRegion(HRGN region, HBRUSH brush, int lineWidth, int lineHeight);
-	/// Šp‚ÌŠÛ‚¢’·•ûŒ`‚ğ•`‚­B
+	/// è§’ã®ä¸¸ã„é•·æ–¹å½¢ã‚’æãã€‚
 	void drawRoundRectangle(const Rectangle& rect, const Size ellipseSize);
 	void drawRoundRectangle(int x, int y, int width, int height, int ellipseWidth, int ellipseHeight);
-	/// •¶š—ñ‚ğ‘‚­B•¶š‚Ì”wŒi‚ğ“h‚ç‚È‚¢‚æ‚¤‚É‚·‚é‚É‚Í backTransparent ‚ğ true ‚Éİ’è‚·‚éB
+	/// æ–‡å­—åˆ—ã‚’æ›¸ãã€‚æ–‡å­—ã®èƒŒæ™¯ã‚’å¡—ã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹ã«ã¯ backTransparent ã‚’ true ã«è¨­å®šã™ã‚‹ã€‚
 	void drawText(StringRange s, const Point& point);
 	void drawText(StringRange s, int x, int y);
-	/// ‹éŒ`‚Ì”ÍˆÍ“à‚Å•¶š—ñ‚ğ‘‚­Bescapement ‹y‚Ñ orientation ‚ª 0 ‚ÌƒtƒHƒ“ƒg‚µ‚©ƒTƒ|[ƒg‚µ‚È‚¢Bic‘‚«‚Í•s‰Âj
+	/// çŸ©å½¢ã®ç¯„å›²å†…ã§æ–‡å­—åˆ—ã‚’æ›¸ãã€‚escapement åŠã³ orientation ãŒ 0 ã®ãƒ•ã‚©ãƒ³ãƒˆã—ã‹ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚ï¼ˆï¼ç¸¦æ›¸ãã¯ä¸å¯ï¼‰
 	void drawText(StringRange s, const Rectangle& rect, Graphics::TextFormat format = TextFormat::default, int tabWidth = 8);
 	void drawText(StringRange s, int x, int y, int width, int height, Graphics::TextFormat format = TextFormat::default, int tabWidth = 8);
-	/// drawPolygon ŠÖ”‚ÅŒğ·‚·‚é‘½ŠpŒ`‚ğŒğŒİ‚É“h‚è‚Â‚Ô‚·‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚Í‘S‚Ä“h‚è‚Â‚Ô‚·B
+	/// drawPolygon é–¢æ•°ã§äº¤å·®ã™ã‚‹å¤šè§’å½¢ã‚’äº¤äº’ã«å¡—ã‚Šã¤ã¶ã™ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯å…¨ã¦å¡—ã‚Šã¤ã¶ã™ã€‚
 	bool fillAlternate() const;
 	bool fillAlternate(bool value);
-	/// GraphicsPath ‚Å•`‚©‚ê‚½—Ìˆæ‚ğƒuƒ‰ƒV‚Å“h‚éB
+	/// GraphicsPath ã§æã‹ã‚ŒãŸé ˜åŸŸã‚’ãƒ–ãƒ©ã‚·ã§å¡—ã‚‹ã€‚
 	void fillPath(GraphicsPath& path);
-	/// —Ìˆæ‚ğƒuƒ‰ƒV‚Å“h‚éB
+	/// é ˜åŸŸã‚’ãƒ–ãƒ©ã‚·ã§å¡—ã‚‹ã€‚
 	void fillRegion(HRGN region);
-	/// ‹«ŠEF‚ÉˆÍ‚Ü‚ê‚½—Ìˆæ‚Ì“h‚è‚Â‚Ô‚µ‚ğs‚¤BƒfƒoƒCƒX‚ªXV—Ìˆæ‚ÅƒNƒŠƒbƒsƒ“ƒO‚³‚ê‚Ä‚¢‚é‚Æv‚Á‚½‚æ‚¤‚ÈŒ‹‰Ê‚É‚È‚ç‚È‚¢–‚É’ˆÓB
+	/// å¢ƒç•Œè‰²ã«å›²ã¾ã‚ŒãŸé ˜åŸŸã®å¡—ã‚Šã¤ã¶ã—ã‚’è¡Œã†ã€‚ãƒ‡ãƒã‚¤ã‚¹ãŒæ›´æ–°é ˜åŸŸã§ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã•ã‚Œã¦ã„ã‚‹ã¨æ€ã£ãŸã‚ˆã†ãªçµæœã«ãªã‚‰ãªã„äº‹ã«æ³¨æ„ã€‚
 	void floodFillBorder(const Point& point, const Color& borderColor);
 	void floodFillBorder(int x, int y, const Color& borderColor);
-	/// w’è‚µ‚½•\–ÊF‚Ì—Ìˆæ‚Ì“h‚è‚Â‚Ô‚µ‚ğs‚¤BƒfƒoƒCƒX‚ªXV—Ìˆæ‚ÅƒNƒŠƒbƒsƒ“ƒO‚³‚ê‚Ä‚¢‚é‚Æv‚Á‚½‚æ‚¤‚ÈŒ‹‰Ê‚É‚È‚ç‚È‚¢–‚É’ˆÓB
+	/// æŒ‡å®šã—ãŸè¡¨é¢è‰²ã®é ˜åŸŸã®å¡—ã‚Šã¤ã¶ã—ã‚’è¡Œã†ã€‚ãƒ‡ãƒã‚¤ã‚¹ãŒæ›´æ–°é ˜åŸŸã§ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã•ã‚Œã¦ã„ã‚‹ã¨æ€ã£ãŸã‚ˆã†ãªçµæœã«ãªã‚‰ãªã„äº‹ã«æ³¨æ„ã€‚
 	void floodFillSurface(const Point& point, const Color& surfaceColor);
 	void floodFillSurface(int x, int y, const Color& surfaceColor);
-	/// ƒn[ƒh‚ª•`‰æ‚ğI‚¦‚é‚Ü‚Å‘Ò‚ÂB
+	/// ãƒãƒ¼ãƒ‰ãŒæç”»ã‚’çµ‚ãˆã‚‹ã¾ã§å¾…ã¤ã€‚
 	static void flush();
-	/// •¶š‚ğ•`‰æ‚·‚éƒtƒHƒ“ƒgB
+	/// æ–‡å­—ã‚’æç”»ã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã€‚
 	Font font() const;
 	Font font(HFONT value);
-	/// ƒEƒCƒ“ƒhƒE‚Ì”ñƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚àŠÜ‚ß‚½ Graphics ‚ğì¬B
+	/// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®éã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã‚‚å«ã‚ãŸ Graphics ã‚’ä½œæˆã€‚
 	static Graphics fromControlWithNonClientArea(HWND control);
-	/// w’è‚µ‚½ graphics ‚ÆŒİŠ·«‚Ì‚ ‚éƒƒ‚ƒŠƒfƒoƒCƒX‚ğì¬Bgraphics ‚É nullptr ‚ğw’è‚·‚é‚ÆƒfƒBƒXƒvƒŒƒC‚ÆŒİŠ·«‚Ì‚ ‚éƒƒ‚ƒŠƒfƒoƒCƒX‚ğì¬‚·‚éB
+	/// æŒ‡å®šã—ãŸ graphics ã¨äº’æ›æ€§ã®ã‚ã‚‹ãƒ¡ãƒ¢ãƒªãƒ‡ãƒã‚¤ã‚¹ã‚’ä½œæˆã€‚graphics ã« nullptr ã‚’æŒ‡å®šã™ã‚‹ã¨ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã¨äº’æ›æ€§ã®ã‚ã‚‹ãƒ¡ãƒ¢ãƒªãƒ‡ãƒã‚¤ã‚¹ã‚’ä½œæˆã™ã‚‹ã€‚
 	static Graphics fromGraphics(HDC graphics);
-	/// ƒfƒBƒXƒvƒŒƒC‚ğ•\‚· Graphics ‚ğì¬B
+	/// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã‚’è¡¨ã™ Graphics ã‚’ä½œæˆã€‚
 	static Graphics fromScreen();
-	/// ‚±‚ÌƒfƒoƒCƒX‚Åw’è‚µ‚½F‚ÉÅ‚à‹ß‚¢F‚ğ•Ô‚·B
+	/// ã“ã®ãƒ‡ãƒã‚¤ã‚¹ã§æŒ‡å®šã—ãŸè‰²ã«æœ€ã‚‚è¿‘ã„è‰²ã‚’è¿”ã™ã€‚
 	Color getNearestColor(const Color& color) const;
-	/// ƒsƒNƒZƒ‹‚ÌF‚ğæ“¾‚·‚éB‰æ‘œ‚ªƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚ğ‚Á‚Ä‚¢‚½‚Æ‚µ‚Ä‚àƒAƒ‹ƒtƒ@î•ñ‚Íæ“¾‚Å‚«‚È‚¢B
+	/// ãƒ”ã‚¯ã‚»ãƒ«ã®è‰²ã‚’å–å¾—ã™ã‚‹ã€‚ç”»åƒãŒã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒã£ã¦ã„ãŸã¨ã—ã¦ã‚‚ã‚¢ãƒ«ãƒ•ã‚¡æƒ…å ±ã¯å–å¾—ã§ããªã„ã€‚
 	Color getPixel(const Point& point) const;
 	Color getPixel(int x, int y) const;
-	/// “_‚ª•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©B
+	/// ç‚¹ãŒæç”»ã§ãã‚‹ã‹ã©ã†ã‹ã€‚
 	bool isVisible(const Point& point) const;
 	bool isVisible(int x, int y) const;
-	/// —Ìˆæ‚ªˆê•”‚Å‚à•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©B
+	/// é ˜åŸŸãŒä¸€éƒ¨ã§ã‚‚æç”»ã§ãã‚‹ã‹ã©ã†ã‹ã€‚
 	bool isVisible(const Rectangle& rect) const;
 	bool isVisible(int x, int y, int width, int height) const;
-	/// •¶š—ñ‚Ì•`‰æƒTƒCƒY‚ğ‹‚ß‚éB•’Ê‚Ì‰¡•`‚«ƒtƒHƒ“ƒg‚Ì‚İ—LŒøB
+	/// æ–‡å­—åˆ—ã®æç”»ã‚µã‚¤ã‚ºã‚’æ±‚ã‚ã‚‹ã€‚æ™®é€šã®æ¨ªæããƒ•ã‚©ãƒ³ãƒˆã®ã¿æœ‰åŠ¹ã€‚
 	Size measureText(StringRange s);
-	/// w’è‚µ‚½•‚Å•\¦‚Å‚«‚é•¶š‚Ü‚Å‚ÅØ‚èÌ‚Ä‚½ê‡‚Ì•`‰æƒTƒCƒY‚ğ‹‚ß‚éB•’Ê‚Ì‰¡•`‚«ƒtƒHƒ“ƒg‚Ì‚İ—LŒøB
+	/// æŒ‡å®šã—ãŸå¹…ã§è¡¨ç¤ºã§ãã‚‹æ–‡å­—ã¾ã§ã§åˆ‡ã‚Šæ¨ã¦ãŸå ´åˆã®æç”»ã‚µã‚¤ã‚ºã‚’æ±‚ã‚ã‚‹ã€‚æ™®é€šã®æ¨ªæããƒ•ã‚©ãƒ³ãƒˆã®ã¿æœ‰åŠ¹ã€‚
 	Size measureText(StringRange s, int width);
-	/// •¶š—ñ‚Ì•`‰æƒTƒCƒY‚ğ‹‚ß‚éB•’Ê‚Ì‰¡•`‚«ƒtƒHƒ“ƒg‚Ì‚İ—LŒøB
+	/// æ–‡å­—åˆ—ã®æç”»ã‚µã‚¤ã‚ºã‚’æ±‚ã‚ã‚‹ã€‚æ™®é€šã®æ¨ªæããƒ•ã‚©ãƒ³ãƒˆã®ã¿æœ‰åŠ¹ã€‚
 	Size measureText(StringRange s, const Size& layoutArea, Graphics::TextFormat format = TextFormat::default, int tabWidth = 8);
 	Size measureText(StringRange s, int width, int height, Graphics::TextFormat format = TextFormat::default, int tabWidth = 8);
-	/// ƒyƒ“‚Ìƒ}ƒCƒ^[Ú‡‚Ì’·‚³B
+	/// ãƒšãƒ³ã®ãƒã‚¤ã‚¿ãƒ¼æ¥åˆã®é•·ã•ã€‚
 	float miterLimit() const;
 	float miterLimit(float value);
-	/// ƒfƒXƒgƒ‰ƒNƒ^‚Åƒnƒ“ƒhƒ‹‚ğ”jŠü‚·‚é‚©‚Ç‚¤‚©B•ÏX‚Í—v’ˆÓB
+	/// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã™ã‚‹ã‹ã©ã†ã‹ã€‚å¤‰æ›´ã¯è¦æ³¨æ„ã€‚
 	bool owned() const;
 	void owned(bool value);
-	/// }Œ`‚Ì—ÖŠs‚ğ•`‚­ƒyƒ“BF‚ğ’¼Úİ’è‚Å‚«‚éB—ÖŠs‚ğ•`‚©‚È‚¢ê‡‚Í Pen::hollow() ‚ğİ’è‚·‚éB
+	/// å›³å½¢ã®è¼ªéƒ­ã‚’æããƒšãƒ³ã€‚è‰²ã‚’ç›´æ¥è¨­å®šã§ãã‚‹ã€‚è¼ªéƒ­ã‚’æã‹ãªã„å ´åˆã¯ Pen::hollow() ã‚’è¨­å®šã™ã‚‹ã€‚
 	Pen pen() const;
 	Pen pen(HPEN value);
 	Pen pen(Color value);
-	/// dpiY() ‚ğŒ³‚ÉƒsƒNƒZƒ‹¨ƒ|ƒCƒ“ƒg•ÏŠ·‚ğs‚¤B
+	/// dpiY() ã‚’å…ƒã«ãƒ”ã‚¯ã‚»ãƒ«â†’ãƒã‚¤ãƒ³ãƒˆå¤‰æ›ã‚’è¡Œã†ã€‚
 	float pixelToPoint(int pixel);
-	/// dpiY() ‚ğŒ³‚Éƒ|ƒCƒ“ƒg¨ƒsƒNƒZƒ‹•ÏŠ·‚ğs‚¤B
+	/// dpiY() ã‚’å…ƒã«ãƒã‚¤ãƒ³ãƒˆâ†’ãƒ”ã‚¯ã‚»ãƒ«å¤‰æ›ã‚’è¡Œã†ã€‚
 	int pointToPixel(float point);
-	/// ƒsƒNƒZƒ‹‚ÌF‚ğİ’è‚·‚éB
+	/// ãƒ”ã‚¯ã‚»ãƒ«ã®è‰²ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setPixel(const Point& point, const Color& color);
 	void setPixel(int x, int y, const Color& color);
-	/// Œ»İ‚Ìİ’è‚Ì•Û‘¶‚Æ•œŒ³B
+	/// ç¾åœ¨ã®è¨­å®šã®ä¿å­˜ã¨å¾©å…ƒã€‚
 	Graphics::State state() const;
 	void state(Graphics::State value);
-	/// •¶š—ñ‚Ì•¶šŠÔŠuBˆês•`‰æ‚Ì drawText ŠÖ”‚Åƒvƒƒ|[ƒVƒ‡ƒiƒ‹‚Å‚Í‚È‚¢ƒtƒHƒ“ƒg‚ğg‚Á‚½ê‡‚Ì‚İ—LŒøB
-	/// ƒvƒƒ|[ƒVƒ‡ƒiƒ‹ƒtƒHƒ“ƒg‚Å•`‰æ‚·‚éê‡‚É‚±‚Ìİ’è‚ª‚Oi‹K’è’ljˆÈŠO‚¾‚Æ‚¤‚Ü‚­•`‰æ‚³‚ê‚È‚¢‚Ì‚Å’ˆÓB
+	/// æ–‡å­—åˆ—ã®æ–‡å­—é–“éš”ã€‚ä¸€è¡Œæç”»ã® drawText é–¢æ•°ã§ãƒ—ãƒ­ãƒãƒ¼ã‚·ãƒ§ãƒŠãƒ«ã§ã¯ãªã„ãƒ•ã‚©ãƒ³ãƒˆã‚’ä½¿ã£ãŸå ´åˆã®ã¿æœ‰åŠ¹ã€‚
+	/// ãƒ—ãƒ­ãƒãƒ¼ã‚·ãƒ§ãƒŠãƒ«ãƒ•ã‚©ãƒ³ãƒˆã§æç”»ã™ã‚‹å ´åˆã«ã“ã®è¨­å®šãŒï¼ï¼ˆè¦å®šå€¤ï¼‰ä»¥å¤–ã ã¨ã†ã¾ãæç”»ã•ã‚Œãªã„ã®ã§æ³¨æ„ã€‚
 	int textCharExtra() const;
 	int textCharExtra(int value);
-	/// ƒeƒLƒXƒg‚ÌFB
+	/// ãƒ†ã‚­ã‚¹ãƒˆã®è‰²ã€‚
 	Color textColor() const;
 	Color textColor(Color value);
-	/// ƒNƒŠƒbƒv—Ìˆæ‚ğ•½sˆÚ“®‚·‚éB
+	/// ã‚¯ãƒªãƒƒãƒ—é ˜åŸŸã‚’å¹³è¡Œç§»å‹•ã™ã‚‹ã€‚
 	void translateClip(int dx, int dy);
-	/// ÀÛ‚É•`‰æ‰Â”\‚È—Ìˆæ‚ğŠÜ‚Ş‹éŒ`B‰æ‘œ‚©‚çì¬‚µ‚Ä‚¢‚éê‡‚Í‰æ‘œ‚Ì‘å‚«‚³B
+	/// å®Ÿéš›ã«æç”»å¯èƒ½ãªé ˜åŸŸã‚’å«ã‚€çŸ©å½¢ã€‚ç”»åƒã‹ã‚‰ä½œæˆã—ã¦ã„ã‚‹å ´åˆã¯ç”»åƒã®å¤§ãã•ã€‚
 	Rectangle visibleClipBounds() const;
 
 public:
-	/// HDC ‚Ö‚Ì©“®•ÏŠ· • null ƒ`ƒFƒbƒN—p
+	/// HDC ã¸ã®è‡ªå‹•å¤‰æ› ï¼† null ãƒã‚§ãƒƒã‚¯ç”¨
 	operator HDC() const { return _handle; }
 
 private:

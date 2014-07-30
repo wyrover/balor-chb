@@ -1,4 +1,4 @@
-#include "Font.hpp"
+Ôªø#include "Font.hpp"
 
 #include <utility>
 #include <vector>
@@ -170,7 +170,7 @@ int Font::height() const {
 String Font::name() const {
 	assert("Null Font handle" && *this);
 
-	//return FontInfo(*this).lfFaceName; // Ç±ÇÍÇæÇ∆ñ{ìñÇÃñºëOÇÕÇÌÇ©ÇÁÇ»Ç¢
+	//return FontInfo(*this).lfFaceName; // „Åì„Çå„Å†„Å®Êú¨ÂΩì„ÅÆÂêçÂâç„ÅØ„Çè„Åã„Çâ„Å™„ÅÑ
 
 	Graphics graphics = Graphics::fromGraphics(nullptr);
 	auto font = graphics.font(*this);
@@ -184,7 +184,7 @@ String Font::name() const {
 vector<String> Font::names() {
 	struct FontFamilies {
 		static int CALLBACK procedure(const LOGFONTW* logfont, const TEXTMETRICW* , DWORD fontType, LPARAM lparam) {
-			if ((fontType & TRUETYPE_FONTTYPE) == TRUETYPE_FONTTYPE) { // true type ÇÃÇ›
+			if ((fontType & TRUETYPE_FONTTYPE) == TRUETYPE_FONTTYPE) { // true type Îßå
 				auto& names = *reinterpret_cast<vector<String>*>(lparam);
 				names.push_back(String(logfont->lfFaceName));
 			}

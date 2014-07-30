@@ -1,4 +1,4 @@
-#include "Cursor.hpp"
+ï»¿#include "Cursor.hpp"
 
 #include <utility>
 
@@ -96,7 +96,7 @@ Cursor::Cursor(StringRange filePath): _handle(nullptr), _owned(false) {
 	const HINSTANCE instance = GetModuleHandleW(nullptr);
 	assert(instance);
 	_handle = static_cast<HCURSOR>(LoadImageW(instance, filePath.c_str(), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE | LR_LOADFROMFILE));
-	if (!_handle) { // FileFormatException ‚ğŒŸo‚µ‚½‚¢‚ª GetLastError ‚Í 0 ‚ª‹A‚é‚æ‚¤‚¾
+	if (!_handle) { // FileFormatException ã‚’æ¤œå‡ºã—ãŸã„ãŒ GetLastError ã¯ 0 ãŒå¸°ã‚‹ã‚ˆã†ã 
 		throw LoadFailedException();
 	}
 	_owned = true;
@@ -198,7 +198,7 @@ void Cursor::save(ArrayRange<const Cursor> cursors, Stream&& stream) {
 void Cursor::save(ArrayRange<const Cursor> cursors, Stream& stream) {
 	assert("Empty cursors" && !cursors.empty());
 	assert("Can't write stream" && stream.writable());
-	const Icon* const begin = reinterpret_cast<const Icon*>(cursors.begin()); // ‚â‚¾’´‹­ˆøIƒƒ“ƒoŠg’£‚Í—v’ˆÓB
+	const Icon* const begin = reinterpret_cast<const Icon*>(cursors.begin()); // ã‚„ã è¶…å¼·å¼•ï¼ãƒ¡ãƒ³ãƒæ‹¡å¼µã¯è¦æ³¨æ„
 	Icon::save(ArrayRange<const Icon>(begin, cursors.size()), stream);
 }
 
@@ -216,8 +216,8 @@ Size Cursor::size() {
 }
 
 
-// Control ƒNƒ‰ƒX“à‚É‚¨‚¢‚Äƒ}ƒEƒXˆÚ“®‚Ì‚½‚Ñ‚ÉŒÄ‚Î‚ê‚é‰Â”\«‚ª‚ ‚é‚Ì‚ÅƒLƒƒƒbƒVƒ…‚·‚éB
-// ƒLƒƒƒbƒVƒ…‚ÍƒVƒXƒeƒ€‹¤—LƒŠƒ\[ƒX‚È‚Ì‚Åd•¡‰Šú‰»‚³‚ê‚Ä‚à DLL ‚²‚Æ‚ÉÀ‘Ì‚ğ‚à‚Á‚Ä‚à–â‘è‚È‚¢B
+// Control ã‚¯ãƒ©ã‚¹å†…ã«ãŠã„ã¦ãƒã‚¦ã‚¹ç§»å‹•ã®ãŸã³ã«å‘¼ã°ã‚Œã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚
+// ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯ã‚·ã‚¹ãƒ†ãƒ å…±æœ‰ãƒªã‚½ãƒ¼ã‚¹ãªã®ã§é‡è¤‡åˆæœŸåŒ–ã•ã‚Œã¦ã‚‚ DLL ã”ã¨ã«å®Ÿä½“ã‚’ã‚‚ã£ã¦ã‚‚å•é¡Œãªã„
 Cursor Cursor::appStarting() { static HCURSOR cache = fromSystemResource(OCR_APPSTARTING); return Cursor(cache); }
 Cursor Cursor::default()     { static HCURSOR cache = fromSystemResource(OCR_NORMAL     ); return Cursor(cache); }
 Cursor Cursor::cross()       { static HCURSOR cache = fromSystemResource(OCR_CROSS      ); return Cursor(cache); }
