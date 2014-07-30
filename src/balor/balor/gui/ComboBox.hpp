@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/Control.hpp>
 #include <balor/gui/Edit.hpp>
@@ -12,55 +12,55 @@ namespace balor {
 
 
 /**
- * �R���{�{�b�N�X�B
- *
- * �R���{�{�b�N�X�̓G�f�B�b�g�R���g���[���ƃ��X�g�{�b�N�X���܂�ł���A���ꂼ�� edit�Alist �֐��ŃR���g���[�����擾�ł���B
- * ComboBox �N���X�łł��Ȃ�����͂��̊֐��œ���ꂽ�R���g���[���ɑ΂��čs���B�R���{�{�b�N�X�̓h���b�v�_�E���\��������{�^���̕����ɂȂ�B
- * ���邢�� style() �� ComboBox::Style::dropDownList �̏ꍇ�̓G�f�B�b�g�R���g���[�����Ȃ��A���̕����̓R���{�{�b�N�X�ɂȂ�B
- * onFocus �y�� onDefocus �C�x���g�ł͑O�̃t�H�[�J�X�A���̃t�H�[�J�X�R���g���[���𓾂��Ȃ��B
- * edit() �� list() �� tabWidth() �͐ݒ�ł��Ȃ��͗l�B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
-	Frame frame(L"ComboBox Sample");
+* コンボボックス。
+*
+* コンボボックスはエディットコントロールとリストボックスを含んでおり、それぞれ edit、list 関数でコントロールを取得できる。
+* ComboBox クラスでできない操作はこの関数で得られたコントロールに対して行う。コンボボックスはドロップダウン表示をするボタンの部分になる。
+* あるいは style() が ComboBox::Style::dropDownList の場合はエディットコントロールがなく、その部分はコンボボックスになる。
+* onFocus 及び onDefocus イベントでは前のフォーカス、次のフォーカスコントロールを得られない。
+* edit() と list() の tabWidth() は設定できない模様。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
+Frame frame(L"ComboBox Sample");
 
-	const wchar_t* items[] = {
-		L"���",
-		L"�o�i�i",
-		L"�p�C�i�b�v��",
-		L"�X�C�J"
-	};
-	ComboBox combo(frame, 20, 10, 0, 0, items);
-	combo.edit().textColor(Color::red());
+const wchar_t* items[] = {
+L"りんご",
+L"バナナ",
+L"パイナップル",
+L"スイカ"
+};
+ComboBox combo(frame, 20, 10, 0, 0, items);
+combo.edit().textColor(Color::red());
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class ComboBox : public Control {
 public:
-	/// �R���{�{�b�N�X�̃X�^�C���B
+	/// コンボボックスのスタイル。
 	struct Style {
 		enum _enum {
-			simple       = 0x0001L, /// �G�f�B�b�g�̉��Ƀ��X�g�{�b�N�X����ɕ\������B
-			dropDown     = 0x0002L, /// �G�f�B�b�g�ׂ̗̃{�^���������ƃ��X�g�{�b�N�X���\�������B
-			dropDownList = 0x0003L, /// �G�f�B�b�g�͓��͕s�\�ŗׂ̃{�^���������ƃ��X�g�{�b�N�X���\�������B
+			simple = 0x0001L, /// エディットの下にリストボックスを常に表示する。
+			dropDown = 0x0002L, /// エディットの隣のボタンを押すとリストボックスが表示される。
+			dropDownList = 0x0003L, /// エディットは入力不能で隣のボタンを押すとリストボックスが表示される。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
 
 
-	/// �R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B�g�ݍ��킹�Ŏw�肷��B
+	/// コントロール作成後に変更できない設定。組み合わせで指定する。
 	struct Options {
 		enum _enum {
-			none             = 0      ,
-			noHScroll        = 0x0040L, /// ���͕����񂪉E�ɂ͂ݏo��ꍇ�ɃX�N���[�������A����ȏ���͂ł��Ȃ�����B
-			noIntegralHeight = 0x0400L, /// ���X�g�{�b�N�X�̍����������I�ɍ��ڂ̍����̔{���ɒ��߂���̂���߂�Bstyle() �� ComboBox::Style::simple �Ń��X�g�{�b�N�X�̔w�i�̐F��ς���ꍇ�ɉe������B
+			none = 0,
+			noHScroll = 0x0040L, /// 入力文字列が右にはみ出る場合にスクロールせず、それ以上入力できなくする。
+			noIntegralHeight = 0x0400L, /// リストボックスの高さを自動的に項目の高さの倍数に調節するのをやめる。style() が ComboBox::Style::simple でリストボックスの背景の色を変える場合に影響する。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// �R���{�{�b�N�X��̃G�f�B�b�g�R���g���[���B
+	/// コンボボックス上のエディットコントロール。
 	class Edit : public ::balor::gui::Edit {
 		friend ComboBox;
 
@@ -71,25 +71,25 @@ public:
 		Edit& operator=(Edit&& value);
 
 	private:
-		/// �t�H�[�J�X�C�x���g�� ComboBox �ŁB
+		/// フォーカスイベントは ComboBox で。
 		Listener<Control::Defocus&>& onDefocus();
-		/// �t�H�[�J�X�C�x���g�� ComboBox �ŁB
+		/// フォーカスイベントは ComboBox で。
 		Listener<Control::Focus&>& onFocus();
 
 	public:
-		/// �e�ύX���֎~�B
+		/// 親変更を禁止。
 		using Control::parent;
-		virtual void parent(Control* );
+		virtual void parent(Control*);
 
 	protected:
-		//// �L�[���͂��_�C�A���O�L�[�ł͂Ȃ��R���g���[���ŏ�������K�v�����邩�ǂ����B
+		//// キー入力がダイアログキーではなくコントロールで処理する必要があるかどうか。
 		virtual bool isInputKey(int shortcut) const;
-		/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+		/// メッセージを処理する。いわゆるウインドウプロシージャ。
 		virtual void processMessage(Message& msg);
 	};
 
 
-	/// �R���{�{�b�N�X��̃��X�g�{�b�N�X�B
+	/// コンボボックス上のリストボックス。
 	class List : public ::balor::gui::ListBox {
 		friend ComboBox;
 
@@ -100,19 +100,19 @@ public:
 		List& operator=(List&& value);
 
 	private:
-		/// �t�H�[�J�X�C�x���g�� ComboBox �ŁB
+		/// フォーカスイベントは ComboBox で。
 		Listener<Control::Defocus&>& onDefocus();
-		/// �t�H�[�J�X�C�x���g�� ComboBox �ŁB
+		/// フォーカスイベントは ComboBox で。
 		Listener<Control::Focus&>& onFocus();
 
 	public:
-		/// �e�ύX���֎~�B
+		/// 親変更を禁止。
 		using Control::parent;
-		virtual void parent(Control* );
+		virtual void parent(Control*);
 	};
 
 
-	/// �R���{�{�b�N�X�̃C�x���g�̐e�N���X�B
+	/// コンボボックスのイベントの親クラス。
 	typedef EventWithSubclassSender<ComboBox, Control::Event> Event;
 
 	typedef Event CloseUp;
@@ -123,75 +123,75 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	ComboBox();
 	ComboBox(ComboBox&& value, bool checkSlicing = true);
-	/// �e�A�ʒu�A�傫���A�X�^�C������쐬�B
+	/// 親、位置、大きさ、スタイルから作成。
 	ComboBox(Control& parent, int x, int y, int width, int height, ComboBox::Style style = Style::dropDown, ComboBox::Options options = Options::none);
-	/// �e�A�ʒu�A�傫���A���ڔz��A�X�^�C������쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B
+	/// 親、位置、大きさ、項目配列、スタイルから作成。大きさを０にすると getPreferredSize 関数で求める。
 	ComboBox(Control& parent, int x, int y, int width, int height, StringRangeArray items, ComboBox::Style style = Style::dropDown, ComboBox::Options options = Options::none);
 	virtual ~ComboBox();
 	ComboBox& operator=(ComboBox&& value);
 
 public:
-	/// �h���b�v�_�E����\���������̈ʒu�Ƒ傫���B
+	/// ドロップダウンを表示した時の位置と大きさ。
 	Rectangle boundsWithDropDown() const;
-	/// �h���b�v�_�E�����J�n����{�^���̋�`�B
+	/// ドロップダウンを開始するボタンの矩形。
 	Rectangle dropDownButtonBounds() const;
-	/// �h���b�v�_�E�����J�n����{�^����������Ă��邩�ǂ����B
+	/// ドロップダウンを開始するボタンが押されているかどうか。
 	bool dropDownButtonIsPushed() const;
-	/// �h���b�v�_�E�����\������Ă��邩�ǂ����B
+	/// ドロップダウンが表示されているかどうか。
 	bool dropDowned() const;
 	void dropDowned(bool value);
-	/// �h���b�v�_�E���̃X�N���[���\�ȕ��B
+	/// ドロップダウンのスクロール可能な幅。
 	int dropDownScrollWidth() const;
 	void dropDownScrollWidth(int value);
-	/// �h���b�v�_�E���̕��B�R���{�{�b�N�X�̕���菬�����͂Ȃ�Ȃ��Bstyle() �� ComboBox::Style::simple �̏ꍇ�͏�ɃR���{�{�b�N�X�̕��Ɠ����B
+	/// ドロップダウンの幅。コンボボックスの幅より小さくはならない。style() が ComboBox::Style::simple の場合は常にコンボボックスの幅と同じ。
 	int dropDownWidth() const;
 	void dropDownWidth(int value);
-	/// �R���{�{�b�N�X��̃G�f�B�b�g�R���g���[���Bstyle() �� ComboBox::Style::DropDownList �̏ꍇ�͍쐬����Ȃ��B
+	/// コンボボックス上のエディットコントロール。style() が ComboBox::Style::DropDownList の場合は作成されない。
 	ComboBox::Edit& edit();
 	const ComboBox::Edit& edit() const;
-	/// �G�f�B�b�g�̕����̍����Bstyle() �� ComboBox::Style::simple �ł��� options() �� ComboBox::Options::noIntegralHeight ��ݒ肵�Ȃ������ꍇ�͂��܂��ύX�ł��Ȃ��B
+	/// エディットの部分の高さ。style() が ComboBox::Style::simple でかつ options() に ComboBox::Options::noIntegralHeight を設定しなかった場合はうまく変更できない。
 	int editHeight() const;
 	void editHeight(int value);
-	/// �����L�[�Ńh���b�v�_�E���J�����ǂ����Btrue �̏ꍇ�̓}�E�X�z�C�[���őI���ł��Ȃ��Ȃ�Bfalse �̏ꍇ�� F4 �L�[�ŊJ���B�����l�� false�B
+	/// 下矢印キーでドロップダウン開くかどうか。true の場合はマウスホイールで選択できなくなる。false の場合は F4 キーで開く。初期値は false。
 	bool extendedUI() const;
 	void extendedUI(bool value);
-	/// �t�H�[�J�X�𓾂��邩�ǂ����B
+	/// フォーカスを得られるかどうか。
 	virtual bool focused() const;
-	/// �K�؂ȃR���g���[���T�C�Y�Bfont, style, items �̒l�ɂ���čœK�ȑ傫����Ԃ��B
+	/// 適切なコントロールサイズ。font, style, items の値によって最適な大きさを返す。
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// �R���{�{�b�N�X��̃��X�g�{�b�N�X�B
+	/// コンボボックス上のリストボックス。
 	ComboBox::List& list();
 	const ComboBox::List& list() const;
-	/// �h���b�v�_�E�����X�g�����ڂ����܂ŕ\���ł��邩�B���݂̍��ڐ���菬�����ꍇ�̓X�N���[���o�[���\�������B
-	/// options() �� ComboBox::Options::noIntegralHeight ��ݒ肵�����Astyle() �� ComboBox::Style::simple �̏ꍇ�͖����B
-	/// �����l�� 30�B���̊֐��̎g�p�ɂ� EnableVisualStyle.hpp �̃C���N���[�h���K�v�B
+	/// ドロップダウンリストが項目を何個まで表示できるか。現在の項目数より小さい場合はスクロールバーが表示される。
+	/// options() に ComboBox::Options::noIntegralHeight を設定したか、style() が ComboBox::Style::simple の場合は無効。
+	/// 初期値は 30。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。
 	int maxVisibleItemCount() const;
 	void maxVisibleItemCount(int value);
-	/// �h���b�v�_�E����������̃C�x���g�B
+	/// ドロップダウンを閉じた時のイベント。
 	Listener<ComboBox::CloseUp&>& onCloseUp();
-	/// �h���b�v�_�E����\���������̃C�x���g�B
+	/// ドロップダウンを表示した時のイベント。
 	Listener<ComboBox::DropDown&>& onDropDown();
-	/// �I�����ڂ�ύX�������̃C�x���g�B�h���b�v�_�E���\�����ɖ��L�[�����������͋N���邪�}�E�X�ړ��ł͋N���Ȃ��B
+	/// 選択項目を変更した時のイベント。ドロップダウン表示中に矢印キーを押した時は起きるがマウス移動では起きない。
 	Listener<ComboBox::Select&>& onSelect();
-	/// ���ڂ�I�������Ƀh���b�v�_�E����������̃C�x���g�BESC �L�[�⑼�̃R���g���[���Ƀt�H�[�J�X���ڂ����ꍇ�B
+	/// 項目を選択せずにドロップダウンを閉じた時のイベント。ESC キーや他のコントロールにフォーカスを移した場合。
 	Listener<ComboBox::SelectCancel&>& onSelectCancel();
-	/// ���ڂ�I�����ăh���b�v�_�E����������̃C�x���g�B
+	/// 項目を選択してドロップダウンを閉じた時のイベント。
 	Listener<ComboBox::SelectEnd&>& onSelectEnd();
-	///	�R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B
+	///	コントロール作成後に変更できない設定。
 	ComboBox::Options options() const;
-	/// ���ݑI�����Ă��鍀�ڂ̃C���f�b�N�X�B�I�����Ă��Ȃ����A�I����Ɉ�x�ł�������ҏW������ -1 ���Ԃ�B
+	/// 現在選択している項目のインデックス。選択していないか、選択後に一度でも文字を編集したら -1 が返る。
 	int selectedIndex() const;
 	void selectedIndex(int value);
-	/// �R���{�{�b�N�X�̃X�^�C���B
+	/// コンボボックスのスタイル。
 	ComboBox::Style style() const;
 
 protected:
-	//// �L�[���͂��_�C�A���O�L�[�ł͂Ȃ��R���g���[���ŏ�������K�v�����邩�ǂ����B
+	//// キー入力がダイアログキーではなくコントロールで処理する必要があるかどうか。
 	virtual bool isInputKey(int shortcut) const;
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 	Edit _edit;

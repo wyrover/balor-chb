@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/OutOfMemoryException.hpp>
 #include <balor/StringRange.hpp>
@@ -29,28 +29,28 @@ namespace balor {
 
 
 /**
- * �N���b�v�{�[�h�B
- *
- * �E�C���h�E�̃��b�Z�[�W���[�v�����s���Ă��Ȃ��Ɠ��삵�Ȃ��B
- * DIB �r�b�g�}�b�v�̓\��t���͂܂Ƃ��ɃT�|�[�g���Ă���\�t�g�͏��Ȃ���ADIB ���� DDB �̎����ϊ��͂��܂������Ȃ��ꍇ������悤�Ȃ̂�
- * �ʂ̃\�t�g�ɓ]�����l���Ă���ꍇ�� DDB �r�b�g�}�b�v�̂ݓ\��t����ق�������Ȃ悤���B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
-	Frame frame(L"Clipboard Sample");
+* クリップボード。
+*
+* ウインドウのメッセージループを実行していないと動作しない。
+* DIB ビットマップの貼り付けはまともにサポートしているソフトは少ない上、DIB から DDB の自動変換はうまくいかない場合もあるようなので
+* 別のソフトに転送を考えている場合は DDB ビットマップのみ貼り付けるほうが無難なようだ。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
+Frame frame(L"Clipboard Sample");
 
-	Edit edit(frame, 20, 100, 0, 0, 50, 10, Edit::Options::multiline);
-	edit.hScrollBar(true);
-	Button button0(frame, 20, 10, 0, 0, L"�N���b�v�{�[�h�̕�����\��t��", [&] (Button::Click& ) {
-		edit.text(Clipboard::getText());
-	});
-	Button button1(frame, 20, 50, 0, 0, L"�N���b�v�{�[�h�ɃG�f�B�b�g�̕�����\��t��", [&] (Button::Click& ) {
-		Clipboard::setText(edit.text());
-	});
+Edit edit(frame, 20, 100, 0, 0, 50, 10, Edit::Options::multiline);
+edit.hScrollBar(true);
+Button button0(frame, 20, 10, 0, 0, L"クリップボードの文字を貼り付け", [&] (Button::Click& ) {
+edit.text(Clipboard::getText());
+});
+Button button1(frame, 20, 50, 0, 0, L"クリップボードにエディットの文字を貼り付け", [&] (Button::Click& ) {
+Clipboard::setText(edit.text());
+});
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class Clipboard {
 public:
 	typedef ::HBITMAP__* HBITMAP;
@@ -58,51 +58,51 @@ public:
 	typedef ::balor::io::MemoryStream MemoryStream;
 	typedef ::balor::io::Stream Stream;
 
-	///// �N���b�v�{�[�h�ɃA�N�Z�X�ł��Ȃ������B
+	///// クリップボードにアクセスできなかった。
 	//class AccessDeniedException : public Exception {};
 
-	/// ������������Ȃ������B
+	/// メモリが足りなかった。
 	struct OutOfMemoryException : public ::balor::OutOfMemoryException {};
 
 
 public:
-	/// �\��t����ꂽ�S�Ă��폜����B
+	/// 貼り付けられた全てを削除する。
 	static void clear();
-	/// �r�b�g�}�b�v���\��t�����Ă��邩�ǂ����B
+	/// ビットマップが貼り付けられているかどうか。
 	static bool containsBitmap();
-	/// DIB �r�b�g�}�b�v���\��t�����Ă��邩�ǂ����B������ DDB �� DIB �ɕϊ��\�Ȃ̂ŋ�ʂ��Ĕ��f�͂ł��Ȃ��B
+	/// DIB ビットマップが貼り付けられているかどうか。ただし DDB も DIB に変換可能なので区別して判断はできない。
 	static bool containsDIB();
-	/// �t�@�C���h���b�v���X�g���\��t�����Ă��邩�ǂ����B
+	/// ファイルドロップリストが貼り付けられているかどうか。
 	static bool containsFileDropList();
-	/// ���[�U��`�̃������f�[�^���\��t�����Ă��邩�ǂ����B
+	/// ユーザ定義のメモリデータが貼り付けられているかどうか。
 	static bool containsMemory(int memoryFormat);
-	/// �����񂪓\��t�����Ă��邩�ǂ����B
+	/// 文字列が貼り付けられているかどうか。
 	static bool containsText();
-	/// DDB �r�b�g�}�b�v���擾����B�����ꍇ�̓k���n���h���̃r�b�g�}�b�v��Ԃ��B
+	/// DDB ビットマップを取得する。無い場合はヌルハンドルのビットマップを返す。
 	static Bitmap getBitmap();
-	/// DIB �r�b�g�}�b�v���擾����B�����ꍇ�̓k���n���h���̃r�b�g�}�b�v��Ԃ��B
+	/// DIB ビットマップを取得する。無い場合はヌルハンドルのビットマップを返す。
 	static Bitmap getDIB();
-	/// �t�@�C���h���b�v���X�g���擾����B�����ꍇ�͋�̔z���Ԃ��B
+	/// ファイルドロップリストを取得する。無い場合は空の配列を返す。
 	static std::vector<String, std::allocator<String> > getFileDropList();
-	/// ���[�U��`�̃������f�[�^���擾����B�����ꍇ�͋�̃������X�g���[����Ԃ��B
+	/// ユーザ定義のメモリデータを取得する。無い場合は空のメモリストリームを返す。
 	static MemoryStream getMemory(int memoryFormat);
-	/// ��������擾����B�����ꍇ�͋󕶎����Ԃ��B
+	/// 文字列を取得する。無い場合は空文字列を返す。
 	static String getText();
-	/// ���[�U��`�̃������t�H�[�}�b�g����o�^���A�������t�H�[�}�b�g��Ԃ��B�������t�H�[�}�b�g�������̃v���Z�X�Ŋ��ɓo�^����Ă����瓯���������t�H�[�}�b�g��Ԃ��B�啶���Ə������͋�ʂ��Ȃ��B
+	/// ユーザ定義のメモリフォーマット名を登録し、メモリフォーマットを返す。メモリフォーマット名が他のプロセスで既に登録されていたら同じメモリフォーマットを返す。大文字と小文字は区別しない。
 	static int registerMemoryFormat(StringRange memoryFormatName);
-	/// DDB �r�b�g�}�b�v�Ƃ��ē\��t����B
+	/// DDB ビットマップとして貼り付ける。
 	static void setBitmap(HBITMAP value);
-	/// DIB �r�b�g�}�b�v�Ƃ��ē\��t����B
+	/// DIB ビットマップとして貼り付ける。
 	static void setDIB(HBITMAP value);
-	/// �t�@�C���h���b�v���X�g��\��t����B
+	/// ファイルドロップリストを貼り付ける。
 	static void setFileDropList(StringRangeArray value);
-	/// ���[�U��`�̃������f�[�^��ݒ肷��B
+	/// ユーザ定義のメモリデータを設定する。
 	static void setMemory(int memoryFormat, Stream& stream);
-	/// �������\��t����B
+	/// 文字列を貼り付ける。
 	static void setText(StringRange value);
 
 
-public: // �����g�p�֐�
+public: // 内部使用関数
 	static void* _dibToHgrobal(HBITMAP bitmap);
 	static void* _fileDropListToHglobal(StringRangeArray fileDropList);
 	static std::vector<String, std::allocator<String> > _hdropToFileDropList(void* drop);

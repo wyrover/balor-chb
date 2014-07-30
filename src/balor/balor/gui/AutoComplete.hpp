@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/system/ComPtr.hpp>
 #include <balor/Enum.hpp>
@@ -20,46 +20,46 @@ class Edit;
 
 
 /**
- * ƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹‚É“Á’è‚Ì•¶š‚ğ“ü—Í‚·‚é‚Æ•¶š—ñ‚Ì‘±‚«‚ÌŒó•â‚ğ—ñ‹“‚µ‚½‚è•âŠÔ‚Å‚«‚é‚æ‚¤‚É‚·‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"AutoComplete Sample");
+* ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ç‰¹å®šã®æ–‡å­—ã‚’å…¥åŠ›ã™ã‚‹ã¨æ–‡å­—åˆ—ã®ç¶šãã®å€™è£œã‚’åˆ—æŒ™ã—ãŸã‚Šè£œé–“ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"AutoComplete Sample");
 
-	Edit edit(frame, 20, 10, 0, 0, 10);
-	const wchar_t* items[] = {
-		L"012345",
-		L"012abc",
-		L"012‚ ‚¢‚¤",
-		L"abc",
-		L"abcdef",
-		L"‚ ‚¢‚¤",
-	};
-	AutoComplete complete(edit, items);
+Edit edit(frame, 20, 10, 0, 0, 10);
+const wchar_t* items[] = {
+L"012345",
+L"012abc",
+L"012ã‚ã„ã†",
+L"abc",
+L"abcdef",
+L"ã‚ã„ã†",
+};
+AutoComplete complete(edit, items);
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class AutoComplete : private NonCopyable {
 public:
-	/// ƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚Ì“®ìƒ‚[ƒhB
+	/// ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã®å‹•ä½œãƒ¢ãƒ¼ãƒ‰ã€‚
 	struct Mode {
 		enum _enum {
-			append           = 0x40000000, /// Š®¬‚³‚ê‚½•¶š—ñ‚ªƒnƒCƒ‰ƒCƒg‚³‚ê‚Ä’Ç‰Á•\¦‚³‚ê‚éB
-			suggest          = 0x10000000, /// Š®¬‚³‚ê‚½•¶š—ñ‚ªƒhƒƒbƒvƒ_ƒEƒ“ƒŠƒXƒg‚Å•\¦‚³‚ê‚éB
-			appendAndSuggest = 0x50000000, /// append ‚Æ suggest —¼•ûB
+			append = 0x40000000, /// å®Œæˆã•ã‚ŒãŸæ–‡å­—åˆ—ãŒãƒã‚¤ãƒ©ã‚¤ãƒˆã•ã‚Œã¦è¿½åŠ è¡¨ç¤ºã•ã‚Œã‚‹ã€‚
+			suggest = 0x10000000, /// å®Œæˆã•ã‚ŒãŸæ–‡å­—åˆ—ãŒãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆã§è¡¨ç¤ºã•ã‚Œã‚‹ã€‚
+			appendAndSuggest = 0x50000000, /// append ã¨ suggest ä¸¡æ–¹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Mode);
 	};
 
-	/// ƒVƒXƒeƒ€‚ª—pˆÓ‚µ‚½ƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚·‚é•¶š—ñƒŠƒXƒgB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚·ã‚¹ãƒ†ãƒ ãŒç”¨æ„ã—ãŸã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã™ã‚‹æ–‡å­—åˆ—ãƒªã‚¹ãƒˆã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct SystemItems {
 		enum _enum {
-			none                = 0         ,
-			fileSystem          = 0x00000001, /// ƒtƒ@ƒCƒ‹ƒVƒXƒeƒ€‚ÌƒpƒXB
-			fileSystemDirectory = 0x00000020, /// ƒtƒ@ƒCƒ‹ƒVƒXƒeƒ€‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒXB
-			urlHistory          = 0x00000002, /// ‚t‚q‚k—š—ğB
-			recentlyUsedUrl     = 0x00000004, /// Å‹ßg‚Á‚½‚t‚q‚kƒŠƒXƒgB
+			none = 0,
+			fileSystem = 0x00000001, /// ãƒ•ã‚¡ã‚¤ãƒ«ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ‘ã‚¹ã€‚
+			fileSystemDirectory = 0x00000020, /// ãƒ•ã‚¡ã‚¤ãƒ«ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã€‚
+			urlHistory = 0x00000002, /// ï¼µï¼²ï¼¬å±¥æ­´ã€‚
+			recentlyUsedUrl = 0x00000004, /// æœ€è¿‘ä½¿ã£ãŸï¼µï¼²ï¼¬ãƒªã‚¹ãƒˆã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(SystemItems);
 	};
@@ -67,22 +67,22 @@ public:
 public:
 	AutoComplete();
 	AutoComplete(AutoComplete&& value);
-	/// ƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹‚ÆƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚·‚é•¶š—ñ‚Ì”z—ñ‚©‚çì¬B
+	/// ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã™ã‚‹æ–‡å­—åˆ—ã®é…åˆ—ã‹ã‚‰ä½œæˆã€‚
 	AutoComplete(Edit& target, StringRangeArray items, AutoComplete::Mode mode = Mode::appendAndSuggest);
-	/// ƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹‚ÆƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚·‚é•¶š—ñ‚Ìí—Ş‚©‚çì¬B
+	/// ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã™ã‚‹æ–‡å­—åˆ—ã®ç¨®é¡ã‹ã‚‰ä½œæˆã€‚
 	AutoComplete(Edit& target, AutoComplete::SystemItems systemItems, AutoComplete::Mode mode = Mode::appendAndSuggest);
 	~AutoComplete();
 	AutoComplete& operator=(AutoComplete&& value);
 
 public:
-	/// —LŒø‚©‚Ç‚¤‚©B
+	/// æœ‰åŠ¹ã‹ã©ã†ã‹ã€‚
 	bool enabled() const;
 	void enabled(bool value);
-	/// ƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚·‚é•¶š—ñ‚Ì”z—ñB
+	/// ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã™ã‚‹æ–‡å­—åˆ—ã®é…åˆ—ã€‚
 	std::vector<String, ::std::allocator<String> >& items() const;
-	/// ƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚Ìƒ‚[ƒhB
+	/// ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã®ãƒ¢ãƒ¼ãƒ‰ã€‚
 	AutoComplete::Mode mode() const;
-	/// ƒVƒXƒeƒ€‚ª—pˆÓ‚·‚éƒI[ƒgƒRƒ“ƒvƒŠ[ƒg‚·‚é•¶š—ñ‚Ì”z—ñB
+	/// ã‚·ã‚¹ãƒ†ãƒ ãŒç”¨æ„ã™ã‚‹ã‚ªãƒ¼ãƒˆã‚³ãƒ³ãƒ—ãƒªãƒ¼ãƒˆã™ã‚‹æ–‡å­—åˆ—ã®é…åˆ—ã€‚
 	AutoComplete::SystemItems systemItems() const;
 
 private:

@@ -1,4 +1,4 @@
-#include "ComboBox.hpp"
+ï»¿#include "ComboBox.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -95,7 +95,7 @@ void ComboBox::Edit::parent(Control* ) {
 
 bool ComboBox::Edit::isInputKey(int shortcut) const {
 	int key = shortcut & (~Key::Modifier::mask | Key::Modifier::alt);
-	if (key == Key::enter || key == Key::escape) { // ƒhƒƒbƒvƒ_ƒEƒ“’†‚Ì Enter, Esc ƒL[‚Íƒ_ƒCƒAƒƒOƒL[‚Å‚Í‚È‚¢
+	if (key == Key::enter || key == Key::escape) { // ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ä¸­ã® Enter, Esc ã‚­ãƒ¼ã¯ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚­ãƒ¼ã§ã¯ãªã„
 		auto parent = dynamic_cast<ComboBox*>(this->parent());
 		if (parent && parent->style() != Style::simple && parent->dropDowned()) {
 			return true;
@@ -107,7 +107,7 @@ bool ComboBox::Edit::isInputKey(int shortcut) const {
 
 void ComboBox::Edit::processMessage(Message& msg) {
 	switch (msg.message) {
-		case WM_SETFOCUS : { // onActivate ‚ª”­¶‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+		case WM_SETFOCUS : { // onActivate ãŒç™ºç”Ÿã—ãªã„ã‚ˆã†ã«ã™ã‚‹
 			processMessageByDefault(msg);
 			//Focus event(*this, (HWND)msg.wparam);
 			//onFocus()(event);
@@ -187,14 +187,14 @@ ComboBox::ComboBox(ComboBox&& value, bool checkSlicing)
 ComboBox::ComboBox(Control& parent, int x, int y, int width, int height, ComboBox::Style style, ComboBox::Options options) {
 	assert("Invalid ConboBox::Style" && Style::_validate(style));
 	assert("Invalid ConboBox::Options" && Options::_validate(options));
-	assert("Can't set Options::noIntegralHeight when style is Style::dropDownList" && !(options & Options::noIntegralHeight && style == Style::dropDownList)); // ‚±‚Ìó‘Ô‚¾‚Æƒhƒƒbƒvƒ_ƒEƒ“‚ª•\¦‚³‚ê‚È‚­‚È‚é
+	assert("Can't set Options::noIntegralHeight when style is Style::dropDownList" && !(options & Options::noIntegralHeight && style == Style::dropDownList)); // ã“ã®çŠ¶æ…‹ã ã¨ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãŒè¡¨ç¤ºã•ã‚Œãªããªã‚‹
 
-	// CBS_DISABLENOSCROLL ‚Í”ñí‚É“ä‚Ì‹““®‚ğ‚·‚é‚Ì‚ÅƒTƒ|[ƒg‚©‚çŠO‚µ‚½BMSDN ‚Å‚Í vertical scrollBar ‚Æ‚ ‚é‚ª…•½ƒXƒNƒ[ƒ‹ƒo[‚ªŒÅ’è‚³‚ê‚éB
-	// ‚»‚ê‚É”º‚Á‚Ä‚‚³‚ª‹·‚­‚È‚èA•K‚¸‚’¼ƒXƒNƒ[ƒ‹ƒo[‚ª•\¦‚³‚ê‚éBstyle() ‚ª Style::simple ‚Ìê‡‚Í‚’¼‚Æ…•½ƒXƒNƒ[ƒ‹ƒo[‚ªŒÅ’è‚³‚ê‚éB
+	// CBS_DISABLENOSCROLL ã¯éå¸¸ã«è¬ã®æŒ™å‹•ã‚’ã™ã‚‹ã®ã§ã‚µãƒãƒ¼ãƒˆã‹ã‚‰å¤–ã—ãŸã€‚MSDN ã§ã¯ vertical scrollBar ã¨ã‚ã‚‹ãŒæ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒå›ºå®šã•ã‚Œã‚‹ã€‚
+	// ãã‚Œã«ä¼´ã£ã¦é«˜ã•ãŒç‹­ããªã‚Šã€å¿…ãšå‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã€‚style() ãŒ Style::simple ã®å ´åˆã¯å‚ç›´ã¨æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒå›ºå®šã•ã‚Œã‚‹ã€‚
 	attachHandle(CreateWindowExW(WS_EX_CLIENTEDGE, L"COMBOBOX", nullptr
 		, WS_CHILD | WS_TABSTOP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_VISIBLE | WS_VSCROLL | WS_HSCROLL | CBS_HASSTRINGS | style | (options ^ optionsXorMask)
 		, x, y, width, height
-		, parent, nullptr,nullptr, nullptr));
+		, parent, nullptr, nullptr, nullptr));
 
 	COMBOBOXINFO info;
 	ZeroMemory(&info, sizeof(info));
@@ -369,7 +369,7 @@ const ComboBox::List& ComboBox::list() const {
 
 int ComboBox::maxVisibleItemCount() const {
 	assert("This function needs visual style" && System::visualStyleEnabled());
-#define CB_GETMINVISIBLE 0x1702 // ‚Ç‚¤‚µ‚Ä’è‹`‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚¾‚ë‚¤H
+#define CB_GETMINVISIBLE 0x1702 // ã©ã†ã—ã¦å®šç¾©ã•ã‚Œã¦ã„ãªã„ã®ã ã‚ã†ï¼Ÿ
 	return SendMessageW(handle(), CB_GETMINVISIBLE, 0, 0);
 }
 
@@ -379,7 +379,7 @@ void ComboBox::maxVisibleItemCount(int value) {
 	assert("Invalid maxVisibleItemCount" && 0 < value);
 	assert("Can't change maxVisibleItemCount" && !(options() & Options::noIntegralHeight));
 	assert("Can't change maxVisibleItemCount" && style() != Style::simple);
-#define CB_SETMINVISIBLE 0x1701 // ‚Ç‚¤‚µ‚Ä’è‹`‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚¾‚ë‚¤H
+#define CB_SETMINVISIBLE 0x1701 // ã©ã†ã—ã¦å®šç¾©ã•ã‚Œã¦ã„ãªã„ã®ã ã‚ã†ï¼Ÿ
 	if (value != maxVisibleItemCount()) {
 		verify(SendMessageW(handle(), CB_SETMINVISIBLE, value, 0));
 	}
@@ -419,7 +419,7 @@ ComboBox::Style ComboBox::style() const {
 
 bool ComboBox::isInputKey(int shortcut) const {
 	int key = shortcut & (~Key::Modifier::mask | Key::Modifier::alt);
-	if (key == Key::enter || key == Key::escape) { // ƒhƒƒbƒvƒ_ƒEƒ“’†‚Ì Enter, Esc ƒL[‚Íƒ_ƒCƒAƒƒOƒL[‚Å‚Í‚È‚¢
+	if (key == Key::enter || key == Key::escape) { // ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ä¸­ã® Enter, Esc ã‚­ãƒ¼ã¯ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚­ãƒ¼ã§ã¯ãªã„
 		if (dropDowned()) {
 			return true;
 		}

@@ -1,4 +1,4 @@
-#include "ColorDialog.hpp"
+﻿#include "ColorDialog.hpp"
 
 #include <balor/system/windows.hpp>
 #include <balor/test/verify.hpp>

@@ -1,4 +1,4 @@
-#include "Clipboard.hpp"
+ï»¿#include "Clipboard.hpp"
 
 #include <vector>
 
@@ -29,7 +29,7 @@ struct ClipboardOpener {
 		if (!OpenClipboard(nullptr)) {
 			//const DWORD errorCode = GetLastError();
 			//if (errorCode == ERROR_ACCESS_DENIED) {
-			//	throw Clipboard::AccessDeniedException(); // ˆ¬‚è‚Â‚Ô‚³‚È‚¢‚Æ”š’e‚É‚È‚é‚©H
+			//	throw Clipboard::AccessDeniedException(); // æ¡ã‚Šã¤ã¶ã•ãªã„ã¨çˆ†å¼¾ã«ãªã‚‹ã‹ï¼Ÿ
 			//}
 			assert(L"Failed to OpenClipboard" && false);
 		}
@@ -126,7 +126,7 @@ Bitmap Clipboard::getDIB() {
 		return Bitmap();
 	}
 	ClipboardOpener opener;
-	HGLOBAL const global = static_cast<HGLOBAL>(GetClipboardData(CF_DIB)); // CF_DIBV5 ‚Å‚È‚­‚Æ‚àƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚Íæ‚èo‚¹‚é‚Ì‚Å CF_DIB ‚¾‚¯‚Å—Ç‚¢
+	HGLOBAL const global = static_cast<HGLOBAL>(GetClipboardData(CF_DIB)); // CF_DIBV5 ã§ãªãã¨ã‚‚ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã¯å–ã‚Šå‡ºã›ã‚‹ã®ã§ CF_DIB ã ã‘ã§è‰¯ã„
 	return _hgrobalToDIB(global);
 }
 
@@ -153,7 +153,7 @@ MemoryStream Clipboard::getMemory(int memoryFormat) {
 		return stream;
 	}
 	GlobalLocker lock(global);
-	if (lock.pointer()) { // ƒTƒCƒY‚ª‚O‚¾‚Æ pointer() ‚Íƒkƒ‹‚É‚È‚éB
+	if (lock.pointer()) { // ã‚µã‚¤ã‚ºãŒï¼ã ã¨ pointer() ã¯ãƒŒãƒ«ã«ãªã‚‹
 		stream.write(lock.pointer(), 0, GlobalSize(global));
 		stream.position(0);
 	}
@@ -193,7 +193,7 @@ void Clipboard::setBitmap(HBITMAP value) {
 	ClipboardOpener opener;
 	verify(EmptyClipboard());
 	if (SetClipboardData(CF_BITMAP, bitmap)) {
-		bitmap.owned(false); // ƒNƒŠƒbƒvƒ{[ƒh‚ÉŠ—LŒ ‚ªˆÚ‚Á‚½‚Ì‚Åƒnƒ“ƒhƒ‹‚ÌŠ—LŒ ‚ğ•úŠü
+		bitmap.owned(false); // ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«æ‰€æœ‰æ¨©ãŒç§»ã£ãŸã®ã§ãƒãƒ³ãƒ‰ãƒ«ã®æ‰€æœ‰æ¨©ã‚’æ”¾æ£„
 	} else {
 		assert("Failed to SetClipboardData" && false);
 	}
@@ -229,7 +229,7 @@ void Clipboard::setMemory(int memoryFormat, Stream& stream) {
 	HGLOBAL const global = allocateGlobal(static_cast<int>(stream.length()));
 	{
 		GlobalLocker lock(global);
-		if (lock.pointer()) { // ƒTƒCƒY‚ª‚O‚¾‚Æ pointer() ‚Íƒkƒ‹‚É‚È‚éB
+		if (lock.pointer()) { // ã‚µã‚¤ã‚ºãŒï¼ã ã¨ pointer() ã¯ãƒŒãƒ«ã«ãªã‚‹
 			stream.read(lock.pointer(), 0, static_cast<int>(stream.length()));
 		}
 	}
@@ -370,7 +370,7 @@ Bitmap Clipboard::_hgrobalToDIB(void* global) {
 			if (format.bitsPerPixel == 32) {
 				format.aMask = ~(format.rMask | format.gMask | format.bMask);
 			}
-			paletteCount += 3; // BI_BITFIELDS ‚Æ „“IƒpƒŒƒbƒg‚ª“¯‚Ìê‡‚Í‰ÁZ‚Å—Ç‚¢‚Ì‚¾‚ë‚¤‚©H
+			paletteCount += 3; // BI_BITFIELDS ã¨ ç§çš„ãƒ‘ãƒ¬ãƒƒãƒˆãŒåŒæ™‚ã®å ´åˆã¯åŠ ç®—ã§è‰¯ã„ã®ã ã‚ã†ã‹ï¼Ÿ
 		} break;
 		case BI_RGB : {
 			switch (format.bitsPerPixel) {
@@ -378,7 +378,7 @@ Bitmap Clipboard::_hgrobalToDIB(void* global) {
 				case 32 : format = Bitmap::Format::argb32bpp; break;
 			}
 		} break;
-		default : { // ˆ³kŒ`®‚Í–¢‘Î‰
+		default : { // åœ§ç¸®å½¢å¼ã¯æœªå¯¾å¿œ
 			return Bitmap();
 		} break;
 	}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Button.hpp>
 
@@ -9,49 +9,49 @@ namespace balor {
 
 
 /**
- * ƒ`ƒFƒbƒNƒ{ƒbƒNƒXB
- *
- * ƒI[ƒi[ƒhƒ[‚É‚·‚é‚Æƒ`ƒFƒbƒNó‘Ô“™‚ğ©•ª‚ÅŠÇ—‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚­‚È‚é‚Ì‚Å’P‚É WM_PAINT ‚ğæ‚Áæ‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"CheckBox Sample");
+* ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã€‚
+*
+* ã‚ªãƒ¼ãƒŠãƒ¼ãƒ‰ãƒ­ãƒ¼ã«ã™ã‚‹ã¨ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ç­‰ã‚’è‡ªåˆ†ã§ç®¡ç†ã—ãªã‘ã‚Œã°ãªã‚‰ãªããªã‚‹ã®ã§å˜ã« WM_PAINT ã‚’ä¹—ã£å–ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"CheckBox Sample");
 
-	auto onStateChange = [&] (CheckBox::StateChange& ) {
-		frame.invalidate();
-	};
-	CheckBox check0(frame, 20, 10, 0, 0, L"F‚ğ”’‚É•Ï‚¦‚é", onStateChange);
-	CheckBox check1(frame, 20, 40, 0, 0, L"Œ`‚ğlŠp‚É•Ï‚¦‚é", onStateChange);
+auto onStateChange = [&] (CheckBox::StateChange& ) {
+frame.invalidate();
+};
+CheckBox check0(frame, 20, 10, 0, 0, L"è‰²ã‚’ç™½ã«å¤‰ãˆã‚‹", onStateChange);
+CheckBox check1(frame, 20, 40, 0, 0, L"å½¢ã‚’å››è§’ã«å¤‰ãˆã‚‹", onStateChange);
 
-	frame.onPaint() = [&] (Frame::Paint& e) {
-		auto g = e.graphics();
-		g.brush(Color::control());
-		g.clear();
-		g.brush(check0.checked() ? Color::white() : Color::yellow());
-		if (check1.checked()) {
-			g.drawRectangle(10, 80, 200, 200);
-		} else {
-			g.drawEllipse(10, 80, 200, 200);
-		}
-	};
+frame.onPaint() = [&] (Frame::Paint& e) {
+auto g = e.graphics();
+g.brush(Color::control());
+g.clear();
+g.brush(check0.checked() ? Color::white() : Color::yellow());
+if (check1.checked()) {
+g.drawRectangle(10, 80, 200, 200);
+} else {
+g.drawEllipse(10, 80, 200, 200);
+}
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class CheckBox : public ButtonBase {
 public:
-	/// ƒ`ƒFƒbƒNó‘ÔB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã€‚
 	struct State {
 		enum _enum {
-			unchecked     = 0x0000, /// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚È‚¢B
-			checked       = 0x0001, /// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚éB
-			indeterminate = 0x0002, /// •sŠm’èó‘ÔB
+			unchecked = 0x0000, /// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãªã„ã€‚
+			checked = 0x0001, /// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã€‚
+			indeterminate = 0x0002, /// ä¸ç¢ºå®šçŠ¶æ…‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(State);
 	};
 
 
-	/// CheckBox ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// CheckBox ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<CheckBox, Control::Event> Event;
 
 	typedef Event StateChange;
@@ -59,42 +59,42 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	CheckBox();
 	CheckBox(CheckBox&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³A•¶š—ñ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€æ–‡å­—åˆ—ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	CheckBox(Control& parent, int x, int y, int width, int height, StringRange text, Listener<CheckBox::StateChange&> onStateChange = Listener<CheckBox::StateChange&>());
 	virtual ~CheckBox();
 	CheckBox& operator=(CheckBox&& value);
 
 public:
-	/// ƒ`ƒFƒbƒNó‘Ô‚ğ©“®“I‚ÉXV‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è‡ªå‹•çš„ã«æ›´æ–°ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool autoCheck() const;
 	void autoCheck(bool value);
-	/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool checked() const;
 	void checked(bool value);
-	/// Œ»İ‚Ì•¶š—ñ‚âƒtƒHƒ“ƒg“™‚©‚çÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éBmultiline() ‚ª true ‚Ìê‡ width ‚ğŒÅ’è‚·‚é‚ÆÅ“K‚È height ‚ª‹‚Ü‚éBTODO:•¶š—ñ‚É‰üs‚ªŠÜ‚Ü‚ê‚éê‡‚ÉƒtƒHƒ“ƒg‚ğ•ÏX‚·‚é‚Æ³Šm‚É‹‚ß‚ç‚ê‚È‚¢–Í—lB
+	/// ç¾åœ¨ã®æ–‡å­—åˆ—ã‚„ãƒ•ã‚©ãƒ³ãƒˆç­‰ã‹ã‚‰æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚multiline() ãŒ true ã®å ´åˆ width ã‚’å›ºå®šã™ã‚‹ã¨æœ€é©ãª height ãŒæ±‚ã¾ã‚‹ã€‚TODO:æ–‡å­—åˆ—ã«æ”¹è¡ŒãŒå«ã¾ã‚Œã‚‹å ´åˆã«ãƒ•ã‚©ãƒ³ãƒˆã‚’å¤‰æ›´ã™ã‚‹ã¨æ­£ç¢ºã«æ±‚ã‚ã‚‰ã‚Œãªã„æ¨¡æ§˜ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// •`‰æ‚·‚éƒCƒxƒ“ƒgB
+	/// æç”»ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<CheckBox::Paint&>& onPaint();
-	/// ƒ`ƒFƒbƒNó‘Ô‚ª•Ï‰»‚µ‚½A‚ ‚é‚¢‚Í autoCheck() ‚ª false ‚Ìê‡‚Í•Ï‰»‚ª—v‹‚³‚ê‚½ƒCƒxƒ“ƒgB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ãŒå¤‰åŒ–ã—ãŸã€ã‚ã‚‹ã„ã¯ autoCheck() ãŒ false ã®å ´åˆã¯å¤‰åŒ–ãŒè¦æ±‚ã•ã‚ŒãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<CheckBox::StateChange&>& onStateChange();
-	/// ƒgƒOƒ‹ƒ{ƒ^ƒ“‚Ì‚æ‚¤‚ÈŠOŒ©‚ğ‚Â‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³ã®ã‚ˆã†ãªå¤–è¦‹ã‚’æŒã¤ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool pushLike() const;
 	void pushLike(bool value);
-	/// ƒ{ƒ^ƒ“‚ª•¶š—ñ‚Ì‰E‚É•\¦‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒœã‚¿ãƒ³ãŒæ–‡å­—åˆ—ã®å³ã«è¡¨ç¤ºã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool rightButton() const;
 	void rightButton(bool value);
-	/// ƒ`ƒFƒbƒNó‘ÔB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã€‚
 	CheckBox::State state() const;
 	void state(CheckBox::State value);
-	/// ‚R‚Â‚Ìƒ`ƒFƒbƒNó‘Ô‚ğ‚Â‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚Í‚Q‚Â‚Ìƒ`ƒFƒbƒNó‘Ô‚ğ‚ÂB‰Šú’l‚Í falseB
+	/// ï¼“ã¤ã®ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’æŒã¤ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯ï¼’ã¤ã®ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’æŒã¤ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool threeState() const;
 	void threeState(bool value);
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

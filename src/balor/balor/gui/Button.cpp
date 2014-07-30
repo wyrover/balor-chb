@@ -1,4 +1,4 @@
-#include "Button.hpp"
+ï»¿#include "Button.hpp"
 
 #include <balor/graphics/Brush.hpp>
 #include <balor/graphics/Font.hpp>
@@ -175,14 +175,14 @@ void Button::processMessage(Message& msg) {
 		} break;
 		case WM_KILLFOCUS : {
 			Control::processMessage(msg);
-			if (!findFrame()) { // ƒ{ƒ^ƒ“‚ÍƒtƒH[ƒJƒX‚ğ“¾‚é‚Æ©“®“I‚É defaultButton() ‚ª true ‚É‚È‚é‚Ì‚Å‰ğœ‚ª•K—vBFrame ‚ª‚È‚¯‚ê‚Î©•ª‚Å‚â‚é‚µ‚©‚È‚¢B
+			if (!findFrame()) { // ãƒœã‚¿ãƒ³ã¯ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‹ã¨è‡ªå‹•çš„ã« defaultButton() ãŒ true ã«ãªã‚‹ã®ã§è§£é™¤ãŒå¿…è¦ã€‚Frame ãŒãªã‘ã‚Œã°è‡ªåˆ†ã§ã‚„ã‚‹ã—ã‹ãªã„
 				defaultButton(false);
 			}
 		} break;
 		case WM_MOVE : {
 			ButtonBase::processMessage(msg);
 			auto parent = this->parent();
-			if (parent && parent->brush() && !onPaint()) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ğ‚Â‚Ì‚Å•`‰æ‚µ‚È‚¨‚µ
+			if (parent && parent->brush() && !onPaint()) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§æç”»ã—ãªãŠã—
 				invalidate();
 			}
 		} break;
@@ -219,7 +219,7 @@ void Button::processMessage(Message& msg) {
 			if (!onPaint()) {
 				HBRUSH brush = this->brush();
 				auto origin = brushOrigin();
-				if (!brush) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ğ‚Â‚Ì‚Åe‚Ìƒuƒ‰ƒV‚ª‚ ‚ê‚Îg‚¤
+				if (!brush) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§è¦ªã®ãƒ–ãƒ©ã‚·ãŒã‚ã‚Œã°ä½¿ã†
 					auto parent = this->parent();
 					if (parent) {
 						brush = parent->brush();
@@ -241,7 +241,7 @@ void Button::processMessage(Message& msg) {
 					auto info = (NMCUSTOMDRAW*)msg.lparam;
 					if (info->dwDrawStage == CDDS_PREPAINT || info->dwDrawStage == CDDS_PREERASE) {
 						invalidate();
-						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ˆÈŠO‚©‚ç‚àŸè‚É•`‰æ‚³‚ê‚é‚±‚Æ‚ª‚ ‚é‚Ì‚Å‚â‚ß‚³‚¹‚éB
+						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ä»¥å¤–ã‹ã‚‰ã‚‚å‹æ‰‹ã«æç”»ã•ã‚Œã‚‹ã“ã¨ãŒã‚ã‚‹ã®ã§ã‚„ã‚ã•ã›ã‚‹
 						return;
 					}
 				}

@@ -1,4 +1,4 @@
-#include "CheckBox.hpp"
+ï»¿#include "CheckBox.hpp"
 
 #include <utility>
 
@@ -70,14 +70,14 @@ CheckBox& CheckBox::operator=(CheckBox&& value) {
 
 bool CheckBox::autoCheck() const {
 	auto style = toFlag(_handle.style());
-	return style[BS_AUTOCHECKBOX] || style[BS_AUTO3STATE]; // ƒrƒbƒg‚ªd‚È‚è‡‚Á‚Ä‚¢‚é‚±‚Æ‚É’ˆÓ
+	return style[BS_AUTOCHECKBOX] || style[BS_AUTO3STATE]; // ãƒ“ãƒƒãƒˆãŒé‡ãªã‚Šåˆã£ã¦ã„ã‚‹ã“ã¨ã«æ³¨æ„
 }
 
 
 void CheckBox::autoCheck(bool value) {
 	if (value != autoCheck()) {
 		auto style = toFlag(_handle.style()).set(BS_CHECKBOX | BS_AUTOCHECKBOX | BS_3STATE | BS_AUTO3STATE, false);
-		if (threeState()) { // ƒrƒbƒg‚ªd‚È‚è‡‚Á‚Ä‚¢‚é‚±‚Æ‚É’ˆÓ
+		if (threeState()) { // ãƒ“ãƒƒãƒˆãŒé‡ãªã‚Šåˆã£ã¦ã„ã‚‹ã“ã¨ã«æ³¨æ„
 			style.set(value ? BS_AUTO3STATE : BS_3STATE, true);
 		} else {
 			style.set(value ? BS_AUTOCHECKBOX : BS_CHECKBOX, true);
@@ -104,7 +104,7 @@ Size CheckBox::getPreferredSize(int width, int height) const {
 	}
 	SIZE size = {width, height};
 	Scaler scaler;
-	//if (!SendMessageW(handle(), BCM_GETIDEALSIZE, 0, (LPARAM)&size)) { // XP ‚Å‚¤‚Ü‚­“®ì‚¹‚¸
+	//if (!SendMessageW(handle(), BCM_GETIDEALSIZE, 0, (LPARAM)&size)) { // XP ã§ã†ã¾ãå‹•ä½œã›ãš
 		Graphics graphics(*this);
 		auto oldFont = graphics.font(font());
 		auto measureSize = graphics.measureText(text());
@@ -171,14 +171,14 @@ void CheckBox::state(CheckBox::State value) {
 
 bool CheckBox::threeState() const {
 	auto style = toFlag(_handle.style());
-	return style[BS_3STATE] || style[BS_AUTO3STATE]; // ƒrƒbƒg‚ªd‚È‚è‡‚Á‚Ä‚¢‚é‚±‚Æ‚É’ˆÓ
+	return style[BS_3STATE] || style[BS_AUTO3STATE]; // ãƒ“ãƒƒãƒˆãŒé‡ãªã‚Šåˆã£ã¦ã„ã‚‹ã“ã¨ã«æ³¨æ„
 }
 
 
 void CheckBox::threeState(bool value) {
 	if (value != threeState()) {
 		auto style = toFlag(_handle.style()).set(BS_CHECKBOX | BS_AUTOCHECKBOX | BS_3STATE | BS_AUTO3STATE, false);
-		if (autoCheck()) { // ƒrƒbƒg‚ªd‚È‚è‡‚Á‚Ä‚¢‚é‚±‚Æ‚É’ˆÓ
+		if (autoCheck()) { // ãƒ“ãƒƒãƒˆãŒé‡ãªã‚Šåˆã£ã¦ã„ã‚‹ã“ã¨ã«æ³¨æ„
 			style.set(value ? BS_AUTO3STATE : BS_AUTOCHECKBOX, true);
 		} else {
 			style.set(value ? BS_3STATE : BS_CHECKBOX, true);
@@ -199,7 +199,7 @@ void CheckBox::processMessage(Message& msg) {
 		case WM_MOVE : {
 			ButtonBase::processMessage(msg);
 			auto parent = this->parent();
-			if (parent && parent->brush() && !onPaint()) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ğ‚Â‚Ì‚Å•`‰æ‚µ‚È‚¨‚µ
+			if (parent && parent->brush() && !onPaint()) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§æç”»ã—ãªãŠã—
 				invalidate();
 			}
 		} break;
@@ -225,7 +225,7 @@ void CheckBox::processMessage(Message& msg) {
 		} break;
 		case wmReflect + WM_COMMAND : {
 			if (HIWORD(msg.wparam) == BN_CLICKED) {
-				if (!_stateChanging) { // –³ŒÀÄ‹A–h~
+				if (!_stateChanging) { // ç„¡é™å†å¸°é˜²æ­¢
 					_stateChanging = true;
 					scopeExit([&] () {
 						_stateChanging = false;
@@ -240,7 +240,7 @@ void CheckBox::processMessage(Message& msg) {
 			if (!onPaint()) {
 				HBRUSH brush = this->brush();
 				auto origin = brushOrigin();
-				if (!brush) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ğ‚Â‚Ì‚Åe‚Ìƒuƒ‰ƒV‚ª‚ ‚ê‚Îg‚¤ ;
+				if (!brush) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§è¦ªã®ãƒ–ãƒ©ã‚·ãŒã‚ã‚Œã°ä½¿ã† ;
 					auto parent = this->parent();
 					if (parent) {
 						brush = parent->brush();
@@ -262,7 +262,7 @@ void CheckBox::processMessage(Message& msg) {
 					auto info = (NMCUSTOMDRAW*)msg.lparam;
 					if (info->dwDrawStage == CDDS_PREPAINT || info->dwDrawStage == CDDS_PREERASE) {
 						invalidate();
-						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ˆÈŠO‚©‚ç‚àŸè‚É•`‰æ‚³‚ê‚é‚±‚Æ‚ª‚ ‚é‚Ì‚Å‚â‚ß‚³‚¹‚éB
+						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ä»¥å¤–ã‹ã‚‰ã‚‚å‹æ‰‹ã«æç”»ã•ã‚Œã‚‹ã“ã¨ãŒã‚ã‚‹ã®ã§ã‚„ã‚ã•ã›ã‚‹
 						return;
 					}
 				}

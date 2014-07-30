@@ -1,4 +1,4 @@
-#include "AutoComplete.hpp"
+ï»¿#include "AutoComplete.hpp"
 
 #include <utility>
 #include <vector>
@@ -37,7 +37,7 @@ static_assert(AutoComplete::SystemItems::recentlyUsedUrl     == SHACF_URLMRU, "I
 
 
 
-// ‚½‚¾•¶š—ñ‚ğ—ñ‹“‚·‚é‚¾‚¯‚Ì COM ƒCƒ“ƒ^[ƒtƒF[ƒXB
+// ãŸã æ–‡å­—åˆ—ã‚’åˆ—æŒ™ã™ã‚‹ã ã‘ã® COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 class AutoComplete::EnumString : public ComBase<IEnumString> {
 	EnumString() : _current(0) {
 	}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/graphics/Color.hpp>
 #include <balor/Event.hpp>
@@ -15,35 +15,35 @@ namespace balor {
 
 
 /**
- * F‘I‘ğƒ_ƒCƒAƒƒOB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"ColorDialog sample");
+* è‰²é¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"ColorDialog sample");
 
-	Brush frameBrush;
-	ColorDialog dialog;
-	Button selectColor(frame, 20, 10, 0, 0, L"”wŒiF‘I‘ğ", [&] (Button::Click& ) {
-		if (dialog.show(frame)) {
-			frameBrush = Brush(dialog.color());
-			frame.brush(frameBrush);
-		}
-	});
+Brush frameBrush;
+ColorDialog dialog;
+Button selectColor(frame, 20, 10, 0, 0, L"èƒŒæ™¯è‰²é¸æŠ", [&] (Button::Click& ) {
+if (dialog.show(frame)) {
+frameBrush = Brush(dialog.color());
+frame.brush(frameBrush);
+}
+});
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class ColorDialog {
 public:
 	typedef ::HWND__* HWND;
 	typedef ::balor::graphics::Color Color;
 
 
-	/// ColorDialog ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ColorDialog ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	struct Event : public balor::Event {
 		Event(HWND sender);
 
-		/// ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹B
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND sender() const;
 
 	private:
@@ -51,16 +51,16 @@ public:
 	};
 
 
-	/// ƒ_ƒCƒAƒƒO‚ğ‰Šú‰»‚·‚éƒCƒxƒ“ƒgB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’åˆæœŸåŒ–ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct Init : public Event {
 		Init(HWND sender);
 
-		/// ƒ_ƒCƒAƒƒO‚ÌƒXƒNƒŠ[ƒ“À•WˆÊ’uB
-		/// Œ»ó‚Å‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒvƒƒZƒX‚ª‹N“®‚µ‚Ä‚©‚çÅ‰‚Ìˆê‰ñ‚µ‚©•ÏX‚Å‚«‚È‚¢–Í—lBŸ‰ñ‚©‚ç‚Í‘O‰ñ‚ÌˆÊ’u‚ª•œŒ³‚³‚ê‚Ä‚¢‚éB
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ä½ç½®ã€‚
+		/// ç¾çŠ¶ã§ã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ—ãƒ­ã‚»ã‚¹ãŒèµ·å‹•ã—ã¦ã‹ã‚‰æœ€åˆã®ä¸€å›ã—ã‹å¤‰æ›´ã§ããªã„æ¨¡æ§˜ã€‚æ¬¡å›ã‹ã‚‰ã¯å‰å›ã®ä½ç½®ãŒå¾©å…ƒã•ã‚Œã¦ã„ã‚‹ã€‚
 		Point position() const;
 		void position(const Point& value);
 		void position(int x, int y);
-		/// ƒ_ƒCƒAƒƒO‚ÌƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚Ì‘å‚«‚³B
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã®å¤§ãã•ã€‚
 		Size clientSize() const;
 		void clientSize(int width, int height);
 		void clientSize(const Size& value);
@@ -72,19 +72,19 @@ public:
 	ColorDialog(ColorDialog&& value);
 	~ColorDialog();
 
-	/// ‰ŠúF‚Ü‚½‚Íì¬‚µ‚½FB‰Šú’l‚Í Color::black()B
+	/// åˆæœŸè‰²ã¾ãŸã¯ä½œæˆã—ãŸè‰²ã€‚åˆæœŸå€¤ã¯ Color::black()ã€‚
 	Color color() const;
 	void color(const Color& value);
-	/// Fì¬‚t‚h‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚Å‚àFì¬ƒ{ƒ^ƒ“‚ğ‰Ÿ‚¹‚Î•\¦‚³‚ê‚éB‰Šú’l‚Í trueB
+	/// è‰²ä½œæˆï¼µï¼©ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã§ã‚‚è‰²ä½œæˆãƒœã‚¿ãƒ³ã‚’æŠ¼ã›ã°è¡¨ç¤ºã•ã‚Œã‚‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool createColorUI() const;
 	void createColorUI(bool value);
-	/// ‚P‚UF‚Ìì¬Ï‚İ‚ÌF‚©‚çˆê‚Âæ“¾‚·‚éB‰Šú’l‚Í‘S‚Ä Color::black()B
+	/// ï¼‘ï¼–è‰²ã®ä½œæˆæ¸ˆã¿ã®è‰²ã‹ã‚‰ä¸€ã¤å–å¾—ã™ã‚‹ã€‚åˆæœŸå€¤ã¯å…¨ã¦ Color::black()ã€‚
 	Color getCustomColor(int index) const;
-	/// ƒ_ƒCƒAƒƒO‚ğ‰Šú‰»‚·‚éƒCƒxƒ“ƒgB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’åˆæœŸåŒ–ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ColorDialog::Init&>& onInit();
-	/// ‚P‚UF‚Ìì¬Ï‚İ‚ÌF‚ğˆê‚Âİ’è‚·‚éB
+	/// ï¼‘ï¼–è‰²ã®ä½œæˆæ¸ˆã¿ã®è‰²ã‚’ä¸€ã¤è¨­å®šã™ã‚‹ã€‚
 	void setCustomColor(int index, const Color& value);
-	/// ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ğ•\¦‚·‚éBF‚ğ‘I‘ğ‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·B
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚è‰²ã‚’é¸æŠã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
 	bool show(HWND owner);
 
 protected:

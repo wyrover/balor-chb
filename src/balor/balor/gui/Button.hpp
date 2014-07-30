@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -8,22 +8,22 @@ namespace balor {
 
 
 /**
- * Button, CheckBox, RadioButton ‚Ì‹¤’Êˆ—‚ğ‚Ü‚Æ‚ß‚½Šî’êƒNƒ‰ƒXB
- */
+* Button, CheckBox, RadioButton ã®å…±é€šå‡¦ç†ã‚’ã¾ã¨ã‚ãŸåŸºåº•ã‚¯ãƒ©ã‚¹ã€‚
+*/
 class ButtonBase : public Control {
 public:
-	/// •¶š—ñ‚Ì”z’uB
+	/// æ–‡å­—åˆ—ã®é…ç½®ã€‚
 	struct TextAlign {
 		enum _enum {
-			topLeft      = 0x00000500L, /// ¶ãB
-			topCenter    = 0x00000700L, /// ã’†‰›B
-			topRight     = 0x00000600L, /// ‰EãB
-			middleLeft   = 0x00000D00L, /// ’†‰›¶B
-			middleCenter = 0x00000F00L, /// ’†‰›B
-			middleRight  = 0x00000E00L, /// ’†‰›‰EB
-			bottomLeft   = 0x00000900L, /// ¶‰ºB
-			bottomCenter = 0x00000B00L, /// ‰º’†‰›B
-			bottomRight  = 0x00000A00L, /// ‰E‰ºB
+			topLeft = 0x00000500L, /// å·¦ä¸Šã€‚
+			topCenter = 0x00000700L, /// ä¸Šä¸­å¤®ã€‚
+			topRight = 0x00000600L, /// å³ä¸Šã€‚
+			middleLeft = 0x00000D00L, /// ä¸­å¤®å·¦ã€‚
+			middleCenter = 0x00000F00L, /// ä¸­å¤®ã€‚
+			middleRight = 0x00000E00L, /// ä¸­å¤®å³ã€‚
+			bottomLeft = 0x00000900L, /// å·¦ä¸‹ã€‚
+			bottomCenter = 0x00000B00L, /// ä¸‹ä¸­å¤®ã€‚
+			bottomRight = 0x00000A00L, /// å³ä¸‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(TextAlign);
 	};
@@ -35,12 +35,12 @@ protected:
 	virtual ~ButtonBase() = 0;
 
 public:
-	/// •¶š—ñ‚ª‚Í‚İo‚·ê‡‚â‰üsƒR[ƒh‚É‚æ‚Á‚Ä‰üs‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// æ–‡å­—åˆ—ãŒã¯ã¿å‡ºã™å ´åˆã‚„æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã«ã‚ˆã£ã¦æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool multiline() const;
 	void multiline(bool value);
-	/// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ó‘Ô‚©‚Ç‚¤‚©B
+	/// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸçŠ¶æ…‹ã‹ã©ã†ã‹ã€‚
 	bool pushed() const;
-	/// •¶š—ñ‚Ì”z’uB‰Šú’l‚Í Button ‚Í ButtonBase::TextAlign::middleCenterACheckBox ‚Æ RadioButton ‚Í middleLeftB
+	/// æ–‡å­—åˆ—ã®é…ç½®ã€‚åˆæœŸå€¤ã¯ Button ã¯ ButtonBase::TextAlign::middleCenterã€CheckBox ã¨ RadioButton ã¯ middleLeftã€‚
 	ButtonBase::TextAlign textAlign() const;
 	void textAlign(ButtonBase::TextAlign value);
 };
@@ -48,26 +48,26 @@ public:
 
 
 /**
- * ƒ{ƒ^ƒ“ƒRƒ“ƒgƒ[ƒ‹B
- *
- * ƒ`ƒFƒbƒNƒ{ƒbƒNƒXAƒ‰ƒWƒIƒ{ƒ^ƒ“AƒOƒ‹[ƒvƒ{ƒbƒNƒX‚Í‚»‚ê‚¼‚ê CheckBox, RadioButton, GroupBox ƒNƒ‰ƒX‚ÅÀ‘•‚³‚ê‚Ä‚¢‚éB
- * BS_BITMAP ‚â BS_ICON ƒXƒ^ƒCƒ‹‚Í XP ‚ÅƒrƒWƒ…ƒAƒ‹ƒXƒ^ƒCƒ‹‚ª‹­§“I‚É–³Œø‚É‚È‚é‚Ì‚ÅƒTƒ|[ƒg‚µ‚È‚¢B
- * ƒJƒXƒ^ƒ€ƒhƒ[‚â BCM_SETIMAGELIST ‚Í‹­§“I‚ÉƒtƒF[ƒhƒAƒjƒ[ƒVƒ‡ƒ“‚³‚¹‚ç‚ê‚é‚Ì‚ÅƒTƒ|[ƒg‚µ‚È‚¢BonPaint ƒCƒxƒ“ƒg‚Å‘Î‰‚·‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"Button Sample");
+* ãƒœã‚¿ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã€ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã€ã‚°ãƒ«ãƒ¼ãƒ—ãƒœãƒƒã‚¯ã‚¹ã¯ãã‚Œãã‚Œ CheckBox, RadioButton, GroupBox ã‚¯ãƒ©ã‚¹ã§å®Ÿè£…ã•ã‚Œã¦ã„ã‚‹ã€‚
+* BS_BITMAP ã‚„ BS_ICON ã‚¹ã‚¿ã‚¤ãƒ«ã¯ XP ã§ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚¹ã‚¿ã‚¤ãƒ«ãŒå¼·åˆ¶çš„ã«ç„¡åŠ¹ã«ãªã‚‹ã®ã§ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚
+* ã‚«ã‚¹ã‚¿ãƒ ãƒ‰ãƒ­ãƒ¼ã‚„ BCM_SETIMAGELIST ã¯å¼·åˆ¶çš„ã«ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã•ã›ã‚‰ã‚Œã‚‹ã®ã§ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚onPaint ã‚¤ãƒ™ãƒ³ãƒˆã§å¯¾å¿œã™ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"Button Sample");
 
-	Button button(frame, 20, 10, 0, 0, L"button", [&] (Button::Click& ) {
-		MsgBox::show(L"clicked");
-	});
+Button button(frame, 20, 10, 0, 0, L"button", [&] (Button::Click& ) {
+MsgBox::show(L"clicked");
+});
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class Button : public ButtonBase {
 public:
-	/// Button ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// Button ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<Button, Control::Event> Event;
 
 	typedef Event Click;
@@ -75,29 +75,29 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	Button();
 	Button(Button&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³A•¶š—ñ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€æ–‡å­—åˆ—ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	Button(Control& parent, int x, int y, int width, int height, StringRange text, Listener<Button::Event&> onClick = Listener<Button::Event&>());
 	virtual ~Button();
 	Button& operator=(Button&& value);
 
 public:
-	/// Enter ƒL[‚ğ‰Ÿ‚µ‚½‚ÉƒtƒH[ƒJƒX‚ª‚È‚­‚Æ‚à‰Ÿ‚µ‚½–‚É‚È‚éƒ{ƒ^ƒ“‚ÌŠOŒ©‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// Enter ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸæ™‚ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒãªãã¨ã‚‚æŠ¼ã—ãŸäº‹ã«ãªã‚‹ãƒœã‚¿ãƒ³ã®å¤–è¦‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool defaultButton() const;
 	void defaultButton(bool value);
-	/// Œ»İ‚Ì•¶š—ñ‚âƒtƒHƒ“ƒg“™‚©‚çÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éBmultiline() ‚ª true ‚Ìê‡ width ‚ğŒÅ’è‚·‚é‚ÆÅ“K‚È height ‚ª‹‚Ü‚éB
+	/// ç¾åœ¨ã®æ–‡å­—åˆ—ã‚„ãƒ•ã‚©ãƒ³ãƒˆç­‰ã‹ã‚‰æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚multiline() ãŒ true ã®å ´åˆ width ã‚’å›ºå®šã™ã‚‹ã¨æœ€é©ãª height ãŒæ±‚ã¾ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// ƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Button::Click&>& onClick();
-	/// •`‰æ‚·‚éƒCƒxƒ“ƒgB
+	/// æç”»ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Button::Paint&>& onPaint();
-	/// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‚éB
+	/// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
 	void performClick();
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 private:

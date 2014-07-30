@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <functional>
 #include <vector>
@@ -12,7 +12,7 @@
 #include <balor/String.hpp>
 
 namespace balor {
-/// GUIŠÖ˜A‚ÌƒNƒ‰ƒXŒQ
+/// GUIé–¢é€£ã®ã‚¯ãƒ©ã‚¹ç¾¤
 namespace gui {
 }
 }
