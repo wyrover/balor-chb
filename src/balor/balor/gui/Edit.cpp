@@ -1,4 +1,4 @@
-#include "Edit.hpp"
+ï»¿#include "Edit.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -78,7 +78,7 @@ struct ImeContext {
 	static bool available() {
 		HKL layout = GetKeyboardLayout(0);
 		LCID locale = LOWORD(layout);
-		return locale == MAKELANGID(LANG_JAPANESE, SUBLANG_JAPANESE_JAPAN); // “ü—ÍƒƒP[ƒ‹‚ª 0x411ija-JPj‚Ìê‡‚Ì‚İ IME ˆ—‚ğs‚¤B
+		return locale == MAKELANGID(LANG_JAPANESE, SUBLANG_JAPANESE_JAPAN); // å…¥åŠ›ãƒ­ã‚±ãƒ¼ãƒ«ãŒ 0x411ï¼ˆja-JPï¼‰ã®å ´åˆã®ã¿ IME å‡¦ç†ã‚’è¡Œã†
 	}
 	bool enabled() const {
 		return *this != nullptr;
@@ -298,7 +298,7 @@ Edit::Edit(Control& parent, int x, int y, int width, int height, Edit::Options o
 	attachHandle(CreateWindowExW(0, L"EDIT", nullptr
 		, WS_CHILD | WS_TABSTOP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_VISIBLE | (options ^ optionsXorMask)
 		, x, y, width, height, parent, nullptr,nullptr, nullptr));
-	edge(Control::Edge::client); // ‰Šú‚ğ none ˆÈŠO‚Ån‚ß‚é‚Æ•ÏX‚µ‚½‚É margin ‚â sizeFromClient ‚ª‚¨‚©‚µ‚­‚È‚éB
+	edge(Control::Edge::client); // åˆæœŸã‚’ none ä»¥å¤–ã§å§‹ã‚ã‚‹ã¨å¤‰æ›´ã—ãŸæ™‚ã« margin ã‚„ sizeFromClient ãŒãŠã‹ã—ããªã‚‹
 	margin(margin());
 }
 
@@ -389,7 +389,7 @@ int Edit::caretIndex() const {
 		return _caretIndex;
 	}
 	POINT point;
-	if (!GetCaretPos(&point)) { // ƒtƒH[ƒJƒX‚ª–³‚­‚Æ‚àˆê‰æ“¾‚Í‚Å‚«‚é‚ªAÅŒã‚É•ÒW‚µ‚½ƒGƒfƒBƒbƒg‚Ì‚à‚Ì‚Æv‚í‚ê‚é
+	if (!GetCaretPos(&point)) { // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒç„¡ãã¨ã‚‚ä¸€å¿œå–å¾—ã¯ã§ãã‚‹ãŒã€æœ€å¾Œã«ç·¨é›†ã—ãŸã‚¨ãƒ‡ã‚£ãƒƒãƒˆã®ã‚‚ã®ã¨æ€ã‚ã‚Œã‚‹
 		return -1;
 	}
 	return getIndexAt(point);
@@ -659,7 +659,7 @@ void Edit::lowercaseOnly(bool value) {
 
 
 Padding Edit::margin() const {
-	return _margin; // ÀÛ‚Ìƒ}[ƒWƒ“‚Í•¶šƒTƒCƒY‚ÌŠÖŒW‚Å‚ ‚­Œ„ŠÔ‚ğl—¶‚µ‚½‚à‚Ì‚É‚È‚é‚Ì‚Å•K‚¸‚µ‚àˆê’v‚µ‚È‚¢B
+	return _margin; // å®Ÿéš›ã®ãƒãƒ¼ã‚¸ãƒ³ã¯æ–‡å­—ã‚µã‚¤ã‚ºã®é–¢ä¿‚ã§ã‚ãéš™é–“ã‚’è€ƒæ…®ã—ãŸã‚‚ã®ã«ãªã‚‹ã®ã§å¿…ãšã—ã‚‚ä¸€è‡´ã—ãªã„
 }
 
 
@@ -976,10 +976,10 @@ void Edit::processMessage(Message& msg) {
 				}
 			}
 			POINT point;
-			if (!GetCaretPos(&point)) { // ƒtƒH[ƒJƒX‚ª–³‚­‚Æ‚àˆê‰æ“¾‚Í‚Å‚«‚é‚ªAÅŒã‚É•ÒW‚µ‚½ƒGƒfƒBƒbƒg‚Ì‚à‚Ì‚Æv‚í‚ê‚é
+			if (!GetCaretPos(&point)) { // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒç„¡ãã¨ã‚‚ä¸€å¿œå–å¾—ã¯ã§ãã‚‹ãŒã€æœ€å¾Œã«ç·¨é›†ã—ãŸã‚¨ãƒ‡ã‚£ãƒƒãƒˆã®ã‚‚ã®ã¨æ€ã‚ã‚Œã‚‹
 				_caretIndex = -1;
 			} else {
-				_caretIndex = getIndexAt(point); // ƒtƒH[ƒJƒX‚ª‚È‚­‚Ä‚àæ‚ê‚é‚æ‚¤‚É•Û‘¶‚µ‚Ä‚¨‚­BEDIT ‚à‚Ç‚±‚©‚É•Û‘¶‚µ‚Ä‚¢‚é‚Í‚¸‚¾‚ªæ“¾•û–@‚ª‚í‚©‚ç‚È‚¢B
+				_caretIndex = getIndexAt(point); // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒãªãã¦ã‚‚å–ã‚Œã‚‹ã‚ˆã†ã«ä¿å­˜ã—ã¦ãŠãã€‚EDIT ã‚‚ã©ã“ã‹ã«ä¿å­˜ã—ã¦ã„ã‚‹ã¯ãšã ãŒå–å¾—æ–¹æ³•ãŒã‚ã‹ã‚‰ãªã„
 			}
 			if (_caret != defaultCaret) {
 				verify(DestroyCaret());
@@ -1002,20 +1002,20 @@ void Edit::processMessage(Message& msg) {
 				//case EN_CHANGE : {
 				//} break;
 				case EN_UPDATE : {
-					if (!_textChanging) { // –³ŒÀÄ‹A–h~
+					if (!_textChanging) { // ç„¡é™å†å¸°é˜²æ­¢
 						_textChanging = true;
 						scopeExit([&] () {
 							_textChanging = false;
 						});
 						TextChange event(*this);
 						onTextChange()(event);
-						if (event.cancel()) { // undo() ‚Å‚Í•Û‘¶‚Ìƒ^ƒCƒ~ƒ“ƒO‚ª•s–¾—Ä‚Åg‚¦‚È‚©‚Á‚½B
-							verify(SetWindowTextW(handle(), _oldText.begin())); // ƒoƒbƒNƒAƒbƒv‚Ì•œŒ³‚ÅƒoƒbƒNƒAƒbƒv‚ğæ‚ç‚È‚¢‚æ‚¤‚É text() ‚Íg‚í‚È‚¢B
+						if (event.cancel()) { // undo() ã§ã¯ä¿å­˜ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ãŒä¸æ˜ç­ã§ä½¿ãˆãªã‹ã£ãŸ
+							verify(SetWindowTextW(handle(), _oldText.begin())); // ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã®å¾©å…ƒã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’å–ã‚‰ãªã„ã‚ˆã†ã« text() ã¯ä½¿ã‚ãªã„
 							selection(_oldSelection);
 							return;
 						}
 					}
-					_caretIndex = 0; // ƒtƒH[ƒJƒX‚ª–³‚¢ó‘Ô‚Å•¶š—ñ‚ğXV‚µ‚½‚È‚çƒLƒƒƒŒƒbƒgˆÊ’u‚Í‰Šú‰»‚³‚ê‚éB
+					_caretIndex = 0; // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒç„¡ã„çŠ¶æ…‹ã§æ–‡å­—åˆ—ã‚’æ›´æ–°ã—ãŸãªã‚‰ã‚­ãƒ£ãƒ¬ãƒƒãƒˆä½ç½®ã¯åˆæœŸåŒ–ã•ã‚Œã‚‹
 				} break;
 			}
 			Control::processMessage(msg);
@@ -1054,12 +1054,12 @@ void Edit::processMessage(Message& msg) {
 		} break;
 		case WM_SIZE : {
 			Control::processMessage(msg);
-			margin(margin()); // ƒ}[ƒWƒ“‚ÍƒTƒCƒY‚ª•Ï‚í‚é‚½‚Ñ‚ÉƒŠƒZƒbƒg‚³‚ê‚é‚Ì‚Å•œŒ³‚·‚éB
+			margin(margin()); // ãƒãƒ¼ã‚¸ãƒ³ã¯ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã‚‹ãŸã³ã«ãƒªã‚»ãƒƒãƒˆã•ã‚Œã‚‹ã®ã§å¾©å…ƒã™ã‚‹
 		} break;
 		case EM_UNDO : {
 			Control::processMessage(msg);
 			auto selection = this->selection();
-			_caretIndex = selection.index + selection.length; // Š®àø‚É’ÇÕ‚·‚é‚Ì‚Í‚¨‚»‚ç‚­–³—‚¾EE
+			_caretIndex = selection.index + selection.length; // å®Œç’§ã«è¿½è·¡ã™ã‚‹ã®ã¯ãŠãã‚‰ãç„¡ç†ã ãƒ»ãƒ»
 		} break;
 		default : {
 			Control::processMessage(msg);

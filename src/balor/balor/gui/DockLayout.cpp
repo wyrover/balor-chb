@@ -1,4 +1,4 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 
 #include "DockLayout.hpp"
 
@@ -157,8 +157,8 @@ Size DockLayout::preferredSize() const {
 	assert("Null target" && _target);
 	assert("target not created" && *_target);
 
-	Padding parentMargin(0); // ƒhƒbƒLƒ“ƒOƒRƒ“ƒgƒ?ƒ‹‚ª‚»‚ê‚¼‚ê‚Ì˜g‚Éè‚ß‚é‘å‚«‚³B
-	Size minSize = Size(0, 0); // ƒhƒbƒLƒ“ƒOƒRƒ“ƒgƒ?ƒ‹‚Ì‰Â•ÏƒTƒCƒY•”•ª‚ÌÅ¬’l‚Ì‡ŒvB
+	Padding parentMargin(0); // ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒãã‚Œãã‚Œã®æ ã«å ã‚ã‚‹å¤§ãã•
+	Size minSize = Size(0, 0); // ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¯å¤‰ã‚µã‚¤ã‚ºéƒ¨åˆ†ã®æœ€å°å€¤ã®åˆè¨ˆ
 	ChildInfo defaultInfo;
 	for (auto i = _target->controlsBegin(); i; ++i) {
 		if (!i->visibleExceptParent()) {
@@ -208,10 +208,10 @@ Size DockLayout::preferredSize() const {
 		}
 		if (info->style == Style::none) {
 			Rectangle bounds= i->bounds();
-			bounds.position(bounds.position() - displayRect.position()); // ƒXƒNƒ?ƒ‹‚ğ‘Å‚¿Á‚·B
+			bounds.position(bounds.position() - displayRect.position()); // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’æ‰“ã¡æ¶ˆã™
 			auto margin = Padding(0);
-			preferredSizeForOther.width = std::max(preferredSizeForOther.width, bounds.right() + margin.right + parentMargin.right); // parentMargin ‚ğ‰Á‚¦‚é‚±‚Æ‚Å dockƒRƒ“ƒgƒ?ƒ‹‚Æd‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚é
-			preferredSizeForOther.height = std::max(preferredSizeForOther.height, bounds.bottom() + margin.bottom + parentMargin.bottom); // parentMargin ‚ğ‰Á‚¦‚é‚±‚Æ‚Å dockƒRƒ“ƒgƒ?ƒ‹‚Æd‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚é
+			preferredSizeForOther.width = std::max(preferredSizeForOther.width, bounds.right() + margin.right + parentMargin.right); // parentMargin ã‚’åŠ ãˆã‚‹ã“ã¨ã§ dockã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨é‡ãªã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
+			preferredSizeForOther.height = std::max(preferredSizeForOther.height, bounds.bottom() + margin.bottom + parentMargin.bottom); // parentMargin ã‚’åŠ ãˆã‚‹ã“ã¨ã§ dockã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨é‡ãªã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
 		}
 	}
 

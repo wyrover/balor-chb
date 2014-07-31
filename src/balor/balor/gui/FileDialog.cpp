@@ -65,7 +65,7 @@ String FileDialog::Event::filePath() const {
 	if (0 <= SendMessageW(sender(), CDM_GETFILEPATH, sizeof(buffer) / sizeof(buffer[0]), (LPARAM)buffer)) {
 		return buffer;
 	}
-	return String(); // 긨긞긣깗?긏귘긓깛긯깄??뱳궻븿뿚밒궸뫔띪궢궶궋긲긅깑?귩둎궘궴렪봲궥귡갃
+	return String(); // ネットワークやコンピュータ等の物理的に存在しないフォルダを開くと失敗する
 }
 
 
@@ -74,7 +74,7 @@ String FileDialog::Event::directory() const {
 	if (0 <= SendMessageW(sender(), CDM_GETFOLDERPATH, sizeof(buffer) / sizeof(buffer[0]), (LPARAM)buffer)) {
 		return buffer;
 	}
-	return String(); // 긨긞긣깗?긏귘긓깛긯깄??뱳궻븿뿚밒궸뫔띪궢궶궋긲긅깑?귩둎궘궴렪봲궥귡갃
+	return String(); // ネットワークやコンピュータ等の物理的に存在しないフォルダを開くと失敗する
 }
 
 

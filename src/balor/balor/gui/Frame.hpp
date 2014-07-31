@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/ScrollableControl.hpp>
 
@@ -20,66 +20,66 @@ class MenuBar;
 
 
 /**
- * �g�b�v���x���ő��̃R���g���[���̃t���[���ƂȂ�E�C���h�E�B
- *
- * TODO: parent �ɑ��̃R���g���[�����w�肵�Ďq�t���[���ɂȂ�� WS_CAPTION �X�^�C����������t���[����̃G�f�B�b�g�R���g���[�����}�E�X�ɔ������Ȃ��Ȃ�B�����s���B.NET �ł��������ۂ��N����̂� WIN32 �̎d�l��������Ȃ��B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
-	Frame frame(L"Frame Sample");
+* トップレベルで他のコントロールのフレームとなるウインドウ。
+*
+* TODO: parent に他のコントロールを指定して子フレームになると WS_CAPTION スタイルを持つ限りフレーム上のエディットコントロールがマウスに反応しなくなる。原因不明。.NET でも同じ現象が起きるので WIN32 の仕様かもしれない。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
+Frame frame(L"Frame Sample");
 
-	Edit edit(frame, 20, 10, 0, 0, 20);
-	Button accept(frame, 20, 40, 0, 0, L"����", [&] (Button::Click& ) {
-		MsgBox::show(L"���肵�܂����B");
-	});
-	Button cancel(frame, 20, 70, 0, 0, L"�L�����Z��", [&] (Button::Click& ) {
-		MsgBox::show(L"�L�����Z�����܂����B");
-	});
-	frame.acceptButton(&accept); // Enter �L�[�Ŕ����B
-	frame.cancelButton(&cancel); // ESC �L�[�Ŕ����B
-	frame.onClosing() = [&] (Frame::Closing& e) {
-		if (MsgBox::show(frame, L"���܂����H", L"�I��", MsgBox::Buttons::okCancel) != MsgBox::Result::ok) {
-			e.cancel(true);
-		}
-	};
-	frame.icon(Icon::question());
+Edit edit(frame, 20, 10, 0, 0, 20);
+Button accept(frame, 20, 40, 0, 0, L"決定", [&] (Button::Click& ) {
+MsgBox::show(L"決定しました。");
+});
+Button cancel(frame, 20, 70, 0, 0, L"キャンセル", [&] (Button::Click& ) {
+MsgBox::show(L"キャンセルしました。");
+});
+frame.acceptButton(&accept); // Enter キーで反応。
+frame.cancelButton(&cancel); // ESC キーで反応。
+frame.onClosing() = [&] (Frame::Closing& e) {
+if (MsgBox::show(frame, L"閉じますか？", L"終了", MsgBox::Buttons::okCancel) != MsgBox::Result::ok) {
+e.cancel(true);
+}
+};
+frame.icon(Icon::question());
 
- 	frame.runMessageLoop();
+frame.runMessageLoop();
 * </code></pre>
- */
+*/
 class Frame : public ScrollableControl {
 public:
 	typedef ::balor::graphics::Icon Icon;
 
 
-	/// �E�C���h�E����闝�R�B
+	/// ウインドウを閉じる理由。
 	struct CloseReason {
 		enum _enum {
-			none              ,
-			taskManagerClosing, /// �^�X�N�}�l�[�W���[��������B
-			userClosing       , /// close() ���\�b�h������{�^���ŕ����B
-			windowShutDown    , /// �E�C���h�E�Y�̃V���b�g�_�E���B
+			none,
+			taskManagerClosing, /// タスクマネージャーから閉じた。
+			userClosing, /// close() メソッドか閉じるボタンで閉じた。
+			windowShutDown, /// ウインドウズのシャットダウン。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(CloseReason);
 	};
 
 
-	/// �E�C���h�E�̃X�^�C���B
+	/// ウインドウのスタイル。
 	struct Style {
 		enum _enum {
-			none             , /// �^�C�g���o�[���g�������E�C���h�E�B
-			singleLine       , /// ��d���̘g�����E�C���h�E�B
-			threeDimensional , /// ���̓I�Șg�����E�C���h�E�B
-			dialog           , /// �_�C�A���O���B
-			sizable          , /// ���T�C�Y�ł���E�C���h�E�B
-			toolWindow       , /// �c�[���E�C���h�E�B�A�C�R���A�ő剻�{�^���A�ŏ����{�^���A�w���v�{�^�����\������Ȃ��B
-			sizableToolWindow, /// ���T�C�Y�ł���c�[���E�C���h�E�B�A�C�R���A�ő剻�{�^���A�ŏ����{�^���A�w���v�{�^�����\������Ȃ��B
+			none, /// タイトルバーも枠も無いウインドウ。
+			singleLine, /// 一重線の枠を持つウインドウ。
+			threeDimensional, /// 立体的な枠を持つウインドウ。
+			dialog, /// ダイアログ風。
+			sizable, /// リサイズできるウインドウ。
+			toolWindow, /// ツールウインドウ。アイコン、最大化ボタン、最小化ボタン、ヘルプボタンが表示されない。
+			sizableToolWindow, /// リサイズできるツールウインドウ。アイコン、最大化ボタン、最小化ボタン、ヘルプボタンが表示されない。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
 
 
-	/// Frame �̃C�x���g�̐e�N���X�B
+	/// Frame のイベントの親クラス。
 	typedef EventWithSubclassSender<Frame, ScrollableControl::Event> Event;
 
 	typedef Event DisplayChange;
@@ -90,11 +90,11 @@ public:
 	typedef PaintEvent<Frame, Event> Paint;
 
 
-	/// �E�C���h�E������C�x���g�B
+	/// ウインドウを閉じたイベント。
 	struct Close : public Frame::Event {
 		Close(Frame& sender, CloseReason reason);
 
-		/// �������R�B
+		/// 閉じた理由。
 		CloseReason closeReason() const;
 
 	private:
@@ -102,11 +102,11 @@ public:
 	};
 
 
-	/// �E�C���h�E�����C�x���g�B
+	/// ウインドウを閉じるイベント。
 	struct Closing : public Close {
 		Closing(Frame& sender, CloseReason reason);
 
-		/// ����̂��L�����Z�����邩�ǂ����B�����l�� false�B
+		/// 閉じるのをキャンセルするかどうか。初期値は false。
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -115,11 +115,11 @@ public:
 	};
 
 
-	///	�w���v�{�^�����������C�x���g�B
+	///	ヘルプボタンを押したイベント。
 	struct HelpButtonClick : public Frame::Event {
 		HelpButtonClick(Frame& sender);
 
-		/// �f�t�H���g�̏������L�����Z�����邩�ǂ����B�����l�� false�B
+		/// デフォルトの処理をキャンセルするかどうか。初期値は false。
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -128,11 +128,11 @@ public:
 	};
 
 
-	///	�ړ������C�x���g�B
+	///	移動したイベント。
 	struct Move : public Frame::Event {
 		Move(Frame& sender, const Point& position);
 
-		/// �ړ������X�N���[���ʒu�B
+		/// 移動したスクリーン位置。
 		const Point& position() const;
 
 	protected:
@@ -140,34 +140,34 @@ public:
 	};
 
 
-	///	�ړ�����C�x���g�B
+	///	移動するイベント。
 	struct Moving : public Move {
 		Moving(Frame& sender, const Point& position);
 
-		/// �ړ�����X�N���[���ʒu�B
+		/// 移動するスクリーン位置。
 		using Move::position;
 		void position(const Point& value);
 		void position(int x, int y);
 	};
 
 
-	///	�傫����ύX����C�x���g�B
+	///	大きさを変更するイベント。
 	struct Resizing : public Frame::Event {
 		Resizing(Frame& sender, ::tagMINMAXINFO* info);
 
-		/// �ő剻�������̃X�N���[���ʒu�B���C�x���g���̃~�X�}�b�`�I
+		/// 最大化した時のスクリーン位置。※イベント名のミスマッチ！
 		Point maximizedPosition() const;
 		void maximizedPosition(const Point& value);
 		void maximizedPosition(int x, int y);
-		/// �ő剻�������̑傫���B
+		/// 最大化した時の大きさ。
 		Size maximizedSize() const;
 		void maximizedSize(const Size& value);
 		void maximizedSize(int width, int height);
-		/// �E�C���h�E���h���b�O���đ傫���ύX���鎞�̍ő�̑傫���B
+		/// ウインドウをドラッグして大きさ変更する時の最大の大きさ。
 		Size maxTrackSize() const;
 		void maxTrackSize(const Size& value);
 		void maxTrackSize(int width, int height);
-		/// �E�C���h�E���h���b�O���đ傫���ύX���鎞�̍ŏ��̑傫���B
+		/// ウインドウをドラッグして大きさ変更する時の最小の大きさ。
 		Size minTrackSize() const;
 		void minTrackSize(const Size& value);
 		void minTrackSize(int width, int height);
@@ -177,13 +177,13 @@ public:
 	};
 
 
-	///	�傫����ύX�����C�x���g�B
+	///	大きさを変更したイベント。
 	struct Resize : public Frame::Event {
 		Resize(Frame& sender, int flag);
 
-		/// �ő剻���ꂽ���ǂ����B
+		/// 最大化されたかどうか。
 		bool maximized() const;
-		/// �ŏ������ꂽ���ǂ����B
+		/// 最小化されたかどうか。
 		bool minimized() const;
 
 	private:
@@ -192,160 +192,160 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Frame();
-	/// �^�C�g��������A�N���C�A���g�T�C�Y�A�X�^�C������쐬�B�N���C�A���g�T�C�Y���O�ɂ���Ɗ���̑傫���ō쐬����B
+	/// タイトル文字列、クライアントサイズ、スタイルから作成。クライアントサイズを０にすると既定の大きさで作成する。
 	Frame(StringRange text, int clientWidth = 0, int clientHeight = 0, Frame::Style style = Style::sizable);
 	Frame(Frame&& value, bool checkSlicing = true);
 	virtual ~Frame();
 	Frame& operator=(Frame&& value);
 
 public:
-	/// �{�^���ȊO�Ƀt�H�[�J�X�����鎞�� Enter �L�[�������Ɖ��������ɂȂ�{�^���B
+	/// ボタン以外にフォーカスがある時に Enter キーを押すと押した事になるボタン。
 	Button* acceptButton() const;
 	void acceptButton(Button* value);
-	/// �A�N�e�B�u�ɂ���B
+	/// アクティブにする。
 	void activate();
-	/// �E�C���h�E��Ńt�H�[�J�X�𓾂Ă���R���g���[���B�E�C���h�E���A�N�e�B�u�łȂ��Ȃ��Ă��ۑ�����A�E�C���h�E���ĂуA�N�e�B�u�ɂȂ������Ƀt�H�[�J�X�����������B
+	/// ウインドウ上でフォーカスを得ているコントロール。ウインドウがアクティブでなくなっても保存され、ウインドウが再びアクティブになった時にフォーカスが復元される。
 	virtual Control* activeControl() const;
 	virtual void activeControl(Control* value);
-	/// ���݃A�N�e�B�u�ȃE�C���h�E�B
+	/// 現在アクティブなウインドウ。
 	static Frame* activeFrame();
-	/// ESC �L�[�����������ɉ��������ɂȂ�{�^���B
+	/// ESC キーを押した時に押した事になるボタン。
 	Button* cancelButton() const;
 	void cancelButton(Button* value);
-	/// �^�C�g���o�[�̕�����̃t�H���g�B
+	/// タイトルバーの文字列のフォント。
 	static Font captionFont();
-	/// �I�[�i�[�E�C���h�E�̒��S�Ɉړ�����B
+	/// オーナーウインドウの中心に移動する。
 	void centerToOwner();
-	/// �X�N���[���̒��S�Ɉړ�����B
+	/// スクリーンの中心に移動する。
 	void centerToScreen();
-	/// �E�C���h�E�����B�E�C���h�E�͔�\���ɂȂ邪�j��͂���Ȃ��B
+	/// ウインドウを閉じる。ウインドウは非表示になるが破壊はされない。
 	void close();
-	/// �f�X�N�g�b�v��ł̍��W�B
+	/// デスクトップ上での座標。
 	Point desktopPosition() const;
 	void desktopPosition(const Point& value);
 	void desktopPosition(int x, int y);
-	/// ���b�Z�[�W���[�v���甲����B
+	/// メッセージループから抜ける。
 	static void exitMessageLoop();
-	/// �t�H�[�J�X�𓾂��邩�ǂ����B
+	/// フォーカスを得られるかどうか。
 	virtual bool focusable() const;
-	/// �H�{�^����L���ɂ��邩�ǂ����B�L���ɂ����ꍇ�A�ő剻�{�^���ƍŏ����{�^���͏�����B�����l�� false�B
+	/// ？ボタンを有効にするかどうか。有効にした場合、最大化ボタンと最小化ボタンは消える。初期値は false。
 	bool helpButton() const;
 	void helpButton(bool value);
-	/// �^�C�g���o�[�ɕ\������A�C�R���B�傫���A�C�R�����w�肷��B�����l�� nullptr�B
+	/// タイトルバーに表示するアイコン。大きいアイコンを指定する。初期値は nullptr。
 	Icon icon() const;
 	void icon(HICON value);
-	/*bool keyPreview() const;  onShortcutKey �C�x���g����΂���Ȃ��H *//**/
+	/*bool keyPreview() const;  onShortcutKey イベントあればいらない？ *//**/
 	/*void keyPreview(bool value); *//**/
-	/// �ő剻�{�^����L���ɂ��邩�ǂ����B�����l�� true�B
+	/// 最大化ボタンを有効にするかどうか。初期値は true。
 	bool maximizeButton() const;
 	void maximizeButton(bool value);
-	/// �ő剻���Ă��邩�ǂ����Bvisible �� true �̏ꍇ�̂ݕύX�ł���B�����l�� false�B
+	/// 最大化しているかどうか。visible が true の場合のみ変更できる。初期値は false。
 	bool maximized() const;
 	void maximized(bool value);
-	/// ���j���[�o�[��ݒ肷��B
+	/// メニューバーを設定する。
 	void menuBar(MenuBar* value);
-	/// ���j���[�o�[�̐�߂�̈�B�����ꍇ�� Rectangle(0, 0, 0, 0) ��Ԃ��B
+	/// メニューバーの占める領域。無い場合は Rectangle(0, 0, 0, 0) を返す。
 	Rectangle menuBarBounds() const;
-	/// ���j���[�o�[���t�H�[�J�X�𓾂Ă��邩�ǂ����B
+	/// メニューバーがフォーカスを得ているかどうか。
 	bool menuBarFocused() const;
-	/// �ŏ����{�^����L���ɂ��邩�ǂ����B�����l�� true�B
+	/// 最小化ボタンを有効にするかどうか。初期値は true。
 	bool minimizeButton() const;
 	void minimizeButton(bool value);
-	/// �ŏ������Ă��邩�ǂ����B�����l�� false�B
+	/// 最小化しているかどうか。初期値は false。
 	bool minimized() const;
 	void minimized(bool value);
-	/// �E�C���h�E������C�x���g�B
+	/// ウインドウを閉じたイベント。
 	Listener<Frame::Close&>& onClose();
-	/// �E�C���h�E�����C�x���g�B
+	/// ウインドウを閉じるイベント。
 	Listener<Frame::Closing&>& onClosing();
-	/// ���j�^�̉𑜓x�܂��͐F�����ύX���ꂽ�C�x���g�B
+	/// モニタの解像度または色数が変更されたイベント。
 	Listener<Frame::DisplayChange&>& onDisplayChange();
-	/// �w���v�{�^�����������C�x���g�B
+	/// ヘルプボタンを押したイベント。
 	Listener<Frame::HelpButtonClick&>& onHelpButtonClick();
-	/// ���j���[�̕\�����J�n�����C�x���g�B
+	/// メニューの表示を開始したイベント。
 	Listener<Frame::MenuLoopBegin&>& onMenuLoopBegin();
-	/// ���j���[�̕\�����I�������C�x���g�B
+	/// メニューの表示を終了したイベント。
 	Listener<Frame::MenuLoopEnd&>& onMenuLoopEnd();
-	/// �ړ������C�x���g�B
+	/// 移動したイベント。
 	Listener<Frame::Move&>& onMove();
-	/// �ړ�����C�x���g�B
+	/// 移動するイベント。
 	Listener<Frame::Moving&>& onMoving();
-	/// �N���C�A���g�̈��`�悷��C�x���g�B
+	/// クライアント領域を描画するイベント。
 	Listener<Frame::Paint&>& onPaint();
-	/// �傫�����ύX���ꂽ�C�x���g�B
+	/// 大きさが変更されたイベント。
 	Listener<Frame::Resize&>& onResize();
-	/// �傫�����ύX�����C�x���g�B
+	/// 大きさが変更されるイベント。
 	Listener<Frame::Resizing&>& onResizing();
-	/// �T�C�Y�ύX��ړ����J�n�����C�x���g�B
+	/// サイズ変更や移動を開始したイベント。
 	Listener<Frame::ResizeMoveBegin&>& onResizeMoveBegin();
-	/// �T�C�Y�ύX��ړ����I�������C�x���g�B
+	/// サイズ変更や移動を終了したイベント。
 	Listener<Frame::ResizeMoveEnd&>& onResizeMoveEnd();
-	/// �I�[�i�[�B�I�[�i�[�����E�C���h�E�͏�ɃI�[�i�[���O�ɕ\������ăI�[�i�[���ŏ���������肷��ƒǏ]����B
+	/// オーナー。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。
 	Frame* owner() const;
 	void owner(Frame* value);
-	/// �I�[�i�[�E�C���h�E�n���h���B�I�[�i�[�����E�C���h�E�͏�ɃI�[�i�[���O�ɕ\������ăI�[�i�[���ŏ���������肷��ƒǏ]����B
+	/// オーナーウインドウハンドル。オーナーを持つウインドウは常にオーナーより前に表示されてオーナーが最小化や閉じたりすると追従する。
 	HWND ownerHandle() const;
 	void ownerHandle(HWND value);
-	/// �e�R���g���[���B
+	/// 親コントロール。
 	using ScrollableControl::parent;
 	virtual void parent(Control* value);
-	/// setLayer �֐��Őݒ肵�����C���[�𖳌��ɂ���B
+	/// setLayer 関数で設定したレイヤーを無効にする。
 	void resetLayer();
-	/// �ő剻���ŏ��������Ă��Ȃ���Ԃ� bounds�B
+	/// 最大化も最小化もしていない状態の bounds。
 	Rectangle restoreBounds() const;
-	/// ���b�Z�[�W���[�v�����s����BexitMessageLoop �֐����ĂԂ��A���̊֐����Ă񂾃E�C���h�E��������΃��[�v�𔲂���B
+	/// メッセージループを実行する。exitMessageLoop 関数を呼ぶか、この関数を呼んだウインドウが閉じられればループを抜ける。
 	void runMessageLoop();
-	/// �����X���b�h�̑��̃E�C���h�E���g�p�s�ɂ��ă��b�Z�[�W���[�v�����s����B������_�C�A���O�̕\���B�I�[�i�[��ݒ肵�Ă����K�v������B
+	/// 同じスレッドの他のウインドウを使用不可にしてメッセージループを実行する。いわゆるダイアログの表示。オーナーを設定しておく必要がある。
 	void runModalMessageLoop();
-	/// ���܂��Ă��郁�b�Z�[�W���������ă��b�Z�[�W���[�v���I�����ׂ����ǂ�����Ԃ��B
+	/// 溜まっているメッセージを処理してメッセージループを終了すべきかどうかを返す。
 	bool runPostedMessages();
-	/// �E�C���h�E�𔼓����ɂ���Balpha �͕s�����x(0�`1) �� 1 �ŕs�����BresetLayer �֐��Ŗ������ł���B
+	/// ウインドウを半透明にする。alpha は不透明度(0～1) で 1 で不透明。resetLayer 関数で無効化できる。
 	void setLayer(float alpha);
-	/// �E�C���h�E��� colorKey �Ɠ����F�̕����𓧖��ɂ���BresetLayer �֐��Ŗ������ł���B
+	/// ウインドウ上で colorKey と同じ色の部分を透明にする。resetLayer 関数で無効化できる。
 	void setLayer(const Color& colorKey);
-	/// graphicsWithAlphaChannel �Ŏw�肵���A���t�@�`�����l�����������R�Q�r�b�g�摜�ŃE�C���h�E�Ɣw�i�𔼓�����������B�摜�͂��炩���� Bitmap::premultiplyAlpha �֐������s���Ă����K�v������B
-	/// alpha �����ł���ɑS�̂ɔ������������邱�Ƃ��ł���Bstyle() �������I�� Frame::Style::none �ɐݒ肷��BresetLayer �֐��Ŗ������ł���B���� setLayer �֐������ɓK�p����Ă���ꍇ�A���̊֐��͎��s����B
-	/// WM_PAINT ����������Ȃ��Ȃ�A�摜�̂ݕ\�������̂ł��� Frame �̏�ɃR���g���[����\���������ꍇ�͂��� Frame ���I�[�i�[�Ɏ����AcolorKey �œ��߂��� Frame ����ɏ悹�Ĉʒu��Ǐ]������Ɨǂ��B
+	/// graphicsWithAlphaChannel で指定したアルファチャンネルを持った３２ビット画像でウインドウと背景を半透明合成する。画像はあらかじめ Bitmap::premultiplyAlpha 関数を実行しておく必要がある。
+	/// alpha 引数でさらに全体に半透明をかけることもできる。style() を強制的に Frame::Style::none に設定する。resetLayer 関数で無効化できる。他の setLayer 関数が既に適用されている場合、この関数は失敗する。
+	/// WM_PAINT が処理されなくなり、画像のみ表示されるのでこの Frame の上にコントロールを表示したい場合はこの Frame をオーナーに持ち、colorKey で透過した Frame を上に乗せて位置を追従させると良い。
 	void setLayer(HDC graphicsWithAlphaChannel, float alpha = 1.0f);
-	/// �N���C�A���g�̈�̑傫������R���g���[���̑傫�������߂�B
+	/// クライアント領域の大きさからコントロールの大きさを求める。
 	virtual Size sizeFromClientSize(const Size& clientSize) const;
-	/// �^�X�N�o�[�ɕ\�����邩�ǂ����B�\����������̂� style() �� Frame::Style::toolWindow �� Frame::Style::sizableToolWindow �̎����I�[�i�[�����E�C���h�E�����B
-	/// ��L�� style() �ȊO�ŕ\���������ɂ͏�L�� style() ����������\���̃I�[�i�[�����ĂΗǂ��B�����l�� true�B
+	/// タスクバーに表示するかどうか。表示を消せるのは style() が Frame::Style::toolWindow か Frame::Style::sizableToolWindow の時かオーナーを持つウインドウだけ。
+	/// 上記の style() 以外で表示を消すには上記の style() を持った非表示のオーナーを持てば良い。初期値は true。
 	bool showInTaskbar() const;
 	void showInTaskbar(bool value);
-	/// �E�C���h�E�̃X�^�C���B�����l�� Frame::Style::sizable�B
+	/// ウインドウのスタイル。初期値は Frame::Style::sizable。
 	Frame::Style style() const;
 	void style(Frame::Style value);
-	/// ����A�ő剻�A�ŏ����{�^���ƃV�X�e�����j���[��L���ɂ��邩�ǂ����B�����l�� true�B
+	/// 閉じる、最大化、最小化ボタンとシステムメニューを有効にするかどうか。初期値は true。
 	bool systemMenu() const;
 	void systemMenu(bool value);
-	/// �^�C�g��������B
+	/// タイトル文字列。
 	using ScrollableControl::text;
 	virtual void text(StringRange value);
-	/// ��ɍőO�ʂɕ\������邩�ǂ����B�����l�� false�B
+	/// 常に最前面に表示されるかどうか。初期値は false。
 	bool topMost() const;
 	void topMost(bool value);
-	/// ���j���[�o�[�̕\�����X�V����B�|�b�v�A�b�v�ł͂Ȃ����j���[���ڂ�ύX������X�V����K�v������B
+	/// メニューバーの表示を更新する。ポップアップではないメニュー項目を変更したら更新する必要がある。
 	void updateMenubar();
-	/// �\������邩�ǂ����B�����l�� false�B
+	/// 表示されるかどうか。初期値は false。
 	using ScrollableControl::visible;
 	virtual void visible(bool value);
 
 
-public: // �{���� protected �ɂ������� Control �Ƃ��̔h���N���X����ĂԕK�v������̂Ō��J�B
-	/// �q���R���g���[�����q���ł͂Ȃ��Ȃ�Ƃ��̏����B�B
+public: // 本当は protected にしたいが Control とその派生クラスから呼ぶ必要があるので公開。
+	/// 子孫コントロールが子孫ではなくなるときの処理。。
 	virtual void processDescendantErased(Control& descendant);
-	///	�q���R���g���[�����t�H�[�J�X�𓾂��Ƃ��̏����B
+	///	子孫コントロールがフォーカスを得たときの処理。
 	virtual void processDescendantFocused(Control& descendant);
 
 protected:
-	/// �_�C�A���O�L�[���������ď����ł������ǂ�����Ԃ��B
+	/// ダイアログキーを処理して処理できたかどうかを返す。
 	virtual bool processDialogKey(int shortcut);
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
-	/// �E�C���h�E�n���h���̃X�^�C�����X�V����B
+	/// ウインドウハンドルのスタイルを更新する。
 	void updateHandleStyle(int style, int exStyle, HICON icon);
 
 

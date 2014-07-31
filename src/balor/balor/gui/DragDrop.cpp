@@ -1,4 +1,4 @@
-#include "DragDrop.hpp"
+ï»¿#include "DragDrop.hpp"
 
 #include <string>
 #include <vector>
@@ -47,7 +47,7 @@ static_assert(DragDrop::Effect::link   == DROPEFFECT_LINK, "Innvalid enum value"
 static_assert(DragDrop::Effect::scroll == DROPEFFECT_SCROLL, "Innvalid enum value");
 
 
-/// DataObject ‚ª‚Âƒf[ƒ^‚ÌŒ^‚ğ•\‚·B
+/// DataObject ãŒæŒã¤ãƒ‡ãƒ¼ã‚¿ã®å‹ã‚’è¡¨ã™
 struct Formatetc : public FORMATETC {
 	Formatetc() {
 		cfFormat = 0;
@@ -72,7 +72,7 @@ struct Formatetc : public FORMATETC {
 };
 
 
-/// DataObject ‚Ì‚Âƒf[ƒ^‚ğ•\‚·B
+/// DataObject ã®æŒã¤ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ã™
 struct StgMedium : public STGMEDIUM {
 	StgMedium() {
 		tymed = TYMED_NULL;
@@ -111,7 +111,7 @@ struct StgMedium : public STGMEDIUM {
 		return *this;
 	}
 
-private: // •¡»‚Ì‹Ö~
+private: // è¤‡è£½ã®ç¦æ­¢
 	StgMedium(const StgMedium& );
 
 public:
@@ -133,10 +133,10 @@ public:
 			if (target.tymed == TYMED_GDI) {
 				Bitmap bitmap = Bitmap::clone(source.hBitmap);
 				bitmap.owned(false);
-				target.hBitmap = bitmap; // OleDuplicateData ‚Å‚Í‚¤‚Ü‚­‚¢‚©‚È‚¢
+				target.hBitmap = bitmap; // OleDuplicateData ã§ã¯ã†ã¾ãã„ã‹ãªã„
 			} else {
 				target.hGlobal = OleDuplicateData(source.hGlobal, formatetc.cfFormat, GMEM_MOVEABLE);
-				if (!target.hGlobal) { // Œ´ˆö‚Íƒƒ‚ƒŠ•s‘«‚Å‚Í‚È‚¢‚©‚à‚µ‚ê‚È‚¢‚ª‰Â”\«‚Í‚‚¢
+				if (!target.hGlobal) { // åŸå› ã¯ãƒ¡ãƒ¢ãƒªä¸è¶³ã§ã¯ãªã„ã‹ã‚‚ã—ã‚Œãªã„ãŒå¯èƒ½æ€§ã¯é«˜ã„
 					if (source.tymed != TYMED_HGLOBAL || GlobalSize(source.hGlobal)) {
 						throw DragDrop::OutOfMemoryException();
 					}
@@ -147,7 +147,7 @@ public:
 };
 
 
-/// ƒhƒ‰ƒbƒOƒhƒƒbƒv‚·‚éƒf[ƒ^‚ğƒvƒƒZƒX‚ğ’´‚¦‚Ä‚¿‰^‚Ô COM ƒCƒ“ƒ^[ƒtƒF[ƒXB
+/// ãƒ‰ãƒ©ãƒƒã‚°ãƒ‰ãƒ­ãƒƒãƒ—ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ—ãƒ­ã‚»ã‚¹ã‚’è¶…ãˆã¦æŒã¡é‹ã¶ COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 class DataObject : public IDataObject, public IEnumFORMATETC {
 	DataObject() : _count(1), _current(0) {
 	}
@@ -155,7 +155,7 @@ class DataObject : public IDataObject, public IEnumFORMATETC {
 		assert(_count == 0);
 	}
 
-private: // •¡»‚ğ‹Ö‚¶‚é
+private: // è¤‡è£½ã‚’ç¦ã˜ã‚‹
 	DataObject(const DataObject& );
 	DataObject operator=(const DataObject& );
 
@@ -177,7 +177,7 @@ public: // IUnknown
 			AddRef();
 			return S_OK;
 		} else if (IsEqualIID(id, __uuidof(IDataObject))) {
-			*object = static_cast<IEnumFORMATETC*>(this); // IDataObject* ‚Æ IEnumFORMATETC* ‚Å‚ÍƒAƒhƒŒƒX‚ªˆÙ‚È‚é
+			*object = static_cast<IEnumFORMATETC*>(this); // IDataObject* ã¨ IEnumFORMATETC* ã§ã¯ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒç•°ãªã‚‹
 			AddRef();
 			return S_OK;
 		} else {
@@ -216,7 +216,7 @@ public: // IDataObject
 	virtual HRESULT STDMETHODCALLTYPE EnumFormatEtc(DWORD direction, IEnumFORMATETC** enumFormatetc) {
 		if (direction == DATADIR_GET) {
 			AddRef();
-			*enumFormatetc = static_cast<IEnumFORMATETC*>(this); // IDataObject* ‚Æ IEnumFORMATETC* ‚Å‚ÍƒAƒhƒŒƒX‚ªˆÙ‚È‚é
+			*enumFormatetc = static_cast<IEnumFORMATETC*>(this); // IDataObject* ã¨ IEnumFORMATETC* ã§ã¯ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒç•°ãªã‚‹
 			return S_OK;
 		} else {
 			return E_NOTIMPL;
@@ -245,7 +245,7 @@ public: // IDataObject
 		return DV_E_FORMATETC;
 	}
 
-	/// medium ‚É‚ÍŠù‚Éƒnƒ“ƒhƒ‹‚ªŠ„‚è“–‚Ä‚ç‚ê‚Ä‚¨‚èA‚»‚±‚Éƒf[ƒ^‚ğæ“¾‚·‚éBƒƒ‚ƒŠ‚È‚ç‚Î GlobalReAlloc ‚·‚éB
+	/// medium ã«ã¯æ—¢ã«ãƒãƒ³ãƒ‰ãƒ«ãŒå‰²ã‚Šå½“ã¦ã‚‰ã‚Œã¦ãŠã‚Šã€ãã“ã«ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚ãƒ¡ãƒ¢ãƒªãªã‚‰ã° GlobalReAlloc ã™ã‚‹
 	virtual HRESULT STDMETHODCALLTYPE GetDataHere(FORMATETC* /*formatetc*/, STGMEDIUM* /*medium*/) {
 		return E_NOTIMPL;
 	}
@@ -562,7 +562,7 @@ Bitmap DragDrop::Data::getBitmap() const {
 		return Bitmap();
 	}
 	Bitmap bitmap(medium.hBitmap, true);
-	medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+	medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 	return bitmap;
 }
 
@@ -620,7 +620,7 @@ MemoryStream DragDrop::Data::getMemory(int memoryFormat) const {
 		return stream;
 	}
 	GlobalLocker buffer(medium.hGlobal);
-	if (buffer.pointer()) { // ƒTƒCƒY‚ª‚O‚¾‚Æ pointer() ‚Íƒkƒ‹‚É‚È‚éB
+	if (buffer.pointer()) { // ã‚µã‚¤ã‚ºãŒï¼ã ã¨ pointer() ã¯ãƒŒãƒ«ã«ãªã‚‹
 		stream.write(buffer.pointer(), 0, GlobalSize(medium.hGlobal));
 	}
 	return stream;
@@ -695,7 +695,7 @@ void DragDrop::Data::setBitmap(HBITMAP value) {
 	medium.tymed = TYMED_GDI;
 	medium.hBitmap = bitmap;
 	if (SUCCEEDED(_dataObject->SetData(&formatetc, &medium, TRUE))) {
-		medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+		medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 	} else {
 		assert("Failed to IDataObjct::SetData" && false);
 	}
@@ -710,7 +710,7 @@ void DragDrop::Data::setDIB(HBITMAP value) {
 	medium.tymed = TYMED_HGLOBAL;
 	medium.hGlobal = Clipboard::_dibToHgrobal(value);
 	if (SUCCEEDED(_dataObject->SetData(&formatetc, &medium, TRUE))) {
-		medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+		medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 	} else {
 		assert("Failed to IDataObjct::SetData" && false);
 	}
@@ -723,7 +723,7 @@ void DragDrop::Data::setFileDropList(StringRangeArray value) {
 	medium.tymed = TYMED_HGLOBAL;
 	medium.hGlobal = Clipboard::_fileDropListToHglobal(value);
 	if (SUCCEEDED(_dataObject->SetData(&formatetc, &medium, TRUE))) {
-		medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+		medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 	} else {
 		assert("Failed to IDataObjct::SetData" && false);
 	}
@@ -739,12 +739,12 @@ void DragDrop::Data::setMemory(int memoryFormat, Stream& stream) {
 	medium.hGlobal = allocateGlobal(static_cast<int>(stream.length()));
 	{
 		GlobalLocker buffer(medium.hGlobal);
-		if (buffer.pointer()) { // ƒTƒCƒY‚ª‚O‚¾‚Æ pointer() ‚Íƒkƒ‹‚É‚È‚éB
+		if (buffer.pointer()) { // ã‚µã‚¤ã‚ºãŒï¼ã ã¨ pointer() ã¯ãƒŒãƒ«ã«ãªã‚‹
 			stream.read(buffer.pointer(), 0, static_cast<int>(stream.length()));
 		}
 	}
 	if (SUCCEEDED(_dataObject->SetData(&formatetc, &medium, TRUE))) {
-		medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+		medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 	} else {
 		assert("Failed to IDataObjct::SetData" && false);
 	}
@@ -762,12 +762,12 @@ void DragDrop::Data::setText(StringRange value) {
 		String::refer(value).copyTo(reinterpret_cast<wchar_t*>(buffer.pointer()), size);
 	}
 	verify(SUCCEEDED(_dataObject->SetData(&formatetc, &medium, TRUE)));
-	medium.tymed = TYMED_NULL; // Š—LŒ ‚Ì•úŠü
+	medium.tymed = TYMED_NULL; // æ‰€æœ‰æ¨©ã®æ”¾æ£„
 }
 
 
 
-/// ƒhƒ‰ƒbƒOƒhƒƒbƒv‚ğŠJn‚·‚é COM ƒCƒ“ƒ^[ƒtƒF[ƒXB
+/// ãƒ‰ãƒ©ãƒƒã‚°ãƒ‰ãƒ­ãƒƒãƒ—ã‚’é–‹å§‹ã™ã‚‹ COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 class DragDrop::DropSource : public ComBase<IDropSource> {
 	DropSource(Control& control) : _owner(&control), _dragImage(false) {
 	}
@@ -794,10 +794,10 @@ public:
 			verify(ImageList_DragMove(position.x, position.y));
 		}
 		DragDrop::QueryContinue event(*_owner, esc != FALSE ? true : false, keyState);
-		if (esc || toFlag(keyState)[MK_LBUTTON | MK_RBUTTON]) { // ESC ƒL[‚ğ‰Ÿ‚µ‚½‚©¶‰Eƒ}ƒEƒXƒ{ƒ^ƒ““¯‰Ÿ‚µ‚ÅƒLƒƒƒ“ƒZƒ‹
+		if (esc || toFlag(keyState)[MK_LBUTTON | MK_RBUTTON]) { // ESC ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã‹å·¦å³ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³åŒæ™‚æŠ¼ã—ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«
 			event.cancelDrag(true);
 		} else {
-			// ƒ}ƒEƒXƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½‚Æ‚«‚Íƒhƒƒbƒv
+			// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸã¨ãã¯ãƒ‰ãƒ­ãƒƒãƒ—
 			event.drop(!(keyState & (MK_LBUTTON | MK_RBUTTON | MK_MBUTTON)));
 		}
 		_onQueryContinue(event);
@@ -888,7 +888,7 @@ Listener<DragDrop::QueryContinue&>& DragDrop::Source::onQueryContinue() {
 
 
 
-/// ƒhƒ‰ƒbƒOƒhƒƒbƒv‚ğó‚¯æ‚é COM ƒCƒ“ƒ^[ƒtƒF[ƒXB
+/// ãƒ‰ãƒ©ãƒƒã‚°ãƒ‰ãƒ­ãƒƒãƒ—ã‚’å—ã‘å–ã‚‹ COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 class DragDrop::DropTarget : public ComBase<IDropTarget> {
 	DropTarget(Control& control) : _owner(&control) {
 	}
@@ -902,7 +902,7 @@ public:
 		return ptr;
 	}
 
-	/// ƒGƒNƒXƒvƒ[ƒ‰‚Ì‹““®‚ğ‚Ü‚Ë‚Ä‘€ì‚ğŒˆ’è‚·‚é
+	/// ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã®æŒ™å‹•ã‚’ã¾ã­ã¦æ“ä½œã‚’æ±ºå®šã™ã‚‹
 	DragDrop::Effect getEffect(DWORD keyState, DWORD allowedEffects) {
 		switch (keyState & (MK_ALT | MK_CONTROL | MK_SHIFT)) {
 			case MK_CONTROL | MK_SHIFT :
@@ -966,7 +966,7 @@ DragDrop::Target::Target(Target&& value) : _dropTarget(move(value._dropTarget)) 
 
 
 #pragma warning (push)
-#pragma warning (disable : 4189) //  'result' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning (disable : 4189) //  'result' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 DragDrop::Target::Target(Control& control) : _dropTarget(DropTarget::create(control)) {
 	auto result = RegisterDragDrop(control, _dropTarget);
 	if (result == E_OUTOFMEMORY || result == CO_E_NOTINITIALIZED) {

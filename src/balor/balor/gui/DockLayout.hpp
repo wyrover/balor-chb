@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -13,54 +13,54 @@ namespace balor {
 
 
 /**
- * qƒRƒ“ƒgƒ[ƒ‹‚ğe‚Ì˜g‚ÉƒhƒbƒLƒ“ƒO‚³‚¹‚éƒŒƒCƒAƒEƒgB
- * 
- * ƒŒƒCƒAƒEƒgˆ—‚Í©“®‚Ås‚í‚ê‚È‚¢‚Ì‚Å onResized ƒCƒxƒ“ƒg“™‚Åè“®‚ÅXV‚·‚é•K—v‚ª‚ ‚éB
- * qƒRƒ“ƒgƒ[ƒ‹‚ğe‚É’Ç‰Á‚µ‚½‡i•\¦—Dæ“xj‚ÍƒŒƒCƒAƒEƒg‚É‰e‹¿‚ğ—^‚¦‚éB
- * DockLayout::Style::fill ‚ÌƒRƒ“ƒgƒ[ƒ‹‚Í•K‚¸ÅŒã‚É’Ç‰Á‚³‚ê‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
- * l•Ó‚ÉƒhƒbƒLƒ“ƒO‚·‚éê‡‚Í’Ç‰Á‚µ‚½‡‚É“à‘¤‚É‚Ş‚©‚Á‚Ä”z’u‚³‚ê‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"DockLayout Sample");
+* å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’è¦ªã®æ ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã•ã›ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã€‚
+*
+* ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå‡¦ç†ã¯è‡ªå‹•ã§è¡Œã‚ã‚Œãªã„ã®ã§ onResized ã‚¤ãƒ™ãƒ³ãƒˆç­‰ã§æ‰‹å‹•ã§æ›´æ–°ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
+* å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’è¦ªã«è¿½åŠ ã—ãŸé †ï¼ˆè¡¨ç¤ºå„ªå…ˆåº¦ï¼‰ã¯ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã«å½±éŸ¿ã‚’ä¸ãˆã‚‹ã€‚
+* DockLayout::Style::fill ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯å¿…ãšæœ€å¾Œã«è¿½åŠ ã•ã‚Œãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
+* å››è¾ºã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã™ã‚‹å ´åˆã¯è¿½åŠ ã—ãŸé †ã«å†…å´ã«ã‚€ã‹ã£ã¦é…ç½®ã•ã‚Œã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"DockLayout Sample");
 
-	Button left(frame, 0, 0, 200, 200, L"¶‘¤");
-	Button top(frame, 0, 0, 200, 200, L"ã‘¤");
-	Button bottom(frame, 0, 0, 200, 200, L"‰º‘¤");
-	Button right(frame, 0, 0, 200, 200, L"‰E‘¤");
-	Button center(frame, 0, 0, 0, 0, L"’†‰›");
+Button left(frame, 0, 0, 200, 200, L"å·¦å´");
+Button top(frame, 0, 0, 200, 200, L"ä¸Šå´");
+Button bottom(frame, 0, 0, 200, 200, L"ä¸‹å´");
+Button right(frame, 0, 0, 200, 200, L"å³å´");
+Button center(frame, 0, 0, 0, 0, L"ä¸­å¤®");
 
-	DockLayout layout(frame);
-	layout.setStyle(left, DockLayout::Style::left);
-	layout.setStyle(top, DockLayout::Style::top);
-	layout.setStyle(bottom, DockLayout::Style::bottom);
-	layout.setStyle(right, DockLayout::Style::right);
-	layout.setStyle(center, DockLayout::Style::fill);
-	layout.perform();
-	frame.onResized() = [&] (Frame::Resized& ) {
-		layout.perform();
-	};
+DockLayout layout(frame);
+layout.setStyle(left, DockLayout::Style::left);
+layout.setStyle(top, DockLayout::Style::top);
+layout.setStyle(bottom, DockLayout::Style::bottom);
+layout.setStyle(right, DockLayout::Style::right);
+layout.setStyle(center, DockLayout::Style::fill);
+layout.perform();
+frame.onResized() = [&] (Frame::Resized& ) {
+layout.perform();
+};
 
-	// ƒtƒŒ[ƒ€‚ğ¬‚³‚­‚µ‚·‚¬‚ÄƒRƒ“ƒgƒ[ƒ‹‚ª’×‚ê‚È‚¢‚æ‚¤‚É‚·‚éB
-	layout.setMinimumSize(center, center.getPreferredSize());
-	frame.onResizing() = [&] (Frame::Resizing& e) {
-		e.minTrackSize(layout.preferredSize());
-	};
+// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å°ã•ãã—ã™ãã¦ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒæ½°ã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+layout.setMinimumSize(center, center.getPreferredSize());
+frame.onResizing() = [&] (Frame::Resizing& e) {
+e.minTrackSize(layout.preferredSize());
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class DockLayout : private NonCopyable {
 public:
-	/// ‚Ç‚±‚ÉƒhƒbƒLƒ“ƒO‚·‚é‚©B
+	/// ã©ã“ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã™ã‚‹ã‹ã€‚
 	struct Style {
 		enum _enum {
-			none  , /// ‰½‚à‚µ‚È‚¢B
-			left  , /// ¶‚ÉƒhƒbƒLƒ“ƒOB
-			top   , /// ã•”‚ÉƒhƒbƒLƒ“ƒOB
-			right , /// ‰E‚ÉƒhƒbƒLƒ“ƒOB
-			bottom, /// ‰º•”‚ÉƒhƒbƒLƒ“ƒOB
-			fill  , /// ‹ó‚¢‚Ä‚¢‚é’†S•”‚Ì‹óŠÔ‚ğè‚ß‚éB
+			none, /// ä½•ã‚‚ã—ãªã„ã€‚
+			left, /// å·¦ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã€‚
+			top, /// ä¸Šéƒ¨ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã€‚
+			right, /// å³ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã€‚
+			bottom, /// ä¸‹éƒ¨ã«ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã€‚
+			fill, /// ç©ºã„ã¦ã„ã‚‹ä¸­å¿ƒéƒ¨ã®ç©ºé–“ã‚’å ã‚ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
@@ -73,26 +73,26 @@ public:
 	DockLayout& operator=(DockLayout&& value);
 
 public:
-	/// q‚ÌÅ¬‚Ì‘å‚«‚³B‰Šú’l‚Í Size(0, 0)B
+	/// å­ã®æœ€å°ã®å¤§ãã•ã€‚åˆæœŸå€¤ã¯ Size(0, 0)ã€‚
 	Size getMinimumSize(Control& child) const;
-	/// q‚ÌƒhƒbƒLƒ“ƒOˆÊ’uB‰Šú’l‚Í DockLayout::Style::noneB
+	/// å­ã®ãƒ‰ãƒƒã‚­ãƒ³ã‚°ä½ç½®ã€‚åˆæœŸå€¤ã¯ DockLayout::Style::noneã€‚
 	DockLayout::Style getStyle(Control& child) const;
-	/// e‚Ì˜g‚ÆqƒRƒ“ƒgƒ[ƒ‹‚ÌŠÔ‚ÌŒ„ŠÔ‚Ì‘å‚«‚³B‰Šú’l‚Í Padding(0, 0, 0, 0)B
+	/// è¦ªã®æ ã¨å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®é–“ã®éš™é–“ã®å¤§ãã•ã€‚åˆæœŸå€¤ã¯ Padding(0, 0, 0, 0)ã€‚
 	Padding padding() const;
 	void padding(const Padding& value);
 	void padding(int left, int top, int right, int bottom);
-	/// ƒŒƒCƒAƒEƒg‚ğXV‚·‚éB
+	/// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’æ›´æ–°ã™ã‚‹ã€‚
 	void perform();
-	/// ‘S‚Ä‚ÌqƒRƒ“ƒgƒ[ƒ‹‚ª•\¦‚Å‚«AƒhƒbƒLƒ“ƒO‚·‚éqƒRƒ“ƒgƒ[ƒ‹‚Æ‚»‚Ì‘¼‚ÌƒRƒ“ƒgƒ[ƒ‹‚ªd‚È‚ç‚È‚¢Å’áŒÀ‚Ì‘å‚«‚³B
+	/// å…¨ã¦ã®å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒè¡¨ç¤ºã§ãã€ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã™ã‚‹å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ãã®ä»–ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒé‡ãªã‚‰ãªã„æœ€ä½é™ã®å¤§ãã•ã€‚
 	Size preferredSize() const;
-	/// Scaler ‚ğg‚Á‚ÄƒŒƒCƒAƒEƒgİ’è‚ğƒXƒP[ƒŠƒ“ƒO‚·‚éBƒRƒ“ƒgƒ[ƒ‹‚Í•Ê“rƒXƒP[ƒŠƒ“ƒO‚ª•K—vB
+	/// Scaler ã‚’ä½¿ã£ã¦ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆè¨­å®šã‚’ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ã™ã‚‹ã€‚ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯åˆ¥é€”ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ãŒå¿…è¦ã€‚
 	void scale(const Scaler& scaler);
-	/// q‚ÌÅ¬‚Ì‘å‚«‚³‚ğİ’è‚·‚éB
+	/// å­ã®æœ€å°ã®å¤§ãã•ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setMinimumSize(Control& child, const Size value);
 	void setMinimumSize(Control& child, int width, int height);
-	/// q‚ÌƒhƒbƒLƒ“ƒOˆÊ’u‚ğİ’è‚·‚éB
+	/// å­ã®ãƒ‰ãƒƒã‚­ãƒ³ã‚°ä½ç½®ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setStyle(Control& child, DockLayout::Style value);
-	/// ƒŒƒCƒAƒEƒg‘ÎÛ‚ÌeƒRƒ“ƒgƒ[ƒ‹B
+	/// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¯¾è±¡ã®è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
 	Control* target();
 
 private:

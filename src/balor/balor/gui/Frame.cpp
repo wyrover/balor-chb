@@ -210,7 +210,7 @@ Control* Frame::activeControl() const {
 
 
 void Frame::activeControl(Control* value) {
-	//assert("Cant't set null activeControl" && value); // 긓깛긣깓?깑궻랁룣뱳궸귝궯궲긧깑궸궧궡귡귩벦궶궋뤾뜃귖궇귡갃
+	//assert("Cant't set null activeControl" && value); // ントロールの削除等によってヌルにせざるを得ない場合もある
 	assert("non child activeControl" && (!value || contains(*value)));
 	//assert("Can't focus activeControl" && (!value || value->focusable()));
 
@@ -223,7 +223,7 @@ void Frame::activeControl(Control* value) {
 		value->focus();
 	}
 
-	// 긢긲긅깑긣??깛궻먠믦갃
+	// デフォルトボタンの設定
 	auto oldButton = dynamic_cast<Button*>(oldValue);
 	if (!oldButton) {
 		oldButton = acceptButton();
@@ -341,7 +341,7 @@ void Frame::exitMessageLoop() {
 
 
 bool Frame::focusable() const {
-	return false; // 뙲뼤궸궼긲긅?긇긚귩롷궚귞귢귡럔긓깛긣깓?깑궕뼰궚귢궽긲긅?긇긚귩벦귞귢귡궕궞귢궼 getNextControl 뾭궶궻궳귝궢궴궥귡갃
+	return false; // 厳密にはフォーカスを受けられる子コントロールが無ければフォーカスを得られるがこれは getNextControl 用なのでよしとする
 }
 
 
@@ -366,7 +366,7 @@ Icon Frame::icon() const {
 
 
 void Frame::icon(HICON value) {
-	// 먩궸긚?귽깑귩뛛륷궢궶궋궴?렑궸뵿뎕궠귢궶궋궞궴궕궇귡갃
+	// 先にスタイルを更新しないと表示に反映されないことがある
 	updateHandleStyle(_handle.style(), _handle.exStyle(), value);
 	if (!value) {
 		SendMessageW(handle(), WM_SETICON, ICON_SMALL, 0);
@@ -497,8 +497,8 @@ void Frame::ownerHandle(HWND value) {
 			assert("Owned different threads" && GetWindowThreadProcessId(handle(), nullptr) == GetWindowThreadProcessId(value, nullptr));
 		}
 #pragma warning(push)
-#pragma warning(disable : 4244) // '덙릶' : 'LONG_PTR' 궔귞 'LONG' 귉궻빾듂궳궥갃긢??궕렪귦귢귡됀?맜궕궇귟귏궥갃
-#pragma warning(disable : 4312) // reinterpret_cast' : 'LONG' 궔귞귝귟묈궖궋긖귽긛궻 'void *' 귉빾듂궢귏궥갃
+#pragma warning(disable : 4244) // '引数' : 'LONG_PTR' から 'LONG' への変換です。データが失われる可能性があります
+#pragma warning(disable : 4312) // reinterpret_cast' : 'LONG' からより大きいサイズの 'void *' へ変換します
 		SetWindowLongPtrW(handle(), GWLP_HWNDPARENT, reinterpret_cast<LONG_PTR>(value)); //GWLP_HWNDPARENT(GWL_HWNDPARENT)
 #pragma warning(pop)
 	}
@@ -508,7 +508,7 @@ void Frame::ownerHandle(HWND value) {
 void Frame::parent(Control* value) {
 	assert("Double owned" && !owner());
 	auto style = toFlag(_handle.style());
-	style.set(WS_CHILD, value != nullptr); // 궞귢귩먠믦궢궶궋궴 contains 궕궎귏궘벍궔궶궘궶궯궫귟궩귢궪귢궕귺긏긡귻긳궸궶궯궫귟궢궲묈빾궶럷궸궶귡갃
+	style.set(WS_CHILD, value != nullptr); // これを設定しないと contains がうまく動かなくなったりそれぞれがアクティブになったりして大変な事になる
 	_handle.style(style);
 	_handle.updateStyle();
 
@@ -602,7 +602,7 @@ void Frame::runModalMessageLoop() {
 			return TRUE;
 		}
 	} threadModal(handle());
-	if (owner && IsWindowEnabled(owner)) { // owner 궼빶긚깒긞긤궻긂귽깛긤긂궔귖궢귢궶궋
+	if (owner && IsWindowEnabled(owner)) { // owner は別スレッドのウインドウかもしれない
 		EnableWindow(owner, FALSE);
 	}
 	runMessageLoop();
@@ -904,7 +904,7 @@ void Frame::processMessage(Message& msg) {
 			_closeReason = CloseReason::none;
 		} break;
 		case WM_DESTROY : {
-			visible(false); // 귺귽긓깛궕?긚긏긫?궸럄귡긫긐됷뷃
+			visible(false); // アイコンがタスクバーに残るバグ回避
 			ScrollableControl::processMessage(msg);
 		} break;
 		case WM_ENTERMENULOOP : {
@@ -985,7 +985,7 @@ void Frame::processMessage(Message& msg) {
 			onFocus()(event);
 		} break;
 		case WM_SIZE : {
-			ScrollableControl::processMessage(msg); // ScrollableControl 궻룉뿚궳 clientSize 궼빾돸궥귡갃
+			ScrollableControl::processMessage(msg); // ScrollableControl の処理で clientSize は変化する
 			Resize event(*this, msg.wparam);
 			onResize()(event);
 		} break;
@@ -1039,7 +1039,7 @@ void Frame::updateHandleStyle(int style, int exStyle, HICON icon) {
 	const auto formStyle = this->style();
 	const bool controlBox =  toFlag(style)[WS_SYSMENU];
 	const bool caption = formStyle != Frame::Style::none && (!text().empty() || controlBox);
-	style = toFlag(style).set(WS_DLGFRAME, caption); // WS_CAPCION = WS_BORDER | WS_DLGFRAME 궳궇귟갂Frame::Style::none 댥둖궶귞궽 WS_BORDER 궼둴믦궢궲궋귡갃
+	style = toFlag(style).set(WS_DLGFRAME, caption); // WS_CAPCION = WS_BORDER | WS_DLGFRAME であり、Frame::Style::none 以外ならば WS_BORDER は確定している
 
 	bool dialogModalFrame = !icon && (formStyle == Frame::Style::sizable
 								   || formStyle == Frame::Style::threeDimensional

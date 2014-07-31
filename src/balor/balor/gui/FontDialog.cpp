@@ -1,4 +1,4 @@
-#include "FontDialog.hpp"
+ï»¿#include "FontDialog.hpp"
 
 #include <balor/system/windows.hpp>
 #include <balor/test/verify.hpp>
@@ -190,7 +190,7 @@ bool FontDialog::show(HWND owner) {
 	if (result) {
 		if (fontInfo.lfQuality == Font::Quality::default
 		 || fontInfo.lfQuality == Font::Quality::draft) {
-			fontInfo.lfQuality = Font::Quality::proof; // Font ƒNƒ‰ƒX‚ÌƒfƒtƒHƒ‹ƒg‚Í Font::Quality::proof ‚È‚Ì‚Å•â³‚·‚éB
+			fontInfo.lfQuality = Font::Quality::proof; // Font ã‚¯ãƒ©ã‚¹ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ Font::Quality::proof ãªã®ã§è£œæ­£ã™ã‚‹
 		}
 		_font = Font::fromLogFont(fontInfo);
 		_color = Color::fromCOLORREF(info.rgbColors);

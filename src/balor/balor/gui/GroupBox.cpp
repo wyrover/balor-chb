@@ -65,7 +65,7 @@ Brush GroupBox::brush() const {
 	if (!parent) {
 		return Brush();
 	}
-	return parent->brush(); // 親のブラシを使って描画するので子にも引き継ぐ
+	return parent->brush(); // 親のブラシを使って?画するので子にも引き継ぐ
 }
 
 
@@ -101,7 +101,7 @@ Size GroupBox::getPreferredSize(int width, int height) const {
 
 
 bool GroupBox::focusable() const {
-	return false; // 方向キーでフォーカスを得ないように上書き。
+	return false; // 方向キ?でフォ?カスを得ないように上書き。
 }
 
 
@@ -113,7 +113,7 @@ void GroupBox::processMessage(Message& msg) {
 			if (brush) {
 				brush = graphics.brush(brush);
 				auto origin = graphics.brushOrigin(brushOrigin());
-				graphics.clear(); // GroupBox で描画するのをやめて WS_EX_TRANSPARENT スタイルにするとGroupBox のリサイズ時に子もふくめて激しくちらつく
+				graphics.clear(); // GroupBox で?画するのをやめて WS_EX_TRANSPARENT ス?イルにするとGroupBox のリサイズ時に子もふくめて激しくちらつく
 				graphics.brushOrigin(origin);
 			} else {
 				brush = graphics.brush(Brush::control());
@@ -122,17 +122,17 @@ void GroupBox::processMessage(Message& msg) {
 			graphics.brush(brush);
 			msg.result = TRUE;
 		} break;
-		case WM_LBUTTONDBLCLK : { // Button と同じ挙動をしようとしてフォーカスを得たりするので防ぐ
+		case WM_LBUTTONDBLCLK : { // Button と同じ挙動をしようとしてフォ?カスを得たりするので防ぐ
 			MouseDoubleClick event(*this, Mouse::lButton , msg);
 			onMouseDoubleClick()(event);
 		} break;
-		case WM_LBUTTONDOWN : { // Button と同じ挙動をしようとしてフォーカスを得たりするので防ぐ
+		case WM_LBUTTONDOWN : { // Button と同じ挙動をしようとしてフォ?カスを得たりするので防ぐ
 			processMouseDown(MouseDown(*this, Mouse::lButton , msg, _dragBox));
 		} break;
 		case WM_MOVE : {
 			Control::processMessage(msg);
 			auto parent = this->parent();
-			if (parent && parent->brush()) { // 親コントロールと地続きな背景を持つので描画しなおし
+			if (parent && parent->brush()) { // 親コントロ?ルと地続きな背景を持つので?画しなおし
 				invalidate();
 			}
 		} break;

@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-/// cppƒtƒ@ƒCƒ‹‚Å‚±‚Ìƒwƒbƒ_‚ğ include ‚·‚é‚Æ GUI ‚ªXP•—‚ÌŒ©‚½–Ú‚É‚È‚é
+/// cppãƒ•ã‚¡ã‚¤ãƒ«ã§ã“ã®ãƒ˜ãƒƒãƒ€ã‚’ include ã™ã‚‹ã¨ GUI ãŒXPé¢¨ã®è¦‹ãŸç›®ã«ãªã‚‹
 #if defined _M_IX86
 #pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #elif defined _M_IA64

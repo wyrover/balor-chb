@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -11,45 +11,45 @@ namespace balor {
 
 
 /**
- * ƒtƒ@ƒCƒ‹‚ðŠJ‚­E•Û‘¶‚·‚éƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÌŠî’êƒNƒ‰ƒXB
- * 
- */
+* ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ»ä¿å­˜ã™ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®åŸºåº•ã‚¯ãƒ©ã‚¹ã€‚
+*
+*/
 class FileDialog {
 public:
 	typedef Control::HWND HWND;
 	typedef Control::Procedure Procedure;
 
 
-	/// ƒ_ƒCƒAƒƒOã‚ÌƒRƒ“ƒgƒ[ƒ‹IDB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«IDã€‚
 	struct ControlId {
 		enum _enum {
-			acceptButton      = 0x0001, /// Œˆ’èƒ{ƒ^ƒ“B
-			cancelButton      = 0x0002, /// ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“B
-			directoryComboBox = 0x0471, /// Œ»Ý‚ÌƒfƒBƒŒƒNƒgƒŠ‚ð•\Ž¦‚·‚éƒRƒ“ƒ{ƒ{ƒbƒNƒXB
-			directoryLabel    = 0x0443, /// Œ»Ý‚ÌƒfƒBƒŒƒNƒgƒŠ‚ð•\Ž¦‚·‚éƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ìƒ‰ƒxƒ‹B
-			directoryListView = 0x0460, /// Œ»Ý‚ÌƒfƒBƒŒƒNƒgƒŠ‚ð•\Ž¦‚·‚éƒŠƒXƒgƒrƒ…[B
-			filterComboBox    = 0x0470, /// ƒtƒBƒ‹ƒ^[‚ð•\Ž¦‚·‚éƒRƒ“ƒ{ƒ{ƒbƒNƒXB
-			filterLabel       = 0x0441, /// ƒtƒBƒ‹ƒ^[‚ð•\Ž¦‚·‚éƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ìƒ‰ƒxƒ‹B
-			filePathEdit      = 0x047c, /// ƒtƒ@ƒCƒ‹ƒpƒX‚ð“ü—Í‚·‚éƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹B
-			filePathLabel     = 0x0442, /// ƒtƒ@ƒCƒ‹ƒpƒX‚ð“ü—Í‚·‚éƒGƒfƒBƒbƒgƒRƒ“ƒgƒ[ƒ‹‚Ìƒ‰ƒxƒ‹B
-			helpButton        = 0x0009, /// ƒwƒ‹ƒvƒ{ƒ^ƒ“B
-			readOnlyCheckBox  = 0x0410, /// “Ç‚ÝŽæ‚èê—p‚ÅŠJ‚­ƒ`ƒFƒbƒNƒ{ƒbƒNƒXB
+			acceptButton = 0x0001, /// æ±ºå®šãƒœã‚¿ãƒ³ã€‚
+			cancelButton = 0x0002, /// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ã€‚
+			directoryComboBox = 0x0471, /// ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã€‚
+			directoryLabel = 0x0443, /// ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ãƒ©ãƒ™ãƒ«ã€‚
+			directoryListView = 0x0460, /// ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¡¨ç¤ºã™ã‚‹ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã€‚
+			filterComboBox = 0x0470, /// ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã€‚
+			filterLabel = 0x0441, /// ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ãƒ©ãƒ™ãƒ«ã€‚
+			filePathEdit = 0x047c, /// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å…¥åŠ›ã™ã‚‹ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+			filePathLabel = 0x0442, /// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å…¥åŠ›ã™ã‚‹ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ãƒ©ãƒ™ãƒ«ã€‚
+			helpButton = 0x0009, /// ãƒ˜ãƒ«ãƒ—ãƒœã‚¿ãƒ³ã€‚
+			readOnlyCheckBox = 0x0410, /// èª­ã¿å–ã‚Šå°‚ç”¨ã§é–‹ããƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ControlId);
 	};
 
 
-	/// FileDialog ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// FileDialog ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	struct Event : public balor::Event {
 		Event(HWND sender);
 
-		/// Œ»Ý‘I‘ð‚³‚ê‚Ä‚¢‚éƒtƒ@ƒCƒ‹ƒpƒX‚Ü‚½‚ÍƒfƒBƒŒƒNƒgƒŠƒpƒXB
+		/// ç¾åœ¨é¸æŠžã•ã‚Œã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã¾ãŸã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã€‚
 		String filePath() const;
-		/// Œ»Ý•\Ž¦‚µ‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠB
+		/// ç¾åœ¨è¡¨ç¤ºã—ã¦ã„ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
 		String directory() const;
-		/// ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹B
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND sender() const;
-		/// ƒ_ƒCƒAƒƒO‚ÌƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚Ì‘å‚«‚³B
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã®å¤§ãã•ã€‚
 		Size clientSize() const;
 
 	private:
@@ -62,11 +62,11 @@ public:
 	typedef Event Select;
 
 
-	/// Œˆ’èƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚½ƒCƒxƒ“ƒgB
+	/// æ±ºå®šãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct Accept : public Event {
 		Accept(HWND sender);
 
-		/// Œˆ’è‚ðƒLƒƒƒ“ƒZƒ‹‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// æ±ºå®šã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -75,22 +75,22 @@ public:
 	};
 
 
-	/// ƒ_ƒCƒAƒƒO‚ð‰Šú‰»‚·‚éƒCƒxƒ“ƒgB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’åˆæœŸåŒ–ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct Init : public Event {
 		Init(HWND sender);
 
-		/// ƒ_ƒCƒAƒƒOã‚ÌƒRƒ“ƒgƒ[ƒ‹‚Ì—ÌˆæB
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®é ˜åŸŸã€‚
 		Rectangle getControlBounds(FileDialog::ControlId id) const;
-		/// ƒ_ƒCƒAƒƒOã‚ÌƒRƒ“ƒgƒ[ƒ‹‚ð”ñ•\Ž¦‚É‚·‚éB
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’éžè¡¨ç¤ºã«ã™ã‚‹ã€‚
 		void hideControl(FileDialog::ControlId id);
-		/// ƒ_ƒCƒAƒƒO‚ÌƒXƒNƒŠ[ƒ“À•WˆÊ’uB
-		/// Œ»ó‚Å‚ÍƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒvƒƒZƒX‚ª‹N“®‚µ‚Ä‚©‚çÅ‰‚Ìˆê‰ñ‚µ‚©•ÏX‚Å‚«‚È‚¢–Í—lBŽŸ‰ñ‚©‚ç‚Í‘O‰ñ‚ÌˆÊ’u‚ª•œŒ³‚³‚ê‚Ä‚¢‚éB
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ä½ç½®ã€‚
+		/// ç¾çŠ¶ã§ã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ—ãƒ­ã‚»ã‚¹ãŒèµ·å‹•ã—ã¦ã‹ã‚‰æœ€åˆã®ä¸€å›žã—ã‹å¤‰æ›´ã§ããªã„æ¨¡æ§˜ã€‚æ¬¡å›žã‹ã‚‰ã¯å‰å›žã®ä½ç½®ãŒå¾©å…ƒã•ã‚Œã¦ã„ã‚‹ã€‚
 		Point position() const;
 		void position(const Point& value);
 		void position(int x, int y);
-		/// ƒ_ƒCƒAƒƒOã‚ÌƒRƒ“ƒgƒ[ƒ‹‚Ì•¶Žš—ñ‚ð•ÏX‚·‚éB
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®æ–‡å­—åˆ—ã‚’å¤‰æ›´ã™ã‚‹ã€‚
 		void setControlText(FileDialog::ControlId id, StringRange text);
-		/// ƒ_ƒCƒAƒƒO‚ÌƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚Ì‘å‚«‚³B
+		/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã®å¤§ãã•ã€‚
 		using Event::clientSize;
 		void clientSize(int width, int height);
 		void clientSize(const Size& value);
@@ -102,60 +102,60 @@ public:
 	FileDialog(FileDialog&& value);
 	virtual ~FileDialog() = 0;
 
-	/// ƒ†[ƒU‚ªƒtƒ@ƒCƒ‹–¼‚ÉŠg’£Žq‚ð“ü—Í‚µ‚È‚©‚Á‚½ê‡‚ÉŽ©“®“I‚É’Ç‰Á‚³‚ê‚éŠg’£ŽqBƒJƒ“ƒ}‚ÍŠÜ‚Ü‚È‚¢B‰Šú’l‚Í‹ó•¶Žš—ñB
+	/// ãƒ¦ãƒ¼ã‚¶ãŒãƒ•ã‚¡ã‚¤ãƒ«åã«æ‹¡å¼µå­ã‚’å…¥åŠ›ã—ãªã‹ã£ãŸå ´åˆã«è‡ªå‹•çš„ã«è¿½åŠ ã•ã‚Œã‚‹æ‹¡å¼µå­ã€‚ã‚«ãƒ³ãƒžã¯å«ã¾ãªã„ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 	const String& defaultExtention() const;
 	void defaultExtention(String value);
-	/// ƒ_ƒCƒAƒƒO•\Ž¦‘O‚Í‰Šú•\Ž¦‚³‚ê‚éƒtƒ@ƒCƒ‹ƒpƒX‚Ü‚½‚Íƒtƒ@ƒCƒ‹–¼Bƒ_ƒCƒAƒƒO•\Ž¦Œã‚Íƒ†[ƒU‚ª‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹ƒpƒXBmultiselect() ‚ª true ‚Ìê‡‚Í filePaths() ‚Ì‚Ù‚¤‚ðŽg—p‚·‚éB‰Šú’l‚Í‹ó•¶Žš—ñB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå‰ã¯åˆæœŸè¡¨ç¤ºã•ã‚Œã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã¾ãŸã¯ãƒ•ã‚¡ã‚¤ãƒ«åã€‚ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå¾Œã¯ãƒ¦ãƒ¼ã‚¶ãŒé¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã€‚multiselect() ãŒ true ã®å ´åˆã¯ filePaths() ã®ã»ã†ã‚’ä½¿ç”¨ã™ã‚‹ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 	const String& filePath() const;
 	void filePath(String value);
-	/// ƒ_ƒCƒAƒƒO‚Åƒ†[ƒU‚ª‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹ƒpƒXƒŠƒXƒgBmultiselect() ‚ª true ‚Ìê‡‚Ì‚Ý—LŒøB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãƒ¦ãƒ¼ã‚¶ãŒé¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãƒªã‚¹ãƒˆã€‚multiselect() ãŒ true ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	std::vector<String> filePaths() const;
-	/// ƒ_ƒCƒAƒƒO‚Å‘I‘ð‚Å‚«‚éƒtƒ@ƒCƒ‹‚ÌŠg’£Žq–¼‚ÆŠg’£Žq‚Ì‘g‚ÌƒŠƒXƒgBŠg’£Žq–¼‚ÆŠg’£Žq‚Í'\n'‚Å‹æØ‚èAŠg’£Žq‚ÍƒZƒ~ƒRƒƒ“‚Å‹æØ‚Á‚Ä•¡”Žw’è‚Å‚«‚éB‚³‚ç‚É'\n'‹æØ‚è‚Å•¡”‚Ì‘g‚ðŽw’è‚·‚éB
-	/// "\n\n"‚Å‘g‚ÌI’[‚É‚È‚éB—á‚¦‚Î‰º‹L‚Ì‚æ‚¤‚ÉŽw’è‚·‚éB<br>
-	/// "‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹\n*.*\nƒeƒLƒXƒgƒtƒ@ƒCƒ‹\n*.txt\nJPEGƒtƒ@ƒCƒ‹\n*.jpg;*.jpeg\n\n"
-	/// <br>‹æØ‚è•¶Žš‚Í'\0'‚Å‚à—Ç‚¢‚ª•¶Žš—ñƒŠƒeƒ‰ƒ‹‚É'\0'‚ªŠÜ‚Ü‚ê‚é‚Æ String ‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í‚»‚±‚Å•¶Žš—ñ‚ªI—¹‚µ‚Ä‚¢‚é‚Æ”»’f‚µ‚Ä‚µ‚Ü‚¤‚Ì‚Å String::literal() ŠÖ”‚ðŽg—p‚·‚é‚©ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å•¶Žš—ñ‚Ì’·‚³‚ðŽw’è‚·‚éŽ–B
-	/// ‰Šú’l‚Í‹ó•¶Žš—ñB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠžã§ãã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­åã¨æ‹¡å¼µå­ã®çµ„ã®ãƒªã‚¹ãƒˆã€‚æ‹¡å¼µå­åã¨æ‹¡å¼µå­ã¯'\n'ã§åŒºåˆ‡ã‚Šã€æ‹¡å¼µå­ã¯ã‚»ãƒŸã‚³ãƒ­ãƒ³ã§åŒºåˆ‡ã£ã¦è¤‡æ•°æŒ‡å®šã§ãã‚‹ã€‚ã•ã‚‰ã«'\n'åŒºåˆ‡ã‚Šã§è¤‡æ•°ã®çµ„ã‚’æŒ‡å®šã™ã‚‹ã€‚
+	/// "\n\n"ã§çµ„ã®çµ‚ç«¯ã«ãªã‚‹ã€‚ä¾‹ãˆã°ä¸‹è¨˜ã®ã‚ˆã†ã«æŒ‡å®šã™ã‚‹ã€‚<br>
+	/// "ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«\n*.*\nãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«\n*.txt\nJPEGãƒ•ã‚¡ã‚¤ãƒ«\n*.jpg;*.jpeg\n\n"
+	/// <br>åŒºåˆ‡ã‚Šæ–‡å­—ã¯'\0'ã§ã‚‚è‰¯ã„ãŒæ–‡å­—åˆ—ãƒªãƒ†ãƒ©ãƒ«ã«'\0'ãŒå«ã¾ã‚Œã‚‹ã¨ String ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ãã“ã§æ–‡å­—åˆ—ãŒçµ‚äº†ã—ã¦ã„ã‚‹ã¨åˆ¤æ–­ã—ã¦ã—ã¾ã†ã®ã§ String::literal() é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æ–‡å­—åˆ—ã®é•·ã•ã‚’æŒ‡å®šã™ã‚‹äº‹ã€‚
+	/// åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 	const String& filter() const;
 	void filter(String value);
-	/// ƒ_ƒCƒAƒƒO•\Ž¦‘O‚Í filter() ‚ÅŽw’è‚µ‚½Šg’£ŽqƒŠƒXƒg‚Ì‰ŠúƒCƒ“ƒfƒbƒNƒXBƒ_ƒCƒAƒƒO•\Ž¦Œã‚Íƒ†[ƒU‚ªÅŒã‚É‘I‘ð‚µ‚½ƒCƒ“ƒfƒbƒNƒXB‰Šú’l‚Í 0B
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå‰ã¯ filter() ã§æŒ‡å®šã—ãŸæ‹¡å¼µå­ãƒªã‚¹ãƒˆã®åˆæœŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå¾Œã¯ãƒ¦ãƒ¼ã‚¶ãŒæœ€å¾Œã«é¸æŠžã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚åˆæœŸå€¤ã¯ 0ã€‚
 	int filterIndex() const;
 	void filterIndex(int value);
-	/// ƒwƒ‹ƒvƒ{ƒ^ƒ“‚ð•\Ž¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒ˜ãƒ«ãƒ—ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool helpButton() const;
 	void helpButton(bool value);
-	/// ƒ_ƒCƒAƒƒO‚ð•\Ž¦‚µ‚½Žž‚ÉÅ‰‚É•\Ž¦‚³‚ê‚éƒfƒBƒŒƒNƒgƒŠB‚½‚¾‚µ filePath() ‚ÉƒpƒX‚ªŠÜ‚Ü‚ê‚éê‡‚Í‚»‚¿‚ç‚ð—Dæ‚·‚éB
-	/// filePath() ‚à initialDirectory() ‚à‹ó•¶Žš—ñ‚Ìê‡‚ÍƒVƒXƒeƒ€‚ÌƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚É‚È‚éB‰Šú’l‚Í‹ó•¶Žš—ñB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ãŸæ™‚ã«æœ€åˆã«è¡¨ç¤ºã•ã‚Œã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚ãŸã ã— filePath() ã«ãƒ‘ã‚¹ãŒå«ã¾ã‚Œã‚‹å ´åˆã¯ãã¡ã‚‰ã‚’å„ªå…ˆã™ã‚‹ã€‚
+	/// filePath() ã‚‚ initialDirectory() ã‚‚ç©ºæ–‡å­—åˆ—ã®å ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ã®ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ãªã‚‹ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 	const String& initialDirectory() const;
 	void initialDirectory(String value);
-	/// CTRL ƒL[‚ð‰Ÿ‚µ‚È‚ª‚çƒtƒ@ƒCƒ‹‚ð•¡”‘I‘ð‚Å‚«‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// CTRL ã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¤‡æ•°é¸æŠžã§ãã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool multiselect() const;
 	void multiselect(bool value);
-	/// ƒŠƒ“ƒNƒtƒ@ƒCƒ‹‚ðŽw’è‚µ‚½Žž‚ÉƒŠƒ“ƒNæ‚Æ‚Ý‚È‚³‚¸ƒŠƒ“ƒNƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄŠJ‚­‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒªãƒ³ã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ãŸæ™‚ã«ãƒªãƒ³ã‚¯å…ˆã¨ã¿ãªã•ãšãƒªãƒ³ã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦é–‹ãã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool noDereferenceLinks() const;
 	void noDereferenceLinks(bool value);
-	/// Œˆ’èƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚½ƒCƒxƒ“ƒgB
+	/// æ±ºå®šãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<FileDialog::Accept&>& onAccept();
-	/// ƒfƒBƒŒƒNƒgƒŠ‚ð•ÏX‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å¤‰æ›´ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<FileDialog::DirectoryChange&>& onDirectoryChange();
-	/// ƒwƒ‹ƒvƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ƒCƒxƒ“ƒgBhelpButton() ‚ª true ‚Ìê‡‚Ì‚Ý”­¶‚·‚éB
+	/// ãƒ˜ãƒ«ãƒ—ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚helpButton() ãŒ true ã®å ´åˆã®ã¿ç™ºç”Ÿã™ã‚‹ã€‚
 	Listener<FileDialog::HelpRequest&>& onHelpRequest();
-	/// ƒ_ƒCƒAƒƒO‚ð‰Šú‰»‚·‚éƒCƒxƒ“ƒgB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’åˆæœŸåŒ–ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<FileDialog::Init&>& onInit();
-	/// ƒ_ƒCƒAƒƒO‚Ì‘å‚«‚³‚ð•ÏX‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®å¤§ãã•ã‚’å¤‰æ›´ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<FileDialog::Resize&>& onResize();
-	/// ƒtƒ@ƒCƒ‹‚Ü‚½‚ÍƒfƒBƒŒƒNƒgƒŠ‚ð‘I‘ð‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é¸æŠžã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<FileDialog::Select&>& onSelect();
-	/// ƒ_ƒCƒAƒƒO‚Ì¶‘¤‚Éƒtƒ@ƒCƒ‹‚ÌêŠƒŠƒXƒg‚ð•\Ž¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®å·¦å´ã«ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´æ‰€ãƒªã‚¹ãƒˆã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool placesBar() const;
 	void placesBar(bool value);
-	/// ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ìƒ^ƒCƒgƒ‹B‹ó•¶Žš—ñ‚ðŽw’è‚µ‚½ê‡‚ÍƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg‚É‚È‚éB‰Šú’l‚Í‹ó•¶Žš—ñB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®ã‚¿ã‚¤ãƒˆãƒ«ã€‚ç©ºæ–‡å­—åˆ—ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«ãªã‚‹ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 	const String& title() const;
 	void title(String value);
 
 protected:
-	/// ƒtƒbƒN‚µ‚½ƒƒbƒZ[ƒW‚ðˆ—‚·‚éB
+	/// ãƒ•ãƒƒã‚¯ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚
 	virtual void processMessage(Message& msg);
-	/// ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ð•\Ž¦‚·‚éBƒtƒ@ƒCƒ‹‚ð‘I‘ð‚µ‚½‚©‚Ç‚¤‚©‚ð•Ô‚·B
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠžã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
 	bool show(HWND owner, bool open);
 
 protected:

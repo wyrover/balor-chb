@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/Control.hpp>
 #include <balor/system/ComPtr.hpp>
@@ -26,46 +26,46 @@ namespace balor {
 
 
 /**
- * �h���b�O���h���b�v�@�\��񋟂���B
- * 
- * �h���b�O���J�n����R���g���[�����w�肵�� DragDrop::Source ���쐬���AControl::onDrag �C�x���g�܂��͔C�ӂ̃C�x���g���� DragDrop::Source::doDragDrop �֐��Ńh���b�O�h���b�v���J�n����B
- * �h���b�v����R���g���[�����w�肵�� DragDrop::Target ���쐬���ADragDrop::Target::onDrop �C�x���g�Ńh���b�v���ꂽ�f�[�^����������B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
-	Frame frame(L"DragDrop Sample");
+* ドラッグ＆ドロップ機能を提供する。
+*
+* ドラッグを開始するコントロールを指定して DragDrop::Source を作成し、Control::onDrag イベントまたは任意のイベントから DragDrop::Source::doDragDrop 関数でドラッグドロップを開始する。
+* ドロップするコントロールを指定して DragDrop::Target を作成し、DragDrop::Target::onDrop イベントでドロップされたデータを処理する。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
+Frame frame(L"DragDrop Sample");
 
-	Label label(frame, 20, 10, 0, 0, L"�����ɕ�������h���b�O�A�܂��͂������當������h���b�O�ł���");
-	label.edge(Label::Edge::client);
-	label.resize();
+Label label(frame, 20, 10, 0, 0, L"ここに文字列をドラッグ、またはここから文字列をドラッグできる");
+label.edge(Label::Edge::client);
+label.resize();
 
-	DragDrop::Target target(label);
-	target.onDrop() = [&] (DragDrop::Drop& e) {
-		if (e.data().containsText()) {
-			label.text(e.data().getText());
-		}
-	};
-	target.onMove() = [&] (DragDrop::Move& e) {
-		if (!e.data().containsText()) {
-			// ������̃h���b�O�łȂ���Ύ󂯕t���Ȃ��A�C�R���\���ɂ���B
-			e.effect(DragDrop::Effect::none);
-		}
-	};
+DragDrop::Target target(label);
+target.onDrop() = [&] (DragDrop::Drop& e) {
+if (e.data().containsText()) {
+label.text(e.data().getText());
+}
+};
+target.onMove() = [&] (DragDrop::Move& e) {
+if (!e.data().containsText()) {
+// 文字列のドラッグでなければ受け付けないアイコン表示にする。
+e.effect(DragDrop::Effect::none);
+}
+};
 
-	DragDrop::Source source(label);
-	label.onDrag() = [&] (Control::Drag& e) {
-		if (e.lButton()) {
-			Bitmap bitmap(label.size());
-			label.drawTo(bitmap);
-			ImageList list(label.size());
-			list.add(bitmap);
-			source.doDragDrop(label.text(), DragDrop::Effect::move, list, 0, e.position().x, e.position().y);
-		}
-	};
+DragDrop::Source source(label);
+label.onDrag() = [&] (Control::Drag& e) {
+if (e.lButton()) {
+Bitmap bitmap(label.size());
+label.drawTo(bitmap);
+ImageList list(label.size());
+list.add(bitmap);
+source.doDragDrop(label.text(), DragDrop::Effect::move, list, 0, e.position().x, e.position().y);
+}
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class DragDrop {
 public:
 	typedef ::_IMAGELIST* HIMAGELIST;
@@ -83,46 +83,46 @@ private:
 	class DropTarget;
 
 public:
-	/// ������������Ȃ������B
+	/// メモリが足りなかった。
 	struct OutOfMemoryException : public ::balor::OutOfMemoryException {};
 
 
-	/// �h���b�O���h���b�v����B�g�ݍ��킹�Ŏw�肷��B
+	/// ドラッグ＆ドロップ操作。組み合わせで指定する。
 	struct Effect {
 		enum _enum {
-			none   = 0         , /// �����s���Ȃ������B
-			copy   = 1         , /// �R�s�[������s���B
-			move   = 2         , /// �ړ�������s���B
-			link   = 4         , /// �V���[�g�J�b�g�̍쐬������s���B
+			none = 0, /// 何も行われなかった。
+			copy = 1, /// コピー操作を行う。
+			move = 2, /// 移動操作を行う。
+			link = 4, /// ショートカットの作成操作を行う。
 			scroll = 0x80000000, ///
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Effect);
 	};
 
 
-	/// �h���b�O���̃f�[�^���h���b�v�����C�x���g�B
+	/// ドラッグ中のデータをドロップしたイベント。
 	struct Drop : public Control::Event {
 		Drop(Control& sender, const Data& data, Effect allowedEffects, int keyState, const Point& position);
-		/// �h���b�O���������鑀��̑g�ݍ��킹�B
+		/// ドラッグ元が許可する操作の組み合わせ。
 		DragDrop::Effect allowedEffects() const;
-		/// ALT �L�[��������Ă��邩�ǂ����B
+		/// ALT キーが押されているかどうか。
 		bool alt() const;
-		/// CTRL �L�[��������Ă��邩�ǂ����B
+		/// CTRL キーが押されているかどうか。
 		bool ctrl() const;
-		/// �h���b�O���Ă���f�[�^�B
+		/// ドラッグしているデータ。
 		const DragDrop::Data& data() const;
-		/// �h���b�O���h���b�v�̑���B�g�ݍ��킹�ł͂Ȃ��l�ɂȂ�B�����l�̓G�N�X�v���[���Ɠ��������B
+		/// ドラッグ＆ドロップの操作。組み合わせではない値になる。初期値はエクスプローラと同じ挙動。
 		DragDrop::Effect effect() const;
 		void effect(DragDrop::Effect value);
-		/// �}�E�X�̍��{�^����������Ă��邩�ǂ����B
+		/// マウスの左ボタンが押されているかどうか。
 		bool lButton() const;
-		/// �}�E�X�̒����{�^����������Ă��邩�ǂ����B
+		/// マウスの中央ボタンが押されているかどうか。
 		bool mButton() const;
-		/// �}�E�X�J�[�\���̈ʒu�B
+		/// マウスカーソルの位置。
 		const Point& position() const;
-		/// �}�E�X�̉E�{�^����������Ă��邩�ǂ����B
+		/// マウスの右ボタンが押されているかどうか。
 		bool rButton() const;
-		/// Shift �L�[��������Ă��邩�ǂ����B
+		/// Shift キーが押されているかどうか。
 		bool shift() const;
 
 	private:
@@ -134,18 +134,18 @@ public:
 	};
 
 
-	/// �h���b�O���̃}�E�X�J�[�\�����R���g���[����ɓ������C�x���g�B
+	/// ドラッグ中のマウスカーソルがコントロール上に入ったイベント。
 	typedef Drop Enter;
 
 
-	/// �h���b�O���h���b�v�̑��� �ɑ΂��ēK�؂ȃJ�[�\����ݒ肷��C�x���g�B�ݒ肵�Ȃ������ꍇ�̓V�X�e���̃f�t�H���g�̋����ɂȂ�B
-	/// DragDrop::Target �N���X�� onDragEnter �� onDragMove �C�x���g���̌�ɔ�������B
+	/// ドラッグ＆ドロップの操作 に対して適切なカーソルを設定するイベント。設定しなかった場合はシステムのデフォルトの挙動になる。
+	/// DragDrop::Target クラスの onDragEnter や onDragMove イベント等の後に発生する。
 	struct Feedback : public Control::Event {
 		Feedback(Control& sender, Effect effect);
 
-		/// �J�[�\����ݒ肷��B�ݒ肵�Ȃ������ꍇ�̓V�X�e���̃f�t�H���g�̃J�[�\���ɂȂ�B
+		/// カーソルを設定する。設定しなかった場合はシステムのデフォルトのカーソルになる。
 		void cursor(HCURSOR value);
-		/// ����̃h���b�O���h���b�v�̑���B
+		/// 現状のドラッグ＆ドロップの操作。
 		DragDrop::Effect effect() const;
 
 	private:
@@ -156,38 +156,38 @@ public:
 	};
 
 
-	/// �h���b�O���̃}�E�X�J�[�\�����R���g���[���ォ��o���C�x���g�B
+	/// ドラッグ中のマウスカーソルがコントロール上から出たイベント。
 	typedef Control::Event Leave;
 
 
-	/// �h���b�O���Ƀ}�E�X�J�[�\�����R���g���[������ړ������C�x���g�B
+	/// ドラッグ中にマウスカーソルがコントロール上を移動したイベント。
 	typedef Drop Move;
 
 
-	/// �L�[���͏�ԓ�����h���b�O���h���b�v�𑱍s���邩�L�����Z�����邩���߂�C�x���g�B
-	/// DragDrop::Target �N���X�� onDragEnter �� onDragMove �C�x���g���̑O�ɔ�������B
+	/// キー入力状態等からドラッグ＆ドロップを続行するかキャンセルするか決めるイベント。
+	/// DragDrop::Target クラスの onDragEnter や onDragMove イベント等の前に発生する。
 	struct QueryContinue : public Control::Event {
 		QueryContinue(Control& sender, bool esc, int keyState);
 
-		/// ALT �L�[��������Ă��邩�ǂ����B
+		/// ALT キーが押されているかどうか。
 		bool alt() const;
-		/// �h���b�O���h���b�v���L�����Z�����邩�ǂ����B
+		/// ドラッグ＆ドロップをキャンセルするかどうか。
 		bool cancelDrag() const;
 		void cancelDrag(bool value);
-		/// CTRL �L�[��������Ă��邩�ǂ����B
+		/// CTRL キーが押されているかどうか。
 		bool ctrl() const;
-		/// �h���b�v���ăh���b�O���h���b�v���I�����邩�ǂ����B
+		/// ドロップしてドラッグ＆ドロップを終了するかどうか。
 		bool drop() const;
 		void drop(bool value);
-		/// ESC �L�[�������ꂽ���ǂ����B
+		/// ESC キーが押されたかどうか。
 		bool esc() const;
-		/// �}�E�X�̍��{�^����������Ă��邩�ǂ����B
+		/// マウスの左ボタンが押されているかどうか。
 		bool lButton() const;
-		/// �}�E�X�̒����{�^����������Ă��邩�ǂ����B
+		/// マウスの中央ボタンが押されているかどうか。
 		bool mButton() const;
-		/// �}�E�X�̉E�{�^����������Ă��邩�ǂ����B
+		/// マウスの右ボタンが押されているかどうか。
 		bool rButton() const;
-		/// Shift �L�[��������Ă��邩�ǂ����B
+		/// Shift キーが押されているかどうか。
 		bool shift() const;
 
 	private:
@@ -199,20 +199,20 @@ public:
 
 
 public:
-	/// �h���b�O���h���b�v����f�[�^��\���B
-	/// ���[�U��`�̃f�[�^���g�p����ꍇ�� registerMemoryFormat �֐��ň�ӂȖ��O�Ń������t�H�[�}�b�g��o�^����B
-	class Data  : private NonCopyable {
+	/// ドラッグ＆ドロップするデータを表す。
+	/// ユーザ定義のデータを使用する場合は registerMemoryFormat 関数で一意な名前でメモリフォーマットを登録する。
+	class Data : private NonCopyable {
 		friend Source;
 	public:
-		/// ��̃f�[�^���쐬�B
+		/// 空のデータを作成。
 		Data();
 		Data(Data&& value);
-		/// �r�b�g�}�b�v�����f�[�^���쐬�B
+		/// ビットマップを持つデータを作成。
 		Data(HBITMAP bitmap);
 		Data(const Bitmap& bitmap);
-		/// ���[�U��`�̃������f�[�^�����f�[�^���쐬�B
+		/// ユーザ定義のメモリデータを持つデータを作成。
 		Data(int memoryFormat, MemoryStream& stream);
-		/// ����������f�[�^���쐬�B
+		/// 文字列を持つデータを作成。
 		Data(const String& text);
 		Data(const wchar_t* text);
 		Data(const std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >& text);
@@ -221,37 +221,37 @@ public:
 		Data& operator=(Data&& value);
 
 	public:
-		/// �f�[�^�� �r�b�g�}�b�v���܂܂�邩�ǂ����B
+		/// データに ビットマップが含まれるかどうか。
 		bool containsBitmap() const;
-		/// �f�[�^�� DIB �r�b�g�}�b�v���܂܂�邩�ǂ����B
+		/// データに DIB ビットマップが含まれるかどうか。
 		bool containsDIB() const;
-		/// �f�[�^�Ƀt�@�C���h���b�v���X�g���܂܂�邩�ǂ����B
+		/// データにファイルドロップリストが含まれるかどうか。
 		bool containsFileDropList() const;
-		/// �f�[�^�Ƀ��[�U��`�̃������f�[�^���܂܂�邩�ǂ����B
+		/// データにユーザ定義のメモリデータが含まれるかどうか。
 		bool containsMemory(int memoryFormat) const;
-		/// �f�[�^�ɕ����񂪊܂܂�邩�ǂ����B
+		/// データに文字列が含まれるかどうか。
 		bool containsText() const;
-		/// DDB �r�b�g�}�b�v���擾����B�����ꍇ�̓k���̃r�b�g�}�b�v��Ԃ��B
+		/// DDB ビットマップを取得する。無い場合はヌルのビットマップを返す。
 		Bitmap getBitmap() const;
-		/// DIB �r�b�g�}�b�v���擾����B�����ꍇ�̓k���̃r�b�g�}�b�v��Ԃ��B
+		/// DIB ビットマップを取得する。無い場合はヌルのビットマップを返す。
 		Bitmap getDIB() const;
-		/// �t�@�C���h���b�v���X�g���擾����B�����ꍇ�͋�̔z���Ԃ��B
+		/// ファイルドロップリストを取得する。無い場合は空の配列を返す。
 		std::vector<String, std::allocator<String> > getFileDropList() const;
-		/// ���[�U��`�̃������f�[�^���擾����B�����ꍇ�͋�̃������X�g���[����Ԃ��B
+		/// ユーザ定義のメモリデータを取得する。無い場合は空のメモリストリームを返す。
 		MemoryStream getMemory(int memoryFormat) const;
-		/// ��������擾����B�����ꍇ�͋󕶎����Ԃ��B
+		/// 文字列を取得する。無い場合は空文字列を返す。
 		String getText() const;
-		/// ���[�U��`�̃������t�H�[�}�b�g����o�^���A�������t�H�[�}�b�g��Ԃ��B�������t�H�[�}�b�g�������̃v���Z�X�Ŋ��ɓo�^����Ă����瓯���������t�H�[�}�b�g��Ԃ��B
+		/// ユーザ定義のメモリフォーマット名を登録し、メモリフォーマットを返す。メモリフォーマット名が他のプロセスで既に登録されていたら同じメモリフォーマットを返す。
 		static int registerMemoryFormat(StringRange memoryFormatName);
-		/// DDB �r�b�g�}�b�v��ݒ肷��B
+		/// DDB ビットマップを設定する。
 		void setBitmap(HBITMAP value);
-		/// DIB �r�b�g�}�b�v��ݒ肷��B
+		/// DIB ビットマップを設定する。
 		void setDIB(HBITMAP value);
-		/// �t�@�C���h���b�v���X�g��ݒ肷��B
+		/// ファイルドロップリストを設定する。
 		void setFileDropList(StringRangeArray value);
-		/// ���[�U��`�̃������f�[�^��ݒ肷��B
+		/// ユーザ定義のメモリデータを設定する。
 		void setMemory(int memoryFormat, Stream& stream);
-		/// �������ݒ肷��B
+		/// 文字列を設定する。
 		void setText(StringRange value);
 
 	private:
@@ -259,25 +259,25 @@ public:
 	};
 
 
-	/// �h���b�O���h���b�v���J�n����R���g���[����\���B
+	/// ドラッグ＆ドロップを開始するコントロールを表す。
 	class Source : private NonCopyable {
 	public:
-		/// ����������ԁB
+		/// 未初期化状態。
 		Source();
 		Source(Source&& value);
-		/// �h���b�O���h���b�v�̊J�n�_�ƂȂ�R���g���[�����w�肵�č쐬�B
+		/// ドラッグ＆ドロップの開始点となるコントロールを指定して作成。
 		Source(Control& control);
 		~Source();
 		Source& operator=(Source&& value);
 
 	public:
-		/// �h���b�O���h���b�v���J�n����B�ŏI�I�ɍs��ꂽ�����Ԃ��BallowedEffect �ɂ͋�����h���b�O���h���b�v����̑g�ݍ��킹��ݒ肷��B
-		/// �܂��摜���X�g�Ƃ��̉摜�C���f�b�N�X�A�摜�̍��ォ��݂��}�E�X�J�[�\���̈ʒu���w�肵�ă}�E�X�J�[�\���ɏd�˂ĉ摜��\�����邱�Ƃ��ł���B
+		/// ドラッグ＆ドロップを開始する。最終的に行われた操作を返す。allowedEffect には許可するドラッグ＆ドロップ操作の組み合わせを設定する。
+		/// また画像リストとその画像インデックス、画像の左上からみたマウスカーソルの位置を指定してマウスカーソルに重ねて画像を表示することができる。
 		DragDrop::Effect doDragDrop(const DragDrop::Data& data, DragDrop::Effect allowedEffects = Effect::copy | Effect::move | Effect::link | Effect::scroll
 			, HIMAGELIST imageList = nullptr, int imageIndex = 0, int xHotSpot = 0, int yHotSpot = 0);
-		/// �h���b�O���h���b�v�̑���ɑ΂��ēK�؂ȃJ�[�\����ݒ肷��C�x���g�B�ݒ肵�Ȃ������ꍇ�̓V�X�e���̃f�t�H���g�̋����ɂȂ�B
+		/// ドラッグ＆ドロップの操作に対して適切なカーソルを設定するイベント。設定しなかった場合はシステムのデフォルトの挙動になる。
 		Listener<DragDrop::Feedback&>& onFeedback();
-		/// �L�[���͏�ԓ�����h���b�O���h���b�v�𑱍s���邩�L�����Z�����邩���߂�C�x���g�B
+		/// キー入力状態等からドラッグ＆ドロップを続行するかキャンセルするか決めるイベント。
 		Listener<DragDrop::QueryContinue&>& onQueryContinue();
 
 	private:
@@ -285,28 +285,28 @@ public:
 	};
 
 
-	/// �h���b�O�����b�v���󂯎��R���g���[����\���B
-	/// �v���ӁI���̃N���X�̓R���X�g���N�^�����ɓn���� Control ������ɔj�󂵂Ȃ��ƃ��������[�N����B
+	/// ドラッグ＆ロップを受け取るコントロールを表す。
+	/// 要注意！このクラスはコンストラクタ引数に渡した Control よりも先に破壊しないとメモリリークする。
 	class Target : private NonCopyable {
 	public:
-		/// ����������ԁB
+		/// 未初期化状態。
 		Target();
 		Target(Target&& value);
-		/// �h���b�O���h���b�v���󂯎��R���g���[�����w�肵�č쐬�B
+		/// ドラッグ＆ドロップを受け取るコントロールを指定して作成。
 		Target(Control& control);
 		~Target();
 		Target& operator=(Target&& value);
 
 	public:
-		/// �h���b�v�����C�x���g�B
+		/// ドロップしたイベント。
 		Listener<DragDrop::Drop&>& onDrop();
-		/// �h���b�O���̃}�E�X�J�[�\�����R���g���[����ɓ������C�x���g�B������ DragDrop::Enter::data() �֐����ǂ̃f�[�^�������Ă��邩���ׂ�
-		/// �����ł���f�[�^��������� DragDrop::Enter::effect() �� DragDrop::Effect::none ���w�肵���肷��B
+		/// ドラッグ中のマウスカーソルがコントロール上に入ったイベント。ここで DragDrop::Enter::data() 関数がどのデータを持っているか調べて
+		/// 処理できるデータが無ければ DragDrop::Enter::effect() に DragDrop::Effect::none を指定したりする。
 		Listener<DragDrop::Enter&>& onEnter();
-		/// �h���b�O���̃}�E�X�J�[�\�����R���g���[���ォ��o���C�x���g�B
+		/// ドラッグ中のマウスカーソルがコントロール上から出たイベント。
 		Listener<DragDrop::Leave&>& onLeave();
-		/// �h���b�O���Ƀ}�E�X�J�[�\�����R���g���[������ړ������C�x���g�B������ DragDrop::Move::data() �֐����ǂ̃f�[�^�������Ă��邩���ׂ�
-		/// �����ł���f�[�^��������� DragDrop::Move::effect() �� DragDrop::Effect::none ���w�肵���肷��B
+		/// ドラッグ中にマウスカーソルがコントロール上を移動したイベント。ここで DragDrop::Move::data() 関数がどのデータを持っているか調べて
+		/// 処理できるデータが無ければ DragDrop::Move::effect() に DragDrop::Effect::none を指定したりする。
 		Listener<DragDrop::Move&>& onMove();
 
 	private:
@@ -315,7 +315,7 @@ public:
 
 
 public:
-	/// �}�E�X�{�^���������Ȃ���ړ��������Ƀh���b�O���h���b�v���J�n����ړ��͈͂̃V�X�e���W���B
+	/// マウスボタンを押しながら移動した時にドラッグ＆ドロップを開始する移動範囲のシステム標準。
 	static Size defaultDragSize();
 };
 
