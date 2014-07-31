@@ -1,7 +1,7 @@
 #pragma once
 
-/// include ‚µ‚Ä‚¨‚¯‚Î balor ƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒŠƒ“ƒN‚ðŽ©“®“I‚ÉÝ’è‚µ‚Ä‚­‚ê‚éB‘S‚Ä‚Ì all.hpp ‚Å include Ï‚ÝB
-/// ƒŠƒŠ[ƒXƒrƒ‹ƒh‚Å NDEBUG ‚ð’è‹`‚µ‚È‚¢ó‘Ô‚ð beta ‚Æ‚µ‚Ä‚¢‚éB
+/// include ÇØµÎ¸é ¶óÀÌºê·¯¸® ¸µÅ©¸¦ ÀÚµ¿ÀûÀ¸·Î ¼³Á¤ÇØ ÁØ´Ù. ÀüÃ¼¸¦ Æ÷ÇÔÇÏ´Â all.hpp·Î ³¡³²
+/// ¸±¸®½º ºôµå¿¡¼­ NDEBUG¸¦ Á¤ÀÇÇÏÁö ¾ÊÀº »óÈ²À» beta·Î µÎ°í ÀÖ´Ù.
 
 #if defined(_DEBUG)
 #if defined(_DLL)

@@ -7,45 +7,45 @@ namespace balor {
 
 
 
-/**
- * •½–Ê‚ÌÀ•W‚ğ•\‚·\‘¢‘ÌB
- * 
- * Šeí‰‰Zq‚ğƒTƒ|[ƒg‚·‚é‘¼AWIN32 ‚Ì POINT \‘¢‘Ì‚Æ‘ŠŒİ•ÏŠ·‚Å‚«‚éB
- */
-class Point {
-public:
-	typedef ::tagPOINT POINT;
+	/**
+	* Æò¸é ÁÂÇ¥¸¦ Ç¥½ÃÇÏ´Â ±¸Á¶Ã¼.
+	*
+	* °¢Á¾¿¬»êÀÚ¸¦ ¼­Æ÷Æ®ÇÏ´Â °Í ¿Ü¿¡, WIN32ÀÇ POINT ±¸Á¶Ã¼¿Í »óÈ£ ±³È¯ °¡´ÉÇÏ´Ù.
+	*/
+	class Point {
+	public:
+		typedef ::tagPOINT POINT;
 
-public:
-	/// ‰Šú‰»‚¹‚¸‚Éì¬B
-	Point() {}
-	Point(const Point& value);
-	/// POINT \‘¢‘Ì‚Å‰Šú‰»B
-	Point(const POINT& point);
-	/// À•W‚Å‰Šú‰»B
-	Point(int x, int y);
+	public:
+		/// ÃÊ±âÈ­ ÇÏÁö ¾Ê°í ÀÛ¼º
+		Point() {}
+		Point(const Point& value);
+		/// POINT ±¸Á¶Ã¼·Î ÃÊ±âÈ­.
+		Point(const POINT& point);
+		/// ÁÂÇ¥·Î ÃÊ±âÈ­.
+		Point(int x, int y);
 
-public:
-	/// —v‘f‚²‚Æ‚ÉÅ‘å’l‚ğ‹‚ß‚éB
-	static Point maximize(const Point& lhs, const Point& rhs);
-	/// —v‘f‚²‚Æ‚ÉÅ¬’l‚ğ‹‚ß‚éB
-	static Point minimize(const Point& lhs, const Point& rhs);
+	public:
+		/// ¿ä¼Ò¸¶´Ù ÃÖ´ë°ªÀ» ±¸ÇÑ´Ù.
+		static Point maximize(const Point& lhs, const Point& rhs);
+		/// ¿ä¼Ò¸¶´Ù ÃÖ¼Ò°ªÀ» ±¸ÇÑ´Ù.
+		static Point minimize(const Point& lhs, const Point& rhs);
 
-public:
-	/// POINT \‘¢‘Ì‚Ö‚Ì•ÏŠ·
-	operator POINT() const;
-	Point operator-() const;
-	Point& operator += (const Point& rhs);
-	friend Point operator + (const Point& lhs, const Point& rhs);
-	Point& operator -= (const Point& rhs);
-	friend Point operator - (const Point& lhs, const Point& rhs);
-	bool operator == (const Point& rhs) const;
-	bool operator != (const Point& rhs) const;
+	public:
+		/// POINT ±¸Á¶Ã¼·ÎÀÇ º¯È¯.
+		operator POINT() const;
+		Point operator-() const;
+		Point& operator += (const Point& rhs);
+		friend Point operator + (const Point& lhs, const Point& rhs);
+		Point& operator -= (const Point& rhs);
+		friend Point operator - (const Point& lhs, const Point& rhs);
+		bool operator == (const Point& rhs) const;
+		bool operator != (const Point& rhs) const;
 
-public:
-	int x;
-	int y;
-};
+	public:
+		int x;
+		int y;
+	};
 
 
 
