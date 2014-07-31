@@ -1,4 +1,4 @@
-#include "GroupBox.hpp"
+ï»¿#include "GroupBox.hpp"
 
 #include <utility>
 
@@ -65,7 +65,7 @@ Brush GroupBox::brush() const {
 	if (!parent) {
 		return Brush();
 	}
-	return parent->brush(); // e‚Ìƒuƒ‰ƒV‚ðŽg‚Á‚Ä?‰æ‚·‚é‚Ì‚ÅŽq‚É‚àˆø‚«Œp‚®
+	return parent->brush(); // è¦ªã®ãƒ–ãƒ©ã‚·ã‚’ä½¿ã£ã¦æç”»ã™ã‚‹ã®ã§å­ã«ã‚‚å¼•ãç¶™ã
 }
 
 
@@ -101,7 +101,7 @@ Size GroupBox::getPreferredSize(int width, int height) const {
 
 
 bool GroupBox::focusable() const {
-	return false; // •ûŒüƒL?‚ÅƒtƒH?ƒJƒX‚ð“¾‚È‚¢‚æ‚¤‚Éã‘‚«B
+	return false; // æ–¹å‘ã‚­ãƒ¼ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãªã„ã‚ˆã†ã«ä¸Šæ›¸ã
 }
 
 
@@ -113,7 +113,7 @@ void GroupBox::processMessage(Message& msg) {
 			if (brush) {
 				brush = graphics.brush(brush);
 				auto origin = graphics.brushOrigin(brushOrigin());
-				graphics.clear(); // GroupBox ‚Å?‰æ‚·‚é‚Ì‚ð‚â‚ß‚Ä WS_EX_TRANSPARENT ƒX?ƒCƒ‹‚É‚·‚é‚ÆGroupBox ‚ÌƒŠƒTƒCƒYŽž‚ÉŽq‚à‚Ó‚­‚ß‚ÄŒƒ‚µ‚­‚¿‚ç‚Â‚­
+				graphics.clear(); // GroupBox ã§æç”»ã™ã‚‹ã®ã‚’ã‚„ã‚ã¦ WS_EX_TRANSPARENT ã‚¹ã‚¿ã‚¤ãƒ«ã«ã™ã‚‹ã¨GroupBox ã®ãƒªã‚µã‚¤ã‚ºæ™‚ã«å­ã‚‚ãµãã‚ã¦æ¿€ã—ãã¡ã‚‰ã¤ã
 				graphics.brushOrigin(origin);
 			} else {
 				brush = graphics.brush(Brush::control());
@@ -122,27 +122,27 @@ void GroupBox::processMessage(Message& msg) {
 			graphics.brush(brush);
 			msg.result = TRUE;
 		} break;
-		case WM_LBUTTONDBLCLK : { // Button ‚Æ“¯‚¶‹““®‚ð‚µ‚æ‚¤‚Æ‚µ‚ÄƒtƒH?ƒJƒX‚ð“¾‚½‚è‚·‚é‚Ì‚Å–h‚®
+		case WM_LBUTTONDBLCLK : { // Button ã¨åŒã˜æŒ™å‹•ã‚’ã—ã‚ˆã†ã¨ã—ã¦ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãŸã‚Šã™ã‚‹ã®ã§é˜²ã
 			MouseDoubleClick event(*this, Mouse::lButton , msg);
 			onMouseDoubleClick()(event);
 		} break;
-		case WM_LBUTTONDOWN : { // Button ‚Æ“¯‚¶‹““®‚ð‚µ‚æ‚¤‚Æ‚µ‚ÄƒtƒH?ƒJƒX‚ð“¾‚½‚è‚·‚é‚Ì‚Å–h‚®
+		case WM_LBUTTONDOWN : { // Button ã¨åŒã˜æŒ™å‹•ã‚’ã—ã‚ˆã†ã¨ã—ã¦ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãŸã‚Šã™ã‚‹ã®ã§é˜²ã
 			processMouseDown(MouseDown(*this, Mouse::lButton , msg, _dragBox));
 		} break;
 		case WM_MOVE : {
 			Control::processMessage(msg);
 			auto parent = this->parent();
-			if (parent && parent->brush()) { // eƒRƒ“ƒgƒ?ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ðŽ‚Â‚Ì‚Å?‰æ‚µ‚È‚¨‚µ
+			if (parent && parent->brush()) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§æç”»ã—ãªãŠã—
 				invalidate();
 			}
 		} break;
-		case WM_NCHITTEST : { // HTTRANSPARENT ‚ð•Ô‚³‚È‚¢‚æ‚¤‚É‚·‚é
+		case WM_NCHITTEST : { // HTTRANSPARENT ã‚’è¿”ã•ãªã„ã‚ˆã†ã«ã™ã‚‹
 			Rectangle screenRect(Point(0, 0), size());
 			screenRect = clientToScreen(screenRect);
 			auto point = Point(GET_X_LPARAM(msg.lparam), GET_Y_LPARAM(msg.lparam));
 			msg.result = screenRect.contains(point) ? HTCLIENT : HTNOWHERE;
 		} break;
-		case wmReflect + WM_CTLCOLORSTATIC : { // •¶Žš‚Ì”wŒi‚Í‚±‚±‚Å•Ô‚µ‚½ƒuƒ‰ƒV‚Å“h‚ç‚ê‚é
+		case wmReflect + WM_CTLCOLORSTATIC : { // æ–‡å­—ã®èƒŒæ™¯ã¯ã“ã“ã§è¿”ã—ãŸãƒ–ãƒ©ã‚·ã§å¡—ã‚‰ã‚Œã‚‹
 			HBRUSH brush = this->brush();
 			if (brush) {
 				Graphics graphics((HDC)msg.wparam);

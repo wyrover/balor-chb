@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -9,59 +9,59 @@ namespace balor {
 
 
 /**
- * ƒOƒ‹[ƒvƒ{ƒbƒNƒXB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"GroupBox Sample");
+* ã‚°ãƒ«ãƒ¼ãƒ—ãƒœãƒƒã‚¯ã‚¹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"GroupBox Sample");
 
-	GroupBox group(frame, 20, 10, 0, 0, L"”wŒiF");
-	Brush redBrush(Color::red());
-	Brush greenBrush(Color::green());
-	Brush blueBrush(Color::blue());
-	RadioButton red(group, 20, 20, 0, 0, L"Ô‚¢”wŒi", [&] (RadioButton::Check& ) {
-		frame.brush(redBrush);
-		frame.invalidate(true);
-	});
-	RadioButton green(group, 20, 50, 0, 0, L"—Î‚Ì”wŒi", [&] (RadioButton::Check& ) {
-		frame.brush(greenBrush);
-		frame.invalidate(true);
-	});
-	RadioButton blue(group, 20, 80, 0, 0, L"Â‚¢”wŒi", [&] (RadioButton::Check& ) {
-		frame.brush(blueBrush);
-		frame.invalidate(true);
-	});
-	group.resize(); // qƒRƒ“ƒgƒ[ƒ‹‚É‘å‚«‚³‚ğ‚ ‚í‚¹‚éB
+GroupBox group(frame, 20, 10, 0, 0, L"èƒŒæ™¯è‰²");
+Brush redBrush(Color::red());
+Brush greenBrush(Color::green());
+Brush blueBrush(Color::blue());
+RadioButton red(group, 20, 20, 0, 0, L"èµ¤ã„èƒŒæ™¯", [&] (RadioButton::Check& ) {
+frame.brush(redBrush);
+frame.invalidate(true);
+});
+RadioButton green(group, 20, 50, 0, 0, L"ç·‘ã®èƒŒæ™¯", [&] (RadioButton::Check& ) {
+frame.brush(greenBrush);
+frame.invalidate(true);
+});
+RadioButton blue(group, 20, 80, 0, 0, L"é’ã„èƒŒæ™¯", [&] (RadioButton::Check& ) {
+frame.brush(blueBrush);
+frame.invalidate(true);
+});
+group.resize(); // å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«å¤§ãã•ã‚’ã‚ã‚ã›ã‚‹ã€‚
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class GroupBox : public Control {
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	GroupBox();
 	GroupBox(GroupBox&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³A•¶š—ñ‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€æ–‡å­—åˆ—ã‹ã‚‰ä½œæˆã€‚
 	GroupBox(Control& parent, int x, int y, int width, int height, StringRange text);
 	virtual ~GroupBox();
 	GroupBox& operator=(GroupBox&& value);
 
 public:
-	/// ”wŒiƒuƒ‰ƒVBİ’è‚µ‚È‚¯‚ê‚ÎeƒRƒ“ƒgƒ[ƒ‹‚Ìƒuƒ‰ƒV‚ğg—p‚·‚éB
+	/// èƒŒæ™¯ãƒ–ãƒ©ã‚·ã€‚è¨­å®šã—ãªã‘ã‚Œã°è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ãƒ–ãƒ©ã‚·ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
 	virtual Brush brush() const;
 	using Control::brush;
-	/// ”wŒiƒuƒ‰ƒV‚ÌŒ´“_B
+	/// èƒŒæ™¯ãƒ–ãƒ©ã‚·ã®åŸç‚¹ã€‚
 	virtual Point brushOrigin() const;
 	using Control::brushOrigin;
-	/// ‰¼‘z“I‚ÈƒRƒ“ƒgƒ[ƒ‹‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚Æ‘å‚«‚³B
+	/// ä»®æƒ³çš„ãªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã¨å¤§ãã•ã€‚
 	virtual Rectangle displayRectangle() const;
-	/// ƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é‚©‚Ç‚¤‚©B
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	virtual bool focusable() const;
-	/// qƒRƒ“ƒgƒ[ƒ‹‚ªû‚Ü‚éÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éB
+	/// å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒåã¾ã‚‹æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 };
 

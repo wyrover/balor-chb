@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/graphics/Color.hpp>
 #include <balor/gui/Control.hpp>
@@ -12,114 +12,114 @@ namespace balor {
 
 
 /**
- * ƒŠƒXƒgƒ{ƒbƒNƒXƒRƒ“ƒgƒ[ƒ‹B
- * 
- * …•½ƒXƒNƒ[ƒ‹ƒo[‚Í©“®“I‚É‚Í•\¦‚³‚ê‚È‚¢‚Ì‚ÅAscrollWidth() ‚É maxItemWidth() “™‚ğİ’è‚·‚é•K—v‚ª‚ ‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"ListBox Sample");
+* ãƒªã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã¯è‡ªå‹•çš„ã«ã¯è¡¨ç¤ºã•ã‚Œãªã„ã®ã§ã€scrollWidth() ã« maxItemWidth() ç­‰ã‚’è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"ListBox Sample");
 
-	Label label(frame, 20, 10, 0, 0, L"ƒEƒCƒ“ƒhƒE‚ÌƒAƒCƒRƒ“‚ğ‘I‘ğ");
-	Icon icons[] = {
-		Icon::application(),
-		Icon::exclamation(),
-		Icon::question()
-	};
-	const wchar_t* items[] = {
-		L"ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒAƒCƒRƒ“",
-		L"ƒGƒNƒXƒNƒ‰ƒ[ƒVƒ‡ƒ“ƒAƒCƒRƒ“",
-		L"ƒNƒGƒXƒ`ƒ‡ƒ“ƒAƒCƒRƒ“"
-	};
-	ListBox list(frame, 20, 50, 0, 0, items);
-	list.onSelect() = [&] (ListBox::Select& e) {
-		frame.icon(icons[list.selectedIndex()]);
-	};
- 
-	frame.runMessageLoop();
- * </code></pre>
- */
+Label label(frame, 20, 10, 0, 0, L"ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’é¸æŠ");
+Icon icons[] = {
+Icon::application(),
+Icon::exclamation(),
+Icon::question()
+};
+const wchar_t* items[] = {
+L"ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¢ã‚¤ã‚³ãƒ³",
+L"ã‚¨ã‚¯ã‚¹ã‚¯ãƒ©ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¢ã‚¤ã‚³ãƒ³",
+L"ã‚¯ã‚¨ã‚¹ãƒãƒ§ãƒ³ã‚¢ã‚¤ã‚³ãƒ³"
+};
+ListBox list(frame, 20, 50, 0, 0, items);
+list.onSelect() = [&] (ListBox::Select& e) {
+frame.icon(icons[list.selectedIndex()]);
+};
+
+frame.runMessageLoop();
+* </code></pre>
+*/
 class ListBox : public Control {
 public:
-	/// €–Ú‚Ì‘I‘ğ•û–@B
+	/// é …ç›®ã®é¸æŠæ–¹æ³•ã€‚
 	struct SelectMode {
 		enum _enum {
-			none             = 0x4000L, /// ‘I‘ğ‚Å‚«‚È‚¢
-			one              = 0x0000L, /// ˆê‚Â‚¾‚¯‘I‘ğ‚Å‚«‚é
-			multiple         = 0x0008L, /// •¡”‘I‘ğ‚Å‚«‚é
-			multipleExtended = 0x0800L, /// CTRL ƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç‚Å•¡”‘I‘ğAShift ƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç‚Å”ÍˆÍ‘I‘ğ‚Å‚«‚éB
+			none = 0x4000L, /// é¸æŠã§ããªã„
+			one = 0x0000L, /// ä¸€ã¤ã ã‘é¸æŠã§ãã‚‹
+			multiple = 0x0008L, /// è¤‡æ•°é¸æŠã§ãã‚‹
+			multipleExtended = 0x0800L, /// CTRL ã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã§è¤‡æ•°é¸æŠã€Shift ã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã§ç¯„å›²é¸æŠã§ãã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(SelectMode);
 	};
 
 
-	/// ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Options {
 		enum _enum {
-			none             = 0          , 
-			noHScroll        = 0x00100000L, /// …•½ƒXƒNƒ[ƒ‹‚ğ‚µ‚È‚¢B
-			noVScroll        = 0x00200000L, /// ‚’¼ƒXƒNƒ[ƒ‹‚ğ‚µ‚È‚¢B
-			scrollBarFixed   = 0x1000L    , /// noHScroll ‚â noVScroll ‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ƒXƒNƒ[ƒ‹ƒo[‚ğí‚É•\¦‚·‚éB
-			multiColumn      = 0x0200L    , /// c‚Ìs‚ğ•¡”s‚É‚·‚éB
-			noIntegralHeight = 0x0100L    , /// ƒRƒ“ƒgƒ[ƒ‹‚Ì‚‚³‚ğ©“®“I‚É€–Ú‚Ì‚‚³‚Ì”{”‚É’²ß‚µ‚È‚¢B
+			none = 0,
+			noHScroll = 0x00100000L, /// æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’ã—ãªã„ã€‚
+			noVScroll = 0x00200000L, /// å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’ã—ãªã„ã€‚
+			scrollBarFixed = 0x1000L, /// noHScroll ã‚„ noVScroll ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’å¸¸ã«è¡¨ç¤ºã™ã‚‹ã€‚
+			multiColumn = 0x0200L, /// ç¸¦ã®è¡Œã‚’è¤‡æ•°è¡Œã«ã™ã‚‹ã€‚
+			noIntegralHeight = 0x0100L, /// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®é«˜ã•ã‚’è‡ªå‹•çš„ã«é …ç›®ã®é«˜ã•ã®å€æ•°ã«èª¿ç¯€ã—ãªã„ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// ƒŠƒXƒgƒ{ƒbƒNƒX‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ãƒªã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<ListBox, Control::Event> Event;
 
 	typedef Event Select;
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	ListBox();
 	ListBox(ListBox&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ä½œæˆã€‚
 	ListBox(Control& parent, int x, int y, int width, int height, ListBox::SelectMode select = SelectMode::one, ListBox::Options options = Options::none);
-	/// eAˆÊ’uA‘å‚«‚³A€–Ú”z—ñ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€é …ç›®é…åˆ—ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	ListBox(Control& parent, int x, int y, int width, int height, StringRangeArray items, ListBox::SelectMode select = SelectMode::one, ListBox::Options options = Options::none);
 	virtual ~ListBox();
 	ListBox& operator=(ListBox&& value);
 
 public:
-	/// €–Ú‚ğ’Ç‰Á‚·‚éB
+	/// é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void add(StringRange item);
-	/// ”ÍˆÍ‘I‘ğ‚ÌŠJn“_‚É‚È‚é€–ÚƒCƒ“ƒfƒbƒNƒXBİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í -1B
+	/// ç¯„å›²é¸æŠã®é–‹å§‹ç‚¹ã«ãªã‚‹é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚è¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯ -1ã€‚
 	int anchorIndex() const;
 	void anchorIndex(int value);
-	/// ‘S‚Ä‚Ì€–Ú‚ğíœ‚·‚éB
+	/// å…¨ã¦ã®é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void clear();
-	/// ‘S‚Ä‚Ì€–Ú‚ğ–¢‘I‘ğ‚É‚·‚éB
+	/// å…¨ã¦ã®é …ç›®ã‚’æœªé¸æŠã«ã™ã‚‹ã€‚
 	void clearSelected();
-	/// ˆês‚Ì•Boptions() ‚É ListBox::Options::multiColumn ‚ğİ’è‚µ‚½ê‡‚Ì‚İ—LŒøB
+	/// ä¸€è¡Œã®å¹…ã€‚options() ã« ListBox::Options::multiColumn ã‚’è¨­å®šã—ãŸå ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	void columnWidth(int value);
-	/// €–Ú”B
+	/// é …ç›®æ•°ã€‚
 	int count() const;
-	/// ‚P—ñ‚É•\¦‚Å‚«‚é€–Ú”HB
+	/// ï¼‘åˆ—ã«è¡¨ç¤ºã§ãã‚‹é …ç›®æ•°ï¼Ÿã€‚
 	int countPerPage() const;
-	/// ƒRƒ“ƒgƒ[ƒ‹‚Ì‹«ŠEü‚Ìí—ŞB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¢ƒç•Œç·šã®ç¨®é¡ã€‚
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// €–Ú‚ğíœ‚·‚éB
+	/// é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void erase(int index);
-	/// Å‰‚É•\¦‚³‚ê‚Ä‚¢‚é€–Ú‚ÌƒCƒ“ƒfƒbƒNƒXBƒXƒNƒ[ƒ‹‚ğ§Œä‚Å‚«‚éB
+	/// æœ€åˆã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’åˆ¶å¾¡ã§ãã‚‹ã€‚
 	int firstVisibleIndex() const;
 	void firstVisibleIndex(int value);
-	/// ƒtƒH[ƒJƒX‚³‚ê‚Ä‚¢‚é€–ÚƒCƒ“ƒfƒbƒNƒXB
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚Œã¦ã„ã‚‹é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 	int focusedIndex() const;
 	void focusedIndex(int value);
-	/// ƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚©‚çÅ‚à‹ß‚¢€–Ú‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ‹‚ß‚éBŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í -1 ‚ğ•Ô‚·B
+	/// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã‹ã‚‰æœ€ã‚‚è¿‘ã„é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹ã€‚è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯ -1 ã‚’è¿”ã™ã€‚
 	int getIndexAt(const Point& point) const;
 	int getIndexAt(int x, int y) const;
-	/// w’è‚µ‚½ƒCƒ“ƒfƒbƒNƒX‚Ì€–ÚB
+	/// æŒ‡å®šã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®é …ç›®ã€‚
 	String getItem(int index) const;
 	void getItemToBuffer(StringBuffer& buffer, int index) const;
-	/// €–Ú‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚Æ‘å‚«‚³B•‚ÍŒ»İ‚ÌƒXƒNƒ[ƒ‹ˆÊ’u‚Å•\¦‚³‚ê‚Ä‚¢‚é‘å‚«‚³B
+	/// é …ç›®ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã¨å¤§ãã•ã€‚å¹…ã¯ç¾åœ¨ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã§è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹å¤§ãã•ã€‚
 	Rectangle getItemBounds(int index) const;
-	/// €–Ú‚É•R‚Â‚¯‚½ƒf[ƒ^Bæ“¾‚·‚éê‡‚Í UniqueAny ‚Ì’†g‚ÌŒ^‚ğw’è‚·‚éB
+	/// é …ç›®ã«ç´ã¤ã‘ãŸãƒ‡ãƒ¼ã‚¿ã€‚å–å¾—ã™ã‚‹å ´åˆã¯ UniqueAny ã®ä¸­èº«ã®å‹ã‚’æŒ‡å®šã™ã‚‹ã€‚
 	template<typename T> T getItemData(int index) {
 		auto data = _getItemData(index);
 		return any_cast<T>(*reinterpret_cast<UniqueAny*>(&data));
@@ -128,58 +128,58 @@ public:
 		auto data = _getItemData(index);
 		return any_cast<T>(*reinterpret_cast<const UniqueAny*>(&data));
 	}
-	/// €–Ú‚É•R‚Â‚¯‚½ƒf[ƒ^‚ª‚ ‚é‚©‚Ç‚¤‚©B
+	/// é …ç›®ã«ç´ã¤ã‘ãŸãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool getItemDataIsEmpty(int index) const;
-	/// font(), items() ‚Ì’l‚É‚æ‚Á‚ÄÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éB
+	/// font(), items() ã®å€¤ã«ã‚ˆã£ã¦æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// €–Ú‚ğ‘}“ü‚·‚éB
+	/// é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	void insert(int index, StringRange item);
-	/// €–Ú‚Ì‘I‘ğó‘Ô‚Ìæ“¾‚Æİ’èB
+	/// é …ç›®ã®é¸æŠçŠ¶æ…‹ã®å–å¾—ã¨è¨­å®šã€‚
 	bool isSelected(int index) const;
 	void isSelected(int index, bool selected);
-	/// €–Ú‚Ì‚‚³BƒXƒNƒ[ƒ‹‚ª‚¨‚©‚µ‚­‚È‚é‚Ì‚Å€–Ú‚ğ’Ç‰Á‚·‚é‘O‚Éİ’è‚·‚é‚×‚«B
+	/// é …ç›®ã®é«˜ã•ã€‚ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãŒãŠã‹ã—ããªã‚‹ã®ã§é …ç›®ã‚’è¿½åŠ ã™ã‚‹å‰ã«è¨­å®šã™ã‚‹ã¹ãã€‚
 	int itemHeight() const;
 	void itemHeight(int value);
-	/// €–Ú‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+	/// é …ç›®ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 	std::vector<String, std::allocator<String> > items() const;
 	void items(StringRangeArray value);
-	/// Œ»İ‚Ì€–Ú‚Ì•\¦‚É•K—v‚ÈÅ‘å•B
+	/// ç¾åœ¨ã®é …ç›®ã®è¡¨ç¤ºã«å¿…è¦ãªæœ€å¤§å¹…ã€‚
 	int maxItemWidth() const;
-	/// ‘I‘ğ€–Ú‚ª•ÏX‚³‚ê‚½ƒCƒxƒ“ƒgB
+	/// é¸æŠé …ç›®ãŒå¤‰æ›´ã•ã‚ŒãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListBox::Select&>& onSelect();
-	///	ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB
+	///	ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚
 	ListBox::Options options() const;
-	/// first ”Ô–Ú‚©‚ç last ”Ô–Ú‚Ü‚Å‚Ì€–Ú‚ğ‘I‘ğ‚·‚éBselecting ‚ª false ‚È‚ç‘I‘ğ‚ğ‰ğœ‚·‚éB•¡”‘I‘ğ‰Â”\‚Èê‡‚Ì‚İ—LŒøB
+	/// first ç•ªç›®ã‹ã‚‰ last ç•ªç›®ã¾ã§ã®é …ç›®ã‚’é¸æŠã™ã‚‹ã€‚selecting ãŒ false ãªã‚‰é¸æŠã‚’è§£é™¤ã™ã‚‹ã€‚è¤‡æ•°é¸æŠå¯èƒ½ãªå ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	void select(int first, int last, bool selecting = true);
-	/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é€–Ú‚Ì”B
+	/// é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã®æ•°ã€‚
 	int selectedCount() const;
-	/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é€–Ú‚ÌƒCƒ“ƒfƒbƒNƒXB‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í -1 ‚ª•Ô‚éBselectMode() ‚ª ListBox::SelectMode::one ‚Ìê‡‚Ì‚İ—LŒøB
+	/// é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚é¸æŠã•ã‚Œã¦ã„ãªã„å ´åˆã¯ -1 ãŒè¿”ã‚‹ã€‚selectMode() ãŒ ListBox::SelectMode::one ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	int selectedIndex() const;
 	void selectedIndex(int value);
-	/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é€–Ú‚ÌƒCƒ“ƒfƒbƒNƒX”z—ñB
+	/// é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹é…åˆ—ã€‚
 	std::vector<int, std::allocator<int> > selectedIndices() const;
 	void selectedIndices(ArrayRange<int> value);
-	/// €–Ú‚Éƒf[ƒ^‚ğ•R‚Â‚¯‚éB
+	/// é …ç›®ã«ãƒ‡ãƒ¼ã‚¿ã‚’ç´ã¤ã‘ã‚‹ã€‚
 	void setItemData(int index, UniqueAny&& value);
-	/// …•½ƒXƒNƒ[ƒ‹‚Å‚«‚é•B
+	/// æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã§ãã‚‹å¹…ã€‚
 	int scrollWidth() const;
 	void scrollWidth(int value);
-	/// €–Ú‚Ì‘I‘ğ•û–@B
+	/// é …ç›®ã®é¸æŠæ–¹æ³•ã€‚
 	ListBox::SelectMode selectMode() const;
-	/// tab •B‰Šú’l‚Í 8B’PˆÊ‚ÍƒtƒHƒ“ƒg‚Ì•½‹Ï•B
+	/// tab å¹…ã€‚åˆæœŸå€¤ã¯ 8ã€‚å˜ä½ã¯ãƒ•ã‚©ãƒ³ãƒˆã®å¹³å‡å¹…ã€‚
 	int tabWidth() const;
 	void tabWidth(int value);
-	/// •¶š—ñ‚ÌFB
+	/// æ–‡å­—åˆ—ã®è‰²ã€‚
 	Color textColor() const;
 	void textColor(const Color& value);
 
 public:
-	/// €–Ú‚ğæ“¾‚·‚éB
+	/// é …ç›®ã‚’å–å¾—ã™ã‚‹ã€‚
 	String operator[](int index) const;
 
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

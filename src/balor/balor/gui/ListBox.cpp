@@ -1,4 +1,4 @@
-#include "ListBox.hpp"
+ï»¿#include "ListBox.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -129,7 +129,7 @@ void ListBox::anchorIndex(int value) {
 
 void ListBox::clear() {
 	for (int i = 0, end = count(); i != end; ++i) {
-		setItemData(i, UniqueAny()); // LB_RESETCONTENT ‚Å WM_DELETEITEM ‚ª‘—‚ç‚ê‚é‚Æ MSDN ‚É‘‚¢‚Ä‚ ‚é‚Ì‚É‘—‚ç‚ê‚Ä‚±‚È‚¢‚¼IH
+		setItemData(i, UniqueAny()); // LB_RESETCONTENT ã§ WM_DELETEITEM ãŒé€ã‚‰ã‚Œã‚‹ã¨ MSDN ã«æ›¸ã„ã¦ã‚ã‚‹ã®ã«é€ã‚‰ã‚Œã¦ã“ãªã„ãï¼ï¼Ÿ
 	}
 	SendMessageW(handle(), LB_RESETCONTENT, 0, 0);
 }
@@ -410,7 +410,7 @@ int ListBox::selectedIndex() const {
 }
 
 
-void ListBox::selectedIndex(int value) { // •\Œü‚«‚Í SelectMode::one ê—p‚¾‚ª“à•”‚Å focusedIndex ‚Ì•ÏX—p‚É‚àg‚Á‚Ä‚¢‚éB
+void ListBox::selectedIndex(int value) { // è¡¨å‘ãã¯ SelectMode::one å°‚ç”¨ã ãŒå†…éƒ¨ã§ focusedIndex ã®å¤‰æ›´ç”¨ã«ã‚‚ä½¿ã£ã¦ã„ã‚‹
 	assert("index out of range" && -1 <= value);
 	assert("index out of range" && value < count());
 	assert("Invalid selectMode" && (selectMode() == SelectMode::none || selectMode() == SelectMode::one));
@@ -519,7 +519,7 @@ void ListBox::textColor(const Color& value) {
 void ListBox::processMessage(Message& msg) {
 	switch (msg.message) {
 		case WM_DESTROY : {
-			clear(); // itemData ‚ÌŠJ•ú
+			clear(); // itemData ã®é–‹æ”¾
 			processMessageByDefault(msg);
 		} break;
 		case wmReflect + WM_CTLCOLORLISTBOX : {

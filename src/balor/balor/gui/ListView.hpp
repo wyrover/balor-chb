@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 #include <functional>
@@ -32,89 +32,89 @@ class ToolTip;
 
 
 /**
- * ƒŠƒXƒgƒrƒ…?B
- * 
- * ?ƒEƒX¶??ƒ“‚©‰E??ƒ“‚ğ‰Ÿ‚µ‚½ê‡AonMouseDown ƒCƒxƒ“ƒg‚Í??ƒ“‚ğ—£‚µ‚½‚É”­¶‚µAonMouseUp ƒCƒxƒ“ƒg‚Í”­¶‚µ‚È‚¢B
- * ‘ã‚í‚è‚É onItemClick ƒCƒxƒ“ƒg‚â onItemRightClick ƒCƒxƒ“ƒg‚ğg—p‚Å‚«‚éB
- * onDrag ƒCƒxƒ“ƒg‚Í‚¤‚Ü‚­E‚¦‚È‚¢BonDrag ‚Ì‘ã‚í‚è‚É onItemDrag ƒCƒxƒ“ƒg‚ğg—p‚Å‚«‚éB
- * ƒOƒ‹?ƒv‚Í–¢À‘•B
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
- * <pre><code>
-	Frame frame(L"ListView Sample");
+* ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã€‚
+*
+* ãƒã‚¦ã‚¹å·¦ãƒœã‚¿ãƒ³ã‹å³ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸå ´åˆã€onMouseDown ã‚¤ãƒ™ãƒ³ãƒˆã¯ãƒœã‚¿ãƒ³ã‚’é›¢ã—ãŸæ™‚ã«ç™ºç”Ÿã—ã€onMouseUp ã‚¤ãƒ™ãƒ³ãƒˆã¯ç™ºç”Ÿã—ãªã„ã€‚
+* ä»£ã‚ã‚Šã« onItemClick ã‚¤ãƒ™ãƒ³ãƒˆã‚„ onItemRightClick ã‚¤ãƒ™ãƒ³ãƒˆã‚’ä½¿ç”¨ã§ãã‚‹ã€‚
+* onDrag ã‚¤ãƒ™ãƒ³ãƒˆã¯ã†ã¾ãæ‹¾ãˆãªã„ã€‚onDrag ã®ä»£ã‚ã‚Šã« onItemDrag ã‚¤ãƒ™ãƒ³ãƒˆã‚’ä½¿ç”¨ã§ãã‚‹ã€‚
+* ã‚°ãƒ«ãƒ¼ãƒ—ã¯æœªå®Ÿè£…ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"ListView Sample");
 
-	typedef ListView::ColumnInfo Column;
-	Column columns[] = {
-		Column(L"‰Ê•¨–¼"),
-		Column(L"F"),
-		Column(L"‘å‚«‚³")
-	};
-	typedef ListView::ItemInfo Item;
-	const wchar_t* item0Texts[] = {L"ƒuƒhƒE", L"‡", L"¬"};
-	const wchar_t* item1Texts[] = {L"ƒƒƒ“", L"—Î", L"’†"};
-	const wchar_t* item2Texts[] = {L"ƒXƒCƒJ", L"Ô", L"‘å"};
-	Item items[] = {
-		Item(item0Texts),
-		Item(item1Texts),
-		Item(item2Texts)
-	};
-	ListView list(frame, 20, 10, 0, 0, columns, items);
-	list.fullRowSelect(true);
- 
-	frame.runMessageLoop();
- * </code></pre>
- */
+typedef ListView::ColumnInfo Column;
+Column columns[] = {
+Column(L"æœç‰©å"),
+Column(L"è‰²"),
+Column(L"å¤§ãã•")
+};
+typedef ListView::ItemInfo Item;
+const wchar_t* item0Texts[] = {L"ãƒ–ãƒ‰ã‚¦", L"ç´«", L"å°"};
+const wchar_t* item1Texts[] = {L"ãƒ¡ãƒ­ãƒ³", L"ç·‘", L"ä¸­"};
+const wchar_t* item2Texts[] = {L"ã‚¹ã‚¤ã‚«", L"èµ¤", L"å¤§"};
+Item items[] = {
+Item(item0Texts),
+Item(item1Texts),
+Item(item2Texts)
+};
+ListView list(frame, 20, 10, 0, 0, columns, items);
+list.fullRowSelect(true);
+
+frame.runMessageLoop();
+* </code></pre>
+*/
 class ListView : public Control {
 public:
 	typedef ::_IMAGELIST* HIMAGELIST;
 	typedef ::balor::graphics::ImageList ImageList;
 
-	/// ?–Ú‚Ì•¶š—ñ‚ÌI?•¶š‚ğŠÜ‚ß‚½Å‘å’·B
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®çµ‚ç«¯æ–‡å­—ã‚’å«ã‚ãŸæœ€å¤§é•·ã€‚
 	static const int maxTextLength = 512;
 
 
-	/// ?–Ú‚Ì•¶š—ñ‚Ì”z’uB
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®é…ç½®ã€‚
 	struct Align {
 		enum _enum {
-			left   = 0x0000, /// ¶‘µ‚¦B
-			right  = 0x0001, /// ‰E‘µ‚¦B
-			center = 0x0002, /// ’†‰›‘µ‚¦B
+			left = 0x0000, /// å·¦æƒãˆã€‚
+			right = 0x0001, /// å³æƒãˆã€‚
+			center = 0x0002, /// ä¸­å¤®æƒãˆã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Align);
 	};
 
 
-	/// ?–Ú‚Ì•”•ªB
+	/// é …ç›®ã®éƒ¨åˆ†ã€‚
 	struct ItemPortion {
 		enum _enum {
-			whole        = 0x0000, /// ?–Ú‘S‘ÌB
-			icon         = 0x0001, /// ƒAƒCƒRƒ“•”•ªB
-			text         = 0x0002, /// •¶š—ñ•”•ªB
-			selectBounds = 0x0003, /// ‘I‘ğ‰Â?•”•ªBfullRowSelect() ‚É‚æ‚Á‚Ä”ÍˆÍ‚ª•Ï‚í‚éB
+			whole = 0x0000, /// é …ç›®å…¨ä½“ã€‚
+			icon = 0x0001, /// ã‚¢ã‚¤ã‚³ãƒ³éƒ¨åˆ†ã€‚
+			text = 0x0002, /// æ–‡å­—åˆ—éƒ¨åˆ†ã€‚
+			selectBounds = 0x0003, /// é¸æŠå¯èƒ½éƒ¨åˆ†ã€‚fullRowSelect() ã«ã‚ˆã£ã¦ç¯„å›²ãŒå¤‰ã‚ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ItemPortion);
 	};
 
 
-	/// ƒRƒ“ƒgƒ?ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Options {
 		enum _enum {
-			none          = 0     , 
-			checkBoxes    = 0x0004, /// ?–Ú‚²‚Æ‚É?ƒFƒbƒN?ƒbƒNƒX‚ğ?¦‚·‚éBstateImageList() ‚ğ?ì‚µ‚Ä?ƒFƒbƒN‰æ‘œ‚ğ•ÏX‚Å‚«‚éB‰æ‘œ‚ğ’Ç‰Á‚·‚é‚Æ?ƒFƒbƒNó‘Ô‚ª‘‚¦‚éB
-			noHeaderClick = 0x8000, /// ƒwƒb?‚ğ??ƒ“‚Ì‚æ‚¤‚ÉƒNƒŠƒbƒN‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚éB
+			none = 0,
+			checkBoxes = 0x0004, /// é …ç›®ã”ã¨ã«ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚stateImageList() ã‚’æ“ä½œã—ã¦ãƒã‚§ãƒƒã‚¯ç”»åƒã‚’å¤‰æ›´ã§ãã‚‹ã€‚ç”»åƒã‚’è¿½åŠ ã™ã‚‹ã¨ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ãŒå¢—ãˆã‚‹ã€‚
+			noHeaderClick = 0x8000, /// ãƒ˜ãƒƒãƒ€ã‚’ãƒœã‚¿ãƒ³ã®ã‚ˆã†ã«ã‚¯ãƒªãƒƒã‚¯ã§ããªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// ?¦ƒX?ƒCƒ‹B
+	/// è¡¨ç¤ºã‚¹ã‚¿ã‚¤ãƒ«ã€‚
 	struct Style {
 		enum _enum {
-			largeIcon = 0x0000, /// ‘å‚«‚ÈƒAƒCƒRƒ“?¦B
-			details   = 0x0001, /// Ú×?¦B
-			smallIcon = 0x0002, /// ¬‚³‚ÈƒAƒCƒRƒ“?¦B
-			list      = 0x0003, /// ˆê——?¦B
-			tile      = 0x0004, /// •À‚×‚Ä?¦BEnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹?ƒh‚ª•K—vB
+			largeIcon = 0x0000, /// å¤§ããªã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºã€‚
+			details = 0x0001, /// è©³ç´°è¡¨ç¤ºã€‚
+			smallIcon = 0x0002, /// å°ã•ãªã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºã€‚
+			list = 0x0003, /// ä¸€è¦§è¡¨ç¤ºã€‚
+			tile = 0x0004, /// ä¸¦ã¹ã¦è¡¨ç¤ºã€‚EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
@@ -123,40 +123,40 @@ public:
 
 	class ColumnInfo;
 
-	/// c‚ÌsBListView::getColumn ŠÖ”‚Åæ“¾‚Å‚«‚éB
+	/// ç¸¦ã®è¡Œã€‚ListView::getColumn é–¢æ•°ã§å–å¾—ã§ãã‚‹ã€‚
 	class Column {
 	public:
 		Column(HWND ownerHandle, int index);
-		/// c‚Ìs‚Ìî•ñ”½‰fB
+		/// ç¸¦ã®è¡Œã®æƒ…å ±åæ˜ ã€‚
 		Column& operator=(const ColumnInfo& columnInfo);
 
-		/// c‚Ìs‚Ì•¶š—ñ”z’uBÅ‰‚Ìs‚Í ListView::Align::left ‚ÅŒÅ’è‚³‚ê‚éB
+		/// ç¸¦ã®è¡Œã®æ–‡å­—åˆ—é…ç½®ã€‚æœ€åˆã®è¡Œã¯ ListView::Align::left ã§å›ºå®šã•ã‚Œã‚‹ã€‚
 		ListView::Align align() const;
 		void align(ListView::Align value);
-		/// •‚ğƒwƒb??‚Ì•¶š—ñ•‚É‡‚í‚¹‚éB?–Ú‚Ì•¶š—ñ•ˆÈ‰º‚É‚Í‚È‚ç‚È‚¢B
+		/// å¹…ã‚’ãƒ˜ãƒƒãƒ€ãƒ¼ã®æ–‡å­—åˆ—å¹…ã«åˆã‚ã›ã‚‹ã€‚é …ç›®ã®æ–‡å­—åˆ—å¹…ä»¥ä¸‹ã«ã¯ãªã‚‰ãªã„ã€‚
 		void fitWidthToHeader();
-		/// •‚ğ?–Ú‚Ì•¶š—ñ•‚É‡‚í‚¹‚éB
+		/// å¹…ã‚’é …ç›®ã®æ–‡å­—åˆ—å¹…ã«åˆã‚ã›ã‚‹ã€‚
 		void fitWidthToItem();
-		/// ƒwƒb?‚Ì‰æ‘œƒŠƒXƒgiListView::smallImageList()j‚ÌƒCƒ“ƒfƒbƒNƒXB-1 ‚È‚ç?¦‚µ‚È‚¢B
+		/// ãƒ˜ãƒƒãƒ€ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::smallImageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚-1 ãªã‚‰è¡¨ç¤ºã—ãªã„ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// c‚Ìs‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ç¸¦ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int index() const;
-		/// ?¦‡˜B
+		/// è¡¨ç¤ºé †åºã€‚
 		int order() const;
 		void order(int value);
-		/// ƒŠƒXƒgƒrƒ…?‚Ìƒnƒ“ƒhƒ‹B
+		/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã®ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND ownerHandle() const;
-		/// ‰æ‘œ‚ğ•¶š—ñ‚Ì‰E‚É?¦‚·‚é‚©‚Ç‚¤‚©BÅ‰‚Ìs‚Í false ‚ÅŒÅ’è‚³‚ê‚éB
+		/// ç”»åƒã‚’æ–‡å­—åˆ—ã®å³ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚æœ€åˆã®è¡Œã¯ false ã§å›ºå®šã•ã‚Œã‚‹ã€‚
 		bool rightImage() const;
 		void rightImage(bool value);
-		/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é‚æ‚¤‚É?¦‚·‚é‚©‚Ç‚¤‚©B‚±‚ÌŠÖ”‚Ìg—p‚É‚Í EnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹?ƒh‚ª•K—vB
+		/// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚ˆã†ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚ã“ã®é–¢æ•°ã®ä½¿ç”¨ã«ã¯ EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚
 		bool selected() const;
 		void selected(bool value);
-		/// ƒwƒb?‚Ì•¶š—ñB
+		/// ãƒ˜ãƒƒãƒ€ã®æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(StringRange value);
-		/// c‚Ìs‚Ì•B
+		/// ç¸¦ã®è¡Œã®å¹…ã€‚
 		int width() const;
 		void width(int value);
 
@@ -166,32 +166,32 @@ public:
 	};
 
 
-	/// c‚Ìs‚Ìî•ñ?‘¢‘ÌBî•ñ‚ğ‚Â‚¾‚¯‚ÅƒŠƒXƒgƒrƒ…?‚ÍˆêØ?ì‚µ‚È‚¢BListView::columnInfos ŠÖ”“™‚Åg—p‚·‚éB
+	/// ç¸¦ã®è¡Œã®æƒ…å ±æ§‹é€ ä½“ã€‚æƒ…å ±ã‚’æŒã¤ã ã‘ã§ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã¯ä¸€åˆ‡æ“ä½œã—ãªã„ã€‚ListView::columnInfos é–¢æ•°ç­‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 	class ColumnInfo {
 	public:
 		ColumnInfo(ColumnInfo&& value);
-		/// c‚Ìs‚Ìî•ñæ“¾B
+		/// ç¸¦ã®è¡Œã®æƒ…å ±å–å¾—ã€‚
 		ColumnInfo(const Column& column);
-		/// ‘S—v‘f‚©‚çì¬Bˆø”‚Í“¯–¼‚ÌŠÖ”‚ğQÆB
+		/// å…¨è¦ç´ ã‹ã‚‰ä½œæˆã€‚å¼•æ•°ã¯åŒåã®é–¢æ•°ã‚’å‚ç…§ã€‚
 		explicit ColumnInfo(String text = L"", int width = 0, ListView::Align align = Align::left, int imageIndex = -1, bool rightImage = false, int order = -1);
 		ColumnInfo& operator=(ColumnInfo&& value);
 
-		/// c‚Ìs‚Ì•¶š—ñ”z’uBÅ‰‚Ìs‚Í ListView::Align::left ‚ÅŒÅ’è‚³‚ê‚éB
+		/// ç¸¦ã®è¡Œã®æ–‡å­—åˆ—é…ç½®ã€‚æœ€åˆã®è¡Œã¯ ListView::Align::left ã§å›ºå®šã•ã‚Œã‚‹ã€‚
 		ListView::Align align() const;
 		void align(ListView::Align value);
-		/// ƒwƒb?‚Ì‰æ‘œƒŠƒXƒgiListView::smallImageListj‚ÌƒCƒ“ƒfƒbƒNƒXB-1 ‚È‚ç?¦‚µ‚È‚¢B
+		/// ãƒ˜ãƒƒãƒ€ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::smallImageListï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚-1 ãªã‚‰è¡¨ç¤ºã—ãªã„ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ?¦‡˜B-1 ‚È‚ç’Ç‰Á‚µ‚½‡B
+		/// è¡¨ç¤ºé †åºã€‚-1 ãªã‚‰è¿½åŠ ã—ãŸé †ã€‚
 		int order() const;
 		void order(int value);
-		/// ‰æ‘œ‚ğ•¶š—ñ‚Ì‰E‚É?¦‚·‚é‚©‚Ç‚¤‚©BÅ‰‚Ìs‚Í false ‚ÅŒÅ’è‚³‚ê‚éB
+		/// ç”»åƒã‚’æ–‡å­—åˆ—ã®å³ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚æœ€åˆã®è¡Œã¯ false ã§å›ºå®šã•ã‚Œã‚‹ã€‚
 		bool rightImage() const;
 		void rightImage(bool value);
-		/// ƒwƒb?‚Ì•¶š—ñB
+		/// ãƒ˜ãƒƒãƒ€ã®æ–‡å­—åˆ—ã€‚
 		const String& text() const;
 		void text(String value);
-		/// c‚Ìs‚Ì•B
+		/// ç¸¦ã®è¡Œã®å¹…ã€‚
 		int width() const;
 		void width(int value);
 
@@ -207,60 +207,60 @@ public:
 
 	class ItemInfo;
 
-	/// ?–ÚBListView::operator[] ‚Åæ“¾‚Å‚«‚éB
+	/// é …ç›®ã€‚ListView::operator[] ã§å–å¾—ã§ãã‚‹ã€‚
 	class Item {
 	public:
 		Item(HWND ownerHandle, int index);
-		/// ?–Úî•ñ‚ğ”½‰fB
+		/// é …ç›®æƒ…å ±ã‚’åæ˜ ã€‚
 		Item& operator=(const ItemInfo& itemInfo);
 
-		/// ?ƒFƒbƒN?ƒbƒNƒX‚ª?ƒFƒbƒN‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B?ƒFƒbƒN‚ÌƒIƒ“‚ÆƒIƒt‚Í state() ‚Ì 1 ‚Æ 0 ‚ÉŠY“–‚·‚éB
+		/// ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãŒãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚ãƒã‚§ãƒƒã‚¯ã®ã‚ªãƒ³ã¨ã‚ªãƒ•ã¯ state() ã® 1 ã¨ 0 ã«è©²å½“ã™ã‚‹ã€‚
 		bool checked() const;
 		void checked(bool value);
-		/// Ø‚èæ‚è‚³‚ê‚½ó‘Ô‚©‚Ç‚¤‚©BƒAƒCƒRƒ“‚ª”–‚­?¦‚³‚ê‚éB
+		/// åˆ‡ã‚Šå–ã‚Šã•ã‚ŒãŸçŠ¶æ…‹ã‹ã©ã†ã‹ã€‚ã‚¢ã‚¤ã‚³ãƒ³ãŒè–„ãè¡¨ç¤ºã•ã‚Œã‚‹ã€‚
 		bool cut() const;
 		void cut(bool value);
-		/// ?–Ú‚ªŒ©‚¦‚é‚æ‚¤‚ÉƒXƒNƒ?ƒ‹‚·‚éB
+		/// é …ç›®ãŒè¦‹ãˆã‚‹ã‚ˆã†ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ã€‚
 		void ensureVisible();
-		/// ƒŠƒXƒgƒrƒ…?“à‚Å‚Ì?–Ú‚Ì‘S‘Ì‚Ü‚½‚Í•”•ª—ÌˆæB
+		/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼å†…ã§ã®é …ç›®ã®å…¨ä½“ã¾ãŸã¯éƒ¨åˆ†é ˜åŸŸã€‚
 		Rectangle getBounds(ListView::ItemPortion portion = ListView::ItemPortion::whole) const;
-		/// ƒŠƒXƒgƒrƒ…?“à‚Å‚ÌƒTƒu?–Ú‚Ì—ÌˆæBcolumnIndex ‚ª 0 ‚Ìê‡‚Í?–Ú‘S‘Ì‚Ì—ÌˆæB
+		/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼å†…ã§ã®ã‚µãƒ–é …ç›®ã®é ˜åŸŸã€‚columnIndex ãŒ 0 ã®å ´åˆã¯é …ç›®å…¨ä½“ã®é ˜åŸŸã€‚
 		Rectangle getSubBounds(int columnIndex) const;
-		/// •¶š—ñ‚ğæ“¾‚·‚éB
+		/// æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
 		String getText(int columnIndex) const;
 		void getTextToBuffer(StringBuffer& buffer, int columnIndex) const;
-		/// ƒnƒCƒ‰ƒCƒg?¦‚©‚Ç‚¤‚©B‘I‘ğó‘Ô‚Æ“¯‚¶?¦B
+		/// ãƒã‚¤ãƒ©ã‚¤ãƒˆè¡¨ç¤ºã‹ã©ã†ã‹ã€‚é¸æŠçŠ¶æ…‹ã¨åŒã˜è¡¨ç¤ºã€‚
 		bool highlight() const;
 		void highlight(bool value);
-		/// ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgiListView::smallImageList() ‚Ü‚½‚Í ListView::largeImageList()j‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::smallImageList() ã¾ãŸã¯ ListView::largeImageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ƒCƒ“ƒfƒ“ƒgB1 ‚É‚Â‚«ó‘ÔƒAƒCƒRƒ“‚Ì•‚Ù‚ÇƒCƒ“ƒfƒ“ƒg‚·‚éB
+		/// ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã€‚1 ã«ã¤ãçŠ¶æ…‹ã‚¢ã‚¤ã‚³ãƒ³ã®å¹…ã»ã©ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹ã€‚
 		int indent() const;
 		void indent(int value);
-		/// ?–Ú‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int index() const;
-		/// ƒŠƒXƒgƒrƒ…?‚Ìƒnƒ“ƒhƒ‹B
+		/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã®ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND ownerHandle() const;
-		/// ?–Ú‚ÌˆÊ’uB
+		/// é …ç›®ã®ä½ç½®ã€‚
 		Point position() const;
 		void position(const Point& value);
 		void position(int x, int y);
-		/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+		/// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool selected() const;
 		void selected(bool value);
-		/// •¶š—ñ‚ğİ’è‚·‚éBListView::maxTextLength •¶šˆÈã‚Íİ’è‚Å‚«‚È‚¢B
+		/// æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ã€‚ListView::maxTextLength æ–‡å­—ä»¥ä¸Šã¯è¨­å®šã§ããªã„ã€‚
 		void setText(int columnIndex, StringRange text);
-		/// ó‘ÔBó‘Ô‰æ‘œƒŠƒXƒgiListView::stateImageList()j‚ÌƒCƒ“ƒfƒbƒNƒX‚ÅA-1 ‚È‚ç?¦‚µ‚È‚¢B
+		/// çŠ¶æ…‹ã€‚çŠ¶æ…‹ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::stateImageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã§ã€-1 ãªã‚‰è¡¨ç¤ºã—ãªã„ã€‚
 		int state() const;
 		void state(int value);
-		/// ‚O”Ô–Ú‚Ì•¶š—ñB
+		/// ï¼ç•ªç›®ã®æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(StringRange value);
-		/// •¶š—ñ”z—ñB
+		/// æ–‡å­—åˆ—é…åˆ—ã€‚
 		std::vector<String> texts() const;
 		void texts(StringRangeArray value);
-		/// ƒ†?ƒU’è?‚Ìƒf??Bæ“¾‚·‚éê‡‚Í UniqueAny ‚Ì’†g‚Ì?‚ğw’è‚·‚éB
+		/// ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®ãƒ‡ãƒ¼ã‚¿ã€‚å–å¾—ã™ã‚‹å ´åˆã¯ UniqueAny ã®ä¸­èº«ã®å‹ã‚’æŒ‡å®šã™ã‚‹ã€‚
 		template<typename T> T userData() {
 			auto data = _userData();
 			return any_cast<T>(*reinterpret_cast<UniqueAny*>(&data));
@@ -280,40 +280,40 @@ public:
 	};
 
 
-	/// ?–Úî•ñ?‘¢‘ÌBî•ñ‚ğ‚Â‚¾‚¯‚ÅƒŠƒXƒgƒrƒ…?‚ÍˆêØ?ì‚µ‚È‚¢BListView::itemInfos ŠÖ”“™‚Åg—p‚·‚éB
+	/// é …ç›®æƒ…å ±æ§‹é€ ä½“ã€‚æƒ…å ±ã‚’æŒã¤ã ã‘ã§ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã¯ä¸€åˆ‡æ“ä½œã—ãªã„ã€‚ListView::itemInfos é–¢æ•°ç­‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 	class ItemInfo {
 	public:
 		ItemInfo(ItemInfo&& value);
-		/// ?–Úî•ñ‚Ìæ“¾B
+		/// é …ç›®æƒ…å ±ã®å–å¾—ã€‚
 		ItemInfo(const Item& item);
-		/// •¶š—ñ‚ÆƒAƒCƒRƒ“‰æ‘œƒCƒ“ƒfƒbƒNƒX“™‚©‚çì¬B
+		/// æ–‡å­—åˆ—ã¨ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç­‰ã‹ã‚‰ä½œæˆã€‚
 		explicit ItemInfo(String text = L"", int imageIndex = 0, int state = -1, int indent = 0);
-		/// •¶š—ñ”z—ñ‚ÆƒAƒCƒRƒ“‰æ‘œƒCƒ“ƒfƒbƒNƒX“™‚©‚çì¬B
+		/// æ–‡å­—åˆ—é…åˆ—ã¨ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç­‰ã‹ã‚‰ä½œæˆã€‚
 		explicit ItemInfo(StringRangeArray texts, int imageIndex = 0, int state = -1, int indent = 0);
 		ItemInfo& operator=(ItemInfo&& value);
 
-		/// Ø‚èæ‚è‚³‚ê‚½ó‘Ô‚©‚Ç‚¤‚©BƒAƒCƒRƒ“‚ª”–‚­?¦‚³‚ê‚éB‰Šú’l‚Í falseB
+		/// åˆ‡ã‚Šå–ã‚Šã•ã‚ŒãŸçŠ¶æ…‹ã‹ã©ã†ã‹ã€‚ã‚¢ã‚¤ã‚³ãƒ³ãŒè–„ãè¡¨ç¤ºã•ã‚Œã‚‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool cut() const;
 		void cut(bool value);
-		/// ƒnƒCƒ‰ƒCƒg?¦‚©‚Ç‚¤‚©B‘I‘ğó‘Ô‚Æ“¯‚¶?¦B‰Šú’l‚Í falseB
+		/// ãƒã‚¤ãƒ©ã‚¤ãƒˆè¡¨ç¤ºã‹ã©ã†ã‹ã€‚é¸æŠçŠ¶æ…‹ã¨åŒã˜è¡¨ç¤ºã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool highlight() const;
 		void highlight(bool value);
-		/// ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgiListView::smallImageList() ‚Ü‚½‚Í ListView::largeImageList()j‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::smallImageList() ã¾ãŸã¯ ListView::largeImageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ƒCƒ“ƒfƒ“ƒgB1 ‚É‚Â‚«ó‘ÔƒAƒCƒRƒ“‚Ì•‚Ù‚ÇƒCƒ“ƒfƒ“ƒg‚·‚éB
+		/// ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã€‚1 ã«ã¤ãçŠ¶æ…‹ã‚¢ã‚¤ã‚³ãƒ³ã®å¹…ã»ã©ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹ã€‚
 		int indent() const;
 		void indent(int value);
-		/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+		/// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool selected() const;
 		void selected(bool value);
-		/// ó‘ÔBó‘Ô‰æ‘œƒŠƒXƒgiListView::stateImageList()j‚ÌƒCƒ“ƒfƒbƒNƒX‚ÅA-1 ‚È‚ç?¦‚µ‚È‚¢B
+		/// çŠ¶æ…‹ã€‚çŠ¶æ…‹ç”»åƒãƒªã‚¹ãƒˆï¼ˆListView::stateImageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã§ã€-1 ãªã‚‰è¡¨ç¤ºã—ãªã„ã€‚
 		int state() const;
 		void state(int value);
-		/// ?–Ú‚Ì•¶š—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(String value);
-		/// ?–Ú‚Ì•¶š—ñ”z—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—é…åˆ—ã€‚
 		std::vector<String>& texts();
 		const std::vector<String>& texts() const;
 		void texts(StringRangeArray value);
@@ -330,15 +330,15 @@ public:
 
 
 
-	/// ƒŠƒXƒgƒrƒ…?‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<ListView, Control::Event> Event;
 
 
-	/// ƒwƒb?‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ˜ãƒƒãƒ€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct HeaderClick : public Event {
 		HeaderClick(ListView& sender, int columnIndex);
 
-		/// ƒNƒŠƒbƒN‚³‚ê‚½c‚ÌsƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸç¸¦ã®è¡Œã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int columnIndex() const;
 
 	private:
@@ -346,11 +346,11 @@ public:
 	};
 
 
-	/// ?–Ú‚ÉŠÖ‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã«é–¢ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemEvent : public Event {
 		ItemEvent(ListView& sender, int itemIndex);
 
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½?–ÚB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸé …ç›®ã€‚
 		ListView::Item item();
 
 	private:
@@ -358,13 +358,13 @@ public:
 	};
 
 
-	/// ?–Ú‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemClick : public ItemEvent {
 		ItemClick(ListView& sender, int itemIndex, int columnIndex, const Point& occurredPoint);
 
-		/// c‚Ìs‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ç¸¦ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int columnIndex() const;
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½À•WB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸåº§æ¨™ã€‚
 		const Point& occurredPoint() const;
 
 	private:
@@ -376,21 +376,21 @@ public:
 	typedef ItemClick ItemRightClick;
 
 
-	/// ?–Ú‚ª•Ï‰»‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ãŒå¤‰åŒ–ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemChange : public ItemEvent {
 		ItemChange(ListView& sender, int itemIndex, int oldStates, int newStates);
 
-		/// V‚µ‚¢ƒtƒH?ƒJƒXó‘ÔB
+		/// æ–°ã—ã„ãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã€‚
 		bool newFocused() const;
-		/// V‚µ‚¢‘I‘ğó‘ÔB
+		/// æ–°ã—ã„é¸æŠçŠ¶æ…‹ã€‚
 		bool newSelected() const;
-		/// V‚µ‚¢ó‘ÔB
+		/// æ–°ã—ã„çŠ¶æ…‹ã€‚
 		int newState() const;
-		/// ŒÃ‚¢ƒtƒH?ƒJƒXó‘ÔB
+		/// å¤ã„ãƒ•ã‚©ãƒ¼ã‚«ã‚¹çŠ¶æ…‹ã€‚
 		bool oldFocused() const;
-		/// ŒÃ‚¢‘I‘ğó‘ÔB
+		/// å¤ã„é¸æŠçŠ¶æ…‹ã€‚
 		bool oldSelected() const;
-		/// ŒÃ‚¢ó‘ÔB
+		/// å¤ã„çŠ¶æ…‹ã€‚
 		int oldState() const;
 
 	private:
@@ -399,11 +399,11 @@ public:
 	};
 
 
-	/// ?–Ú‚ª•Ï‰»‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ãŒå¤‰åŒ–ã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemChanging : public ItemChange {
 		ItemChanging(ListView& sender, int itemIndex, int oldStates, int newStates);
 
-		/// •Ï‰»‚ğƒLƒƒƒ“ƒZƒ‹‚·‚é‚©‚Ç‚¤‚©B
+		/// å¤‰åŒ–ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -412,11 +412,11 @@ public:
 	};
 
 
-	/// ?–Ú‚ğ?ƒEƒX‰E??ƒ“‚Ü‚½‚Í¶??ƒ“‚Åƒhƒ‰ƒbƒO‚µ‚½ƒCƒxƒ“ƒgBƒhƒ‰ƒbƒO‚ğŠJn‚·‚é”ÍˆÍ‚Í‘I‘ğ‚Å‚«‚é”ÍˆÍ‚Æ“¯‚¶B
+	/// é …ç›®ã‚’ãƒã‚¦ã‚¹å³ãƒœã‚¿ãƒ³ã¾ãŸã¯å·¦ãƒœã‚¿ãƒ³ã§ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚ãƒ‰ãƒ©ãƒƒã‚°ã‚’é–‹å§‹ã™ã‚‹ç¯„å›²ã¯é¸æŠã§ãã‚‹ç¯„å›²ã¨åŒã˜ã€‚
 	struct ItemDrag : public ItemEvent {
 		ItemDrag(ListView& sender, int itemIndex, bool rButton);
 
-		/// ‰E??ƒ“ƒhƒ‰ƒbƒO‚©‚Ç‚¤‚©B
+		/// å³ãƒœã‚¿ãƒ³ãƒ‰ãƒ©ãƒƒã‚°ã‹ã©ã†ã‹ã€‚
 		bool rButton() const;
 
 	private:
@@ -424,29 +424,29 @@ public:
 	};
 
 
-	/// ?–Ú‚ğ?‰æ‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB‘I‘ğs‚ÌF‚ğ•Ï‚¦‚é‚É‚Í selected() ‚ğ false ‚Éİ’è‚·‚éB
+	/// é …ç›®ã‚’æç”»ã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚é¸æŠè¡Œã®è‰²ã‚’å¤‰ãˆã‚‹ã«ã¯ selected() ã‚’ false ã«è¨­å®šã™ã‚‹ã€‚
 	struct ItemPrePaint : public Event {
 		ItemPrePaint(ListView& sender, ::tagNMLVCUSTOMDRAW* info);
 
-		/// ?–Ú‚Ì”wŒi‚ÌFBListView::brush ŠÖ”‚Å‰æ‘œƒuƒ‰ƒV‚ğw’è‚µ‚½ê‡‚Í–³ŒøBselected() ‚ª true ‚Ìê‡‚à–³ŒøB
+		/// é …ç›®ã®èƒŒæ™¯ã®è‰²ã€‚ListView::brush é–¢æ•°ã§ç”»åƒãƒ–ãƒ©ã‚·ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ç„¡åŠ¹ã€‚selected() ãŒ true ã®å ´åˆã‚‚ç„¡åŠ¹ã€‚
 		Color backColor() const;
 		void backColor(const Color& value);
-		/// ?–Ú‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W—ÌˆæB
+		/// é …ç›®ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™é ˜åŸŸã€‚
 		Rectangle bounds() const;
-		/// c‚Ìs‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ç¸¦ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int columnIndex() const;
-		/// ƒtƒH?ƒJƒX‚ª‚ ‚é‚æ‚¤‚É?‰æ‚·‚é‚©‚Ç‚¤‚©B
+		/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒã‚ã‚‹ã‚ˆã†ã«æç”»ã™ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool focused() const;
 		void focused(bool value);
-		/// ?–Ú‚Ì•¶š—ñ‚ÌƒtƒHƒ“ƒgB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã®ãƒ•ã‚©ãƒ³ãƒˆã€‚
 		Font font() const;
 		void font(HFONT value);
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½?–ÚB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸé …ç›®ã€‚
 		ListView::Item item();
-		/// ‘I‘ğ‚µ‚Ä‚¢‚é‚æ‚¤‚É?‰æ‚·‚é‚©‚Ç‚¤‚©B‘I‘ğ?–Ú‚ÌF‚ğ•Ï‚¦‚é‚É‚Í‚±‚ê‚ğ false ‚É‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
+		/// é¸æŠã—ã¦ã„ã‚‹ã‚ˆã†ã«æç”»ã™ã‚‹ã‹ã©ã†ã‹ã€‚é¸æŠé …ç›®ã®è‰²ã‚’å¤‰ãˆã‚‹ã«ã¯ã“ã‚Œã‚’ false ã«ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
 		bool selected() const;
 		void selected(bool value);
-		/// ?–Ú‚Ì•¶š—ñ‚ÌFB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã®è‰²ã€‚
 		Color textColor() const;
 		void textColor(const Color& value);
 
@@ -458,11 +458,11 @@ public:
 	};
 
 
-	/// ?–Ú‚Ìƒc?ƒ‹?ƒbƒv‚ª?¦‚³‚ê‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã®ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemTipPopup : public ItemEvent {
 		ItemTipPopup(ListView& sender, int itemIndex, wchar_t* buffer, int bufferSize);
 
-		/// ?¦‚·‚é•¶š—ñ‚ğİ’è‚·‚éB•¶š—ñ‚Ì’·‚³‚É‚ÍãŒÀ‚ª‚ ‚Á‚ÄØ‚èÌ‚Ä‚ç‚ê‚éB
+		/// è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ã€‚æ–‡å­—åˆ—ã®é•·ã•ã«ã¯ä¸Šé™ãŒã‚ã£ã¦åˆ‡ã‚Šæ¨ã¦ã‚‰ã‚Œã‚‹ã€‚
 		void setText(StringRange value);
 
 	private:
@@ -471,14 +471,14 @@ public:
 	};
 
 
-	/// ?–Ú‚Ì•¶š—ñ•ÒW‚ªI‚í‚Á‚Ä”½‰f‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// é …ç›®ã®æ–‡å­—åˆ—ç·¨é›†ãŒçµ‚ã‚ã£ã¦åæ˜ ã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct TextEdit : public ItemEvent {
 		TextEdit(ListView& sender, int itemIndex, String itemText);
 
-		/// •ÒWŒ‹‰Ê‚ğ”½‰f‚µ‚È‚¢‚©‚Ç‚¤‚©B
+		/// ç·¨é›†çµæœã‚’åæ˜ ã—ãªã„ã‹ã©ã†ã‹ã€‚
 		bool cancel() const;
 		void cancel(bool value);
-		/// •ÒWƒeƒLƒXƒgB
+		/// ç·¨é›†ãƒ†ã‚­ã‚¹ãƒˆã€‚
 		const String& itemText() const;
 		void itemText(String value);
 
@@ -488,29 +488,29 @@ public:
 	};
 
 
-	/// ?–Ú‚Ì•¶š—ñ•ÒW‚ªn‚Ü‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// é …ç›®ã®æ–‡å­—åˆ—ç·¨é›†ãŒå§‹ã¾ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct TextEditing : public TextEdit {
 		TextEditing(ListView& sender, int itemIndex, String itemText);
 
-		/// •ÒW‚ğ‚·‚éƒGƒfƒBƒbƒgƒRƒ“ƒgƒ?ƒ‹‚ÌQÆB•K—v‚Èİ’è‚ğs‚Á‚½‚ç”jŠü‚µ‚Ä‚à—Ç‚¢‚ªˆê•”İ’è‚âƒCƒxƒ“ƒg‚Í”jŠü‚·‚é‚Æ–³Œø‚É‚È‚éB
-		/// ‚ ‚é’ö“x ListView ‚ª§Œä‚µ‚Ä‚¢‚é‚Ì‚Å“®ì‚µ‚È‚¢İ’è‚à‚ ‚éB
+		/// ç·¨é›†ã‚’ã™ã‚‹ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å‚ç…§ã€‚å¿…è¦ãªè¨­å®šã‚’è¡Œã£ãŸã‚‰ç ´æ£„ã—ã¦ã‚‚è‰¯ã„ãŒä¸€éƒ¨è¨­å®šã‚„ã‚¤ãƒ™ãƒ³ãƒˆã¯ç ´æ£„ã™ã‚‹ã¨ç„¡åŠ¹ã«ãªã‚‹ã€‚
+		/// ã‚ã‚‹ç¨‹åº¦ ListView ãŒåˆ¶å¾¡ã—ã¦ã„ã‚‹ã®ã§å‹•ä½œã—ãªã„è¨­å®šã‚‚ã‚ã‚‹ã€‚
 		Edit edit();
 	};
 
 
-	/// ƒqƒbƒgƒeƒXƒg‚ÌŒ‹‰ÊB
+	/// ãƒ’ãƒƒãƒˆãƒ†ã‚¹ãƒˆã®çµæœã€‚
 	struct HitTestInfo {
 		HitTestInfo(int itemIndex, int columnIndex, int flags);
 
-		/// c‚Ìs‚ÌƒCƒ“ƒfƒbƒNƒXB“–‚½‚Á‚Ä‚È‚¢ê‡‚Í -1B
+		/// ç¸¦ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚å½“ãŸã£ã¦ãªã„å ´åˆã¯ -1ã€‚
 		int columnIndex() const;
-		/// ?–ÚƒCƒ“ƒfƒbƒNƒXB“–‚½‚Á‚Ä‚È‚¢ê‡‚Í -1B
+		/// é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚å½“ãŸã£ã¦ãªã„å ´åˆã¯ -1ã€‚
 		int itemIndex() const;
-		/// ƒAƒCƒRƒ“‰æ‘œ‚ÌãB
+		/// ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã®ä¸Šã€‚
 		bool onImage() const;
-		/// ó‘Ô‰æ‘œ‚ÌãB
+		/// çŠ¶æ…‹ç”»åƒã®ä¸Šã€‚
 		bool onStateImage() const;
-		/// •¶š—ñ‚ÌãB
+		/// æ–‡å­—åˆ—ã®ä¸Šã€‚
 		bool onText() const;
 
 	private:
@@ -521,181 +521,181 @@ public:
 
 
 public:
-	/// ƒkƒ‹?ƒCƒ“?‚Åì¬B
+	/// ãƒŒãƒ«ãƒã‚¤ãƒ³ã‚¿ã§ä½œæˆã€‚
 	ListView();
 	ListView(ListView&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ä½œæˆã€‚
 	ListView(Control& parent, int x, int y, int width, int height, ListView::Style style = Style::details, ListView::Options options = Options::none);
-	/// eAˆÊ’uA‘å‚«‚³A?–Úî•ñ”z—ñ‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€é …ç›®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚
 	ListView(Control& parent, int x, int y, int width, int height, ArrayRange<const ItemInfo> itemInfos, ListView::Style style = Style::details, ListView::Options options = Options::none);
-	/// eAˆÊ’uA‘å‚«‚³Ac‚Ìsî•ñ”z—ñA?–Úî•ñ”z—ñ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€ç¸¦ã®è¡Œæƒ…å ±é…åˆ—ã€é …ç›®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	ListView(Control& parent, int x, int y, int width, int height, ArrayRange<const ColumnInfo> columnInfos, ArrayRange<const ItemInfo> itemInfos, ListView::Style style = Style::details, ListView::Options options = Options::none);
 	virtual ~ListView();
 	ListView& operator=(ListView&& value);
 
 public:
-	/// ?–Ú‚ğ’Ç‰Á‚·‚éB
+	/// é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void add(const ItemInfo& itemInfo);
-	/// ƒtƒH?ƒJƒX‚ªŠO‚ê‚Ä‚à‘I‘ğó‘Ô‚ğ?¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒå¤–ã‚Œã¦ã‚‚é¸æŠçŠ¶æ…‹ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool alwaysSelected() const;
 	void alwaysSelected(bool value);
-	/// ƒAƒCƒRƒ“‚ğ®—ñ‚·‚éBstyle() ‚ª ListView::Style::largeIcon, smallIcon, tile ‚Ìê‡‚Ì‚İ—LŒøBsnapToGrid ‚ª true ‚Ìê‡‚Í?–Ú‚ğˆê”Ô‹ß‚¢ˆê’èŠÔŠu‚Ì¡–Ú‚Ì’†‚ÉˆÚ“®‚·‚éB
+	/// ã‚¢ã‚¤ã‚³ãƒ³ã‚’æ•´åˆ—ã™ã‚‹ã€‚style() ãŒ ListView::Style::largeIcon, smallIcon, tile ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚snapToGrid ãŒ true ã®å ´åˆã¯é …ç›®ã‚’ä¸€ç•ªè¿‘ã„ä¸€å®šé–“éš”ã®å‡ç›®ã®ä¸­ã«ç§»å‹•ã™ã‚‹ã€‚
 	void arrange(bool snapToGrid = false);
-	/// ƒAƒCƒRƒ“‚ğ©“®®—ñ‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ã‚¢ã‚¤ã‚³ãƒ³ã‚’è‡ªå‹•æ•´åˆ—ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool autoArrange() const;
 	void autoArrange(bool value);
-	/// ?–Ú‚Ì•¶š—ñ‚Ì•ÒW‚ğn‚ß‚éB‹­§“I‚ÉƒtƒH?ƒJƒX‚ğ“¾‚éB
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®ç·¨é›†ã‚’å§‹ã‚ã‚‹ã€‚å¼·åˆ¶çš„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‹ã€‚
 	void beginEdit(int index);
-	/// ”wŒiƒuƒ‰ƒVBƒuƒ‰ƒVƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚é‚Ì‚Å”jŠü‚µ‚È‚¢‚æ‚¤’ˆÓBƒnƒb?ƒuƒ‰ƒV‚Íg‚¦‚È‚¢BMSDN ‚É‚Í COM ‚Ì‰Šú‰»‚ª•K—v‚Æ‚ ‚é‚ª‰Šú‰»‚µ‚È‚­‚Æ‚à“®‚¢‚Ä‚¢‚éB
+	/// èƒŒæ™¯ãƒ–ãƒ©ã‚·ã€‚ãƒ–ãƒ©ã‚·ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œã‚‹ã®ã§ç ´æ£„ã—ãªã„ã‚ˆã†æ³¨æ„ã€‚ãƒãƒƒãƒãƒ–ãƒ©ã‚·ã¯ä½¿ãˆãªã„ã€‚MSDN ã«ã¯ COM ã®åˆæœŸåŒ–ãŒå¿…è¦ã¨ã‚ã‚‹ãŒåˆæœŸåŒ–ã—ãªãã¨ã‚‚å‹•ã„ã¦ã„ã‚‹ã€‚
 	using Control::brush;
 	virtual void brush(HBRUSH value);
-	/// ”wŒiƒuƒ‰ƒV‚ÌŒ´?Bİ’è‚É‚Í EnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹?ƒh‚ª•K—vB
+	/// èƒŒæ™¯ãƒ–ãƒ©ã‚·ã®åŸç‚¹ã€‚è¨­å®šã«ã¯ EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚
 	using Control::brushOrigin;
 	virtual void brushOrigin(const Point& value);
-	/// ?–Ú‚ğ‘S‚Äíœ‚·‚éB
+	/// é …ç›®ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹ã€‚
 	void clear();
-	/// c‚Ìs‚Ì”B
+	/// ç¸¦ã®è¡Œã®æ•°ã€‚
 	int columnCount() const;
-	/// c‚Ìs‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éBColumnInfo::width() ‚ª 0 ‚Ìê‡‚Í Column::fitWidthToHeader ŠÖ”‚Å•‚ğ‹‚ß‚éB
+	/// ç¸¦ã®è¡Œã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚ColumnInfo::width() ãŒ 0 ã®å ´åˆã¯ Column::fitWidthToHeader é–¢æ•°ã§å¹…ã‚’æ±‚ã‚ã‚‹ã€‚
 	std::vector<ListView::ColumnInfo> columnInfos() const;
 	void columnInfos(ArrayRange<const ListView::ColumnInfo> value);
-	/// ?–Ú”B
+	/// é …ç›®æ•°ã€‚
 	int count() const;
-	/// ƒŠƒXƒgƒrƒ…?“à‚É?¦‚Å‚«‚é?–Ú”Bstyle() ‚ª ListView::Style::details ‚© list ‚Ìê‡‚Ì‚İ—LŒøB
+	/// ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼å†…ã«è¡¨ç¤ºã§ãã‚‹é …ç›®æ•°ã€‚style() ãŒ ListView::Style::details ã‹ list ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	int countPerPage() const;
-	/// ƒRƒ“ƒgƒ?ƒ‹‚Ì‹«ŠEü‚Ìí—ŞB‰Šú’l‚Í Control::Edge::clientB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¢ƒç•Œç·šã®ç¨®é¡ã€‚åˆæœŸå€¤ã¯ Control::Edge::clientã€‚
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// ?–Ú‚Ì•¶š—ñ‚Ì•ÒW‚ğI—¹‚·‚éB
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®ç·¨é›†ã‚’çµ‚äº†ã™ã‚‹ã€‚
 	void endEdit();
-	/// ?–Ú‚ğíœ‚·‚éB
+	/// é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void erase(int index);
-	/// w’è‚µ‚½ƒCƒ“ƒfƒbƒNƒXˆÈ?‚Åw’è‚µ‚½•¶š—ñ‚ğ‚à‚Â?–Ú‚ğŒ©‚Â‚¯‚éBƒTƒu?–Ú‚Ì•¶š—ñ‚ÍŒŸõ‚³‚ê‚È‚¢BŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í -1B
+	/// æŒ‡å®šã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ä»¥é™ã§æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã‚’ã‚‚ã¤é …ç›®ã‚’è¦‹ã¤ã‘ã‚‹ã€‚ã‚µãƒ–é …ç›®ã®æ–‡å­—åˆ—ã¯æ¤œç´¢ã•ã‚Œãªã„ã€‚è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯ -1ã€‚
 	int findIndex(StringRange text, int startIndex = 0, bool prefixSearch = false) const;
-	/// ƒtƒH?ƒJƒX‚³‚ê‚Ä‚¢‚é?–ÚƒCƒ“ƒfƒbƒNƒXB–³‚¢ê‡‚Í -1B
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã•ã‚Œã¦ã„ã‚‹é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚ç„¡ã„å ´åˆã¯ -1ã€‚
 	int focusedIndex() const;
 	void focusedIndex(int value);
-	/// ‰¡‚Ìs‚ğ‘S‚Ä‘I‘ğó‘Ô‚É‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// æ¨ªã®è¡Œã‚’å…¨ã¦é¸æŠçŠ¶æ…‹ã«ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool fullRowSelect() const;
 	void fullRowSelect(bool value);
-	/// c‚Ìs‚ğæ“¾‚·‚éB
+	/// ç¸¦ã®è¡Œã‚’å–å¾—ã™ã‚‹ã€‚
 	ListView::Column getColumn(int index);
-	/// w’è‚µ‚½ƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚ÌƒqƒbƒgƒeƒXƒg‚ğs‚Á‚Äî•ñ‚ğæ“¾‚·‚éB
+	/// æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã®ãƒ’ãƒƒãƒˆãƒ†ã‚¹ãƒˆã‚’è¡Œã£ã¦æƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
 	ListView::HitTestInfo getHitTestInfo(const Point& point) const;
 	ListView::HitTestInfo getHitTestInfo(int x, int y) const;
-	/// w’è‚µ‚½ƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚É‚ ‚é?–Ú‚ÌƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éB–³‚¢ê‡‚Í -1B
+	/// æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã«ã‚ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚ç„¡ã„å ´åˆã¯ -1ã€‚
 	int getIndexAt(const Point& point) const;
 	int getIndexAt(int x, int y) const;
-	/// “KØ‚ÈƒRƒ“ƒgƒ?ƒ‹ƒTƒCƒYBfont(), count() “™‚Ì’l‚É‚æ‚Á‚ÄÅ“K‚ÈƒTƒCƒY‚ğ•Ô‚·Bstyle() ‚ª ListView::Style::details ‚Ìê‡‚Ì‚İ³Šm‚ÈƒTƒCƒY‚ğŒvZ‚Å‚«‚éB
+	/// é©åˆ‡ãªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚µã‚¤ã‚ºã€‚font(), count() ç­‰ã®å€¤ã«ã‚ˆã£ã¦æœ€é©ãªã‚µã‚¤ã‚ºã‚’è¿”ã™ã€‚style() ãŒ ListView::Style::details ã®å ´åˆã®ã¿æ­£ç¢ºãªã‚µã‚¤ã‚ºã‚’è¨ˆç®—ã§ãã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// w’è‚µ‚½ƒCƒ“ƒfƒbƒNƒXˆÈ?‚Å‘I‘ğ‚³‚ê‚Ä‚¢‚é?–Ú‚ÌƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éB
-	/// ˆø”‚É‘O‰ñæ“¾‚µ‚½ƒCƒ“ƒfƒbƒNƒX + 1 ‚ğw’è‚·‚ê‚ÎŸ‚ÌƒCƒ“ƒfƒbƒNƒX‚ğŒ©‚Â‚¯‚ç‚ê‚éBŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í -1 ‚ğ•Ô‚·B
+	/// æŒ‡å®šã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ä»¥é™ã§é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
+	/// å¼•æ•°ã«å‰å›å–å¾—ã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ + 1 ã‚’æŒ‡å®šã™ã‚Œã°æ¬¡ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã‚‹ã€‚è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯ -1 ã‚’è¿”ã™ã€‚
 	int getSelectedIndex(int startIndex = 0) const;
-	/// ?–Ú‹«ŠEü‚ğ?¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é …ç›®å¢ƒç•Œç·šã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool gridLines() const;
 	void gridLines(bool value);
-	/// ƒwƒb?‚ğƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚ÅˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒ˜ãƒƒãƒ€ã‚’ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã§ç§»å‹•ã§ãã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool headerDragDrop() const;
 	void headerDragDrop(bool value);
-	/// ƒwƒb?‚ğ?¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ãƒ˜ãƒƒãƒ€ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool headerVisible() const;
 	void headerVisible(bool value);
-	/// ?–Ú‚ÉƒJ??ƒ‹‚ğ‡‚í‚¹‚é‚ÆƒJ??ƒ‹‚ª Cursor::hand() ‚É‚È‚Á‚Ä•¶š—ñ‚ÉƒAƒ“??ƒ‰ƒCƒ“‚ª?¦‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é …ç›®ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’åˆã‚ã›ã‚‹ã¨ã‚«ãƒ¼ã‚½ãƒ«ãŒ Cursor::hand() ã«ãªã£ã¦æ–‡å­—åˆ—ã«ã‚¢ãƒ³ãƒ€ãƒ¼ãƒ©ã‚¤ãƒ³ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool hotTracking() const;
 	void hotTracking(bool value);
-	/// ?–Ú‚ÉƒJ??ƒ‹‚ğ‡‚í‚¹‚Ä‚µ‚Î‚ç‚­‚·‚é‚Æ?–Ú‚ª‘I‘ğ‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é …ç›®ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’åˆã‚ã›ã¦ã—ã°ã‚‰ãã™ã‚‹ã¨é …ç›®ãŒé¸æŠã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool hotTrackSelection() const;
 	void hotTrackSelection(bool value);
-	/// ?–Ú“¯m‚Ì‹——£BSize(-1, -1) ‚ğw’è‚·‚é‚ÆƒfƒtƒHƒ‹ƒg‚É–ß‚éBstyle() ‚ª ListView::Style::largeIcon ‚Ìê‡‚Ì‚İ—LŒøBc•‚ª•Ï‚í‚ç‚È‚¢–Í—lB
+	/// é …ç›®åŒå£«ã®è·é›¢ã€‚Size(-1, -1) ã‚’æŒ‡å®šã™ã‚‹ã¨ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã‚‹ã€‚style() ãŒ ListView::Style::largeIcon ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚ç¸¦å¹…ãŒå¤‰ã‚ã‚‰ãªã„æ¨¡æ§˜ã€‚
 	Size iconSpacing() const;
 	void iconSpacing(const Size& value);
-	/// ?–Ú‚ğ?“ü‚·‚éB
+	/// é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	void insert(int index, const ItemInfo& itemInfo);
-	/// ?–Ú‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+	/// é …ç›®ã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 	std::vector<ListView::ItemInfo> itemInfos() const;
 	void itemInfos(ArrayRange<const ListView::ItemInfo> value);
-	/// ?–Ú‚²‚Æ‚É?¦‚·‚éƒc?ƒ‹?ƒbƒvƒRƒ“ƒgƒ?ƒ‹‚ÌQÆB•K—v‚Èİ’è‚ğs‚Á‚½‚ç”jŠü‚µ‚Ä‚à—Ç‚¢‚ªˆê•”İ’è‚âƒCƒxƒ“ƒg‚Í”jŠü‚·‚é‚Æ–³Œø‚É‚È‚éB‚ ‚é’ö“x ListView ‚ª§Œä‚µ‚Ä‚¢‚é‚Ì‚Å“®ì‚µ‚È‚¢İ’è‚à‚ ‚éB
+	/// é …ç›®ã”ã¨ã«è¡¨ç¤ºã™ã‚‹ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å‚ç…§ã€‚å¿…è¦ãªè¨­å®šã‚’è¡Œã£ãŸã‚‰ç ´æ£„ã—ã¦ã‚‚è‰¯ã„ãŒä¸€éƒ¨è¨­å®šã‚„ã‚¤ãƒ™ãƒ³ãƒˆã¯ç ´æ£„ã™ã‚‹ã¨ç„¡åŠ¹ã«ãªã‚‹ã€‚ã‚ã‚‹ç¨‹åº¦ ListView ãŒåˆ¶å¾¡ã—ã¦ã„ã‚‹ã®ã§å‹•ä½œã—ãªã„è¨­å®šã‚‚ã‚ã‚‹ã€‚
 	ToolTip itemTip();
-	/// ?–Ú‚²‚Æ‚Éƒc?ƒ‹?ƒbƒv‚ğ?¦‚·‚é‚©‚Ç‚¤‚©BonItemTipPopup() ƒCƒxƒ“ƒg‚Å?¦‚·‚é•¶š—ñ‚ğw’è‚·‚éB‰Šú’l‚Í falseB
+	/// é …ç›®ã”ã¨ã«ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚onItemTipPopup() ã‚¤ãƒ™ãƒ³ãƒˆã§è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã‚’æŒ‡å®šã™ã‚‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool itemTipEnabled() const;
 	void itemTipEnabled(bool value);
-	/// ‘å‚«‚¢ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgBListView ‚Í‰æ‘œƒŠƒXƒg‚Ìƒnƒ“ƒhƒ‹‚ğ”jŠü‚µ‚È‚¢B
+	/// å¤§ãã„ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆã€‚ListView ã¯ç”»åƒãƒªã‚¹ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã—ãªã„ã€‚
 	ImageList largeImageList() const;
 	void largeImageList(HIMAGELIST value);
-	/// ƒAƒCƒRƒ“‚ğ¶ã‚©‚ç‰º‚É®—ñ‚·‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚Í¶ã‚©‚ç‰E‚É®—ñ‚·‚éB‰Šú’l‚Í falseB
+	/// ã‚¢ã‚¤ã‚³ãƒ³ã‚’å·¦ä¸Šã‹ã‚‰ä¸‹ã«æ•´åˆ—ã™ã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯å·¦ä¸Šã‹ã‚‰å³ã«æ•´åˆ—ã™ã‚‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool leftArrange() const;
 	void leftArrange(bool value);
-	/// ƒAƒCƒe?‚ğ•¡”‘I‘ğ‚Å‚«‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¤‡æ•°é¸æŠã§ãã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool multiselect() const;
 	void multiselect(bool value);
-	/// ƒwƒb?‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ˜ãƒƒãƒ€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::HeaderClick&>& onHeaderClick();
-	/// ?–Ú‚ª•Ï‰»‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ãŒå¤‰åŒ–ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemChange&>& onItemChange();
-	/// ?–Ú‚ª•Ï‰»‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ãŒå¤‰åŒ–ã—ã‚ˆã†ã¨ã—ã¦ã„ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemChanging&>& onItemChanging();
-	/// ?–Ú‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemClick&>& onItemClick();
-	/// ?–Ú‚ğ?ƒuƒ‹ƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemDoubleClick&>& onItemDoubleClick();
-	/// ?–Ú‚ğ?ƒEƒX¶??ƒ“‚Ü‚½‚Í‰E??ƒ“‚Åƒhƒ‰ƒbƒO‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’ãƒã‚¦ã‚¹å·¦ãƒœã‚¿ãƒ³ã¾ãŸã¯å³ãƒœã‚¿ãƒ³ã§ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemDrag&>& onItemDrag();
-	/// ?–Ú‚ğ?‰æ‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’æç”»ã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemPrePaint&>& onItemPrePaint();
-	/// ?–Ú‚ğ‰EƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’å³ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemRightClick&>& onItemRightClick();
-	/// ?–Ú‚Ìƒc?ƒ‹?ƒbƒv‚ğ?¦‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã®ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::ItemTipPopup&>& onItemTipPopup();
-	/// ?–Ú‚Ì•¶š—ñ•ÒW‚ªI‚í‚Á‚Ä”½‰f‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// é …ç›®ã®æ–‡å­—åˆ—ç·¨é›†ãŒçµ‚ã‚ã£ã¦åæ˜ ã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::TextEdit&>& onTextEdit();
-	/// ?–Ú‚Ì•¶š—ñ•ÒW‚ªn‚Ü‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// é …ç›®ã®æ–‡å­—åˆ—ç·¨é›†ãŒå§‹ã¾ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<ListView::TextEditing&>& onTextEditing();
-	///	ƒRƒ“ƒgƒ?ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB
+	///	ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚
 	ListView::Options options() const;
-	/// ?–Ú‚ğ?¦‚µØ‚ê‚È‚¢‚ÉƒXƒNƒ?ƒ‹ƒo?‚ğ?¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
-	/// ?–ÚAˆÊ’uAƒTƒCƒY‚â style ‚ğİ’è‚·‚é‘O‚Éİ’è‚µ‚È‚¢‚Æ‚¤‚Ü‚­“®ì‚µ‚È‚¢B
+	/// é …ç›®ã‚’è¡¨ç¤ºã—åˆ‡ã‚Œãªã„æ™‚ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
+	/// é …ç›®ã€ä½ç½®ã€ã‚µã‚¤ã‚ºã‚„ style ã‚’è¨­å®šã™ã‚‹å‰ã«è¨­å®šã—ãªã„ã¨ã†ã¾ãå‹•ä½œã—ãªã„ã€‚
 	bool scrollable() const;
 	void scrollable(bool value);
-	/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é?–Ú‚Ì”B
+	/// é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã®æ•°ã€‚
 	int selectedCount() const;
-	/// ¬‚³‚¢ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgBListView ‚Í‰æ‘œƒŠƒXƒg‚Ìƒnƒ“ƒhƒ‹‚ğ”jŠü‚µ‚È‚¢B
+	/// å°ã•ã„ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆã€‚ListView ã¯ç”»åƒãƒªã‚¹ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã—ãªã„ã€‚
 	ImageList smallImageList() const;
 	void smallImageList(HIMAGELIST value);
-	/// ?–Ú‚ğ•¶š—ñ‡‚É??ƒg‚·‚éB
+	/// é …ç›®ã‚’æ–‡å­—åˆ—é †ã«ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚
 	void sort(bool ascending = true, int columnIndex = 0);
-	/// ”äŠrŠÖ”‚Å??ƒg‚·‚éB”äŠrŠÖ”‚Ì–ß‚è’l‚Í String::compare ‚Æ“¯—l‚ÅAˆø”‚Í”äŠr‚·‚é“ñ‚Â‚Ì?–ÚƒCƒ“ƒfƒbƒNƒXB
-	void sort(const std::function<int (int, int)>& compareFunction);
-	/// ”äŠrŠÖ”‚Å??ƒg‚·‚éB”äŠrŠÖ”‚Ì–ß‚è’l‚Í String::compare ‚Æ“¯—l‚ÅAˆø”‚Í”äŠr‚·‚é“ñ‚Â‚Ì?–Ú•¶š—ñB
-	void sort(const std::function<int (const String&, const String&)>& compareFunction, int columnIndex);
-	/// ó‘ÔƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgBListView ‚Í‰æ‘œƒŠƒXƒg‚Ìƒnƒ“ƒhƒ‹‚ğ”jŠü‚µ‚È‚¢B
-	/// ƒ†?ƒUw’è‚Ì‰æ‘œƒŠƒXƒg‚Í?ƒFƒbƒN?ƒbƒNƒX‚Æ‹¤‘¶‚Å‚«‚È‚¢B?ƒFƒbƒN?ƒbƒNƒX‚Ì?¦‚ğ•Ï‚¦‚½‚¢ê‡‚Í checkBoxes() ‚ğ true ‚É‚µ‚½ó‘Ô‚Å stateImageList() ŠÖ”‚Åæ“¾‚µ‚½‰æ‘œƒŠƒXƒg‚ğ?ì‚·‚éB
+	/// æ¯”è¼ƒé–¢æ•°ã§ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚æ¯”è¼ƒé–¢æ•°ã®æˆ»ã‚Šå€¤ã¯ String::compare ã¨åŒæ§˜ã§ã€å¼•æ•°ã¯æ¯”è¼ƒã™ã‚‹äºŒã¤ã®é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
+	void sort(const std::tr1::function<int(int, int)>& compareFunction);
+	/// æ¯”è¼ƒé–¢æ•°ã§ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚æ¯”è¼ƒé–¢æ•°ã®æˆ»ã‚Šå€¤ã¯ String::compare ã¨åŒæ§˜ã§ã€å¼•æ•°ã¯æ¯”è¼ƒã™ã‚‹äºŒã¤ã®é …ç›®æ–‡å­—åˆ—ã€‚
+	void sort(const std::tr1::function<int(const String&, const String&)>& compareFunction, int columnIndex);
+	/// çŠ¶æ…‹ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆã€‚ListView ã¯ç”»åƒãƒªã‚¹ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã—ãªã„ã€‚
+	/// ãƒ¦ãƒ¼ã‚¶æŒ‡å®šã®ç”»åƒãƒªã‚¹ãƒˆã¯ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã¨å…±å­˜ã§ããªã„ã€‚ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤ºã‚’å¤‰ãˆãŸã„å ´åˆã¯ checkBoxes() ã‚’ true ã«ã—ãŸçŠ¶æ…‹ã§ stateImageList() é–¢æ•°ã§å–å¾—ã—ãŸç”»åƒãƒªã‚¹ãƒˆã‚’æ“ä½œã™ã‚‹ã€‚
 	ImageList stateImageList() const;
 	void stateImageList(HIMAGELIST value);
-	/// ?¦ƒX?ƒCƒ‹B‚±‚ÌŠÖ”‚Ìg—p‚É‚Í EnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹?ƒh‚ª•K—vB‰Šú’l‚Í ListView::Style::detailsB
+	/// è¡¨ç¤ºã‚¹ã‚¿ã‚¤ãƒ«ã€‚ã“ã®é–¢æ•°ã®ä½¿ç”¨ã«ã¯ EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚åˆæœŸå€¤ã¯ ListView::Style::detailsã€‚
 	ListView::Style style() const;
 	void style(ListView::Style value);
-	/// •¶šFB
+	/// æ–‡å­—è‰²ã€‚
 	Color textColor() const;
 	void textColor(const Color& value);
-	/// ƒNƒŠƒbƒN‚Å?–Ú‚Ì•¶š—ñ‚ğ•ÒW‚Å‚«‚é‚©‚Ç‚¤‚©B•ÒW‚Å‚«‚é‚Ì‚Í?–Ú‚ÌÅ‰‚Ì•¶š—ñ‚Ì‚İB‰Šú’l‚Í falseB
+	/// ã‚¯ãƒªãƒƒã‚¯ã§é …ç›®ã®æ–‡å­—åˆ—ã‚’ç·¨é›†ã§ãã‚‹ã‹ã©ã†ã‹ã€‚ç·¨é›†ã§ãã‚‹ã®ã¯é …ç›®ã®æœ€åˆã®æ–‡å­—åˆ—ã®ã¿ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool textEditable() const;
 	void textEditable(bool value);
-	/// ?–Ú•¶š—ñ‚ğ?¦‚·‚é‚©‚Ç‚¤‚©B”ñ?¦‚É‚È‚é‚Ì‚Í style() ‚ª ListView::Style::largeIcon ‚Ü‚½‚Í smallIcon ‚Ìê‡‚Ì‚İB‚±‚ÌŠÖ”‚Ìg—p‚É‚Í EnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹?ƒh‚ª•K—vB‰Šú’l‚Í trueB
+	/// é …ç›®æ–‡å­—åˆ—ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚éè¡¨ç¤ºã«ãªã‚‹ã®ã¯ style() ãŒ ListView::Style::largeIcon ã¾ãŸã¯ smallIcon ã®å ´åˆã®ã¿ã€‚ã“ã®é–¢æ•°ã®ä½¿ç”¨ã«ã¯ EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool textVisible() const;
 	void textVisible(bool value);
-	/// ƒAƒCƒRƒ“?¦‚Ì?–Ú‚Ì•¶š—ñ‚ª’·‚¢ê‡‚É‰üs‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºã®é …ç›®ã®æ–‡å­—åˆ—ãŒé•·ã„å ´åˆã«æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool textWrap() const;
 	void textWrap(bool value);
-	/// Å‰‚É?¦‚³‚ê‚Ä‚¢‚é?–Ú‚ÌƒCƒ“ƒfƒbƒNƒXBstyle() ‚ª ListView::Style::details ‚© ListView::Style::list ‚Ìê‡‚Ì‚İ—LŒøB
+	/// æœ€åˆã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚style() ãŒ ListView::Style::details ã‹ ListView::Style::list ã®å ´åˆã®ã¿æœ‰åŠ¹ã€‚
 	int topIndex() const;
 	void topIndex(int value);
 
 public:
-	/// index ”Ô–Ú‚Ì?–ÚB
+	/// index ç•ªç›®ã®é …ç›®ã€‚
 	ListView::Item operator[](int index);
 
 protected:
-	/// ƒƒbƒZ?ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV?ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

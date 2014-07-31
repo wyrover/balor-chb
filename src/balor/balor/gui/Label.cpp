@@ -1,4 +1,4 @@
-#include "Label.hpp"
+ï»¿#include "Label.hpp"
 
 #include <utility>
 
@@ -148,7 +148,7 @@ Size Label::getPreferredSize(int width, int height) const {
 	if (style[SS_BITMAP]) {
 		auto bitmap = this->bitmap();
 		auto size = bitmap ? bitmap.size() : Size(0, 0);
-		size = Scaler().scale(size); // ‰æ‘œ‚ðƒXƒP[ƒ‹‚·‚×‚«‚©‚Ç‚¤‚©‚ÍŠ®‘S‚Éƒ†[ƒUŽŸ‘æ‚¾‚ª‚±‚±‚Å‚ÍƒXƒP[ƒ‹‚·‚éA‚Å“ˆê‚·‚éB
+		size = Scaler().scale(size); // ç”»åƒã‚’ã‚¹ã‚±ãƒ¼ãƒ«ã™ã¹ãã‹ã©ã†ã‹ã¯å®Œå…¨ã«ãƒ¦ãƒ¼ã‚¶æ¬¡ç¬¬ã ãŒã“ã“ã§ã¯ã‚¹ã‚±ãƒ¼ãƒ«ã™ã‚‹ã€ã§çµ±ä¸€ã™ã‚‹
 		size = sizeFromClientSize(size);
 		return Size(width  ? width  : size.width
 				   ,height ? height : size.height);
@@ -249,11 +249,11 @@ void Label::processMessage(Message& msg) {
 		case WM_MOVE : {
 			Control::processMessage(msg);
 			auto parent = this->parent();
-			if (!brush() && parent && parent->brush()) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ðŽ‚Â‚Ì‚Å•`‰æ‚µ‚È‚¨‚µ
+			if (!brush() && parent && parent->brush()) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§æç”»ã—ãªãŠã—
 				invalidate();
 			}
 		} break;
-		case WM_NCHITTEST : { // HTTRANSPARENT ‚ð•Ô‚³‚È‚¢‚æ‚¤‚É‚·‚é
+		case WM_NCHITTEST : { // HTTRANSPARENT ã‚’è¿”ã•ãªã„ã‚ˆã†ã«ã™ã‚‹
 			Rectangle screenRect(Point(0, 0), size());
 			screenRect = clientToScreen(screenRect);
 			auto point = Point(GET_X_LPARAM(msg.lparam), GET_Y_LPARAM(msg.lparam));
@@ -264,7 +264,7 @@ void Label::processMessage(Message& msg) {
 			auto textColor = this->textColor();
 			HBRUSH brush = this->brush();
 			auto origin = brushOrigin();
-			if (!brush) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ðŽ‚Â‚Ì‚Åe‚Ìƒuƒ‰ƒV‚ª‚ ‚ê‚ÎŽg‚¤
+			if (!brush) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§è¦ªã®ãƒ–ãƒ©ã‚·ãŒã‚ã‚Œã°ä½¿ã†
 				auto parent = this->parent();
 				if (parent) {
 					brush = parent->brush();

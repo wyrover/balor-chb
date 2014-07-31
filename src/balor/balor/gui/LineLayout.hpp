@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -9,55 +9,55 @@ namespace balor {
 
 
 /**
- * qƒRƒ“ƒgƒ[ƒ‹‚ğ’Ç‰Á‚µ‚½‡‚É¶ã‚©‚ç‰Ei‚Ü‚½‚Í¶ã‚©‚ç‰ºj‚É•À‚×‚Ä‚¢‚«A‚Í‚İo‚»‚¤‚É‚È‚Á‚½‚ç‰üs‚·‚éƒŒƒCƒAƒEƒgB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"LineLayout Sample");
+* å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’è¿½åŠ ã—ãŸé †ã«å·¦ä¸Šã‹ã‚‰å³ï¼ˆã¾ãŸã¯å·¦ä¸Šã‹ã‚‰ä¸‹ï¼‰ã«ä¸¦ã¹ã¦ã„ãã€ã¯ã¿å‡ºãã†ã«ãªã£ãŸã‚‰æ”¹è¡Œã™ã‚‹ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"LineLayout Sample");
 
-	Label label(frame, 0, 0, 0, 0, L"ƒEƒCƒ“ƒhƒE‚Ì‘å‚«‚³‚ğ•Ï‚¦‚é‚ÆƒRƒ“ƒgƒ[ƒ‹‚Ì”z’u‚ª•Ï‰»‚·‚é");
-	Button button0(frame, 0, 0, 0, 0, L"ƒ{ƒ^ƒ“0");
-	Button button1(frame, 0, 0, 0, 0, L"ƒ{ƒ^ƒ“1");
-	Button button2(frame, 0, 0, 0, 0, L"ƒ{ƒ^ƒ“2");
-	Edit edit(frame, 0, 0, 0, 0, 100, 20);
-	CheckBox check0(frame, 0, 0, 0, 0, L"ƒ`ƒFƒbƒN0");
-	CheckBox check1(frame, 0, 0, 0, 0, L"ƒ`ƒFƒbƒN1");
+Label label(frame, 0, 0, 0, 0, L"ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•ã‚’å¤‰ãˆã‚‹ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®é…ç½®ãŒå¤‰åŒ–ã™ã‚‹");
+Button button0(frame, 0, 0, 0, 0, L"ãƒœã‚¿ãƒ³0");
+Button button1(frame, 0, 0, 0, 0, L"ãƒœã‚¿ãƒ³1");
+Button button2(frame, 0, 0, 0, 0, L"ãƒœã‚¿ãƒ³2");
+Edit edit(frame, 0, 0, 0, 0, 100, 20);
+CheckBox check0(frame, 0, 0, 0, 0, L"ãƒã‚§ãƒƒã‚¯0");
+CheckBox check1(frame, 0, 0, 0, 0, L"ãƒã‚§ãƒƒã‚¯1");
 
-	LineLayout layout(frame);
-	layout.perform();
-	frame.onResized() = [&] (Frame::Resized& ) {
-		layout.perform();
-	};
- 
-	frame.runMessageLoop();
- * </code></pre>
- */
+LineLayout layout(frame);
+layout.perform();
+frame.onResized() = [&] (Frame::Resized& ) {
+layout.perform();
+};
+
+frame.runMessageLoop();
+* </code></pre>
+*/
 class LineLayout : private NonCopyable {
 public:
-	/// ‰½‚à‚µ‚È‚¢ƒŒƒCƒAƒEƒg‚ğì¬B
+	/// ä½•ã‚‚ã—ãªã„ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ä½œæˆã€‚
 	LineLayout();
 	LineLayout(LineLayout&& value);
-	/// ƒŒƒCƒAƒEƒg‘ÎÛ‚Æc”z’u‚©‚Ç‚¤‚©‚©‚çì¬B
+	/// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¯¾è±¡ã¨ç¸¦é…ç½®ã‹ã©ã†ã‹ã‹ã‚‰ä½œæˆã€‚
 	LineLayout(Control& target, bool vertical = false);
 	~LineLayout();
 	LineLayout& operator=(LineLayout&& value);
 
 public:
-	/// qƒRƒ“ƒgƒ[ƒ‹“¯m‚Ì‰¡‚Æc‚ÌŒ„ŠÔB‰Šú’l‚Í Size(10, 20)B
+	/// å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«åŒå£«ã®æ¨ªã¨ç¸¦ã®éš™é–“ã€‚åˆæœŸå€¤ã¯ Size(10, 20)ã€‚
 	Size margin() const;
 	void margin(const Size& value);
 	void margin(int width, int height);
-	/// ƒŒƒCƒAƒEƒg‚ğXV‚·‚éB
+	/// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’æ›´æ–°ã™ã‚‹ã€‚
 	void perform();
-	/// Scaler ‚ğg‚Á‚ÄƒŒƒCƒAƒEƒgİ’è‚ğƒXƒP[ƒŠƒ“ƒO‚·‚éBƒRƒ“ƒgƒ[ƒ‹‚Í•Ê“rƒXƒP[ƒŠƒ“ƒO‚ª•K—vB
+	/// Scaler ã‚’ä½¿ã£ã¦ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆè¨­å®šã‚’ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ã™ã‚‹ã€‚ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯åˆ¥é€”ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°ãŒå¿…è¦ã€‚
 	void scale(const Scaler& scaler);
-	/// Å‰‚ÌqƒRƒ“ƒgƒ[ƒ‹‚ğ‚Ç‚±‚É”z’u‚·‚é‚©B‰Šú’l‚Í Size(10, 10)B
+	/// æœ€åˆã®å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ã©ã“ã«é…ç½®ã™ã‚‹ã‹ã€‚åˆæœŸå€¤ã¯ Size(10, 10)ã€‚
 	Point startPosition() const;
 	void startPosition(const Point& value);
 	void startPosition(int x, int y);
-	/// ƒŒƒCƒAƒEƒg‘ÎÛ‚ÌƒRƒ“ƒgƒ[ƒ‹B
+	/// ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆå¯¾è±¡ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
 	Control* target();
-	/// c”z’u‚©‚Ç‚¤‚©B
+	/// ç¸¦é…ç½®ã‹ã©ã†ã‹ã€‚
 	bool vertical() const;
 	void vertical(bool value);
 

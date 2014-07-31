@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/graphics/Color.hpp>
 #include <balor/gui/Control.hpp>
@@ -17,94 +17,94 @@ namespace balor {
 
 
 /**
- * �X�^�e�B�b�N�R���g���[���B�R���g���[����ɕ������A�C�R���A�r�b�g�}�b�v��\������B
- * 
- * ���O�� Static �ɂ���ƕϐ����ɍ���̂� Label �ɕύX�����B�`��C�x���g�͖������A�I�[�i�[�h���[���邮�炢�Ȃ� Panel �N���X�� onPaint �C�x���g�����������ق����ǂ��B
- * ������A�r�b�g�}�b�v�A�A�C�R���̂R��ʂ̂ǂꂩ��\�����A�r�������ʂ�ύX���邱�Ƃ͂ł��Ȃ��B
- * �r�b�g�}�b�v��\���� DockLayout �Ŋg�k������̂͂��������������̂ł�߂��ق����悢�BPanel �� onPaint �C�x���g���������ׂ��B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
-	Frame frame(L"Label Sample");
+* スタティックコントロール。コントロール上に文字列やアイコン、ビットマップを表示する。
+*
+* 名前を Static にすると変数名に困るので Label に変更した。描画イベントは無いが、オーナードローするぐらいなら Panel クラスで onPaint イベントを処理したほうが良い。
+* 文字列、ビットマップ、アイコンの３種別のどれかを表示し、途中から種別を変更することはできない。
+* ビットマップを貼って DockLayout で拡縮させるのはちらつきが酷すぎるのでやめたほうがよい。Panel で onPaint イベントを処理すべき。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
+Frame frame(L"Label Sample");
 
-	Label textLabel(frame, 20, 10, 0, 0, L"�����񃉃x��:");
-	Label iconLabel(frame, 20, 50, 0, 0, Icon::asterisk());
+Label textLabel(frame, 20, 10, 0, 0, L"文字列ラベル:");
+Label iconLabel(frame, 20, 50, 0, 0, Icon::asterisk());
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class Label : public Control {
 public:
 	typedef ::balor::graphics::Bitmap Bitmap;
 	typedef ::balor::graphics::Icon Icon;
 
 
-	/// ������̔z�u�B
+	/// 文字列の配置。
 	struct TextAlign {
 		enum _enum {
-			left   = 0x00000000, /// �������B
-			center = 0x00000001, /// ���������B
-			right  = 0x00000002, /// �E�����B
+			left = 0x00000000, /// 左揃え。
+			center = 0x00000001, /// 中央揃え。
+			right = 0x00000002, /// 右揃え。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(TextAlign);
 	};
 
 
-	/// Label �̃C�x���g�̐e�N���X�B
+	/// Label のイベントの親クラス。
 	typedef EventWithSubclassSender<Label, Control::Event> Event;
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	Label();
 	Label(Label&& value, bool checkSlicing = true);
-	/// �e�A�ʒu�A�傫���A�����񂩂�쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B
+	/// 親、位置、大きさ、文字列から作成。大きさを０にすると getPreferredSize 関数で求める。
 	Label(Control& parent, int x, int y, int width, int height, StringRange text);
-	/// �e�A�ʒu�A�傫���A�r�b�g�}�b�v����쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B
+	/// 親、位置、大きさ、ビットマップから作成。大きさを０にすると getPreferredSize 関数で求める。
 	Label(Control& parent, int x, int y, int width, int height, HBITMAP bitmap);
-	/// �e�A�ʒu�A�傫���A�A�C�R������쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B
+	/// 親、位置、大きさ、アイコンから作成。大きさを０にすると getPreferredSize 関数で求める。
 	Label(Control& parent, int x, int y, int width, int height, HICON icon);
 	virtual ~Label();
 	Label& operator=(Label&& value);
 
 public:
-	/// �\������r�b�g�}�b�v�B�����ꍇ�̓k���n���h���̃r�b�g�}�b�v���Ԃ�B
+	/// 表示するビットマップ。無い場合はヌルハンドルのビットマップが返る。
 	Bitmap bitmap() const;
 	void bitmap(HBITMAP value);
-	/// �r�b�g�}�b�v��A�C�R�����g�k�����Ɍ����Œ����ɕ`�悷��B�����l�� false�B
+	/// ビットマップやアイコンを拡縮せずに原寸で中央に描画する。初期値は false。
 	bool centerImage() const;
 	void centerImage(bool value);
-	/// �R���g���[���̋��E���̎�ށB�����l�� Control::Edge::none�B
+	/// コントロールの境界線の種類。初期値は Control::Edge::none。
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// �����s�G�f�B�b�g�R���g���[���̂悤�ɕ������\������B�Ⴆ�ΒP���؂����s�R�[�h���Ȃ��Ƃ��͂ݏo��Ή��s����B�����l�� true�B
+	/// 複数行エディットコントロールのように文字列を表示する。例えば単語区切りや改行コードがなくともはみ出れば改行する。初期値は true。
 	bool editLike() const;
 	void editLike(bool value);
-	/// �����񂪈�s�Ɏ��܂�Ȃ��ꍇ�ɕ����ɏȗ������u...�v��\�����邩�ǂ����Btrue �̏ꍇ���s���Ȃ��Ȃ�B�����l�� false�B
+	/// 文字列が一行に収まらない場合に文末に省略文字「...」を表示するかどうか。true の場合改行しなくなる。初期値は false。
 	bool endEllipsis() const;
 	void endEllipsis(bool value);
-	/// �t�H�[�J�X�𓾂��邩�ǂ����B
+	/// フォーカスを得られるかどうか。
 	virtual bool focusable() const;
-	/// ���݂̕������t�H���g�A�摜������œK�ȑ傫�������߂�Bwidth ���Œ肷��ƍœK�� height �����܂�B
+	/// 現在の文字列やフォント、画像等から最適な大きさを求める。width を固定すると最適な height が求まる。
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// �\������A�C�R���B�����ꍇ�̓k���n���h���̃A�C�R�����Ԃ�B
+	/// 表示するアイコン。無い場合はヌルハンドルのアイコンが返る。
 	Icon icon() const;
 	void icon(HICON value);
-	/// '&' ����ꕶ���Ƃ��ď������Ȃ����ǂ����B�����l�� false�B
+	/// '&' を特殊文字として処理しないかどうか。初期値は false。
 	bool noPrefix() const;
 	void noPrefix(bool value);
-	/// �p�X�����񂪈�s�Ɏ��܂�Ȃ��ꍇ�Ƀt�@�C�����͕\�����r���ŏȗ������u...�v��\�����邩�ǂ����Btrue �̏ꍇ���s���Ȃ��Ȃ�B�����l�� false�B
+	/// パス文字列が一行に収まらない場合にファイル名は表示しつつ途中で省略文字「...」を表示するかどうか。true の場合改行しなくなる。初期値は false。
 	bool pathEllipsis() const;
 	void pathEllipsis(bool value);
-	/// ������̔z�u�B�����l�� Label::TextAlign::left�B
+	/// 文字列の配置。初期値は Label::TextAlign::left。
 	Label::TextAlign textAlign() const;
 	void textAlign(Label::TextAlign value);
-	/// ������̐F�B
+	/// 文字列の色。
 	Color textColor() const;
 	void textColor(const Color& value);
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:

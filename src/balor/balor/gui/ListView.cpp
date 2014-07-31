@@ -1,4 +1,4 @@
-#include "ListView.hpp"
+ï»¿#include "ListView.hpp"
 
 #include <algorithm>
 #include <functional>
@@ -866,7 +866,7 @@ ListView::TextEditing::TextEditing(ListView& sender, int itemIndex, String itemT
 Edit ListView::TextEditing::edit() {
 	Edit edit((HWND)SendMessageW(sender(), LVM_GETEDITCONTROL, 0, 0));
 	edit.onShortcutKey() = [&] (Control::ShortcutKey& e) {
-		if (e.shortcut() == Key::enter // Enter ƒL?‚Æ ESC ƒL?‚ğ?ƒCƒAƒƒOƒL?ˆ—‚µ‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¨‚­
+		if (e.shortcut() == Key::enter // Enter ã‚­ãƒ¼ã¨ ESC ã‚­ãƒ¼ã‚’ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚­ãƒ¼å‡¦ç†ã—ãªã„ã‚ˆã†ã«ã—ã¦ãŠã
 		 || e.shortcut() == Key::escape) {
 			e.isInputKey(true);
 		}
@@ -921,7 +921,7 @@ ListView::ListView(Control& parent, int x, int y, int width, int height, ListVie
 	verify(InitCommonControlsEx(&init));
 	bool tile = style == Style::tile;
 	if (tile) {
-		style = Style::largeIcon; // ?ƒCƒ‹‚ÍƒEƒCƒ“ƒhƒEƒX?ƒCƒ‹‚Å‚Í‚È‚¢
+		style = Style::largeIcon; // ã‚¿ã‚¤ãƒ«ã¯ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¹ã‚¿ã‚¤ãƒ«ã§ã¯ãªã„
 	}
 	attachHandle(CreateWindowExW(WS_EX_CLIENTEDGE, WC_LISTVIEWW, nullptr
 		, WS_CHILD | WS_TABSTOP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL
@@ -930,7 +930,7 @@ ListView::ListView(Control& parent, int x, int y, int width, int height, ListVie
 	if (tile) {
 		this->style(Style::tile);
 	}
-	// ?ƒFƒbƒN?ƒbƒNƒX‚Ì?¦‚Í•ÏX‚Å‚«‚é‚ª?–Ú‚ª‚ ‚é‚Æ?¦‚ª—‚ê‚½‚èAstateImageList ‚Æ‚Ì‹¤‘¶‚È‚Ç–â‘è‚ª‘½‚¢‚Ì‚Å•ÏX•s‰Â‚É‚·‚éB
+	// ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤ºã¯å¤‰æ›´ã§ãã‚‹ãŒé …ç›®ãŒã‚ã‚‹ã¨è¡¨ç¤ºãŒä¹±ã‚ŒãŸã‚Šã€stateImageList ã¨ã®å…±å­˜ãªã©å•é¡ŒãŒå¤šã„ã®ã§å¤‰æ›´ä¸å¯ã«ã™ã‚‹
 	if (options & Options::checkBoxes) {
 		setExtendedStyle(handle(), LVS_EX_CHECKBOXES, true);
 	}
@@ -1027,7 +1027,7 @@ void ListView::brush(HBRUSH value) {
 				image.yOffsetPercent = -origin.y;
 			}
 			verify(SendMessageW(handle(), LVM_SETBKIMAGE, 0, (LPARAM)&image));
-			bitmap.owned(false); // Š—LŒ ‚ÍƒŠƒXƒgƒrƒ…?‚Ö
+			bitmap.owned(false); // æ‰€æœ‰æ¨©ã¯ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ã¸
 			verify(SendMessageW(handle(), LVM_SETTEXTBKCOLOR, 0, CLR_NONE));
 		} else {
 			verify(!SendMessageW(handle(), LVM_SETBKIMAGE, 0, (LPARAM)&image));
@@ -1186,7 +1186,7 @@ ListView::HitTestInfo ListView::getHitTestInfo(const Point& point) const {
 	} else {
 		SendMessageW(handle(), LVM_HITTEST, 0, (LPARAM)&info);
 	}
-	// LVHT_ONITEMSTATEICON ‚Æ LVHT_ABOVE ‚Í“¯‚¶’l‚È‚Ì‚Å‚©‚Ô‚ç‚È‚¢‚æ‚¤‚É‚Í‚¶‚­
+	// VHT_ONITEMSTATEICON ã¨ LVHT_ABOVE ã¯åŒã˜å€¤ãªã®ã§ã‹ã¶ã‚‰ãªã„ã‚ˆã†ã«ã¯ã˜ã
 	return HitTestInfo(info.iItem, info.iSubItem, info.iItem == -1 ? 0 : info.flags);
 }
 
