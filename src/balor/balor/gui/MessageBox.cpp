@@ -1,4 +1,4 @@
-#include "MessageBox.hpp"
+ï»¿#include "MessageBox.hpp"
 
 #include <balor/graphics/Font.hpp>
 #include <balor/system/windows.hpp>
@@ -56,7 +56,7 @@ MsgBox::Result showMessageBox(HWND owner, StringRange text, StringRange caption,
 	assert("Invalid options" && MsgBox::Options::_validate(options));
 
 	int result = MessageBoxExW(owner, text.c_str(), caption.c_str(), buttons | icon | defaultButton | options | MB_TASKMODAL, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
-	assert(result); // ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ì•\¦‚É¸”s‚µ‚½
+	assert(result); // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤ºã«å¤±æ•—ã—ãŸ
 	return static_cast<MsgBox::Result>(result);
 }
 } // namespace

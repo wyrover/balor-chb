@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Menu.hpp>
 
@@ -9,38 +9,38 @@ namespace balor {
 
 
 /**
- * ƒƒjƒ…[ƒo[B
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã€‚
  *
- * ƒƒjƒ…[ƒo[‚Éí‚É•\¦‚³‚ê‚Ä‚¢‚éÅãˆÊ‚Ì€–Ú‚Ì•ÏX‚ğ”½‰f‚·‚é‚É‚Í Frame::updateMenuBar() ‚ğg‚¤‚±‚ÆB
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã«å¸¸ã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹æœ€ä¸Šä½ã®é …ç›®ã®å¤‰æ›´ã‚’åæ˜ ã™ã‚‹ã«ã¯ Frame::updateMenuBar() ã‚’ä½¿ã†ã“ã¨ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"MenuBar Sample");
 
 	typedef MenuBar::ItemInfo Item;
 	Item fileMenuItems[] = {
-		Item(L"ŠJ‚­(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
-		Item(L"•Û‘¶(&S)\tCtrl+S", Key::Modifier::ctrl | Key::s),
+		Item(L"é–‹ã(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
+		Item(L"ä¿å­˜(&S)\tCtrl+S", Key::Modifier::ctrl | Key::s),
 		Item(),
-		Item(L"I—¹(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
+		Item(L"çµ‚äº†(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
 	};
 	auto onSubMenuClick = [&] (Menu::Click& e) {
 		e.sender().checked(!e.sender().checked());
 	};
 	Item subMenuItems[] = {
-		Item(L"ƒ`ƒFƒbƒN0", onSubMenuClick),
-		Item(L"ƒ`ƒFƒbƒN1", onSubMenuClick),
-		Item(L"ƒ`ƒFƒbƒN2", onSubMenuClick)
+		Item(L"ãƒã‚§ãƒƒã‚¯0", onSubMenuClick),
+		Item(L"ãƒã‚§ãƒƒã‚¯1", onSubMenuClick),
+		Item(L"ãƒã‚§ãƒƒã‚¯2", onSubMenuClick)
 	};
 	Item editMenuItems[] = {
-		Item(L"ƒTƒuƒƒjƒ…[(&S)", subMenuItems),
-		Item(L"ƒƒjƒ…[‚ğ”ñ•\¦(&H)", [&] (Menu::Click& ) {
+		Item(L"ã‚µãƒ–ãƒ¡ãƒ‹ãƒ¥ãƒ¼(&S)", subMenuItems),
+		Item(L"ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’éè¡¨ç¤º(&H)", [&] (Menu::Click& ) {
 			frame.menuBar(nullptr);
 		})
 	};
 	Item menuItems[] = {
-		Item(L"ƒtƒ@ƒCƒ‹(&F)", fileMenuItems),
-		Item(L"•ÒW(&E)", editMenuItems)
+		Item(L"ãƒ•ã‚¡ã‚¤ãƒ«(&F)", fileMenuItems),
+		Item(L"ç·¨é›†(&E)", editMenuItems)
 	};
 	MenuBar menuBar(menuItems);
 	frame.menuBar(&menuBar);
@@ -48,11 +48,11 @@ namespace balor {
 	frame.onShortcutKey() = [&] (Frame::ShortcutKey& e) {
 		switch (e.shortcut()) {
 			case Key::Modifier::ctrl | Key::o : {
-				MsgBox::show(L"ŠJ‚­ƒƒjƒ…[‚ğ‘I‘ğ");
+				MsgBox::show(L"é–‹ããƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é¸æŠ");
 				e.handled(true);
 			} break;
 			case Key::Modifier::ctrl | Key::s : {
-				MsgBox::show(L"•Û‘¶ƒƒjƒ…[‚ğ‘I‘ğ");
+				MsgBox::show(L"ä¿å­˜ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é¸æŠ");
 				e.handled(true);
 			} break;
 			case Key::Modifier::alt | Key::f4 : {
@@ -67,20 +67,20 @@ namespace balor {
  */
 class MenuBar : public Menu {
 public:
-	/// ‹ó‚Ìƒƒjƒ…[ƒo[‚ğì¬B
+	/// ç©ºã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã‚’ä½œæˆã€‚
 	MenuBar();
 	MenuBar(MenuBar&& value);
-	/// q€–Ú‚Ìî•ñ”z—ñ‚©‚çì¬B
+	/// å­é …ç›®ã®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚
 	MenuBar(ArrayRange<const Menu::ItemInfo> itemInfos);
 	virtual ~MenuBar();
 	MenuBar& operator=(MenuBar&& value);
 
 public:
-	/// q€–Ú‚ğ’Ç‰Á‚·‚éB
+	/// å­é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	virtual void add(const ItemInfo& itemInfo);
-	/// q€–Ú‚ğ‘}“ü‚·‚éB
+	/// å­é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	virtual void insert(int index, const ItemInfo& itemInfo);
-	/// q€–Ú‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åİ’è‚·‚éB
+	/// å­é …ç›®ã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§è¨­å®šã™ã‚‹ã€‚
 	using Menu::itemInfos;
 	virtual void itemInfos(ArrayRange<const Menu::ItemInfo> value);
 };

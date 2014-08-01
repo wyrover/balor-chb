@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Point.hpp>
 
@@ -13,7 +13,7 @@ class Control;
 
 
 /**
- * ƒEƒCƒ“ƒhƒEƒƒbƒZ[ƒW\‘¢‘ÌBMSG \‘¢‘Ì‚ÌƒRƒs[•Šg’£B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ§‹é€ ä½“ã€‚MSG æ§‹é€ ä½“ã®ã‚³ãƒ”ãƒ¼ï¼†æ‹¡å¼µ
  */
 class Message {
 public:
@@ -40,7 +40,7 @@ public:
 	LPARAM lparam;
 	unsigned long time;
 	Point point;
-	/// ƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒ‚Ì–ß‚è’lB
+	/// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã®æˆ»ã‚Šå€¤
 	LRESULT result;
 };
 

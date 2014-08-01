@@ -1,4 +1,4 @@
-#include "Menu.hpp"
+ï»¿#include "Menu.hpp"
 
 #include <balor/graphics/Bitmap.hpp>
 #include <balor/graphics/Font.hpp>
@@ -41,7 +41,7 @@ struct ItemData : public MENUITEMINFOW {
 		this->hbmpChecked   = itemInfo.checkedMark();
 		this->hbmpUnchecked = itemInfo.uncheckedMark();
 
-		// ‚±‚±‚Í‚¿‚å‚Á‚Æ”»‚è‚É‚­‚¢B‚Â‚¢‚Å‚É item ‚ÉƒCƒxƒ“ƒg‚ğƒRƒs[‚·‚éB
+		// ã“ã“ã¯ã¡ã‚‡ã£ã¨åˆ¤ã‚Šã«ãã„ã€‚ã¤ã„ã§ã« item ã«ã‚¤ãƒ™ãƒ³ãƒˆã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹
 		item.shortcut(itemInfo.shortcut());
 		item.onClick() = itemInfo.onClick();
 		item.onDrag() = itemInfo.onDrag();

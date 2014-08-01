@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Enum.hpp>
 
@@ -19,90 +19,90 @@ namespace balor {
 
 
 /**
- * ƒ}ƒEƒX‚ÉŠÖ‚·‚éî•ñ‚â‘€ì‚ğˆµ‚¤B
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"MessageBox Sample");
+* ãƒã‚¦ã‚¹ã«é–¢ã™ã‚‹æƒ…å ±ã‚„æ“ä½œã‚’æ‰±ã†ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"MessageBox Sample");
 
-	Label position(frame, 20, 10, 200, 0, L"Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’uF");
-	frame.onMouseMove() = [&] (Frame::MouseMove& ) {
-		position.text(String(L"Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’uF") + Mouse::position().x + L", " + Mouse::position().y);
-	};
-	Label change(frame, 20, 50, 200, 100, L"ƒJ[ƒ\ƒ‹‚Ì•ÏX");
-	change.edge(Label::Edge::client);
-	change.onCursorChange() = [&] (Label::CursorChange& e) {
-		e.cursor(Cursor::hand());
-	};
-	Label hide(frame, 20, 180, 200, 100, L"ƒJ[ƒ\ƒ‹‚ğ”ñ•\¦");
-	hide.edge(Label::Edge::client);
-	hide.onMouseEnter() = [&] (Label::MouseEnter& ) {
-		Mouse::hide();
-	};
-	hide.onMouseLeave() = [&] (Label::MouseLeave& ) {
-		Mouse::show();
-	};
+Label position(frame, 20, 10, 200, 0, L"ç¾åœ¨ã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ï¼š");
+frame.onMouseMove() = [&] (Frame::MouseMove& ) {
+position.text(String(L"ç¾åœ¨ã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ï¼š") + Mouse::position().x + L", " + Mouse::position().y);
+};
+Label change(frame, 20, 50, 200, 100, L"ã‚«ãƒ¼ã‚½ãƒ«ã®å¤‰æ›´");
+change.edge(Label::Edge::client);
+change.onCursorChange() = [&] (Label::CursorChange& e) {
+e.cursor(Cursor::hand());
+};
+Label hide(frame, 20, 180, 200, 100, L"ã‚«ãƒ¼ã‚½ãƒ«ã‚’éè¡¨ç¤º");
+hide.edge(Label::Edge::client);
+hide.onMouseEnter() = [&] (Label::MouseEnter& ) {
+Mouse::hide();
+};
+hide.onMouseLeave() = [&] (Label::MouseLeave& ) {
+Mouse::show();
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class Mouse {
 public:
 	typedef ::HICON__* HCURSOR;
 	typedef ::balor::graphics::Cursor Cursor;
 
-	/// ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚Ìí—ŞB
+	/// ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã®ç¨®é¡ã€‚
 	enum _enum {
-		none               = 0x00, /// ‚Ç‚Ìƒ{ƒ^ƒ“‚Å‚à‚È‚¢B
-		lButton            = 0x01, /// ¶ƒ{ƒ^ƒ“B
-		mButton            = 0x04, /// ’†‰›ƒ{ƒ^ƒ“B
-		rButton            = 0x02, /// ‰Eƒ{ƒ^ƒ“B
-		xButton1           = 0x05, /// X1ƒ{ƒ^ƒ“B
-		xButton2           = 0x06, /// X2ƒ{ƒ^ƒ“B
+		none = 0x00, /// ã©ã®ãƒœã‚¿ãƒ³ã§ã‚‚ãªã„ã€‚
+		lButton = 0x01, /// å·¦ãƒœã‚¿ãƒ³ã€‚
+		mButton = 0x04, /// ä¸­å¤®ãƒœã‚¿ãƒ³ã€‚
+		rButton = 0x02, /// å³ãƒœã‚¿ãƒ³ã€‚
+		xButton1 = 0x05, /// X1ãƒœã‚¿ãƒ³ã€‚
+		xButton2 = 0x06, /// X2ãƒœã‚¿ãƒ³ã€‚
 	};
 	BALOR_NAMED_ENUM_MEMBERS(Mouse);
 
 public:
-	/// ƒ{ƒ^ƒ“‚Ì”B
+	/// ãƒœã‚¿ãƒ³ã®æ•°ã€‚
 	static int buttonCount();
-	/// ¶‰E‚Ìƒ{ƒ^ƒ“‹@”\‚ğŒğŠ·‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// å·¦å³ã®ãƒœã‚¿ãƒ³æ©Ÿèƒ½ã‚’äº¤æ›ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	static bool buttonSwapped();
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ªˆÚ“®‰Â”\‚ÈƒXƒNƒŠ[ƒ“À•W—ÌˆæB
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒç§»å‹•å¯èƒ½ãªã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™é ˜åŸŸã€‚
 	static Rectangle clip();
 	static void clip(const Rectangle& value);
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹B
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã€‚
 	static Cursor cursor();
 	static void cursor(HCURSOR value);
-	/// “ñ‰ñ‚ÌƒNƒŠƒbƒN‚ªƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Æ‚İ‚È‚³‚ê‚éƒsƒNƒZƒ‹”ÍˆÍB
+	/// äºŒå›ã®ã‚¯ãƒªãƒƒã‚¯ãŒãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã¨ã¿ãªã•ã‚Œã‚‹ãƒ”ã‚¯ã‚»ãƒ«ç¯„å›²ã€‚
 	static Size doubleClickSize();
-	/// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Æ‚İ‚È‚³‚ê‚éƒNƒŠƒbƒNŠÔŠuiƒ~ƒŠ•bjB
+	/// ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã¨ã¿ãªã•ã‚Œã‚‹ã‚¯ãƒªãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€‚
 	static int doubleClickTime();
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ”ñ•\¦‚É‚·‚éB•\¦”ñ•\¦‚ÍƒJƒEƒ“ƒg‚³‚ê‚éB
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’éè¡¨ç¤ºã«ã™ã‚‹ã€‚è¡¨ç¤ºéè¡¨ç¤ºã¯ã‚«ã‚¦ãƒ³ãƒˆã•ã‚Œã‚‹ã€‚
 	static void hide();
-	/// ƒ}ƒEƒXƒzƒo[‚Å‚Æ‚Ç‚Ü‚Á‚Ä‚¢‚È‚¯‚ê‚Î‚È‚ç‚È‚¢”ÍˆÍƒsƒNƒZƒ‹B
+	/// ãƒã‚¦ã‚¹ãƒ›ãƒãƒ¼ã§ã¨ã©ã¾ã£ã¦ã„ãªã‘ã‚Œã°ãªã‚‰ãªã„ç¯„å›²ãƒ”ã‚¯ã‚»ãƒ«ã€‚
 	static Size hoverSize();
-	/// ƒ}ƒEƒXƒzƒo[‚ÌƒfƒtƒHƒ‹ƒg‘Ò‹@ŠÔiƒ~ƒŠ•bjB
+	/// ãƒã‚¦ã‚¹ãƒ›ãƒãƒ¼ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¾…æ©Ÿæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã€‚
 	static int hoverTime();
-	/// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©BƒEƒCƒ“ƒhƒEƒƒbƒZ[ƒWƒ‹[ƒv‚Åó‘Ô‚ªXV‚³‚ê‚éB
+	/// ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ«ãƒ¼ãƒ—ã§çŠ¶æ…‹ãŒæ›´æ–°ã•ã‚Œã‚‹ã€‚
 	static bool isPushed(Mouse button);
-	/// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©BƒEƒCƒ“ƒhƒEƒƒbƒZ[ƒWƒ‹[ƒv‚É‚æ‚ç‚¸‚ÉŒ»İ‚Ìó‘Ô‚ğæ“¾‚·‚éB
+	/// ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ«ãƒ¼ãƒ—ã«ã‚ˆã‚‰ãšã«ç¾åœ¨ã®çŠ¶æ…‹ã‚’å–å¾—ã™ã‚‹ã€‚
 	static bool isPushedAsync(Mouse button);
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌŒ»İ‚ÌƒXƒNƒŠ[ƒ“À•WB
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç¾åœ¨ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ã€‚
 	static Point position();
 	static void position(const Point& value);
-	/// ÅŒã‚ÉƒƒbƒZ[ƒWˆ—‚³‚ê‚½ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌƒXƒNƒŠ[ƒ“À•WB
+	/// æœ€å¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†ã•ã‚ŒãŸãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ã€‚
 	static Point positionAtLastMessage();
-	/// ƒ}ƒEƒX‚ªÚ‘±‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ãƒã‚¦ã‚¹ãŒæ¥ç¶šã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	static bool present();
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ•\¦‚·‚éB•\¦”ñ•\¦‚ÍƒJƒEƒ“ƒg‚³‚ê‚éB
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã€‚è¡¨ç¤ºéè¡¨ç¤ºã¯ã‚«ã‚¦ãƒ³ãƒˆã•ã‚Œã‚‹ã€‚
 	static void show();
-	/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌˆÚ“®‘¬“xB‚Pi’x‚¢j`‚Q‚Oi‘‚¢j‚ğ•Ô‚·B
+	/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é€Ÿåº¦ã€‚ï¼‘ï¼ˆé…ã„ï¼‰ï½ï¼’ï¼ï¼ˆæ—©ã„ï¼‰ã‚’è¿”ã™ã€‚
 	static int speed();
-	/// ƒ}ƒEƒXƒzƒC[ƒ‹‚ªÚ‘±‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ãŒæ¥ç¶šã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	static bool wheelPresent();
-	/// ƒ}ƒEƒXƒzƒC[ƒ‹‚Åˆê“x‚ÉƒXƒNƒ[ƒ‹‚·‚éƒsƒNƒZƒ‹”B
+	/// ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã§ä¸€åº¦ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ãƒ”ã‚¯ã‚»ãƒ«æ•°ã€‚
 	static int wheelScrollDelta();
-	/// ƒ}ƒEƒXƒzƒC[ƒ‹‚Åˆê“x‚ÉƒXƒNƒ[ƒ‹‚·‚és”B
+	/// ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã§ä¸€åº¦ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹è¡Œæ•°ã€‚
 	static int wheelScrollLines();
 };
 

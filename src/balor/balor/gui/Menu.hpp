@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -31,12 +31,12 @@ class Control;
 
 
 /**
- * ƒƒjƒ…[ƒo[‚âƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ÌŠî’êƒNƒ‰ƒXB
- *
- * ƒfƒtƒHƒ‹ƒgƒAƒCƒeƒ€‚ÍƒTƒ|[ƒg‚µ‚È‚¢B€–Ú‚Ìƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Åe€–Ú‚É‘Î‚µ‚Ä WM_MENUCOMMAND ƒƒbƒZ[ƒW‚ª”­¶‚·‚é‚Ì‚Å‘·€–Ú‚ğ“Á’è‚Å‚«‚È‚¢B
- * onDrag ƒCƒxƒ“ƒg‚Åƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚ğŠJn‚µAƒI[ƒi[ƒEƒCƒ“ƒhƒE‚Ì DragDrop::Target::onDrop ƒCƒxƒ“ƒg‚ÅƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚·‚é‚Æ
- * Vista ‚Å‚Íƒuƒ‹[ƒXƒNƒŠ[ƒ“AXP‚Å‚Í PC Ä‹N“®‚µ‚Ä‚µ‚Ü‚Á‚½BƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚µ‚È‚¯‚ê‚Î‹N‚«‚È‚¢‚Ì‚Å‰½‚©‚ ‚éB’ˆÓ‚ª•K—vB
- */
+* ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã‚„ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®åŸºåº•ã‚¯ãƒ©ã‚¹ã€‚
+*
+* ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã¯ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚é …ç›®ã®ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§è¦ªé …ç›®ã«å¯¾ã—ã¦ WM_MENUCOMMAND ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒç™ºç”Ÿã™ã‚‹ã®ã§å­«é …ç›®ã‚’ç‰¹å®šã§ããªã„ã€‚
+* onDrag ã‚¤ãƒ™ãƒ³ãƒˆã§ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã‚’é–‹å§‹ã—ã€ã‚ªãƒ¼ãƒŠãƒ¼ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã® DragDrop::Target::onDrop ã‚¤ãƒ™ãƒ³ãƒˆã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã¨
+* Vista ã§ã¯ãƒ–ãƒ«ãƒ¼ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã€XPã§ã¯ PC å†èµ·å‹•ã—ã¦ã—ã¾ã£ãŸã€‚ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã—ãªã‘ã‚Œã°èµ·ããªã„ã®ã§ä½•ã‹ã‚ã‚‹ã€‚æ³¨æ„ãŒå¿…è¦ã€‚
+*/
 class Menu : private NonCopyable {
 public:
 	typedef ::HBITMAP__* HBITMAP;
@@ -57,7 +57,7 @@ public:
 	class ItemInfo;
 	class DescendantsIterator;
 
-	/// ƒƒjƒ…[€–ÚBMenu::operator[] ‚Ü‚½‚Í Menu::Item::operator[] ‚Åæ“¾‚Å‚«‚éB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã€‚Menu::operator[] ã¾ãŸã¯ Menu::Item::operator[] ã§å–å¾—ã§ãã‚‹ã€‚
 	class Item : private NonCopyable {
 		friend Menu;
 
@@ -67,87 +67,87 @@ public:
 		Item& operator=(Item&& value);
 
 	public:
-		/// î•ñ‚Ì”½‰fB
+		/// æƒ…å ±ã®åæ˜ ã€‚
 		Item& operator=(const ItemInfo& itemInfo);
 
 	public:
-		/// q€–Ú‚ğ’Ç‰Á‚·‚éB
+		/// å­é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 		void add(const ItemInfo& itemInfo);
-		/// ŠÔ‚Éü‚ğˆø‚¢‚Äƒƒjƒ…[‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©Bƒƒjƒ…[ƒo[‚Ìê‡‚Íü‚Íˆø‚©‚È‚¢B
+		/// é–“ã«ç·šã‚’å¼•ã„ã¦ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã®å ´åˆã¯ç·šã¯å¼•ã‹ãªã„ã€‚
 		bool barBreak() const;
 		void barBreak(bool value);
-		/// ŠÔ‚Éü‚ğˆø‚©‚¸‚Éƒƒjƒ…[‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©BbarBreak() ‚Ì‚Ù‚¤‚ª—Dæ‚³‚ê‚éB
+		/// é–“ã«ç·šã‚’å¼•ã‹ãšã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚barBreak() ã®ã»ã†ãŒå„ªå…ˆã•ã‚Œã‚‹ã€‚
 		bool lineBreak() const;
 		void lineBreak(bool value);
-		/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool checked() const;
 		void checked(bool value);
-		/// ƒ`ƒFƒbƒN‚³‚ê‚½ó‘Ô‚Ìƒrƒbƒgƒ}ƒbƒv‰æ‘œBƒrƒbƒgƒ}ƒbƒvƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚é‚Ì‚Å”jŠü‚µ‚È‚¢‚±‚ÆB
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸçŠ¶æ…‹ã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ç”»åƒã€‚ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œã‚‹ã®ã§ç ´æ£„ã—ãªã„ã“ã¨ã€‚
 		Bitmap checkedMark() const;
 		void checkedMark(HBITMAP value);
-		/// q€–Ú‚ğ‘S‚Äíœ‚·‚éB
+		/// å­é …ç›®ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹ã€‚
 		void clear();
-		/// q€–Ú‚Ì”B
+		/// å­é …ç›®ã®æ•°ã€‚
 		int count() const;
-		/// ‘S‚Ä‚Ìq‘·€–Ú‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+		/// å…¨ã¦ã®å­å­«é …ç›®ã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 		Menu::DescendantsIterator descendantsBegin();
-		/// ‘I‘ğ‰Â”\‚©‚Ç‚¤‚©B
+		/// é¸æŠå¯èƒ½ã‹ã©ã†ã‹ã€‚
 		bool enabled() const;
 		void enabled(bool value);
-		/// q€–Ú‚ğíœ‚·‚éB
+		/// å­é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 		void erase(int index);
-		/// ƒƒjƒ…[ƒnƒ“ƒhƒ‹‚©‚ç€–Ú‚ğæ“¾‚·‚éBŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í nullptr ‚ğ•Ô‚·B
+		/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ³ãƒ‰ãƒ«ã‹ã‚‰é …ç›®ã‚’å–å¾—ã™ã‚‹ã€‚è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯ nullptr ã‚’è¿”ã™ã€‚
 		static Menu::Item* fromHandle(HMENU handle);
-		/// ƒI[ƒi[ƒRƒ“ƒgƒ[ƒ‹ã‚Å‚Ì€–Ú‚ÌƒXƒNƒŠ[ƒ“À•WŒn‚Å‚Ì•\¦ˆÊ’u‚ğæ“¾‚·‚éB•\¦‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‘å‚«‚³‚ª‚O‚É‚È‚éB
+		/// ã‚ªãƒ¼ãƒŠãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä¸Šã§ã®é …ç›®ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ç³»ã§ã®è¡¨ç¤ºä½ç½®ã‚’å–å¾—ã™ã‚‹ã€‚è¡¨ç¤ºã•ã‚Œã¦ã„ãªã„å ´åˆã¯å¤§ãã•ãŒï¼ã«ãªã‚‹ã€‚
 		Rectangle getBounds(Control& owner) const;
-		/// €–Ú‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int index() const;
-		/// q€–Ú‚ğ‘}“ü‚·‚éB
+		/// å­é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 		void insert(int index, const ItemInfo& itemInfo);
-		/// q€–Ú‚Ìî•ñ\‘¢‘Ì”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+		/// å­é …ç›®ã®æƒ…å ±æ§‹é€ ä½“é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 		std::vector<Menu::ItemInfo> itemInfos() const;
 		void itemInfos(ArrayRange<const Menu::ItemInfo> value);
-		/// ƒNƒŠƒbƒN‚µ‚½‚ÌƒCƒxƒ“ƒgBshortcut() ‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚Í”­¶‚µ‚È‚¢B
+		/// ã‚¯ãƒªãƒƒã‚¯ã—ãŸæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚shortcut() ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ç™ºç”Ÿã—ãªã„ã€‚
 		Listener<Menu::Click&>& onClick();
-		/// ‚±‚Ì€–Ú‚ğƒhƒ‰ƒbƒO‚µ‚½‚ÌƒCƒxƒ“ƒgB
+		/// ã“ã®é …ç›®ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::Drag&>& onDrag();
-		/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+		/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::PopupBegin&>& onPopupBegin();
-		/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚µI‚í‚Á‚½ƒCƒxƒ“ƒgB
+		/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—çµ‚ã‚ã£ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::PopupEnd&>& onPopupEnd();
-		/// ‰EƒNƒŠƒbƒN‚ğ‚µ‚½ƒCƒxƒ“ƒgB
+		/// å³ã‚¯ãƒªãƒƒã‚¯ã‚’ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::RightClick&>& onRightClick();
-		/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ªã‚É—ˆ‚½ƒCƒxƒ“ƒgB
+		/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«æ¥ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::Select&>& onSelect();
-		/// e€–ÚB‚È‚¢ê‡‚Í nullptrB
+		/// è¦ªé …ç›®ã€‚ãªã„å ´åˆã¯ nullptrã€‚
 		Menu::Item* parent();
-		/// e€–Ú‚Ìƒnƒ“ƒhƒ‹B‚È‚¢ê‡‚Í nullptrB
+		/// è¦ªé …ç›®ã®ãƒãƒ³ãƒ‰ãƒ«ã€‚ãªã„å ´åˆã¯ nullptrã€‚
 		HMENU parentHandle() const;
-		/// ƒ‰ƒWƒIƒ{ƒ^ƒ“ƒXƒ^ƒCƒ‹‚Ìƒ`ƒFƒbƒNƒ}[ƒN‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©B
+		/// ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚¹ã‚¿ã‚¤ãƒ«ã®ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool radioCheck() const;
 		void radioCheck(bool value);
-		/// ƒZƒpƒŒ[ƒ^‚©‚Ç‚¤‚©B
+		/// ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‹ã©ã†ã‹ã€‚
 		bool separator() const;
 		void separator(bool value);
-		/// Key ‚Æ Key::Modifier ‚ğ‘g‚İ‡‚í‚¹‚½ƒVƒ‡[ƒgƒJƒbƒgƒRƒ}ƒ“ƒhB
-		/// İ’è‚³‚ê‚Ä‚¢‚éê‡‚Í onClick() ƒCƒxƒ“ƒg‚Ì‘ã‚í‚è‚ÉƒI[ƒi[ƒRƒ“ƒgƒ[ƒ‹‚Ì onShortcutKey() ƒCƒxƒ“ƒg‚ª”­¶‚·‚éB
+		/// Key ã¨ Key::Modifier ã‚’çµ„ã¿åˆã‚ã›ãŸã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚³ãƒãƒ³ãƒ‰ã€‚
+		/// è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ onClick() ã‚¤ãƒ™ãƒ³ãƒˆã®ä»£ã‚ã‚Šã«ã‚ªãƒ¼ãƒŠãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã® onShortcutKey() ã‚¤ãƒ™ãƒ³ãƒˆãŒç™ºç”Ÿã™ã‚‹ã€‚
 		int shortcut() const;
 		void shortcut(int value);
-		/// ƒƒjƒ…[•¶š—ñB
+		/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(StringRange value);
 		void textToBuffer(StringBuffer& buffer) const;
-		/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚È‚¢ó‘Ô‚Ìƒrƒbƒgƒ}ƒbƒv‰æ‘œBƒrƒbƒgƒ}ƒbƒvƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚é‚Ì‚Å”jŠü‚µ‚È‚¢‚±‚ÆB
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãªã„çŠ¶æ…‹ã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ç”»åƒã€‚ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œã‚‹ã®ã§ç ´æ£„ã—ãªã„ã“ã¨ã€‚
 		Bitmap uncheckedMark() const;
 		void uncheckedMark(HBITMAP value);
-		/// ƒ†[ƒU‚ª©—R‚Ég‚¦‚é”CˆÓ‚Ìƒf[ƒ^B
+		/// ãƒ¦ãƒ¼ã‚¶ãŒè‡ªç”±ã«ä½¿ãˆã‚‹ä»»æ„ã®ãƒ‡ãƒ¼ã‚¿ã€‚
 		UniqueAny& userData();
 		void userData(UniqueAny&& value);
 
 	public:
-		/// HMENU ‚Ö‚Ì©“®•ÏŠ· & null ƒ`ƒFƒbƒNB
+		/// HMENU ã¸ã®è‡ªå‹•å¤‰æ› & null ãƒã‚§ãƒƒã‚¯ã€‚
 		operator HMENU() const { return _handle; }
-		/// q€–Ú‚ğæ“¾‚·‚éB
+		/// å­é …ç›®ã‚’å–å¾—ã™ã‚‹ã€‚
 		Item& operator[](int index);
 		const Item& operator[](int index) const;
 
@@ -158,7 +158,7 @@ public:
 		HMENU _parent;
 		HMENU _handle;
 		int _index;
-		Item* _items; // vector ‚¾‚Æ friend éŒ¾‚ª‘òR•K—v‚Å–Ê“|B
+		Item* _items; // vector ã ã¨ friend å®£è¨€ãŒæ²¢å±±å¿…è¦ã§é¢å€’ã€‚
 		int _itemsCapacity;
 		int _shortcut;
 		UniqueAny _userData;
@@ -171,82 +171,82 @@ public:
 	};
 
 
-	/// ƒƒjƒ…[€–Úî•ñ\‘¢‘ÌBî•ñ‚ğ‚Â‚¾‚¯‚Åƒƒjƒ…[‚ÍˆêØ‘€ì‚µ‚È‚¢BMenu::itemInfos ŠÖ”‚Ü‚½‚Í Menu::Item::itemInfos ŠÖ”“™‚Åg—p‚·‚éB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®æƒ…å ±æ§‹é€ ä½“ã€‚æƒ…å ±ã‚’æŒã¤ã ã‘ã§ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯ä¸€åˆ‡æ“ä½œã—ãªã„ã€‚Menu::itemInfos é–¢æ•°ã¾ãŸã¯ Menu::Item::itemInfos é–¢æ•°ç­‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 	class ItemInfo {
 	public:
-		/// ƒZƒpƒŒ[ƒ^‚Æ‚µ‚Äì¬B
+		/// ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã¨ã—ã¦ä½œæˆã€‚
 		ItemInfo();
 		ItemInfo(ItemInfo&& value);
-		/// î•ñ‚Ìæ“¾B
+		/// æƒ…å ±ã®å–å¾—ã€‚
 		ItemInfo(const Item& item);
-		/// €–Ú•¶š—ñ‚ÆƒVƒ‡[ƒgƒJƒbƒgƒRƒ}ƒ“ƒh‚©‚çì¬B
+		/// é …ç›®æ–‡å­—åˆ—ã¨ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚³ãƒãƒ³ãƒ‰ã‹ã‚‰ä½œæˆã€‚
 		explicit ItemInfo(String text, int shortcut = 0);
-		/// €–Ú•¶š—ñ‚Æ onClick ƒCƒxƒ“ƒg‚©‚çì¬B
+		/// é …ç›®æ–‡å­—åˆ—ã¨ onClick ã‚¤ãƒ™ãƒ³ãƒˆã‹ã‚‰ä½œæˆã€‚
 		ItemInfo(String text, Listener<Menu::Event&> onClick);
-		/// €–Ú•¶š—ñ‚Æq€–Ú‚Ìî•ñ\‘¢‘Ì”z—ñ‚©‚çì¬B¦ ArrayRange ‚Í Listener ‚Æ‚ ‚¢‚Ü‚¢‚Èˆø”‚É‚È‚é‚Ì‚Åg—p‚Å‚«‚¸B
+		/// é …ç›®æ–‡å­—åˆ—ã¨å­é …ç›®ã®æƒ…å ±æ§‹é€ ä½“é…åˆ—ã‹ã‚‰ä½œæˆã€‚â€» ArrayRange ã¯ Listener ã¨ã‚ã„ã¾ã„ãªå¼•æ•°ã«ãªã‚‹ã®ã§ä½¿ç”¨ã§ããšã€‚
 		ItemInfo(String text, std::vector<Menu::ItemInfo> itemInfos);
 		template<int Size> ItemInfo(String text, const std::tr1::array<Menu::ItemInfo, Size>& itemInfos) : _text(std::move(text)), _itemInfos(itemInfos.begin(), itemInfos.end()) { _initialize(); }
-		template<int Size> ItemInfo(String text, const Menu::ItemInfo (&itemInfos)[Size]) : _text(std::move(text)), _itemInfos(itemInfos, itemInfos + Size) { _initialize(); }
-		/// €–Ú•¶š—ñ‚ÆFX‚Èî•ñ‚©‚çì¬B
+		template<int Size> ItemInfo(String text, const Menu::ItemInfo(&itemInfos)[Size]) : _text(std::move(text)), _itemInfos(itemInfos, itemInfos + Size) { _initialize(); }
+		/// é …ç›®æ–‡å­—åˆ—ã¨è‰²ã€…ãªæƒ…å ±ã‹ã‚‰ä½œæˆã€‚
 		ItemInfo(String text, bool barBreak, bool lineBreak, bool radioCheck
 			, bool checked = false, bool enabled = true, HBITMAP checkedMark = nullptr, HBITMAP uncheckedMark = nullptr
-			, int shortcut = 0, Listener<Menu::Event&> onClick = [&] (Event& ) {});
+			, int shortcut = 0, Listener<Menu::Event&> onClick = [&](Event&) {});
 		ItemInfo& operator=(ItemInfo&& value);
 
 	public:
-		/// ŠÔ‚Éü‚ğˆø‚¢‚Äƒƒjƒ…[‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©Bƒƒjƒ…[ƒo[‚Ìê‡‚Íü‚Íˆø‚©‚È‚¢B‰Šú’l‚Í falseB
+		/// é–“ã«ç·šã‚’å¼•ã„ã¦ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã®å ´åˆã¯ç·šã¯å¼•ã‹ãªã„ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool barBreak() const;
 		void barBreak(bool value);
-		/// ŠÔ‚Éü‚ğˆø‚©‚¸‚Éƒƒjƒ…[‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// é–“ã«ç·šã‚’å¼•ã‹ãšã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool lineBreak() const;
 		void lineBreak(bool value);
-		/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool checked() const;
 		void checked(bool value);
-		/// ƒ`ƒFƒbƒN‚³‚ê‚½ó‘Ô‚Ìƒrƒbƒgƒ}ƒbƒv‰æ‘œBƒrƒbƒgƒ}ƒbƒvƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚é‚Ì‚Å”jŠü‚µ‚È‚¢‚±‚ÆB‰Šú’l‚Í nullptrB
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸçŠ¶æ…‹ã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ç”»åƒã€‚ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œã‚‹ã®ã§ç ´æ£„ã—ãªã„ã“ã¨ã€‚åˆæœŸå€¤ã¯ nullptrã€‚
 		Bitmap checkedMark() const;
 		void checkedMark(HBITMAP value);
-		/// ‘I‘ğ‰Â”\‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+		/// é¸æŠå¯èƒ½ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 		bool enabled() const;
 		void enabled(bool value);
-		/// q€–Ú‚Ìî•ñ\‘¢‘Ì”z—ñB
+		/// å­é …ç›®ã®æƒ…å ±æ§‹é€ ä½“é…åˆ—ã€‚
 		std::vector<Menu::ItemInfo>& itemInfos();
 		const std::vector<Menu::ItemInfo>& itemInfos() const;
 		void itemInfos(ArrayRange<const Menu::ItemInfo> value);
-		/// ƒj[ƒ‚ƒjƒbƒN•¶šB–³‚¢ê‡‚Í L'\0' ‚ª•Ô‚éB
+		/// ãƒ‹ãƒ¼ãƒ¢ãƒ‹ãƒƒã‚¯æ–‡å­—ã€‚ç„¡ã„å ´åˆã¯ L'\0' ãŒè¿”ã‚‹ã€‚
 		wchar_t mnemonic() const;
-		/// ƒNƒŠƒbƒN‚µ‚½‚ÌƒCƒxƒ“ƒgBshortcut() ‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚Í”­¶‚µ‚È‚¢B
+		/// ã‚¯ãƒªãƒƒã‚¯ã—ãŸæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚shortcut() ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ç™ºç”Ÿã—ãªã„ã€‚
 		Listener<Menu::Click&>& onClick();
 		const Listener<Menu::Click&>& onClick() const;
-		/// ‚±‚Ì€–Ú‚ğƒhƒ‰ƒbƒO‚µ‚½‚ÌƒCƒxƒ“ƒgBB
+		/// ã“ã®é …ç›®ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚ã€‚
 		Listener<Menu::Drag&>& onDrag();
 		const Listener<Menu::Drag&>& onDrag() const;
-		/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+		/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::PopupBegin&>& onPopupBegin();
 		const Listener<Menu::PopupBegin&>& onPopupBegin() const;
-		/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚µI‚í‚Á‚½ƒCƒxƒ“ƒgB
+		/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—çµ‚ã‚ã£ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::PopupEnd&>& onPopupEnd();
 		const Listener<Menu::PopupEnd&>& onPopupEnd() const;
-		/// ‰EƒNƒŠƒbƒN‚ğ‚µ‚½ƒCƒxƒ“ƒgB
+		/// å³ã‚¯ãƒªãƒƒã‚¯ã‚’ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::RightClick&>& onRightClick();
 		const Listener<Menu::RightClick&>& onRightClick() const;
-		/// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ªã‚É—ˆ‚½ƒCƒxƒ“ƒgB
+		/// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«æ¥ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Menu::Select&>& onSelect();
 		const Listener<Menu::Select&>& onSelect() const;
-		/// ƒ‰ƒWƒIƒ{ƒ^ƒ“ƒXƒ^ƒCƒ‹‚Ìƒ`ƒFƒbƒNƒ}[ƒN‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚¹ã‚¿ã‚¤ãƒ«ã®ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool radioCheck() const;
 		void radioCheck(bool value);
-		/// ƒZƒpƒŒ[ƒ^‚©‚Ç‚¤‚©BƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åì¬‚µ‚½ê‡‚Í trueB
+		/// ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‹ã©ã†ã‹ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ä½œæˆã—ãŸå ´åˆã¯ trueã€‚
 		bool separator() const;
 		void separator(bool value);
-		/// Key ‚Æ Key::Modifier ‚ğ‘g‚İ‡‚í‚¹‚½ƒVƒ‡[ƒgƒJƒbƒgƒRƒ}ƒ“ƒhB
-		/// İ’è‚³‚ê‚Ä‚¢‚éê‡‚Í onClick() ƒCƒxƒ“ƒg‚Ì‘ã‚í‚è‚ÉƒI[ƒi[ƒRƒ“ƒgƒ[ƒ‹‚Ì onShortcutKey() ƒCƒxƒ“ƒg‚ª”­¶‚·‚éB‰Šú’l‚Í 0B
+		/// Key ã¨ Key::Modifier ã‚’çµ„ã¿åˆã‚ã›ãŸã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚³ãƒãƒ³ãƒ‰ã€‚
+		/// è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ onClick() ã‚¤ãƒ™ãƒ³ãƒˆã®ä»£ã‚ã‚Šã«ã‚ªãƒ¼ãƒŠãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã® onShortcutKey() ã‚¤ãƒ™ãƒ³ãƒˆãŒç™ºç”Ÿã™ã‚‹ã€‚åˆæœŸå€¤ã¯ 0ã€‚
 		int shortcut() const;
 		void shortcut(int value);
-		/// ƒƒjƒ…[•¶š—ñB
+		/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ–‡å­—åˆ—ã€‚
 		const String& text() const;
 		void text(String value);
-		/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚È‚¢ó‘Ô‚Ìƒrƒbƒgƒ}ƒbƒv‰æ‘œBƒrƒbƒgƒ}ƒbƒvƒnƒ“ƒhƒ‹‚ÍQÆ‚³‚ê‚é‚Ì‚Å”jŠü‚µ‚È‚¢‚±‚ÆB‰Šú’l‚Í nullptrB
+		/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãªã„çŠ¶æ…‹ã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ç”»åƒã€‚ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ãƒãƒ³ãƒ‰ãƒ«ã¯å‚ç…§ã•ã‚Œã‚‹ã®ã§ç ´æ£„ã—ãªã„ã“ã¨ã€‚åˆæœŸå€¤ã¯ nullptrã€‚
 		Bitmap uncheckedMark() const;
 		void uncheckedMark(HBITMAP value);
 
@@ -271,12 +271,12 @@ public:
 	};
 
 
-	/// ƒƒjƒ…[€–Ú‚Å”­¶‚·‚éƒCƒxƒ“ƒgB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã§ç™ºç”Ÿã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	class Event : public EventWithSender<Menu::Item> {
 	public:
 		Event(Item& sender, Control& owner);
 
-		/// ƒƒjƒ…[‚ğ•\¦‚µ‚Ä‚¢‚éƒI[ƒi[ƒRƒ“ƒgƒ[ƒ‹B
+		/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—ã¦ã„ã‚‹ã‚ªãƒ¼ãƒŠãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
 		Control& owner();
 
 	private:
@@ -284,12 +284,12 @@ public:
 	};
 
 
-	/// ƒƒjƒ…[€–Ú‚Åƒhƒ‰ƒbƒO‚ğŠJn‚µ‚½ƒCƒxƒ“ƒgB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã§ãƒ‰ãƒ©ãƒƒã‚°ã‚’é–‹å§‹ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	class Drag : public Event {
 	public:
 		Drag(Item& sender, Control& owner);
 
-		/// ƒhƒ‰ƒbƒOƒCƒxƒ“ƒgŒã‚Éƒƒjƒ…[‚ğ•Â‚¶‚é‚©‚Ç‚¤‚©B‚½‚¾‚µ’l‚É‚©‚©‚í‚ç‚¸ƒƒjƒ…[‚ÌŠO‚Åƒ}ƒEƒXƒ{ƒ^ƒ“‚ğ—£‚·‚Æƒƒjƒ…[‚Í•Â‚¶‚éB‰Šú’l‚Í falseB
+		/// ãƒ‰ãƒ©ãƒƒã‚°ã‚¤ãƒ™ãƒ³ãƒˆå¾Œã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‰ã˜ã‚‹ã‹ã©ã†ã‹ã€‚ãŸã ã—å€¤ã«ã‹ã‹ã‚ã‚‰ãšãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®å¤–ã§ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã‚’é›¢ã™ã¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¯é–‰ã˜ã‚‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool endMenu() const;
 		void endMenu(bool value);
 
@@ -298,17 +298,17 @@ public:
 	};
 
 
-	/// ‘S‚Ä‚Ìq‘·‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B—ñ‹“‚µI‚¦‚é‚Æƒkƒ‹‚ğ•Ô‚·‚æ‚¤‚É‚È‚èAˆÈ~‚Í‘€ì‚Å‚«‚È‚¢B
+	/// å…¨ã¦ã®å­å­«ã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚åˆ—æŒ™ã—çµ‚ãˆã‚‹ã¨ãƒŒãƒ«ã‚’è¿”ã™ã‚ˆã†ã«ãªã‚Šã€ä»¥é™ã¯æ“ä½œã§ããªã„ã€‚
 	class DescendantsIterator {
 	public:
-		/// e€–Ú‚©‚çì¬B
+		/// è¦ªé …ç›®ã‹ã‚‰ä½œæˆã€‚
 		DescendantsIterator(const Item& parent);
 
-		/// Ÿ‚Ìq‘·‚ÖB
+		/// æ¬¡ã®å­å­«ã¸ã€‚
 		DescendantsIterator& operator ++();
-		/// —ñ‹“‚µ‚½ Item ƒ|ƒCƒ“ƒ^‚Ìæ“¾B
+		/// åˆ—æŒ™ã—ãŸ Item ãƒã‚¤ãƒ³ã‚¿ã®å–å¾—ã€‚
 		operator Menu::Item*() const;
-		/// —ñ‹“‚µ‚½ Item ƒ|ƒCƒ“ƒ^‚Ö‚ÌƒAƒNƒZƒXB
+		/// åˆ—æŒ™ã—ãŸ Item ãƒã‚¤ãƒ³ã‚¿ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã€‚
 		Menu::Item* operator->();
 
 	private:
@@ -324,34 +324,34 @@ protected:
 	Menu& operator=(Menu&& value);
 
 public:
-	/// q€–Ú‚ğ’Ç‰Á‚·‚éB
+	/// å­é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	virtual void add(const ItemInfo& itemInfo);
-	/// €–Ú‚ªƒ`ƒFƒbƒN‚³‚ê‚½ó‘Ô‚Ì‰æ‘œ‚Ì‘å‚«‚³B
+	/// é …ç›®ãŒãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸçŠ¶æ…‹ã®ç”»åƒã®å¤§ãã•ã€‚
 	static Size checkedMarkSize();
-	/// q€–Ú‚ğ‘S‚Äíœ‚·‚éB
+	/// å­é …ç›®ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹ã€‚
 	void clear();
-	/// Œ»İ‚ÌƒXƒŒƒbƒh‚ÌƒAƒNƒeƒBƒu‚Èƒƒjƒ…[‚ğ•Â‚¶‚éB
+	/// ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‰ã˜ã‚‹ã€‚
 	static void close();
-	/// q€–Ú‚Ì”B
+	/// å­é …ç›®ã®æ•°ã€‚
 	int count() const;
-	/// ‘S‚Ä‚Ìq‘·€–Ú‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+	/// å…¨ã¦ã®å­å­«é …ç›®ã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	Menu::DescendantsIterator descendantsBegin();
-	/// q€–Ú‚ğíœ‚·‚éB
+	/// å­é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void erase(int index);
-	/// ƒƒjƒ…[‚Åg—p‚·‚éƒtƒHƒ“ƒgB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§ä½¿ç”¨ã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã€‚
 	static Font font();
-	/// q€–Ú‚ğ‘}“ü‚·‚éB
+	/// å­é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	virtual void insert(int index, const ItemInfo& itemInfo);
-	/// €–Ú‚Ì‚‚³B
+	/// é …ç›®ã®é«˜ã•ã€‚
 	static int itemHeight();
-	/// q€–Ú‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+	/// å­é …ç›®ã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 	std::vector<Menu::ItemInfo> itemInfos() const;
 	virtual void itemInfos(ArrayRange<const Menu::ItemInfo> value);
 
 public:
-	/// ƒƒjƒ…[ƒnƒ“ƒhƒ‹‚Ö‚Ì©“®•ÏŠ· & ƒkƒ‹ƒ`ƒFƒbƒN—pB
+	/// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ³ãƒ‰ãƒ«ã¸ã®è‡ªå‹•å¤‰æ› & ãƒŒãƒ«ãƒã‚§ãƒƒã‚¯ç”¨ã€‚
 	operator HMENU() { return _root._handle; }
-	/// q€–Ú‚ğæ“¾‚·‚éB
+	/// å­é …ç›®ã‚’å–å¾—ã™ã‚‹ã€‚
 	Menu::Item& operator[](int index);
 	const Menu::Item& operator[](int index) const;
 

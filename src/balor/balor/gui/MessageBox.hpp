@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/StringRange.hpp>
@@ -18,116 +18,116 @@ namespace balor {
 
 
 /**
- * ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Ì•\¦‚ğs‚¤B
- *
- * windows.h ‚É MessageBox ‚Æ‚¢‚¤ƒ}ƒNƒ‚ª’è‹`‚³‚ê‚Ä‚¢‚é‚Ì‚ÅƒNƒ‰ƒX–¼‚ğ MsgBox ‚Æ‚µ‚Ä‚¢‚é‚ªA
- * typedef ‚Å MessageBox ‚Æ‚¢‚¤–¼‘O‚àg‚¦‚é‚æ‚¤‚É‚µ‚Ä‚ ‚é‚Ì‚Å windows.h ‚Æˆê‚Ég‚í‚È‚¢ê‡‚ÍMessageBox ‚Ì‚Ù‚¤‚Ì–¼‘O‚ğg—p‚Å‚«‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"MessageBox Sample");
+* ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤ºã‚’è¡Œã†ã€‚
+*
+* windows.h ã« MessageBox ã¨ã„ã†ãƒã‚¯ãƒ­ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹ã®ã§ã‚¯ãƒ©ã‚¹åã‚’ MsgBox ã¨ã—ã¦ã„ã‚‹ãŒã€
+* typedef ã§ MessageBox ã¨ã„ã†åå‰ã‚‚ä½¿ãˆã‚‹ã‚ˆã†ã«ã—ã¦ã‚ã‚‹ã®ã§ windows.h ã¨ä¸€ç·’ã«ä½¿ã‚ãªã„å ´åˆã¯MessageBox ã®ã»ã†ã®åå‰ã‚’ä½¿ç”¨ã§ãã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"MessageBox Sample");
 
-	Button warning(frame, 20, 10, 0, 0, L"Œx", [&] (Button::Click& ) {
-		MsgBox::show(frame, L"ŒxI");
-	});
-	Button close(frame, 20, 50, 0, 0, L"•Â‚¶‚é", [&] (Button::Click& ) {
-		if (MsgBox::show(frame, L"ƒEƒCƒ“ƒhƒE‚ğ•Â‚¶‚Ü‚·‚©H", L"I—¹", MsgBox::Buttons::yesNo) == MsgBox::Result::yes) {
-			frame.close();
-		}
-	});
- 
-	frame.runMessageLoop();
- * </code></pre>
- */
+Button warning(frame, 20, 10, 0, 0, L"è­¦å‘Š", [&] (Button::Click& ) {
+MsgBox::show(frame, L"è­¦å‘Šï¼");
+});
+Button close(frame, 20, 50, 0, 0, L"é–‰ã˜ã‚‹", [&] (Button::Click& ) {
+if (MsgBox::show(frame, L"ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã¾ã™ã‹ï¼Ÿ", L"çµ‚äº†", MsgBox::Buttons::yesNo) == MsgBox::Result::yes) {
+frame.close();
+}
+});
+
+frame.runMessageLoop();
+* </code></pre>
+*/
 class MsgBox {
 public:
 	typedef ::HWND__* HWND;
 	typedef ::balor::graphics::Font Font;
 
 
-	/// •\¦‚·‚éƒ{ƒ^ƒ“‚Ì‘g‚İ‡‚í‚¹B
+	/// è¡¨ç¤ºã™ã‚‹ãƒœã‚¿ãƒ³ã®çµ„ã¿åˆã‚ã›ã€‚
 	struct Buttons {
 		enum _enum {
-			ok                = 0x00000000L, /// OKB
-			okCancel          = 0x00000001L, /// OKAƒLƒƒƒ“ƒZƒ‹B
-			abortRetryIgnore  = 0x00000002L, /// ’†~AÄsA–³‹B
-			yesNoCancel       = 0x00000003L, /// ‚Í‚¢A‚¢‚¢‚¦AƒLƒƒƒ“ƒZƒ‹B
-			yesNo             = 0x00000004L, /// ‚Í‚¢A‚¢‚¢‚¦B
-			retryCancel       = 0x00000005L, /// ÄsAƒLƒƒƒ“ƒZƒ‹B
-			cancelTryContinue = 0x00000006L, /// ƒLƒƒƒ“ƒZƒ‹AÄÀsA‘±sB
+			ok = 0x00000000L, /// OKã€‚
+			okCancel = 0x00000001L, /// OKã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€‚
+			abortRetryIgnore = 0x00000002L, /// ä¸­æ­¢ã€å†è©¦è¡Œã€ç„¡è¦–ã€‚
+			yesNoCancel = 0x00000003L, /// ã¯ã„ã€ã„ã„ãˆã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€‚
+			yesNo = 0x00000004L, /// ã¯ã„ã€ã„ã„ãˆã€‚
+			retryCancel = 0x00000005L, /// å†è©¦è¡Œã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€‚
+			cancelTryContinue = 0x00000006L, /// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€å†å®Ÿè¡Œã€ç¶šè¡Œã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Buttons);
 	};
 
 
-	/// •\¦‚·‚éƒAƒCƒRƒ“B
+	/// è¡¨ç¤ºã™ã‚‹ã‚¢ã‚¤ã‚³ãƒ³ã€‚
 	struct Icon {
 		enum _enum {
-			none        = 0          , /// ƒAƒCƒRƒ“”ñ•\¦B
-			hand        = 0x00000010L, /// ’â~ƒAƒCƒRƒ“B
-			question    = 0x00000020L, /// ‹^–â•„ƒAƒCƒRƒ“B
-			exclamation = 0x00000030L, /// Š´’Q•„ƒAƒCƒRƒ“B
-			asterisk    = 0x00000040L, ///ui]ƒ}[ƒNƒAƒCƒRƒ“B
-			stop        = 0x00000010L, /// ’â~ƒAƒCƒRƒ“B
-			error       = 0x00000010L, /// ’â~ƒAƒCƒRƒ“B
-			warning     = 0x00000030L, /// Š´’Q•„ƒAƒCƒRƒ“B
-			information = 0x00000040L, ///ui]ƒ}[ƒNƒAƒCƒRƒ“B
+			none = 0, /// ã‚¢ã‚¤ã‚³ãƒ³éè¡¨ç¤ºã€‚
+			hand = 0x00000010L, /// åœæ­¢ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			question = 0x00000020L, /// ç–‘å•ç¬¦ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			exclamation = 0x00000030L, /// æ„Ÿå˜†ç¬¦ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			asterisk = 0x00000040L, ///ã€Œi]ãƒãƒ¼ã‚¯ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			stop = 0x00000010L, /// åœæ­¢ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			error = 0x00000010L, /// åœæ­¢ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			warning = 0x00000030L, /// æ„Ÿå˜†ç¬¦ã‚¢ã‚¤ã‚³ãƒ³ã€‚
+			information = 0x00000040L, ///ã€Œi]ãƒãƒ¼ã‚¯ã‚¢ã‚¤ã‚³ãƒ³ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Icon);
 	};
 
 
-	/// Šù’è‚Ìƒ{ƒ^ƒ“B
+	/// æ—¢å®šã®ãƒœã‚¿ãƒ³ã€‚
 	struct Default {
 		enum _enum {
-			button1 = 0x00000000L, /// ˆê”Ô–Ú‚Ìƒ{ƒ^ƒ“B
-			button2 = 0x00000100L, /// “ñ”Ô–Ú‚Ìƒ{ƒ^ƒ“B
-			button3 = 0x00000200L, /// O”Ô–Ú‚Ìƒ{ƒ^ƒ“B
+			button1 = 0x00000000L, /// ä¸€ç•ªç›®ã®ãƒœã‚¿ãƒ³ã€‚
+			button2 = 0x00000100L, /// äºŒç•ªç›®ã®ãƒœã‚¿ãƒ³ã€‚
+			button3 = 0x00000200L, /// ä¸‰ç•ªç›®ã®ãƒœã‚¿ãƒ³ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Default);
 	};
 
 
-	/// •\¦ƒIƒvƒVƒ‡ƒ“B‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// è¡¨ç¤ºã‚ªãƒ—ã‚·ãƒ§ãƒ³ã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Options {
 		enum _enum {
-			none                = 0          , 
-			topMost             = 0x00040000L, /// Å‘O–ÊƒEƒCƒ“ƒhƒE‚É‚·‚éB
-			serviceNotification = 0x00200000L, /// ƒT[ƒrƒX‚©‚ç•\¦‚·‚éB
-			defaultDesktopOnly  = 0x00020000L, /// ƒT[ƒrƒX‚©‚ç•\¦‚·‚éê‡‚ÉŠù’è‚ÌƒfƒXƒNƒgƒbƒv‚Å‚Ì‚İ•\¦‚·‚éB
-			rightAlign          = 0x00080000L, /// ƒeƒLƒXƒg‚ğ‰EŠñ‚¹‚·‚éB
+			none = 0,
+			topMost = 0x00040000L, /// æœ€å‰é¢ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«ã™ã‚‹ã€‚
+			serviceNotification = 0x00200000L, /// ã‚µãƒ¼ãƒ“ã‚¹ã‹ã‚‰è¡¨ç¤ºã™ã‚‹ã€‚
+			defaultDesktopOnly = 0x00020000L, /// ã‚µãƒ¼ãƒ“ã‚¹ã‹ã‚‰è¡¨ç¤ºã™ã‚‹å ´åˆã«æ—¢å®šã®ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã§ã®ã¿è¡¨ç¤ºã™ã‚‹ã€‚
+			rightAlign = 0x00080000L, /// ãƒ†ã‚­ã‚¹ãƒˆã‚’å³å¯„ã›ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// ƒ{ƒ^ƒ“‚Ì‘I‘ğŒ‹‰ÊB
+	/// ãƒœã‚¿ãƒ³ã®é¸æŠçµæœã€‚
 	struct Result {
 		enum _enum {
-			ok        =  1, /// OKB
-			cancel    =  2, /// ƒLƒƒƒ“ƒZƒ‹B
-			abort     =  3, /// ’†~B
-			retry     =  4, /// ÄsB
-			ignore    =  5, /// –³‹B
-			yes       =  6, /// ‚Í‚¢B
-			no        =  7, /// ‚¢‚¢‚¦B
-			tryAgain  = 10, /// ÄÀsB
-			continues = 11, /// ‘±sB
+			ok = 1, /// OKã€‚
+			cancel = 2, /// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€‚
+			abort = 3, /// ä¸­æ­¢ã€‚
+			retry = 4, /// å†è©¦è¡Œã€‚
+			ignore = 5, /// ç„¡è¦–ã€‚
+			yes = 6, /// ã¯ã„ã€‚
+			no = 7, /// ã„ã„ãˆã€‚
+			tryAgain = 10, /// å†å®Ÿè¡Œã€‚
+			continues = 11, /// ç¶šè¡Œã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Result);
 	};
 
 public:
-	/// ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ªg—p‚·‚éƒtƒHƒ“ƒgB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ãŒä½¿ç”¨ã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã€‚
 	static Font font();
-	/// “¯‚¶ƒXƒŒƒbƒh‚Ì‘S‚Ä‚ÌƒEƒCƒ“ƒhƒE‚ğg—p•s‰Â‚É‚µ‚ÄƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚·‚éB
+	/// åŒã˜ã‚¹ãƒ¬ãƒƒãƒ‰ã®å…¨ã¦ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’ä½¿ç”¨ä¸å¯ã«ã—ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	static MsgBox::Result show(StringRange text, StringRange caption = L"", MsgBox::Buttons buttons = Buttons::ok, MsgBox::Icon icon = Icon::none, MsgBox::Default defaultButton = Default::button1, MsgBox::Options options = Options::none);
-	/// w’è‚µ‚½ƒEƒCƒ“ƒhƒE‚Ì‚İg—p•s‰Â‚É‚µ‚ÄƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚·‚éB
+	/// æŒ‡å®šã—ãŸã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã¿ä½¿ç”¨ä¸å¯ã«ã—ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	static MsgBox::Result show(HWND owner, StringRange text, StringRange caption = L"", MsgBox::Buttons buttons = Buttons::ok, MsgBox::Icon icon = Icon::none, MsgBox::Default defaultButton = Default::button1, MsgBox::Options options = Options::none);
 };
 
 
-typedef MsgBox MessageBox; // MessageBoxƒ}ƒNƒ‘Îô
+typedef MsgBox MessageBox; // MessageBoxãƒã‚¯ãƒ­å¯¾ç­–
 
 
 

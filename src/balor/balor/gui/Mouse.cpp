@@ -1,4 +1,4 @@
-#include "Mouse.hpp"
+ï»¿#include "Mouse.hpp"
 
 #include <balor/graphics/Cursor.hpp>
 #include <balor/system/windows.hpp>
@@ -143,12 +143,12 @@ int Mouse::speed() {
 
 
 bool Mouse::wheelPresent() {
-	return GetSystemMetrics(SM_MOUSEWHEELPRESENT) != 0; // XPˆÈ~‚È‚ç•K‚¸ƒTƒ|[ƒg‚³‚ê‚é‚Í‚¸
+	return GetSystemMetrics(SM_MOUSEWHEELPRESENT) != 0; // XPä»¥é™ãªã‚‰å¿…ãšã‚µãƒãƒ¼ãƒˆã•ã‚Œã‚‹ã¯ãš
 }
 
 
 int Mouse::wheelScrollDelta() {
-	return WHEEL_DELTA; // î•ñæ“¾ŠÖ”‚É‚ÍŒ©“–‚½‚ç‚È‚¢B‚±‚ê‚Å‚ ‚Á‚Ä‚é‚©H
+	return WHEEL_DELTA; // æƒ…å ±å–å¾—é–¢æ•°ã«ã¯è¦‹å½“ãŸã‚‰ãªã„ã€‚ã“ã‚Œã§ã‚ã£ã¦ã‚‹ã‹ï¼Ÿ
 }
 
 
