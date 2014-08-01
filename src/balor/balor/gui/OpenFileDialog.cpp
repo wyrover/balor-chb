@@ -1,4 +1,4 @@
-#include "OpenFileDialog.hpp"
+﻿#include "OpenFileDialog.hpp"
 
 #include <balor/system/windows.hpp>
 #include <balor/test/verify.hpp>

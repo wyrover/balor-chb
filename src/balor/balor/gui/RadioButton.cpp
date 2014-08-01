@@ -1,4 +1,4 @@
-#include "RadioButton.hpp"
+ï»¿#include "RadioButton.hpp"
 
 #include <utility>
 
@@ -106,7 +106,7 @@ Size RadioButton::getPreferredSize(int width, int height) const {
 	}
 	SIZE size = {width, height};
 	Scaler scaler;
-	//if (!SendMessageW(handle(), BCM_GETIDEALSIZE, 0, (LPARAM)&size)) { // XP ‚Å‚¤‚Ü‚­“®ì‚¹‚¸
+	//if (!SendMessageW(handle(), BCM_GETIDEALSIZE, 0, (LPARAM)&size)) { // XP ã§ã†ã¾ãå‹•ä½œã›ãš
 		Graphics graphics(*this);
 		auto oldFont = graphics.font(font());
 		auto measureSize = graphics.measureText(text());
@@ -196,7 +196,7 @@ void RadioButton::processMessage(Message& msg) {
 		} break;
 		case wmReflect + WM_COMMAND : {
 			if (HIWORD(msg.wparam) == BN_CLICKED) {
-				if (checked() || !autoCheck()) { // ƒ`ƒFƒbƒN‚³‚ê‚Ä‚È‚¢ó‘Ô‚ÅƒtƒH[ƒJƒX‚ğƒZƒbƒg‚³‚ê‚½ê‡‚à‚±‚±‚É—ˆ‚é‚æ‚¤‚¾
+				if (checked() || !autoCheck()) { // ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ãªã„çŠ¶æ…‹ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’ã‚»ãƒƒãƒˆã•ã‚ŒãŸå ´åˆã‚‚ã“ã“ã«æ¥ã‚‹ã‚ˆã†ã 
 					if (!_checkedChanging) {
 						_checkedChanging = true;
 						scopeExit([&] () {
@@ -235,7 +235,7 @@ void RadioButton::processMessage(Message& msg) {
 					auto info = (NMCUSTOMDRAW*)msg.lparam;
 					if (info->dwDrawStage == CDDS_PREPAINT || info->dwDrawStage == CDDS_PREERASE) {
 						invalidate();
-						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ˆÈŠO‚©‚ç‚àŸè‚É•`‰æ‚³‚ê‚é‚±‚Æ‚ª‚ ‚é‚Ì‚Å‚â‚ß‚³‚¹‚éB
+						msg.result = CDRF_SKIPDEFAULT; // WM_PAINT ä»¥å¤–ã‹ã‚‰ã‚‚å‹æ‰‹ã«æç”»ã•ã‚Œã‚‹ã“ã¨ãŒã‚ã‚‹ã®ã§ã‚„ã‚ã•ã›ã‚‹
 						return;
 					}
 				} break;

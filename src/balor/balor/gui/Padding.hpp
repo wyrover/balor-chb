@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -12,24 +12,24 @@ namespace balor {
 
 
 /**
- * ã‰º¶‰E‚Ì—]”’‚ğ•\‚·B
- */
+* ä¸Šä¸‹å·¦å³ã®ä½™ç™½ã‚’è¡¨ã™ã€‚
+*/
 class Padding {
 public:
-	/// ‰Šú‰»‚¹‚¸‚Éì¬B
+	/// åˆæœŸåŒ–ã›ãšã«ä½œæˆã€‚
 	Padding() {}
 	Padding(const Padding& value);
-	/// ‘S‚Ä“¯‚¶”’l‚Å‰Šú‰»B
+	/// å…¨ã¦åŒã˜æ•°å€¤ã§åˆæœŸåŒ–ã€‚
 	Padding(int all);
-	/// ‚»‚ê‚¼‚ê‚Ì”’l‚Å‰Šú‰»B
+	/// ãã‚Œãã‚Œã®æ•°å€¤ã§åˆæœŸåŒ–ã€‚
 	Padding(int left, int top, int right, int bottom);
 
 public:
-	/// …•½•ûŒü‚Ì—]”’‚Ì‡ŒvB
+	/// æ°´å¹³æ–¹å‘ã®ä½™ç™½ã®åˆè¨ˆã€‚
 	int horizontal() const;
-	/// —]”’‚Ì‡Œv‚Ì‘å‚«‚³B
+	/// ä½™ç™½ã®åˆè¨ˆã®å¤§ãã•ã€‚
 	Size size() const;
-	/// ‚’¼•ûŒü‚Ì—]”’‚Ì‡ŒvB
+	/// å‚ç›´æ–¹å‘ã®ä½™ç™½ã®åˆè¨ˆã€‚
 	int vertical() const;
 
 public:
@@ -41,11 +41,12 @@ public:
 	bool operator != (const Padding& rhs) const;
 
 public:
-	int left; // ¶‚Ì—]”’
-	int top; // ã‚Ì—]”’
-	int right; // ‰E‚Ì—]”’
-	int bottom; // ‰º‚Ì—]”’
+	int left; // å·¦ã®ä½™ç™½
+	int top; // ä¸Šã®ä½™ç™½
+	int right; // å³ã®ä½™ç™½
+	int bottom; // ä¸‹ã®ä½™ç™½
 };
+
 
 
 

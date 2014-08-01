@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Button.hpp>
 
@@ -9,38 +9,38 @@ namespace balor {
 
 
 /**
- * ƒ‰ƒWƒIƒ{ƒ^ƒ“B
+ * ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã€‚
  * 
- * ƒI[ƒi[ƒhƒ[‚É‚·‚é‚Æƒ`ƒFƒbƒNó‘Ô“™‚ğ©•ª‚ÅŠÇ—‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚­‚È‚é‚Ì‚Å’P‚É WM_PAINT ‚ğæ‚Áæ‚éB
+ * ã‚ªãƒ¼ãƒŠãƒ¼ãƒ‰ãƒ­ãƒ¼ã«ã™ã‚‹ã¨ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ç­‰ã‚’è‡ªåˆ†ã§ç®¡ç†ã—ãªã‘ã‚Œã°ãªã‚‰ãªããªã‚‹ã®ã§å˜ã« WM_PAINT ã‚’ä¹—ã£å–ã‚‹ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"GroupBox Sample");
 
-	GroupBox group(frame, 20, 10, 0, 0, L"”wŒiF");
+	GroupBox group(frame, 20, 10, 0, 0, L"èƒŒæ™¯è‰²");
 	Brush redBrush(Color::red());
 	Brush greenBrush(Color::green());
 	Brush blueBrush(Color::blue());
-	RadioButton red(group, 20, 20, 0, 0, L"Ô‚¢”wŒi", [&] (RadioButton::Check& ) {
+	RadioButton red(group, 20, 20, 0, 0, L"èµ¤ã„èƒŒæ™¯", [&] (RadioButton::Check& ) {
 		frame.brush(redBrush);
 		frame.invalidate(true);
 	});
-	RadioButton green(group, 20, 50, 0, 0, L"—Î‚Ì”wŒi", [&] (RadioButton::Check& ) {
+	RadioButton green(group, 20, 50, 0, 0, L"ç·‘ã®èƒŒæ™¯", [&] (RadioButton::Check& ) {
 		frame.brush(greenBrush);
 		frame.invalidate(true);
 	});
-	RadioButton blue(group, 20, 80, 0, 0, L"Â‚¢”wŒi", [&] (RadioButton::Check& ) {
+	RadioButton blue(group, 20, 80, 0, 0, L"é’ã„èƒŒæ™¯", [&] (RadioButton::Check& ) {
 		frame.brush(blueBrush);
 		frame.invalidate(true);
 	});
-	group.resize(); // qƒRƒ“ƒgƒ[ƒ‹‚É‘å‚«‚³‚ğ‚ ‚í‚¹‚éB
+	group.resize(); // å­ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«å¤§ãã•ã‚’ã‚ã‚ã›ã‚‹ã€‚
 
 	frame.runMessageLoop();
  * </code></pre>
  */
 class RadioButton : public ButtonBase {
 public:
-	/// RadioButton ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// RadioButton ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<RadioButton, Control::Event> Event;
 
 	typedef Event Check;
@@ -48,44 +48,44 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	RadioButton();
 	RadioButton(RadioButton&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³A•¶š—ñAfirstOfGroup ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€æ–‡å­—åˆ—ã€firstOfGroup ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	RadioButton(Control& parent, int x, int y, int width, int height, StringRange text, bool firstOfGroup = false);
-	/// eAˆÊ’uA‘å‚«‚³A•¶š—ñAonCheck ƒCƒxƒ“ƒgAfirstOfGroup ‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€æ–‡å­—åˆ—ã€onCheck ã‚¤ãƒ™ãƒ³ãƒˆã€firstOfGroup ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	RadioButton(Control& parent, int x, int y, int width, int height, StringRange text, Listener<RadioButton::Check&> onCheck, bool firstOfGroup = false);
 	virtual ~RadioButton();
 	RadioButton& operator=(RadioButton&& value);
 
 public:
-	/// ƒ`ƒFƒbƒNó‘Ô‚ğ©“®“I‚ÉXV‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è‡ªå‹•çš„ã«æ›´æ–°ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool autoCheck() const;
 	void autoCheck(bool value);
-	/// ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool checked() const;
 	void checked(bool value);
-	/// Œ»İ‚Ì•¶š—ñ‚âƒtƒHƒ“ƒg“™‚©‚çÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éBmultiline() ‚ª true ‚Ìê‡ width ‚ğŒÅ’è‚·‚é‚ÆÅ“K‚È height ‚ª‹‚Ü‚éB
+	/// ç¾åœ¨ã®æ–‡å­—åˆ—ã‚„ãƒ•ã‚©ãƒ³ãƒˆç­‰ã‹ã‚‰æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚multiline() ãŒ true ã®å ´åˆ width ã‚’å›ºå®šã™ã‚‹ã¨æœ€é©ãª height ãŒæ±‚ã¾ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// ƒ`ƒFƒbƒNó‘Ô‚ª•Ï‰»‚µ‚½A‚ ‚é‚¢‚Í autoCheck() ‚ª false ‚Ìê‡‚Í•Ï‰»‚ª—v‹‚³‚ê‚½ƒCƒxƒ“ƒgB
+	/// ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ãŒå¤‰åŒ–ã—ãŸã€ã‚ã‚‹ã„ã¯ autoCheck() ãŒ false ã®å ´åˆã¯å¤‰åŒ–ãŒè¦æ±‚ã•ã‚ŒãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<RadioButton::Check&>& onCheck();
-	/// •`‰æ‚·‚éƒCƒxƒ“ƒgB
+	/// æç”»ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<RadioButton::Paint&>& onPaint();
-	/// ƒgƒOƒ‹ƒ{ƒ^ƒ“‚Ì‚æ‚¤‚ÈŠOŒ©‚ğ‚Â‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒˆã‚°ãƒ«ãƒœã‚¿ãƒ³ã®ã‚ˆã†ãªå¤–è¦‹ã‚’æŒã¤ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool pushLike() const;
 	void pushLike(bool value);
-	/// ƒ{ƒ^ƒ“‚ª•¶š—ñ‚Ì‰E‚É•\¦‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ãƒœã‚¿ãƒ³ãŒæ–‡å­—åˆ—ã®å³ã«è¡¨ç¤ºã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool rightButton() const;
 	void rightButton(bool value);
-	/// ƒ‰ƒWƒIƒ{ƒ^ƒ“ƒOƒ‹[ƒv‚ÌŠJnƒRƒ“ƒgƒ[ƒ‹‚©‚Ç‚¤‚©B
-	/// ƒOƒ‹[ƒv“à‚Ìˆê‚Â‚ğƒNƒŠƒbƒN‚·‚é‚Æ‚»‚ê‚Ü‚Å“¯‚¶ƒOƒ‹[ƒv“à‚Åƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚½‚à‚Ì‚©‚çƒ`ƒFƒbƒNó‘Ô‚ªˆÚ‚éB
-	/// ‘¼‚Ìƒ‰ƒWƒIƒ{ƒ^ƒ“ƒOƒ‹[ƒv‚ª‘cæ‚É‚àŒZ’í‚É‚àq‘·‚É‚à–³‚­ŒÇ—§‚µ‚Ä‚¢‚é‚È‚çİ’è‚·‚é•K—v‚Í–³‚¢B
-	/// ‚»‚¤‚Å‚Í‚È‚¢ê‡‚ÍƒOƒ‹[ƒv“à‚ÅÅ‰‚É’Ç‰Á‚µ‚½izOrder() ‚ªÅ‚à‚‚¢jƒ‰ƒWƒIƒ{ƒ^ƒ“‚ğŠJnƒRƒ“ƒgƒ[ƒ‹‚Éİ’è‚·‚éB
+	/// ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚°ãƒ«ãƒ¼ãƒ—ã®é–‹å§‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‹ã©ã†ã‹ã€‚
+	/// ã‚°ãƒ«ãƒ¼ãƒ—å†…ã®ä¸€ã¤ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨ãã‚Œã¾ã§åŒã˜ã‚°ãƒ«ãƒ¼ãƒ—å†…ã§ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãŸã‚‚ã®ã‹ã‚‰ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ãŒç§»ã‚‹ã€‚
+	/// ä»–ã®ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚°ãƒ«ãƒ¼ãƒ—ãŒç¥–å…ˆã«ã‚‚å…„å¼Ÿã«ã‚‚å­å­«ã«ã‚‚ç„¡ãå­¤ç«‹ã—ã¦ã„ã‚‹ãªã‚‰è¨­å®šã™ã‚‹å¿…è¦ã¯ç„¡ã„ã€‚
+	/// ãã†ã§ã¯ãªã„å ´åˆã¯ã‚°ãƒ«ãƒ¼ãƒ—å†…ã§æœ€åˆã«è¿½åŠ ã—ãŸï¼ˆzOrder() ãŒæœ€ã‚‚é«˜ã„ï¼‰ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚’é–‹å§‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«è¨­å®šã™ã‚‹ã€‚
 	bool firstOfGroup() const;
 	void firstOfGroup(bool value);
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/FileDialog.hpp>
 
@@ -9,52 +9,52 @@ namespace balor {
 
 
 /**
- * ƒtƒ@ƒCƒ‹‚ğŠJ‚­ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒXB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"OpenFileDialog Sample");
 
-	Button open(frame, 20, 10, 0, 0, L"ƒtƒ@ƒCƒ‹‚ğŠJ‚­");
+	Button open(frame, 20, 10, 0, 0, L"ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã");
 	Edit filePath(frame, 20, 50, 0, 0, 150);
 	filePath.readOnly(true);
 	const wchar_t* encodes[] = {
-		L"acsii",
-		L"ShiftJis",
-		L"euc-jp"
+	L"acsii",
+	L"ShiftJis",
+	L"euc-jp"
 	};
 	ComboBox encode(frame, 20, 90, 0, 0, encodes);
 	encode.selectedIndex(0);
 
 	OpenFileDialog dialog;
-	dialog.filter(L"‘S‚Ä‚Ìƒtƒ@ƒCƒ‹\n*.*\nƒeƒLƒXƒgƒtƒ@ƒCƒ‹\n*.txt;*.log\n\n");
+	dialog.filter(L"å…¨ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«\n*.*\nãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«\n*.txt;*.log\n\n");
 	dialog.readOnlyCheckBox(false);
-	// ƒtƒ@ƒCƒ‹‚ğŠJ‚­ƒ_ƒCƒAƒƒO‚Ì UI ‚ğŠg’£‚·‚éB
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ€ã‚¤ã‚¢ãƒ­ã‚°ã® UI ã‚’æ‹¡å¼µã™ã‚‹ã€‚
 	Panel panel;
 	Label label;
 	ComboBox combo;
 	dialog.onInit() = [&] (OpenFileDialog::Init& e) {
-		auto clientSize = e.clientSize();
-		panel = Panel::fromParentHandle(e.sender(), 0, clientSize.height, 0, 0);
-		label = Label(panel, e.getControlBounds(OpenFileDialog::ControlId::filePathLabel).x, 0, 0, 0, L"ƒGƒ“ƒR[ƒh");
-		combo = ComboBox(panel, e.getControlBounds(OpenFileDialog::ControlId::filePathEdit).x, 0, 0, 0, encodes);
-		combo.selectedIndex(encode.selectedIndex());
-		combo.onSelect() = [&] (ComboBox::Select& e) {
-			encode.selectedIndex(combo.selectedIndex());
-		};
-		panel.resize();
-		e.clientSize(clientSize.width, clientSize.height + panel.size().height * 2);
+	auto clientSize = e.clientSize();
+	panel = Panel::fromParentHandle(e.sender(), 0, clientSize.height, 0, 0);
+	label = Label(panel, e.getControlBounds(OpenFileDialog::ControlId::filePathLabel).x, 0, 0, 0, L"ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰");
+	combo = ComboBox(panel, e.getControlBounds(OpenFileDialog::ControlId::filePathEdit).x, 0, 0, 0, encodes);
+	combo.selectedIndex(encode.selectedIndex());
+	combo.onSelect() = [&] (ComboBox::Select& e) {
+	encode.selectedIndex(combo.selectedIndex());
+	};
+	panel.resize();
+	e.clientSize(clientSize.width, clientSize.height + panel.size().height * 2);
 	};
 
 	open.onClick() = [&] (Button::Click& ) {
-		if (dialog.show(frame)) {
-			filePath.text(dialog.filePath());
-		}
+	if (dialog.show(frame)) {
+	filePath.text(dialog.filePath());
+	}
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class OpenFileDialog : public FileDialog {
 public:
 	OpenFileDialog();
@@ -63,19 +63,19 @@ public:
 	OpenFileDialog& operator=(OpenFileDialog&& value);
 
 public:
-	/// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼‚Ü‚½‚Íƒtƒ@ƒCƒ‹ƒpƒX‚ğ“ü—Í‚µ‚ÄŠJ‚­ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ê‡‚ÉŒx‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// å­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«åã¾ãŸã¯ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å…¥åŠ›ã—ã¦é–‹ããƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸå ´åˆã«è­¦å‘Šã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool fileMustExist() const;
 	void fileMustExist(bool value);
-	/// ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹ƒpƒX‚ğ“ü—Í‚µ‚ÄŠJ‚­ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ê‡‚ÉŒx‚·‚é‚©‚Ç‚¤‚©Bƒtƒ@ƒCƒ‹–¼‚Í‘¶İ‚µ‚È‚­‚Ä‚à‹–‰Â‚·‚éB‰Šú’l‚Í trueB
+	/// å­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å…¥åŠ›ã—ã¦é–‹ããƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸå ´åˆã«è­¦å‘Šã™ã‚‹ã‹ã©ã†ã‹ã€‚ãƒ•ã‚¡ã‚¤ãƒ«åã¯å­˜åœ¨ã—ãªãã¦ã‚‚è¨±å¯ã™ã‚‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool pathMustExist() const;
 	void pathMustExist(bool value);
-	/// “Ç‚İæ‚èê—pƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄŠJ‚­‚ ‚é‚¢‚ÍŠJ‚¢‚½‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// èª­ã¿å–ã‚Šå°‚ç”¨ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦é–‹ãã‚ã‚‹ã„ã¯é–‹ã„ãŸã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool readOnly() const;
 	void readOnly(bool value);
-	/// “Ç‚İæ‚èê—pƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄŠJ‚­ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// èª­ã¿å–ã‚Šå°‚ç”¨ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦é–‹ããƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool readOnlyCheckBox() const;
 	void readOnlyCheckBox(bool value);
-	/// ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ğ•\¦‚·‚éBƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·B
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
 	bool show(HWND owner);
 
 protected:

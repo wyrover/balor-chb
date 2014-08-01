@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/ScrollableControl.hpp>
 
@@ -9,76 +9,76 @@ namespace balor {
 
 
 /**
- * ƒRƒ“ƒgƒ[ƒ‹‚ğæ‚¹‚ÄƒOƒ‹[ƒv‰»‚·‚éeƒRƒ“ƒgƒ[ƒ‹B
- *
- * fromParentHandle() ŠÖ”‚ğg‚Á‚Ä Control ‚Ì”h¶ƒNƒ‰ƒX‚Å‚Í‚È‚¢”CˆÓ‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Ìq‚É‚È‚é‚±‚Æ‚ª‚Å‚«‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"Panel Sample");
+* ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ä¹—ã›ã¦ã‚°ãƒ«ãƒ¼ãƒ—åŒ–ã™ã‚‹è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* fromParentHandle() é–¢æ•°ã‚’ä½¿ã£ã¦ Control ã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§ã¯ãªã„ä»»æ„ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã®å­ã«ãªã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"Panel Sample");
 
-	Label label(frame, 20, 10, 0, 0, L"ƒ{ƒ^ƒ“‚ğ Panel ‚Éæ‚¹‚Äí‚ÉƒEƒCƒ“ƒhƒE‚Ì‰E‰º‚É•\¦‚·‚é");
-	Panel bottom(frame, 0, 0, 0, 50);
-	Panel right(bottom, 0, 0, 60, 50);
-	Button ok(right, 20, 10, 0, 0, L"OK");
+Label label(frame, 20, 10, 0, 0, L"ãƒœã‚¿ãƒ³ã‚’ Panel ã«ä¹—ã›ã¦å¸¸ã«ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®å³ä¸‹ã«è¡¨ç¤ºã™ã‚‹");
+Panel bottom(frame, 0, 0, 0, 50);
+Panel right(bottom, 0, 0, 60, 50);
+Button ok(right, 20, 10, 0, 0, L"OK");
 
-	DockLayout layout(frame);
-	layout.setStyle(bottom, DockLayout::Style::bottom);
-	DockLayout subLayout(bottom);
-	subLayout.setStyle(right, DockLayout::Style::right);
-	layout.perform();
-	subLayout.perform();
-	frame.onResized() = [&] (Frame::Resized& ) {
-		layout.perform();
-		subLayout.perform();
-	};
+DockLayout layout(frame);
+layout.setStyle(bottom, DockLayout::Style::bottom);
+DockLayout subLayout(bottom);
+subLayout.setStyle(right, DockLayout::Style::right);
+layout.perform();
+subLayout.perform();
+frame.onResized() = [&] (Frame::Resized& ) {
+layout.perform();
+subLayout.perform();
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class Panel : public ScrollableControl {
 public:
-	/// ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Options {
 		enum _enum {
-			none        = 0      ,
-			transparent = 0x0020L, /// “§–¾‚ÅeƒRƒ“ƒgƒ[ƒ‹‚ª“§‚¯‚ÄŒ©‚¦‚é‚æ‚¤‚É‚·‚éB
+			none = 0,
+			transparent = 0x0020L, /// é€æ˜ã§è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒé€ã‘ã¦è¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// Panel ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// Panel ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<Panel, ScrollableControl::Event> Event;
 
 	typedef PaintEvent<Panel, Event> Paint;
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	Panel();
 	Panel(Panel&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³‚©‚çì¬B‚»‚Ì‘¼‚Ìˆø”‚É‚Â‚¢‚Ä‚Í“¯–¼‚ÌŠÖ”‚ğQÆB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ä½œæˆã€‚ãã®ä»–ã®å¼•æ•°ã«ã¤ã„ã¦ã¯åŒåã®é–¢æ•°ã‚’å‚ç…§ã€‚
 	Panel(Control& parent, int x, int y, int width, int height, Control::Edge edge = Control::Edge::none, Panel::Options options = Options::none);
 	virtual ~Panel();
 	Panel& operator=(Panel&& value);
 
 public:
-	/// ƒRƒ“ƒgƒ[ƒ‹‚Ì‹«ŠEü‚Ìí—ŞB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¢ƒç•Œç·šã®ç¨®é¡ã€‚
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// ƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é‚©‚Ç‚¤‚©B
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	virtual bool focusable() const;
-	/// eƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹AˆÊ’uA‘å‚«‚³‚©‚çƒRƒ“ƒgƒ[ƒ‹‚ğì¬B‚»‚Ì‘¼‚Ìˆø”‚É‚Â‚¢‚Ä‚Í“¯–¼‚ÌŠÖ”‚ğQÆB
-	/// Control ƒNƒ‰ƒX‚Ì”h¶ƒNƒ‰ƒX‚Å‚Í‚È‚¢”CˆÓ‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Ìq‚É‚È‚é‚±‚Æ‚ª‚Å‚«‚éB
+	/// è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ä½œæˆã€‚ãã®ä»–ã®å¼•æ•°ã«ã¤ã„ã¦ã¯åŒåã®é–¢æ•°ã‚’å‚ç…§ã€‚
+	/// Control ã‚¯ãƒ©ã‚¹ã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§ã¯ãªã„ä»»æ„ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã®å­ã«ãªã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
 	static Panel fromParentHandle(HWND parent, int x, int y, int width, int height, Control::Edge edge = Control::Edge::none, Panel::Options options = Options::none);
-	/// ƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚ğ•`‰æ‚·‚éƒCƒxƒ“ƒgB
+	/// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã‚’æç”»ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Panel::Paint&>& onPaint();
-	///	ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB
+	///	ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚
 	Panel::Options options() const;
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -9,28 +9,28 @@ namespace balor {
 
 
 /**
- * ƒvƒƒOƒŒƒXƒo[B
+ * ãƒ—ãƒ­ã‚°ãƒ¬ã‚¹ãƒãƒ¼ã€‚
  * 
- * ƒrƒWƒ…ƒAƒ‹ƒXƒ^ƒCƒ‹‚ª—LŒø‚Å‚ ‚éê‡AƒEƒCƒ“ƒhƒEƒXƒ^ƒCƒ‹‚Ì PBS_SMOOTH ƒtƒ‰ƒO‚Ìw’è‚Ì—L–³‚É‚©‚©‚í‚ç‚¸ XP ‚Å‚Íi’»ƒo[‚É–Ú·‚è‚ª•\¦‚³‚êAVista ‚Å‚Í–Ú·‚è‚ª•\¦‚³‚ê‚È‚¢B
- * minimum ‚ğ maximum ‚æ‚è‘å‚«‚­‚µ‚Ä‚à maximum = minimum ‚É‚È‚é‚¾‚¯‚Å‘‰Á—Ê‚Ì•„†‚Í•Ï‚í‚ç‚È‚¢B
+ * ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚¹ã‚¿ã‚¤ãƒ«ãŒæœ‰åŠ¹ã§ã‚ã‚‹å ´åˆã€ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¹ã‚¿ã‚¤ãƒ«ã® PBS_SMOOTH ãƒ•ãƒ©ã‚°ã®æŒ‡å®šã®æœ‰ç„¡ã«ã‹ã‹ã‚ã‚‰ãš XP ã§ã¯é€²æ—ãƒãƒ¼ã«ç›®ç››ã‚ŠãŒè¡¨ç¤ºã•ã‚Œã€Vista ã§ã¯ç›®ç››ã‚ŠãŒè¡¨ç¤ºã•ã‚Œãªã„ã€‚
+ * minimum ã‚’ maximum ã‚ˆã‚Šå¤§ããã—ã¦ã‚‚ maximum = minimum ã«ãªã‚‹ã ã‘ã§å¢—åŠ é‡ã®ç¬¦å·ã¯å¤‰ã‚ã‚‰ãªã„ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"ProgressBar Sample");
 
 	ProgressBar bar(frame, 20, 10, 0, 0);
 	Timer timer(frame, 500);
-	Button button(frame, 20, 50, 0, 0, L"ˆ—‚ğŠJn‚·‚é", [&] (Button::Click& e) {
+	Button button(frame, 20, 50, 0, 0, L"å‡¦ç†ã‚’é–‹å§‹ã™ã‚‹", [&] (Button::Click& e) {
 		if (!timer.started()) {
 			bar.value(0);
 			timer.start();
-			e.sender().text(L"ˆ—‚ğ’†~‚·‚é");
+			e.sender().text(L"å‡¦ç†ã‚’ä¸­æ­¢ã™ã‚‹");
 			frame.onCursorChange() = [&] (Frame::CursorChange& e) {
 				e.cursor(Cursor::wait());
 			};
 		} else {
 			timer.stop();
-			e.sender().text(L"ˆ—‚ğŠJn‚·‚é");
+			e.sender().text(L"å‡¦ç†ã‚’é–‹å§‹ã™ã‚‹");
 			frame.onCursorChange().pop();
 		}
 		for (auto i = frame.descendantsBegin(); i; ++i) {
@@ -41,7 +41,7 @@ namespace balor {
 		bar.add(10);
 		if (bar.maximum() <= bar.value()) {
 			button.performClick();
-			MsgBox::show(L"Š®—¹");
+			MsgBox::show(L"å®Œäº†");
 		}
 	};
 
@@ -50,35 +50,35 @@ namespace balor {
  */
 class ProgressBar : public Control {
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	ProgressBar();
 	ProgressBar(ProgressBar&& value, bool checkSlicing = true);
-	/// eƒRƒ“ƒgƒ[ƒ‹AˆÊ’uA‘å‚«‚³AŠJn’lAŠ®—¹’l‚Åì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€ä½ç½®ã€å¤§ãã•ã€é–‹å§‹å€¤ã€å®Œäº†å€¤ã§ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	ProgressBar(Control& parent, int x, int y, int width, int height, int minimum = 0, int maximum = 100);
 	virtual ~ProgressBar();
 	ProgressBar& operator=(ProgressBar&& value);
 
 public:
-	/// Œ»İ‚Ìi’»’l‚É‰ÁZ‚·‚éB
+	/// ç¾åœ¨ã®é€²æ—å€¤ã«åŠ ç®—ã™ã‚‹ã€‚
 	void add(int delta);
-	/// ƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é‚©‚Ç‚¤‚©B
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	virtual bool focusable() const;
-	/// Œ»İ‚Ìó‘Ô‚©‚çÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éB
+	/// ç¾åœ¨ã®çŠ¶æ…‹ã‹ã‚‰æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// i’»‚ª‚¢‚ÂI‚í‚é‚©‚í‚©‚ç‚È‚¢•\¦ƒ‚[ƒhiƒ}[ƒL[ƒXƒ^ƒCƒ‹jBƒAƒjƒ[ƒVƒ‡ƒ“ƒXƒs[ƒh‚Íƒ~ƒŠ•b’PˆÊB‰Šú’l‚Í falseB
-	/// ‚±‚ÌŠÖ”‚Ìg—p‚É‚Í EnableVisualStyle.hpp ‚ÌƒCƒ“ƒNƒ‹[ƒh‚ª•K—vB
+	/// é€²æ—ãŒã„ã¤çµ‚ã‚ã‚‹ã‹ã‚ã‹ã‚‰ãªã„è¡¨ç¤ºãƒ¢ãƒ¼ãƒ‰ï¼ˆãƒãƒ¼ã‚­ãƒ¼ã‚¹ã‚¿ã‚¤ãƒ«ï¼‰ã€‚ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¹ãƒ”ãƒ¼ãƒ‰ã¯ãƒŸãƒªç§’å˜ä½ã€‚åˆæœŸå€¤ã¯ falseã€‚
+	/// ã“ã®é–¢æ•°ã®ä½¿ç”¨ã«ã¯ EnableVisualStyle.hpp ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãŒå¿…è¦ã€‚
 	bool indeterminate() const;
 	void indeterminate(bool value, int animationSpeed = 100);
-	/// i’»‚ÌŠ®—¹’lB
+	/// é€²æ—ã®å®Œäº†å€¤ã€‚
 	int maximum() const;
 	void maximum(int value);
-	/// i’»‚ÌŠJn’lB
+	/// é€²æ—ã®é–‹å§‹å€¤ã€‚
 	int minimum() const;
 	void minimum(int value);
-	/// Œ»İ‚Ìi’»’lB
+	/// ç¾åœ¨ã®é€²æ—å€¤ã€‚
 	int value() const;
 	void value(int value);
-	/// c•\¦‚©‚Ç‚¤‚©B
+	/// ç¸¦è¡¨ç¤ºã‹ã©ã†ã‹ã€‚
 	bool vertical() const;
 	void vertical(bool value);
 };

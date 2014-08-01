@@ -1,4 +1,4 @@
-#include "Panel.hpp"
+ï»¿#include "Panel.hpp"
 
 #include <utility>
 
@@ -74,7 +74,7 @@ void Panel::edge(Control::Edge value) {
 
 
 bool Panel::focusable() const {
-	return false; // •ûŒüƒL[‚ÅƒtƒH[ƒJƒX‚ğ“¾‚È‚¢‚æ‚¤‚Éã‘‚«B
+	return false; // æ–¹å‘ã‚­ãƒ¼ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãªã„ã‚ˆã†ã«ä¸Šæ›¸ã
 }
 
 

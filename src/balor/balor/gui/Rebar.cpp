@@ -1,4 +1,4 @@
-#include "Rebar.hpp"
+ï»¿#include "Rebar.hpp"
 
 #include <utility>
 
@@ -585,7 +585,7 @@ void Rebar::itemInfos(ArrayRange<const Rebar::ItemInfo> value) {
 	for (int i = 0, end = value.size(); i < end; ++i) {
 		insert(i, value[i]);
 	}
-	if (1 < value.size()) { // ƒoƒ“ƒh‚ª‰E’[‚ÉŠñ‚Á‚Ä‚µ‚Ü‚¤‚Ì‚ð–h‚®
+	if (1 < value.size()) { // ãƒãƒ³ãƒ‰ãŒå³ç«¯ã«å¯„ã£ã¦ã—ã¾ã†ã®ã‚’é˜²ã
 		(*this)[value.size() - 1].maximize();
 	}
 }

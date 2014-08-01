@@ -1,4 +1,4 @@
-#include "ProgressBar.hpp"
+ï»¿#include "ProgressBar.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -68,7 +68,7 @@ void ProgressBar::add(int delta) {
 
 
 bool ProgressBar::focusable() const {
-	return false; // •ûŒüƒL[‚ÅƒtƒH[ƒJƒX‚ğ“¾‚È‚¢‚æ‚¤‚Éã‘‚«B
+	return false; // æ–¹å‘ã‚­ãƒ¼ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãªã„ã‚ˆã†ã«ä¸Šæ›¸ã
 }
 
 
@@ -76,7 +76,7 @@ Size ProgressBar::getPreferredSize(int width, int height) const {
 	if (width && height) {
 		return Size(width, height);
 	}
-	int length = (maximum() - minimum()) * ScrollBar::defaultVerticalWidth() / 10; // ‚©‚È‚è“K“–B
+	int length = (maximum() - minimum()) * ScrollBar::defaultVerticalWidth() / 10; // ã‹ãªã‚Šé©å½“
 	int thickness = ScrollBar::defaultHorizontalHeight();
 	Size size = vertical() ? Size(thickness, length) : Size(length, thickness);
 	return Size(width  ? width  : size.width

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -19,34 +19,34 @@ namespace balor {
 
 
 /**
- * ƒŒƒo[ƒRƒ“ƒgƒ[ƒ‹B
+ * ãƒ¬ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
  *
- * RB_MOVEBAND ‚Í“®ì‚¹‚¸B
+ * RB_MOVEBAND ã¯å‹•ä½œã›ãšã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"Rebar sample");
 
 	ImageList imageList(ImageList::SystemResource::largeStandardImages);
 	ToolBar::ButtonInfo toolItems[] = {
-		ToolBar::ButtonInfo(ImageList::StandardImage::cut, L"Ø‚èæ‚è", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"Ø‚èæ‚Á‚½");
+		ToolBar::ButtonInfo(ImageList::StandardImage::cut, L"åˆ‡ã‚Šå–ã‚Š", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"åˆ‡ã‚Šå–ã£ãŸ");
 		}),
-		ToolBar::ButtonInfo(ImageList::StandardImage::copy, L"ƒRƒs[", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"ƒRƒs[‚µ‚½");
+		ToolBar::ButtonInfo(ImageList::StandardImage::copy, L"ã‚³ãƒ”ãƒ¼", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"ã‚³ãƒ”ãƒ¼ã—ãŸ");
 		}),
-		ToolBar::ButtonInfo(ImageList::StandardImage::paste, L"“\‚è•t‚¯", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"“\‚è•t‚¯‚½");
+		ToolBar::ButtonInfo(ImageList::StandardImage::paste, L"è²¼ã‚Šä»˜ã‘", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"è²¼ã‚Šä»˜ã‘ãŸ");
 		}),
 	};
 	ToolBar tool(frame, 0, 0, 0, 0, imageList, toolItems);
-	tool.size(tool.buttonsSize()); // ƒ{ƒ^ƒ“‚Ì‘å‚«‚³‚É‡‚í‚¹‚é
+	tool.size(tool.buttonsSize()); // ãƒœã‚¿ãƒ³ã®å¤§ãã•ã«åˆã‚ã›ã‚‹
 	tool.transparent(true);
 
 	const wchar_t* comboItems[] = {
-		L"ƒŠƒ“ƒS",
-		L"ƒƒƒ“",
-		L"ƒXƒCƒJ",
+		L"ãƒªãƒ³ã‚´",
+		L"ãƒ¡ãƒ­ãƒ³",
+		L"ã‚¹ã‚¤ã‚«",
 	};
 	ComboBox combo(frame, 0, 0, 0, 0, comboItems);
 	combo.selectedIndex(0);
@@ -56,7 +56,7 @@ namespace balor {
 
 	Rebar::ItemInfo rebarItems[] = {
 		Rebar::ItemInfo(tool),
-		Rebar::ItemInfo(combo, 0, L"‰Ê•¨"),
+		Rebar::ItemInfo(combo, 0, L"æœç‰©"),
 		Rebar::ItemInfo(edit),
 		Rebar::ItemInfo(),
 	};
@@ -69,7 +69,7 @@ namespace balor {
 	frame.runMessageLoop();
  * </code></pre>
  *
- * <h3>EƒVƒFƒuƒƒ“ƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"Rebar Chevron sample");
 
@@ -78,7 +78,7 @@ namespace balor {
 	std::vector<ToolBar::ButtonInfo> toolItems;
 	ImageList imageList(ImageList::SystemResource::largeStandardImages);
 	for (auto i = 0, end = imageList.count(); i < end; ++i) {
-		String text = String(L"€–Ú") + i;
+		String text = String(L"é …ç›®") + i;
 		menuBitmaps.push_back(imageList.getIcon(i).bitmap());
 		Menu::ItemInfo menuItem(text);
 		menuItem.uncheckedMark(menuBitmaps.back());
@@ -88,13 +88,13 @@ namespace balor {
 	ToolBar tool(frame, 0, 0, 0, 0, imageList, toolItems);
 	tool.size(tool.buttonsSize());
 	tool.transparent(true);
-	tool.hideClippedButtons(true); // ƒ{ƒ^ƒ“‚ª­‚µ‚Å‚à‰B‚ê‚é‚È‚ç•\¦‚µ‚È‚¢B
+	tool.hideClippedButtons(true); // ãƒœã‚¿ãƒ³ãŒå°‘ã—ã§ã‚‚éš ã‚Œã‚‹ãªã‚‰è¡¨ç¤ºã—ãªã„ã€‚
 
 	Rebar rebar(frame);
 	Rebar::ItemInfo rebarItem(tool);
-	rebarItem.controlResizable(true); // ƒRƒ“ƒgƒ[ƒ‹‚ğƒŠƒTƒCƒY‰Â”\‚É‚·‚éB
-	rebarItem.minControlSize(0, tool.size().height); // •‚O‚Ü‚ÅƒŠƒTƒCƒY‚ğ‹–‰Â‚·‚éB
-	rebarItem.displayWidth(tool.size().width); // Å‰‚Ì•ˆÈ‰º‚È‚çƒVƒFƒuƒƒ“‚ğ•\¦‚·‚éB
+	rebarItem.controlResizable(true); // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ãƒªã‚µã‚¤ã‚ºå¯èƒ½ã«ã™ã‚‹ã€‚
+	rebarItem.minControlSize(0, tool.size().height); // å¹…ï¼ã¾ã§ãƒªã‚µã‚¤ã‚ºã‚’è¨±å¯ã™ã‚‹ã€‚
+	rebarItem.displayWidth(tool.size().width); // æœ€åˆã®å¹…ä»¥ä¸‹ãªã‚‰ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	rebar.add(rebarItem);
 	PopupMenu chevronMenu;
 	rebar[0].onChevronClick() = [&] (Rebar::ChevronClick& e) {
@@ -125,57 +125,57 @@ public:
 	struct ItemEvent;
 	struct ChevronClick;
 
-	/// ƒŒƒo[ƒRƒ“ƒgƒ[ƒ‹ã‚Ìƒoƒ“ƒh€–ÚBRebar::operator[] ‚Åæ“¾‚Å‚«‚éB
+	/// ãƒ¬ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä¸Šã®ãƒãƒ³ãƒ‰é …ç›®ã€‚Rebar::operator[] ã§å–å¾—ã§ãã‚‹ã€‚
 	class Item {
 	public:
 		Item(HWND ownerHandle, int index);
-		/// €–Úî•ñ‚ğ”½‰fB
+		/// é …ç›®æƒ…å ±ã‚’åæ˜ ã€‚
 		Item& operator=(const ItemInfo& itemInfo);
 
-		/// €–Ú‚Ì”wŒiƒrƒbƒgƒ}ƒbƒvBƒ^ƒCƒ‹•\¦‚³‚ê‚éB
+		/// é …ç›®ã®èƒŒæ™¯ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã€‚ã‚¿ã‚¤ãƒ«è¡¨ç¤ºã•ã‚Œã‚‹ã€‚
 		Bitmap bitmap() const;
 		void bitmap(HBITMAP value);
-		/// €–Ú‚Ì”wŒiƒrƒbƒgƒ}ƒbƒv‚Ì•\¦Œ´“_‚ğ€–Ú‚ÌÀ•W‚É‚æ‚ç‚¸ŒÅ’è‚·‚é‚©‚Ç‚¤‚©B
+		/// é …ç›®ã®èƒŒæ™¯ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®è¡¨ç¤ºåŸç‚¹ã‚’é …ç›®ã®åº§æ¨™ã«ã‚ˆã‚‰ãšå›ºå®šã™ã‚‹ã‹ã©ã†ã‹ã€‚
 		bool bitmapOriginFixed() const;
 		void bitmapOriginFixed(bool value);
-		/// €–Ú‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W—ÌˆæB
+		/// é …ç›®ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™é ˜åŸŸã€‚
 		Rectangle bounds() const;
-		/// €–Ú‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©BŒã‚ë‚Ì€–Ú‚à‘S‚Äˆê‚É‰üs‚³‚ê‚é‚Ì‚Å index() ‚Í•Ï‰»‚µ‚È‚¢B
+		/// é …ç›®ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚å¾Œã‚ã®é …ç›®ã‚‚å…¨ã¦ä¸€ç·’ã«æ”¹è¡Œã•ã‚Œã‚‹ã®ã§ index() ã¯å¤‰åŒ–ã—ãªã„ã€‚
 		bool lineBreak() const;
 		void lineBreak(bool value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹B’u‚©‚È‚¢ê‡‚Í nullptrB•ÏX‚·‚é‘O‚É minControlSize() ‚ğ control ‚Ì‘å‚«‚³‚Éİ’è‚µ‚½‚Ù‚¤‚ª—Ç‚¢B
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚ç½®ã‹ãªã„å ´åˆã¯ nullptrã€‚å¤‰æ›´ã™ã‚‹å‰ã« minControlSize() ã‚’ control ã®å¤§ãã•ã«è¨­å®šã—ãŸã»ã†ãŒè‰¯ã„ã€‚
 		Control* control() const;
 		void control(Control* value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹‚Ìã‰º‚É‹ó”’‚ğ“ü‚ê‚é‚Ç‚¤‚©B
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ä¸Šä¸‹ã«ç©ºç™½ã‚’å…¥ã‚Œã‚‹ã©ã†ã‹ã€‚
 		bool controlEdge() const;
 		void controlEdge(bool value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹‚ª€–Ú‚Ì•‚É‡‚í‚¹‚Ä‘å‚«‚³‚ğ•Ï‚¦‚é‚©‚Ç‚¤‚©B
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒé …ç›®ã®å¹…ã«åˆã‚ã›ã¦å¤§ãã•ã‚’å¤‰ãˆã‚‹ã‹ã©ã†ã‹ã€‚
 		bool controlResizable() const;
 		void controlResizable(bool value);
-		/// €–Ú‚Ì•\¦‰Â”\‚ÈƒsƒNƒZƒ‹•Bwidth() ‚ª‚±‚Ì•–¢–‚Å‚ ‚éê‡AƒVƒFƒuƒƒ“‚ğ•\¦‚·‚éB‰Šú’l‚Í 0B
+		/// é …ç›®ã®è¡¨ç¤ºå¯èƒ½ãªãƒ”ã‚¯ã‚»ãƒ«å¹…ã€‚width() ãŒã“ã®å¹…æœªæº€ã§ã‚ã‚‹å ´åˆã€ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã€‚åˆæœŸå€¤ã¯ 0ã€‚
 		int displayWidth() const;
 		void displayWidth(int value);
-		/// €–ÚƒCƒ“ƒfƒbƒNƒXB
+		/// é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int index() const;
-		/// €–Ú‚ğÅ‘å‰»‚·‚éB
+		/// é …ç›®ã‚’æœ€å¤§åŒ–ã™ã‚‹ã€‚
 		void maximize();
-		/// ƒ†[ƒU‚ª€–Ú‚ğƒŠƒTƒCƒY‚·‚éê‡‚ÌÅ¬‚Ì‘å‚«‚³B
+		/// ãƒ¦ãƒ¼ã‚¶ãŒé …ç›®ã‚’ãƒªã‚µã‚¤ã‚ºã™ã‚‹å ´åˆã®æœ€å°ã®å¤§ãã•ã€‚
 		Size minControlSize() const;
 		void minControlSize(const Size& value);
 		void minControlSize(int width, int height);
-		/// €–Ú‚ğÅ¬‰»‚·‚éB
+		/// é …ç›®ã‚’æœ€å°åŒ–ã™ã‚‹ã€‚
 		void minimize();
-		/// ƒVƒFƒuƒƒ“‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+		/// ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Rebar::ChevronClick&>& onChevronClick();
-		/// ƒŒƒo[ƒRƒ“ƒgƒ[ƒ‹‚Ìƒnƒ“ƒhƒ‹B
+		/// ãƒ¬ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND ownerHandle() const;
-		/// €–Úã‚Ì‘å‚«‚³‚ğ•ÏX‚Å‚«‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚ÍƒOƒŠƒbƒv‚ª•\¦‚³‚ê‚È‚¢B
+		/// é …ç›®ä¸Šã®å¤§ãã•ã‚’å¤‰æ›´ã§ãã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯ã‚°ãƒªãƒƒãƒ—ãŒè¡¨ç¤ºã•ã‚Œãªã„ã€‚
 		bool resizable() const;
 		void resizable(bool value);
-		/// €–Ú‚Ì•¶š—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(StringRange value);
-		/// €–Ú‚ÌƒsƒNƒZƒ‹•B
+		/// é …ç›®ã®ãƒ”ã‚¯ã‚»ãƒ«å¹…ã€‚
 		int width() const;
 		void width(int value);
 
@@ -185,52 +185,52 @@ public:
 	};
 
 
-	/// €–Úî•ñ\‘¢‘ÌBî•ñ‚ğ‚Â‚¾‚¯‚ÅƒŒƒo[ƒRƒ“ƒgƒ[ƒ‹‚ÍˆêØ‘€ì‚µ‚È‚¢BRebar::itemInfos ŠÖ”“™‚Åg—p‚·‚éB
+	/// é …ç›®æƒ…å ±æ§‹é€ ä½“ã€‚æƒ…å ±ã‚’æŒã¤ã ã‘ã§ãƒ¬ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯ä¸€åˆ‡æ“ä½œã—ãªã„ã€‚Rebar::itemInfos é–¢æ•°ç­‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 	class ItemInfo {
 	public:
 		ItemInfo();
 		ItemInfo(ItemInfo&& value);
-		/// €–Úî•ñ‚Ìæ“¾B
+		/// é …ç›®æƒ…å ±ã®å–å¾—ã€‚
 		ItemInfo(const Item& item);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹‚©‚çì¬B
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‹ã‚‰ä½œæˆã€‚
 		explicit ItemInfo(Control& control, int width = 0, String text = L"");
 		ItemInfo& operator=(ItemInfo&& value);
 
-		/// €–Ú‚Ì”wŒiƒrƒbƒgƒ}ƒbƒvBƒ^ƒCƒ‹•\¦‚³‚ê‚éB‰Šú’l‚Íƒkƒ‹ƒnƒ“ƒhƒ‹‚Ì BitmapB
+		/// é …ç›®ã®èƒŒæ™¯ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã€‚ã‚¿ã‚¤ãƒ«è¡¨ç¤ºã•ã‚Œã‚‹ã€‚åˆæœŸå€¤ã¯ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã® Bitmapã€‚
 		Bitmap bitmap() const;
 		void bitmap(HBITMAP value);
-		/// €–Ú‚Ì”wŒiƒrƒbƒgƒ}ƒbƒv‚Ì•\¦Œ´“_‚ğ€–Ú‚ÌÀ•W‚É‚æ‚ç‚¸ŒÅ’è‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// é …ç›®ã®èƒŒæ™¯ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã®è¡¨ç¤ºåŸç‚¹ã‚’é …ç›®ã®åº§æ¨™ã«ã‚ˆã‚‰ãšå›ºå®šã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool bitmapOriginFixed() const;
 		void bitmapOriginFixed(bool value);
-		/// €–Ú‚ğ‰üs‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// é …ç›®ã‚’æ”¹è¡Œã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool lineBreak() const;
 		void lineBreak(bool value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹B’u‚©‚È‚¢ê‡‚Í nullptrB
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚ç½®ã‹ãªã„å ´åˆã¯ nullptrã€‚
 		Control* control() const;
 		void control(Control* value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹‚Ìã‰º‚É‹ó”’‚ğ“ü‚ê‚é‚Ç‚¤‚©B‰Šú’l‚Í trueB
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ä¸Šä¸‹ã«ç©ºç™½ã‚’å…¥ã‚Œã‚‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 		bool controlEdge() const;
 		void controlEdge(bool value);
-		/// €–Úã‚É’u‚­ƒRƒ“ƒgƒ[ƒ‹‚ª€–Ú‚Ì•‚É‡‚í‚¹‚Ä‘å‚«‚³‚ğ•Ï‚¦‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// é …ç›®ä¸Šã«ç½®ãã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒé …ç›®ã®å¹…ã«åˆã‚ã›ã¦å¤§ãã•ã‚’å¤‰ãˆã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool controlResizable() const;
 		void controlResizable(bool value);
-		/// €–Ú‚Ì•\¦‰Â”\‚ÈƒsƒNƒZƒ‹•Bwidth() ‚ª‚±‚Ì•–¢–‚Å‚ ‚éê‡AƒVƒFƒuƒƒ“‚ğ•\¦‚·‚éB‰Šú’l‚Í 0B
+		/// é …ç›®ã®è¡¨ç¤ºå¯èƒ½ãªãƒ”ã‚¯ã‚»ãƒ«å¹…ã€‚width() ãŒã“ã®å¹…æœªæº€ã§ã‚ã‚‹å ´åˆã€ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ã€‚åˆæœŸå€¤ã¯ 0ã€‚
 		int displayWidth() const;
 		void displayWidth(int value);
-		/// €–Úã‚ÌƒRƒ“ƒgƒ[ƒ‹‚ğƒŠƒTƒCƒY‚·‚éê‡‚ÌÅ¬‚Ì‘å‚«‚³B
+		/// é …ç›®ä¸Šã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ãƒªã‚µã‚¤ã‚ºã™ã‚‹å ´åˆã®æœ€å°ã®å¤§ãã•ã€‚
 		Size minControlSize() const;
 		void minControlSize(const Size& value);
 		void minControlSize(int width, int height);
-		/// ƒVƒFƒuƒƒ“‚ğƒNƒŠƒbƒN‚µ‚½ƒCƒxƒ“ƒgB
+		/// ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 		Listener<Rebar::ChevronClick&>& onChevronClick();
 		const Listener<Rebar::ChevronClick&>& onChevronClick() const;
-		/// €–Úã‚Ì‘å‚«‚³‚ğ•ÏX‚Å‚«‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚ÍƒOƒŠƒbƒv‚ª•\¦‚³‚ê‚È‚¢B‰Šú’l‚Í trueB
+		/// é …ç›®ä¸Šã®å¤§ãã•ã‚’å¤‰æ›´ã§ãã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯ã‚°ãƒªãƒƒãƒ—ãŒè¡¨ç¤ºã•ã‚Œãªã„ã€‚åˆæœŸå€¤ã¯ trueã€‚
 		bool resizable() const;
 		void resizable(bool value);
-		/// €–Ú‚Ì•¶š—ñB‰Šú’l‚Í‹ó•¶š—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—ã€‚
 		const String& text() const;
 		void text(String value);
-		/// €–Ú‚ÌƒsƒNƒZƒ‹•B0 ‚Ìê‡‚ÍÅ¬‚Ì‘å‚«‚³‚É‚È‚éB
+		/// é …ç›®ã®ãƒ”ã‚¯ã‚»ãƒ«å¹…ã€‚0 ã®å ´åˆã¯æœ€å°ã®å¤§ãã•ã«ãªã‚‹ã€‚
 		int width() const;
 		void width(int value);
 
@@ -251,17 +251,17 @@ public:
 
 
 
-	/// ƒŒƒo[ƒRƒ“ƒgƒ[ƒ‹‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ãƒ¬ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<Rebar, Control::Event> Event;
 
 	typedef Event Resize;
 
 
-	/// €–Ú‚ÉŠÖ‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã«é–¢ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemEvent : public Event {
 		ItemEvent(Rebar& sender, int itemIndex);
 
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½€–ÚB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸé …ç›®ã€‚
 		Rebar::Item item();
 
 	private:
@@ -269,11 +269,11 @@ public:
 	};
 
 
-	/// ƒVƒFƒuƒƒ“‚ğ‰Ÿ‚µ‚½ƒCƒxƒ“ƒgB
+	/// ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã‚’æŠ¼ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ChevronClick : public ItemEvent {
 		ChevronClick(Rebar& sender, int itemIndex, const Rectangle& bounds);
 
-		/// ƒVƒFƒuƒƒ“‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W—ÌˆæB
+		/// ã‚·ã‚§ãƒ–ãƒ­ãƒ³ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™é ˜åŸŸã€‚
 		const Rectangle& chevronBounds() const;
 
 	private:
@@ -282,56 +282,56 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒ|ƒCƒ“ƒ^‚Åì¬B
+	/// ãƒŒãƒ«ãƒã‚¤ãƒ³ã‚¿ã§ä½œæˆã€‚
 	Rebar();
 	Rebar(Rebar&& value, bool checkSlicing = true);
-	/// e‚©‚çì¬Be‚Ìã’[‚Ée‚Ì•‚É‚ ‚í‚¹‚½‘å‚«‚³‚Åì¬‚·‚éB
+	/// è¦ªã‹ã‚‰ä½œæˆã€‚è¦ªã®ä¸Šç«¯ã«è¦ªã®å¹…ã«ã‚ã‚ã›ãŸå¤§ãã•ã§ä½œæˆã™ã‚‹ã€‚
 	Rebar(Control& parent);
-	/// e‚Æ€–Úî•ñ”z—ñ‚©‚çì¬Be‚Ìã’[‚Ée‚Ì•‚É‚ ‚í‚¹‚½‘å‚«‚³‚Åì¬‚·‚éB
+	/// è¦ªã¨é …ç›®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚è¦ªã®ä¸Šç«¯ã«è¦ªã®å¹…ã«ã‚ã‚ã›ãŸå¤§ãã•ã§ä½œæˆã™ã‚‹ã€‚
 	Rebar(Control& parent, ArrayRange<const Rebar::ItemInfo> itemInfos);
 	virtual ~Rebar();
 	Rebar& operator=(Rebar&& value);
 
 public:
-	/// €–Ú‚ğ’Ç‰Á‚·‚éB
+	/// é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void add(const ItemInfo& itemInfo);
-	/// €–Ú‚ğ‘S‚Äíœ‚·‚éB
+	/// é …ç›®ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹ã€‚
 	void clear();
-	/// €–Ú”B
+	/// é …ç›®æ•°ã€‚
 	int count() const;
-	/// €–Ú‚Ì‹«ŠE‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚½‚çÅ‘å‰»/Å¬‰»‚·‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚ÍƒVƒ“ƒOƒ‹ƒNƒŠƒbƒNB‰Šú’l‚Í falseB
+	/// é …ç›®ã®å¢ƒç•Œã‚’ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰æœ€å¤§åŒ–/æœ€å°åŒ–ã™ã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯ã‚·ãƒ³ã‚°ãƒ«ã‚¯ãƒªãƒƒã‚¯ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool doubleClickToggle() const;
 	void doubleClickToggle(bool value);
-	/// €–Ú‚ğíœ‚·‚éB
+	/// é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void erase(int index);
-	/// w’è‚µ‚½ƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚É‚ ‚é€–Ú‚ÌƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éB–³‚¢ê‡‚Í -1B
+	/// æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã«ã‚ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚ç„¡ã„å ´åˆã¯ -1ã€‚
 	int getIndexAt(const Point& point) const;
 	int getIndexAt(int x, int y) const;
-	/// €–Ú‚ğ‘}“ü‚·‚éB
+	/// é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	void insert(int index, const ItemInfo& itemInfo);
-	/// €–Ú‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+	/// é …ç›®ã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 	std::vector<Rebar::ItemInfo> itemInfos() const;
 	void itemInfos(ArrayRange<const Rebar::ItemInfo> value);
-	/// €–Ú“¯m‚Ì‹«ŠE‚Éü‚ğˆø‚­‚©‚Ç‚¤‚©B‰Šú’l‚Í trueB
+	/// é …ç›®åŒå£«ã®å¢ƒç•Œã«ç·šã‚’å¼•ãã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ trueã€‚
 	bool itemBorderLines() const;
 	void itemBorderLines(bool value);
-	/// €–Ú‚Ì‡”Ô‚ªŒÅ’è‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é …ç›®ã®é †ç•ªãŒå›ºå®šã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool itemHeightVariable() const;
 	void itemHeightVariable(bool value);
-	/// €–Ú‚Ì‡”Ô‚ªŒÅ’è‚³‚ê‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é …ç›®ã®é †ç•ªãŒå›ºå®šã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool itemOrderFixed() const;
 	void itemOrderFixed(bool value);
-	/// ƒRƒ“ƒgƒ[ƒ‹‚Ì‘å‚«‚³‚ª•Ï‚í‚Á‚½ƒCƒxƒ“ƒgB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¤§ãã•ãŒå¤‰ã‚ã£ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Rebar::Resize&>& onResize();
-	/// €–Ú‚Ì—ñ”B
+	/// é …ç›®ã®åˆ—æ•°ã€‚
 	int rowCount() const;
 
 public:
-	/// index ”Ô–Ú‚Ì€–ÚB‡”Ô‚Í’Ç‰Á‚µ‚½‡‚Æ‚ÍŒÀ‚ç‚¸ƒ†[ƒU‚Ìƒhƒ‰ƒbƒO‘€ì‚É‚æ‚Á‚Ä•Ï‰»‚·‚éB
+	/// index ç•ªç›®ã®é …ç›®ã€‚é †ç•ªã¯è¿½åŠ ã—ãŸé †ã¨ã¯é™ã‚‰ãšãƒ¦ãƒ¼ã‚¶ã®ãƒ‰ãƒ©ãƒƒã‚°æ“ä½œã«ã‚ˆã£ã¦å¤‰åŒ–ã™ã‚‹ã€‚
 	Rebar::Item operator[](int index);
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

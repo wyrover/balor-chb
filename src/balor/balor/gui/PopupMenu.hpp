@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Menu.hpp>
 
@@ -12,69 +12,69 @@ namespace balor {
 
 
 /**
- * ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[B
- *
- * TODO: ƒ|ƒbƒvƒAƒbƒv‚Ì•\¦‚ªƒlƒXƒg‚³‚ê‚Ä‚¢‚é‚Ì‚ğ©“®ŒŸo‚Å‚«‚È‚¢‚à‚Ì‚©B
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
-	Frame frame(L"PopupMenu Sample");
+* ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã€‚
+*
+* TODO: ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã®è¡¨ç¤ºãŒãƒã‚¹ãƒˆã•ã‚Œã¦ã„ã‚‹ã®ã‚’è‡ªå‹•æ¤œå‡ºã§ããªã„ã‚‚ã®ã‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
+Frame frame(L"PopupMenu Sample");
 
-	Label label(frame, 20, 10, 0, 0, L"‰EƒNƒŠƒbƒN‚Åƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[•\¦");
+Label label(frame, 20, 10, 0, 0, L"å³ã‚¯ãƒªãƒƒã‚¯ã§ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤º");
 
-	typedef Menu::ItemInfo Item;
-	Item items[] = {
-		Item(L"ƒ`ƒFƒbƒN(&C)", [&] (Menu::Click& e) {
-			auto& menuItem = e.sender();
-			menuItem.checked(!menuItem.checked());
-		}),
-		Item(L"Œx‚·‚é(&W)", [&] (Menu::Click& ) {
-			MsgBox::show(frame, L"Œx");
-		}),
-		Item(),
-		Item(L"I—¹(&X)", [&] (Menu::Click& ) {
-			frame.close();
-		})
-	};
-	PopupMenu menu(items);
-	frame.onPopupMenu() = [&] (Frame::PopupMenu& e) {
-		menu.show(frame, e.position());
-	};
+typedef Menu::ItemInfo Item;
+Item items[] = {
+Item(L"ãƒã‚§ãƒƒã‚¯(&C)", [&] (Menu::Click& e) {
+auto& menuItem = e.sender();
+menuItem.checked(!menuItem.checked());
+}),
+Item(L"è­¦å‘Šã™ã‚‹(&W)", [&] (Menu::Click& ) {
+MsgBox::show(frame, L"è­¦å‘Š");
+}),
+Item(),
+Item(L"çµ‚äº†(&X)", [&] (Menu::Click& ) {
+frame.close();
+})
+};
+PopupMenu menu(items);
+frame.onPopupMenu() = [&] (Frame::PopupMenu& e) {
+menu.show(frame, e.position());
+};
 
-	frame.runMessageLoop();
- * </code></pre>
- */
+frame.runMessageLoop();
+* </code></pre>
+*/
 class PopupMenu : public Menu {
 public:
-	/// •\¦‚ğ§Œä‚·‚éƒtƒ‰ƒOB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// è¡¨ç¤ºã‚’åˆ¶å¾¡ã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Flags {
 		enum _enum {
-			recursive  = 0x0001L, /// onRightClick() ƒCƒxƒ“ƒg‚ÅÄ‹A“I‚Éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é‚Éw’è‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
-			bothButton = 0x0002L, /// onRightClick() ƒCƒxƒ“ƒg‚Ì‘ã‚í‚è‚É onClick() ƒCƒxƒ“ƒg‚ğ”­¶‚³‚¹‚éB
-			hCentor    = 0x0004L, /// …•½•ûŒü‚Ì’†‰›‚É•\¦B
-			right      = 0x0008L, /// ‰E‚É•\¦B
-			bottom     = 0x0020L, /// ã‚É•\¦B
-			vCentor    = 0x0010L, /// ‚’¼•ûŒü‚Ì’†‰›‚É•\¦B
-			vertical   = 0x0040L, /// ˆÊ’u‚ğ’²®‚·‚é‚Æ‚«‚É‚’¼•ûŒü‚ğ—Dæ‚·‚éB
+			recursive = 0x0001L, /// onRightClick() ã‚¤ãƒ™ãƒ³ãƒˆã§å†å¸°çš„ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹æ™‚ã«æŒ‡å®šã—ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
+			bothButton = 0x0002L, /// onRightClick() ã‚¤ãƒ™ãƒ³ãƒˆã®ä»£ã‚ã‚Šã« onClick() ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+			hCentor = 0x0004L, /// æ°´å¹³æ–¹å‘ã®ä¸­å¤®ã«è¡¨ç¤ºã€‚
+			right = 0x0008L, /// å³ã«è¡¨ç¤ºã€‚
+			bottom = 0x0020L, /// ä¸Šã«è¡¨ç¤ºã€‚
+			vCentor = 0x0010L, /// å‚ç›´æ–¹å‘ã®ä¸­å¤®ã«è¡¨ç¤ºã€‚
+			vertical = 0x0040L, /// ä½ç½®ã‚’èª¿æ•´ã™ã‚‹ã¨ãã«å‚ç›´æ–¹å‘ã‚’å„ªå…ˆã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Flags);
 	};
 
 public:
-	/// ‹ó‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğì¬B
+	/// ç©ºã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ä½œæˆã€‚
 	PopupMenu();
 	PopupMenu(PopupMenu&& value);
-	/// q€–Ú‚Ìî•ñ”z—ñ‚©‚çì¬B
+	/// å­é …ç›®ã®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚
 	PopupMenu(ArrayRange<const Menu::ItemInfo> itemInfos);
 	virtual ~PopupMenu();
 	PopupMenu& operator=(PopupMenu&& value);
 
 public:
-	/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é’¼‘O‚ÌƒCƒxƒ“ƒgB
+	/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ç›´å‰ã®ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Menu::PopupBegin&>& onPopupBegin();
-	/// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚µI‚í‚Á‚½ƒCƒxƒ“ƒgB
+	/// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—çµ‚ã‚ã£ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Menu::PopupEnd&>& onPopupEnd();
-	/// ƒI[ƒi[ƒRƒ“ƒgƒ[ƒ‹‚ÆƒI[ƒi[‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚ğw’è‚µ‚Äƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚éB
+	/// ã‚ªãƒ¼ãƒŠãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ã‚ªãƒ¼ãƒŠãƒ¼ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã‚’æŒ‡å®šã—ã¦ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	void show(Control& owner, const Point& position, PopupMenu::Flags flags = Flags::bothButton | Flags::vertical);
 	void show(Control& owner, int x, int y, PopupMenu::Flags flags = Flags::bothButton | Flags::vertical);
 };
