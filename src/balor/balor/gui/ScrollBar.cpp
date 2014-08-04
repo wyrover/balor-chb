@@ -1,4 +1,4 @@
-#include "ScrollBar.hpp"
+ï»¿#include "ScrollBar.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -179,7 +179,7 @@ void ScrollBar::minimum(int value) {
 	if (value != info.nMin) {
 		info.fMask = SIF_RANGE;
 		if (info.nMax < value) {
-			info.nMax = value; // ‚â‚ç‚È‚­‚Æ‚àŽ©“®“I‚É‚±‚¤‚È‚é‚ªˆê‰žB
+			info.nMax = value; // ã‚„ã‚‰ãªãã¨ã‚‚è‡ªå‹•çš„ã«ã“ã†ãªã‚‹ãŒä¸€å¿œ
 		}
 		info.nMin = value;
 		SetScrollInfo(handle(), SB_CTL, &info, TRUE);

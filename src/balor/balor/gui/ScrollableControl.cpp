@@ -1,4 +1,4 @@
-#include "ScrollableControl.hpp"
+ï»¿#include "ScrollableControl.hpp"
 
 #include <algorithm>
 
@@ -70,7 +70,7 @@ void ScrollableControl::clientSize(const Size& value) {
 	if (change) {
 		Control::clientSize(newValue);
 	}
-	//assert(value == clientSize()); // WM_GETMINMAXINFO ‚Å·‚ªo‚é
+	//assert(value == clientSize()); // WM_GETMINMAXINFO ã§å·®ãŒå‡ºã‚‹
 }
 
 
@@ -125,7 +125,7 @@ void ScrollableControl::scrollControlIntoView(Control& control, bool recursive) 
 	} else if (hScrollBar() || vScrollBar()) {
 		const auto clientSize = this->clientSize();
 		const auto oldPosition = scrollPosition();
-		const Point margin = Point(10, 10); // ‰¼‚É 10, 10 ‚Æ‚µ‚Ä‚¨‚­B
+		const Point margin = Point(10, 10); // ä»®ã« 10, 10 ã¨ã—ã¦ãŠã
 		auto bounds = control.bounds();
 		if (control.parent() != this) {
 			bounds = screenToClient(control.parent()->clientToScreen(bounds));
@@ -163,8 +163,8 @@ void ScrollableControl::scrollMinSize(const Size& value) {
 		_scrollMinSize = value;
 		if (value == Size(0, 0)) {
 			if (vScrollBar() || hScrollBar()) {
-				scrollPosition(0, 0); // ‰æ–Ê‚ÌƒXƒNƒ[ƒ‹‚ğŒ³‚É–ß‚·
-				// ShowScrollBar ‚¾‚¯‚Å‚ÍÁ‚¦‚È‚¢ƒP[ƒX‚ª‚ ‚é‚Ì‚ÅŠmÀ‚ÉÁ‚¦‚é‚æ‚¤‚Éİ’è‚·‚é
+				scrollPosition(0, 0); // ç”»é¢ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’å…ƒã«æˆ»ã™
+				// ShowScrollBar ã ã‘ã§ã¯æ¶ˆãˆãªã„ã‚±ãƒ¼ã‚¹ãŒã‚ã‚‹ã®ã§ç¢ºå®Ÿã«æ¶ˆãˆã‚‹ã‚ˆã†ã«è¨­å®šã™ã‚‹
 				SCROLLINFO info;
 				info.cbSize = sizeof(info);
 				info.fMask = SIF_RANGE | SIF_PAGE;
@@ -173,7 +173,7 @@ void ScrollableControl::scrollMinSize(const Size& value) {
 				info.nPage = 2;
 				SetScrollInfo(handle(), SB_HORZ, &info, TRUE);
 				SetScrollInfo(handle(), SB_VERT, &info, TRUE);
-				// ƒXƒNƒ[ƒ‹ƒo[‚ğÁ‚·
+				// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚’æ¶ˆã™
 				verify(ShowScrollBar(*this, SB_BOTH, FALSE));
 			}
 		} else {
@@ -195,9 +195,9 @@ Point ScrollableControl::scrollPosition() const {
 
 
 void ScrollableControl::scrollPosition(const Point& value) {
-	Point position = Point::minimize(value, Point(0, 0)); // Å‘å’li•‰”j‚ÉØ‚èÌ‚Ä
+	Point position = Point::minimize(value, Point(0, 0)); // æœ€å¤§å€¤ï¼ˆè² æ•°ï¼‰ã«åˆ‡ã‚Šæ¨ã¦
 	const auto clientRect = clientRectangle();
-	position = Point::maximize(position, Point::minimize(clientRect.size() - scrollSize(), Point(0, 0))); // Å¬’l‚ÉØ‚èã‚°
+	position = Point::maximize(position, Point::minimize(clientRect.size() - scrollSize(), Point(0, 0))); // æœ€å°å€¤ã«åˆ‡ã‚Šä¸Šã’
 	const auto oldPosition = scrollPosition();
 	const auto delta = position - oldPosition;
 	if (delta == Point(0, 0)) {
@@ -254,7 +254,7 @@ void ScrollableControl::updateScrollBars() {
 	if (scrollMinSize() == Size(0, 0) || _updating) {
 		return;
 	}
-	_updating = true; // ƒXƒNƒ[ƒ‹ƒo[‚ÌXV‚Å WM_SIZE ƒƒbƒZ[ƒW‚ª“Š‚°‚ç‚ê‚Ä–³ŒÀÄ‹A‚É‚È‚é‚Ì‚ğ–h‚®
+	_updating = true; // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®æ›´æ–°ã§ WM_SIZE ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæŠ•ã’ã‚‰ã‚Œã¦ç„¡é™å†å¸°ã«ãªã‚‹ã®ã‚’é˜²ã
 	scopeExit([&] {
 		_updating = false;
 	});
@@ -264,7 +264,7 @@ void ScrollableControl::updateScrollBars() {
 	Size newScrollSize = scrollMinSize();
 	bool newHScroll;
 	bool newVScroll;
-	{// ƒXƒNƒ[ƒ‹ƒo[‚Ì•\¦—L–³‚ÆƒXƒNƒ[ƒ‹ƒTƒCƒY‚ğ‹‚ß‚é
+	{// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤ºæœ‰ç„¡ã¨ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚µã‚¤ã‚ºã‚’æ±‚ã‚ã‚‹
 		auto newClient    = clientRectangle().size();
 		if (oldHScroll) {
 			newClient.height += ScrollBar::defaultHorizontalHeight();
@@ -280,23 +280,23 @@ void ScrollableControl::updateScrollBars() {
 		if (newVScroll) {
 			newClient.width  -= ScrollBar::defaultVerticalWidth();
 		}
-		if (!newVScroll && newHScroll && newClient.height < newScrollSize.height) { // …•½ƒXƒNƒ[ƒ‹ƒo[‚Ì•\¦‚É‚æ‚Á‚Ä‚’¼ƒXƒNƒ[ƒ‹ƒo[‚ª•\¦‚³‚ê‚é
+		if (!newVScroll && newHScroll && newClient.height < newScrollSize.height) { // æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤ºã«ã‚ˆã£ã¦å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã‚‹
 			newClient.width  -= ScrollBar::defaultVerticalWidth();
 			newVScroll = true;
 		}
-		if (!newHScroll && newVScroll && newClient.width  < newScrollSize.width ) { // ‚’¼ƒXƒNƒ[ƒ‹ƒo[‚Ì•\¦‚É‚æ‚Á‚Ä…•½ƒXƒNƒ[ƒ‹ƒo[‚ª•\¦‚³‚ê‚é
+		if (!newHScroll && newVScroll && newClient.width  < newScrollSize.width ) { // å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤ºã«ã‚ˆã£ã¦æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã‚‹
 			newClient.height -= ScrollBar::defaultHorizontalHeight();
 			newHScroll = true;
 		}
-		newScrollSize = Size::maximize(newScrollSize, newClient); // ÅI“I‚ÈƒXƒNƒ[ƒ‹”ÍˆÍ‚ğ‹‚ß‚é
+		newScrollSize = Size::maximize(newScrollSize, newClient); // æœ€çµ‚çš„ãªã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ç¯„å›²ã‚’æ±‚ã‚ã‚‹
 	}
-	// ƒXƒNƒ[ƒ‹ƒo[‚Ì•\¦—L–³‚ğXV‚·‚é
+	// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®è¡¨ç¤ºæœ‰ç„¡ã‚’æ›´æ–°ã™ã‚‹
 	const auto oldScrollPosition = scrollPosition();
 	SCROLLINFO info;
 	info.cbSize = sizeof(info);
 	info.fMask = SIF_POS | SIF_RANGE | SIF_PAGE;
-	info.nPos  = 0; // Á‚¦‚éƒXƒNƒ[ƒ‹ƒo[‚ÌƒXƒNƒ[ƒ‹ˆÊ’u‚ğ 0 ‚É‚µ‚Ä‚¨‚­iÄ‚Ñ•\¦‚µ‚½‚ÉƒXƒNƒ[ƒ‹ˆÊ’u‚ª•Û‘¶‚³‚ê‚Ä‚¢‚éˆ×j
-	info.nMin  = 0; // ShowScrollBar ‚¾‚¯‚Å‚ÍÁ‚¦‚È‚¢ƒP[ƒX‚ª‚ ‚é‚Ì‚ÅŠmÀ‚ÉÁ‚¦‚é‚æ‚¤‚É”ÍˆÍ‚Æƒy[ƒW‚ğİ’è‚·‚é
+	info.nPos  = 0; // æ¶ˆãˆã‚‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã‚’ 0 ã«ã—ã¦ãŠãï¼ˆå†ã³è¡¨ç¤ºã—ãŸæ™‚ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ãŒä¿å­˜ã•ã‚Œã¦ã„ã‚‹ç‚ºï¼‰
+	info.nMin  = 0; // ShowScrollBar ã ã‘ã§ã¯æ¶ˆãˆãªã„ã‚±ãƒ¼ã‚¹ãŒã‚ã‚‹ã®ã§ç¢ºå®Ÿã«æ¶ˆãˆã‚‹ã‚ˆã†ã«ç¯„å›²ã¨ãƒšãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹
 	info.nMax  = 1;
 	info.nPage = 2;
 	info.nTrackPos = 0;
@@ -312,7 +312,7 @@ void ScrollableControl::updateScrollBars() {
 		}
 		ShowScrollBar(handle(), SB_VERT, newVScroll ? TRUE : FALSE);
 	}
-	{// ƒXƒNƒ[ƒ‹ƒo[‚ğXV‚·‚é
+	{// ê¸šê¸ê¹“?ê¹‘ê¸«?ê·©ë››ë¥·ê¶¥ê·¡
 		const auto clientRect = clientRectangle();
 		auto newScrollPosition = oldScrollPosition;
 		if (!newHScroll) {
@@ -321,8 +321,8 @@ void ScrollableControl::updateScrollBars() {
 		if (!newVScroll) {
 			newScrollPosition.y = 0;
 		}
-		newScrollPosition = Point::minimize(newScrollPosition, Point(0, 0)); // Å‘å’li•‰”j‚ÉØ‚èÌ‚Ä
-		newScrollPosition = Point::maximize(newScrollPosition, Point::minimize(clientRect.size() - newScrollSize, Point(0, 0))); // Å¬’l‚ÉØ‚èã‚°
+		newScrollPosition = Point::minimize(newScrollPosition, Point(0, 0)); // æœ€å¤§å€¤ï¼ˆè² æ•°ï¼‰ã«åˆ‡ã‚Šæ¨ã¦
+		newScrollPosition = Point::maximize(newScrollPosition, Point::minimize(clientRect.size() - newScrollSize, Point(0, 0))); // æœ€å°å€¤ã«åˆ‡ã‚Šä¸Šã’
 		const auto delta = newScrollPosition - oldScrollPosition;
 		if (delta != Point(0, 0)) {
 			RECT rect = clientRect;
@@ -357,7 +357,7 @@ void ScrollableControl::updateScrollBars() {
 void ScrollableControl::processMessage(Message& msg) {
 	switch (msg.message) {
 		case WM_VSCROLL : {
-			if (msg.lparam) { // ƒXƒNƒ[ƒ‹ƒo[ƒRƒ“ƒgƒ[ƒ‹i“Æ—§‚µ‚½ƒRƒ“ƒgƒ[ƒ‹‚Ì‚Ù‚¤j‚Íe‚É’¼ÚƒƒbƒZ[ƒW‚ğ‘—‚éB
+			if (msg.lparam) { // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ï¼ˆç‹¬ç«‹ã—ãŸã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã»ã†ï¼‰ã¯è¦ªã«ç›´æ¥ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ã‚‹
 				reflectMessage((HWND)msg.lparam, msg);
 				return;
 			}
@@ -381,7 +381,7 @@ void ScrollableControl::processMessage(Message& msg) {
 			scrollPosition(Point(displayRect.x, -pos));
 		} break;
 		case WM_HSCROLL : {
-			if (msg.lparam) { // ƒXƒNƒ[ƒ‹ƒo[ƒRƒ“ƒgƒ[ƒ‹i“Æ—§‚µ‚½ƒRƒ“ƒgƒ[ƒ‹‚Ì‚Ù‚¤j‚Íe‚É’¼ÚƒƒbƒZ[ƒW‚ğ‘—‚éB
+			if (msg.lparam) { // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ï¼ˆç‹¬ç«‹ã—ãŸã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã»ã†ï¼‰ã¯è¦ªã«ç›´æ¥ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ã‚‹
 				reflectMessage((HWND)msg.lparam, msg);
 				return;
 			}

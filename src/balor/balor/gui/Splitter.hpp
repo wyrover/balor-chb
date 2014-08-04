@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 #include <balor/gui/Padding.hpp>
@@ -10,14 +10,14 @@ namespace balor {
 
 
 /**
- * ƒRƒ“ƒgƒ[ƒ‹‚ğ•ªŠ„‚µ‚Äƒhƒ‰ƒbƒO‚ÅÚ‚·‚éƒRƒ“ƒgƒ[ƒ‹‚Ì‘å‚«‚³‚ğ•Ï‚¦‚é‚±‚Æ‚ª‚Å‚«‚éƒRƒ“ƒgƒ[ƒ‹B
- *
- * c’·‚Åì‚é‚Æc•ûŒü‚É•ªŠ„‚µA‰¡’·‚Åì‚é‚Æ‰¡•ûŒü‚É•ªŠ„‚·‚éB
- * c’·‚È‚ç‚Î¶‰EA‰¡’·‚È‚ç‚Îã‰º‚ÉÚ‚·‚éƒRƒ“ƒgƒ[ƒ‹‚Ì‘å‚«‚³‚ğƒhƒ‰ƒbƒO‚Å•Ï‚¦‚é–‚ª‚Å‚«‚éB
- * margin() ‚Å‚»‚ê‚¼‚ê‚Ì•ûŒü‚ÉÚ‚·‚éƒRƒ“ƒgƒ[ƒ‹‚ÌÅ¬‚Ì‘å‚«‚³‚ğw’è‚Å‚«‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’åˆ†å‰²ã—ã¦ãƒ‰ãƒ©ãƒƒã‚°ã§æ¥ã™ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¤§ãã•ã‚’å¤‰ãˆã‚‹ã“ã¨ãŒã§ãã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* ç¸¦é•·ã§ä½œã‚‹ã¨ç¸¦æ–¹å‘ã«åˆ†å‰²ã—ã€æ¨ªé•·ã§ä½œã‚‹ã¨æ¨ªæ–¹å‘ã«åˆ†å‰²ã™ã‚‹ã€‚
+* ç¸¦é•·ãªã‚‰ã°å·¦å³ã€æ¨ªé•·ãªã‚‰ã°ä¸Šä¸‹ã«æ¥ã™ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¤§ãã•ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã§å¤‰ãˆã‚‹äº‹ãŒã§ãã‚‹ã€‚
+* margin() ã§ãã‚Œãã‚Œã®æ–¹å‘ã«æ¥ã™ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®æœ€å°ã®å¤§ãã•ã‚’æŒ‡å®šã§ãã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"Splitter sample", 1000, 800);
 
 	Button left(frame, 0, 0, 100, 800, L"left");
@@ -40,50 +40,50 @@ namespace balor {
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class Splitter : public Control {
 public:
-	/// Splitter ‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// Splitter ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<Splitter, Control::Event> Event;
 
 	typedef PaintEvent<Splitter, Event> Paint;
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	Splitter();
 	Splitter(Splitter&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³‚©‚çì¬B‚»‚Ì‘¼‚Ìˆø”‚É‚Â‚¢‚Ä‚Í“¯–¼‚ÌŠÖ”‚ğQÆB
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ä½œæˆã€‚ãã®ä»–ã®å¼•æ•°ã«ã¤ã„ã¦ã¯åŒåã®é–¢æ•°ã‚’å‚ç…§ã€‚
 	Splitter(Control& parent, int x, int y, int width, int height, Control::Edge edge = Control::Edge::none);
 	virtual ~Splitter();
 	Splitter& operator=(Splitter&& value);
 
 public:
-	/// e‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•WŒn‚Å‚ÌˆÊ’u‚Æ‘å‚«‚³B
+	/// è¦ªã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ç³»ã§ã®ä½ç½®ã¨å¤§ãã•ã€‚
 	using Control::bounds;
 	virtual void bounds(const Rectangle& value);
-	/// ƒRƒ“ƒgƒ[ƒ‹‚Ì‹«ŠEü‚Ìí—ŞB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¢ƒç•Œç·šã®ç¨®é¡ã€‚
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// ƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é‚©‚Ç‚¤‚©B
+	/// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	virtual bool focusable() const;
-	/// ‚»‚ê‚¼‚ê‚Ì•ûŒü‚ÉÚ‚µ‚Ä‚¢‚éƒRƒ“ƒgƒ[ƒ‹‚Ì‘å‚«‚³‚ÌÅ¬’lB‰Šú’l‚Í Padding(0)B
+	/// ãã‚Œãã‚Œã®æ–¹å‘ã«æ¥ã—ã¦ã„ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¤§ãã•ã®æœ€å°å€¤ã€‚åˆæœŸå€¤ã¯ Padding(0)ã€‚
 	Padding margin() const;
 	void margin(const Padding& value);
-	/// ƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚ğ•`‰æ‚·‚éƒCƒxƒ“ƒgB
+	/// ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸã‚’æç”»ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Splitter::Paint&>& onPaint();
-	/// eƒRƒ“ƒgƒ[ƒ‹‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•WŒn‚É‚¨‚¯‚é‚±‚ÌƒRƒ“ƒgƒ[ƒ‹‚ÌˆÊ’uB
+	/// è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ç³»ã«ãŠã‘ã‚‹ã“ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ä½ç½®ã€‚
 	using Control::position;
 	virtual void position(const Point& value);
-	/// c•ûŒü‚É•ªŠ„‚·‚é‚©‚Ç‚¤‚©BSplitter ‚Ì size() ‚ªc’·‚È‚ç‚Î trueB
+	/// ç¸¦æ–¹å‘ã«åˆ†å‰²ã™ã‚‹ã‹ã©ã†ã‹ã€‚Splitter ã® size() ãŒç¸¦é•·ãªã‚‰ã° trueã€‚
 	bool vertical() const;
-	/// •\¦—Dæ“xB¬‚³‚¢‚Ù‚Çè‘O‚É•\¦‚³‚ê‚éB0 ‚ğw’è‚·‚é‚ÆÅ‘O–Ê‚ÉA-1 ‚ğw’è‚·‚é‚ÆÅŒã–Ê‚ÉˆÚ“®‚·‚éB
+	/// è¡¨ç¤ºå„ªå…ˆåº¦ã€‚å°ã•ã„ã»ã©æ‰‹å‰ã«è¡¨ç¤ºã•ã‚Œã‚‹ã€‚0 ã‚’æŒ‡å®šã™ã‚‹ã¨æœ€å‰é¢ã«ã€-1 ã‚’æŒ‡å®šã™ã‚‹ã¨æœ€å¾Œé¢ã«ç§»å‹•ã™ã‚‹ã€‚
 	using Control::zOrder;
 	virtual void zOrder(int value);
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

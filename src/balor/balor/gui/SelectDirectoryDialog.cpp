@@ -1,4 +1,4 @@
-#include "SelectDirectoryDialog.hpp"
+ï»¿#include "SelectDirectoryDialog.hpp"
 
 #include <balor/io/File.hpp>
 #include <balor/system/windows.hpp>
@@ -29,7 +29,7 @@ const wchar_t dummyFileName[] = L"0ae9x014z915lkdle7hc";
 SelectDirectoryDialog::SelectDirectoryDialog()
 	: _editDefaultProcedure(nullptr) {
 	_flags |= OFN_HIDEREADONLY;
-	// ‚ ‚è‚¦‚È‚¢ƒtƒ@ƒCƒ‹–¼ƒtƒBƒ‹ƒ^‚ÅƒfƒBƒŒƒNƒgƒŠ‚Ì‚İ•\¦‚·‚éB
+	// ã‚ã‚Šãˆãªã„ãƒ•ã‚¡ã‚¤ãƒ«åãƒ•ã‚£ãƒ«ã‚¿ã§ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ã¿è¡¨ç¤ºã™ã‚‹
 	filter(String::literal(L" \0*.<>"));
 }
 

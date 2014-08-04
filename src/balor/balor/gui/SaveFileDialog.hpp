@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/FileDialog.hpp>
 
@@ -9,21 +9,21 @@ namespace balor {
 
 
 /**
- * �t�@�C���ۑ��_�C�A���O�{�b�N�X�B
- * 
- * OFN_CREATEPROMPT �͓��삹���B�Ȃ��� GetOpenFileName �ł͓��삷��B.NET �ł͎��͂Ń��b�Z�[�W�{�b�N�X��\�����Ă���B
- * OFN_PATHMUSTEXIST �͐ݒ肵�Ă����Ȃ��Ă����݂��Ȃ��p�X�Ōx�����o��B���̏�t�@�C���쐬�x�����ł�B
- *
- * <h3>�E�T���v���R�[�h</h3>
- * <pre><code>
+* ファイル保存ダイアログボックス。
+*
+* OFN_CREATEPROMPT は動作せず。なぜか GetOpenFileName では動作する。.NET では自力でメッセージボックスを表示している。
+* OFN_PATHMUSTEXIST は設定してもしなくても存在しないパスで警告が出る。その上ファイル作成警告もでる。
+*
+* <h3>・サンプルコード</h3>
+* <pre><code>
 	Frame frame(L"OpenFileDialog Sample");
 
-	Button open(frame, 20, 10, 0, 0, L"�t�@�C����ۑ�����");
+	Button open(frame, 20, 10, 0, 0, L"ファイルを保存する");
 	Edit filePath(frame, 20, 50, 0, 0, 150);
 	filePath.readOnly(true);
 
 	SaveFileDialog dialog;
-	dialog.filter(L"�S�Ẵt�@�C��\n*.*\n�e�L�X�g�t�@�C��\n*.txt;*.log\n\n");
+	dialog.filter(L"全てのファイル\n*.*\nテキストファイル\n*.txt;*.log\n\n");
 	dialog.overwritePrompt(true);
 	dialog.defaultExtention(L"txt");
 
@@ -34,8 +34,8 @@ namespace balor {
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class SaveFileDialog : public FileDialog {
 public:
 	SaveFileDialog();
@@ -44,10 +44,10 @@ public:
 	SaveFileDialog& operator=(SaveFileDialog&& value);
 
 public:
-	/// ���݂���t�@�C�����܂��̓t�@�C���p�X����͂����ꍇ�ɏ㏑�����x�����邩�ǂ����B�����l�� true�B
+	/// 存在するファイル名またはファイルパスを入力した場合に上書きを警告するかどうか。初期値は true
 	bool overwritePrompt() const;
 	void overwritePrompt(bool value);
-	/// �_�C�A���O�{�b�N�X��\������B�t�@�C����I���������ǂ�����Ԃ��B
+	/// ダイアログボックスを表示する。ファイルを選択したかどうかを返す
 	bool show(HWND owner);
 
 protected:

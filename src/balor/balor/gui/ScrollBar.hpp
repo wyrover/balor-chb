@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -9,14 +9,14 @@ namespace balor {
 
 
 /**
- * ƒXƒNƒ[ƒ‹ƒo[ƒRƒ“ƒgƒ[ƒ‹B
- *
- * Scroll ‚Í pageSize, minimum, maximum ‚Ì•ÏX‚Å value ‚ª•Ï‰»‚µ‚½ê‡‚É‚Í”­¶‚µ‚È‚¢B
- * minimum ‚ğ maximum ‚æ‚è‘å‚«‚­‚µ‚Ä‚à maximum = minimum ‚É‚È‚é‚¾‚¯‚Å‘‰Á—Ê‚Ì•„†‚Í•Ï‚í‚ç‚È‚¢Bvalue ‚ÌÅ‘å’l‚Í maximum() - pageSize() + 1 ‚É‚È‚éB
- * onMouseUp ƒCƒxƒ“ƒg‚Í”­¶‚µ‚È‚¢–Í—lB‚»‚ê‚ÉŠÖ˜A‚µ‚Ä‚© onDrag ƒCƒxƒ“ƒg‚Ì”­¶ƒ^ƒCƒ~ƒ“ƒO‚à‚¨‚©‚µ‚­‚È‚Á‚Ä‚¢‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* Scroll ã¯ pageSize, minimum, maximum ã®å¤‰æ›´ã§ value ãŒå¤‰åŒ–ã—ãŸå ´åˆã«ã¯ç™ºç”Ÿã—ãªã„ã€‚
+* minimum ã‚’ maximum ã‚ˆã‚Šå¤§ããã—ã¦ã‚‚ maximum = minimum ã«ãªã‚‹ã ã‘ã§å¢—åŠ é‡ã®ç¬¦å·ã¯å¤‰ã‚ã‚‰ãªã„ã€‚value ã®æœ€å¤§å€¤ã¯ maximum() - pageSize() + 1 ã«ãªã‚‹ã€‚
+* onMouseUp ã‚¤ãƒ™ãƒ³ãƒˆã¯ç™ºç”Ÿã—ãªã„æ¨¡æ§˜ã€‚ãã‚Œã«é–¢é€£ã—ã¦ã‹ onDrag ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã‚¿ã‚¤ãƒŸãƒ³ã‚°ã‚‚ãŠã‹ã—ããªã£ã¦ã„ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"ScrollBar Sample");
 
 	ScrollBar scroll(frame, 20, 10, 0, 0, 0, 120, 21);
@@ -26,33 +26,33 @@ namespace balor {
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class ScrollBar : public Control {
 public:
-	/// ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB‘g‚İ‡‚í‚¹‚Åw’è‚·‚éB
+	/// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚çµ„ã¿åˆã‚ã›ã§æŒ‡å®šã™ã‚‹ã€‚
 	struct Options {
 		enum _enum {
-			none     = 0      ,
-			vertical = 0x0001L, /// ‚’¼ƒXƒNƒ[ƒ‹ƒo[‚É‚·‚éB‰Šú‚Í…•½ƒXƒNƒ[ƒ‹ƒo[B
+			none = 0,
+			vertical = 0x0001L, /// å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã«ã™ã‚‹ã€‚åˆæœŸã¯æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã€‚
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
 public:
-	/// ƒXƒNƒ[ƒ‹ƒo[‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<ScrollBar, Control::Event> Event;
 
 
-	/// ƒXƒNƒ[ƒ‹ˆÊ’u‚ª•Ï‰»‚µ‚½ƒCƒxƒ“ƒgB
+	/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ãŒå¤‰åŒ–ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct Scroll : public Event {
 		Scroll(ScrollBar& sender, int oldValue, int newValue, bool tracking);
-		/// V‚µ‚¢ƒXƒNƒ[ƒ‹ˆÊ’uB
+		/// æ–°ã—ã„ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã€‚
 		int newValue() const;
-		/// ŒÃ‚¢ƒXƒNƒ[ƒ‹ˆÊ’uB
+		/// å¤ã„ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã€‚
 		int oldValue() const;
-		/// ƒXƒNƒ[ƒ‹ƒ{ƒbƒNƒXi‚Â‚Ü‚İj‚ğƒgƒ‰ƒbƒLƒ“ƒO’†‚©‚Ç‚¤‚©B
+		/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ï¼ˆã¤ã¾ã¿ï¼‰ã‚’ãƒˆãƒ©ãƒƒã‚­ãƒ³ã‚°ä¸­ã‹ã©ã†ã‹ã€‚
 		bool tracking() const;
 
 	private:
@@ -63,47 +63,47 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒnƒ“ƒhƒ‹‚Åì¬B
+	/// ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã§ä½œæˆã€‚
 	ScrollBar();
 	ScrollBar(ScrollBar&& value, bool checkSlicing = true);
-	/// eƒRƒ“ƒgƒ[ƒ‹AˆÊ’uA‘å‚«‚³AÅ¬ˆÊ’uAÅ‘åˆÊ’uAƒXƒNƒ[ƒ‹ƒ{ƒbƒNƒXi‚Â‚Ü‚İj‚Ì‘å‚«‚³‚©‚çì¬B‘å‚«‚³‚ğ‚O‚É‚·‚é‚Æ getPreferredSize ŠÖ”‚Å‹‚ß‚éB
+	/// è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€ä½ç½®ã€å¤§ãã•ã€æœ€å°ä½ç½®ã€æœ€å¤§ä½ç½®ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ï¼ˆã¤ã¾ã¿ï¼‰ã®å¤§ãã•ã‹ã‚‰ä½œæˆã€‚å¤§ãã•ã‚’ï¼ã«ã™ã‚‹ã¨ getPreferredSize é–¢æ•°ã§æ±‚ã‚ã‚‹ã€‚
 	ScrollBar(Control& parent, int x, int y, int width, int height, int minimum = 0, int maximum = 120, int pageSize = 21, ScrollBar::Options options = Options::none);
 	virtual ~ScrollBar();
 	ScrollBar& operator=(ScrollBar&& value);
 
 public:
-	/// …•½ƒXƒNƒ[ƒ‹ƒo[‚ÌŠù’è‚Ì‚‚³B
+	/// æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®æ—¢å®šã®é«˜ã•ã€‚
 	static int defaultHorizontalHeight();
-	/// ‚’¼ƒXƒNƒ[ƒ‹ƒo[‚ÌŠù’è‚Ì•B
+	/// å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®æ—¢å®šã®å¹…ã€‚
 	static int defaultVerticalWidth();
-	/// Œ»İ‚Ìó‘Ô‚©‚çÅ“K‚È‘å‚«‚³‚ğ‹‚ß‚éB
+	/// ç¾åœ¨ã®çŠ¶æ…‹ã‹ã‚‰æœ€é©ãªå¤§ãã•ã‚’æ±‚ã‚ã‚‹ã€‚
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// …•½ƒXƒNƒ[ƒ‹ƒo[‚Ì–îˆóƒ{ƒ^ƒ“‚Ì•B
+	/// æ°´å¹³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®çŸ¢å°ãƒœã‚¿ãƒ³ã®å¹…ã€‚
 	static int horizontalArrowWidth();
-	/// –îˆóƒL[‚Ü‚½‚ÍƒXƒNƒ[ƒ‹ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ü‚½‚Íƒ}ƒEƒXƒzƒC[ƒ‹‚ÌƒXƒNƒ[ƒ‹—ÊB‰Šú’l‚Í‚PB
+	/// çŸ¢å°ã‚­ãƒ¼ã¾ãŸã¯ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã¾ãŸã¯ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡ã€‚åˆæœŸå€¤ã¯ï¼‘ã€‚
 	int lineSize() const;
 	void lineSize(int value);
-	/// ƒXƒNƒ[ƒ‹‚ÌÅ‘åˆÊ’uB
+	/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã®æœ€å¤§ä½ç½®ã€‚
 	int maximum() const;
 	void maximum(int value);
-	/// ƒXƒNƒ[ƒ‹‚ÌÅ¬ˆÊ’uB
+	/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã®æœ€å°ä½ç½®ã€‚
 	int minimum() const;
 	void minimum(int value);
-	/// value ‚ª•Ï‰»‚µ‚½ƒCƒxƒ“ƒg‚ÌƒŠƒXƒi[B
+	/// value ãŒå¤‰åŒ–ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã®ãƒªã‚¹ãƒŠãƒ¼ã€‚
 	Listener<Scroll&>& onScroll();
-	///	ƒRƒ“ƒgƒ[ƒ‹ì¬Œã‚É•ÏX‚Å‚«‚È‚¢İ’èB
+	///	ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä½œæˆå¾Œã«å¤‰æ›´ã§ããªã„è¨­å®šã€‚
 	ScrollBar::Options options() const;
-	/// ƒXƒNƒ[ƒ‹ƒ{ƒbƒNƒXi‚Â‚Ü‚İj‚Ì‘å‚«‚³B
+	/// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ï¼ˆã¤ã¾ã¿ï¼‰ã®å¤§ãã•ã€‚
 	int pageSize() const;
 	void pageSize(int value);
-	/// Œ»İ‚ÌƒXƒNƒ[ƒ‹ˆÊ’uBminimum() ‚©‚ç maximum() - pageSize() + 1 ‚ÌŠÔ‚Å•Ï‰»‚·‚éB
+	/// ç¾åœ¨ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã€‚minimum() ã‹ã‚‰ maximum() - pageSize() + 1 ã®é–“ã§å¤‰åŒ–ã™ã‚‹ã€‚
 	int value() const;
 	void value(int value);
-	/// ‚’¼ƒXƒNƒ[ƒ‹ƒo[‚Ì–îˆóƒ{ƒ^ƒ“‚Ì‚‚³B
+	/// å‚ç›´ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼ã®çŸ¢å°ãƒœã‚¿ãƒ³ã®é«˜ã•ã€‚
 	static int verticalArrowHeight();
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

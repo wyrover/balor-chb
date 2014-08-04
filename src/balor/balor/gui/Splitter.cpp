@@ -1,4 +1,4 @@
-#include "Splitter.hpp"
+ï»¿#include "Splitter.hpp"
 
 #include <utility>
 
@@ -94,7 +94,7 @@ void Splitter::edge(Control::Edge value) {
 
 
 bool Splitter::focusable() const {
-	return false; // •ûŒüƒL[‚ÅƒtƒH[ƒJƒX‚ğ“¾‚È‚¢‚æ‚¤‚Éã‘‚«B
+	return false; // æ–¹å‘ã‚­ãƒ¼ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãªã„ã‚ˆã†ã«ä¸Šæ›¸ã
 }
 
 
@@ -145,7 +145,7 @@ void Splitter::processMessage(Message& msg) {
 			}
 		} break;
 		case WM_NCHITTEST : {
-			msg.result = HTCAPTION; // ‘S‘Ì‚ğƒ^ƒCƒgƒ‹ƒo[‚Æ‚İ‚È‚µ‚Äƒhƒ‰ƒbƒOˆÚ“®‚Å‚«‚é‚æ‚¤‚É‚·‚éB
+			msg.result = HTCAPTION; // å…¨ä½“ã‚’ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ã¨ã¿ãªã—ã¦ãƒ‰ãƒ©ãƒƒã‚°ç§»å‹•ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 		} break;
 		case WM_PAINT : {
 			PAINTSTRUCT paint;
@@ -181,7 +181,7 @@ void Splitter::processMessage(Message& msg) {
 		} break;
 		case WM_WINDOWPOSCHANGING : {
 			auto info = (WINDOWPOS*)msg.lparam;
-			if (!_zOrderable) { // ƒhƒ‰ƒbƒO‚·‚é‚ÆÅ‘O–Ê‚ÉˆÚ“®‚·‚é‚Ì‚ğ‘j~‚·‚éBDockLayout ‚ÅƒŒƒCƒAƒEƒg‚ª•Ï‰»‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅB
+			if (!_zOrderable) { // ãƒ‰ãƒ©ãƒƒã‚°ã™ã‚‹ã¨æœ€å‰é¢ã«ç§»å‹•ã™ã‚‹ã®ã‚’é˜»æ­¢ã™ã‚‹ã€‚DockLayout ã§ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆãŒå¤‰åŒ–ã—ã¦ã—ã¾ã†ã®ã§
 				info->flags |= SWP_NOZORDER;
 			}
 			if (!toFlag(info->flags)[SWP_NOMOVE] && !_movable) {
@@ -189,7 +189,7 @@ void Splitter::processMessage(Message& msg) {
 				Point newPosition(info->x, info->y);
 				if (newPosition != bounds.position()) {
 					auto vertical = this->vertical();
-					// ˆÚ“®‚ğ‚’¼‚Ü‚½‚Í…•½‚É§ŒÀ‚·‚é
+					// ç§»å‹•ã‚’å‚ç›´ã¾ãŸã¯æ°´å¹³ã«åˆ¶é™ã™ã‚‹
 					if (vertical) {
 						newPosition.y = bounds.y;
 					} else {
@@ -198,22 +198,22 @@ void Splitter::processMessage(Message& msg) {
 					auto diff = newPosition - bounds.position();
 					auto parent = this->parent();
 					assert(parent);
-					// ˆÚ“®ˆÊ’u‚ªŒÀŠE‚©‚ç‚Í‚İ‚Å‚é‚Ì‚ğ‘j~‚·‚éB
+					// ç§»å‹•ä½ç½®ãŒé™ç•Œã‹ã‚‰ã¯ã¿ã§ã‚‹ã®ã‚’é˜»æ­¢ã™ã‚‹
 					for (auto i = parent->controlsBegin(); i; ++i) {
 						auto childBounds = i->bounds();
 						if (vertical) {
 							if (bounds.top() <= childBounds.top() && childBounds.bottom() <= bounds.bottom()) {
-								// ¶‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// å·¦ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.right() == bounds.left()) {
-									// ¶‚É‚Í‚İ‚Å‚é‚©‚Ç‚¤‚©
+									// å·¦ã«ã¯ã¿ã§ã‚‹ã‹ã©ã†ã‹
 									if (childBounds.width  + diff.x < _margin.left ) {
 										newPosition.x = childBounds.left() + _margin.left;
 										diff.x = newPosition.x - bounds.x;
 									}
 								}
-								// ‰E‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// å³ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.left() == bounds.right()) {
-									// ‰E‚É‚Í‚İ‚Å‚é‚©‚Ç‚¤‚©
+									// å³ã«ã¯ã¿ã§ã‚‹ã‹ã©ã†ã‹
 									if (childBounds.width  - diff.x < _margin.right) {
 										newPosition.x = childBounds.right() - _margin.right - bounds.width;
 										diff.x = newPosition.x - bounds.x;
@@ -222,17 +222,17 @@ void Splitter::processMessage(Message& msg) {
 							}
 						} else {
 							if (bounds.left() <= childBounds.left() && childBounds.right() <= bounds.right()) {
-								// ã‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// ä¸Šã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.bottom() == bounds.top()) {
-									// ã‚É‚Í‚İ‚Å‚é‚©‚Ç‚¤‚©
+									// ä¸Šã«ã¯ã¿ã§ã‚‹ã‹ã©ã†ã‹
 									if (childBounds.height + diff.y < _margin.top  ) {
 										newPosition.y = childBounds.top() + _margin.top;
 										diff.y = newPosition.y - bounds.y;
 									}
 								}
-								// ‰º‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// ä¸‹ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.top() == bounds.bottom()) {
-									// ‰º‚É‚Í‚İ‚Å‚é‚©‚Ç‚¤‚©
+									// ä¸‹ã«ã¯ã¿ã§ã‚‹ã‹ã©ã†ã‹
 									if (childBounds.height - diff.y < _margin.bottom) {
 										newPosition.y = childBounds.bottom() - _margin.bottom - bounds.height;
 										diff.y = newPosition.y - bounds.y;
@@ -241,17 +241,17 @@ void Splitter::processMessage(Message& msg) {
 							}
 						}
 					}
-					// Ú‚µ‚Ä‚¢‚éƒRƒ“ƒgƒ[ƒ‹‚Ì‘å‚«‚³‚ğ•Ï‚¦‚éB
+					// æ¥ã—ã¦ã„ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¤§ãã•ã‚’å¤‰ãˆã‚‹
 					for (auto i = parent->controlsBegin(); i; ++i) {
 						auto childBounds = i->bounds();
 						if (vertical) {
 							if (bounds.top() <= childBounds.top() && childBounds.bottom() <= bounds.bottom()) {
-								// ¶‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// å·¦ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.right() == bounds.left()) {
 									childBounds.width  += diff.x;
 									i->bounds(childBounds);
 								}
-								// ‰E‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// å³ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.left() == bounds.right()) {
 									childBounds.x += diff.x;
 									childBounds.width  -= diff.x;
@@ -260,12 +260,12 @@ void Splitter::processMessage(Message& msg) {
 							}
 						} else {
 							if (bounds.left() <= childBounds.left() && childBounds.right() <= bounds.right()) {
-								// ã‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// ä¸Šã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.bottom() == bounds.top()) {
 									childBounds.height += diff.y;
 									i->bounds(childBounds);
 								}
-								// ‰º‚ÉÚ‚·‚é‚©‚Ç‚¤‚©
+								// ä¸‹ã«æ¥ã™ã‚‹ã‹ã©ã†ã‹
 								if (childBounds.top() == bounds.bottom()) {
 									childBounds.y += diff.y;
 									childBounds.height -= diff.y;
@@ -274,7 +274,7 @@ void Splitter::processMessage(Message& msg) {
 							}
 						}
 					}
-					// ÅI“I‚ÈˆÚ“®æ‚ğİ’è
+					// æœ€çµ‚çš„ãªç§»å‹•å…ˆã‚’è¨­å®š
 					info->x = newPosition.x;
 					info->y = newPosition.y;
 				}

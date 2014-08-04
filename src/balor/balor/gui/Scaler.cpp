@@ -1,4 +1,4 @@
-#include "Scaler.hpp"
+ï»¿#include "Scaler.hpp"
 
 #include <balor/graphics/Font.hpp>
 #include <balor/graphics/Graphics.hpp>
@@ -43,7 +43,7 @@ Scaler::Scaler() : _from(defaultDpi()) {
 
 		Size dpi;
 	};
-	static CurrentDPI dpi; // DLL ‚²‚Æ‚ÉÀ‘Ì‚ğ‚Æ‚¤‚ªd•¡‰Šú‰»‚³‚ê‚æ‚¤‚ª–â‘è‚È‚¢
+	static CurrentDPI dpi; // DLL ã”ã¨ã«å®Ÿä½“ã‚’æŒã¨ã†ãŒé‡è¤‡åˆæœŸåŒ–ã•ã‚Œã‚ˆã†ãŒå•é¡Œãªã„
 	_to = dpi.dpi;
 }
 

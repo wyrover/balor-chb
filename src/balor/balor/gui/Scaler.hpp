@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/Size.hpp>
 
@@ -18,41 +18,41 @@ class Padding;
 
 
 /**
- * ���l�̃X�P�[�����O���s���B
- *
- * ��ʉ𑜓x�i�c�o�h�j�������ɃR���g���[�����X�P�[�����O����̂Ɏg���B
- */
+* 数値のスケーリングを行う。
+*
+* 画面解像度（ＤＰＩ）等を元にコントロールをスケーリングするのに使う。
+*/
 class Scaler {
 public:
 	typedef ::HFONT__* HFONT;
 
 public:
-	/// defaultDpi() ���猻�݂̉�ʂ� DPI �ւ̃X�P�[�����O���s���悤�ɍ쐬�B
+	/// defaultDpi() から現在の画面の DPI へのスケーリングを行うように作成。
 	Scaler();
-	/// from ���� to �ւ̃X�P�[�����O���s���悤�ɍ쐬�BSize �� width, height �͂��ꂼ�ꐅ�������Ɛ��������̃X�P�[�����O�ɂ������B
-	/// �Ⴆ�Ή��L�̂悤�ɍ쐬����Əc�������ɂQ�{�̃X�P�[�����O���s���B<br><br>
+	/// from から to へのスケーリングを行うように作成。Size の width, height はそれぞれ水平方向と垂直方向のスケーリングにかかわる。
+	/// 例えば下記のように作成すると縦横方向に２倍のスケーリングを行う。<br><br>
 	///  Scale(Size(100, 100), Size(200, 200))
 	Scaler(const Size& from, const Size& to);
-	/// �c���䗦�𓙂������̂Ƃ��� from ���� to �ւ̃X�P�[�����O���쐬�B
+	/// 縦横比率を等しいものとして from から to へのスケーリングを作成。
 	Scaler(int from, int to);
-	/// �t�H���g�̕��ϕ������ƍ�������X�P�[�����O���s���悤�ɍ쐬�B
+	/// フォントの平均文字幅と高さからスケーリングを行うように作成。
 	Scaler(HFONT from, HFONT to);
 
 public:
-	/// �f�t�H���g�R���X�g���N�^�� from �Ɏg�p���� DPI�B�����l�� Size(96, 96)�B���̒l�� Control �₻�̔h���N���X�̓����ł��g���Ă���̂�
-	/// ���ɊJ������ DPI �� 96 �ł͂Ȃ��ꍇ�̓R���g���[�����쐬����O�ɊJ������ DPI ��ݒ肷��K�v������B
+	/// デフォルトコンストラクタで from に使用する DPI。初期値は Size(96, 96)。この値は Control やその派生クラスの内部でも使われているので
+	/// 特に開発環境の DPI が 96 ではない場合はコントロールを作成する前に開発環境の DPI を設定する必要がある。
 	static Size defaultDpi();
 	static void defaultDpi(const Size& value);
-	/// ���������̔{���ŃX�P�[�����O����B
+	/// 水平方向の倍率でスケーリングする。
 	int scale(int value) const;
 	double scale(double value) const;
-	/// ���������̔{���ŃX�P�[�����O����B
+	/// 水平方向の倍率でスケーリングする。
 	int scaleH(int value) const;
 	double scaleH(double value) const;
-	/// ���������̔{���ŃX�P�[�����O����B
+	/// 垂直方向の倍率でスケーリングする。
 	int scaleV(int value) const;
 	double scaleV(double value) const;
-	/// �X�P�[�����O����B
+	/// スケーリングする。
 	Padding scale(const Padding& value) const;
 	Point scale(const Point& value) const;
 	Rectangle scale(const Rectangle& value) const;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/gui/FileDialog.hpp>
 
@@ -9,22 +9,22 @@ namespace balor {
 
 
 /**
- * ƒfƒBƒŒƒNƒgƒŠ‚ğ‘I‘ğ‚·‚éƒ_ƒCƒAƒƒOƒ{ƒbƒNƒXB
- * 
- * SHBrowseForFolder API ‚Í‹@”\‚ª•nã‚È‚Ì‚Å FileOpenDialog ‚ğ‰ü‘¢‚·‚éB
- * Œ»ó SelectDirectoryDialog::Event::filePath() ŠÖ”‚Í³‚µ‚¢Œ‹‰Ê‚ğ•Ô‚³‚È‚¢B
- * ‘ã‚í‚è‚É SelectDirectoryDialog::directoryPath() ‚ªƒŠƒAƒ‹ƒ^ƒCƒ€XV‚³‚ê‚é‚Ì‚Å‚±‚¿‚ç‚ğg‚¤‚±‚ÆB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é¸æŠã™ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã€‚
+*
+* SHBrowseForFolder API ã¯æ©Ÿèƒ½ãŒè²§å¼±ãªã®ã§ FileOpenDialog ã‚’æ”¹é€ ã™ã‚‹ã€‚
+* ç¾çŠ¶ SelectDirectoryDialog::Event::filePath() é–¢æ•°ã¯æ­£ã—ã„çµæœã‚’è¿”ã•ãªã„ã€‚
+* ä»£ã‚ã‚Šã« SelectDirectoryDialog::directoryPath() ãŒãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ æ›´æ–°ã•ã‚Œã‚‹ã®ã§ã“ã¡ã‚‰ã‚’ä½¿ã†ã“ã¨ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"SelectDirectoryDialog Sample");
 
-	Button select(frame, 20, 10, 0, 0, L"ƒfƒBƒŒƒNƒgƒŠ‚ğ‘I‘ğ‚·‚é");
+	Button select(frame, 20, 10, 0, 0, L"ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é¸æŠã™ã‚‹");
 	Edit directoryPath(frame, 20, 50, 0, 0, 150);
 	directoryPath.readOnly(true);
 
 	SelectDirectoryDialog dialog;
-	dialog.title(L"ƒfƒBƒŒƒNƒgƒŠ‚Ì‘I‘ğ");
+	dialog.title(L"ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®é¸æŠ");
 
 	select.onClick() = [&] (Button::Click& ) {
 		if (dialog.show(frame)) {
@@ -33,8 +33,8 @@ namespace balor {
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class SelectDirectoryDialog : protected FileDialog {
 public:
 	typedef FileDialog::ControlId ControlId;
@@ -51,7 +51,7 @@ public:
 	SelectDirectoryDialog& operator=(SelectDirectoryDialog&& value);
 
 public:
-	/// ƒ_ƒCƒAƒƒO•\¦‘O‚Í‰Šú•\¦‚³‚ê‚éƒfƒBƒŒƒNƒgƒŠƒpƒXBƒ_ƒCƒAƒƒO•\¦Œã‚Íƒ†[ƒU‚ª‘I‘ğ‚µ‚½ƒfƒBƒŒƒNƒgƒŠƒpƒXB‰Šú’l‚Í‹ó•¶š—ñB
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå‰ã¯åˆæœŸè¡¨ç¤ºã•ã‚Œã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã€‚ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºå¾Œã¯ãƒ¦ãƒ¼ã‚¶ãŒé¸æŠã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã€‚åˆæœŸå€¤ã¯ç©ºæ–‡å­—åˆ—
 	const String& directoryPath() const;
 	void directoryPath(String value);
 
@@ -62,13 +62,13 @@ public:
 	using FileDialog::onResize;
 	using FileDialog::placesBar;
 
-	/// ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ğ•\¦‚·‚éBƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚½‚©‚Ç‚¤‚©‚ğ•Ô‚·B
+	/// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ãŸã‹ã©ã†ã‹ã‚’è¿”ã™
 	bool show(HWND owner);
 
 	using FileDialog::title;
 
 protected:
-	/// ƒtƒbƒN‚µ‚½ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB
+	/// ãƒ•ãƒƒã‚¯ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹
 	virtual void processMessage(Message& msg);
 
 protected:
