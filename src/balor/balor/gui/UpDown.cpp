@@ -1,4 +1,4 @@
-#include "UpDown.hpp"
+ï»¿#include "UpDown.hpp"
 
 #include <utility>
 
@@ -91,9 +91,9 @@ Control* UpDown::buddy() const {
 void UpDown::buddy(Control* value) {
 	if (value) {
 		if (value == buddy()) {
-			value->size(_buddySize); // UDM_SETBUDDY ‚ğ‘—‚é‚Æ UpDown ‚Ì•ª‚¾‚¯ buddy ‚ª¬‚³‚­‚È‚é‚Ì‚ÅˆÊ’u’ÇÕ‚Ìˆ×‚É buddy ‚ğÄİ’è‚µ‚½ê‡‚Í•Û‘¶‚µ‚Ä‚¢‚½‘å‚«‚³‚ğ•œŒ³‚·‚éB
+			value->size(_buddySize); // UDM_SETBUDDY ã‚’é€ã‚‹ã¨ UpDown ã®åˆ†ã ã‘ buddy ãŒå°ã•ããªã‚‹ã®ã§ä½ç½®è¿½è·¡ã®ç‚ºã« buddy ã‚’å†è¨­å®šã—ãŸå ´åˆã¯ä¿å­˜ã—ã¦ã„ãŸå¤§ãã•ã‚’å¾©å…ƒã™ã‚‹
 		} else {
-			_buddySize = value->size(); // •œŒ³—p‚É‘å‚«‚³‚ğ•Û‘¶‚µ‚Ä‚¨‚­
+			_buddySize = value->size(); // å¾©å…ƒç”¨ã«å¤§ãã•ã‚’ä¿å­˜ã—ã¦ãŠã
 		}
 	}
 	SendMessageW(handle(), UDM_SETBUDDY, (WPARAM)(value ? static_cast<HWND>(*value) : nullptr), 0);
@@ -101,7 +101,7 @@ void UpDown::buddy(Control* value) {
 
 
 bool UpDown::focusable() const {
-	return false; // •ûŒüƒL[‚ÅƒtƒH[ƒJƒX‚ğ“¾‚È‚¢‚æ‚¤‚Éã‘‚«B
+	return false; // æ–¹å‘ã‚­ãƒ¼ã§ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãªã„ã‚ˆã†ã«ä¸Šæ›¸ã
 }
 
 

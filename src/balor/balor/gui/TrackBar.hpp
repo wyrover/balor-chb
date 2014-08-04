@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/Control.hpp>
 #include <balor/Enum.hpp>
@@ -12,11 +12,11 @@ class ToolTip;
 
 
 /**
- * �g���b�N�o�[�B
+ * トラックバー。
  * 
- * ValueChange �� pageSize, minimum, maximum �̕ύX�� value ���ω������ꍇ�ɂ͔������Ȃ��B
- * minimum �� maximum ���傫�����Ă� maximum = minimum �ɂȂ邾���ő����ʂ̕����͕ς��Ȃ��B
- * �ȉ��� CTRL �L�[�������Ȃ���h���b�O�Ŕ͈͑I�����s���R�[�h�̗�B
+ * ValueChange は pageSize, minimum, maximum の変更で value が変化した場合には発生しない。
+ * minimum を maximum より大きくしても maximum = minimum になるだけで増加量の符号は変わらない。
+ * 以下は CTRL キーを押しながらドラッグで範囲選択を行うコードの例。
  * <pre><code>
  *	trackBar.thick(true);
  *	int start = 0;
@@ -41,9 +41,9 @@ class ToolTip;
  *	};
  * </code></pre>
  *
- * TBM_SETTOOLTIPS �ɂ��Ă͐ݒ肵���c�[���`�b�v���\������Ȃ������B�v�����B
+ * TBM_SETTOOLTIPS については設定したツールチップが表示されなかった。要調査。
  *
- * <h3>�E�T���v���R�[�h</h3>
+ * <h3>・サンプルコード</h3>
  * <pre><code>
 	Frame frame(L"TrackBar Sample");
 
@@ -60,52 +60,52 @@ class ToolTip;
  */
 class TrackBar : public Control {
 public:
-	/// �R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B�g�ݍ��킹�Ŏw�肷��B
+	/// コントロール作成後に変更できない設定。組み合わせで指定する。
 	struct Options {
 		enum _enum {
-			none     = 0      ,
-			valueTip = 0x0100L, /// �X���C�_�[���ړ����ɒl���c�[���`�b�v�ŕ\������B
+			none = 0,
+			valueTip = 0x0100L, /// スライダーを移動中に値をツールチップで表示する。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// �ڐ�����ǂ��ɕ\�����邩�B�X���C�_�[�͖ڐ���̂�����������B
+	/// 目盛りをどこに表示するか。スライダーは目盛りのある方向が尖る。
 	struct TickStyle {
 		enum _enum {
-			left   = 0x0004, /// ���ɖڐ����\������B���c�\���̏ꍇ�B
-			top    = 0x0004, /// ��ɖڐ����\������B�����\���̏ꍇ�B
-			right  = 0x0000, /// �E�ɖڐ����\������B���c�\���̏ꍇ�B
-			bottom = 0x0000, /// ���ɖڐ����\������B�����\���̏ꍇ�B
-			both   = 0x0008, /// �㉺�܂��͍��E�ɖڐ����\������B�X���C�_�[�͒����`�ɂȂ�B
+			left = 0x0004, /// 左に目盛りを表示する。※縦表示の場合。
+			top = 0x0004, /// 上に目盛りを表示する。※横表示の場合。
+			right = 0x0000, /// 右に目盛りを表示する。※縦表示の場合。
+			bottom = 0x0000, /// 下に目盛りを表示する。※横表示の場合。
+			both = 0x0008, /// 上下または左右に目盛りを表示する。スライダーは長方形になる。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(TickStyle);
 	};
 
-	/// �X���C�_�[�ړ����ɕ\������c�[���`�b�v�̈ʒu�B
+	/// スライダー移動中に表示するツールチップの位置。
 	struct ValueTipSide {
 		enum _enum {
-			top    = 0, /// ��ɕ\������B�����\���̏ꍇ�B
-			left   = 1, /// ���ɕ\������B���c�\���̏ꍇ�B
-			bottom = 2, /// ���ɕ\������B�����\���̏ꍇ�B
-			right  = 3, /// �E�ɕ\������B���c�\���̏ꍇ�B
+			top = 0, /// 上に表示する。※横表示の場合。
+			left = 1, /// 左に表示する。※縦表示の場合。
+			bottom = 2, /// 下に表示する。※横表示の場合。
+			right = 3, /// 右に表示する。※縦表示の場合。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ValueTipSide);
 	};
 
 
-	/// �g���b�N�o�[�̃C�x���g�̐e�N���X�B
+	/// トラックバーのイベントの親クラス。
 	typedef EventWithSubclassSender<TrackBar, Control::Event> Event;
 
 
-	/// value ���ω������C�x���g�B
+	/// value が変化したイベント。
 	struct ValueChange : public Event {
 		ValueChange(TrackBar& sender, int oldValue, int newValue, bool tracking);
-		/// �V���� value�B
+		/// 新しい value。
 		int newValue() const;
-		/// �Â� value�B
+		/// 古い value。
 		int oldValue() const;
-		/// �X���C�_�[���g���b�L���O�����ǂ����B
+		/// スライダーをトラッキング中かどうか。
 		bool tracking() const;
 
 	private:
@@ -116,84 +116,84 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	TrackBar();
 	TrackBar(TrackBar&& value, bool checkSlicing = true);
-	/// �e�R���g���[���A�ʒu�A�傫���A�ŏ��ʒu�A�ő�ʒu����쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B���̑��̈����͓����̊֐����Q�ƁB
+	/// 親コントロール、位置、大きさ、最小位置、最大位置から作成。大きさを０にすると getPreferredSize 関数で求める。その他の引数は同名の関数を参照。
 	TrackBar(Control& parent, int x, int y, int width, int height, int minimum = 0, int maximum = 100, TrackBar::Options options = Options::none);
 	virtual ~TrackBar();
 	TrackBar& operator=(TrackBar&& value);
 
 public:
-	/// �I��͈͂��N���A����B
+	/// 選択範囲をクリアする。
 	void clearSelection();
-	/// �ڐ��������������B�ŏ��ƍŌ�̖ڐ��肾���c��B
+	/// 目盛りを初期化する。最初と最後の目盛りだけ残る。
 	void clearTick();
-	/// �����L�[�����������ɍ��Ɉړ����邩�ǂ����B�����l�� false�B
+	/// 下矢印キーを押した時に左に移動するかどうか。初期値は false。
 	bool downIsLeft() const;
 	void downIsLeft(bool value);
 	void endSelect();
-	/// ���݂̏�Ԃ���œK�ȑ傫�������߂�B
+	/// 現在の状態から最適な大きさを求める。
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// ���L�[���������Ƃ��܂��̓}�E�X�z�C�[���̃X���C�_�[�̈ړ��ʁB�����l�͂P�B
+	/// 矢印キーを押したときまたはマウスホイールのスライダーの移動量。初期値は１。
 	int lineSize() const;
 	void lineSize(int value);
-	/// �X���C�_�[�ړ��ł���ő�l�B
+	/// スライダー移動できる最大値。
 	int maximum() const;
 	void maximum(int value);
-	/// �X���C�_�[�ړ��ł���ŏ��l�B
+	/// スライダー移動できる最小値。
 	int minimum() const;
 	void minimum(int value);
-	/// value ���ω������C�x���g�̃��X�i�[�B
+	/// value が変化したイベントのリスナー。
 	Listener<ValueChange&>& onValueChange();
-	///	�R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B
+	///	コントロール作成後に変更できない設定。
 	TrackBar::Options options() const;
-	/// �y�[�W�ړ��̑傫���B�i�X���C�_�[�̖��������N���b�N������APageUp�APageDown �L�[�����������j
+	/// ページ移動の大きさ。（スライダーの無い所をクリックしたり、PageUp、PageDown キーを押した時）
 	int pageSize() const;
 	void pageSize(int value);
-	/// Scaler ���g���ăR���g���[�����X�P�[�����O����B
+	/// Scaler を使ってコントロールをスケーリングする。
 	virtual void scale(const Scaler& scaler);
-	/// �͈͑I���̊J�n�_�Bthick() �� true �ł���ꍇ�̂ݗL���B
+	/// 範囲選択の開始点。thick() が true である場合のみ有効。
 	int selectionBegin() const;
 	void selectionBegin(int value);
-	/// �͈͑I���̏I���_�Bthick() �� true �ł���ꍇ�̂ݗL���B
+	/// 範囲選択の終了点。thick() が true である場合のみ有効。
 	int selectionEnd() const;
 	void selectionEnd(int value);
-	/// �w�肵���l�̈ʒu�ɖڐ����ǉ�����B
+	/// 指定した値の位置に目盛りを追加する。
 	void setTick(int value);
-	/// �X���C�_�[�̈ړ��͈͂̐����������ǂ����B�܂��͔͈͑I����L���ɂ��邩�ǂ����B�����l�� false�B
+	/// スライダーの移動範囲の線が太いかどうか。または範囲選択を有効にするかどうか。初期値は false。
 	bool thick() const;
 	void thick(bool value);
-	/// �܂݂̑傫���B�ڐ���ƌ�����������̃s�N�Z���T�C�Y�BtickStyle() �� TrackBar::TickStyle::both �̏ꍇ�̂ݗL���B
+	/// つまみの大きさ。目盛りと交差する方向のピクセルサイズ。tickStyle() が TrackBar::TickStyle::both の場合のみ有効。
 	int thumbSize() const;
 	void thumbSize(int value);
-	/// �܂݂�\�����邩�ǂ����B�����l�� true�B
+	/// つまみを表示するかどうか。初期値は true。
 	bool thumbVisible() const;
 	void thumbVisible(bool value);
-	/// �ڐ���̐��B
+	/// 目盛りの数。
 	int tickCount() const;
-	/// �ڐ���̕\���Ԋu�B
+	/// 目盛りの表示間隔。
 	void tickFrequency(int value);
-	/// �ڐ�����ǂ��ɕ\�����邩�B�X���C�_�[�̌`�ɂ��e������B�����l�� TrackBar::TickStyle::both�B
+	/// 目盛りをどこに表示するか。スライダーの形にも影響する。初期値は TrackBar::TickStyle::both。
 	TrackBar::TickStyle tickStyle() const;
 	void tickStyle(TrackBar::TickStyle value);
-	/// �ڐ����\�����邩�ǂ����B�����l�� false�B
+	/// 目盛りを表示するかどうか。初期値は false。
 	bool tickVisible() const;
 	void tickVisible(bool value);
-	/// ���݂̃X���C�_�[�ʒu�̒l�B
+	/// 現在のスライダー位置の値。
 	int value() const;
 	void value(int value);
-	/// �X���C�_�[���ړ����ɒl��\������c�[���`�b�v�R���g���[���̎Q�ƁBoptions() �� TrackBar::Options::valueTip ��ݒ肵�Ă���ꍇ�̂ݗL���B
-	/// �K�v�Ȑݒ���s������j�����Ă��ǂ����ꕔ�ݒ��C�x���g�͔j������Ɩ����ɂȂ�B������x TrackBar �����䂵�Ă���̂œ��삵�Ȃ��ݒ������B
+	/// スライダーを移動中に値を表示するツールチップコントロールの参照。options() に TrackBar::Options::valueTip を設定している場合のみ有効。
+	/// 必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 TrackBar が制御しているので動作しない設定もある。
 	ToolTip valueTip();
-	/// valueTip ���\�������ʒu�B
+	/// valueTip が表示される位置。
 	void valueTipSide(TrackBar::ValueTipSide value);
-	/// �����g���b�N�o�[���ǂ����B
+	/// 垂直トラックバーかどうか。
 	bool vertical() const;
 	void vertical(bool value);
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:

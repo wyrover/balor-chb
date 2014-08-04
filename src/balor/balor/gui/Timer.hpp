@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Event.hpp>
 #include <balor/Listener.hpp>
@@ -14,75 +14,75 @@ class Control;
 
 
 /**
- * ƒ^ƒCƒ}[‚ð•\‚·B
- *
- * start() ŠÖ”‚Åƒ^ƒCƒ}[‚ðŠJŽn‚·‚é‚ÆŽw’è‚µ‚½ŽÀsŠÔŠu‚Å onRun ƒCƒxƒ“ƒg‚ð”­¶‚³‚¹‚éB
- * onRun ƒCƒxƒ“ƒg‚ªŽÀs‚³‚ê‚é‚Ì‚Í executor() ‚ª‘®‚·‚éƒƒbƒZ[ƒWƒ‹[ƒv‚Æ“¯‚¶ƒXƒŒƒbƒh‚É‚È‚éB
- * executor()  ‚ªƒƒbƒZ[ƒWƒ‹[ƒv‚Åˆ—‚³‚ê‚Ä‚¢‚È‚¢‚Æƒ^ƒCƒ}[‚Í“®‚©‚È‚¢B
- * Timer ‚Ö‚Ì‘€ì‚ÍƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚Ì‚ÅA•¡”‚ÌƒXƒŒƒbƒh‚©‚ç Timer ‚ð‘€ì‚·‚éê‡‚ÍŽ©•ª‚ÅƒƒbƒN‚ðs‚¤‚±‚ÆB
- * ƒ^ƒCƒ}[‚Ì¸“x‚Í 55 ƒ~ƒŠ•b’ö“x‚ÅAƒƒbƒZ[ƒW‚ª¬ŽG‚µ‚Ä‚¢‚éŽž‚É‚Íˆ—‚³‚ê‚È‚¢ê‡‚à‚ ‚éB
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ã‚¿ã‚¤ãƒžãƒ¼ã‚’è¡¨ã™ã€‚
+*
+* start() é–¢æ•°ã§ã‚¿ã‚¤ãƒžãƒ¼ã‚’é–‹å§‹ã™ã‚‹ã¨æŒ‡å®šã—ãŸå®Ÿè¡Œé–“éš”ã§ onRun ã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+* onRun ã‚¤ãƒ™ãƒ³ãƒˆãŒå®Ÿè¡Œã•ã‚Œã‚‹ã®ã¯ executor() ãŒå±žã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ«ãƒ¼ãƒ—ã¨åŒã˜ã‚¹ãƒ¬ãƒƒãƒ‰ã«ãªã‚‹ã€‚
+* executor()  ãŒãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ«ãƒ¼ãƒ—ã§å‡¦ç†ã•ã‚Œã¦ã„ãªã„ã¨ã‚¿ã‚¤ãƒžãƒ¼ã¯å‹•ã‹ãªã„ã€‚
+* Timer ã¸ã®æ“ä½œã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ã®ã§ã€è¤‡æ•°ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ Timer ã‚’æ“ä½œã™ã‚‹å ´åˆã¯è‡ªåˆ†ã§ãƒ­ãƒƒã‚¯ã‚’è¡Œã†ã“ã¨ã€‚
+* ã‚¿ã‚¤ãƒžãƒ¼ã®ç²¾åº¦ã¯ 55 ãƒŸãƒªç§’ç¨‹åº¦ã§ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ··é›‘ã—ã¦ã„ã‚‹æ™‚ã«ã¯å‡¦ç†ã•ã‚Œãªã„å ´åˆã‚‚ã‚ã‚‹ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"ProgressBar Sample");
 
 	ProgressBar bar(frame, 20, 10, 0, 0);
 	Timer timer(frame, 500);
-	Button button(frame, 20, 50, 0, 0, L"ˆ—‚ðŠJŽn‚·‚é", [&] (Button::Click& e) {
+	Button button(frame, 20, 50, 0, 0, L"å‡¦ç†ã‚’é–‹å§‹ã™ã‚‹", [&] (Button::Click& e) {
 		if (!timer.started()) {
 			bar.value(0);
 			timer.start();
-			e.sender().text(L"ˆ—‚ð’†Ž~‚·‚é");
+			e.sender().text(L"å‡¦ç†ã‚’ä¸­æ­¢ã™ã‚‹");
 			frame.onCursorChange() = [&] (Frame::CursorChange& e) {
-				e.cursor(Cursor::wait());
+			e.cursor(Cursor::wait());
 			};
 		} else {
 			timer.stop();
-			e.sender().text(L"ˆ—‚ðŠJŽn‚·‚é");
+			e.sender().text(L"å‡¦ç†ã‚’é–‹å§‹ã™ã‚‹");
 			frame.onCursorChange().pop();
 		}
-		for (auto i = frame.descendantsBegin(); i; ++i) {
-			i->onCursorChange() = frame.onCursorChange();
-		}
-	});
+			for (auto i = frame.descendantsBegin(); i; ++i) {
+				i->onCursorChange() = frame.onCursorChange();
+			}
+		});
 	timer.onRun() = [&] (Timer::Run& e) {
 		bar.add(10);
 		if (bar.maximum() <= bar.value()) {
 			button.performClick();
-			MsgBox::show(L"Š®—¹");
+			MsgBox::show(L"å®Œäº†");
 		}
 	};
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class Timer : private NonCopyable {
 public:
-	/// ƒ^ƒCƒ}[‚ÌƒCƒxƒ“ƒgƒNƒ‰ƒXB
+	/// ã‚¿ã‚¤ãƒžãƒ¼ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSender<Timer> Run;
 
 public:
-	/// ‹óƒ^ƒCƒ}[‚ðì¬B
+	/// ç©ºã‚¿ã‚¤ãƒžãƒ¼ã‚’ä½œæˆã€‚
 	Timer();
 	Timer(Timer&& value);
-	/// ŽÀs‚·‚é ControlAŽÀsŠÔŠuAonRun ƒCƒxƒ“ƒg‚©‚çì¬B
+	/// å®Ÿè¡Œã™ã‚‹ Controlã€å®Ÿè¡Œé–“éš”ã€onRun ã‚¤ãƒ™ãƒ³ãƒˆã‹ã‚‰ä½œæˆã€‚
 	Timer(Control& executor, int interval, Listener<Timer::Run&> onRun = Listener<Timer::Run&>());
 	~Timer();
 	Timer& operator=(Timer&& value);
 
 public:
-	/// ƒ^ƒCƒ}[‚ðŽÀs‚·‚é ControlB
+	/// ã‚¿ã‚¤ãƒžãƒ¼ã‚’å®Ÿè¡Œã™ã‚‹ Controlã€‚
 	Control* executor() const;
-	/// onRun ‚ÌŽÀsŠÔŠuiƒ~ƒŠ•bjB
+	/// onRun ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€‚
 	int interval() const;
 	void interval(int value);
-	/// interval ‚²‚Æ‚É”­¶‚·‚éƒCƒxƒ“ƒgB
+	/// interval ã”ã¨ã«ç™ºç”Ÿã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Timer::Run&>& onRun();
-	/// ƒ^ƒCƒ}[‚ðŠJŽn‚·‚éB
+	/// ã‚¿ã‚¤ãƒžãƒ¼ã‚’é–‹å§‹ã™ã‚‹ã€‚
 	void start();
-	/// ŠJŽnÏ‚Ý‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// é–‹å§‹æ¸ˆã¿ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool started() const;
-	/// ƒ^ƒCƒ}[‚ð’âŽ~‚·‚éB
+	/// ã‚¿ã‚¤ãƒžãƒ¼ã‚’åœæ­¢ã™ã‚‹ã€‚
 	void stop();
 
 private:

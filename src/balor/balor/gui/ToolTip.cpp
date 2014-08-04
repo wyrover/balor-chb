@@ -1,4 +1,4 @@
-#include "ToolTip.hpp"
+ï»¿#include "ToolTip.hpp"
 
 #include <utility>
 
@@ -288,7 +288,7 @@ void ToolTip::pop() {
 	ZeroMemory(&info, sizeof(info));
 	info.cbSize = sizeof(info);
 	if (SendMessageW(handle(), TTM_GETCURRENTTOOLW, 0, (LPARAM)&info) != 0) {
-		if (info.uFlags & TTF_TRACK) { // track ‚Ìê‡‚ğ•ª‚¯‚È‚¢‚Æ“ñ“x‚Æ•\¦‚³‚ê‚È‚­‚È‚éB
+		if (info.uFlags & TTF_TRACK) { // track ã®å ´åˆã‚’åˆ†ã‘ãªã„ã¨äºŒåº¦ã¨è¡¨ç¤ºã•ã‚Œãªããªã‚‹
 			SendMessageW(handle(), TTM_TRACKACTIVATE, FALSE, (LPARAM)&info);
 		} else {
 			SendMessageW(handle(), TTM_POP, 0, 0);
@@ -363,7 +363,7 @@ void ToolTip::set(Control& control, int id, const Rectangle& bounds, StringRange
 	assert("Invalid ToolTip::Options" && Options::_validate(options));
 	assert("Too long toolTip text" && (toolTip.c_str() == LPSTR_TEXTCALLBACKW || toolTip.length() < maxToolTipLength));
 	ToolTipInfo info(control, id);
-	// ‚¢‚­‚Â‚©‚Ì–—áiOptions::parseLinks ‚ÌƒIƒ“ƒIƒtA•¶š—ñİ’è‚Ì—L–³j‚É‚¨‚¢‚Ä‚¢‚Á‚½‚ñÁ‚³‚È‚¯‚ê‚ÎXV‚³‚ê‚È‚¢ê‡‚ª‚ ‚é‚Ì‚Å‹­§“I‚ÉÁ‚·B
+	// ã„ãã¤ã‹ã®äº‹ä¾‹ï¼ˆOptions::parseLinks ã®ã‚ªãƒ³ã‚ªãƒ•ã€æ–‡å­—åˆ—è¨­å®šã®æœ‰ç„¡ï¼‰ã«ãŠã„ã¦ã„ã£ãŸã‚“æ¶ˆã•ãªã‘ã‚Œã°æ›´æ–°ã•ã‚Œãªã„å ´åˆãŒã‚ã‚‹ã®ã§å¼·åˆ¶çš„ã«æ¶ˆã™
 	SendMessageW(handle(), TTM_DELTOOLW, 0, (LPARAM)&info);
 	info.uFlags = TTF_SUBCLASS | options | (id == -1 ? TTF_IDISHWND : 0);
 	info.rect = bounds;

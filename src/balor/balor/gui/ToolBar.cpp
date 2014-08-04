@@ -1,4 +1,4 @@
-#include "ToolBar.hpp"
+ï»¿#include "ToolBar.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -494,8 +494,8 @@ ToolBar::ToolBar(Control& parent, int x, int y, int width, int height, HIMAGELIS
 		, x, y, width ? width : 0, height ? height : 0
 		, parent, nullptr,nullptr, nullptr));
 
-	// Visual style —LŒø‚¾‚ÆŒ©‚½–Ú‚ÍÅ‰‚©‚çƒtƒ‰ƒbƒg‚¾‚ªİ’è‚µ‚È‚¢‚ÆƒZƒpƒŒ[ƒ^‚ª•\¦‚³‚ê‚È‚¢A“™‚Ì•s‹ï‡‚ ‚èB
-	// CreateWindowExW ‚É’¼Úw’è‚·‚é‚Æ”wŒi‚âƒ{ƒ^ƒ“‚Ì•`‰æ‚ª‚¨‚©‚µ‚­‚È‚éB
+	// Visual style ë¾ëš¼ê¶¬ê¶´ë™¥ê¶«ë½ê¶¼ëë£Šê¶”ê·ê¸²ê¹‹ê¸ê¸£ê¶¬ê¶•ë¨ ë¯¦ê¶¢ê¶¶ê¶‹ê¶´ê¸œê¸¬ê¹’??ê¶•?ë ‘ê¶ ê·¢ê¶¶ê¶‹ê°‚ë±³ê¶»ë¸‰ë—°ëœƒê¶‡ê·Ÿê°ƒ
+	// CreateWindowExW ê¶¸ë®³ë¨ëŸšë¯¦ê¶¥ê·¡ê¶´ë´¶ë˜§ê·˜??ê¹›ê¶»?ëªê¶•ê¶“ê¶”ê¶¢ê¶˜ê¶¶ê·¡ê°ƒ
 	_handle.setStyle(TBSTYLE_FLAT, true);
 
 	setExtendedStyle(handle(), TBSTYLE_EX_MIXEDBUTTONS | TBSTYLE_EX_DRAWDDARROWS, true);
@@ -540,7 +540,7 @@ bool ToolBar::bottomText() const {
 void ToolBar::bottomText(bool value) {
 	auto infos = itemInfos();
 	_handle.setStyle(TBSTYLE_LIST, !value);
-	itemInfos(infos); // €–Ú‚ğÄİ’è‚µ‚È‚¢‚Æƒc[ƒ‹ƒ`ƒbƒv“™‚ª‚¨‚©‚µ‚­‚È‚éB
+	itemInfos(infos); // ?ë½ê·©ë‹ë¨ ë¯¦ê¶¢ê¶¶ê¶‹ê¶´ê¸Ÿ?ê¹‘?ê¸ê¸µë±³ê¶•ê¶“ê¶”ê¶¢ê¶˜ê¶¶ê·¡ê°ƒ
 }
 
 
@@ -638,7 +638,7 @@ Size ToolBar::getPreferredSize(int width, int height) const {
 		newSize.height += 2;
 	}
 	auto size = sizeFromClientSize(newSize);
-	newSize.width += (size.width - newSize.width) / 2; // width ‚ÍÀ•W‚©‚ç‹‚ß‚Ä‚¢‚é‚Ì‚Å¶‚ÌƒGƒbƒW‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éB
+	newSize.width += (size.width - newSize.width) / 2; // width ã¯åº§æ¨™ã‹ã‚‰æ±‚ã‚ã¦ã„ã‚‹ã®ã§å·¦ã®ã‚¨ãƒƒã‚¸ãŒå«ã¾ã‚Œã¦ã„ã‚‹
 	newSize.height = size.height;
 	auto parent = this->parent();
 	if (parent) {
@@ -699,7 +699,7 @@ void ToolBar::insert(int index, const ItemInfo& itemInfo) {
 	assert("index out of range" && index <= count());
 	int count = this->count();
 	ItemData data(TBIF_COMMAND);
-	for (int i = count; index <= --i; ) { // command ‚Å€–Ú‚ğ¯•Ê‚·‚é‚Ì‚Å command ‚ğŒã‚ë‚©‚ç‚P‚¸‚Â‚¸‚ç‚µ‚Ä‚¢‚­B‘O‚©‚ç‚¾‚ÆÅ‰‚Ì€–Ú‚µ‚©XV‚³‚ê‚È‚¢B
+	for (int i = count; index <= --i; ) { // command ã§é …ç›®ã‚’è­˜åˆ¥ã™ã‚‹ã®ã§ command ã‚’å¾Œã‚ã‹ã‚‰ï¼‘ãšã¤ãšã‚‰ã—ã¦ã„ãã€‚å‰ã‹ã‚‰ã ã¨æœ€åˆã®é …ç›®ã—ã‹æ›´æ–°ã•ã‚Œãªã„
 		data.idCommand = i + 1;
 		data.setTo(Item(handle(), i));
 	}
@@ -742,7 +742,7 @@ Size ToolBar::itemsSize() const {
 		size.width  = (lastVisible.style() == ItemStyle::separator && lastVisible.wrap()) ? lastBounds.left() : lastBounds.right();
 		size.height = lastBounds.height;
 		for (int i = 0; i < lastVisibleIndex; ++i) {
-			auto item = (*this)[i]; // ƒZƒpƒŒ[ƒ^‚Å‰üs‚·‚éê‡A©•ª‚Ì•‚Ì‚Ô‚ñ‚¾‚¯c‚É‚àƒXƒy[ƒX‚ğ‹ó‚¯‚é‚Ì‚Ål—¶‚·‚éB
+			auto item = (*this)[i]; // ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã§æ”¹è¡Œã™ã‚‹å ´åˆã€è‡ªåˆ†ã®å¹…ã®ã¶ã‚“ã ã‘ç¸¦ã«ã‚‚ã‚¹ãƒšãƒ¼ã‚¹ã‚’ç©ºã‘ã‚‹ã®ã§è€ƒæ…®ã™ã‚‹
 			if (item.visible() && item.wrap()) {
 				auto bounds = item.bounds();
 				size.width  = max(size.width, (item.style() == ItemStyle::separator) ? bounds.left() : bounds.right());
@@ -800,7 +800,7 @@ void ToolBar::wrappable(bool value) {
 	assert("Can't set wrappable and vertical true" && !(value && vertical()));
 	if (value != wrappable()) {
 		_handle.setStyle(TBSTYLE_WRAPABLE, value);
-		if (!value) { // ‰üsó‘Ô‚ğƒNƒŠƒA‚µ‚Ä‚¨‚­B
+		if (!value) { // æ”¹è¡ŒçŠ¶æ…‹ã‚’ã‚¯ãƒªã‚¢ã—ã¦ãŠã
 			for (int i = 0, end = count(); i < end; ++i) {
 				(*this)[i].wrap(false);
 			}
@@ -834,7 +834,7 @@ void ToolBar::processMessage(Message& msg) {
 				//	if (info->nmcd.dwDrawStage == CDDS_PREPAINT) {
 				//		msg.result = CDRF_NOTIFYITEMDRAW;
 				//	} else if (info->nmcd.dwDrawStage == CDDS_ITEMPREPAINT) {
-				//	// Visual Style ‚ª—LŒø‚Èê‡‚Í‘S‚Ä–³Œø‚È–Í—lB
+				//	// Visual Style ãŒæœ‰åŠ¹ãªå ´åˆã¯å…¨ã¦ç„¡åŠ¹ãªæ¨¡æ§˜
 				//		info->clrText = Color::red().toCOLORREF();
 				//		info->clrBtnFace = Color::red().toCOLORREF();
 				//		info->clrBtnHighlight = Color::red().toCOLORREF();
@@ -849,7 +849,7 @@ void ToolBar::processMessage(Message& msg) {
 					auto info = (NMTOOLBARW*)msg.lparam;
 					Click event(*this, info->iItem, true);
 					_itemListeners[info->iItem].onClick(event);
-					//msg.result = TBDDRET_TREATPRESSED; // İ’è‚µ‚Ä‚à‚µ‚È‚­‚Ä‚à‰Ÿ‚³‚ê‚½‚æ‚¤‚É•\¦‚³‚ê‚Ä‚¢‚éB
+					//msg.result = TBDDRET_TREATPRESSED; // è¨­å®šã—ã¦ã‚‚ã—ãªãã¦ã‚‚æŠ¼ã•ã‚ŒãŸã‚ˆã†ã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹
 				} break;
 				case TBN_GETINFOTIPW : {
 					auto info = (NMTBGETINFOTIPW*)msg.lparam;

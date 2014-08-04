@@ -1,4 +1,4 @@
-#include "Timer.hpp"
+ï»¿#include "Timer.hpp"
 
 #include <utility>
 
@@ -37,7 +37,7 @@ Timer::Timer(Timer&& value)
 	, _interval(move(value._interval))
 	, _onRun(move(value._onRun))
 	, _started(move(value._started)) {
-	assert("Invalid rvalue" && !_started); // this ƒ|ƒCƒ“ƒ^‚ğ ID ‚É‚µ‚Ä‚¢‚é‚Ì‚Å start ’†‚É move ‚Íƒ_ƒB
+	assert("Invalid rvalue" && !_started); // this ãƒã‚¤ãƒ³ã‚¿ã‚’ ID ã«ã—ã¦ã„ã‚‹ã®ã§ start ä¸­ã« move ã¯ãƒ€ãƒ¡
 }
 
 

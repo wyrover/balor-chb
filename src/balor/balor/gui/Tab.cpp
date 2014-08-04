@@ -1,4 +1,4 @@
-#include "Tab.hpp"
+ï»¿#include "Tab.hpp"
 
 #include <utility>
 
@@ -59,7 +59,7 @@ void resetItemPagesVisibility(Tab& tab) {
 			page->visible(false);
 		}
 	}
-	if (selected != -1) { // •¡”‚Ìƒ^ƒu‚É“¯‚¶ƒRƒ“ƒgƒ[ƒ‹‚ðŽw’è‚µ‚½ê‡‚Ìˆ×‚É‘S‚ÄÁ‚µ‚Ä‚©‚ç•\Ž¦‚·‚éB
+	if (selected != -1) { // è¤‡æ•°ã®ã‚¿ãƒ–ã«åŒã˜ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’æŒ‡å®šã—ãŸå ´åˆã®ç‚ºã«å…¨ã¦æ¶ˆã—ã¦ã‹ã‚‰è¡¨ç¤ºã™ã‚‹
 		auto page = tab[selected].page();
 		if (page) {
 			page->visible(true);
@@ -436,7 +436,7 @@ void Tab::itemInfos(ArrayRange<const Tab::ItemInfo> value) {
 
 void Tab::itemPadding(const Size& value) {
 	SendMessageW(handle(), TCM_SETPADDING, 0, MAKELPARAM(value.width, value.height));
-	// ‘å‚«‚³‚ð”½‰f‚³‚¹‚éB‘¼‚É‚à•û–@‚Í‚ ‚é‚©‚à‚µ‚ê‚È‚¢B
+	// ë¬ˆê¶–ê¶ ê·©ëµ¿ëŽ•ê¶ ê¶§ê·¡ê°ƒë«œê¶¸ê·–ëº´?ê¶¼ê¶‡ê·¡ê¶”ê·–ê¶¢ê·¢ê¶¶ê¶‹ê°ƒ
 	itemWidthFixed(!itemWidthFixed());
 	itemWidthFixed(!itemWidthFixed());
 	resizeItemPages();
@@ -546,11 +546,11 @@ Tab::Item Tab::operator[](int index) {
 
 void Tab::processMessage(Message& msg) {
 	switch (msg.message) {
-		//case WM_ERASEBKGND : { // Visual Style ‚ª—LŒø‚¾‚Æ”wŒi‚ðƒuƒ‰ƒV‚Å“h‚Á‚Ä‚àã‘‚«‚³‚ê‚Ä‚µ‚Ü‚¤B.NET ‚Í‚Ç‚¤‚â‚Á‚Ä‚¢‚é‚ñ‚¾‚ë‚¤H
+		//case WM_ERASEBKGND : { // Visual Style ãŒæœ‰åŠ¹ã ã¨èƒŒæ™¯ã‚’ãƒ–ãƒ©ã‚·ã§å¡—ã£ã¦ã‚‚ä¸Šæ›¸ãã•ã‚Œã¦ã—ã¾ã†ã€‚.NET ã¯ã©ã†ã‚„ã£ã¦ã„ã‚‹ã‚“ã ã‚ã†ï¼Ÿ
 		//	Graphics graphics((HDC)msg.wparam);
 		//	HBRUSH brush = this->brush();
 		//	auto origin = brushOrigin();
-		//	if (!brush) { // eƒRƒ“ƒgƒ[ƒ‹‚Æ’n‘±‚«‚È”wŒi‚ðŽ‚Â‚Ì‚Åe‚Ìƒuƒ‰ƒV‚ª‚ ‚ê‚ÎŽg‚¤ ;
+		//	if (!brush) { // è¦ªã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åœ°ç¶šããªèƒŒæ™¯ã‚’æŒã¤ã®ã§è¦ªã®ãƒ–ãƒ©ã‚·ãŒã‚ã‚Œã°ä½¿ã† ;
 		//		auto parent = this->parent();
 		//		if (parent) {
 		//			brush = parent->brush();

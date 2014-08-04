@@ -1,4 +1,4 @@
-#include "TreeView.hpp"
+ï»¿#include "TreeView.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -104,7 +104,7 @@ TreeView::Item::Item(HWND ownerHandle, HTREEITEM item) : _ownerHandle(ownerHandl
 
 TreeView::Item& TreeView::Item::operator=(const ItemInfo& itemInfo) {
 	assert("Null item handle" && *this);
-	if (*this != TVI_ROOT) {// ƒ‹[ƒg‚Å‚ ‚éê‡‚Íq€–Ú‚Ì’Ç‰Á‚Ì‚İs‚¤
+	if (*this != TVI_ROOT) {// ãƒ«ãƒ¼ãƒˆã§ã‚ã‚‹å ´åˆã¯å­é …ç›®ã®è¿½åŠ ã®ã¿è¡Œã†
 		ItemData data(*this, itemInfo, itemInfo._itemDataState);
 		data.setTo(ownerHandle());
 	}
@@ -207,7 +207,7 @@ void TreeView::Item::clear() {
 		DWORD styles = GetWindowLong(ownerHandle(), GWL_STYLE);
 		assert(styles);
 		verify(SendMessageW(ownerHandle(), TVM_DELETEITEM, 0, (LPARAM)TVI_ROOT));
-		if (styles & TVS_NOSCROLL) { // QlFhttp://msdn.microsoft.com/en-us/library/bb773790(v=VS.85).aspx
+		if (styles & TVS_NOSCROLL) { // å‚è€ƒ: http://msdn.microsoft.com/en-us/library/bb773790(v=VS.85).aspx
 			verify(SetWindowLong(ownerHandle(), GWL_STYLE, styles));
 		}
 	} else {
@@ -243,7 +243,7 @@ void TreeView::Item::endEdit(bool cancel) {
 	assert("Null item handle" && *this);
 	assert("Can't access TVI_ROOT" && *this != TVI_ROOT);
 	assert("Can't edit treeView" && toFlag(Handle(ownerHandle()).style())[TVS_EDITLABELS]);
-	SendMessageW(ownerHandle(), TVM_ENDEDITLABELNOW, cancel ? TRUE : FALSE, 0); // –ß‚è’l‚Í‚È‚º‚©í‚ÉFALSE
+	SendMessageW(ownerHandle(), TVM_ENDEDITLABELNOW, cancel ? TRUE : FALSE, 0); // æˆ»ã‚Šå€¤ã¯ãªãœã‹å¸¸ã«FALSE
 }
 
 
@@ -339,7 +339,7 @@ TreeView::Item TreeView::Item::insert(Item& nextItem, const ItemInfo& info) {
 	assert("Null item handle" && *this);
 	assert("nextItem is not child" && (nextItem == TVI_LAST || *this == nextItem.parent()));
 	Item item(ownerHandle(), nullptr);
-	{// Ä‹AŒÄ‚Ño‚µ‚·‚é‚Ì‚ÅƒXƒ^ƒbƒN˜Q”ï‚µ‚È‚¢‚æ‚¤‚É
+	{// å†å¸°å‘¼ã³å‡ºã—ã™ã‚‹ã®ã§ã‚¹ã‚¿ãƒƒã‚¯æµªè²»ã—ãªã„ã‚ˆã†ã«
 		TVINSERTSTRUCTW data;
 		data.hParent = *this;
 		data.hInsertAfter = nextItem;
@@ -809,7 +809,7 @@ TreeView::TextEditing::TextEditing(TreeView& sender, HTREEITEM item, String item
 Edit TreeView::TextEditing::edit() {
 	Edit edit((HWND)SendMessageW(sender(), TVM_GETEDITCONTROL, 0, 0));
 	edit.onShortcutKey() = [&] (Control::ShortcutKey& e) {
-		if (e.shortcut() == Key::enter // Enter ƒL[‚Æ ESC ƒL[‚ğƒ_ƒCƒAƒƒOƒL[ˆ—‚µ‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¨‚­
+		if (e.shortcut() == Key::enter // Enter ã‚­ãƒ¼ã¨ ESC ã‚­ãƒ¼ã‚’ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚­ãƒ¼å‡¦ç†ã—ãªã„ã‚ˆã†ã«ã—ã¦ãŠã
 		 || e.shortcut() == Key::escape) {
 			e.isInputKey(true);
 		}
@@ -868,7 +868,7 @@ TreeView::TreeView(Control& parent, int x, int y, int width, int height, TreeVie
 	attachHandle(CreateWindowExW(WS_EX_CLIENTEDGE, WC_TREEVIEWW, nullptr
 		, WS_CHILD | WS_TABSTOP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL | TVS_HASBUTTONS | TVS_LINESATROOT | TVS_HASLINES
 		, x, y, width, height, parent, nullptr,nullptr, nullptr));
-	if (options & Options::checkBoxes) { // Ql:http://msdn.microsoft.com/en-us/library/bb760013(v=VS.85).aspx
+	if (options & Options::checkBoxes) { // å‚è€ƒ:http://msdn.microsoft.com/en-us/library/bb760013(v=VS.85).aspx
 		_handle.style(toFlag(_handle.style()).set(TVS_CHECKBOXES, true));
 		_handle.updateStyle();
 	}
@@ -1328,12 +1328,12 @@ void TreeView::processMessage(Message& msg) {
 		case WM_LBUTTONDOWN : {
 			Point point(GET_X_LPARAM(msg.lparam), GET_Y_LPARAM(msg.lparam));
 			auto info = getHitTestInfo(point);
-			// ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğƒNƒŠƒbƒN‚µ‚½Û‚ÉˆêuƒtƒH[ƒJƒX‚ªˆÚ‚Á‚Ä‚µ‚Ü‚¤‚Ì‚ğ–h‚®B
+			// ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸéš›ã«ä¸€ç¬ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒç§»ã£ã¦ã—ã¾ã†ã®ã‚’é˜²ã
 			if (info.onStateImage()) {
 				auto item = info.item();
 				int oldState = item.state();
 				int newState = oldState + 1;
-				// ó‘Ô‰æ‘œƒŠƒXƒg‚ÌÅ‰‚Í‰½‚à•`‰æ‚µ‚È‚¢ó‘Ô‚Ì‰æ‘œ‚È‚Ì‚Åó‘Ô‚Ì”{‚PŒÂ‚Ì‰æ‘œ‚ª‚ ‚éB
+				// çŠ¶æ…‹ç”»åƒãƒªã‚¹ãƒˆã®æœ€åˆã¯ä½•ã‚‚æç”»ã—ãªã„çŠ¶æ…‹ã®ç”»åƒãªã®ã§çŠ¶æ…‹ã®æ•°ï¼‹ï¼‘å€‹ã®ç”»åƒãŒã‚ã‚‹
 				if (stateImageList().count() - 1 <= newState) {
 					newState = 0;
 				}

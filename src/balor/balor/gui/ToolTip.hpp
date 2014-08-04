@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/graphics/Color.hpp>
 #include <balor/graphics/Graphics.hpp>
@@ -17,18 +17,18 @@ namespace balor {
 
 
 /**
- * �c�[���`�b�v�R���g���[���B
+  * ツールチップコントロール。
  *
- * set �֐��ŃR���g���[���Ƀc�[���`�b�v��ݒ肷��B
- * TTM_SETMARGIN �� Vista �Ńr�W���A���X�^�C�����g�p����Ɠ��삵�Ȃ��̂ŃT�|�[�g���Ȃ��B
+ * set 関数でコントロールにツールチップを設定する。
+ * TTM_SETMARGIN は Vista でビジュアルスタイルを使用すると動作しないのでサポートしない。
  *
- * <h3>�E�T���v���R�[�h</h3>
+ * <h3>・サンプルコード</h3>
  * <pre><code>
 	Frame frame(L"ToolTip Sample");
 
-	Button button(frame, 20, 10, 0, 0, L"�{�^��");
+	Button button(frame, 20, 10, 0, 0, L"ボタン");
 	ToolTip toolTip(frame);
-	toolTip.set(button, L"�{�^���̃c�[���`�b�v");
+	toolTip.set(button, L"ボタンのツールチップ");
 	toolTip.textColor(Color::blue());
 
 	frame.runMessageLoop();
@@ -40,27 +40,27 @@ public:
 	typedef ::balor::graphics::Icon Icon;
 
 
-	/// �c�[���`�b�v�̕\���I�v�V�����B�g�ݍ��킹�Ŏw�肷��B
+	/// ツールチップの表示オプション。組み合わせで指定する。
 	struct Options {
 		enum _enum {
-			none        = 0     , 
-			center      = 0x0002, /// �R���g���[���̉������ɕ\������B
-			track       = 0x0020, /// track �֐��ŕ\������B�����I�ɂ͕\������Ȃ��B
-			absolute    = 0x0080, /// ��ʂ���͂ݏo�Ȃ��悤�Ɉʒu�𒲐������肵�Ȃ��Bshow �֐��ŕ\���������̂ݗL���B
-			transparent = 0x0100, /// �c�[���`�b�v��ɃJ�[�\�����ړ����Ă��c�[���`�b�v�������Ȃ��B
-			parseLinks  = 0x1000, /// �c�[���`�b�v������̃����N�^�O�i<a />�j�������N�Ƃ��ĕ\������B
+			none = 0,
+			center = 0x0002, /// コントロールの下中央に表示する。
+			track = 0x0020, /// track 関数で表示する。自動的には表示されない。
+			absolute = 0x0080, /// 画面からはみ出ないように位置を調整したりしない。show 関数で表示した時のみ有効。
+			transparent = 0x0100, /// ツールチップ上にカーソルを移動してもツールチップを消さない。
+			parseLinks = 0x1000, /// ツールチップ文字列のリンクタグ（<a />）をリンクとして表示する。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// �c�[���`�b�v�Ŕ�������C�x���g�B
+	/// ツールチップで発生するイベント。
 	struct Event : public EventWithSender<ToolTip> {
 		Event(ToolTip& sender, Control& owner, int id);
 
-		/// �\���̈�����ʂ���ID�B�\���̈��ݒ肵�Ă��Ȃ��ꍇ�� 0 �ɂȂ�B
+		/// 表示領域を識別するID。表示領域を設定していない場合は 0 になる。
 		int id() const;
-		/// �c�[���`�b�v��\������I�[�i�[�R���g���[���B
+		/// ツールチップを表示するオーナーコントロール。
 		Control& owner();
 
 	private:
@@ -72,11 +72,11 @@ public:
 	typedef Event Pop;
 
 
-	/// �c�[���`�b�v��\������O�ɕ������ݒ肷��C�x���g�B��������w�肹���Ƀc�[���`�b�v��ݒ肵���ꍇ�̂ݔ�������B
+	/// ツールチップを表示する前に文字列を設定するイベント。文字列を指定せずにツールチップを設定した場合のみ発生する。
 	struct GetText : public ToolTip::Event {
 		GetText(ToolTip& sender, Control& owner, int id);
 
-		/// �\�����镶����B�����l�͋󕶎���B
+		/// 表示する文字列。初期値は空文字列。
 		String& text();
 		void text(StringRange value);
 
@@ -85,11 +85,11 @@ public:
 	};
 
 
-	/// �c�[���`�b�v��\�����钼�O�̃C�x���g�B
+	/// ツールチップを表示する直前のイベント。
 	struct Popup : public ToolTip::Event {
 		Popup(ToolTip& sender, Control& owner, int id);
 
-		/// �\������ʒu�B
+		/// 表示する位置。
 		Point position() const;
 		void position(const Point& value);
 		void position(int x, int y);
@@ -102,123 +102,123 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	ToolTip();
 	ToolTip(ToolTip&& value, bool checkSlicing = true);
-	/// �e�R���g���[������쐬�B�c�[���`�b�v��\������R���g���[���̑����� Frame �����w�肷��B
+	/// 親コントロールから作成。ツールチップを表示するコントロールの属する Frame 等を指定する。
 	explicit ToolTip(Control& parent);
-	/// �n���h�����Q�Ƃ��č쐬�B�n���h���͔j�����Ȃ��B
+	/// ハンドルを参照して作成。ハンドルは破棄しない。
 	explicit ToolTip(HWND handle);
 	~ToolTip();
 	ToolTip& operator=(ToolTip&& value);
 
 public:
-	/// �c�[���`�b�v��L���܂��͖����ɂ���B�����l�� true�B
+	/// ツールチップを有効または無効にする。初期値は true。
 	void activate(bool value);
-	/// �E�C���h�E����A�N�e�B�u�ł��c�[���`�b�v��\�����邩�ǂ����B�����l�� true�B
+	/// ウインドウが非アクティブでもツールチップを表示するかどうか。初期値は true。
 	bool alwaysPopup() const;
 	void alwaysPopup(bool value);
-	/// �c�[���`�b�v��\�����鎞�ɃX���C�h�A�j���[�V�������邩�ǂ����B�����l�� true�B�iTODO:���ʂ������悤���j
+	/// ツールチップを表示する時にスライドアニメーションするかどうか。初期値は true。（TODO:効果が無いようだ）
 	bool animate() const;
 	void animate(bool value);
-	/// �����o���̌`�������c�[���`�b�v���ǂ����B�����l�� false�B
+	/// 吹き出しの形をしたツールチップかどうか。初期値は false。
 	bool balloon() const;
 	void balloon(bool value);
-	/// ������̈ʒu�Ƒ傫������c�[���`�b�v�̈ʒu�Ƒ傫�������߂�B
+	/// 文字列の位置と大きさからツールチップの位置と大きさを求める。
 	Rectangle boundsFromTextBounds(const Rectangle& textBounds) const;
 	Rectangle boundsFromTextBounds(int x, int y, int width, int height) const;
-	/// set �֐��Őݒ肵���S�Ẵc�[���`�b�v���폜����B
+	/// set 関数で設定した全てのツールチップを削除する。
 	void clear();
-	/// ����{�^����\�����邩�ǂ����Bbaloon() �� true �Ń^�C�g����ݒ肵���ꍇ�̂ݕ\�������B
+	/// 閉じるボタンを表示するかどうか。baloon() が true でタイトルを設定した場合のみ表示される。
 	bool closeButton() const;
 	void closeButton(bool value);
-	/// �c�[���`�b�v�����ꂽ�������Ƃ��Ƀt�F�[�h�C���A�E�g���邩�ۂ��B�����l�� true�B
+	/// ツールチップが現れたり消えるときにフェードインアウトするか否か。初期値は true。
 	bool fade() const;
 	void fade(bool value);
-	/// �t�H���g�BToolTip �̏����t�H���g�� Vista �ł́u���C���I�v�� height = 12�B
+	/// フォント。ToolTip の初期フォントは Vista では「メイリオ」で height = 12。
 	using Control::font;
-	/// �R���g���[���ɐݒ肳�ꂽ�c�[���`�b�v���擾����B�ݒ肳��Ă��Ȃ��ꍇ�͋󕶎��񂪕Ԃ�B������Ɋ܂܂�� & ����ꏈ��������̕����񂪕Ԃ�B
-	/// �^�u�R�[�h���܂܂��Ƃ���ȍ~���Ԃ�Ȃ��͗l�B
+	/// コントロールに設定されたツールチップを取得する。設定されていない場合は空文字列が返る。文字列に含まれる & を特殊処理した後の文字列が返る。
+	/// タブコードが含まれるとそれ以降が返らない模様。
 	String get(Control& control, int id = -1) const;
-	/// �c�[���`�b�v���\�������܂ł̎��ԁi�~���b�j�B�����l�� 500�B
+	/// ツールチップが表示されるまでの時間（ミリ秒）。初期値は 500。
 	int initialDelay() const;
 	void initialDelay(int value);
-	/// �c�[���`�b�v�̍ő啶���񕝁B���̕��𒴂���ꍇ�͉��s����B�������Ȃ��ꍇ�� -1�B�������^�C�g��������ȉ��̕��ł͕\������Ȃ��B
+	/// ツールチップの最大文字列幅。この幅を超える場合は改行する。制限しない場合は -1。ただしタイトル文字列以下の幅では表示されない。
 	int maxTextWidth() const;
 	void maxTextWidth(int value);
-	/// �\�����镶����� & �̓��ꏈ���𖳌��ɂ��邩�ۂ��B�����l�� false�B
+	/// 表示する文字列の & の特殊処理を無効にするか否か。初期値は false。
 	bool noPrefix() const;
 	void noPrefix(bool value);
-	/// �\������O�ɕ������ݒ肷��C�x���g�B��������w�肹���Ƀc�[���`�b�v��ݒ肵���ꍇ�̂ݔ�������B
+	/// 表示する前に文字列を設定するイベント。文字列を指定せずにツールチップを設定した場合のみ発生する。
 	Listener<ToolTip::GetText&>& onGetText();
-	/// �c�[���`�b�v��̃����N���N���b�N�����C�x���g�B���̊֐��̎g�p�ɂ� EnableVisualStyle.hpp �̃C���N���[�h���K�v�B
+	/// ツールチップ上のリンクをクリックしたイベント。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。
 	Listener<ToolTip::LinkClick&>& onLinkClick();
-	/// �c�[���`�b�v�������鎞�̃C�x���g�B
+	/// ツールチップが消える時のイベント。
 	Listener<ToolTip::Pop&>& onPop();
-	/// �c�[���`�b�v��\�����钼�O�̃C�x���g�B�ʒu��ύX�ł���B
+	/// ツールチップを表示する直前のイベント。位置を変更できる。
 	Listener<ToolTip::Popup&>& onPopup();
-	/// ���݂̃c�[���`�b�v�̕\���������B
+	/// 現在のツールチップの表示を消す。
 	void pop();
-	/// ���݂̃}�E�X�ʒu�Ńc�[���`�b�v������Ε\������B���̊֐��̎g�p�ɂ� EnableVisualStyle.hpp �̃C���N���[�h���K�v�B
+	/// 現在のマウス位置でツールチップがあれば表示する。この関数の使用には EnableVisualStyle.hpp のインクルードが必要。
 	void popup();
-	/// �c�[���`�b�v���\������Ă��������܂ł̎��ԁi�~���b�j�B�����l�� 5000�B
+	/// ツールチップが表示されてから消えるまでの時間（ミリ秒）。初期値は 5000。
 	int popDelay() const;
 	void popDelay(int value);
-	/// �R���g���[������c�[���`�b�v���폜����B
+	/// コントロールからツールチップを削除する。
 	void reset(Control& control, int id = -1);
-	/// �S�Ẵf�B���C�iinitialDelay�ApopDelay�AreshowDelay�j�������l�ɖ߂��B
+	/// 全てのディレイ（initialDelay、popDelay、reshowDelay）を初期値に戻す。
 	void resetDelay();
-	/// �R���g���[���̊O�ɃJ�[�\�����ړ����Ă��\���������鎞�ԁi�~���b�j�B�����l�� 100�B
-	/// �����������c�[���`�b�v�R���g���[����ݒ肵�Ă���R���g���[���ɃJ�[�\�����ړ�������Ƒ����ɏ�����B
-	/// �����h���ɂ͈Ⴄ�c�[���`�b�v�R���g���[��������Đݒ肷�邵���Ȃ��B 
+	/// コントロールの外にカーソルが移動しても表示し続ける時間（ミリ秒）。初期値は 100。
+	/// ただし同じツールチップコントロールを設定しているコントロールにカーソルを移動させると即座に消える。
+	/// これを防ぐには違うツールチップコントロールを作って設定するしかない。 
 	int reshowDelay() const;
 	void reshowDelay(int value);
-	/// �R���g���[���Ƀc�[���`�b�v��\������悤�ɐݒ肷��B������� onGetText �C�x���g�Őݒ肷��K�v������Breset �֐��Ŗ����ɂł���B
+	/// コントロールにツールチップを表示するように設定する。文字列は onGetText イベントで設定する必要がある。reset 関数で無効にできる。
 	void set(Control& control, ToolTip::Options options = Options::transparent);
-	/// �R���g���[���Ƀc�[���`�b�v��\������悤�ɐݒ肷��Breset �֐��Ŗ����ɂł���B
+	/// コントロールにツールチップを表示するように設定する。reset 関数で無効にできる。
 	void set(Control& control, StringRange toolTip, ToolTip::Options options = Options::transparent);
-	/// �R���g���[���̃N���C�A���g���W�̈�Ƀc�[���`�b�v��\������悤�ɐݒ肷��Bid �͗̈�����ʂ���ԍ��B������� onGetText �C�x���g�Őݒ肷��K�v������Breset �֐��Ŗ����ɂł���B
+	/// コントロールのクライアント座標領域にツールチップを表示するように設定する。id は領域を識別する番号。文字列は onGetText イベントで設定する必要がある。reset 関数で無効にできる。
 	void set(Control& control, int id, const Rectangle& bounds, ToolTip::Options options = Options::transparent);
 	void set(Control& control, int id, int x, int y, int width, int height, ToolTip::Options options = Options::transparent);
-	/// �R���g���[���̃N���C�A���g���W�̈�Ƀc�[���`�b�v��\������悤�ɐݒ肷��Bid �͗̈�����ʂ���ԍ��Breset �֐��Ŗ����ɂł���B
+	/// コントロールのクライアント座標領域にツールチップを表示するように設定する。id は領域を識別する番号。reset 関数で無効にできる。
 	void set(Control& control, int id, const Rectangle& bounds, StringRange toolTip, ToolTip::Options options = Options::transparent);
 	void set(Control& control, int id, int x, int y, int width, int height, StringRange toolTip, ToolTip::Options options = Options::transparent);
-	/// �w�肵�� initialDelay ���� popDelay �� reshowDelay ���v�Z���đS�Đݒ肷��B
+	/// 指定した initialDelay から popDelay と reshowDelay を計算して全て設定する。
 	void setDelay(int initialDelay);
-	/// ������̐F�B�^�C�g���������ݒ肵���ꍇ�͖����B�����N�̕������Œ�F�B
+	/// 文字列の色。タイトル文字列を設定した場合は無効。リンクの部分も固定色。
 	Color textColor() const;
 	void textColor(const Color& value);
-	/// ������̕\���t�H�[�}�b�g�B�c�[���`�b�v�R���g���[�����p�ӂ���t�H�[�}�b�g�ɒǉ�����t���O��ݒ肷��B�����l�� Graphics::TextFormat::none�B
-	/// maxTextWidth() �� -1 �ȊO�ɐݒ肷�邱�Ƃ� Graphics::TextFormat::wordBreak �y�� Graphics::TextFormat::expandTabs �������I�ɒǉ������B
+	/// 文字列の表示フォーマット。ツールチップコントロールが用意するフォーマットに追加するフラグを設定する。初期値は Graphics::TextFormat::none。
+	/// maxTextWidth() を -1 以外に設定することで Graphics::TextFormat::wordBreak 及び Graphics::TextFormat::expandTabs が強制的に追加される。
 	Graphics::TextFormat textFormat() const;
 	void textFormat(Graphics::TextFormat value);
-	/// �^�C�g��������B�󕶎�����w�肷��Ə�����B�A�C�R���̂ݕ\���͂ł��Ȃ��B�^�C�g��������̎擾�� EnableVisualStyle.hpp �̃C���N���[�h���K�v�B
+	/// タイトル文字列。空文字列を指定すると消える。アイコンのみ表示はできない。タイトル文字列の取得は EnableVisualStyle.hpp のインクルードが必要。
 	String title() const;
 	void title(StringRange value, HICON icon = nullptr);
-	/// �w�肵���X�N���[�����W�Ƀc�[���`�b�v��\������Bset �֐��� options �� ToolTip::Options::track ���܂߂�K�v������Bpop �֐����ĂԂ܂ŕ\�����ꑱ����B
+	/// 指定したスクリーン座標にツールチップを表示する。set 関数で options に ToolTip::Options::track を含める必要がある。pop 関数を呼ぶまで表示され続ける。
 	void track(Control& control, const Point& position);
 	void track(Control& control, int x, int y);
 	void track(Control& control, int id, const Point& position);
 	void track(Control& control, int id, int x, int y);
-	/// track �֐��ŕ\�������c�[���`�b�v�̃X�N���[�����W�ʒu���X�V����B
+	/// track 関数で表示したツールチップのスクリーン座標位置を更新する。
 	void trackPosition(const Point& value);
 	void trackPosition(int x, int y);
-	/// �ĕ`�悷��B
+	/// 再描画する。
 	void update();
-	/// ���ݕ\������Ă��邩�ǂ����B
+	/// 現在表示されているかどうか。
 	bool visible() const;
 
 public:
-	/// HWND �ւ̎����ϊ� & null �`�F�b�N�p�B
+	/// HWND への自動変換 & null チェック用。
 	using Control::operator HWND;
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:
 	bool _owned;
-	/// onGetText �C�x���g�Őݒ肵�Ă���\������܂ł̈ꎞ�ۑ��ꏊ�B
+	/// onGetText イベントで設定してから表示するまでの一時保存場所。
 	String _temporaryText;
 	Color _textColor;
 	Graphics::TextFormat _textFormat;

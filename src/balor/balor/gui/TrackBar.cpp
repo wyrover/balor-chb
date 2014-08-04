@@ -1,4 +1,4 @@
-#include "TrackBar.hpp"
+ï»¿#include "TrackBar.hpp"
 
 #include <algorithm>
 #include <utility>
@@ -432,8 +432,8 @@ void TrackBar::processMessage(Message& msg) {
 			Control::processMessage(msg);
 			auto parent = this->parent();
 			if (parent && parent->brush()) {
-				thumbVisible(!thumbVisible()); // invalidate ‚µ‚½‚¾‚¯‚Å‚Í•`‰æ‚µ‚Ä‚­‚ê‚È‚¢
-				thumbVisible(!thumbVisible()); // ‚¿‚å‚Á‚Æƒ`ƒ‰‚Â‚­‚ªEE
+				thumbVisible(!thumbVisible()); // invalidate ã—ãŸã ã‘ã§ã¯æç”»ã—ã¦ãã‚Œãªã„
+				thumbVisible(!thumbVisible()); // ã¡ã‚‡ã£ã¨ãƒãƒ©ã¤ããŒ
 			}
 		} break;
 		case wmReflect + WM_CTLCOLORSTATIC : {
@@ -464,7 +464,7 @@ void TrackBar::processMessage(Message& msg) {
 				onValueChange()(event);
 			}
 		} break;
-		case WM_MOUSEWHEEL : { // lineSize ‚ğ”½‰f‚³‚¹‚éˆ×‚Éˆ—‚ğã‘‚«
+		case WM_MOUSEWHEEL : { // lineSize ã‚’åæ˜ ã•ã›ã‚‹ç‚ºã«å‡¦ç†ã‚’ä¸Šæ›¸ã
 			int delta = GET_WHEEL_DELTA_WPARAM(msg.wparam);
 			delta = -(delta / WHEEL_DELTA) * lineSize();
 			int newValue = value() + delta;

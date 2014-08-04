@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 
@@ -21,45 +21,45 @@ class ToolTip;
 
 
 /**
- * �c�[���o�[�B
+  * ツールバー。
  *
- * �c�[���o�[��ɑ��̃R���g���[����u���ɂ̓c�[���o�[��e�R���g���[���Ƃ��č쐬���A
- * bounds() ��u�������Z�p���[�^�� ToolBar::Item::bounds() �ɐݒ肵�Ă��Ηǂ��B
+ * ツールバー上に他のコントロールを置くにはツールバーを親コントロールとして作成し、
+ * bounds() を置きたいセパレータの ToolBar::Item::bounds() に設定してやれば良い。
  * 
- * TB_SETANCHORHIGHLIGHT �͌��ʂ��m�F�ł����B
- * TB_SETCOLORSCHEME �� Visual Style �L�����ɂ͖����Ȃ̂Ŏ��������B
- * TB_GETITEMDROPDOWNRECT �� MSDN �ł� XP �ȍ~�ƂȂ��Ă��邪�w�b�_�t�@�C�����ł� Vista �ȍ~�ƂȂ��Ă���B
- * TBSTATE_ELLIPSES �͎w�肵�Ă����Ȃ��Ă�������̏ȗ��L�����\�������ׁA���ʕs���B
- * TBSTYLE_TRANSPARENT �͓��삹���BVisual Style �����A�ォ��X�^�C���ύX�ł��_���B
+ * TB_SETANCHORHIGHLIGHT は効果を確認できず。
+ * TB_SETCOLORSCHEME は Visual Style 有効時には無効なので実装せず。
+ * TB_GETITEMDROPDOWNRECT は MSDN では XP 以降となっているがヘッダファイル内では Vista 以降となっている。
+ * TBSTATE_ELLIPSES は指定してもしなくても文字列の省略記号が表示される為、効果不明。
+ * TBSTYLE_TRANSPARENT は動作せず。Visual Style 無効、後からスタイル変更でもダメ。
  *
- * <h3>�E�T���v���R�[�h</h3>
+ * <h3>・サンプルコード</h3>
  * <pre><code>
 	Frame frame(L"ToolBar Sample");
 
 	typedef PopupMenu::ItemInfo MenuInfo;
 	MenuInfo menuInfos[] = {
-		MenuInfo(L"�h���b�v�_�E��0"),
-		MenuInfo(L"�h���b�v�_�E��1"),
-		MenuInfo(L"�h���b�v�_�E��2"),
+		MenuInfo(L"ドロップダウン0"),
+		MenuInfo(L"ドロップダウン1"),
+		MenuInfo(L"ドロップダウン2"),
 	};
 	PopupMenu dropDown(menuInfos);
 
 	typedef ToolBar::ItemInfo Info;
 	Info infos[] = {
-		Info(ImageList::StandardImage::cut, L"�؂���", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"�؂�����");
+		Info(ImageList::StandardImage::cut, L"切り取り", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"切り取った");
 		}),
-		Info(ImageList::StandardImage::copy, L"�R�s�[", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"�R�s�[����");
+		Info(ImageList::StandardImage::copy, L"コピー", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"コピーした");
 		}),
-		Info(ImageList::StandardImage::paste, L"�\��t��", [&] (ToolBar::Click& ) {
-			MsgBox::show(L"�\��t����");
+		Info(ImageList::StandardImage::paste, L"貼り付け", [&] (ToolBar::Click& ) {
+			MsgBox::show(L"貼り付けた");
 		}),
-		Info(ImageList::StandardImage::properties, L"�v���p�e�B", ToolBar::ItemStyle::dropDownButton, [&] (ToolBar::Click& e) {
+		Info(ImageList::StandardImage::properties, L"プロパティ", ToolBar::ItemStyle::dropDownButton, [&] (ToolBar::Click& e) {
 			if (e.dropDown()) {
 				dropDown.show(frame, e.item().bounds().bottomLeft());
 			} else {
-				MsgBox::show(L"�v���p�e�B");
+				MsgBox::show(L"プロパティ");
 			}
 		})
 	};
@@ -75,15 +75,15 @@ public:
 	typedef ::balor::graphics::ImageList ImageList;
 
 
-	///	���ڂ̃X�^�C���B
+	///	項目のスタイル。
 	struct ItemStyle {
 		enum _enum {
-			button         = 0x0000, /// ���ʂ̃{�^���B
-			separator      = 0x0001, /// �{�^�����m�̋�؂�B
-			checkBox       = 0x0002, /// �g�O���{�^���B
-			radioButton    = 0x0006, /// ���W�I�{�^���B
-			dropDown       = 0x0088, /// �h���b�v�_�E���B
-			dropDownButton = 0x0008, /// �{�^���ƃh���b�v�_�E���B���̃{�^����ǉ�����ƃc�[���o�[�̏c�����傫���Ȃ�B
+			button = 0x0000, /// 普通のボタン。
+			separator = 0x0001, /// ボタン同士の区切り。
+			checkBox = 0x0002, /// トグルボタン。
+			radioButton = 0x0006, /// ラジオボタン。
+			dropDown = 0x0088, /// ドロップダウン。
+			dropDownButton = 0x0008, /// ボタンとドロップダウン。このボタンを追加するとツールバーの縦幅が大きくなる。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ItemStyle);
 	};
@@ -94,64 +94,64 @@ public:
 	struct Click;
 
 
-	/// ���ځBToolBar::operator[] �Ŏ擾�ł���B
+	/// 項目。ToolBar::operator[] で取得できる。
 	class Item {
 	public:
 		Item(HWND ownerHandle, int index);
-		/// ���ڏ��𔽉f�B
+		/// 項目情報を反映。
 		Item& operator=(const ItemInfo& itemInfo);
 
-		/// ���ڂ̕��𕶎���̕��ɍ��킹�邩�ǂ����BToolTip::bottomText() �� true �̏ꍇ�̂ݗL���Bfalse �̏ꍇ�͍ő啝�œ��ꂳ���B
+		/// 項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。
 		bool autoSize() const;
 		void autoSize(bool value);
-		/// ���ڂ̃N���C�A���g���W�̈�B
+		/// 項目のクライアント座標領域。
 		Rectangle bounds() const;
-		/// �g�O���ŉ����ꂽ��Ԃ��ǂ����B
+		/// トグルで押された状態かどうか。
 		bool checked() const;
 		void checked(bool value);
-		/// �������Ԃ��ǂ����B
+		/// 押せる状態かどうか。
 		bool enabled() const;
 		void enabled(bool value);
-		/// �A�C�R���̉摜���X�g�iToolBar::imageList()�j�̃C���f�b�N�X�B-1 �Ȃ�\�����Ȃ��B
-		/// style() �� ToolBar::ItemStyle::separator �̏ꍇ�̓Z�p���[�^�̃s�N�Z�����ɂȂ�B�ʖ��� separatorSize() �֐����g���Ɨǂ��B
+		/// アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。
+		/// style() が ToolBar::ItemStyle::separator の場合はセパレータのピクセル幅になる。別名の separatorSize() 関数を使うと良い。
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ���ڂ̃C���f�b�N�X�B
+		/// 項目のインデックス。
 		int index() const;
-		/// ������� & ����ʏ������邩�ǂ����B��������c�[���`�b�v�ɕ\������ꍇ�͖����B
+		/// 文字列の & を特別処理するかどうか。文字列をツールチップに表示する場合は無効。
 		bool noPrefix() const;
 		void noPrefix(bool value);
-		/// �{�^�����������C�x���g�B
+		/// ボタンを押したイベント。
 		Listener<ToolBar::Click&>& onClick();
-		/// ���ڂ̃c�[���`�b�v��\������C�x���g�B
+		/// 項目のツールチップを表示するイベント。
 		Listener<ToolBar::ItemTipPopup&>& onItemTipPopup();
-		/// �c�[���o�[�̃n���h���B
+		/// ツールバーのハンドル。
 		HWND ownerHandle() const;
-		/// text() ���{�^���̉E�ɕ\�����邩�ǂ����Bfalse �̏ꍇ�� text() ���c�[���`�b�v������Ƃ���B
-		/// ToolTip::bottomText() �� false �̏ꍇ�̂ݗL���B
+		/// text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。
+		/// ToolTip::bottomText() が false の場合のみ有効。
 		bool rightText() const;
 		void rightText(bool value);
-		/// �{�^������������Ԃ��ǂ����B
+		/// ボタンを押した状態かどうか。
 		bool pushed() const;
-		/// �Z�p���[�^�̃s�N�Z�����Bwrap() �� true �̏ꍇ�͏c�����̑傫���B
-		/// style() �� ToolBar::ItemStyle::separator �ȊO�̏ꍇ�̓A�C�R���̉摜���X�g�̃C���f�b�N�X�ɂȂ�B�ʖ��� imageIndex() �֐����g���Ɨǂ��B
+		/// セパレータのピクセル幅。wrap() が true の場合は縦方向の大きさ。
+		/// style() が ToolBar::ItemStyle::separator 以外の場合はアイコンの画像リストのインデックスになる。別名の imageIndex() 関数を使うと良い。
 		int separatorSize() const;
 		void separatorSize(int value);
-		/// ���ڂ̃X�^�C���B
+		/// 項目のスタイル。
 		ToolBar::ItemStyle style() const;
 		void style(ToolBar::ItemStyle value);
-		/// ���ڂ̃c�[���`�b�v������BToolTip::bottomText() �� true �̏ꍇ�̓{�^�������ɕ\�������B�����ł͂Ȃ� rightText() �� true �̏ꍇ�̓{�^���̉E�ɕ\�������B
-		/// ���ڕ\�����c�[���`�b�v��������\���������ꍇ�� onItemTipPopup() �C�x���g����������B
+		/// 項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。
+		/// 直接表示しつつツールチップ文字列も表示したい場合は onItemTipPopup() イベントを処理する。
 		String text() const;
 		void text(StringRange value);
-		/// �\�����邩�ǂ����B�B
+		/// 表示するかどうか。。
 		bool visible() const;
 		void visible(bool value);
-		/// ���ڂ̃s�N�Z�����B�����񂪕\������Ă���ꍇ�iToolBar::bottomText() �� true ���A�܂��� ToolBar::bottomText() �� false ���� rightText() �� true �̏ꍇ�j�̂ݕύX�ł���B
-		/// �Z�p���[�^�̑傫����ύX����ꍇ�� separatorSize() ���g�p���Ȃ��Əc�����̑傫�����ς��Ȃ��B
+		/// 項目のピクセル幅。文字列が表示されている場合（ToolBar::bottomText() が true か、または ToolBar::bottomText() が false かつ rightText() が true の場合）のみ変更できる。
+		/// セパレータの大きさを変更する場合は separatorSize() を使用しないと縦方向の大きさが変わらない。
 		int width() const;
 		void width(int value);
-		/// ���̍��ڂ�����s���邩�ǂ����B
+		/// 次の項目から改行するかどうか。
 		bool wrap() const;
 		void wrap(bool value);
 
@@ -161,62 +161,62 @@ public:
 	};
 
 
-	/// ���ڏ��\���́B�����������Ńc�[���o�[�͈�ؑ��삵�Ȃ��BToolBar::itemInfos �֐����Ŏg�p����B
-	/// �f�t�H���g�R���X�g���N�^�ō쐬����ƃZ�p���[�^�ɂȂ�B
+	/// 項目情報構造体。情報を持つだけでツールバーは一切操作しない。ToolBar::itemInfos 関数等で使用する。
+	/// デフォルトコンストラクタで作成するとセパレータになる。
 	class ItemInfo {
 	public:
-		/// �Z�p���[�^�Ƃ��č쐬�B
+		/// セパレータとして作成。
 		ItemInfo();
 		ItemInfo(ItemInfo&& value);
-		/// ���ڏ��̎擾�B
+		/// 項目情報の取得。
 		ItemInfo(const Item& item);
-		/// �摜�C���f�b�N�X�A������A�N���b�N�C�x���g���畁�ʂ̃{�^���Ƃ��č쐬�B
+		/// 画像インデックス、文字列、クリックイベントから普通のボタンとして作成。
 		explicit ItemInfo(int imageIndex, String text = String(), Listener<ToolBar::Click&> onClick = Listener<ToolBar::Click&>());
-		/// �摜�C���f�b�N�X�A������A���ڃX�^�C���A�N���b�N�C�x���g����쐬�B
+		/// 画像インデックス、文字列、項目スタイル、クリックイベントから作成。
 		ItemInfo(int imageIndex, String text, ToolBar::ItemStyle style, Listener<ToolBar::Click&> onClick);
 		ItemInfo& operator=(ItemInfo&& value);
 
-		/// ���ڂ̕��𕶎���̕��ɍ��킹�邩�ǂ����BToolTip::bottomText() �� true �̏ꍇ�̂ݗL���Bfalse �̏ꍇ�͍ő啝�œ��ꂳ���B�����l�� false�B
+		/// 項目の幅を文字列の幅に合わせるかどうか。ToolTip::bottomText() が true の場合のみ有効。false の場合は最大幅で統一される。初期値は false。
 		bool autoSize() const;
 		void autoSize(bool value);
-		/// �g�O���ŉ����ꂽ��Ԃ��ǂ����B
+		/// トグルで押された状態かどうか。
 		bool checked() const;
 		void checked(bool value);
-		/// �������Ԃ��ǂ����B
+		/// 押せる状態かどうか。
 		bool enabled() const;
 		void enabled(bool value);
-		/// �A�C�R���̉摜���X�g�iToolBar::imageList()�j�̃C���f�b�N�X�B-1 �Ȃ�\�����Ȃ��B
-		/// style() �� ToolBar::ItemStyle::separator �̏ꍇ�̓Z�p���[�^�̃s�N�Z�����ɂȂ�B�ʖ��� separatorSize() �֐����g���Ɨǂ��B
+		/// アイコンの画像リスト（ToolBar::imageList()）のインデックス。-1 なら表示しない。
+		/// style() が ToolBar::ItemStyle::separator の場合はセパレータのピクセル幅になる。別名の separatorSize() 関数を使うと良い。
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ������� & ����ʏ������邩�ǂ����B��������c�[���`�b�v�ɕ\������ꍇ�͖����B�����l�� false�B
+		/// 文字列の & を特別処理するかどうか。文字列をツールチップに表示する場合は無効。初期値は false。
 		bool noPrefix() const;
 		void noPrefix(bool value);
-		/// �{�^�����������C�x���g�B
+		/// ボタンを押したイベント。
 		Listener<ToolBar::Click&>& onClick();
 		const Listener<ToolBar::Click&>& onClick() const;
-		/// ���ڂ̃c�[���`�b�v��\������C�x���g�B
+		/// 項目のツールチップを表示するイベント。
 		Listener<ToolBar::ItemTipPopup&>& onItemTipPopup();
 		const Listener<ToolBar::ItemTipPopup&>& onItemTipPopup() const;
-		/// text() ���{�^���̉E�ɕ\�����邩�ǂ����Bfalse �̏ꍇ�� text() ���c�[���`�b�v������Ƃ���B�����l�� false�B
-		/// ToolTip::bottomText() �� false �̏ꍇ�̂ݗL���B
+		/// text() をボタンの右に表示するかどうか。false の場合は text() をツールチップ文字列とする。初期値は false。
+		/// ToolTip::bottomText() が false の場合のみ有効。
 		bool rightText() const;
 		void rightText(bool value);
-		/// �Z�p���[�^�̃s�N�Z�����B0 �̏ꍇ�̓f�t�H���g�̑傫���Bwrap() �� true �̏ꍇ�͏c�����̑傫���B
-		/// style() �� ToolBar::ItemStyle::separator �ȊO�̏ꍇ�̓A�C�R���̉摜���X�g�̃C���f�b�N�X�ɂȂ�B�ʖ��� imageIndex() �֐����g���Ɨǂ��B
+		/// セパレータのピクセル幅。0 の場合はデフォルトの大きさ。wrap() が true の場合は縦方向の大きさ。
+		/// style() が ToolBar::ItemStyle::separator 以外の場合はアイコンの画像リストのインデックスになる。別名の imageIndex() 関数を使うと良い。
 		int separatorSize() const;
 		void separatorSize(int value);
-		/// ���ڂ̃X�^�C���B
+		/// 項目のスタイル。
 		ToolBar::ItemStyle style() const;
 		void style(ToolBar::ItemStyle value);
-		/// ���ڂ̃c�[���`�b�v������BToolTip::bottomText() �� true �̏ꍇ�̓{�^�������ɕ\�������B�����ł͂Ȃ� rightText() �� true �̏ꍇ�̓{�^���̉E�ɕ\�������B
-		/// ���ڕ\�����c�[���`�b�v��������\���������ꍇ�� onItemTipPopup() �C�x���g����������B
+		/// 項目のツールチップ文字列。ToolTip::bottomText() が true の場合はボタン下部に表示される。そうではなく rightText() が true の場合はボタンの右に表示される。
+		/// 直接表示しつつツールチップ文字列も表示したい場合は onItemTipPopup() イベントを処理する。
 		const String& text() const;
 		void text(String value);
-		/// �\�����邩�ǂ����B�����l�� true�B
+		/// 表示するかどうか。初期値は true。
 		bool visible() const;
 		void visible(bool value);
-		/// ���̍��ڂ�����s���邩�ǂ����B�����l�� false�B
+		/// 次の項目から改行するかどうか。初期値は false。
 		bool wrap() const;
 		void wrap(bool value);
 
@@ -233,15 +233,15 @@ public:
 	};
 
 
-	/// �c�[���o�[�̃C�x���g�̐e�N���X�B
+	/// ツールバーのイベントの親クラス。
 	typedef EventWithSubclassSender<ToolBar, Control::Event> Event;
 
 
-	/// ���ڂŔ�������C�x���g�B
+	/// 項目で発生するイベント。
 	struct ItemEvent : public Event {
 		ItemEvent(ToolBar& sender, int itemIndex);
 
-		/// �C�x���g�̔����������ځB
+		/// イベントの発生した項目。
 		ToolBar::Item item() const;
 
 	private:
@@ -249,11 +249,11 @@ public:
 	};
 
 
-	/// �{�^�����N���b�N�����C�x���g�B
+	/// ボタンをクリックしたイベント。
 	struct Click : public ItemEvent {
 		Click(ToolBar& sender, int itemIndex, bool dropDown);
 
-		/// �h���b�v�_�E�����N���b�N�������ǂ����B
+		/// ドロップダウンをクリックしたかどうか。
 		bool dropDown() const;
 
 	private:
@@ -261,11 +261,11 @@ public:
 	};
 
 
-	/// ���ڂ̃c�[���`�b�v��\������C�x���g�B
+	/// 項目のツールチップを表示するイベント。
 	struct ItemTipPopup : public ItemEvent {
 		ItemTipPopup(ToolBar& sender, int itemIndex, wchar_t* buffer, int bufferSize);
 
-		/// �\�����镶�����ݒ肷��B������̒����ɂ͏���������Đ؂�̂Ă���B
+		/// 表示する文字列を設定する。文字列の長さには上限があって切り捨てられる。
 		void setText(StringRange value);
 
 	private:
@@ -275,89 +275,89 @@ public:
 
 
 public:
-	/// �k���|�C���^�ō쐬�B
+	/// ヌルポインタで作成。
 	ToolBar();
 	ToolBar(ToolBar&& value, bool checkSlicing = true);
-	/// �e�A�ʒu�A�傫������쐬�B
+	/// 親、位置、大きさから作成。
 	ToolBar(Control& parent, int x, int y, int width, int height, HIMAGELIST imageList);
-	/// �e�A�ʒu�A�傫���A���ڏ��z�񂩂�쐬�B
+	/// 親、位置、大きさ、項目情報配列から作成。
 	ToolBar(Control& parent, int x, int y, int width, int height, HIMAGELIST imageList, ArrayRange<const ItemInfo> itemInfos);
 	virtual ~ToolBar();
 	ToolBar& operator=(ToolBar&& value);
 
 public:
-	/// ���ڂ�ǉ�����B
+	/// 項目を追加する。
 	void add(const ItemInfo& itemInfo);
-	/// �{�^���̉����ɕ������\�����邩�ǂ����Btrue �̏ꍇ�� ToolTip::Item::text() ���{�^���̉����ɏ�ɕ\�������B
-	/// �c�[���`�b�v��\������ꍇ�� ToolTip::Item::onItemTipPopup �C�x���g����������K�v������B
-	/// false �̏ꍇ�̓{�^�������ɕ\�����ꂸ�A�c�[���`�b�v������Ƃ��ĕ\�������B������ ToolTip::Item::rightText() �� true �̏ꍇ�̓{�^���̉E���ɕ����񂪕\�������B
-	/// �����l�� false�B
+	/// ボタンの下部に文字列を表示するかどうか。true の場合は ToolTip::Item::text() がボタンの下部に常に表示される。
+	/// ツールチップを表示する場合は ToolTip::Item::onItemTipPopup イベントを処理する必要がある。
+	/// false の場合はボタン下部に表示されず、ツールチップ文字列として表示される。ただし ToolTip::Item::rightText() が true の場合はボタンの右側に文字列が表示される。
+	/// 初期値は false。
 	bool bottomText() const;
 	void bottomText(bool value);
-	/// ���ڂ�S�č폜����B
+	/// 項目を全て削除する。
 	void clear();
-	/// ���ڐ��B
+	/// 項目数。
 	int count() const;
-	/// ���͂��󂯕t���Ȃ����ڂ̉摜���X�g�B�ݒ肵�Ȃ��ꍇ�� imageList() �̉摜���O���C�X�P�[���ŕ\�������B�����l�� nullptr�BToolBar �͉摜���X�g�̃n���h����j�����Ȃ��B
+	/// 入力を受け付けない項目の画像リスト。設定しない場合は imageList() の画像がグレイスケールで表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。
 	ImageList disabledImageList() const;
 	void disabledImageList(HIMAGELIST value);
-	/// �㕔��2�s�N�Z�����̃n�C���C�g�\�������邩�ǂ����B�����l�� false�B
+	/// 上部に2ピクセル分のハイライト表示をするかどうか。初期値は false。
 	bool divider() const;
 	void divider(bool value);
-	/// �R���g���[���̋��E���̎�ށB�����l�� Control::Edge::none�B
+	/// コントロールの境界線の種類。初期値は Control::Edge::none。
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// ���ڂ��폜����B
+	/// 項目を削除する。
 	void erase(int index);
-	/// �t�H�[�J�X����Ă��鍀�ڃC���f�b�N�X�B�����ꍇ�� -1�B
+	/// フォーカスされている項目インデックス。無い場合は -1。
 	int focusedIndex() const;
 	void focusedIndex(int value);
-	/// �w�肵���N���C�A���g���W�ɂ��鍀�ڂ̃C���f�b�N�X���擾����B�Z�p���[�^�̃C���f�b�N�X�͕Ԃ��Ȃ��B������Ȃ��ꍇ�͕�����Ԃ��B
+	/// 指定したクライアント座標にある項目のインデックスを取得する。セパレータのインデックスは返さない。見つからない場合は負数を返す。
 	int getIndexAt(const Point& point) const;
 	int getIndexAt(int x, int y) const;
-	/// �K�؂ȃR���g���[���T�C�Y�B
+	/// 適切なコントロールサイズ。
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// �����ł��\��������Ȃ����ڂ��B�����ǂ����B�����l�� false�B
+	/// 少しでも表示しきれない項目を隠すかどうか。初期値は false。
 	bool hideClippedItems() const;
 	void hideClippedItems(bool value);
-	/// �}�E�X�J�[�\���̉��̍��ڂ̉摜���X�g�B�ݒ肵�Ȃ��ꍇ�� imageList() �̉摜���\�������B�����l�� nullptr�BToolBar �͉摜���X�g�̃n���h����j�����Ȃ��B
+	/// マウスカーソルの下の項目の画像リスト。設定しない場合は imageList() の画像が表示される。初期値は nullptr。ToolBar は画像リストのハンドルを破棄しない。
 	ImageList hotImageList() const;
 	void hotImageList(HIMAGELIST value);
-	/// ���ڂ̉摜���X�g�BToolBar �͉摜���X�g�̃n���h����j�����Ȃ��B
+	/// 項目の画像リスト。ToolBar は画像リストのハンドルを破棄しない。
 	ImageList imageList() const;
 	void imageList(HIMAGELIST value);
-	/// �ŏ��̍��ڂ̉������̃s�N�Z���ʒu�B�����l�͂����炭�O�B
+	/// 最初の項目の横方向のピクセル位置。初期値はおそらく０。
 	void indent(int value);
-	/// ���ڂ�}������B
+	/// 項目を挿入する。
 	void insert(int index, const ItemInfo& itemInfo);
-	/// ���ڂ̏��z����ꊇ�Ŏ擾�A�ݒ肷��B
+	/// 項目の情報配列を一括で取得、設定する。
 	std::vector<ToolBar::ItemInfo> itemInfos() const;
 	void itemInfos(ArrayRange<const ToolBar::ItemInfo> value);
-	/// ���ڑS�Ă��܂ޑ傫���B
+	/// 項目全てを含む大きさ。
 	Size itemsSize() const;
-	/// ���ڂɕ\������c�[���`�b�v�R���g���[���̎Q�ƁB�K�v�Ȑݒ���s������j�����Ă��ǂ����ꕔ�ݒ��C�x���g�͔j������Ɩ����ɂȂ�B������x ToolBar �����䂵�Ă���̂œ��삵�Ȃ��ݒ������B
+	/// 項目に表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 ToolBar が制御しているので動作しない設定もある。
 	ToolTip itemTip();
-	/// �N���C�A���g�̈�̑傫������R���g���[���̑傫�������߂�B
+	/// クライアント領域の大きさからコントロールの大きさを求める。
 	virtual Size sizeFromClientSize(const Size& clientSize) const;
-	/// �w�i�������邩�ǂ����B����ł͐e�� Rebar �ł���ꍇ�ɂ̂ݓ�����B�����l�� false�B
+	/// 背景が透けるかどうか。現状では親が Rebar である場合にのみ透ける。初期値は false。
 	bool transparent() const;
 	void transparent(bool value);
-	/// �c�[���o�[���c�\���ɂ��邩�ǂ����Btrue �̏ꍇ�A�Z�p���[�^�̕\�����c�����ɂȂ�S�Ă̍��ڂ� ToolBar::Item::wrap() �� true �ɐݒ肷��B
+	/// ツールバーを縦表示にするかどうか。true の場合、セパレータの表示が縦方向になり全ての項目の ToolBar::Item::wrap() を true に設定する。
 	bool vertical() const;
 	void vertical(bool value);
-	/// �c�[���o�[�̕��ō��ڂ�\��������Ȃ����ɉ��s���邩�ǂ����Bvertical() �Ɠ����� true �ɂ��邱�Ƃ͂ł��Ȃ��B�����l�� false�B
-	/// ���s�̓���Z�p���[�^�͏c�\���ɂȂ�B���s�̈ʒu�̓V�X�e���Ōv�Z�����B
-	/// bottomText() �� false �̏ꍇ�A���W�I�{�^������\��������Ȃ��Ă����s���Ȃ��ꍇ������B
+	/// ツールバーの幅で項目を表示しきれない時に改行するかどうか。vertical() と同時に true にすることはできない。初期値は false。
+	/// 改行の入るセパレータは縦表示になる。改行の位置はシステムで計算される。
+	/// bottomText() が false の場合、ラジオボタン等を表示しきれなくても改行しない場合がある。
 	bool wrappable() const;
 	void wrappable(bool value);
 
 public:
-	/// index �Ԗڂ̍��ځB
+	/// index 番目の項目。
 	ToolBar::Item operator[](int index);
 	const ToolBar::Item operator[](int index) const;
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:

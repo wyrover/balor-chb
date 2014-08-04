@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 
@@ -25,31 +25,31 @@ class ToolTip;
 
 
 /**
- * �c���[�r���[�B
- *
- * �}�E�X���{�^�������ڏ�ŉ������ꍇ�AonMouseDown �C�x���g�̓{�^���𗣂������ɔ������AonMouseUp �C�x���g�͔������Ȃ��B����� onClick �C�x���g���g�p�ł���B
- * �}�E�X�E�{�^�����������ꍇ�AonMouseDonw �C�x���g�̓{�^���𗣂������ɔ������AonMouseUp �C�x���g�͔������Ȃ��B����� onRightClick �C�x���g���g�p�ł���B
- * onDrag �C�x���g�͂��܂��E���Ȃ��B����� onItemDrag �C�x���g���g�p�ł���B
- * �w�i���u���V�œh����@�͔���Ȃ������BWM_ERASEBKGND �ł͍��ڂ̔w�i��h��Ȃ��B
- *
- * <h3>�E�T���v���R�[�h</h3>
+* ツリービュー。
+*
+* マウス左ボタンを項目上で押した場合、onMouseDown イベントはボタンを離した時に発生し、onMouseUp イベントは発生しない。代わりに onClick イベントを使用できる。
+* マウス右ボタンを押した場合、onMouseDonw イベントはボタンを離した時に発生し、onMouseUp イベントは発生しない。代わりに onRightClick イベントを使用できる。
+* onDrag イベントはうまく拾えない。代わりに onItemDrag イベントを使用できる。
+* 背景をブラシで塗る方法は判らなかった。WM_ERASEBKGND では項目の背景を塗れない。
+*
+* <h3>・サンプルコード</h3>
  * <pre><code>
 	Frame frame(L"TreeView Sample");
 
 	typedef TreeView::ItemInfo Info;
 	Info subInfos0[] = {
-		Info(L"�T�u����00"),
-		Info(L"�T�u����01")
+		Info(L"サブ項目00"),
+		Info(L"サブ項目01")
 	};
 	Info subInfos1[] = {
-		Info(L"�T�u����10"),
-		Info(L"�T�u����11"),
-		Info(L"�T�u����12")
+		Info(L"サブ項目10"),
+		Info(L"サブ項目11"),
+		Info(L"サブ項目12")
 	};
 	Info infos[] = {
-		Info(L"����0", subInfos0),
-		Info(L"����1", subInfos1),
-		Info(L"����2")
+		Info(L"項目0", subInfos0),
+		Info(L"項目1", subInfos1),
+		Info(L"項目2")
 	};
 	TreeView tree(frame, 20, 10, 0, 0, infos);
 
@@ -62,15 +62,15 @@ public:
 	typedef ::_TREEITEM* HTREEITEM;
 	typedef ::balor::graphics::ImageList ImageList;
 
-	/// ���ڂ̕�����̏I�[�������܂߂��ő咷�B
+	/// 項目の文字列の終端文字を含めた最大長。
 	static const int maxTextLength = 260;
 
 
-	/// �R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B�g�ݍ��킹�Ŏw�肷��B
+	/// コントロール作成後に変更できない設定。組み合わせで指定する。
 	struct Options {
 		enum _enum {
-			none       = 0      ,
-			checkBoxes = 0x0100L, // ���ڂ��ƂɃ`�F�b�N�{�b�N�X��\������BstateImageList() �𑀍삵�ă`�F�b�N�摜��ύX�ł���B�摜��ǉ�����ƃ`�F�b�N��Ԃ�������B
+			none = 0,
+			checkBoxes = 0x0100L, // 項目ごとにチェックボックスを表示する。stateImageList() を操作してチェック画像を変更できる。画像を追加するとチェック状態が増える。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
@@ -80,90 +80,90 @@ public:
 	class ItemDescendantsIterator;
 
 
-	/// ���ځBTreeView::root �֐�������擾�ł���B
+	/// 項目。TreeView::root 関数等から取得できる。
 	class Item {
 	public:
 		Item(HWND ownerHandle, HTREEITEM item);
-		/// ���ڏ��𔽉f�B
+		/// 項目情報を反映。
 		Item& operator=(const ItemInfo& itemInfo);
 
-		/// �q���ڂ𖖔��ɒǉ�����B
+		/// 子項目を末尾に追加する。
 		Item add(const ItemInfo& itemInfo);
-		/// �Ō�̎q���ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 最後の子項目。無い場合はヌルの項目を返す。
 		Item back();
 		const Item back() const;
-		/// ������̕ҏW���n�߂�B�����I�Ƀt�H�[�J�X���ڂ��B
+		/// 文字列の編集を始める。強制的にフォーカスを移す。
 		void beginEdit();
-		/// �����񂪑������ǂ����B
+		/// 文字列が太字かどうか。
 		bool bold() const;
 		void bold(bool value);
-		/// �c��[�r���[���ł̍��ڂ̗̈�B
+		/// ツりービュー内での項目の領域。
 		Rectangle bounds() const;
-		/// �c��[�r���[���ł̎q���ڂ��܂ލ��ڂ̗̈�B
+		/// ツりービュー内での子項目も含む項目の領域。
 		Rectangle boundsWithChildren() const;
-		/// �`�F�b�N�{�b�N�X���`�F�b�N����Ă��邩�ǂ����B�`�F�b�N�̃I���ƃI�t�� state() �� 1 �� 0 �ɊY������B
+		/// チェックボックスがチェックされているかどうか。チェックのオンとオフは state() の 1 と 0 に該当する。
 		bool checked() const;
 		void checked(bool value);
-		/// �S�Ă̎q���ڂ��폜����B
+		/// 全ての子項目を削除する。
 		void clear();
-		/// �؂��肳�ꂽ��Ԃ��ǂ����B�A�C�R���������\�������B
+		/// 切り取りされた状態かどうか。アイコンが薄く表示される。
 		bool cut() const;
 		void cut(bool value);
-		/// ���ڂ̎q����񋓂���C�e���[�^�B
+		/// 項目の子孫を列挙するイテレータ。
 		TreeView::ItemDescendantsIterator descendantsBegin();
-		/// ������̕ҏW���I����B
+		/// 文字列の編集を終える。
 		void endEdit(bool cancel = false);
-		/// ���ڂ�������悤�ɃX�N���[������B
+		/// 項目が見えるようにスクロールする。
 		void ensureVisible();
-		/// �q���ڂ��폜����B
+		/// 子項目を削除する。
 		void erase(Item& item);
-		/// ���̍��ڂ̎q���ڂ��\������Ă��邩�ǂ����B
+		/// この項目の子項目が表示されているかどうか。
 		bool expanded() const;
 		void expanded(bool value);
-		/// �S�Ă̎q�����ڂ�\���܂��͔�\���ɂ���B
+		/// 全ての子孫項目を表示または非表示にする。
 		void expandAll(bool value);
-		/// �ŏ��̎q���ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 最初の子項目。無い場合はヌルの項目を返す。
 		Item front();
 		const Item front() const;
-		/// �n�C���C�g�\�����ǂ����B�I����ԂƓ����\���B
+		/// ハイライト表示かどうか。選択状態と同じ表示。
 		bool highlight() const;
 		void highlight(bool value);
-		/// �A�C�R���̉摜���X�g�iTreeView::imageList()�j�̃C���f�b�N�X�B
+		/// アイコンの画像リスト（TreeView::imageList()）のインデックス。
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// �w�肵���q���ڂ̑O�Ɏq���ڂ�ǉ�����B
+		/// 指定した子項目の前に子項目を追加する。
 		Item insert(Item& nextItem, const ItemInfo& itemInfo);
-		/// �q���ڂ̏��z����ꊇ�Ŏ擾�A�ݒ肷��B
+		/// 子項目の情報配列を一括で取得、設定する。
 		std::vector<TreeView::ItemInfo> itemInfos() const;
 		void itemInfos(ArrayRange<const ItemInfo> value);
-		/// ���̌Z�퍀�ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 次の兄弟項目。無い場合はヌルの項目を返す。
 		Item next();
 		const Item next() const;
-		/// ���̕\������Ă��鍀�ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 次の表示されている項目。無い場合はヌルの項目を返す。
 		Item nextVisible();
 		const Item nextVisible() const;
-		/// �c���[�r���[�̃n���h��
+		/// ツリービューのハンドル
 		HWND ownerHandle() const;
-		/// �e���ځB���[�g���ڂ��ǂ����� ListView::root() �� == ��r���Ĕ��f�ł���B
+		/// 親項目。ルート項目かどうかは ListView::root() と == 比較して判断できる。
 		Item parent();
 		const Item parent() const;
-		/// �O�̌Z�퍀�ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 前の兄弟項目。無い場合はヌルの項目を返す。
 		Item prev();
 		const Item prev() const;
-		/// �O�̕\������Ă��鍀�ځB�����ꍇ�̓k���̍��ڂ�Ԃ��B
+		/// 前の表示されている項目。無い場合はヌルの項目を返す。
 		Item prevVisible();
 		const Item prevVisible() const;
-		/// �I����ԃA�C�R���̉摜���X�g�iTreeView::imageList()�j�̃C���f�b�N�X�B
+		/// 選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。
 		int selectedImageIndex() const;
 		void selectedImageIndex(int value);
-		/// ��ԁB��ԉ摜���X�g�iTreeView::stateImageList()�j�̃C���f�b�N�X - 1 �ŁA-1 �Ȃ�\�����Ȃ��B
+		/// 状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。
 		int state() const;
 		void state(int value);
-		/// ���ڂ̕�����B
+		/// 項目の文字列。
 		String text() const;
 		void text(StringRange value);
 		void textToBuffer(StringBuffer& buffer) const;
-		/// ���[�U��`�̃f�[�^�B�擾����ꍇ�� UniqueAny �̒��g�̌^���w�肷��B
+		/// ユーザ定義のデータ。取得する場合は UniqueAny の中身の型を指定する。
 		template<typename T> T userData() {
 			auto data = _userData();
 			return any_cast<T>(*reinterpret_cast<UniqueAny*>(&data));
@@ -176,7 +176,7 @@ public:
 		bool userDataIsEmpty() const;
 
 	public:
-		/// �A�C�e���n���h���ւ̎����ϊ��A null �`�F�b�N�A�������ڂ��ǂ����� == ��r�p�B
+		/// アイテムハンドルへの自動変換、 null チェック、同じ項目かどうかの == 比較用。
 		operator HTREEITEM() const { return _item; }
 
 	private:
@@ -187,40 +187,40 @@ public:
 	};
 
 
-	/// ���ڏ��\���́B�����������Ńc��[�r���[�͈�ؑ��삵�Ȃ��BTreeView::Item::itemInfos �֐����Ŏg�p����B
+	/// 項目情報構造体。情報を持つだけでツりービューは一切操作しない。TreeView::Item::itemInfos 関数等で使用する。
 	class ItemInfo {
 	public:
 		ItemInfo(ItemInfo&& value);
-		/// ���ڏ��̎擾�B
+		/// 項目情報の取得。
 		ItemInfo(const Item& item);
-		/// ������ƃA�C�R���摜�C���f�b�N�X������쐬�B
+		/// 文字列とアイコン画像インデックス等から作成。
 		explicit ItemInfo(String text, int imageIndex = 0, int selectedImageIndex = -1, int state = -1);
-		/// ������Ǝq���ڏ��z��Ɖ摜�C���f�b�N�X������쐬�B
+		/// 文字列と子項目情報配列と画像インデックス等から作成。
 		ItemInfo(String text, ArrayRange<const ItemInfo> itemInfos, int imageIndex = 0, int selectedImageIndex = -1, int state = -1);
 		ItemInfo& operator=(ItemInfo&& value);
 
-		/// �����񂪑������ǂ����B
+		/// 文字列が太字かどうか。
 		bool bold() const;
 		void bold(bool value);
-		/// �؂��肳�ꂽ��Ԃ��ǂ����B�A�C�R���������\�������B
+		/// 切り取りされた状態かどうか。アイコンが薄く表示される。
 		bool cut() const;
 		void cut(bool value);
-		/// �n�C���C�g�\�����ǂ����B�I����ԂƓ����\���B
+		/// ハイライト表示かどうか。選択状態と同じ表示。
 		bool highlight() const;
 		void highlight(bool value);
-		/// �A�C�R���̉摜���X�g�iTreeView::imageList()�j�̃C���f�b�N�X�B
+		/// アイコンの画像リスト（TreeView::imageList()）のインデックス。
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// �q���ڂ̏��\���̔z��B
+		/// 子項目の情報構造体配列。
 		std::vector<TreeView::ItemInfo>& itemInfos();
 		const std::vector<TreeView::ItemInfo>& itemInfos() const;
-		/// �I����ԃA�C�R���̉摜���X�g�iTreeView::imageList()�j�̃C���f�b�N�X�B-1 �Ȃ� imageIndex() �Ɠ����B
+		/// 選択状態アイコンの画像リスト（TreeView::imageList()）のインデックス。-1 なら imageIndex() と同じ。
 		int selectedImageIndex() const;
 		void selectedImageIndex(int value);
-		/// ��ԁB��ԉ摜���X�g�iTreeView::stateImageList()�j�̃C���f�b�N�X - 1 �ŁA-1 �Ȃ�\�����Ȃ��B
+		/// 状態。状態画像リスト（TreeView::stateImageList()）のインデックス - 1 で、-1 なら表示しない。
 		int state() const;
 		void state(int value);
-		/// ���ڂ̕�����B
+		/// 項目の文字列。
 		const String& text() const;
 		void text(String value);
 
@@ -235,7 +235,7 @@ public:
 	};
 
 
-	/// ���ڂ̎q����񋓂ł���C�e���[�^�B�q���ڂ��A�q�̎q���ڂ��S�čċA�I�ɗ񋓂���B
+	/// 項目の子孫を列挙できるイテレータ。子項目も、子の子項目も全て再帰的に列挙する。
 	class ItemDescendantsIterator {
 	public:
 		ItemDescendantsIterator(Item root);
@@ -252,18 +252,18 @@ public:
 
 
 
-	/// �c��[�r���[�̃C�x���g�̐e�N���X�B
+	/// ツりービューのイベントの親クラス。
 	typedef EventWithSubclassSender<TreeView, Control::Event> Event;
 
 	typedef Event Click;
 	typedef Event RightClick;
 
 
-	/// ���ڂɊւ���C�x���g�B
+	/// 項目に関するイベント。
 	struct ItemEvent : public Event {
 		ItemEvent(TreeView& sender, HTREEITEM item);
 
-		/// ���ځB
+		/// 項目。
 		TreeView::Item item();
 
 	private:
@@ -271,11 +271,11 @@ public:
 	};
 
 
-	/// ���ڂ��}�E�X�E�{�^���܂��͍��{�^���Ńh���b�O�����C�x���g�B�h���b�O���J�n����͈͂͑I���ł���͈͂Ɠ����B
+	/// 項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。
 	struct ItemDrag : public ItemEvent {
 		ItemDrag(TreeView& sender, HTREEITEM item, bool rButton);
 
-		/// �E�{�^���h���b�O���ǂ����B
+		/// 右ボタンドラッグかどうか。
 		bool rButton() const;
 
 	private:
@@ -283,11 +283,11 @@ public:
 	};
 
 
-	/// ���ڂ̎q���ڂ��\������Ă��邩�ǂ������ω������C�x���g�B
+	/// 項目の子項目が表示されているかどうかが変化したイベント。
 	struct ItemExpand : public ItemEvent {
 		ItemExpand(TreeView& sender, HTREEITEM item, bool expanded);
 
-		/// ���ڂ̎q���ڂ��\������Ă��邩�ǂ����B
+		/// 項目の子項目が表示されているかどうか。
 		bool expanded() const;
 
 	private:
@@ -295,11 +295,11 @@ public:
 	};
 
 
-	/// ���ڂ̎q���ڂ��\������Ă��邩�ǂ������ω����悤�Ƃ��Ă���C�x���g�B
+	/// 項目の子項目が表示されているかどうかが変化しようとしているイベント。
 	struct ItemExpanding : public ItemExpand {
 		ItemExpanding(TreeView& sender, HTREEITEM item, bool expanded);
 
-		/// �ω����L�����Z�����邩�ǂ����B
+		/// 変化をキャンセルするかどうか。
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -308,29 +308,29 @@ public:
 	};
 
 
-	/// ���ڂ�`�悷�钼�O�̃C�x���g�B
+	/// 項目を描画する直前のイベント。
 	struct ItemPrePaint : public Event {
 		ItemPrePaint(TreeView& sender, ::tagNMTVCUSTOMDRAW* info);
 
-		/// ���ڂ̔w�i�̐F�Bselected() �� true �̏ꍇ�͖����BTreeView::fullRowSelect() �Ŕ͈͂��ς��B
+		/// 項目の背景の色。selected() が true の場合は無効。TreeView::fullRowSelect() で範囲が変わる。
 		Color backColor() const;
 		void backColor(const Color& value);
-		/// ���ڂ̃N���C�A���g���W�̈�B
+		/// 項目のクライアント座標領域。
 		Rectangle bounds() const;
-		/// �t�H�[�J�X������悤�ɕ`�悷�邩�ǂ����B
+		/// フォーカスがあるように描画するかどうか。
 		bool focused() const;
 		void focused(bool value);
-		/// ���ڂ̕�����̃t�H���g�B
+		/// 項目の文字列のフォント。
 		Font font() const;
 		void font(HFONT value);
-		/// �C�x���g�̔����������ځB
+		/// イベントの発生した項目。
 		TreeView::Item item();
-		/// ���ڂ̃c���[�K�w�̐[���B0 ����n�܂�B
+		/// 項目のツリー階層の深さ。0 から始まる。
 		int level() const;
-		/// �I�����Ă���悤�ɕ`�悷�邩�ǂ����B
+		/// 選択しているように描画するかどうか。
 		bool selected() const;
 		void selected(bool value);
-		/// ���ڂ̕�����̐F�B
+		/// 項目の文字列の色。
 		Color textColor() const;
 		void textColor(const Color& value);
 
@@ -342,13 +342,13 @@ public:
 	};
 
 
-	/// �I�����ڂ��ω������C�x���g�B
+	/// 選択項目が変化したイベント。
 	struct ItemSelect : public Event {
 		ItemSelect(TreeView& sender, HTREEITEM oldSelectedItem, HTREEITEM newSelectedItem);
 
-		/// �V�����I�����ځB
+		/// 新しい選択項目。
 		TreeView::Item newSelectedItem() const;
-		/// �Â��I�����ځB
+		/// 古い選択項目。
 		TreeView::Item oldSelectedItem() const;
 
 	protected:
@@ -357,11 +357,11 @@ public:
 	};
 
 
-	/// �I�����ڂ��ω����悤�Ƃ��Ă���C�x���g�B
+	/// 選択項目が変化しようとしているイベント。
 	struct ItemSelecting : public ItemSelect {
 		ItemSelecting(TreeView& sender, HTREEITEM oldSelectedItem, HTREEITEM newSelectedItem);
 
-		/// �ω����L�����Z�����邩�ǂ����B
+		/// 変化をキャンセルするかどうか。
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -370,13 +370,13 @@ public:
 	};
 
 
-	/// ���ڂ̏�Ԃ��ω������C�x���g�B
+	/// 項目の状態が変化したイベント。
 	struct ItemStateChange : public ItemEvent {
 		ItemStateChange(TreeView& sender, HTREEITEM item, int oldState, int newState);
 
-		/// �V�������ڂ̏�ԁB
+		/// 新しい項目の状態。
 		int newState() const;
-		/// �Â����ڂ̏�ԁB
+		/// 古い項目の状態。
 		int oldState() const;
 
 	protected:
@@ -385,21 +385,21 @@ public:
 	};
 
 
-	/// ���ڂ̏�Ԃ��ω����悤�Ƃ��Ă���C�x���g�B
+	/// 項目の状態が変化しようとしているイベント。
 	struct ItemStateChanging : public ItemStateChange {
 		ItemStateChanging(TreeView& sender, HTREEITEM item, int oldState, int newState);
 
-		/// �V�������ڂ̏�ԁB
+		/// 新しい項目の状態。
 		void newState(int value);
 		using ItemStateChange::newState;
 	};
 
 
-	/// ���ڂ̃c�[���`�b�v���\�������C�x���g�B
+	/// 項目のツールチップが表示されるイベント。
 	struct ItemTipPopup : public ItemEvent {
 		ItemTipPopup(TreeView& sender, HTREEITEM item, wchar_t* buffer, int bufferSize);
 
-		/// �\�����镶�����ݒ肷��B������̒����ɂ͏���������Đ؂�̂Ă���B
+		/// 表示する文字列を設定する。文字列の長さには上限があって切り捨てられる。
 		void setText(StringRange value);
 
 	private:
@@ -408,14 +408,14 @@ public:
 	};
 
 
-	/// ���ڂ̕������ҏW��������̃C�x���g�B
+	/// 項目の文字列を編集した直後のイベント。
 	struct TextEdit : public ItemEvent {
 		TextEdit(TreeView& sender, HTREEITEM item, String itemText);
 
-		/// �ҏW���J�n���Ȃ����A�܂��͕ҏW���ʂ𔽉f���Ȃ����ǂ����B
+		/// 編集を開始しないか、または編集結果を反映しないかどうか。
 		bool cancel() const;
 		void cancel(bool value);
-		/// �ҏW�����A�܂��͕ҏW���ꂽ������B
+		/// 編集される、または編集された文字列。
 		const String& itemText() const;
 		void itemText(String value);
 
@@ -425,35 +425,35 @@ public:
 	};
 
 
-	/// ���ڂ̕������ҏW���钼�O�̃C�x���g�B
+	/// 項目の文字列を編集する直前のイベント。
 	struct TextEditing : public TextEdit {
 		TextEditing(TreeView& sender, HTREEITEM item, String itemText);
 
-		/// �ҏW������G�f�B�b�g�R���g���[���̎Q�ƁB�K�v�Ȑݒ���s������j�����Ă��ǂ����ꕔ�ݒ��C�x���g�͔j������Ɩ����ɂȂ�B
-		/// ������x TreeView �����䂵�Ă���̂œ��삵�Ȃ��ݒ������B
+		/// 編集をするエディットコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。
+		/// ある程度 TreeView が制御しているので動作しない設定もある。
 		Edit edit();
 	};
 
 
-	/// �q�b�g�e�X�g�̌��ʁB
+	/// ヒットテストの結果。
 	struct HitTestInfo {
 		HitTestInfo(HWND handle, HTREEITEM item, int flags);
 
-		/// �������Ă��鍀�ځB�������ĂȂ��ꍇ�̓k�����ځB
+		/// 当たっている項目。当たってない場合はヌル項目。
 		TreeView::Item item();
-		/// �q���ڂ�\��/��\���ɂ���[+][-]�{�^���̏�B
+		/// 子項目を表示/非表示にする[+][-]ボタンの上。
 		bool onButton() const;
-		/// �A�C�R���摜�̏�B
+		/// アイコン画像の上。
 		bool onImage() const;
-		/// ���ڂ̃C���f���g�̏�B
+		/// 項目のインデントの上。
 		bool onIndent() const;
-		/// ���ڂ̃A�C�R���摜�A��ԉ摜�A�܂��͕�����̏�B
+		/// 項目のアイコン画像、状態画像、または文字列の上。
 		bool onItem() const;
-		/// ���ڂ̕�������E�̕����B
+		/// 項目の文字列より右の部分。
 		bool onItemRight() const;
-		/// ��ԉ摜�̏�B
+		/// 状態画像の上。
 		bool onStateImage() const;
-		/// ������̏�B
+		/// 文字列の上。
 		bool onText() const;
 
 	private:
@@ -464,126 +464,126 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	TreeView();
 	TreeView(TreeView&& value, bool checkSlicing = true);
-	/// �e�A�ʒu�A�傫������쐬�B
+	/// 親、位置、大きさから作成。
 	TreeView(Control& parent, int x, int y, int width, int height, TreeView::Options options = Options::none);
-	/// �e�A�ʒu�A�傫���A���ڏ��z�񂩂�쐬�B�傫�����O�ɂ���� getPreferredSize �֐��ŋ��߂�B
+	/// 親、位置、大きさ、項目情報配列から作成。大きさを０にすると getPreferredSize 関数で求める。
 	TreeView(Control& parent, int x, int y, int width, int height, ArrayRange<const ItemInfo> itemInfos, TreeView::Options options = Options::none);
 	virtual ~TreeView();
 	TreeView& operator=(TreeView&& value);
 
 public:
-	/// �t�H�[�J�X���O��Ă��I����Ԃ�\�����邩�ǂ����B�����l�� false�B
+	/// フォーカスが外れても選択状態を表示するかどうか。初期値は false。
 	bool alwaysSelected() const;
 	void alwaysSelected(bool value);
-	/// �w�i�F�B
+	/// 背景色。
 	Color backColor() const;
 	void backColor(const Color& value);
-	/// �q���ڂ�\��/��\���ɂ���[+][-]�{�^����\�����邩�ǂ����B�����l�� true�B
+	/// 子項目を表示/非表示にする[+][-]ボタンを表示するかどうか。初期値は true。
 	bool buttons() const;
 	void buttons(bool value);
-	/// ���ڐ��B
+	/// 項目数。
 	int count() const;
-	/// �c��[�r���[���ɕ\���ł��鍀�ڐ��B
+	/// ツりービュー内に表示できる項目数。
 	int countPerPage() const;
-	/// �R���g���[���̋��E���̎�ށB�����l�� Control::Edge::client�B
+	/// コントロールの境界線の種類。初期値は Control::Edge::client。
 	Control::Edge edge() const;
 	void edge(Control::Edge value);
-	/// ���̍s��S�đI����Ԃɂ��邩�ǂ����Blines() �� true �̏ꍇ�� true �ɐݒ�ł��Ȃ��B�����l�� false�B
+	/// 横の行を全て選択状態にするかどうか。lines() が true の場合は true に設定できない。初期値は false。
 	bool fullRowSelect() const;
 	void fullRowSelect(bool value);
-	/// �w�肵���N���C�A���g���W�̃q�b�g�e�X�g���s���ď����擾����B
+	/// 指定したクライアント座標のヒットテストを行って情報を取得する。
 	TreeView::HitTestInfo getHitTestInfo(const Point& point) const;
 	TreeView::HitTestInfo getHitTestInfo(int x, int y) const;
-	/// �w�肵���N���C�A���g���W�ɂ��鍀�ڂ��擾����B�����ꍇ�̓k�����ځB
+	/// 指定したクライアント座標にある項目を取得する。無い場合はヌル項目。
 	TreeView::Item getItemAt(const Point& point);
 	TreeView::Item getItemAt(int x, int y);
-	/// �K�؂ȃR���g���[���T�C�Y�Bfont(), count() ���̒l�ɂ���čœK�ȃT�C�Y��Ԃ��B
+	/// 適切なコントロールサイズ。font(), count() 等の値によって最適なサイズを返す。
 	virtual Size getPreferredSize(int width = 0, int height = 0) const;
-	/// ���ڂɃJ�[�\�������킹��ƃJ�[�\���� Cursor::hand() �ɂȂ��ĕ�����ɃA���_�[���C�����\������邩�ǂ����B�����l�� false�B
+	/// 項目にカーソルを合わせるとカーソルが Cursor::hand() になって文字列にアンダーラインが表示されるかどうか。初期値は false。
 	bool hotTracking() const;
 	void hotTracking(bool value);
-	/// ���ڂ�\�����؂�Ȃ����ɐ����X�N���[���o�[��\�����邩�ǂ����B���ڂ��͂ݏo�Ă��Ȃ����ɐݒ肵�Ȃ��Ƃ��܂����삵�Ȃ��B�����l�� true�B
+	/// 項目を表示し切れない時に水平スクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。
 	bool hScrollable() const;
 	void hScrollable(bool value);
-	/// �A�C�R���̉摜���X�g�BTreeView �͉摜���X�g�̃n���h����j�����Ȃ��B
+	/// アイコンの画像リスト。TreeView は画像リストのハンドルを破棄しない。
 	ImageList imageList() const;
 	void imageList(HIMAGELIST value);
-	/// �q���ڂ̃C���f���g�s�N�Z�����B
+	/// 子項目のインデントピクセル数。
 	int indent() const;
 	void indent(int value);
-	/// ���ڂ̍����B
+	/// 項目の高さ。
 	int itemHeight() const;
 	void itemHeight(int value);
-	/// ���ڂ��Ƃɕ\������c�[���`�b�v�R���g���[���̎Q�ƁB�K�v�Ȑݒ���s������j�����Ă��ǂ����ꕔ�ݒ��C�x���g�͔j������Ɩ����ɂȂ�B������x TreeView �����䂵�Ă���̂œ��삵�Ȃ��ݒ������B
+	/// 項目ごとに表示するツールチップコントロールの参照。必要な設定を行ったら破棄しても良いが一部設定やイベントは破棄すると無効になる。ある程度 TreeView が制御しているので動作しない設定もある。
 	ToolTip itemTip();
-	/// ���ڂ��ƂɃc�[���`�b�v��\�����邩�ǂ����BonItemTipPopup �C�x���g�ŕ\�����镶������w�肷��B�����l�� false�B
+	/// 項目ごとにツールチップを表示するかどうか。onItemTipPopup イベントで表示する文字列を指定する。初期値は false。
 	bool itemTipEnabled() const;
 	void itemTipEnabled(bool value);
-	/// �e�Ǝq���ڂ����Ԑ��̐F�B
+	/// 親と子項目を結ぶ線の色。
 	Color lineColor() const;
 	void lineColor(const Color& value);
-	/// �e�Ǝq���ڂ����Ԑ���\�����邩�ǂ����B�����l�� true�B
+	/// 親と子項目を結ぶ線を表示するかどうか。初期値は true。
 	bool lines() const;
 	void lines(bool value);
-	/// ���N���b�N�����C�x���g�B
+	/// 左クリックしたイベント。
 	Listener<TreeView::Click&>& onClick();
-	/// ���ڂ��}�E�X�E�{�^���܂��͍��{�^���Ńh���b�O�����C�x���g�B�h���b�O���J�n����͈͂͑I���ł���͈͂Ɠ����B
+	/// 項目をマウス右ボタンまたは左ボタンでドラッグしたイベント。ドラッグを開始する範囲は選択できる範囲と同じ。
 	Listener<TreeView::ItemDrag&>& onItemDrag();
-	/// ���ڂ̎q���ڂ��\������Ă��邩�ǂ������ω������C�x���g�B
+	/// 項目の子項目が表示されているかどうかが変化したイベント。
 	Listener<TreeView::ItemExpand&>& onItemExpand();
-	/// ���ڂ̎q���ڂ��\������Ă��邩�ǂ������ω����悤�Ƃ��Ă���C�x���g�B
+	/// 項目の子項目が表示されているかどうかが変化しようとしているイベント。
 	Listener<TreeView::ItemExpanding&>& onItemExpanding();
-	/// ���ڂ�`�悷�钼�O�̃C�x���g�B
+	/// 項目を描画する直前のイベント。
 	Listener<TreeView::ItemPrePaint&>& onItemPrePaint();
-	/// �I�����ڂ��ω������C�x���g�B
+	/// 選択項目が変化したイベント。
 	Listener<TreeView::ItemSelect&>& onItemSelect();
-	/// �I�����ڂ��ω����悤�Ƃ��Ă���C�x���g�B
+	/// 選択項目が変化しようとしているイベント。
 	Listener<TreeView::ItemSelecting&>& onItemSelecting();
-	/// ���ڂ̏�Ԃ��ω������C�x���g�B
+	/// 項目の状態が変化したイベント。
 	Listener<TreeView::ItemStateChange&>& onItemStateChange();
-	/// ���ڂ̏�Ԃ��ω����悤�Ƃ��Ă���C�x���g�B
+	/// 項目の状態が変化しようとしているイベント。
 	Listener<TreeView::ItemStateChanging&>& onItemStateChanging();
-	/// ���ڂ̃c�[���`�b�v��\������C�x���g�B
+	/// 項目のツールチップを表示するイベント。
 	Listener<TreeView::ItemTipPopup&>& onItemTipPopup();
-	/// �E�N���b�N�����C�x���g�B���܂��E���Ȃ� onMouseUp �C�x���g�̑���Ɏg���B
+	/// 右クリックしたイベント。うまく拾えない onMouseUp イベントの代わりに使う。
 	Listener<TreeView::RightClick&>& onRightClick();
-	/// ���ڂ̕�����ҏW���I����Ĕ��f���钼�O�̃C�x���g�B
+	/// 項目の文字列編集が終わって反映する直前のイベント。
 	Listener<TreeView::TextEdit&>& onTextEdit();
-	/// ���ڂ̕�����ҏW���n�܂钼�O�̃C�x���g�B
+	/// 項目の文字列編集が始まる直前のイベント。
 	Listener<TreeView::TextEditing&>& onTextEditing();
-	///	�R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B
+	///	コントロール作成後に変更できない設定。
 	TreeView::Options options() const;
-	/// ���z�I�ȃ��[�g���ڂ��擾����B���̍��ڂ͕\������Ȃ����q���ڂ̑���ȊO�͎󂯕t���Ȃ��B
+	/// 仮想的なルート項目を取得する。この項目は表示されないし子項目の操作以外は受け付けない。
 	TreeView::Item root();
 	const TreeView::Item root() const;
-	/// ���[�g���ڂƎq���ڂ����Ԑ���\�����邩�ǂ����B�����l�� true�B
+	/// ルート項目と子項目を結ぶ線を表示するかどうか。初期値は true。
 	bool rootLines() const;
 	void rootLines(bool value);
-	/// ���ڂ�\�����؂�Ȃ����ɃX�N���[���o�[��\�����邩�ǂ����B���ڂ��͂ݏo�Ă��Ȃ����ɐݒ肵�Ȃ��Ƃ��܂����삵�Ȃ��B�����l�� true�B
+	/// 項目を表示し切れない時にスクロールバーを表示するかどうか。項目がはみ出ていない時に設定しないとうまく動作しない。初期値は true。
 	bool scrollable() const;
 	void scrollable(bool value);
-	/// �I������Ă��鍀�ځB
+	/// 選択されている項目。
 	TreeView::Item selectedItem() const;
 	void selectedItem(TreeView::Item value);
-	/// ��ԃA�C�R���̉摜���X�g�B0 �Ԗڂ̉摜�͎g�p����Ȃ��BTreeView �͉摜���X�g�̃n���h����j�����Ȃ��B
-	/// ���[�U�w��̉摜���X�g�̓`�F�b�N�{�b�N�X�Ƌ����ł��Ȃ��B�`�F�b�N�{�b�N�X�̕\����ς������ꍇ�� stateImageList() �֐��Ŏ擾�����摜���X�g�𑀍삷��B
+	/// 状態アイコンの画像リスト。0 番目の画像は使用されない。TreeView は画像リストのハンドルを破棄しない。
+	/// ユーザ指定の画像リストはチェックボックスと共存できない。チェックボックスの表示を変えたい場合は stateImageList() 関数で取得した画像リストを操作する。
 	ImageList stateImageList() const;
 	void stateImageList(HIMAGELIST value);
-	/// �����F�B
+	/// 文字色。
 	Color textColor() const;
 	void textColor(const Color& value);
-	/// �N���b�N�ō��ڂ̕������ҏW�ł��邩�ǂ����B�����l�� false�B
+	/// クリックで項目の文字列を編集できるかどうか。初期値は false。
 	bool textEditable() const;
 	void textEditable(bool value);
-	/// �ŏ��ɕ\������Ă��鍀�ځB
+	/// 最初に表示されている項目。
 	TreeView::Item topItem() const;
 	void topItem(TreeView::Item value);
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:

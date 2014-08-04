@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 
@@ -21,14 +21,14 @@ class ToolTip;
 
 
 /**
- * ƒ^ƒuƒRƒ“ƒgƒ[ƒ‹B
- *
- * ƒ}ƒEƒXƒCƒxƒ“ƒg‚ÍƒNƒŠƒbƒN‚Å‚«‚éƒ^ƒu•”•ª‚Å‚Ì‚İ”­¶‚·‚éB
- *
- * TCS_BUTTONSATCS_FLATBUTTONSATCS_VERTICALATCS_RIGHT ‚Í Visual Style ‚ª–³Œø‚É‚È‚é‚Ì‚ÅƒTƒ|[ƒg‚µ‚È‚¢B
- *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
- * <pre><code>
+* ã‚¿ãƒ–ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚
+*
+* ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã¯ã‚¯ãƒªãƒƒã‚¯ã§ãã‚‹ã‚¿ãƒ–éƒ¨åˆ†ã§ã®ã¿ç™ºç”Ÿã™ã‚‹ã€‚
+*
+* TCS_BUTTONSã€TCS_FLATBUTTONSã€TCS_VERTICALã€TCS_RIGHT ã¯ Visual Style ãŒç„¡åŠ¹ã«ãªã‚‹ã®ã§ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚
+*
+* <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
+* <pre><code>
 	Frame frame(L"Tab Sample");
 
 	Panel page0(frame, 0, 0, 0, 0);
@@ -43,38 +43,38 @@ class ToolTip;
 
 	typedef Tab::ItemInfo Info;
 	Info infos[] = {
-		Info(L"ƒ^ƒu0", page0),
-		Info(L"ƒ^ƒu1", page1),
-		Info(L"ƒ^ƒu2"),
+		Info(L"ã‚¿ãƒ–0", page0),
+		Info(L"ã‚¿ãƒ–1", page1),
+		Info(L"ã‚¿ãƒ–2"),
 	};
 	Tab tab(frame, 20, 10, 400, 300, infos);
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+* </code></pre>
+*/
 class Tab : public Control {
 public:
 	typedef ::_IMAGELIST* HIMAGELIST;
 	typedef ::balor::graphics::ImageList ImageList;
 
 
-	/// ƒ^ƒu‚ÌƒXƒ^ƒCƒ‹B
+	/// ã‚¿ãƒ–ã®ã‚¹ã‚¿ã‚¤ãƒ«ã€‚
 	struct Style {
 		enum _enum {
-			singleline      = 0x0000, /// ƒ^ƒu‚Íˆê—ñ‚Å•\¦‚³‚ê‚éB‚Í‚İo‚éê‡‚ÍƒXƒNƒ[ƒ‹‚Å‚«‚éB
-			multiline       = 0x0200, /// ƒ^ƒu‚ª‚Í‚İo‚éê‡‚Í•¡”—ñ‚Å•\¦‚³‚ê‚éB‚»‚Ìê‡ƒ^ƒu‚Ì•‚ÍƒRƒ“ƒgƒ[ƒ‹‚Ì•‚É‡‚í‚¹‚ç‚ê‚éB
-			multilineScroll = 0x0201, /// ƒ^ƒu‚ª‚Í‚İo‚éê‡‚Í•¡”—ñ‚Å•\¦‚³‚êA‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢—ñ‚ª‰º‚ÉˆÚ“®‚·‚éB
+			singleline = 0x0000, /// ã‚¿ãƒ–ã¯ä¸€åˆ—ã§è¡¨ç¤ºã•ã‚Œã‚‹ã€‚ã¯ã¿å‡ºã‚‹å ´åˆã¯ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã§ãã‚‹ã€‚
+			multiline = 0x0200, /// ã‚¿ãƒ–ãŒã¯ã¿å‡ºã‚‹å ´åˆã¯è¤‡æ•°åˆ—ã§è¡¨ç¤ºã•ã‚Œã‚‹ã€‚ãã®å ´åˆã‚¿ãƒ–ã®å¹…ã¯ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¹…ã«åˆã‚ã›ã‚‰ã‚Œã‚‹ã€‚
+			multilineScroll = 0x0201, /// ã‚¿ãƒ–ãŒã¯ã¿å‡ºã‚‹å ´åˆã¯è¤‡æ•°åˆ—ã§è¡¨ç¤ºã•ã‚Œã€é¸æŠã•ã‚Œã¦ã„ãªã„åˆ—ãŒä¸‹ã«ç§»å‹•ã™ã‚‹ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Style);
 	};
 
 
-	/// €–Ú‚Ì•¶š—ñ‚Ì”z’uB
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®é…ç½®ã€‚
 	struct TextAlign {
 		enum _enum {
-			center    = 0x0000, /// ’†‰›‘µ‚¦B
-			iconLeft  = 0x0010, /// ƒAƒCƒRƒ“‚¾‚¯¶‘µ‚¦A•¶š—ñ‚Í’†‰›‘µ‚¦B
-			left      = 0x0020, /// ¶‘µ‚¦B
+			center = 0x0000, /// ä¸­å¤®æƒãˆã€‚
+			iconLeft = 0x0010, /// ã‚¢ã‚¤ã‚³ãƒ³ã ã‘å·¦æƒãˆã€æ–‡å­—åˆ—ã¯ä¸­å¤®æƒãˆã€‚
+			left = 0x0020, /// å·¦æƒãˆã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(TextAlign);
 	};
@@ -82,26 +82,26 @@ public:
 
 	class ItemInfo;
 
-	/// €–ÚBTab::operator[] ‚Åæ“¾‚Å‚«‚éB
+	/// é …ç›®ã€‚Tab::operator[] ã§å–å¾—ã§ãã‚‹ã€‚
 	class Item {
 	public:
 		Item(HWND ownerHandle, int index);
-		/// €–Úî•ñ‚ğ”½‰fB
+		/// é …ç›®æƒ…å ±ã‚’åæ˜ ã€‚
 		Item& operator=(const ItemInfo& itemInfo);
 
-		/// €–Ú‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W—ÌˆæB
+		/// é …ç›®ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™é ˜åŸŸã€‚
 		Rectangle bounds() const;
-		/// ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgiTab::imageList()j‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆTab::imageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ƒ^ƒuƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¿ãƒ–ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int index() const;
-		/// ƒ^ƒuƒRƒ“ƒgƒ[ƒ‹‚Ìƒnƒ“ƒhƒ‹B
+		/// ã‚¿ãƒ–ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ãƒãƒ³ãƒ‰ãƒ«ã€‚
 		HWND ownerHandle() const;
-		/// ƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚½‚É•\¦‚·‚éƒRƒ“ƒgƒ[ƒ‹BTab ‚ÌqƒEƒCƒ“ƒhƒE‚É‚·‚éBw’è‚µ‚È‚¢ê‡‚Í nullptrB
+		/// ã‚¿ãƒ–ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸæ™‚ã«è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚Tab ã®å­ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«ã™ã‚‹ã€‚æŒ‡å®šã—ãªã„å ´åˆã¯ nullptrã€‚
 		Control* page() const;
 		void page(Control* value);
-		/// €–Ú‚Ì•¶š—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã€‚
 		String text() const;
 		void text(StringRange value);
 
@@ -111,26 +111,26 @@ public:
 	};
 
 
-	/// €–Úî•ñ\‘¢‘ÌBî•ñ‚ğ‚Â‚¾‚¯‚Åƒ^ƒuƒRƒ“ƒgƒ[ƒ‹‚ÍˆêØ‘€ì‚µ‚È‚¢BTab::itemInfos ŠÖ”“™‚Åg—p‚·‚éB
+	/// é …ç›®æƒ…å ±æ§‹é€ ä½“ã€‚æƒ…å ±ã‚’æŒã¤ã ã‘ã§ã‚¿ãƒ–ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¯ä¸€åˆ‡æ“ä½œã—ãªã„ã€‚Tab::itemInfos é–¢æ•°ç­‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 	class ItemInfo {
 	public:
 		ItemInfo();
 		ItemInfo(ItemInfo&& value);
-		/// €–Úî•ñ‚Ìæ“¾B
+		/// é …ç›®æƒ…å ±ã®å–å¾—ã€‚
 		ItemInfo(const Item& item);
-		/// •¶š—ñ‚ÆƒAƒCƒRƒ“‰æ‘œƒCƒ“ƒfƒbƒNƒX‚©‚çì¬B
+		/// æ–‡å­—åˆ—ã¨ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰ä½œæˆã€‚
 		explicit ItemInfo(String text, int imageIndex = -1);
-		/// •¶š—ñ‚Æƒy[ƒWƒRƒ“ƒgƒ[ƒ‹‚ÆƒAƒCƒRƒ“‰æ‘œƒCƒ“ƒfƒbƒNƒX‚©‚çì¬B
+		/// æ–‡å­—åˆ—ã¨ãƒšãƒ¼ã‚¸ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰ä½œæˆã€‚
 		ItemInfo(String text, const Control& page, int imageIndex = -1);
 		ItemInfo& operator=(ItemInfo&& value);
 
-		/// ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgiTab::imageList()j‚ÌƒCƒ“ƒfƒbƒNƒXB
+		/// ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆï¼ˆTab::imageList()ï¼‰ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
 		int imageIndex() const;
 		void imageIndex(int value);
-		/// ƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚½‚É•\¦‚·‚éƒRƒ“ƒgƒ[ƒ‹Bw’è‚µ‚È‚¢ê‡‚Í nullptrB
+		/// ã‚¿ãƒ–ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸæ™‚ã«è¡¨ç¤ºã™ã‚‹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€‚æŒ‡å®šã—ãªã„å ´åˆã¯ nullptrã€‚
 		Control* page() const;
 		void page(Control* value);
-		/// €–Ú‚Ì•¶š—ñB
+		/// é …ç›®ã®æ–‡å­—åˆ—ã€‚
 		const String& text() const;
 		void text(String value);
 
@@ -142,15 +142,15 @@ public:
 
 
 
-	/// ƒ^ƒuƒRƒ“ƒgƒ[ƒ‹‚ÌƒCƒxƒ“ƒg‚ÌeƒNƒ‰ƒXB
+	/// ã‚¿ãƒ–ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ã‚¤ãƒ™ãƒ³ãƒˆã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
 	typedef EventWithSubclassSender<Tab, Control::Event> Event;
 
 
-	/// €–Ú‚ÉŠÖ‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã«é–¢ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemEvent : public Event {
 		ItemEvent(Tab& sender, int itemIndex);
 
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½€–ÚB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸé …ç›®ã€‚
 		Tab::Item item();
 
 	private:
@@ -161,11 +161,11 @@ public:
 	typedef Event ItemSelect;
 
 
-	/// €–Ú‚ğ‘I‘ğ‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’é¸æŠã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemSelecting : public Event {
 		ItemSelecting(Tab& sender);
 
-		/// ‘I‘ğ‚ğƒLƒƒƒ“ƒZƒ‹‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+		/// é¸æŠã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 		bool cancel() const;
 		void cancel(bool value);
 
@@ -174,11 +174,11 @@ public:
 	};
 
 
-	/// €–Ú‚Ìƒc[ƒ‹ƒ`ƒbƒv‚ğ•\¦‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã®ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	struct ItemTipPopup : public ItemEvent {
 		ItemTipPopup(Tab& sender, int itemIndex, String& text);
 
-		/// ƒCƒxƒ“ƒg‚Ì”­¶‚µ‚½€–ÚB
+		/// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã—ãŸé …ç›®ã€‚
 		void setText(String value);
 
 	private:
@@ -187,79 +187,79 @@ public:
 
 
 public:
-	/// ƒkƒ‹ƒ|ƒCƒ“ƒ^‚Åì¬B
+	/// ãƒŒãƒ«ãƒã‚¤ãƒ³ã‚¿ã§ä½œæˆã€‚
 	Tab();
 	Tab(Tab&& value, bool checkSlicing = true);
-	/// eAˆÊ’uA‘å‚«‚³‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã‹ã‚‰ä½œæˆã€‚
 	Tab(Control& parent, int x, int y, int width, int height, Tab::Style style = Tab::Style::singleline);
-	/// eAˆÊ’uA‘å‚«‚³A€–Úî•ñ”z—ñ‚©‚çì¬B
+	/// è¦ªã€ä½ç½®ã€å¤§ãã•ã€é …ç›®æƒ…å ±é…åˆ—ã‹ã‚‰ä½œæˆã€‚
 	Tab(Control& parent, int x, int y, int width, int height, ArrayRange<const Tab::ItemInfo> itemInfos, Tab::Style style = Tab::Style::singleline);
 	virtual ~Tab();
 	Tab& operator=(Tab&& value);
 
 public:
-	/// €–Ú‚ğ’Ç‰Á‚·‚éB
+	/// é …ç›®ã‚’è¿½åŠ ã™ã‚‹ã€‚
 	void add(const ItemInfo& itemInfo);
-	/// ƒ^ƒu‚ğƒRƒ“ƒgƒ[ƒ‹‚Ì‰º•”‚É•\¦‚·‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// ã‚¿ãƒ–ã‚’ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ä¸‹éƒ¨ã«è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool bottomItems() const;
 	void bottomItems(bool value);
-	/// €–Ú‚ğ‘S‚Äíœ‚·‚éB
+	/// é …ç›®ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹ã€‚
 	void clear();
-	/// €–Ú”B
+	/// é …ç›®æ•°ã€‚
 	int count() const;
-	/// Tab::Item::page() ‚Ì•\¦”ÍˆÍ‚ÌƒNƒ‰ƒCƒAƒ“ƒgÀ•W—ÌˆæBƒ^ƒuƒRƒ“ƒgƒ[ƒ‹‚Ì‹«ŠE‚ÆŒµ–§‚É‚Íˆê’v‚µ‚È‚¢‚æ‚¤‚¾‚ªƒe[ƒ}‚É‚æ‚Á‚Ä—Ìˆæ‚ª•Ï‰»‚·‚éˆ×‚©‚à‚µ‚ê‚È‚¢B
+	/// Tab::Item::page() ã®è¡¨ç¤ºç¯„å›²ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™é ˜åŸŸã€‚ã‚¿ãƒ–ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å¢ƒç•Œã¨å³å¯†ã«ã¯ä¸€è‡´ã—ãªã„ã‚ˆã†ã ãŒãƒ†ãƒ¼ãƒã«ã‚ˆã£ã¦é ˜åŸŸãŒå¤‰åŒ–ã™ã‚‹ç‚ºã‹ã‚‚ã—ã‚Œãªã„ã€‚
 	virtual Rectangle displayRectangle() const;
-	/// €–Ú‚ğíœ‚·‚éB
+	/// é …ç›®ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void erase(int index);
-	/// w’è‚µ‚½ƒNƒ‰ƒCƒAƒ“ƒgÀ•W‚É‚ ‚é€–Ú‚ÌƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éB–³‚¢ê‡‚Í -1B
+	/// æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆåº§æ¨™ã«ã‚ã‚‹é …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚ç„¡ã„å ´åˆã¯ -1ã€‚
 	int getIndexAt(const Point& point) const;
 	int getIndexAt(int x, int y) const;
-	/// ƒAƒCƒRƒ“‚Ì‰æ‘œƒŠƒXƒgBTab ‚Í‰æ‘œƒŠƒXƒg‚Ìƒnƒ“ƒhƒ‹‚ğ”jŠü‚µ‚È‚¢B‰Šú’l‚Íƒkƒ‹ƒnƒ“ƒhƒ‹‚Ì‰æ‘œƒŠƒXƒgB
+	/// ã‚¢ã‚¤ã‚³ãƒ³ã®ç”»åƒãƒªã‚¹ãƒˆã€‚Tab ã¯ç”»åƒãƒªã‚¹ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«ã‚’ç ´æ£„ã—ãªã„ã€‚åˆæœŸå€¤ã¯ãƒŒãƒ«ãƒãƒ³ãƒ‰ãƒ«ã®ç”»åƒãƒªã‚¹ãƒˆã€‚
 	ImageList imageList() const;
 	void imageList(HIMAGELIST value);
-	/// €–Ú‚ğ‘}“ü‚·‚éB
+	/// é …ç›®ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 	void insert(int index, const ItemInfo& itemInfo);
-	/// €–Ú‚Ìî•ñ”z—ñ‚ğˆêŠ‡‚Åæ“¾Aİ’è‚·‚éB
+	/// é …ç›®ã®æƒ…å ±é…åˆ—ã‚’ä¸€æ‹¬ã§å–å¾—ã€è¨­å®šã™ã‚‹ã€‚
 	std::vector<Tab::ItemInfo> itemInfos() const;
 	void itemInfos(ArrayRange<const Tab::ItemInfo> value);
-	/// €–Ú‚Ì•¶š—ñ‚ÆŠO˜g‚Ì—]”’ƒsƒNƒZƒ‹”B
+	/// é …ç›®ã®æ–‡å­—åˆ—ã¨å¤–æ ã®ä½™ç™½ãƒ”ã‚¯ã‚»ãƒ«æ•°ã€‚
 	void itemPadding(const Size& value);
-	/// €–Ú‚ÌƒsƒNƒZƒ‹ƒTƒCƒY‚ğ•ÏX‚·‚éBitemWidthFixed() ‚ª false ‚Ìê‡‚Í‚‚³‚Ì‚İ•ÏX‚·‚éB
+	/// é …ç›®ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã™ã‚‹ã€‚itemWidthFixed() ãŒ false ã®å ´åˆã¯é«˜ã•ã®ã¿å¤‰æ›´ã™ã‚‹ã€‚
 	void itemSize(const Size& value);
 	void itemSize(int width, int height);
-	/// €–Ú‚²‚Æ‚É•\¦‚·‚éƒc[ƒ‹ƒ`ƒbƒvƒRƒ“ƒgƒ[ƒ‹‚ÌQÆB•K—v‚Èİ’è‚ğs‚Á‚½‚ç”jŠü‚µ‚Ä‚à—Ç‚¢‚ªˆê•”İ’è‚âƒCƒxƒ“ƒg‚Í”jŠü‚·‚é‚Æ–³Œø‚É‚È‚éB‚ ‚é’ö“x Tab ‚ª§Œä‚µ‚Ä‚¢‚é‚Ì‚Å“®ì‚µ‚È‚¢İ’è‚à‚ ‚éB
+	/// é …ç›®ã”ã¨ã«è¡¨ç¤ºã™ã‚‹ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å‚ç…§ã€‚å¿…è¦ãªè¨­å®šã‚’è¡Œã£ãŸã‚‰ç ´æ£„ã—ã¦ã‚‚è‰¯ã„ãŒä¸€éƒ¨è¨­å®šã‚„ã‚¤ãƒ™ãƒ³ãƒˆã¯ç ´æ£„ã™ã‚‹ã¨ç„¡åŠ¹ã«ãªã‚‹ã€‚ã‚ã‚‹ç¨‹åº¦ Tab ãŒåˆ¶å¾¡ã—ã¦ã„ã‚‹ã®ã§å‹•ä½œã—ãªã„è¨­å®šã‚‚ã‚ã‚‹ã€‚
 	ToolTip itemTip();
-	/// €–Ú‚Ì•‚ğŒÅ’è‚É‚·‚é‚©‚Ç‚¤‚©Bfalse ‚Ìê‡‚Í•¶š—ñ‚Ì’·‚³‚É‡‚í‚¹‚éBitemSize() ŠÖ”‚ÅŒÅ’è•‚ğw’è‚Å‚«‚éB‰Šú’l‚Í falseB
+	/// é …ç›®ã®å¹…ã‚’å›ºå®šã«ã™ã‚‹ã‹ã©ã†ã‹ã€‚false ã®å ´åˆã¯æ–‡å­—åˆ—ã®é•·ã•ã«åˆã‚ã›ã‚‹ã€‚itemSize() é–¢æ•°ã§å›ºå®šå¹…ã‚’æŒ‡å®šã§ãã‚‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool itemWidthFixed() const;
 	void itemWidthFixed(bool value);
-	/// €–Ú‚ÌÅ¬ƒsƒNƒZƒ‹•B-1 ‚ğw’è‚·‚é‚ÆƒfƒtƒHƒ‹ƒg‚Ì•‚É–ß‚·B
+	/// é …ç›®ã®æœ€å°ãƒ”ã‚¯ã‚»ãƒ«å¹…ã€‚-1 ã‚’æŒ‡å®šã™ã‚‹ã¨ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å¹…ã«æˆ»ã™ã€‚
 	void minItemWidth(int value);
-	/// €–Ú‚ğ‘I‘ğ‚µ‚½ƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’é¸æŠã—ãŸã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Tab::ItemSelect&>& onItemSelect();
-	/// €–Ú‚ğ‘I‘ğ‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã‚’é¸æŠã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Tab::ItemSelecting&>& onItemSelecting();
-	/// €–Ú‚Ìƒc[ƒ‹ƒ`ƒbƒv‚ğ•\¦‚·‚éƒCƒxƒ“ƒgB
+	/// é …ç›®ã®ãƒ„ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã€‚
 	Listener<Tab::ItemTipPopup&>& onItemTipPopup();
-	/// Tab::Item::page() ‚ğ€–Ú‚Ì‘å‚«‚³‚É‡‚í‚¹‚ÄƒŠƒTƒCƒY‚·‚éB
+	/// Tab::Item::page() ã‚’é …ç›®ã®å¤§ãã•ã«åˆã‚ã›ã¦ãƒªã‚µã‚¤ã‚ºã™ã‚‹ã€‚
 	void resizeItemPages();
-	/// ƒ^ƒu‚Ì—ñ”B
+	/// ã‚¿ãƒ–ã®åˆ—æ•°ã€‚
 	int rowCount() const;
-	/// ‘I‘ğ‚³‚ê‚Ä‚¢‚é€–ÚƒCƒ“ƒfƒbƒNƒXB–³‚¢ê‡‚Í -1B
-	/// ƒ^ƒuƒy[ƒW‚ğ•\¦‚µ‚½‚Ü‚Ü‘¼‚ÌƒRƒ“ƒgƒ[ƒ‹‚ªƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é‚Ì‚Å‘I‘ğ‚³‚ê‚Ä‚¢‚Ä‚àƒtƒH[ƒJƒX‚ğ“¾‚Ä‚¢‚é‚Æ‚ÍŒÀ‚ç‚È‚¢B
+	/// é¸æŠã•ã‚Œã¦ã„ã‚‹é …ç›®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚ç„¡ã„å ´åˆã¯ -1ã€‚
+	/// ã‚¿ãƒ–ãƒšãƒ¼ã‚¸ã‚’è¡¨ç¤ºã—ãŸã¾ã¾ä»–ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹ã®ã§é¸æŠã•ã‚Œã¦ã„ã¦ã‚‚ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã¦ã„ã‚‹ã¨ã¯é™ã‚‰ãªã„ã€‚
 	int selectedIndex() const;
 	void selectedIndex(int value);
-	/// ƒ^ƒu‚ÌƒXƒ^ƒCƒ‹B
+	/// ã‚¿ãƒ–ã®ã‚¹ã‚¿ã‚¤ãƒ«ã€‚
 	Tab::Style style() const;
-	/// €–Ú‚Ì•¶š—ñ‚Ì”z’uBitemWidthFixed() ‚ª true ‚Ìê‡‚Ì‚İ•ÏX‚Å‚«‚éB‰Šú’l‚Í Tab::TextAlign::centerB
+	/// é …ç›®ã®æ–‡å­—åˆ—ã®é…ç½®ã€‚itemWidthFixed() ãŒ true ã®å ´åˆã®ã¿å¤‰æ›´ã§ãã‚‹ã€‚åˆæœŸå€¤ã¯ Tab::TextAlign::centerã€‚
 	Tab::TextAlign textAlign() const;
 	void textAlign(Tab::TextAlign value);
 
 public:
-	/// index ”Ô–Ú‚Ì€–ÚB
+	/// index ç•ªç›®ã®é …ç›®ã€‚
 	Tab::Item operator[](int index);
 
 protected:
-	/// ƒƒbƒZ[ƒW‚ğˆ—‚·‚éB‚¢‚í‚ä‚éƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒB
+	/// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã™ã‚‹ã€‚ã„ã‚ã‚†ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã€‚
 	virtual void processMessage(Message& msg);
 
 protected:

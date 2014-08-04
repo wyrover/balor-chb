@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/gui/Control.hpp>
 
@@ -11,11 +11,11 @@ class Edit;
 
 
 /**
- * �A�b�v�_�E���R���g���[���B
- * 
- * ���_�R���g���[���̈ʒu��傫�����ω������ꍇ�A�����I�ɒǏ]�͂��Ȃ��̂ōēx buddy �֐��Őݒ肵�Ă��΂悢�B
- *
- * <h3>�E�T���v���R�[�h</h3>
+* アップダウンコントロール。
+*
+* 相棒コントロールの位置や大きさが変化した場合、自動的に追従はしないので再度 buddy 関数で設定してやればよい。
+*
+* <h3>・サンプルコード</h3>
  * <pre><code>
 	Frame frame(L"UpDown Sample");
 
@@ -37,19 +37,19 @@ class Edit;
  */
 class UpDown : public Control {
 public:
-	/// �R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B�g�ݍ��킹�Ŏw�肷��B
+	/// コントロール作成後に変更できない設定。組み合わせで指定する。
 	struct Options {
 		enum _enum {
-			none        = 0     , 
-			noArrowKeys = 0x0020, /// buddy() ������L�[��}�E�X�z�C�[���̓��͂��󂯎��Ȃ��悤�ɂ���B
-			horizontal  = 0x0040, /// ���E�{�^���̃A�b�v�_�E���R���g���[���ɂ���B
-			leftAlign   = 0x0008, /// buddy() �̍��ɋz������B
+			none = 0,
+			noArrowKeys = 0x0020, /// buddy() から矢印キーやマウスホイールの入力を受け取らないようにする。
+			horizontal = 0x0040, /// 左右ボタンのアップダウンコントロールにする。
+			leftAlign = 0x0008, /// buddy() の左に吸着する。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
 
-	/// �A�b�v�_�E���R���g���[���̃C�x���g�̐e�N���X�B
+	/// アップダウンコントロールのイベントの親クラス。
 	typedef EventWithSubclassSender<UpDown, Control::Event> Event;
 
 	typedef Event Down;
@@ -57,32 +57,32 @@ public:
 
 
 public:
-	/// �k���n���h���ō쐬�B
+	/// ヌルハンドルで作成。
 	UpDown();
 	UpDown(UpDown&& value, bool checkSlicing = true);
-	/// �e�R���g���[���A�ʒu�A�傫���A�ŏ��ʒu�A�ő�ʒu����쐬�B���̑��̈����ɂ��Ă͓����̊֐����Q�ƁB
+	/// 親コントロール、位置、大きさ、最小位置、最大位置から作成。その他の引数については同名の関数を参照。
 	UpDown(Control& parent, int x, int y, int width, int height, UpDown::Options options = Options::none);
-	/// �e�R���g���[���A���_�R���g���[������쐬�B���_�R���g���[���ɋz������B���̑��̈����ɂ��Ă͓����̊֐����Q�ƁB
+	/// 親コントロール、相棒コントロールから作成。相棒コントロールに吸着する。その他の引数については同名の関数を参照。
 	UpDown(Control& parent, Control& buddy, UpDown::Options options = Options::none);
 	virtual ~UpDown();
 	UpDown& operator=(UpDown&& value);
 
 public:
-	/// ���_�R���g���[���B���̃R���g���[���ɋz�����A���L�[��}�E�X�z�C�[���̓��͂�������� onUp, onDown �C�x���g�𔭐�������B
-	/// ���_�R���g���[���̈ʒu��傫�����ς���Ă��Ǐ]�͂��Ȃ����ēx�ݒ肵�Ȃ����Ƌz������B
+	/// 相棒コントロール。このコントロールに吸着し、矢印キーやマウスホイールの入力をもらって onUp, onDown イベントを発生させる。
+	/// 相棒コントロールの位置や大きさが変わっても追従はしないが再度設定しなおすと吸着する。
 	Control* buddy() const;
 	void buddy(Control* value);
-	/// �t�H�[�J�X�𓾂��邩�ǂ����B
+	/// フォーカスを得られるかどうか。
 	virtual bool focusable() const;
-	/// ���{�^�����������C�x���g�̃��X�i�[�B
+	/// 下ボタンを押したイベントのリスナー。
 	Listener<UpDown::Down&>& onDown();
-	/// ��{�^�����������C�x���g�̃��X�i�[�B
+	/// 上ボタンを押したイベントのリスナー。
 	Listener<UpDown::Up&>& onUp();
-	///	�R���g���[���쐬��ɕύX�ł��Ȃ��ݒ�B
+	///	コントロール作成後に変更できない設定。
 	UpDown::Options options() const;
 
 protected:
-	/// ���b�Z�[�W����������B������E�C���h�E�v���V�[�W���B
+	/// メッセージを処理する。いわゆるウインドウプロシージャ。
 	virtual void processMessage(Message& msg);
 
 protected:
