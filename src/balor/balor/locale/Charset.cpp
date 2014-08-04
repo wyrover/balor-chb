@@ -1,4 +1,4 @@
-#include "Charset.hpp"
+ï»¿#include "Charset.hpp"
 
 #include <vector>
 #include <string>
@@ -30,11 +30,11 @@ Charset::Charset(int codePage, bool isWindowsCodePage)
 	assert("Invalid codePage" && codePage < 65536);
 	assert("Invalid windows codePage" && (!isWindowsCodePage || IsValidCodePage(codePage)));
 
-	_fallbackBytes[0] = '?'; // ‚±‚Ì•¶šƒR[ƒh‚ÌˆÓ–¡‚ªˆÙ‚È‚éƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg‚à‚ ‚é‚©‚à‚µ‚ê‚È‚¢‚ª‚Æ‚è‚ ‚¦‚¸ ASCII ƒR[ƒh‚Åİ’èB
+	_fallbackBytes[0] = '?'; // ã“ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®æ„å‘³ãŒç•°ãªã‚‹ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆã‚‚ã‚ã‚‹ã‹ã‚‚ã—ã‚Œãªã„ãŒã¨ã‚Šã‚ãˆãš ASCII ã‚³ãƒ¼ãƒ‰ã§è¨­å®šã€‚
 	_fallbackBytes[1] = '\0';
 
 	if (!isWindowsCodePage) {
-		HRESULT result = _getMultiLanguage()->IsConvertible(codePage, 1200); // Unicode ‚É•ÏŠ·•s”\‚È‚ç‘¶İ‚µ‚È‚¢‚Æ‚İ‚È‚·
+		HRESULT result = _getMultiLanguage()->IsConvertible(codePage, 1200); // Unicode ã«å¤‰æ›ä¸èƒ½ãªã‚‰å­˜åœ¨ã—ãªã„ã¨ã¿ãªã™
 		if (FAILED(result) || result == S_FALSE) {
 			throw NotFoundException();
 		}
@@ -44,7 +44,7 @@ Charset::Charset(int codePage, bool isWindowsCodePage)
 
 Charset::Charset(StringRange name)
 	: _isWindowsCodePage(false), _throwable(false), _fallbackChar(L'?') {
-	_fallbackBytes[0] = '?'; // ‚±‚Ì•¶šƒR[ƒh‚ÌˆÓ–¡‚ªˆÙ‚È‚éƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg‚à‚ ‚é‚©‚à‚µ‚ê‚È‚¢‚ª‚Æ‚è‚ ‚¦‚¸ ASCII ƒR[ƒh‚Åİ’èB
+	_fallbackBytes[0] = '?'; // ã“ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®æ„å‘³ãŒç•°ãªã‚‹ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆã‚‚ã‚ã‚‹ã‹ã‚‚ã—ã‚Œãªã„ãŒã¨ã‚Šã‚ãˆãš ASCII ã‚³ãƒ¼ãƒ‰ã§è¨­å®šã€‚
 	_fallbackBytes[1] = '\0';
 	MIMECSETINFO info;
 	if (FAILED(_getMultiLanguage()->GetCharsetInfo(const_cast<wchar_t*>(name.c_str()), &info))) {
@@ -153,7 +153,7 @@ int Charset::decode(ByteStringRange src, int count, ArrayRange<wchar_t> dst) con
 		UINT srcSize = count;
 		//wchar_t fallbackString[] = {_fallbackChar, L'\0'};
 		HRESULT result = _getMultiLanguage()->ConvertStringToUnicodeEx(&mode, codePage(), const_cast<char*>(src.c_str()), &srcSize
-			, dst.begin(), &bufferSize,  0, nullptr); //MLCONVCHARF_USEDEFCHAR, fallbackString); // Œã‚Qˆø”‚ÍŒ»ó–³‹‚³‚ê‚é‚ç‚µ‚¢
+			, dst.begin(), &bufferSize,  0, nullptr); //MLCONVCHARF_USEDEFCHAR, fallbackString); // å¾Œï¼’å¼•æ•°ã¯ç¾çŠ¶ç„¡è¦–ã•ã‚Œã‚‹ã‚‰ã—ã„
 		if (FAILED(result)) {
 			const DWORD errorCode = GetLastError();
 			if (errorCode == ERROR_INSUFFICIENT_BUFFER) {
@@ -244,7 +244,7 @@ int Charset::encode(StringRange src, int count, ArrayRange<char> dst) const {
 	if (_isWindowsCodePage) {
 		BOOL failed = FALSE;
 		if (_codePage == 65000 || _codePage == 65001) {
-			bufferSize = ::WideCharToMultiByte(codePage(), 0, src.c_str(), count, dst.begin(), bufferSize, nullptr, nullptr); // ‚±‚¤‚µ‚È‚¢‚Æ¸”s‚·‚é
+			bufferSize = ::WideCharToMultiByte(codePage(), 0, src.c_str(), count, dst.begin(), bufferSize, nullptr, nullptr); // ã“ã†ã—ãªã„ã¨å¤±æ•—ã™ã‚‹
 		} else {
 			bufferSize = ::WideCharToMultiByte(codePage(), WC_NO_BEST_FIT_CHARS, src.c_str(), count, dst.begin(), bufferSize, _fallbackBytes, &failed);
 		}

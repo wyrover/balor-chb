@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/StringRange.hpp>
 
@@ -15,26 +15,26 @@ namespace balor {
 
 
 /**
- * ���ϐ��Ɋւ��鑀��B
+ * 環境変数に関する操作。
  */
 class EnvironmentVariable {
 public:
 	typedef ::balor::io::Registry Registry;
 
-	/// ���݂̃v���Z�X�̑S�Ă̊��ϐ���񋓂���C�e���[�^�B�񋓒��Ɋ��ϐ����폜�����肷��Ɨ\�����ʓ�����N�����\��������B
-	/// ���O��l�ւ̃A�N�Z�X�̓X���b�h�Z�[�t�ł͂Ȃ��B
+	/// 現在のプロセスの全ての環境変数を列挙するイテレータ。列挙中に環境変数を削除したりすると予期せぬ動作を起こす可能性がある。
+	/// 名前や値へのアクセスはスレッドセーフではない。
 	struct VariablesIterator {
 		VariablesIterator();
 
-		/// ���ϐ����B
+		/// 環境変数名。
 		String name() const;
 		void nameToBuffer(StringBuffer& buffer) const;
-		/// ���ϐ��̒l�B
+		/// 環境変数の値。
 		String value() const;
 		void valueToBuffer(StringBuffer& buffer) const;
-		/// ���̊��ϐ��ցB
+		/// 次の環境変数へ。
 		VariablesIterator& operator++();
-		/// �񋓒����ǂ����B
+		/// 列挙中かどうか。
 		operator bool() const;
 
 	private:
@@ -42,26 +42,26 @@ public:
 	};
 
 public:
-	/// ������Ɋ܂܂�� % �ň͂܂ꂽ���ϐ�����W�J���ĕԂ��B
+	/// 文字列に含まれる % で囲まれた環境変数名を展開して返す。
 	static String expandStrings(StringRange string);
 	static void expandStringsToBuffer(StringBuffer& buffer, StringRange string);
-	/// ���݂̃v���Z�X�̊��ϐ������݂��邩�ǂ����B
+	/// 現在のプロセスの環境変数が存在するかどうか。
 	static bool find(StringRange valueName);
-	/// ���݂̃v���Z�X�̊��ϐ���Ԃ��B������Ȃ������ꍇ�͋󕶎����Ԃ��B
+	/// 現在のプロセスの環境変数を返す。見つからなかった場合は空文字列を返す。
 	static String get(StringRange valueName);
 	static void getToBuffer(StringBuffer& buffer, StringRange valueName);
-	/// ���݂̃v���Z�X�̊��ϐ����폜����B
+	/// 現在のプロセスの環境変数を削除する。
 	static void remove(StringRange valueName);
-	/// ���݂̃v���Z�X�̊��ϐ���ύX����B
+	/// 現在のプロセスの環境変数を変更する。
 	static void set(StringRange valueName, StringRange value);
-	/// �V�X�e���̊��ϐ����ݒ肳��Ă��郌�W�X�g����Ԃ��B
+	/// システムの環境変数が設定されているレジストリを返す。
 	static Registry systemRegistry();
-	/// ���ϐ��̃��W�X�g���̕ύX��S�Ẵv���Z�X�ɔ��f������BWM_SETTINGCHANGE ���b�Z�[�W���������Ȃ��v���Z�X�ɂ͌��ʂ��Ȃ��B
-	/// TODO:�R�}���h�v�����v�g�ɔ��f����Ȃ��悤���B����̃A�v���ł����f����Ȃ��B�ǂ��Ȃ��Ă���̂��E�E
+	/// 環境変数のレジストリの変更を全てのプロセスに反映させる。WM_SETTINGCHANGE メッセージを処理しないプロセスには効果がない。
+	/// TODO:コマンドプロンプトに反映されないようだ。自作のアプリでも反映されない。どうなっているのか・・
 	static void updateAllProcess();
-	/// ���O�C�����̃��[�U�̊��ϐ����ݒ肳��Ă��郌�W�X�g����Ԃ��B
+	/// ログイン中のユーザの環境変数が設定されているレジストリを返す。
 	static Registry userRegistry();
-	/// ���݂̃v���Z�X�̑S�Ă̊��ϐ���񋓂���C�e���[�^�B
+	/// 現在のプロセスの全ての環境変数を列挙するイテレータ。
 	static EnvironmentVariable::VariablesIterator variablesBegin();
 };
 

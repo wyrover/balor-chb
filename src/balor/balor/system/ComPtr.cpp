@@ -1,4 +1,4 @@
-#include "ComPtr.hpp"
+ï»¿#include "ComPtr.hpp"
 
 #include <cassert>
 #include <ObjBase.h>
@@ -35,7 +35,7 @@ void coCreateInstance(REFCLSID rclsid, IUnknown* unknown, REFIID riid, void** po
 
 
 #pragma warning(push)
-#pragma warning(disable : 4189) // 'result' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAŽQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning(disable : 4189) // 'result' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 void queryInterface(IUnknown* from, const _GUID& riid, void** pointer) {
 	HRESULT result = from->QueryInterface(riid, pointer);
 	if (result == E_NOINTERFACE) {

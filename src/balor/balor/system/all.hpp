@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/io/File.hpp>
 #include <balor/io/Registry.hpp>
@@ -6,13 +6,13 @@
 #include <balor/StringBuffer.hpp>
 
 namespace balor {
-/// ƒVƒXƒeƒ€AŠÂ‹«A‚n‚rŠÖ˜A‚Ì‹@”\‚ğW‚ß‚½ƒNƒ‰ƒXŒQi–¢•ª—Ş‚Æ‚àŒ¾‚¦‚éj
+/// ã‚·ã‚¹ãƒ†ãƒ ã€ç’°å¢ƒã€ï¼¯ï¼³é–¢é€£ã®æ©Ÿèƒ½ã‚’é›†ã‚ãŸã‚¯ãƒ©ã‚¹ç¾¤ï¼ˆæœªåˆ†é¡ã¨ã‚‚è¨€ãˆã‚‹ï¼‰
 namespace system {
 }
 }
 
 #include <balor/system/Com.hpp>
-//#include <balor/system/ComBase.hpp> // Objbase.h ‚ğƒCƒ“ƒNƒ‹[ƒh‚µ‚Ä‚¢‚é
+//#include <balor/system/ComBase.hpp> // Objbase.h ã‚’ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã—ã¦ã„ã‚‹
 #include <balor/system/ComPtr.hpp>
 #include <balor/system/Console.hpp>
 #include <balor/system/EnvironmentVariable.hpp>
@@ -22,6 +22,6 @@ namespace system {
 #include <balor/system/Process.hpp>
 #include <balor/system/System.hpp>
 #include <balor/system/Version.hpp>
-//#include <balor/system/windows.hpp> // windows.h ‚ÌƒCƒ“ƒNƒ‹[ƒh—p
+//#include <balor/system/windows.hpp> // windows.h ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ç”¨
 
 #include <balor/link.hpp>

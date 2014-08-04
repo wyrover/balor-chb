@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/system/Version.hpp>
 #include <balor/NonCopyable.hpp>
@@ -18,13 +18,13 @@ namespace balor {
 
 
 /**
- * ƒtƒ@ƒCƒ‹‚Ìƒo[ƒWƒ‡ƒ“î•ñB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã€‚
  * 
- * Œ»Ý‚ÌƒƒP[ƒ‹‚©‚çŒ¾ŒêƒR[ƒh‚ðŽæ“¾‚µ‚Äˆê’v‚·‚éƒo[ƒWƒ‡ƒ“î•ñ‚ð’T‚·B
- * ‚Ý‚Â‚©‚ç‚È‚¢ê‡‚ÍƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒgƒƒP[ƒ‹‚©ƒjƒ…[ƒgƒ‰ƒ‹‚ÉŽw’è‚³‚ê‚½ƒo[ƒWƒ‡ƒ“î•ñ‚ð’T‚µA
- * ‚»‚ê‚Å‚àŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚ÍÅ‰‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ð“Ç‚ÝŽæ‚éB
- * ƒo[ƒWƒ‡ƒ“î•ñ‚ª–³‚©‚Á‚½ê‡‚Í operator SafeBool ‚Å false ‚ð•Ô‚·B
- * ƒtƒ@ƒCƒ‹Ž©‘Ì‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Í ::balor::io::File::NotFoundException ‚ð“Š‚°‚éB
+ * ç¾åœ¨ã®ãƒ­ã‚±ãƒ¼ãƒ«ã‹ã‚‰è¨€èªžã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã—ã¦ä¸€è‡´ã™ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŽ¢ã™ã€‚
+ * ã¿ã¤ã‹ã‚‰ãªã„å ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ­ã‚±ãƒ¼ãƒ«ã‹ãƒ‹ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ«ã«æŒ‡å®šã•ã‚ŒãŸãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŽ¢ã—ã€
+ * ãã‚Œã§ã‚‚è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯æœ€åˆã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’èª­ã¿å–ã‚‹ã€‚
+ * ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ãŒç„¡ã‹ã£ãŸå ´åˆã¯ operator SafeBool ã§ false ã‚’è¿”ã™ã€‚
+ * ãƒ•ã‚¡ã‚¤ãƒ«è‡ªä½“ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯ ::balor::io::File::NotFoundException ã‚’æŠ•ã’ã‚‹ã€‚
  */
 class FileVersionInfo : private NonCopyable {
 public:
@@ -32,22 +32,22 @@ public:
 	typedef ::balor::io::Registry Registry;
 
 public:
-	/// Žw’è‚µ‚½ƒtƒ@ƒCƒ‹‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðì¬‚·‚éB
+	/// æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’ä½œæˆã™ã‚‹ã€‚
 	FileVersionInfo(StringRange filePath);
 	FileVersionInfo(FileVersionInfo&& value);
 	~FileVersionInfo();
 
 	FileVersionInfo& operator=(FileVersionInfo&& value);
 
-public: // ‚»‚ê‚¼‚êƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“ƒŠƒ\[ƒX‚Ì–¼‘O‚É‘Î‰ž‚µ‚Ä‚¢‚é
-	/// ‚±‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŽ‚ÂƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ†[ƒUƒf[ƒ^‚ÌƒfƒBƒŒƒNƒgƒŠB
+public: // ãã‚Œãžã‚Œãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãƒªã‚½ãƒ¼ã‚¹ã®åå‰ã«å¯¾å¿œã—ã¦ã„ã‚‹
+	/// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŒã¤ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¦ãƒ¼ã‚¶ãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
 	File appDataDirectory(bool useProductVersion = true) const;
-	/// ‚±‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŽ‚ÂƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ†[ƒUƒf[ƒ^‚ÌƒŒƒWƒXƒgƒŠB
+	/// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŒã¤ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¦ãƒ¼ã‚¶ãƒ‡ãƒ¼ã‚¿ã®ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã€‚
 	Registry appDataRegistry(bool useProductVersion = true) const;
 	String comments() const;
-	/// ‚±‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŽ‚ÂƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì‹¤’Êƒf[ƒ^‚ÌƒfƒBƒŒƒNƒgƒŠB
+	/// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŒã¤ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®å…±é€šãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
 	File commonAppDataDirectory(bool useProductVersion = true) const;
-	/// ‚±‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŽ‚ÂƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì‹¤’Êƒf[ƒ^‚ÌƒŒƒWƒXƒgƒŠB
+	/// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŒã¤ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®å…±é€šãƒ‡ãƒ¼ã‚¿ã®ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã€‚
 	Registry commonAppDataRegistry(bool useProductVersion = true) const;
 	String companyName() const;
 	String fileDescription() const;
@@ -58,11 +58,11 @@ public: // ‚»‚ê‚¼‚êƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“ƒŠƒ\[ƒX‚Ì–¼‘O‚É‘Î‰ž‚µ‚Ä‚¢‚é
 	bool isPatched() const;
 	bool isPreRelease() const;
 	bool isSpecialBuild() const;
-	/// ƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“‚ÌŒ¾ŒêƒR[ƒhi‚»‚Ì‚Ü‚Ü Locale ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚ÉŽg‚¦‚éj
+	/// ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®è¨€èªžã‚³ãƒ¼ãƒ‰ï¼ˆãã®ã¾ã¾ Locale ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä½¿ãˆã‚‹ï¼‰
 	int languageCode() const;
 	String legalCopyright() const;
 	String legalTrademarks() const;
-	/// ‚±‚Ìƒo[ƒWƒ‡ƒ“î•ñ‚ðŽ‚ÂƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ†[ƒUƒf[ƒ^iƒ[ƒ~ƒ“ƒO‚ ‚èj‚ÌƒfƒBƒŒƒNƒgƒŠB
+	/// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’æŒã¤ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¦ãƒ¼ã‚¶ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ­ãƒ¼ãƒŸãƒ³ã‚°ã‚ã‚Šï¼‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
 	File localAppDataDirectory(bool useProductVersion = true) const;
 	String originalFileName() const;
 	String privateBuild() const;
@@ -72,7 +72,7 @@ public: // ‚»‚ê‚¼‚êƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“ƒŠƒ\[ƒX‚Ì–¼‘O‚É‘Î‰ž‚µ‚Ä‚¢‚é
 	String specialBuild() const;
 
 public:
-	/// ƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“î•ñ‚ªŒ©‚Â‚©‚Á‚½‚©‚Ç‚¤‚©B
+	/// ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ãŒè¦‹ã¤ã‹ã£ãŸã‹ã©ã†ã‹ã€‚
 	operator bool() const;
 
 private:

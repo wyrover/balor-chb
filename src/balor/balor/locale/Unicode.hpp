@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/locale/Locale.hpp>
 
@@ -8,7 +8,7 @@ namespace balor {
 
 
 /**
- * b’èÀ‘•B
+ * æš«å®šå®Ÿè£…ã€‚
  */
 class Unicode {
 public:

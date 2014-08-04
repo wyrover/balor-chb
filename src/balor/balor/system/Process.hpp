@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -7,7 +7,7 @@ namespace balor {
 
 
 /**
- * ƒvƒƒZƒXb’èÀ‘•B
+ * ãƒ—ãƒ­ã‚»ã‚¹æš«å®šå®Ÿè£…ã€‚
  */
 class Process {
 private:

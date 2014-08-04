@@ -1,4 +1,4 @@
-#include "PerformanceCounter.hpp"
+ï»¿#include "PerformanceCounter.hpp"
 
 #include <Pdh.h>
 #pragma comment(lib, "pdh.lib")
@@ -17,7 +17,7 @@ namespace balor {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4189) // 'status' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning(disable : 4189) // 'status' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 PerformanceCounter::PerformanceCounter(StringRange categoryName, StringRange counterName, StringRange instanceName) {
 	StringBuffer buffer;
 	buffer += L"\\";

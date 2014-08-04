@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/system/ComPtr.hpp>
 #include <balor/ArrayRange.hpp>
@@ -25,34 +25,34 @@ namespace balor {
 
 
 /**
- * •¶šƒR[ƒh‚ğ•\‚µAƒR[ƒhŠÔ‚Ì•¶š—ñ•ÏŠ·‚ğ’ñ‹Ÿ‚·‚éB
+ * æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’è¡¨ã—ã€ã‚³ãƒ¼ãƒ‰é–“ã®æ–‡å­—åˆ—å¤‰æ›ã‚’æä¾›ã™ã‚‹ã€‚
  *
- * •ÏŠ·‚É‚Í mlang.dll ‚Ì COM ƒIƒuƒWƒFƒNƒg‚ğg—p‚µ‚Ä‚¢‚é‚ªAƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Ì isWindowCodePage ‚ğ true ‚É‚µ‚½ê‡‚ÉŒÀ‚è
- * WIN32 API ‚Ì WideCharToMultiByte, MultiByteToWideChar ŠÖ”‚ğg—p‚·‚éB
- * ‚±‚Ìê‡ COM ƒIƒuƒWƒFƒNƒg‚ğ•K—v‚Æ‚·‚éŠÖ”‚ğŒÄ‚Î‚È‚¢ŒÀ‚è COM ƒIƒuƒWƒFƒNƒg‚Íì¬‚³‚ê‚È‚¢‚Ì‚ÅAƒpƒtƒH[ƒ}ƒ“ƒX‚ªŒüã‚·‚é‰Â”\«‚ª‚ ‚éB
- * ‚½‚¾‚µ‚±‚Ìİ’è‚Í WIN32 API ‚ÅƒTƒ|[ƒg‚³‚ê‚éƒR[ƒhƒy[ƒW‚Å‚µ‚©g‚¦‚È‚¢B‚Ü‚½A•ÏŠ·‚ÌŒ‹‰Ê‚ª COM ‚Ì‚à‚Ì‚ÆˆÙ‚È‚éB
- * —á‚¦‚ÎA‘SŠp‚ÌƒAƒ‹ƒtƒ@ƒxƒbƒg‚ğ ASCII ‚Å encode ‚µ‚½ê‡‚É COM ‚Í”¼Šp‚ÌƒAƒ‹ƒtƒ@ƒxƒbƒg‚É•ÏŠ·‚·‚é‚ª WIN32 API ‚Å‚Í•ÏŠ·¸”s‚É‚È‚éB
- * COM ‚Ì‰Šú‰»‚ÍAƒƒCƒ“ƒXƒŒƒbƒh‚Å COM ƒIƒuƒWƒFƒNƒg‚Ì‰Šú‰»‚É¸”s‚µ‚½ê‡‚Ì‚İ ::balor::system::Com ‚Å STA ‚Ì COM ‰Šú‰»‚ğs‚Á‚Ä‚¢‚éB
- * ƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚Å Charset ‚ğg—p‚·‚éê‡‚ÍƒƒCƒ“ƒXƒŒƒbƒh‚Å MTA ‚Ì COM ‰Šú‰»‚ğs‚¤‚©AV‚µ‚¢ƒXƒŒƒbƒh“à‚Å–¾¦“I‚É COM ‚Ì‰Šú‰»ˆ—AI—¹ˆ—‚ğs‚¤•K—v‚ª‚ ‚éB
- * ‚È‚¨ mlang.dll ‚ÌCOMƒIƒuƒWƒFƒNƒg‚Ì threadingModel ‚Í both ‚Å‚ ‚é‚æ‚¤‚¾B
+ * å¤‰æ›ã«ã¯ mlang.dll ã® COM ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ãŒã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã® isWindowCodePage ã‚’ true ã«ã—ãŸå ´åˆã«é™ã‚Š
+ * WIN32 API ã® WideCharToMultiByte, MultiByteToWideChar é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
+ * ã“ã®å ´åˆ COM ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¿…è¦ã¨ã™ã‚‹é–¢æ•°ã‚’å‘¼ã°ãªã„é™ã‚Š COM ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ä½œæˆã•ã‚Œãªã„ã®ã§ã€ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ãŒå‘ä¸Šã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚
+ * ãŸã ã—ã“ã®è¨­å®šã¯ WIN32 API ã§ã‚µãƒãƒ¼ãƒˆã•ã‚Œã‚‹ã‚³ãƒ¼ãƒ‰ãƒšãƒ¼ã‚¸ã§ã—ã‹ä½¿ãˆãªã„ã€‚ã¾ãŸã€å¤‰æ›ã®çµæœãŒ COM ã®ã‚‚ã®ã¨ç•°ãªã‚‹ã€‚
+ * ä¾‹ãˆã°ã€å…¨è§’ã®ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆã‚’ ASCII ã§ encode ã—ãŸå ´åˆã« COM ã¯åŠè§’ã®ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆã«å¤‰æ›ã™ã‚‹ãŒ WIN32 API ã§ã¯å¤‰æ›å¤±æ•—ã«ãªã‚‹ã€‚
+ * COM ã®åˆæœŸåŒ–ã¯ã€ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ COM ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åˆæœŸåŒ–ã«å¤±æ•—ã—ãŸå ´åˆã®ã¿ ::balor::system::Com ã§ STA ã® COM åˆæœŸåŒ–ã‚’è¡Œã£ã¦ã„ã‚‹ã€‚
+ * ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã§ Charset ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ MTA ã® COM åˆæœŸåŒ–ã‚’è¡Œã†ã‹ã€æ–°ã—ã„ã‚¹ãƒ¬ãƒƒãƒ‰å†…ã§æ˜ç¤ºçš„ã« COM ã®åˆæœŸåŒ–å‡¦ç†ã€çµ‚äº†å‡¦ç†ã‚’è¡Œã†å¿…è¦ãŒã‚ã‚‹ã€‚
+ * ãªãŠ mlang.dll ã®COMã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã® threadingModel ã¯ both ã§ã‚ã‚‹ã‚ˆã†ã ã€‚
  */
 class Charset : private NonCopyable {
 public:
 	typedef std::basic_string<char, std::char_traits<char>, std::allocator<char> > string;
 
-	/// ƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½B
+	/// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã€‚
 	class NotFoundException : public Exception {};
 
-	/// encode, decode, convert ‚ª¸”s‚µAthrowable ˆø”‚ª true ‚Ìê‡‚É“Š‚°‚ç‚ê‚éB
+	/// encode, decode, convert ãŒå¤±æ•—ã—ã€throwable å¼•æ•°ãŒ true ã®å ´åˆã«æŠ•ã’ã‚‰ã‚Œã‚‹ã€‚
 	class ConversionFailedException : public Exception {};
 
-	/// •ÏŠ·Œ‹‰Ê‚ğ‘‚«‚Ş”z—ñ‚Ì’·‚³‚ª‘«‚è‚È‚©‚Á‚½B
+	/// å¤‰æ›çµæœã‚’æ›¸ãè¾¼ã‚€é…åˆ—ã®é•·ã•ãŒè¶³ã‚Šãªã‹ã£ãŸã€‚
 	class InsufficientBufferExceptoin : public Exception {};
 
 public:
-	/// ƒR[ƒhƒy[ƒW‚©‚çì¬BisWindowsCodePage ‚É‚Â‚¢‚Ä‚ÍƒNƒ‰ƒX‚ÌƒhƒLƒ…ƒƒ“ƒg‚ğQÆB
+	/// ã‚³ãƒ¼ãƒ‰ãƒšãƒ¼ã‚¸ã‹ã‚‰ä½œæˆã€‚isWindowsCodePage ã«ã¤ã„ã¦ã¯ã‚¯ãƒ©ã‚¹ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã€‚
 	explicit Charset(int codePage, bool isWindowsCodePage = false);
-	/// ƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg–¼‚©‚çì¬B
+	/// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆåã‹ã‚‰ä½œæˆã€‚
 	explicit Charset(StringRange name);
 	Charset(Charset&& value);
 	~Charset();
@@ -60,50 +60,50 @@ public:
 	Charset& operator=(Charset&& value);
 
 public:
-	/// ASCII •¶šƒR[ƒhB
+	/// ASCII æ–‡å­—ã‚³ãƒ¼ãƒ‰ã€‚
 	static Charset ascii();
-	/// ƒrƒbƒOƒGƒ“ƒfƒBƒAƒ“ƒ†ƒjƒR[ƒhB
+	/// ãƒ“ãƒƒã‚°ã‚¨ãƒ³ãƒ‡ã‚£ã‚¢ãƒ³ãƒ¦ãƒ‹ã‚³ãƒ¼ãƒ‰ã€‚
 	static Charset bigEndianUnicode();
-	/// g—p‰Â”\‚ÈƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒgˆê——B
+	/// ä½¿ç”¨å¯èƒ½ãªã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆä¸€è¦§ã€‚
 	static std::vector<Charset, std::allocator<Charset> > charsets();
-	/// ƒR[ƒhƒy[ƒWB
+	/// ã‚³ãƒ¼ãƒ‰ãƒšãƒ¼ã‚¸ã€‚
 	int codePage() const;
-	/// Unicode ‚Ö‚Ì•ÏŠ·B
+	/// Unicode ã¸ã®å¤‰æ›ã€‚
 	String decode(ByteStringRange src) const;
 	String decode(ByteStringRange src, int count) const;
-	/// Unicode ‚Ö‚Ì•ÏŠ·Bdst ‚É•ÏŠ·Œ‹‰Ê‚ğ‘‚«‚İA•ÏŠ·‚µ‚½•¶š”‚ğ•Ô‚·B
+	/// Unicode ã¸ã®å¤‰æ›ã€‚dst ã«å¤‰æ›çµæœã‚’æ›¸ãè¾¼ã¿ã€å¤‰æ›ã—ãŸæ–‡å­—æ•°ã‚’è¿”ã™ã€‚
 	int decode(ByteStringRange src, int count, ArrayRange<wchar_t> dst) const;
-	/// ƒVƒXƒeƒ€‚ÌƒfƒtƒHƒ‹ƒgƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒgBisWindowsCodePage ‚ª true ‚Åì¬‚³‚ê‚é–‚É’ˆÓB
+	/// ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆã€‚isWindowsCodePage ãŒ true ã§ä½œæˆã•ã‚Œã‚‹äº‹ã«æ³¨æ„ã€‚
 	static Charset default();
-	/// ƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg‚Ì•\¦–¼B
+	/// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆã®è¡¨ç¤ºåã€‚
 	String displayName() const;
-	/// srcCharset ‚©‚ç‚Ì•ÏŠ·B
+	/// srcCharset ã‹ã‚‰ã®å¤‰æ›ã€‚
 	string encode(ByteStringRange src, const Charset& srcCharset) const;
 	string encode(ByteStringRange src, int count, const Charset& srcCharset) const;
-	/// srcCharset ‚©‚ç‚Ì•ÏŠ·Bdst ‚É•ÏŠ·Œ‹‰Ê‚ğ‘‚«‚İA•ÏŠ·‚µ‚½•¶š”‚ğ•Ô‚·B
+	/// srcCharset ã‹ã‚‰ã®å¤‰æ›ã€‚dst ã«å¤‰æ›çµæœã‚’æ›¸ãè¾¼ã¿ã€å¤‰æ›ã—ãŸæ–‡å­—æ•°ã‚’è¿”ã™ã€‚
 	int encode(ByteStringRange src, int count, ArrayRange<char> dst, const Charset& srcCharset) const;
-	/// Unicode ‚©‚ç‚Ì•ÏŠ·B
+	/// Unicode ã‹ã‚‰ã®å¤‰æ›ã€‚
 	string encode(StringRange src) const;
 	string encode(StringRange src, int count) const;
-	/// Unicode ‚©‚ç‚Ì•ÏŠ·Bdst ‚É•ÏŠ·Œ‹‰Ê‚ğ‘‚«‚İA•ÏŠ·‚µ‚½•¶š”‚ğ•Ô‚·B
+	/// Unicode ã‹ã‚‰ã®å¤‰æ›ã€‚dst ã«å¤‰æ›çµæœã‚’æ›¸ãè¾¼ã¿ã€å¤‰æ›ã—ãŸæ–‡å­—æ•°ã‚’è¿”ã™ã€‚
 	int encode(StringRange src, int count, ArrayRange<char> dst) const;
-	/// EUC-JP ƒR[ƒhB
+	/// EUC-JP ã‚³ãƒ¼ãƒ‰ã€‚
 	static Charset eucJp();
-	/// Unicode ‚©‚ç‚Ì encode ‚É¸”s‚µ‚½•¶š‚ğ’uŠ·‚·‚é•¶šB‰Šú’l‚Í L'?'BUnicode ˆÈŠO‚©‚ç‚Ì encode, decode ‚Å‚ÍƒTƒ|[ƒg‚³‚ê‚È‚¢B
+	/// Unicode ã‹ã‚‰ã® encode ã«å¤±æ•—ã—ãŸæ–‡å­—ã‚’ç½®æ›ã™ã‚‹æ–‡å­—ã€‚åˆæœŸå€¤ã¯ L'?'ã€‚Unicode ä»¥å¤–ã‹ã‚‰ã® encode, decode ã§ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„ã€‚
 	wchar_t fallbackChar() const;
 	void fallbackChar(wchar_t value);
-	/// ƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒg–¼B
+	/// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆåã€‚
 	String name() const;
-	/// ShiftJIS ƒR[ƒhB
+	/// ShiftJIS ã‚³ãƒ¼ãƒ‰ã€‚
 	static Charset shiftJis();
-	/// •ÏŠ·‚É¸”s‚µ‚½ê‡‚É Charset::ConversionFailedException ‚ğ“Š‚°‚é‚©‚Ç‚¤‚©B‰Šú’l‚Í falseB
+	/// å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆã« Charset::ConversionFailedException ã‚’æŠ•ã’ã‚‹ã‹ã©ã†ã‹ã€‚åˆæœŸå€¤ã¯ falseã€‚
 	bool throwable() const;
 	void throwable(bool value);
-	/// ƒ†ƒjƒR[ƒhB
+	/// ãƒ¦ãƒ‹ã‚³ãƒ¼ãƒ‰ã€‚
 	static Charset unicode();
-	/// UTF7B
+	/// UTF7ã€‚
 	static Charset utf7();
-	/// UTF8B
+	/// UTF8ã€‚
 	static Charset utf8();
 
 private:

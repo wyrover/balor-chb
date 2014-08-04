@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <cassert>
 #include <ObjBase.h>
@@ -9,7 +9,7 @@ namespace balor {
 
 
 
-/// IUnknown ‚Ì COM ƒCƒ“ƒ^[ƒtƒF[ƒXÀ‘•‚ğè•‚¯‚·‚éŠî’êƒNƒ‰ƒXB
+/// IUnknown ã® COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹å®Ÿè£…ã‚’æ‰‹åŠ©ã‘ã™ã‚‹åŸºåº•ã‚¯ãƒ©ã‚¹ã€‚
 template<typename T>
 class ComBase : public T {
 protected:
@@ -19,7 +19,7 @@ protected:
 		assert(!_count);
 	}
 
-private: // •¡»‚Ì‹Ö~B
+private: // è¤‡è£½ã®ç¦æ­¢ã€‚
 	ComBase(const ComBase& );
 	ComBase& operator=(const ComBase& );
 

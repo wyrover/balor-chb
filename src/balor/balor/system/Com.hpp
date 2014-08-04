@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Exception.hpp>
 
@@ -9,34 +9,34 @@ namespace balor {
 
 
 /**
- * COM ‚Ì‰Šú‰»‚ÆI—¹‚ÌŽ©“®‰»‚ð’ñ‹Ÿ‚·‚éB
+ * COM ã®åˆæœŸåŒ–ã¨çµ‚äº†ã®è‡ªå‹•åŒ–ã‚’æä¾›ã™ã‚‹ã€‚
  * 
- * ƒƒCƒ“ƒXƒŒƒbƒh‚Å initialize ‚Ü‚½‚Í oleInitialize ŠÖ”‚ðŒÄ‚ñ‚¾ê‚ÍAƒvƒƒZƒXI—¹Žž‚ÉŽ©“®“I‚É uninitialize ‚Ü‚½‚Í oleUninitialize ŠÖ”‚ðŒÄ‚ÔB
- * ƒƒCƒ“ƒXƒŒƒbƒh‚Å‚Í‚È‚¢ƒXƒŒƒbƒh‚©‚çŒÄ‚Ôê‡‚ÍŽ©“®“I‚ÈI—¹ˆ—‚Ís‚í‚ê‚È‚¢‚±‚Æ‚É’ˆÓB
- * ƒvƒƒZƒXI—¹Žž‚É‰Šú‰»ˆ—‚ÆI—¹ˆ—‚ÌŒÄ‚Ño‚µ‰ñ”‚ª“™‚µ‚­‚È‚¯‚ê‚Î assert ‚ÅŒx‚·‚éB
+ * ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ initialize ã¾ãŸã¯ oleInitialize é–¢æ•°ã‚’å‘¼ã‚“ã å ´ã¯ã€ãƒ—ãƒ­ã‚»ã‚¹çµ‚äº†æ™‚ã«è‡ªå‹•çš„ã« uninitialize ã¾ãŸã¯ oleUninitialize é–¢æ•°ã‚’å‘¼ã¶ã€‚
+ * ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã¯ãªã„ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰å‘¼ã¶å ´åˆã¯è‡ªå‹•çš„ãªçµ‚äº†å‡¦ç†ã¯è¡Œã‚ã‚Œãªã„ã“ã¨ã«æ³¨æ„ã€‚
+ * ãƒ—ãƒ­ã‚»ã‚¹çµ‚äº†æ™‚ã«åˆæœŸåŒ–å‡¦ç†ã¨çµ‚äº†å‡¦ç†ã®å‘¼ã³å‡ºã—å›žæ•°ãŒç­‰ã—ããªã‘ã‚Œã° assert ã§è­¦å‘Šã™ã‚‹ã€‚
  */
 class Com {
 public:
-	/// COM ‚ª–¢‰Šú‰»‚¾‚Á‚½ê‡B
+	/// COM ãŒæœªåˆæœŸåŒ–ã ã£ãŸå ´åˆã€‚
 	class UninitializedException : public Exception {};
 
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒX‚ªƒŒƒWƒXƒgƒŠ‚É–¢“o˜^‚¾‚Á‚½‚è–¢ŽÀ‘•‚¾‚Á‚½ê‡B
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãŒãƒ¬ã‚¸ã‚¹ãƒˆãƒªã«æœªç™»éŒ²ã ã£ãŸã‚Šæœªå®Ÿè£…ã ã£ãŸå ´åˆã€‚
 	class InterfaceNotFoundException : public Exception {};
 
 public:
-	/// COM ‚ð‰Šú‰»‚·‚éBisSTA ‚ª true ‚È‚ç‚Î STAAfalse ‚È‚ç‚Î MTA ‚Å‰Šú‰»‚·‚éB
+	/// COM ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚isSTA ãŒ true ãªã‚‰ã° STAã€false ãªã‚‰ã° MTA ã§åˆæœŸåŒ–ã™ã‚‹ã€‚
 	static void initialize(bool isSTA = true);
-	/// ƒƒCƒ“ƒXƒŒƒbƒh‚É‚¨‚¢‚Ä COM ‚ª‰ŠúÏ‚Ý‚©”Û‚©‚ð•Ô‚·B
+	/// ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã«ãŠã„ã¦ COM ãŒåˆæœŸæ¸ˆã¿ã‹å¦ã‹ã‚’è¿”ã™ã€‚
 	static bool initialized();
-	/// ƒƒCƒ“ƒXƒŒƒbƒh‚©‚Ç‚¤‚©B
+	/// ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã©ã†ã‹ã€‚
 	static bool isMainThread();
-	/// OLE ‚ð‰Šú‰»‚·‚éBCOM ‚ª–¢‰Šú‰»‚Å‚ ‚Á‚½ê‡‚Í“¯Žž‚É COM ‚ð STA ‚Å‰Šú‰»‚·‚éB
+	/// OLE ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚COM ãŒæœªåˆæœŸåŒ–ã§ã‚ã£ãŸå ´åˆã¯åŒæ™‚ã« COM ã‚’ STA ã§åˆæœŸåŒ–ã™ã‚‹ã€‚
 	static void oleInitialize();
-	/// ƒƒCƒ“ƒXƒŒƒbƒh‚É‚¨‚¢‚Ä OLE ‚ª‰ŠúÏ‚Ý‚©‚Ç‚¤‚©B
+	/// ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã«ãŠã„ã¦ OLE ãŒåˆæœŸæ¸ˆã¿ã‹ã©ã†ã‹ã€‚
 	static bool oleInitialized();
-	/// OLE ‚ÌI—¹ˆ—‚ðs‚¤B
+	/// OLE ã®çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
 	static void oleUninitialize();
-	/// COM ‚ÌI—¹ˆ—‚ðs‚¤B
+	/// COM ã®çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
 	static void uninitialize();
 };
 

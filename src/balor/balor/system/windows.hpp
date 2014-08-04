@@ -1,39 +1,39 @@
-#pragma once
+ï»¿#pragma once
 
-// windows.h ‚Ì include —pB
+// windows.h ã® include ç”¨ã€‚
 
 
 #ifndef WINVER
-#define WINVER 0x0501 // Windows XP ˆÈ~
+#define WINVER 0x0501 // Windows XP ä»¥é™
 #endif
 
 #ifndef _WIN32_WINNT                   
-#define _WIN32_WINNT 0x0501 // Windows XP ˆÈ~
+#define _WIN32_WINNT 0x0501 // Windows XP ä»¥é™
 #endif						
 
 #ifndef _WIN32_WINDOWS
-#define _WIN32_WINDOWS 0x0410 // Windows 98 ˆÈ~
+#define _WIN32_WINDOWS 0x0410 // Windows 98 ä»¥é™
 #endif
 
 #ifndef _WIN32_IE
-#define _WIN32_IE 0x0600 // IE 6.0 ˆÈ~
+#define _WIN32_IE 0x0600 // IE 6.0 ä»¥é™
 #endif
 
 #if !defined(ENABLE_WIN32_LEAN_AND_MEAN)
 #if !defined(WIN32_LEAN_AND_MEAN)
-#	define WIN32_LEAN_AND_MEAN // windows.h ƒwƒbƒ_[‚©‚çg—p‚³‚ê‚Ä‚¢‚È‚¢•”•ª‚ğœŠO‚·‚é
+#	define WIN32_LEAN_AND_MEAN // windows.h ãƒ˜ãƒƒãƒ€ãƒ¼ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã¦ã„ãªã„éƒ¨åˆ†ã‚’é™¤å¤–ã™ã‚‹
 #endif
 #endif
 #if !defined(ENABLE_MINMAX)
 #if !defined(NOMINMAX)
-#	define NOMINMAX // min,maxƒ}ƒNƒ‚ğ–³Œø‚É‚·‚é
+#	define NOMINMAX // min,maxãƒã‚¯ãƒ­ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 #endif
 #endif
 #if !defined(OEMRESOURCE)
-#	define OEMRESOURCE // OCRƒJ[ƒ\ƒ‹ƒŠƒ\[ƒX‚ğ—LŒø‚É‚·‚é
+#	define OEMRESOURCE // OCRã‚«ãƒ¼ã‚½ãƒ«ãƒªã‚½ãƒ¼ã‚¹ã‚’æœ‰åŠ¹ã«ã™ã‚‹
 #endif
 #include <windows.h>
 
-#if defined(MessageBox) // ƒNƒ‰ƒX–¼‚Æ‚©‚Ô‚é‚Ì‚Å
+#if defined(MessageBox) // ã‚¯ãƒ©ã‚¹åã¨ã‹ã¶ã‚‹ã®ã§
 #undef MessageBox
 #endif

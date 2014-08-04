@@ -1,4 +1,4 @@
-#include "Unicode.hpp"
+﻿#include "Unicode.hpp"
 
 #include <cstring>
 

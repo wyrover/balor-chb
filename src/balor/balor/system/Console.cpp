@@ -1,4 +1,4 @@
-#include "Console.hpp"
+ï»¿#include "Console.hpp"
 
 #define _CRT_SECURE_NO_WARNINGS
 
@@ -22,7 +22,7 @@ void Console::close() {
 
 
 void Console::open() {
-	verify(AllocConsole()); // “¯Šú‚à‚È‚É‚à‚È‚¢‚ª¸”s‚µ‚Ä‚à‚»‚±‚Ü‚Å[‚É‚Í‚È‚é‚Ü‚¢
+	verify(AllocConsole()); // åŒæœŸã‚‚ãªã«ã‚‚ãªã„ãŒå¤±æ•—ã—ã¦ã‚‚ãã“ã¾ã§æ·±åˆ»ã«ã¯ãªã‚‹ã¾ã„
 	verify(freopen("CONOUT$", "w", stdout));
 	verify(freopen("CONOUT$", "w", stderr));
 }

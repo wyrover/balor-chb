@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -7,7 +7,7 @@ namespace balor {
 
 
 /**
- * ƒtƒ@ƒCƒ‹‚âƒ‚ƒWƒ…[ƒ‹‚Ìƒo[ƒWƒ‡ƒ“‚ğ•\‚·B
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’è¡¨ã™ã€‚
  */
 class Version {
 public:

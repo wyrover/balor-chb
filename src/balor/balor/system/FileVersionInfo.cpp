@@ -1,4 +1,4 @@
-#include "FileVersionInfo.hpp"
+ï»¿#include "FileVersionInfo.hpp"
 
 #include <utility>
 
@@ -97,7 +97,7 @@ void makeAppRegistry(Registry& key, const FileVersionInfo& info, bool useProduct
 FileVersionInfo::FileVersionInfo(StringRange filePath) : _buffer(nullptr), _languageCode(0) {
 	assert("Empty filePath" && !filePath.empty());
 
-	{// ƒo[ƒWƒ‡ƒ“î•ñ‘S‘Ì‚Ìæ“¾
+	{// ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±å…¨ä½“ã®å–å¾—
 		DWORD size = 0;
 		size = GetFileVersionInfoSizeW(filePath.c_str(), &size);
 		if (size == 0) {
@@ -106,20 +106,20 @@ FileVersionInfo::FileVersionInfo(StringRange filePath) : _buffer(nullptr), _lang
 				case ERROR_FILE_NOT_FOUND          : throw File::NotFoundException();
 				case ERROR_RESOURCE_TYPE_NOT_FOUND :
 				case ERROR_RESOURCE_DATA_NOT_FOUND : {
-					if (File::exists(filePath)) { // OS‚É‚æ‚Á‚Ä‚ÍERROR_FILE_NOT_FOUND‚ğ•Ô‚³‚È‚¢
-						return; // ƒo[ƒWƒ‡ƒ“ƒŠƒ\[ƒX‚ª–³‚¢
+					if (File::exists(filePath)) { // OSã«ã‚ˆã£ã¦ã¯ERROR_FILE_NOT_FOUNDã‚’è¿”ã•ãªã„
+						return; // ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãƒªã‚½ãƒ¼ã‚¹ãŒç„¡ã„
 					} else {
 						throw File::NotFoundException();
 					}
 				}
-				default                            : assert(false); return; // ‚»‚ê‚Ù‚Ç[‚È–‘Ô‚Å‚Í‚ ‚é‚Ü‚¢
+				default                            : assert(false); return; // ãã‚Œã»ã©æ·±åˆ»ãªäº‹æ…‹ã§ã¯ã‚ã‚‹ã¾ã„
 			}
 		}
 		_buffer = new unsigned char[size];
 		verify(GetFileVersionInfoW(filePath.c_str(), 0, size, _buffer));
 	}
 
-	{// Œ¾ŒêAƒR[ƒhƒy[ƒW‚ÌŒˆ’è
+	{// è¨€èªã€ã‚³ãƒ¼ãƒ‰ãƒšãƒ¼ã‚¸ã®æ±ºå®š
 		struct LangAndCodePage {
 			WORD language;
 			WORD codePage;
@@ -133,7 +133,7 @@ FileVersionInfo::FileVersionInfo(StringRange filePath) : _buffer(nullptr), _lang
 		assert(userLanguage);
 		bool find = false;
 		for (UINT i = 0; i < langAndCodePageSize / sizeof(LangAndCodePage); ++i) {
-			if (langAndCodePages[i].language == userLanguage) { // Œ»İ‚ÌƒƒP[ƒ‹Œ¾Œê‚Æˆê’v‚·‚éŒ¾Œê‚ğŒŸõ
+			if (langAndCodePages[i].language == userLanguage) { // ç¾åœ¨ã®ãƒ­ã‚±ãƒ¼ãƒ«è¨€èªã¨ä¸€è‡´ã™ã‚‹è¨€èªã‚’æ¤œç´¢
 				langAndCodePage = langAndCodePages[i];
 				find = true;
 				break;
@@ -141,7 +141,7 @@ FileVersionInfo::FileVersionInfo(StringRange filePath) : _buffer(nullptr), _lang
 		}
 		if (!find) {
 			for (UINT i = 0; i < langAndCodePageSize / sizeof(LangAndCodePage); ++i) {
-				if (langAndCodePages[i].language == LANG_SYSTEM_DEFAULT // ‚İ‚Â‚©‚ç‚È‚¢‚È‚çƒfƒtƒHƒ‹ƒg‚Á‚Û‚¢‚à‚Ì‚Å‰ä–‚·‚é
+				if (langAndCodePages[i].language == LANG_SYSTEM_DEFAULT // ã¿ã¤ã‹ã‚‰ãªã„ãªã‚‰ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã£ã½ã„ã‚‚ã®ã§æˆ‘æ…¢ã™ã‚‹
 				 || langAndCodePages[i].language == LANG_USER_DEFAULT
 				 || langAndCodePages[i].language == LOCALE_NEUTRAL
 				 || langAndCodePages[i].language == LOCALE_INVARIANT) {
@@ -151,7 +151,7 @@ FileVersionInfo::FileVersionInfo(StringRange filePath) : _buffer(nullptr), _lang
 				}
 			}
 		}
-		if (!find) { // ‚»‚ê‚Å‚àŒ©‚Â‚©‚ç‚È‚¯‚ê‚ÎÅ‰‚ÌŒ¾Œê‚Å‚¢‚¢‚â
+		if (!find) { // ãã‚Œã§ã‚‚è¦‹ã¤ã‹ã‚‰ãªã‘ã‚Œã°æœ€åˆã®è¨€èªã§ã„ã„ã‚„
 			langAndCodePage = langAndCodePages[0];
 		}
 

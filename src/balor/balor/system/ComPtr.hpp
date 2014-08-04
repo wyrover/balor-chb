@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/test/noMacroAssert.hpp>
 #include <balor/Exception.hpp>
@@ -19,21 +19,21 @@ namespace detail {
 
 
 /**
- * COM ƒCƒ“ƒ^[ƒtƒF[ƒX‚Ìì¬AŠJ•ú‚Ìx‰‡‚ğ‚·‚éƒXƒ}[ƒgƒ|ƒCƒ“ƒ^[B
+ * COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®ä½œæˆã€é–‹æ”¾ã®æ”¯æ´ã‚’ã™ã‚‹ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿ãƒ¼ã€‚
  */
 #pragma warning (push)
-#pragma warning (disable : 4189) //  'result' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning (disable : 4189) //  'result' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 template<typename T>
 class ComPtr {
 public:
-	/// ƒkƒ‹ƒ|ƒCƒ“ƒ^‚Å‰Šú‰»B
+	/// ãƒŒãƒ«ãƒã‚¤ãƒ³ã‚¿ã§åˆæœŸåŒ–ã€‚
 	ComPtr() : _ptr(nullptr) {}
 	ComPtr(const ComPtr& value) : _ptr(value._ptr) {
 		_ptr->AddRef();
 	}
-	/// REFCLSID ‚©‚ç COM ƒCƒ“ƒ^[ƒtƒF[ƒX‚ğì¬B
-	/// COM ‚ª–¢‰Šú‰»‚Å‚È‚¨‚©‚ÂƒƒCƒ“ƒXƒŒƒbƒh‚Å‚ ‚ê‚Î Com::Initialize(true) ‚Å‰Šú‰»‚ğ‚İ‚éBƒƒCƒ“ƒXƒŒƒbƒh‚Å‚È‚¯‚ê‚Î Com::UninitializedException ‚ğ“Š‚°‚éB
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒX‚ª–¢“o˜^‚Ü‚½‚Í–¢À‘•‚Ìê‡‚Í Com::InterfaceNotFoundException ‚ğ“Š‚°‚éB
+	/// REFCLSID ã‹ã‚‰ COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ä½œæˆã€‚
+	/// COM ãŒæœªåˆæœŸåŒ–ã§ãªãŠã‹ã¤ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚ã‚Œã° Com::Initialize(true) ã§åˆæœŸåŒ–ã‚’è©¦ã¿ã‚‹ã€‚ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ãªã‘ã‚Œã° Com::UninitializedException ã‚’æŠ•ã’ã‚‹ã€‚
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãŒæœªç™»éŒ²ã¾ãŸã¯æœªå®Ÿè£…ã®å ´åˆã¯ Com::InterfaceNotFoundException ã‚’æŠ•ã’ã‚‹ã€‚
 	explicit ComPtr(const ::_GUID& rclsid, ::IUnknown* unknown = nullptr) : _ptr(nullptr) {
 		::balor::system::detail::coCreateInstance(rclsid, unknown, __uuidof(T), reinterpret_cast<void**>(&_ptr));
 	}
@@ -71,8 +71,8 @@ public:
 	}
 
 public:
-	/// newPtr ‚ÌŒ^‚É QueryInterface ‚ğs‚¤B
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒX‚ª–¢“o˜^‚Ü‚½‚Í–¢À‘•‚Ìê‡‚Í Com::InterfaceNotFoundException ‚ğ“Š‚°‚éB
+	/// newPtr ã®å‹ã« QueryInterface ã‚’è¡Œã†ã€‚
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãŒæœªç™»éŒ²ã¾ãŸã¯æœªå®Ÿè£…ã®å ´åˆã¯ Com::InterfaceNotFoundException ã‚’æŠ•ã’ã‚‹ã€‚
 	template<typename T2>
 	void queryInterface(ComPtr<T2>& newPtr) {
 #if !defined(NDEBUG)
@@ -82,16 +82,16 @@ public:
 	}
 
 public:
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒXƒ|ƒCƒ“ƒ^‚Ìæ“¾B
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒã‚¤ãƒ³ã‚¿ã®å–å¾—ã€‚
 	operator T*() const { return _ptr; }
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒXƒ|ƒCƒ“ƒ^‚Ö‚ÌƒAƒhƒŒƒX‚Ìæ“¾BCoCreateInstance ‚Å‚Ìg—p‚ğ‘z’è‚µ‚Ä‚¢‚é‚Ì‚Åƒ|ƒCƒ“ƒ^‚Í nullptr ‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒã‚¤ãƒ³ã‚¿ã¸ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã®å–å¾—ã€‚CoCreateInstance ã§ã®ä½¿ç”¨ã‚’æƒ³å®šã—ã¦ã„ã‚‹ã®ã§ãƒã‚¤ãƒ³ã‚¿ã¯ nullptr ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
 	T** operator&() {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(_ptr == nullptr);
 #endif
 		return &_ptr;
 	}
-	/// COM ƒCƒ“ƒ^[ƒtƒF[ƒXƒƒ“ƒo‚Ö‚ÌƒAƒNƒZƒXB
+	/// COM ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒ¡ãƒ³ãƒã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ã€‚
 	T* operator->() const { return _ptr; }
 
 private:

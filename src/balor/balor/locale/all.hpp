@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 #include <balor/String.hpp>
 
 namespace balor {
-/// ƒƒP[ƒ‹‚âƒLƒƒƒ‰ƒNƒ^[ƒZƒbƒgŠÖ˜A‚ÌƒNƒ‰ƒXŒQ
+/// ãƒ­ã‚±ãƒ¼ãƒ«ã‚„ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚»ãƒƒãƒˆé–¢é€£ã®ã‚¯ãƒ©ã‚¹ç¾¤
 namespace locale {
 }
 }

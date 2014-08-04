@@ -1,4 +1,4 @@
-#include "System.hpp"
+ï»¿#include "System.hpp"
 
 #include <vector>
 
@@ -89,13 +89,13 @@ String System::getCommandLineArg(int index) {
 bool System::is64BitOs() {
 	SYSTEM_INFO info;
 	ZeroMemory(&info, sizeof(info));
-	GetNativeSystemInfo(&info); // XPˆÈ~‚È‚ç‚±‚ÌŠÖ”‚Í‚ ‚é
+	GetNativeSystemInfo(&info); // XPä»¥é™ãªã‚‰ã“ã®é–¢æ•°ã¯ã‚ã‚‹
 	bool result = false;
 	switch (info.wProcessorArchitecture) {
 		case PROCESSOR_ARCHITECTURE_AMD64 : result = true; break;
 		case PROCESSOR_ARCHITECTURE_IA64  : result = true; break;
 		case PROCESSOR_ARCHITECTURE_INTEL : break;
-		default : assert(false); break; // •s–¾‚È‚b‚o‚tƒA[ƒLƒeƒNƒ`ƒƒ
+		default : assert(false); break; // ä¸æ˜ãªï¼£ï¼°ï¼µã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£
 	}
 	return result;
 }
@@ -114,7 +114,7 @@ bool System::is64BitProcess() {
 	BOOL result = FALSE;
 	const HANDLE process = GetCurrentProcess();
 	assert(process);
-	verify(IsWow64Process(process, &result)); // XPˆÈ~‚È‚ç‚±‚ÌŠÖ”‚Í‚ ‚é
+	verify(IsWow64Process(process, &result)); // XPä»¥é™ãªã‚‰ã“ã®é–¢æ•°ã¯ã‚ã‚‹
 	return result == FALSE;
 }
 
@@ -186,7 +186,7 @@ System::OsKind System::osKind() {
 				}
 			} break;
 		}
-	} else { // infoEx.dwPlatformId == VER_PLATFORM_WIN32s ‚Ü‚½‚ÍV‚µ‚¢‚È‚É‚©
+	} else { // infoEx.dwPlatformId == VER_PLATFORM_WIN32s ã¾ãŸã¯æ–°ã—ã„ãªã«ã‹
 	}
 	return OsKind::unknown;
 }
@@ -237,7 +237,7 @@ String System::userName() {
 
 
 bool System::visualStyleEnabled() {
-	static int comCtl32Version = 0; // DLL ‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä‚à‚©‚Ü‚í‚È‚¢‚µˆ—‚ªd•¡‚µ‚Ä‚à‚©‚Ü‚í‚È‚¢B
+	static int comCtl32Version = 0; // DLL ã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦ã‚‚ã‹ã¾ã‚ãªã„ã—å‡¦ç†ãŒé‡è¤‡ã—ã¦ã‚‚ã‹ã¾ã‚ãªã„ã€‚
 	if (!comCtl32Version) {
 		Module comCtrl = Module::find(L"ComCtl32.dll");
 		if (!comCtrl) {

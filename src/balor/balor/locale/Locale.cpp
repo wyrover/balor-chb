@@ -1,4 +1,4 @@
-#include "Locale.hpp"
+ï»¿#include "Locale.hpp"
 
 #include <vector>
 #define BOOST_DATE_TIME_NO_LIB
@@ -30,7 +30,7 @@ void getLocaleString(StringBuffer& buffer, LCID lcid, LCTYPE type) {
 	const int size = GetLocaleInfoW(lcid, type, nullptr, 0);
 	if (!size) {
 		const DWORD errorCode = GetLastError();
-		if (errorCode == ERROR_INVALID_FLAGS) { // Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+		if (errorCode == ERROR_INVALID_FLAGS) { // è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 			return;
 		}
 		assert("Failed to GetLocaleInfoW" && false);
@@ -41,8 +41,8 @@ void getLocaleString(StringBuffer& buffer, LCID lcid, LCTYPE type) {
 }
 
 
-int findLcid = 0; // ‚±‚ê‚ÍƒXƒŒƒbƒh“¯m‚ÅÕ“Ë‚³‚¦‚µ‚È‚¯‚ê‚ÎDLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä—Ç‚¢B
-StringRange* searchName = nullptr; // ‚±‚ê‚ÍƒXƒŒƒbƒh“¯m‚ÅÕ“Ë‚³‚¦‚µ‚È‚¯‚ê‚ÎDLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä—Ç‚¢B
+int findLcid = 0; // ã“ã‚Œã¯ã‚¹ãƒ¬ãƒƒãƒ‰åŒå£«ã§è¡çªã•ãˆã—ãªã‘ã‚Œã°DLLã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦è‰¯ã„ã€‚
+StringRange* searchName = nullptr; // ã“ã‚Œã¯ã‚¹ãƒ¬ãƒƒãƒ‰åŒå£«ã§è¡çªã•ãˆã—ãªã‘ã‚Œã°DLLã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦è‰¯ã„ã€‚
 
 
 BOOL CALLBACK findLocaleProc(LPWSTR lcidString) {
@@ -65,15 +65,15 @@ BOOL CALLBACK findLocaleProc(LPWSTR lcidString) {
 
 
 mutex& getFindLocaleMutex() {
-	static mutex findLocaleMutex; // ‚±‚ê‚ÍƒXƒŒƒbƒh“¯m‚ÅÕ“Ë‚³‚¦‚µ‚È‚¯‚ê‚ÎDLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä—Ç‚¢B
+	static mutex findLocaleMutex; // ã“ã‚Œã¯ã‚¹ãƒ¬ãƒƒãƒ‰åŒå£«ã§è¡çªã•ãˆã—ãªã‘ã‚Œã°DLLã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦è‰¯ã„ã€‚
 	return findLocaleMutex;
 }
 
 
-mutex& findLocaleMutex = getFindLocaleMutex(); // ƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚É‚È‚é‚Ü‚¦‚É‰Šú‰»‚³‚ê‚é‚±‚Æ‚ğ•ÛØ‚·‚é
+mutex& findLocaleMutex = getFindLocaleMutex(); // ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã«ãªã‚‹ã¾ãˆã«åˆæœŸåŒ–ã•ã‚Œã‚‹ã“ã¨ã‚’ä¿è¨¼ã™ã‚‹
 
 
-vector<Locale>* localesPtr = nullptr; // ‚±‚ê‚ÍƒXƒŒƒbƒh“¯m‚ÅÕ“Ë‚³‚¦‚µ‚È‚¯‚ê‚ÎDLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä—Ç‚¢B
+vector<Locale>* localesPtr = nullptr; // ã“ã‚Œã¯ã‚¹ãƒ¬ãƒƒãƒ‰åŒå£«ã§è¡çªã•ãˆã—ãªã‘ã‚Œã°DLLã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦è‰¯ã„ã€‚
 
 
 BOOL CALLBACK enumLocalesProc(LPWSTR lcidString) {
@@ -85,12 +85,12 @@ BOOL CALLBACK enumLocalesProc(LPWSTR lcidString) {
 
 
 mutex& getEnumLocalesMutex() {
-	static mutex enumLocalesMutex; // ‚±‚ê‚ÍƒXƒŒƒbƒh“¯m‚ÅÕ“Ë‚³‚¦‚µ‚È‚¯‚ê‚ÎDLL‚²‚Æ‚ÉÀ‘Ì‚ğ‚Á‚Ä—Ç‚¢B
+	static mutex enumLocalesMutex; // ã“ã‚Œã¯ã‚¹ãƒ¬ãƒƒãƒ‰åŒå£«ã§è¡çªã•ãˆã—ãªã‘ã‚Œã°DLLã”ã¨ã«å®Ÿä½“ã‚’æŒã£ã¦è‰¯ã„ã€‚
 	return enumLocalesMutex;
 }
 
 
-mutex& enumLocalesMutex = getEnumLocalesMutex(); // ƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚É‚È‚é‚Ü‚¦‚É‰Šú‰»‚³‚ê‚é‚±‚Æ‚ğ•ÛØ‚·‚é
+mutex& enumLocalesMutex = getEnumLocalesMutex(); // ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã«ãªã‚‹ã¾ãˆã«åˆæœŸåŒ–ã•ã‚Œã‚‹ã“ã¨ã‚’ä¿è¨¼ã™ã‚‹
 } // namespace
 
 
@@ -103,7 +103,7 @@ Locale::Locale(int lcid) : _id(static_cast<unsigned int>(lcid)) {
 	if (!GetLocaleInfoW(lcid, LOCALE_SISO639LANGNAME, nullptr, 0)) {
 		throw NotFoundException();
 	}
-	//if (!IsValidLocale(lcid, LCID_SUPPORTED)) { // ƒjƒ…[ƒgƒ‰ƒ‹‚Å‚àƒGƒ‰[‚É‚È‚é
+	//if (!IsValidLocale(lcid, LCID_SUPPORTED)) { // ãƒ‹ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ«ã§ã‚‚ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
 	//	throw NotFoundException();
 	//}
 }
@@ -113,7 +113,7 @@ Locale::Locale(StringRange name) : _id(LOCALE_INVARIANT) {
 	mutex::scoped_lock lock(getFindLocaleMutex());
 	findLcid = -1;
 	searchName = &name;
-	verify(EnumSystemLocalesW(findLocaleProc, LCID_SUPPORTED)); // d‚¢‚ªd•û‚È‚¢BVista ˆÈ~‚È‚ç‚Î LocaleNameToLCID ‚ªg‚¦‚»‚¤‚¾‚ªEE
+	verify(EnumSystemLocalesW(findLocaleProc, LCID_SUPPORTED)); // é‡ã„ãŒä»•æ–¹ãªã„ã€‚Vista ä»¥é™ãªã‚‰ã° LocaleNameToLCID ãŒä½¿ãˆãã†ã ãŒãƒ»ãƒ»
 	if (findLcid == -1) {
 		throw NotFoundException();
 	}

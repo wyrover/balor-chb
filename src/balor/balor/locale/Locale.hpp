@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/Exception.hpp>
 #include <balor/StringRange.hpp>
@@ -20,49 +20,49 @@ namespace balor {
 
 
 /**
- * ����A�����񏈗��Ɋւ�郍�P�[����\���B
+ * 言語、文字列処理に関わるロケールを表す。
  * 
- * ���P�[���� ISO ���Ƃ͓��{�Ȃ� "ja-JP" �ŁA�č��Ȃ�� "en-US" �Ƃ������`���B
- * .NET �̃T�|�[�g���郍�P�[���Ɗ��S�Ɉ�v����킯�ł͂Ȃ����啔���͓����B http://msdn.microsoft.com/ja-jp/library/system.globalization.cultureinfo(v=vs.80).aspx
+ * ロケールの ISO 名とは日本なら "ja-JP" で、米国ならば "en-US" といった形式。
+ * .NET のサポートするロケールと完全に一致するわけではないが大部分は同じ。 http://msdn.microsoft.com/ja-jp/library/system.globalization.cultureinfo(v=vs.80).aspx
  */
 class Locale {
 public:
-	/// ���P�[����������Ȃ������B
+	/// ロケールが見つからなかった。
 	class NotFoundException : public Exception {};
 
 public:
-	/// �n��Ɉˑ����Ȃ����P�[���ō쐬�B
+	/// 地域に依存しないロケールで作成。
 	Locale();
-	/// ���P�[���h�c����쐬�B
+	/// ロケールＩＤから作成。
 	explicit Locale(int lcid);
-	/// ���P�[���� ISO ������쐬�B
+	/// ロケールの ISO 名から作成。
 	explicit Locale(StringRange name);
 
 public:
-	/// C/C++ �̕W�����C�u�����Ŏg�p�ł��郍�P�[�����B
+	/// C/C++ の標準ライブラリで使用できるロケール名。
 	String cLocaleName() const;
-	/// ISO �����B
+	/// ISO 国名。
 	String countryName() const;
-	/// ���݂̃X���b�h�̃��P�[���B
+	/// 現在のスレッドのロケール。
 	static Locale current();
 	static void current(const Locale& value);
-	/// ���݂̃��P�[���ł̕\���ɓK�������P�[�����B
+	/// 現在のロケールでの表示に適したロケール名。
 	String displayName() const;
-	/// �p��̍����B
+	/// 英語の国名。
 	String englishCountryName() const;
-	/// �p��̌��ꖼ�B
+	/// 英語の言語名。
 	String englishLanguageName() const;
-	/// ���P�[���h�c�B
+	/// ロケールＩＤ。
 	int id() const;
-	/// �n��Ɉˑ����Ȃ����P�[���B
+	/// 地域に依存しないロケール。
 	static Locale invariant();
-	/// ����R�[�h�B
+	/// 言語コード。
 	int languageCode() const;
-	/// ISO ���ꖼ�B
+	/// ISO 言語名。
 	String languageName() const;
-	/// �C���X�g�[������Ă���S�Ẵ��P�[���B
+	/// インストールされている全てのロケール。
 	static std::vector<Locale, std::allocator<Locale> > locales();
-	/// ���P�[���� ISO ���B
+	/// ロケールの ISO 名。
 	String name() const;
 	void nameToBuffer(StringBuffer& buffer) const;
 

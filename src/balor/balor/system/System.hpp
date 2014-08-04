@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/StringRange.hpp>
@@ -12,21 +12,21 @@ class Version;
 
 
 /**
- * ƒVƒXƒeƒ€‘S‘Ì‚É‚Â‚¢‚Ä‚ÌŠÖ”‚ğ‚ÂBi–¢•ª—Ş‚Æ‚àŒ¾‚¦‚éj
+ * ã‚·ã‚¹ãƒ†ãƒ å…¨ä½“ã«ã¤ã„ã¦ã®é–¢æ•°ã‚’æŒã¤ã€‚ï¼ˆæœªåˆ†é¡ã¨ã‚‚è¨€ãˆã‚‹ï¼‰
  */
 class System {
 public:
-	/// ƒVƒXƒeƒ€‚Ì‹N“®ƒ‚[ƒh
+	/// ã‚·ã‚¹ãƒ†ãƒ ã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰
 	struct BootMode {
 		enum _enum {
-			normal              = 0, /// ’Êíƒ‚[ƒhB
-			failSafe            = 1, /// ƒZ[ƒtƒ‚[ƒhB
-			failSafeWithNetwork = 2, /// ƒlƒbƒgƒ[ƒNÚ‘±‚·‚éƒZ[ƒtƒ‚[ƒhB
+			normal              = 0, /// é€šå¸¸ãƒ¢ãƒ¼ãƒ‰ã€‚
+			failSafe            = 1, /// ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ã€‚
+			failSafeWithNetwork = 2, /// ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯æ¥ç¶šã™ã‚‹ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(BootMode);
 	};
 
-	/// ‚n‚r‚Ìí—ŞB
+	/// ï¼¯ï¼³ã®ç¨®é¡ã€‚
 	struct OsKind {
 		enum _enum {
 			unknown,
@@ -49,40 +49,40 @@ public:
 
 
 public:
-	/// ƒVƒXƒeƒ€‚Ì‹N“®ƒ‚[ƒhB
+	/// ã‚·ã‚¹ãƒ†ãƒ ã®èµ·å‹•ãƒ¢ãƒ¼ãƒ‰ã€‚
 	static System::BootMode bootMode();
-	/// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚Ì”B
+	/// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã®æ•°ã€‚
 	static int commandLineArgCount();
-	/// ƒRƒ“ƒsƒ…[ƒ^–¼BiNetBIOS–¼j
+	/// ã‚³ãƒ³ãƒ”ãƒ¥ãƒ¼ã‚¿åã€‚ï¼ˆNetBIOSåï¼‰
 	static String computerName();
-	/// ‚n‚r‚ªƒ}ƒ‹ƒ`ƒoƒCƒg•¶š‚ğƒTƒ|[ƒg‚·‚é‚©‚Ç‚¤‚©B
+	/// ï¼¯ï¼³ãŒãƒãƒ«ãƒãƒã‚¤ãƒˆæ–‡å­—ã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹ã‹ã©ã†ã‹ã€‚
 	static bool dbcsEnabled();
-	/// ƒfƒoƒbƒO”Å‚n‚r‚ª—LŒø‚©‚Ç‚¤‚©B
+	/// ãƒ‡ãƒãƒƒã‚°ç‰ˆï¼¯ï¼³ãŒæœ‰åŠ¹ã‹ã©ã†ã‹ã€‚
 	static bool debugOS();
-	/// ƒEƒCƒ“ƒhƒE“à—e‚ğ•\¦‚µ‚½‚Ü‚Üƒhƒ‰ƒbƒO‚Å‚«‚é‚©‚Ç‚¤‚©B
+	/// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦å†…å®¹ã‚’è¡¨ç¤ºã—ãŸã¾ã¾ãƒ‰ãƒ©ãƒƒã‚°ã§ãã‚‹ã‹ã©ã†ã‹ã€‚
 	static bool dragFullWindows();
-	/// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”B
+	/// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã€‚
 	static String getCommandLineArg(int index);
-	/// 64ƒrƒbƒg‚n‚r‚©‚Ç‚¤‚©B
+	/// 64ãƒ“ãƒƒãƒˆï¼¯ï¼³ã‹ã©ã†ã‹ã€‚
 	static bool is64BitOs();
-	/// Œ»İ‚ÌƒvƒƒZƒX‚ª64ƒrƒbƒgƒvƒƒZƒX‚©‚Ç‚¤‚©B
+	/// ç¾åœ¨ã®ãƒ—ãƒ­ã‚»ã‚¹ãŒ64ãƒ“ãƒƒãƒˆãƒ—ãƒ­ã‚»ã‚¹ã‹ã©ã†ã‹ã€‚
 	static bool is64BitProcess();
-	/// ƒlƒbƒgƒ[ƒNÚ‘±‚ª—LŒø‚©‚Ç‚¤‚©B
+	/// ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯æ¥ç¶šãŒæœ‰åŠ¹ã‹ã©ã†ã‹ã€‚
 	static bool network();
-	/// ‚n‚r‚Ìí—ŞB
+	/// ï¼¯ï¼³ã®ç¨®é¡ã€‚
 	static System::OsKind osKind();
-	/// ƒT[ƒrƒXƒpƒbƒNî•ñB
+	/// ã‚µãƒ¼ãƒ“ã‚¹ãƒ‘ãƒƒã‚¯æƒ…å ±ã€‚
 	static String osServicePack();
-	/// ‚n‚r‚Ìƒo[ƒWƒ‡ƒ“B
+	/// ï¼¯ï¼³ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã€‚
 	static Version osVersion();
-	/// ƒvƒƒZƒbƒT‚Ì”B
+	/// ãƒ—ãƒ­ã‚»ãƒƒã‚µã®æ•°ã€‚
 	static int processorCount();
-	/// ƒVƒXƒeƒ€‚ğ’†’f‚Ü‚½‚Í‹x~ó‘Ô‚É‚·‚éBˆø”‚Æ–ß‚è’l‚Í ::SetSuspendState ŠÖ”‚Æ“¯‚¶B
+	/// ã‚·ã‚¹ãƒ†ãƒ ã‚’ä¸­æ–­ã¾ãŸã¯ä¼‘æ­¢çŠ¶æ…‹ã«ã™ã‚‹ã€‚å¼•æ•°ã¨æˆ»ã‚Šå€¤ã¯ ::SetSuspendState é–¢æ•°ã¨åŒã˜ã€‚
 	static bool suspend(bool hibernate, bool force, bool disableWakeEvent);
-	/// ƒ†[ƒU–¼BVista‚É‚¨‚¢‚ÄƒCƒ“ƒXƒg[ƒ‰“à‚Åg—p‚·‚é‚ÆŒ ŒÀ¸Ši‚ÌŠÖŒW‚Å•s‹ï‡‚ª‚ ‚é‚ç‚µ‚¢B
+	/// ãƒ¦ãƒ¼ã‚¶åã€‚Vistaã«ãŠã„ã¦ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ©å†…ã§ä½¿ç”¨ã™ã‚‹ã¨æ¨©é™æ˜‡æ ¼ã®é–¢ä¿‚ã§ä¸å…·åˆãŒã‚ã‚‹ã‚‰ã—ã„ã€‚
 	static String userName();
-	/// ƒrƒWƒ…ƒAƒ‹ƒXƒ^ƒCƒ‹‚ğg—p‚Å‚«‚é‚©‚Ç‚¤‚©B Comctl32.dll ‚Ìƒo[ƒWƒ‡ƒ“‚ª‚UˆÈã‚Å‚ ‚é‚©‚Ç‚¤‚©B
-	/// balor/gui/EnableVisualStyle.hpp ‚ğQÆ‚Ì‚±‚ÆB
+	/// ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚¹ã‚¿ã‚¤ãƒ«ã‚’ä½¿ç”¨ã§ãã‚‹ã‹ã©ã†ã‹ã€‚ï¼ Comctl32.dll ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒï¼–ä»¥ä¸Šã§ã‚ã‚‹ã‹ã©ã†ã‹ã€‚
+	/// balor/gui/EnableVisualStyle.hpp ã‚’å‚ç…§ã®ã“ã¨ã€‚
 	static bool visualStyleEnabled();
 };
 

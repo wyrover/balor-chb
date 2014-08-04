@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/StringRange.hpp>
 
@@ -9,20 +9,20 @@ namespace balor {
 
 
 /**
- * ƒRƒ“ƒ\[ƒ‹ƒEƒCƒ“ƒhƒE‚Ì•\Ž¦‚â•¶Žš‚Ìo—ÍB
+ * ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºã‚„æ–‡å­—ã®å‡ºåŠ›ã€‚
  * 
- * ƒRƒ“ƒ\[ƒ‹‚ÍƒvƒƒZƒX‚É‚Â‚«ˆê‚ÂŽ‚ÂŽ–‚ª‚Å‚«‚éBWIN32 ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìˆ×‚Ì‚à‚Ì‚ÅAƒRƒ“ƒ\[ƒ‹ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Å‚ÍŽg‚¦‚È‚¢B
+ * ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¯ãƒ—ãƒ­ã‚»ã‚¹ã«ã¤ãä¸€ã¤æŒã¤äº‹ãŒã§ãã‚‹ã€‚WIN32 ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ç‚ºã®ã‚‚ã®ã§ã€ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã§ã¯ä½¿ãˆãªã„ã€‚
  */
 class Console {
 public:
-	/// ŠJ‚¢‚Ä‚¢‚½ƒRƒ“ƒ\[ƒ‹‚ð•Â‚¶‚éB
+	/// é–‹ã„ã¦ã„ãŸã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’é–‰ã˜ã‚‹ã€‚
 	static void close();
-	/// ƒRƒ“ƒ\[ƒ‹‚ðŠJ‚­B
+	/// ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’é–‹ãã€‚
 	static void open();
-	/// •¶Žš—ñ‚ð‘‚«ž‚ÞB
+	/// æ–‡å­—åˆ—ã‚’æ›¸ãè¾¼ã‚€ã€‚
 	static void write(StringRange text);
 	static void write(ByteStringRange text);
-	/// •¶Žš—ñ‚ð‘‚«ž‚ñ‚Å‰üs‚·‚éB
+	/// æ–‡å­—åˆ—ã‚’æ›¸ãè¾¼ã‚“ã§æ”¹è¡Œã™ã‚‹ã€‚
 	static void writeLine(StringRange text);
 	static void writeLine(ByteStringRange text);
 };

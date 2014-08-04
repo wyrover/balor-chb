@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/NonCopyable.hpp>
 #include <balor/StringRange.hpp>
@@ -10,7 +10,7 @@ namespace balor {
 
 
 /**
- * ƒpƒtƒH[ƒ}ƒ“ƒXƒJƒEƒ“ƒ^b’èÀ‘•B
+ * ãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã‚«ã‚¦ãƒ³ã‚¿æš«å®šå®Ÿè£…ã€‚
  */
 class PerformanceCounter : private NonCopyable {
 private:
@@ -22,7 +22,7 @@ public:
 	~PerformanceCounter();
 
 public:
-	/// w’è‚µ‚½Œ^‚Å’l‚ğæ“¾‚·‚éBw’è‚Å‚«‚éŒ^‚Í int, long long, doubleB
+	/// æŒ‡å®šã—ãŸå‹ã§å€¤ã‚’å–å¾—ã™ã‚‹ã€‚æŒ‡å®šã§ãã‚‹å‹ã¯ int, long long, doubleã€‚
 	template<typename T> T nextValue() const;
 
 private:

@@ -1,4 +1,4 @@
-#include "Com.hpp"
+ï»¿#include "Com.hpp"
 
 #include <ObjBase.h>
 
@@ -51,13 +51,13 @@ private:
 };
 
 
-Global& initializeGlobal = Singleton<Global>::get(); // ƒƒCƒ“ƒXƒŒƒbƒh‚Å Global ‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚ñ‚Å‚¨‚­B
+Global& initializeGlobal = Singleton<Global>::get(); // ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã§ Global ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã‚“ã§ãŠãã€‚
 } // namespace
 
 
 
 #pragma warning (push)
-#pragma warning (disable : 4189) //  'result' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning (disable : 4189) //  'result' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 void Com::initialize(bool isSTA) {
 	auto result = CoInitializeEx(nullptr, isSTA ? COINIT_APARTMENTTHREADED : COINIT_MULTITHREADED);
 	assert("Can't change STA to MTA or MTA to STA" && result != RPC_E_CHANGED_MODE);
@@ -85,7 +85,7 @@ bool Com::isMainThread() {
 
 
 #pragma warning (push)
-#pragma warning (disable : 4189) //  'result' : ƒ[ƒJƒ‹•Ï”‚ª‰Šú‰»‚³‚ê‚Ü‚µ‚½‚ªAQÆ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ
+#pragma warning (disable : 4189) //  'result' : ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒåˆæœŸåŒ–ã•ã‚Œã¾ã—ãŸãŒã€å‚ç…§ã•ã‚Œã¦ã„ã¾ã›ã‚“
 void Com::oleInitialize() {
 	auto result = OleInitialize(nullptr);
 	assert("Already MTA initialized. so can't initiazlize OLE." && result != RPC_E_CHANGED_MODE);
