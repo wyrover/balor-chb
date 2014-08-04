@@ -5,45 +5,45 @@ namespace balor {
 
 
 
-/**
- * すべてのイベントクラスの親クラス。
- *
- * Event の参照を引数にとる関数オブジェクトは Event クラスの派生クラスの参照を引数にとるあらゆるイベントリスナ?に登?することが出来る。
- *
- * <h3>・サンプルコ?ド</h3>
- * <pre><code>
+	/**
+	* 전체 이벤트 클래스의 부모 클래스
+	*
+	* Event 참조를 인수로 취하는 함수 오브젝트는 Event 클래스 파생 클래스의 참조를 인수로 취하는 모든 이벤트 리스너에 등록해 두는 것이 가능하다.
+	*
+	* <h3>・샘플코드</h3>
+	* <pre><code>
 	Frame frame(L"Event Sample");
 
-	Button button(frame, 20, 10, 0, 0, L"??ン");
-	CheckBox check(frame, 20, 50, 0, 0, L"?ェック");
+	Button button(frame, 20, 10, 0, 0, L"버튼");
+	CheckBox check(frame, 20, 50, 0, 0, L"체크");
 
-	// Event& を引数に取る関数オブジェクトはあらゆるイベントにｴ・ﾔできる。
+	// Event&를 인수로 취하는 함수 오브젝트는 모두 이벤트로 대입할 수 있다.
 	auto onAny = [&] (Event& ) {
-		MsgBox::show(L"something event");
+	MsgBox::show(L"something event");
 	};
 	button.onClick() = onAny;
 	check.onStateChange() = onAny;
 
 	frame.runMessageLoop();
- * </code></pre>
- */
+	* </code></pre>
+	*/
 class Event {
 };
 
 
-/// イベント発生源を伴うイベントクラス。
+/// 이벤트 발신자를 포함하는 이벤트 클래스
 template<typename Sender>
 class EventWithSender : public Event {
 public:
-	/// イベント発生源を指定して作成。
+	/// 이벤트 발신자를 지정해서 작성.
 	EventWithSender(Sender& sender) : _sender(sender) {}
 
-private: // 複製の禁?。
+private: // 복사 금지.
 	EventWithSender(const EventWithSender& );
 	EventWithSender& operator=(const EventWithSender& );
 
 public:
-	/// イベント発生源。
+	/// 이벤트 발신자.
 	Sender& sender() { return _sender; }
 	const Sender& sender() const { return _sender; }
 
@@ -52,15 +52,15 @@ private:
 };
 
 
-/// sender 関数を派生クラスで上書きするイベントクラス。
+/// sender 함수를 파생 클래스로 덮어쓰는 이벤트 클래스.
 template<typename SubclassSender, typename BaseEvent>
 class EventWithSubclassSender : public BaseEvent {
 public:
-	/// イベント発生源を指定して作成。
+	/// 이벤트 발신자를 지정해서 작성.
 	EventWithSubclassSender(SubclassSender& sender) : BaseEvent(sender) {}
 
 public:
-	/// イベント発生源。
+	/// 이벤트 발생자.
 	SubclassSender& sender() { return static_cast<SubclassSender&>(BaseEvent::sender()); }
 	const SubclassSender& sender() const { return static_cast<const SubclassSender&>(BaseEvent::sender()); }
 };
