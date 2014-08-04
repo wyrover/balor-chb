@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/NonCopyable.hpp>
 
@@ -9,7 +9,7 @@ namespace balor {
 
 
 /**
- * ƒoƒCƒiƒŠƒXƒgƒŠ[ƒ€‚ğ•\‚·’ŠÛƒNƒ‰ƒXB
+ * ãƒã‚¤ãƒŠãƒªã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’è¡¨ã™æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚
  */
 class Stream : private NonCopyable {
 protected:
@@ -17,26 +17,26 @@ protected:
 	virtual ~Stream();
 
 public:
-	/// ƒXƒgƒŠ[ƒ€‚Ìƒoƒbƒtƒ@‚ğƒtƒ‰ƒbƒVƒ…i“¯Šúj‚·‚éB
+	/// ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ï¼ˆåŒæœŸï¼‰ã™ã‚‹ã€‚
 	virtual void flush() = 0;
-	/// ƒXƒgƒŠ[ƒ€‚Ì’·‚³B
+	/// ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®é•·ã•ã€‚
 	virtual __int64 length() const = 0;
-	/// Œ»İˆÊ’uB
+	/// ç¾åœ¨ä½ç½®ã€‚
 	virtual __int64 position() const = 0;
 	virtual void position(__int64 value) = 0;
-	/// ‚PƒoƒCƒg“Ç‚İo‚µ‚Ä•Ô‚·Bƒtƒ@ƒCƒ‹‚ÌI‚í‚è‚É’B‚µ‚Ä‚¢‚½‚ç -1 ‚ğ•Ô‚·B
+	/// ï¼‘ãƒã‚¤ãƒˆèª­ã¿å‡ºã—ã¦è¿”ã™ã€‚ãƒ•ã‚¡ã‚¤ãƒ«ã®çµ‚ã‚ã‚Šã«é”ã—ã¦ã„ãŸã‚‰ -1 ã‚’è¿”ã™ã€‚
 	virtual int read();
-	/// w’è‚µ‚½ƒoƒCƒg”‚Ì“Ç‚İo‚µ‚ğ‚İ‚ÄAÀÛ‚É“Ç‚İo‚µ‚½ƒoƒCƒg”‚ğ•Ô‚·B
+	/// æŒ‡å®šã—ãŸãƒã‚¤ãƒˆæ•°ã®èª­ã¿å‡ºã—ã‚’è©¦ã¿ã¦ã€å®Ÿéš›ã«èª­ã¿å‡ºã—ãŸãƒã‚¤ãƒˆæ•°ã‚’è¿”ã™ã€‚
 	virtual int read(void* buffer, int offset, int count) = 0;
-	/// “Ç‚İo‚µ‰Â”\‚©‚Ç‚¤‚©B
+	/// èª­ã¿å‡ºã—å¯èƒ½ã‹ã©ã†ã‹ã€‚
 	virtual bool readable() const = 0;
-	/// Œ»İˆÊ’u‚©‚çw’è‚µ‚½ƒoƒCƒg”•ªˆÚ“®‚·‚éB
+	/// ç¾åœ¨ä½ç½®ã‹ã‚‰æŒ‡å®šã—ãŸãƒã‚¤ãƒˆæ•°åˆ†ç§»å‹•ã™ã‚‹ã€‚
 	virtual __int64 skip(__int64 offset) = 0;
-	/// ‚PƒoƒCƒg‘‚«‚ŞB
+	/// ï¼‘ãƒã‚¤ãƒˆæ›¸ãè¾¼ã‚€ã€‚
 	virtual void write(unsigned char value);
-	/// w’è‚µ‚½ƒoƒCƒg”‘‚«‚ŞB
+	/// æŒ‡å®šã—ãŸãƒã‚¤ãƒˆæ•°æ›¸ãè¾¼ã‚€ã€‚
 	virtual void write(const void* buffer, int offset, int count) = 0;
-	/// ‘‚«‚İ‰Â”\‚©‚Ç‚¤‚©B
+	/// æ›¸ãè¾¼ã¿å¯èƒ½ã‹ã©ã†ã‹ã€‚
 	virtual bool writable() const = 0;
 };
 

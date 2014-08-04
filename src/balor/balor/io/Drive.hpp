@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Enum.hpp>
 #include <balor/Exception.hpp>
@@ -11,25 +11,25 @@ namespace balor {
 
 
 /**
- * ƒVƒXƒeƒ€‚Ìƒhƒ‰ƒCƒu‚ğ•\‚·B
+ * ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’è¡¨ã™ã€‚
  */
 class Drive {
 public:
-	/// ƒhƒ‰ƒCƒu‚Ìí—ŞB
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–ã®ç¨®é¡ã€‚
 	struct Type {
 		enum _enum {
-			unknown         = 0, /// ”»•Ê•s”\B
-			noRootDirectory = 1, /// ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚©‚Á‚½B
-			removable       = 2, /// ƒŠƒ€[ƒoƒuƒ‹ƒhƒ‰ƒCƒuB
-			fixed           = 3, /// æ‚èo‚¹‚È‚¢ HDD “™‚Ìƒhƒ‰ƒCƒuB
-			remote          = 4, /// ƒŠƒ‚[ƒgƒhƒ‰ƒCƒuB
-			cdRom           = 5, /// CD-ROM ƒhƒ‰ƒCƒuB
-			ramDisk         = 6, /// RAMƒfƒBƒXƒNB
+			unknown         = 0, /// åˆ¤åˆ¥ä¸èƒ½ã€‚
+			noRootDirectory = 1, /// ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã‹ã£ãŸã€‚
+			removable       = 2, /// ãƒªãƒ ãƒ¼ãƒãƒ–ãƒ«ãƒ‰ãƒ©ã‚¤ãƒ–ã€‚
+			fixed           = 3, /// å–ã‚Šå‡ºã›ãªã„ HDD ç­‰ã®ãƒ‰ãƒ©ã‚¤ãƒ–ã€‚
+			remote          = 4, /// ãƒªãƒ¢ãƒ¼ãƒˆãƒ‰ãƒ©ã‚¤ãƒ–ã€‚
+			cdRom           = 5, /// CD-ROM ãƒ‰ãƒ©ã‚¤ãƒ–ã€‚
+			ramDisk         = 6, /// RAMãƒ‡ã‚£ã‚¹ã‚¯ã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Type);
 	};
 
-	/// ˜_—ƒhƒ‰ƒCƒu‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+	/// è«–ç†ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	struct DrivesIterator {
 		DrivesIterator(bool begin);
 
@@ -42,42 +42,42 @@ public:
 		int current;
 	};
 
-	/// ƒAƒNƒZƒXŒ ŒÀ‚ª‚È‚©‚Á‚½B
+	/// ã‚¢ã‚¯ã‚»ã‚¹æ¨©é™ãŒãªã‹ã£ãŸã€‚
 	class AccessDeniedException : public Exception {};
 
-	/// ƒhƒ‰ƒCƒu‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½B
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã€‚
 	class NotFoundException : public Exception {};
 
-	/// ƒhƒ‰ƒCƒu‚ª€”õ‚Å‚«‚Ä‚¢‚È‚©‚Á‚½B
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–ãŒæº–å‚™ã§ãã¦ã„ãªã‹ã£ãŸã€‚
 	class NotReadyException : public Exception {};
 
 public:
-	/// ƒhƒ‰ƒCƒu–¼‚©‚çì¬B
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–åã‹ã‚‰ä½œæˆã€‚
 	explicit Drive(wchar_t letter);
 	explicit Drive(StringRange name);
 
 public:
-	/// Œ»İ‚Ìƒ†[ƒU‚ªg—p‚Å‚«‚é‹ó‚«ƒoƒCƒg”B
+	/// ç¾åœ¨ã®ãƒ¦ãƒ¼ã‚¶ãŒä½¿ç”¨ã§ãã‚‹ç©ºããƒã‚¤ãƒˆæ•°ã€‚
 	__int64 availableFreeBytes() const;
-	/// ˜_—ƒhƒ‰ƒCƒuƒŠƒXƒg‚ÌƒCƒeƒŒ[ƒ^B
+	/// è«–ç†ãƒ‰ãƒ©ã‚¤ãƒ–ãƒªã‚¹ãƒˆã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	static Drive::DrivesIterator drivesBegin();
 	static Drive::DrivesIterator drivesEnd();
-	/// ƒtƒ@ƒCƒ‹ƒVƒXƒeƒ€–¼
+	/// ãƒ•ã‚¡ã‚¤ãƒ«ã‚·ã‚¹ãƒ†ãƒ å
 	String fileSystem() const;
 	void fileSystemToBuffer(StringBuffer& buffer) const;
-	/// ƒhƒ‰ƒCƒu•¶šB
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–æ–‡å­—ã€‚
 	wchar_t letter() const;
-	/// ƒhƒ‰ƒCƒu–¼B
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–åã€‚
 	const wchar_t* name() const;
-	/// €”õ‚ª‚Å‚«‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// æº–å‚™ãŒã§ãã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool ready() const;
-	/// ‹ó‚«ƒoƒCƒg”B
+	/// ç©ºããƒã‚¤ãƒˆæ•°ã€‚
 	__int64 totalFreeBytes() const;
-	/// ƒhƒ‰ƒCƒu‚Ì‘ƒoƒCƒg”B
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–ã®ç·ãƒã‚¤ãƒˆæ•°ã€‚
 	__int64 totalBytes() const;
-	/// ƒhƒ‰ƒCƒu‚Ìƒ^ƒCƒvB
+	/// ãƒ‰ãƒ©ã‚¤ãƒ–ã®ã‚¿ã‚¤ãƒ—ã€‚
 	Drive::Type type() const;
-	/// ƒ{ƒŠƒ…[ƒ€ƒ‰ƒxƒ‹B
+	/// ãƒœãƒªãƒ¥ãƒ¼ãƒ ãƒ©ãƒ™ãƒ«ã€‚
 	String volumeLabel() const;
 	void volumeLabel(StringRange value);
 	void volumeLabelToBuffer(StringBuffer& buffer) const;

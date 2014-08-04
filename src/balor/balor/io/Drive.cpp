@@ -1,4 +1,4 @@
-#include "Drive.hpp"
+ï»¿#include "Drive.hpp"
 
 #include <utility>
 
@@ -24,7 +24,7 @@ static_assert(Drive::Type::cdRom           == DRIVE_CDROM      , "Invalid enum v
 static_assert(Drive::Type::ramDisk         == DRIVE_RAMDISK    , "Invalid enum value");
 
 
-// ƒfƒBƒXƒN‚ª€”õ‚Å‚«‚Ä‚¢‚È‚¢ê‡‚ÌŒxƒ_ƒCƒAƒƒO‚ğo‚³‚È‚¢‚æ‚¤‚É‚·‚éB
+// ãƒ‡ã‚£ã‚¹ã‚¯ãŒæº–å‚™ã§ãã¦ã„ãªã„å ´åˆã®è­¦å‘Šãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‡ºã•ãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
 struct DiskErrorSkip {
 	DiskErrorSkip() : before(SetErrorMode(SEM_FAILCRITICALERRORS)) {
 	}
@@ -84,7 +84,7 @@ Drive::DrivesIterator& Drive::DrivesIterator::operator--() {
 
 
 bool Drive::DrivesIterator::operator<(const Drive::DrivesIterator& rhs) {
-	return current < rhs.current; // mask ‚Íˆá‚¤‚©‚à‚µ‚ê‚È‚¢B
+	return current < rhs.current; // mask ã¯é•ã†ã‹ã‚‚ã—ã‚Œãªã„ã€‚
 }
 
 

@@ -1,4 +1,4 @@
-#include "Registry.hpp"
+ï»¿#include "Registry.hpp"
 
 #include <type_traits>
 #include <vector>
@@ -35,10 +35,10 @@ void checkResult(const LONG result) {
 	if (result != ERROR_SUCCESS) {
 		switch (result) {
 			case ERROR_ACCESS_DENIED      : throw Registry::AccessDeniedException();
-			case ERROR_FILE_NOT_FOUND     : break; // —áŠO‚ğ“Š‚°‚È‚¢ê‡‚Ì‚Ù‚¤‚ª‘½‚¢
+			case ERROR_FILE_NOT_FOUND     : break; // ä¾‹å¤–ã‚’æŠ•ã’ãªã„å ´åˆã®ã»ã†ãŒå¤šã„
 			case ERROR_INVALID_PARAMETER  : throw Registry::InvalidParameterException();
 			case ERROR_KEY_DELETED        : throw Registry::KeyDeletedException();
-			default                       : assert("failed to Registry function" && false); // ‚È‚ñ‚ç‚©‚ÌƒGƒ‰[
+			default                       : assert("failed to Registry function" && false); // ãªã‚“ã‚‰ã‹ã®ã‚¨ãƒ©ãƒ¼
 		}
 	}
 }

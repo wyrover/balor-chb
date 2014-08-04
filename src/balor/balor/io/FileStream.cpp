@@ -1,4 +1,4 @@
-#include "FileStream.hpp"
+﻿#include "FileStream.hpp"
 
 #include <algorithm>
 #include <type_traits>

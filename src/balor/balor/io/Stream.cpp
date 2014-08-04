@@ -1,4 +1,4 @@
-#include "Stream.hpp"
+﻿#include "Stream.hpp"
 
 
 namespace balor {

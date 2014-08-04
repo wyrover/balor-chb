@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/io/Stream.hpp>
 #include <balor/Enum.hpp>
@@ -12,82 +12,82 @@ namespace balor {
 
 
 /**
- * Win32 API �̃t�@�C���A�N�Z�X�@�\���T�|�[�g����X�g���[���B
+ * Win32 API のファイルアクセス機能をサポートするストリーム。
  */
 class FileStream : public Stream {
 public:
 	typedef void* HANDLE;
 
-	/// �t�@�C���̃I�[�v�����[�h�B
+	/// ファイルのオープンモード。
 	struct Mode {
 		enum _enum {
-			create       = 1, /// �t�@�C���̐V�K�쐬�B���ɑ��݂��Ă����ꍇ�� AlreadyExistsException �𓊂���B
-			createAlways = 2, /// �t�@�C���̐V�K�쐬�B���ɑ��݂��Ă����ꍇ�͏����Ă���쐬�B
-			open         = 3, /// �t�@�C�����J���B���݂��Ȃ��ꍇ�� NotFoundException �𓊂���B
-			openAlways   = 4, /// �t�@�C�����J���B���݂��Ȃ��ꍇ�͐V�K�쐬����B
-			truncate     = 5, /// �t�@�C�����J���A�T�C�Y���O�ɂ���B���݂��Ȃ��ꍇ�� NotFoundException �𓊂���B
-			append       = 6, /// openAlways �ŊJ���ăt�@�C���ʒu���I�[�Ɉړ�����B
+			create       = 1, /// ファイルの新規作成。既に存在していた場合は AlreadyExistsException を投げる。
+			createAlways = 2, /// ファイルの新規作成。既に存在していた場合は消してから作成。
+			open         = 3, /// ファイルを開く。存在しない場合は NotFoundException を投げる。
+			openAlways   = 4, /// ファイルを開く。存在しない場合は新規作成する。
+			truncate     = 5, /// ファイルを開き、サイズを０にする。存在しない場合は NotFoundException を投げる。
+			append       = 6, /// openAlways で開いてファイル位置を終端に移動する。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Mode);
 	};
 
-	/// �t�@�C���ւ̃A�N�Z�X���B
+	/// ファイルへのアクセス権。
 	struct Access {
 		enum _enum {
-			read      = 0x80000000L, /// �ǂݎ��A�N�Z�X�B
-			write     = 0x40000000L, /// �������݃A�N�Z�X�B
-			readWrite = 0xc0000000L, /// �ǂݏ����A�N�Z�X�B
+			read      = 0x80000000L, /// 読み取りアクセス。
+			write     = 0x40000000L, /// 書き込みアクセス。
+			readWrite = 0xc0000000L, /// 読み書きアクセス。
 		};
 		BALOR_NAMED_ENUM_MEMBERS(Access);
 	};
 
-	/// �t�@�C���ւ̋��L�����B�g�ݍ��킹�Ŏw�肷��B
+	/// ファイルへの共有方式。組み合わせで指定する。
 	struct Share {
 		enum _enum {
-			none      = 0x00000000, /// ���X���b�h�A�v���Z�X�̈�؂̃A�N�Z�X���ւ���B
-			read      = 0x00000001, /// �ǂݎ��̋��L�B
-			write     = 0x00000002, /// �������݂̋��L�B
-			remove    = 0x00000004, /// �폜�̋��L�B
+			none      = 0x00000000, /// 他スレッド、プロセスの一切のアクセスを禁じる。
+			read      = 0x00000001, /// 読み取りの共有。
+			write     = 0x00000002, /// 書き込みの共有。
+			remove    = 0x00000004, /// 削除の共有。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Share);
 	};
 
-	/// �t�@�C���I�[�v���̃I�v�V�����B�g�ݍ��킹�Ŏw�肷��B
+	/// ファイルオープンのオプション。組み合わせで指定する。
 	struct Options {
 		enum _enum {
 			none           = 0         , 
-			writeThrough   = 0x80000000, /// �L���b�V�������ɒ��ڃf�B�X�N�ɏ������ށB
-			randomAccess   = 0x10000000, /// �����_���A�N�Z�X���邱�Ƃ��V�X�e���Ɏw������B
-			removeOnClose  = 0x04000000, /// �t�@�C����������ɍ폜����B
-			sequentialScan = 0x08000000, /// �V�[�P���V�����ɃA�N�Z�X���邱�Ƃ��V�X�e���Ɏw������B
-			encrypted      = 0x00004000, /// �t�@�C�����Í�������B
+			writeThrough   = 0x80000000, /// キャッシュせずに直接ディスクに書き込む。
+			randomAccess   = 0x10000000, /// ランダムアクセスすることをシステムに指示する。
+			removeOnClose  = 0x04000000, /// ファイルを閉じた時に削除する。
+			sequentialScan = 0x08000000, /// シーケンシャルにアクセスすることをシステムに指示する。
+			encrypted      = 0x00004000, /// ファイルを暗号化する。
 		};
 		BALOR_NAMED_LOGICAL_ENUM_MEMBERS(Options);
 	};
 
-	/// �A�N�Z�X�����Ȃ������B
+	/// アクセス権がなかった。
 	class AccessDeniedException : public Exception {};
 
-	/// �t�@�C�������ɑ��݂��Ă����B
+	/// ファイルが既に存在していた。
 	class AlreadyExistsException : public Exception {};
 
-	/// ���b�N����Ă��ēǂݏ����ł��Ȃ������B
+	/// ロックされていて読み書きできなかった。
 	class LockViolationException : public Exception {};
 
-	/// �t�@�C����������Ȃ������B
+	/// ファイルが見つからなかった。
 	class NotFoundException : public Exception {};
 
-	/// ���L�����ɔ����鋣�����������B
+	/// 共有方式に反する競合があった。
 	class SharingViolationException : public Exception {};
 
-	// �I�[�o�[���[�h�֐��̃I�[�o�[���C�h�p
+	// オーバーロード関数のオーバーライド用
 	using Stream::read;
 	using Stream::write;
 
 public:
-	/// �t�@�C���̎������b�N�����p�I�u�W�F�N�g�B
-	/// MSDN�ɂ��΃t�@�C���̃��b�N������ position �� length �����b�N�����ƌ�����v�����čs���K�v������A
-	/// ���b�N�������s�킸�Ƀt�@�C���n���h���������v���Z�X���I�������肷��Ɩ���`�̓���Ƃ���̂Ńf�X�g���N�^�Ŋm���ɏ����������B
+	/// ファイルの自動ロック解除用オブジェクト。
+	/// MSDNによればファイルのロック解除は position と length をロック処理と厳密一致させて行う必要があり、
+	/// ロック解除を行わずにファイルハンドルを閉じたりプロセスを終了したりすると未定義の動作とあるのでデストラクタで確実に処理したい。
 	class Lock {
 		friend FileStream;
 
@@ -107,12 +107,12 @@ public:
 	};
 
 public:
-	/// �k���n���h���ō쐬����B
+	/// ヌルハンドルで作成する。
 	FileStream();
-	/// �w�肵���p�����[�^�Ńt�@�C�����I�[�v������B
+	/// 指定したパラメータでファイルをオープンする。
 	FileStream(StringRange path, FileStream::Mode mode, FileStream::Access access = Access::readWrite, FileStream::Share share = Share::read, FileStream::Options options = Options::none);
 	FileStream(FileStream&& value);
-	/// �t�@�C�����N���[�Y����B
+	/// ファイルをクローズする。
 	virtual ~FileStream();
 
 	FileStream& operator=(FileStream&& value);
@@ -120,20 +120,20 @@ public:
 public:
 	virtual void flush();
 	virtual __int64 length() const;
-	/// �w�肵���̈�̑��̃n���h���̓ǂݏ������֎~����B�߂�l�� Lock �I�u�W�F�N�g�����݂��Ă���Ԃ����L���B
+	/// 指定した領域の他のハンドルの読み書きを禁止する。戻り値の Lock オブジェクトが存在している間だけ有効。
 	Lock lock(__int64 position, __int64 length);
 	virtual __int64 position() const;
 	virtual void position(__int64 value);
 	virtual int read(void* buffer, int offset, int count);
 	virtual bool readable() const;
 	virtual __int64 skip(__int64 offset);
-	/// �t�@�C���̏I�[�Ɉړ�����B
+	/// ファイルの終端に移動する。
 	virtual __int64 skipToEnd();
 	virtual void write(const void* buffer, int offset, int count);
 	virtual bool writable() const;
 
 public:
-	/// HANDLE �ւ̎����ϊ� �� null �`�F�b�N�p
+	/// HANDLE への自動変換 ＆ null チェック用
 	operator HANDLE() const { return _handle; }
 
 private:

@@ -1,10 +1,10 @@
-#include "MemoryStream.hpp"
+ï»¿#include "MemoryStream.hpp"
 
 #include <algorithm>
 #include <limits>
 #include <utility>
 
-#include <balor/system/windows.hpp> // IsBadWritePtr, IsBadReadPtr‚Ìassert‚Ìˆ×‚¾‚¯‚É•K—v
+#include <balor/system/windows.hpp> // IsBadWritePtr, IsBadReadPtrã®assertã®ç‚ºã ã‘ã«å¿…è¦
 #include <balor/test/verify.hpp>
 #include <balor/scopeExit.hpp>
 
@@ -91,7 +91,7 @@ int MemoryStream::capacity() const {
 
 
 void MemoryStream::flush() {
-	// ‰½‚à‚µ‚È‚¢
+	// ä½•ã‚‚ã—ãªã„
 }
 
 
@@ -153,7 +153,7 @@ int MemoryStream::read(void* buffer, int offset, int count) {
 	assert("buffer is bad write pointer" && !IsBadWritePtr(buffer, offset + count));
 	assert("read unsupported" && readable());
 
-	const int readCount = std::min(std::max(0,(int)( _last - _current)), count); // _current ‚Í skip ‚É‚æ‚Á‚Ä _last ‚æ‚èŒã‚ë‚És‚­‚±‚Æ‚ª‚Å‚«‚é
+	const int readCount = std::min(std::max(0,(int)( _last - _current)), count); // _current ã¯ skip ã«ã‚ˆã£ã¦ _last ã‚ˆã‚Šå¾Œã‚ã«è¡Œãã“ã¨ãŒã§ãã‚‹
 	std::memcpy(static_cast<unsigned char*>(buffer) + offset, _current, readCount);
 	_current += readCount;
 	return readCount;

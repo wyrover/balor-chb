@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <hash_map>
 
@@ -26,13 +26,13 @@ class MemoryStream;
 
 
 /**
- * ƒŠƒ\[ƒX‚ð•\‚·B
+ * ãƒªã‚½ãƒ¼ã‚¹ã‚’è¡¨ã™ã€‚
  *
- * ƒƒP[ƒ‹‚ðŽw’è‚µ‚½ê‡AƒŠƒ\[ƒX–¼‚Ì––”ö‚ÉƒsƒŠƒIƒh{ƒƒP[ƒ‹‚Ì ISO –¼iLocale::name() ŠÖ”‚ÌŒ‹‰Êj‚ð‚Â‚¯‚ÄƒŠƒ\[ƒX‚ðŒŸõ‚·‚éB
- * Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Í––”ö‚É‚È‚É‚à‚Â‚¯‚¸‚ÉÄ“xŒŸõ‚·‚éB‚½‚¾‚µƒŠƒ\[ƒX ID ‚ðŽg—p‚·‚éê‡‚ÍƒƒP[ƒ‹‚É‚Â‚¢‚Ä‰½‚à‚µ‚È‚¢B
- * •¶Žš—ñƒŠƒ\[ƒX‚É‚Â‚¢‚Ä‚Í“Á•Ê‚ÅAƒŠƒ\[ƒX ID ‚ðŽg—p‚·‚éê‡‚Í]—ˆ‚Ç‚¨‚è STRINGTABLE ƒŠƒ\[ƒX‚ðŽg‚¤‚ªƒŠƒ\[ƒX–¼‚ðŽg—p‚·‚éê‡‚Í
- * namedStringTable ‚Æ‚¢‚¤–¼‘O‚Ì RCDATA ƒŠƒ\[ƒX‚ð’T‚·B‚±‚Ì–¼‘O‚É‚àƒƒP[ƒ‹–¼‚ÌCü‚ª•t‚­B
- * RCDATA ƒŠƒ\[ƒX‚Ì“à—e‚Æ‚µ‚Ä•¶Žš—ñ–¼‚Æ•¶Žš—ñ‚Ì“ñ‚Â‚ÌƒJƒ‰ƒ€‚ðŽ‚Âƒ†ƒjƒR[ƒh‚Ì CSV ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ð—pˆÓ‚·‚é•K—v‚ª‚ ‚éB
+ * ãƒ­ã‚±ãƒ¼ãƒ«ã‚’æŒ‡å®šã—ãŸå ´åˆã€ãƒªã‚½ãƒ¼ã‚¹åã®æœ«å°¾ã«ãƒ”ãƒªã‚ªãƒ‰ï¼‹ãƒ­ã‚±ãƒ¼ãƒ«ã® ISO åï¼ˆLocale::name() é–¢æ•°ã®çµæžœï¼‰ã‚’ã¤ã‘ã¦ãƒªã‚½ãƒ¼ã‚¹ã‚’æ¤œç´¢ã™ã‚‹ã€‚
+ * è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯æœ«å°¾ã«ãªã«ã‚‚ã¤ã‘ãšã«å†åº¦æ¤œç´¢ã™ã‚‹ã€‚ãŸã ã—ãƒªã‚½ãƒ¼ã‚¹ ID ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ãƒ­ã‚±ãƒ¼ãƒ«ã«ã¤ã„ã¦ä½•ã‚‚ã—ãªã„ã€‚
+ * æ–‡å­—åˆ—ãƒªã‚½ãƒ¼ã‚¹ã«ã¤ã„ã¦ã¯ç‰¹åˆ¥ã§ã€ãƒªã‚½ãƒ¼ã‚¹ ID ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯å¾“æ¥ã©ãŠã‚Š STRINGTABLE ãƒªã‚½ãƒ¼ã‚¹ã‚’ä½¿ã†ãŒãƒªã‚½ãƒ¼ã‚¹åã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯
+ * namedStringTable ã¨ã„ã†åå‰ã® RCDATA ãƒªã‚½ãƒ¼ã‚¹ã‚’æŽ¢ã™ã€‚ã“ã®åå‰ã«ã‚‚ãƒ­ã‚±ãƒ¼ãƒ«åã®ä¿®é£¾ãŒä»˜ãã€‚
+ * RCDATA ãƒªã‚½ãƒ¼ã‚¹ã®å†…å®¹ã¨ã—ã¦æ–‡å­—åˆ—åã¨æ–‡å­—åˆ—ã®äºŒã¤ã®ã‚«ãƒ©ãƒ ã‚’æŒã¤ãƒ¦ãƒ‹ã‚³ãƒ¼ãƒ‰ã® CSV ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”¨æ„ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
  */
 class Resource {
 public:
@@ -42,41 +42,41 @@ public:
 	typedef ::balor::graphics::Icon Icon;
 	typedef ::balor::locale::Locale Locale;
 
-	/// ƒŠƒ\[ƒX‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+	/// ãƒªã‚½ãƒ¼ã‚¹ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 	class NotFoundException : public Exception {};
 
-	/// ƒƒ‚ƒŠ‚ª‘«‚è‚È‚©‚Á‚½
+	/// ãƒ¡ãƒ¢ãƒªãŒè¶³ã‚Šãªã‹ã£ãŸ
 	struct OutOfMemoryException : public ::balor::OutOfMemoryException {};
 
 public:
-	/// ƒ‚ƒWƒ…[ƒ‹‚©‚çì¬B
+	/// ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‹ã‚‰ä½œæˆã€‚
 	explicit Resource(HMODULE module = nullptr);
-	/// ƒƒP[ƒ‹‚Æƒ‚ƒWƒ…[ƒ‹‚©‚çì¬B
+	/// ãƒ­ã‚±ãƒ¼ãƒ«ã¨ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‹ã‚‰ä½œæˆã€‚
 	explicit Resource(const Locale& locale, HMODULE module = nullptr);
 
 public:
-	/// BITMAP ƒŠƒ\[ƒX‚Ü‚½‚Í RCDATA ƒŠƒ\[ƒX‚©‚ç Bitmap ‚ðì¬‚µ‚Ä•Ô‚·BBitmap ƒNƒ‰ƒX‚Ì‘Î‰ž‚µ‚Ä‚¢‚é‰æ‘œŒ`Ž®‚ð“Ç‚Ýž‚ß‚éB
+	/// BITMAP ãƒªã‚½ãƒ¼ã‚¹ã¾ãŸã¯ RCDATA ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ Bitmap ã‚’ä½œæˆã—ã¦è¿”ã™ã€‚Bitmap ã‚¯ãƒ©ã‚¹ã®å¯¾å¿œã—ã¦ã„ã‚‹ç”»åƒå½¢å¼ã‚’èª­ã¿è¾¼ã‚ã‚‹ã€‚
 	Bitmap getBitmap(int id);
 	Bitmap getBitmap(StringRange name);
-	/// CURSOR ƒŠƒ\[ƒX‚©‚ç Cursor ‚ðì¬‚µ‚Ä•Ô‚·B
+	/// CURSOR ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ Cursor ã‚’ä½œæˆã—ã¦è¿”ã™ã€‚
 	Cursor getCursor(int id);
 	Cursor getCursor(StringRange name);
-	/// ICON ƒŠƒ\[ƒX‚©‚ç Icon ‚ðì¬‚µ‚Ä•Ô‚·Bsize ‚É Size(0, 0) ‚ðŽw’è‚·‚é‚ÆÅ‰‚ÉŒ©‚Â‚©‚Á‚½ƒAƒCƒRƒ“‚ÌŒ´¡‚Åì¬‚³‚ê‚éB
+	/// ICON ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ Icon ã‚’ä½œæˆã—ã¦è¿”ã™ã€‚size ã« Size(0, 0) ã‚’æŒ‡å®šã™ã‚‹ã¨æœ€åˆã«è¦‹ã¤ã‹ã£ãŸã‚¢ã‚¤ã‚³ãƒ³ã®åŽŸå¯¸ã§ä½œæˆã•ã‚Œã‚‹ã€‚
 	Icon getIcon(int id);
 	Icon getIcon(int id, const Size& size);
 	Icon getIcon(int id, int width, int height);
 	Icon getIcon(StringRange name);
 	Icon getIcon(StringRange name, const Size& size);
 	Icon getIcon(StringRange name, int width, int height);
-	/// RCDATA ƒŠƒ\[ƒX‚ðƒƒ‚ƒŠƒXƒgƒŠ[ƒ€‚Æ‚µ‚ÄŽæ“¾‚·‚éBƒƒ‚ƒŠ‚ÍƒŠƒ\[ƒX‚Ì“ü‚Á‚½ƒ‚ƒWƒ…[ƒ‹‚ªƒAƒ“ƒ[ƒh‚³‚ê‚é‚Ü‚Å—LŒøB
+	/// RCDATA ãƒªã‚½ãƒ¼ã‚¹ã‚’ãƒ¡ãƒ¢ãƒªã‚¹ãƒˆãƒªãƒ¼ãƒ ã¨ã—ã¦å–å¾—ã™ã‚‹ã€‚ãƒ¡ãƒ¢ãƒªã¯ãƒªã‚½ãƒ¼ã‚¹ã®å…¥ã£ãŸãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹ã¾ã§æœ‰åŠ¹ã€‚
 	MemoryStream getRawData(int id);
 	MemoryStream getRawData(StringRange name);
-	/// •¶Žš—ñƒŠƒ\[ƒX‚ðŽæ“¾‚·‚éB–¼‘O‚ðŽw’è‚·‚é•¶Žš—ñƒŠƒ\[ƒX‚Ìì‚è•û‚É‚Â‚¢‚Ä‚ÍƒNƒ‰ƒXƒhƒLƒ…ƒƒ“ƒg‚ðŽQÆB
+	/// æ–‡å­—åˆ—ãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚åå‰ã‚’æŒ‡å®šã™ã‚‹æ–‡å­—åˆ—ãƒªã‚½ãƒ¼ã‚¹ã®ä½œã‚Šæ–¹ã«ã¤ã„ã¦ã¯ã‚¯ãƒ©ã‚¹ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã€‚
 	String getString(int id);
 	String getString(StringRange name);
 	void getStringToBuffer(StringBuffer& buffer, int id);
 	void getStringToBuffer(StringBuffer& buffer, StringRange name);
-	/// ƒŠƒ\[ƒX‚ÌƒƒP[ƒ‹B
+	/// ãƒªã‚½ãƒ¼ã‚¹ã®ãƒ­ã‚±ãƒ¼ãƒ«ã€‚
 	Locale locale() const;
 
 private:

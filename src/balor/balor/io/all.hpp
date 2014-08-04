@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include <vector>
 #include <balor/String.hpp>
 #include <balor/StringBuffer.hpp>
 
 namespace balor {
-/// I/O ŠÖ˜A‚ÌƒNƒ‰ƒXŒQ
+/// I/O é–¢é€£ã®ã‚¯ãƒ©ã‚¹ç¾¤
 namespace io {
 }
 }
@@ -17,6 +17,6 @@ namespace io {
 #include <balor/io/Registry.hpp>
 #include <balor/io/Resource.hpp>
 #include <balor/io/Stream.hpp>
-//#include <balor/io/StreamToIStream.hpp> // Objbase.h ‚ğƒCƒ“ƒNƒ‹[ƒh‚µ‚Ä‚¢‚é
+//#include <balor/io/StreamToIStream.hpp> // Objbase.h ã‚’ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã—ã¦ã„ã‚‹
 
 #include <balor/link.hpp>

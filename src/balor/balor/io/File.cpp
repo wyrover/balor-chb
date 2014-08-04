@@ -1,4 +1,4 @@
-#include "File.hpp"
+ï»¿#include "File.hpp"
 
 #include <utility>
 #include <vector>
@@ -96,17 +96,17 @@ static_assert(File::maxPath == MAX_PATH, "Invalid maxPath");
 
 void checkError(DWORD errorCode) {
 	switch (errorCode) {
-		case ERROR_ACCESS_DENIED                : throw File::AccessDeniedException(); // ˆÙ‚È‚éƒ{ƒŠƒ…[ƒ€‚ÉˆÚ“®‚µ‚æ‚¤‚Æ‚µ‚½‚©AƒAƒNƒZƒXŒ ‚ª‚È‚¢
+		case ERROR_ACCESS_DENIED                : throw File::AccessDeniedException(); // ç•°ãªã‚‹ãƒœãƒªãƒ¥ãƒ¼ãƒ ã«ç§»å‹•ã—ã‚ˆã†ã¨ã—ãŸã‹ã€ã‚¢ã‚¯ã‚»ã‚¹æ¨©ãŒãªã„
 		case ERROR_ALREADY_EXISTS               :
 		case ERROR_FILE_EXISTS                  : throw File::AlreadyExistsException();
-		case ERROR_DIR_NOT_EMPTY                : throw File::NotEmptyException(); // ƒfƒBƒŒƒNƒgƒŠ‚ª‹ó‚Å‚Í‚È‚¢
+		case ERROR_DIR_NOT_EMPTY                : throw File::NotEmptyException(); // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒç©ºã§ã¯ãªã„
 		case ERROR_FILE_NOT_FOUND               :
 		case ERROR_PATH_NOT_FOUND               : throw File::NotFoundException();
 		case ERROR_INVALID_NAME                 : throw File::InvalidPathException();
-		case ERROR_SHARING_VIOLATION            : throw File::SharingViolationException(); // ˆÚ“®æ‚ª©•ª‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ
-		case ERROR_UNABLE_TO_REMOVE_REPLACED    : // ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğíœ‚Å‚«‚È‚©‚Á‚½
-		case ERROR_UNABLE_TO_MOVE_REPLACEMENT   : // ƒŠƒl[ƒ€‚ª‚Å‚«‚È‚©‚Á‚½
-		case ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 : throw File::AccessDeniedException(); // ƒŠƒl[ƒ€‚ª‚Å‚«‚È‚©‚Á‚½
+		case ERROR_SHARING_VIOLATION            : throw File::SharingViolationException(); // ç§»å‹•å…ˆãŒè‡ªåˆ†ã®ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+		case ERROR_UNABLE_TO_REMOVE_REPLACED    : // ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã§ããªã‹ã£ãŸ
+		case ERROR_UNABLE_TO_MOVE_REPLACEMENT   : // ãƒªãƒãƒ¼ãƒ ãŒã§ããªã‹ã£ãŸ
+		case ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 : throw File::AccessDeniedException(); // ãƒªãƒãƒ¼ãƒ ãŒã§ããªã‹ã£ãŸ
 		default                      : assert("Failed to file api" && false);
 	}
 }
@@ -114,7 +114,7 @@ void checkError(DWORD errorCode) {
 
 void getFilesToVector(vector<File>& files, const File& file, StringRange searchPettern, bool recursive) {
 	if (recursive) {
-		auto i = file.getFilesIterator(); // ƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğÄ‹A“I‚ÉŒŸõ‚µ‚Ä‚¢‚­
+		auto i = file.getFilesIterator(); // ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å†å¸°çš„ã«æ¤œç´¢ã—ã¦ã„ã
 		while (i) {
 			if (i->isDirectory()) {
 				getFilesToVector(files, *i, searchPettern, recursive);
@@ -211,7 +211,7 @@ File::FilesIterator::FilesIterator(const File& file, StringRange searchPettern) 
 	}
 
 	current.path(file.fullPathFile(), searchPettern);
-	{// ŒŸõ‚·‚éƒfƒBƒŒƒNƒgƒŠƒpƒX‚ÆŒŸõƒpƒ^[ƒ“‚ğ•ª—£‚·‚éB
+	{// æ¤œç´¢ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã¨æ¤œç´¢ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’åˆ†é›¢ã™ã‚‹ã€‚
 		const wchar_t* last = nullptr;
 		const wchar_t* first = current._path;
 		const wchar_t* i = first;
@@ -223,7 +223,7 @@ File::FilesIterator::FilesIterator(const File& file, StringRange searchPettern) 
 		}
 		if (!last) {
 			nameIndex = 0;
-		} else if (last - first == 3 && first[1] == L':' && first[2] == L'\\') { // ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ğ¦‚·ê‡‚Í\\‚ğ––”ö‚É“ü‚ê‚½‚Ü‚Ü‚É‚µ‚È‚¢‚ÆƒpƒX‚ÆŒ©‚È‚³‚ê‚È‚­‚È‚é
+		} else if (last - first == 3 && first[1] == L':' && first[2] == L'\\') { // ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ç¤ºã™å ´åˆã¯\\ã‚’æœ«å°¾ã«å…¥ã‚ŒãŸã¾ã¾ã«ã—ãªã„ã¨ãƒ‘ã‚¹ã¨è¦‹ãªã•ã‚Œãªããªã‚‹
 			nameIndex = last - first;
 		} else {
 			nameIndex = last - first - 1;
@@ -376,7 +376,7 @@ FileStream File::create() {
 void File::createDirectory() {
 	if (exists()) {
 		if (!isDirectory()) {
-			throw AlreadyExistsException(); // ƒfƒBƒŒƒNƒgƒŠ‚Å‚Í‚È‚­ƒtƒ@ƒCƒ‹‚ªŠù‚É‘¶İ‚·‚éB
+			throw AlreadyExistsException(); // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ã¯ãªããƒ•ã‚¡ã‚¤ãƒ«ãŒæ—¢ã«å­˜åœ¨ã™ã‚‹ã€‚
 		}
 		return;
 	}
@@ -385,11 +385,11 @@ void File::createDirectory() {
 		if (errorCode == ERROR_PATH_NOT_FOUND) {
 			auto parentDir = parent();
 			if (parentDir._pathLength) {
-				parentDir.createDirectory(); // eƒfƒBƒŒƒNƒgƒŠ‚©‚çÄ‹A“I‚Éì¬‚ğ‚İ‚é
-				verify(CreateDirectoryW(_path, nullptr)); // e‚ªì¬‚³‚ê‚½‚©‚çÄ‚Ñì¬‚ğ‚İ‚é
+				parentDir.createDirectory(); // è¦ªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰å†å¸°çš„ã«ä½œæˆã‚’è©¦ã¿ã‚‹
+				verify(CreateDirectoryW(_path, nullptr)); // è¦ªãŒä½œæˆã•ã‚ŒãŸã‹ã‚‰å†ã³ä½œæˆã‚’è©¦ã¿ã‚‹
 				return;
 			}
-			throw NotFoundException(); // eƒfƒBƒŒƒNƒgƒŠì¬‚ÌÄ‹A‚ªƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚É“’B‚µ‚½
+			throw NotFoundException(); // è¦ªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä½œæˆã®å†å¸°ãŒãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«åˆ°é”ã—ãŸ
 		} else if (errorCode != ERROR_ALREADY_EXISTS) {
 			checkError(errorCode);
 		}
@@ -533,7 +533,7 @@ bool File::isDirectory() const {
 void File::moveTo(StringRange destPath) {
 	assert("Empty destPath" && !destPath.empty());
 
-	if (!exists()) { // hƒtƒ@ƒCƒ‹h‚Æ‚µ‚Ä‘¶İ‚·‚é‚©ƒ`ƒFƒbƒN
+	if (!exists()) { // â€ãƒ•ã‚¡ã‚¤ãƒ«â€ã¨ã—ã¦å­˜åœ¨ã™ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
 		throw NotFoundException();
 	}
 	if (!MoveFileW(_path, destPath.c_str())) {
@@ -605,11 +605,11 @@ void File::path(StringRange value) {
 
 
 void File::path(StringRange directoryName, StringRange fileName) {
-	if (*fileName.c_str() == L'\\') { // PathCombine ŠÖ”‚Í Vista ‚Æ XP ‚Å‹““®‚ªˆÙ‚È‚éBXP ‚Å‚Í‚±‚Ìˆ—‚ª‚È‚­‚Æ‚à‚±‚Ì‚æ‚¤‚ÈŒ‹‰Ê‚ğ•Ô‚·‚ªAVista‚Å‚ÍŠÖ”‚ª¸”s‚·‚éB
+	if (*fileName.c_str() == L'\\') { // PathCombine é–¢æ•°ã¯ Vista ã¨ XP ã§æŒ™å‹•ãŒç•°ãªã‚‹ã€‚XP ã§ã¯ã“ã®å‡¦ç†ãŒãªãã¨ã‚‚ã“ã®ã‚ˆã†ãªçµæœã‚’è¿”ã™ãŒã€Vistaã§ã¯é–¢æ•°ãŒå¤±æ•—ã™ã‚‹ã€‚
 		path(fileName);
 	} else {
 		if (!PathCombineW(_path, directoryName.c_str(), fileName.c_str())) {
-			throw PathTooLongException(); // ‚¨‚»‚ç‚­‚ÍMAX_PATHƒI[ƒo[
+			throw PathTooLongException(); // ãŠãã‚‰ãã¯MAX_PATHã‚ªãƒ¼ãƒãƒ¼
 		}
 		resetPathLength();
 	}
@@ -634,7 +634,7 @@ File File::parent() const {
 	}
 	if (!last) {
 		file.path(L"");
-	} else if (last - first == 3 && first[1] == L':' && first[2] == L'\\') { // ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ğ¦‚·ê‡‚Í\\‚ğ––”ö‚É“ü‚ê‚½‚Ü‚Ü‚É‚µ‚È‚¢‚ÆƒpƒX‚ÆŒ©‚È‚³‚ê‚È‚­‚È‚é
+	} else if (last - first == 3 && first[1] == L':' && first[2] == L'\\') { // ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ç¤ºã™å ´åˆã¯\\ã‚’æœ«å°¾ã«å…¥ã‚ŒãŸã¾ã¾ã«ã—ãªã„ã¨ãƒ‘ã‚¹ã¨è¦‹ãªã•ã‚Œãªããªã‚‹
 		file._pathLength = last - first;
 		file._path[file._pathLength] = L'\0';
 	} else {

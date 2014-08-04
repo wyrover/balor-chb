@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/io/Stream.hpp>
 #include <balor/system/ComBase.hpp>
@@ -11,19 +11,19 @@ namespace balor {
 
 
 /**
- * ::balor::sytem::io::Stream ‚ğƒ‰ƒbƒv‚µ‚Ä COM ‚Ì IStream ‚Æ‚µ‚ÄU•‘‚¤‚æ‚¤‚É‚·‚éƒNƒ‰ƒXB
+ * ::balor::sytem::io::Stream ã‚’ãƒ©ãƒƒãƒ—ã—ã¦ COM ã® IStream ã¨ã—ã¦æŒ¯èˆã†ã‚ˆã†ã«ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * Gdiplus ‚â OleLoadPicture “™‚ÌŠÖ”‚Åg‚¤B
+ * Gdiplus ã‚„ OleLoadPicture ç­‰ã®é–¢æ•°ã§ä½¿ã†ã€‚
  */
 class StreamToIStream : public ::balor::system::ComBase<IStream> {
-	/// Stream ‚ÌQÆ‚©‚çì¬B
+	/// Stream ã®å‚ç…§ã‹ã‚‰ä½œæˆã€‚
 	explicit StreamToIStream(Stream& stream);
 	StreamToIStream(const StreamToIStream& );
 	virtual ~StreamToIStream();
 	StreamToIStream& operator=(const StreamToIStream& );
 
 public:
-	/// ƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éB
+	/// ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ã€‚
 	static ::balor::system::ComPtr<StreamToIStream> create(Stream& stream);
 
 public:

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/ArrayRange.hpp>
 #include <balor/Enum.hpp>
@@ -20,38 +20,38 @@ namespace balor {
 
 
 /**
- * ƒŒƒWƒXƒgƒŠ‚ÉƒAƒNƒZƒX‚·‚éƒNƒ‰ƒXB
+ * ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  */
 class Registry : private NonCopyable {
 public:
 	typedef ::HKEY__* HKEY;
 
-	/// ƒŒƒWƒXƒgƒŠ‚Ì’l‚Ìí—Ş
+	/// ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã®å€¤ã®ç¨®é¡
 	struct ValueKind {
 		enum _enum {
-			string       = 1 , /// •¶š—ñ’lB
-			expandString = 2 , /// %PATH% ‚Ì‚æ‚¤‚ÈŠÂ‹«•Ï”•¶š—ñB
-			binary       = 3 , /// ƒoƒCƒiƒŠƒf[ƒ^B
-			dword        = 4 , /// ‚R‚Qƒrƒbƒg”’lB
-			multiString  = 7 , /// ƒkƒ‹•¶š‚Å‹æØ‚ç‚ê‚½•¡”‚Ì•¶š—ñ’lB“ñ˜A‘±‚Ìƒkƒ‹•¶š‚ªI’[‚ğ•\‚·B
-			qword        = 11, /// ‚U‚Sƒrƒbƒg”’lB
-			unknown      = -1, /// ƒTƒ|[ƒg‚µ‚È‚¢’l‚Ìí—ŞB
-			notFound     = -2, /// ’l‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½B
+			string       = 1 , /// æ–‡å­—åˆ—å€¤ã€‚
+			expandString = 2 , /// %PATH% ã®ã‚ˆã†ãªç’°å¢ƒå¤‰æ•°æ–‡å­—åˆ—ã€‚
+			binary       = 3 , /// ãƒã‚¤ãƒŠãƒªãƒ‡ãƒ¼ã‚¿ã€‚
+			dword        = 4 , /// ï¼“ï¼’ãƒ“ãƒƒãƒˆæ•°å€¤ã€‚
+			multiString  = 7 , /// ãƒŒãƒ«æ–‡å­—ã§åŒºåˆ‡ã‚‰ã‚ŒãŸè¤‡æ•°ã®æ–‡å­—åˆ—å€¤ã€‚äºŒé€£ç¶šã®ãƒŒãƒ«æ–‡å­—ãŒçµ‚ç«¯ã‚’è¡¨ã™ã€‚
+			qword        = 11, /// ï¼–ï¼”ãƒ“ãƒƒãƒˆæ•°å€¤ã€‚
+			unknown      = -1, /// ã‚µãƒãƒ¼ãƒˆã—ãªã„å€¤ã®ç¨®é¡ã€‚
+			notFound     = -2, /// å€¤ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã€‚
 		};
 		BALOR_NAMED_ENUM_MEMBERS(ValueKind);
 	};
 
-	/// ƒL[–¼‚â’l–¼‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+	/// ã‚­ãƒ¼åã‚„å€¤åã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	struct NamesIterator {
 		NamesIterator(HKEY handle, bool isKeyName);
 
-		/// Œ»İˆÊ’u‚Ì–¼‘O‚ğ—ñ‹“‚µ‚È‚¨‚·B—ñ‹“‚µ‚È‚ª‚çƒL[‚â’l‚ğíœ‚·‚éê‡‚Í ++ ‚Å‚Í‚È‚­‚±‚Á‚¿‚ğg‚¤B
+		/// ç¾åœ¨ä½ç½®ã®åå‰ã‚’åˆ—æŒ™ã—ãªãŠã™ã€‚åˆ—æŒ™ã—ãªãŒã‚‰ã‚­ãƒ¼ã‚„å€¤ã‚’å‰Šé™¤ã™ã‚‹å ´åˆã¯ ++ ã§ã¯ãªãã“ã£ã¡ã‚’ä½¿ã†ã€‚
 		void refresh();
-		/// —ñ‹“‚µ‚½–¼‘OB
+		/// åˆ—æŒ™ã—ãŸåå‰ã€‚
 		const wchar_t* operator*() const;
-		/// Ÿ‚Ì–¼‘O‚ÉˆÚ“®B
+		/// æ¬¡ã®åå‰ã«ç§»å‹•ã€‚
 		Registry::NamesIterator& operator++();
-		/// —ñ‹“‚µI‚í‚Á‚½‚©‚Ç‚¤‚©B
+		/// åˆ—æŒ™ã—çµ‚ã‚ã£ãŸã‹ã©ã†ã‹ã€‚
 		operator bool() const;
 
 	private:
@@ -61,81 +61,81 @@ public:
 		wchar_t name[256];
 	};
 
-	/// ƒL[‚â’l‚ÉƒAƒNƒZƒXŒ ‚ª–³‚©‚Á‚½B‚ ‚é‚¢‚ÍƒTƒuƒL[‚ğ‚à‚ÂƒŒƒWƒXƒgƒŠ‚ğíœ‚µ‚æ‚¤‚Æ‚µ‚½B
+	/// ã‚­ãƒ¼ã‚„å€¤ã«ã‚¢ã‚¯ã‚»ã‚¹æ¨©ãŒç„¡ã‹ã£ãŸã€‚ã‚ã‚‹ã„ã¯ã‚µãƒ–ã‚­ãƒ¼ã‚’ã‚‚ã¤ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã‚’å‰Šé™¤ã—ã‚ˆã†ã¨ã—ãŸã€‚
 	class AccessDeniedException : public Exception {};
 
-	/// HKEY_LOCAL_MACHINE ’¼‰º‚ÉƒL[‚ğì¬‚µ‚æ‚¤‚Æ‚µ‚½ê‡“™B
+	/// HKEY_LOCAL_MACHINE ç›´ä¸‹ã«ã‚­ãƒ¼ã‚’ä½œæˆã—ã‚ˆã†ã¨ã—ãŸå ´åˆç­‰ã€‚
 	class InvalidParameterException : public Exception {};
 
-	/// ‘€ì‚µ‚æ‚¤‚Æ‚µ‚½ƒL[‚ªŠù‚Éíœ‚³‚ê‚Ä‚¢‚½B
+	/// æ“ä½œã—ã‚ˆã†ã¨ã—ãŸã‚­ãƒ¼ãŒæ—¢ã«å‰Šé™¤ã•ã‚Œã¦ã„ãŸã€‚
 	class KeyDeletedException : public Exception {};
 
-	/// ’l‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½B
+	/// å€¤ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã€‚
 	class ValueNotFoundException : public Exception {};
 
-	/// ’l‚Ìí—Ş‚Æ•Ï”‚ÌŒ^‚ª‚ ‚Á‚Ä‚È‚¢B
+	/// å€¤ã®ç¨®é¡ã¨å¤‰æ•°ã®å‹ãŒã‚ã£ã¦ãªã„ã€‚
 	class ValueKindMismatchException : public Exception {};
 
 public:
-	/// –¢‰Šú‰»ó‘ÔB
+	/// æœªåˆæœŸåŒ–çŠ¶æ…‹ã€‚
 	Registry();
 	Registry(Registry&& value);
-	/// HKEY_`‚Ån‚Ü‚éƒŒƒWƒXƒgƒŠƒL[–¼‚©‚çì¬B
+	/// HKEY_ï½ã§å§‹ã¾ã‚‹ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã‚­ãƒ¼åã‹ã‚‰ä½œæˆã€‚
 	Registry(StringRange path, bool writable = false);
 	~Registry();
 	Registry& operator=(Registry&& value);
 
 public:
-	/// HKEY_CLASSES_ROOT ‚Åì¬B
+	/// HKEY_CLASSES_ROOT ã§ä½œæˆã€‚
 	static Registry classesRoot();
-	/// ƒTƒuƒL[‚ğì¬‚µ‚Ä•Ô‚·B
+	/// ã‚µãƒ–ã‚­ãƒ¼ã‚’ä½œæˆã—ã¦è¿”ã™ã€‚
 	Registry createKey(StringRange keyName, bool writable = false);
-	/// HKEY_CURRENT_CONFIG ‚Åì¬B
+	/// HKEY_CURRENT_CONFIG ã§ä½œæˆã€‚
 	static Registry currentConfig();
-	/// HKEY_CURRENT_USER ‚Åì¬B
+	/// HKEY_CURRENT_USER ã§ä½œæˆã€‚
 	static Registry currentUser();
-	/// ƒLƒƒƒbƒVƒ…‚³‚ê‚Ä‚¢‚éŒ»İ‚ÌƒL[‚Ì•ÏX‚ğƒfƒBƒXƒN‚É”½‰f‚³‚¹‚éB
+	/// ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚Œã¦ã„ã‚‹ç¾åœ¨ã®ã‚­ãƒ¼ã®å¤‰æ›´ã‚’ãƒ‡ã‚£ã‚¹ã‚¯ã«åæ˜ ã•ã›ã‚‹ã€‚
 	void flush();
-	/// ‚ ‚ç‚ä‚éí—Ş‚Ì’l‚ğƒoƒCƒiƒŠŒ`®‚Å•Ô‚·B
+	/// ã‚ã‚‰ã‚†ã‚‹ç¨®é¡ã®å€¤ã‚’ãƒã‚¤ãƒŠãƒªå½¢å¼ã§è¿”ã™ã€‚
 	std::vector<unsigned char, std::allocator<unsigned char> > getBinary(StringRange valueName) const;
-	/// DWORD Œ^‚Ì’l‚ğ•Ô‚·B
+	/// DWORD å‹ã®å€¤ã‚’è¿”ã™ã€‚
 	unsigned long getDword(StringRange valueName) const;
-	/// QWORD Œ^‚Ì’l‚ğ•Ô‚·B
+	/// QWORD å‹ã®å€¤ã‚’è¿”ã™ã€‚
 	unsigned __int64 getQword(StringRange valueName) const;
-	/// String Œ^‚Åó‚¯æ‚ê‚é’l‚ğ•Ô‚·B
+	/// String å‹ã§å—ã‘å–ã‚Œã‚‹å€¤ã‚’è¿”ã™ã€‚
 	String getString(StringRange valueName) const;
 	void getStringToBuffer(StringBuffer& buffer, StringRange valueName) const;
-	/// ’l‚Ìí—Ş‚ğ•Ô‚·B’l‚ªŒ©‚Â‚©‚ç‚È‚¯‚ê‚Î Registry::ValueKind::notFound ‚ğ•Ô‚·B
+	/// å€¤ã®ç¨®é¡ã‚’è¿”ã™ã€‚å€¤ãŒè¦‹ã¤ã‹ã‚‰ãªã‘ã‚Œã° Registry::ValueKind::notFound ã‚’è¿”ã™ã€‚
 	Registry::ValueKind getValueKind(StringRange valueName) const;
-	/// HKEY_LOCAL_MACHINE ‚Åì¬B
+	/// HKEY_LOCAL_MACHINE ã§ä½œæˆã€‚
 	static Registry localMachine();
-	/// ƒTƒuƒL[‚Ì”B
+	/// ã‚µãƒ–ã‚­ãƒ¼ã®æ•°ã€‚
 	int keyCount() const;
-	/// ƒTƒuƒL[–¼‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+	/// ã‚µãƒ–ã‚­ãƒ¼åã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	Registry::NamesIterator keyNamesIterator() const;
-	/// ƒTƒuƒL[‚ğŠJ‚­B‘¶İ‚µ‚È‚©‚Á‚½ê‡‚Í‹ó‚Ì Registry ‚ğ•Ô‚·B
+	/// ã‚µãƒ–ã‚­ãƒ¼ã‚’é–‹ãã€‚å­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã¯ç©ºã® Registry ã‚’è¿”ã™ã€‚
 	Registry openKey(StringRange subKeyName, bool writable = false) const;
-	/// ƒTƒuƒL[‚ğíœ‚·‚éB
+	/// ã‚µãƒ–ã‚­ãƒ¼ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void removeKey(StringRange keyName, bool recursive = false);
-	/// ’l‚ğíœ‚·‚éB
+	/// å€¤ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void removeValue(StringRange valueName);
-	/// ”CˆÓ‚ÌŒ^‚Ì’l‚ğİ’è‚·‚éB
+	/// ä»»æ„ã®å‹ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setBinary(StringRange valueName, ArrayRange<const unsigned char> value, Registry::ValueKind kind = ValueKind::binary);
-	/// Registry::ValueKind::dword ‚Ì’l‚ğİ’è‚·‚éB
+	/// Registry::ValueKind::dword ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setDword(StringRange valueName, unsigned long value);
-	/// Registry::ValueKind::qword ‚Ì’l‚ğİ’è‚·‚éB
+	/// Registry::ValueKind::qword ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setQword(StringRange valueName, unsigned __int64 value);
-	/// String Œ^ ‚Ì’l‚ğİ’è‚·‚éB
+	/// String å‹ ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
 	void setString(StringRange valueName, StringRange value, Registry::ValueKind kind = ValueKind::string);
-	/// HKEY_USERS ‚Åì¬B
+	/// HKEY_USERS ã§ä½œæˆã€‚
 	static Registry users();
-	/// ’l‚Ì”B
+	/// å€¤ã®æ•°ã€‚
 	int valueCount() const;
-	/// ’l–¼‚ğ—ñ‹“‚·‚éƒCƒeƒŒ[ƒ^B
+	/// å€¤åã‚’åˆ—æŒ™ã™ã‚‹ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã€‚
 	Registry::NamesIterator valueNamesIterator() const;
 
 public:
-	/// HKEY ‚Ö‚Ì©“®•ÏŠ· • null ƒ`ƒFƒbƒN—pB
+	/// HKEY ã¸ã®è‡ªå‹•å¤‰æ› ï¼† null ãƒã‚§ãƒƒã‚¯ç”¨ã€‚
 	operator HKEY() const { return _handle; }
 
 private:

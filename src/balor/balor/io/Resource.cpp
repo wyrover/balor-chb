@@ -1,4 +1,4 @@
-#include "Resource.hpp"
+Ôªø#include "Resource.hpp"
 
 #include <utility>
 
@@ -75,18 +75,18 @@ Bitmap Resource::getBitmap(int id) {
 
 Bitmap Resource::getBitmap(StringRange name) {
 	if (locale() != Locale::invariant() && !isId(name)) {
-		auto handle = static_cast<HBITMAP>(LoadImageW(_module, getLocalName(name, _localeName), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION)); // Ç‹Ç∏ÇÕ BITMAP ÉäÉ\Å[ÉXÇ©ÇÁíTÇ∑
+		auto handle = static_cast<HBITMAP>(LoadImageW(_module, getLocalName(name, _localeName), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION)); // „Åæ„Åö„ÅØ BITMAP „É™„ÇΩ„Éº„Çπ„Åã„ÇâÊé¢„Åô
 		if (handle) {
 			return Bitmap(handle, true);
 		}
 	}
-	auto handle = static_cast<HBITMAP>(LoadImageW(_module, name.c_str(), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION)); // Ç‹Ç∏ÇÕ BITMAP ÉäÉ\Å[ÉXÇ©ÇÁíTÇ∑
+	auto handle = static_cast<HBITMAP>(LoadImageW(_module, name.c_str(), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION)); // „Åæ„Åö„ÅØ BITMAP „É™„ÇΩ„Éº„Çπ„Åã„ÇâÊé¢„Åô
 	if (!handle) {
 		const DWORD errorCode = GetLastError();
 		switch (errorCode) {
 			case ERROR_NOT_ENOUGH_MEMORY       : throw OutOfMemoryException();
 			case ERROR_RESOURCE_TYPE_NOT_FOUND :
-			case ERROR_RESOURCE_NAME_NOT_FOUND : { // ñ≥ÇØÇÍÇŒ RCDATA ÉäÉ\Å[ÉXÇ©ÇÁ
+			case ERROR_RESOURCE_NAME_NOT_FOUND : { // ÁÑ°„Åë„Çå„Å∞ RCDATA „É™„ÇΩ„Éº„Çπ„Åã„Çâ
 				auto stream = getRawData(name);
 				return Bitmap(stream);
 			} break;

@@ -1,4 +1,4 @@
-#include "StreamToIStream.hpp"
+﻿#include "StreamToIStream.hpp"
 
 #include <balor/test/verify.hpp>
 #include <balor/Exception.hpp>

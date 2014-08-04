@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/io/Stream.hpp>
 #include <balor/Exception.hpp>
@@ -10,26 +10,26 @@ namespace balor {
 
 
 /**
- * ŒÅ’è’·ƒƒ‚ƒŠ‚Ü‚½‚Í“®“I‚ÉŠ„‚è“–‚Ä‚½ƒƒ‚ƒŠ‚ÌƒXƒgƒŠ[ƒ€B
+ * å›ºå®šé•·ãƒ¡ãƒ¢ãƒªã¾ãŸã¯å‹•çš„ã«å‰²ã‚Šå½“ã¦ãŸãƒ¡ãƒ¢ãƒªã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
  *
- * std::iostream ‚É‚Í•W€‚Å‚Í‘¶İ‚µ‚È‚¢‚Ì‚Å©ì‚·‚éB
+ * std::iostream ã«ã¯æ¨™æº–ã§ã¯å­˜åœ¨ã—ãªã„ã®ã§è‡ªä½œã™ã‚‹ã€‚
  */
 class MemoryStream : public Stream {
 public:
-	// ‘‚«‚İ‚ªŒÅ’è’·ƒoƒbƒtƒ@‚ğƒI[ƒo[‚µ‚½
+	// æ›¸ãè¾¼ã¿ãŒå›ºå®šé•·ãƒãƒƒãƒ•ã‚¡ã‚’ã‚ªãƒ¼ãƒãƒ¼ã—ãŸ
 	class BufferOverrunException : public Exception {};
 
-	// ƒI[ƒo[ƒ[ƒhŠÖ”‚ÌƒI[ƒo[ƒ‰ƒCƒh—p
+	// ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰é–¢æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ç”¨
 	using Stream::read;
 	using Stream::write;
 
 public:
-	/// ‰Šú‚Ìƒoƒbƒtƒ@ƒTƒCƒY‚ğw’è‚µ‚Ä•K—v‚É‰‚¶‚Äƒoƒbƒtƒ@‚ğŠg’£‚µ‚Ä‚¢‚­ƒƒ‚ƒŠƒXƒgƒŠ[ƒ€‚ğì¬B
+	/// åˆæœŸã®ãƒãƒƒãƒ•ã‚¡ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã—ã¦å¿…è¦ã«å¿œã˜ã¦ãƒãƒƒãƒ•ã‚¡ã‚’æ‹¡å¼µã—ã¦ã„ããƒ¡ãƒ¢ãƒªã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ä½œæˆã€‚
 	MemoryStream(int capacity = 256);
-	/// ŒÅ’è’·”z—ñ‚Ìƒƒ‚ƒŠƒoƒbƒtƒ@‚©‚çì¬B
+	/// å›ºå®šé•·é…åˆ—ã®ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ•ã‚¡ã‹ã‚‰ä½œæˆã€‚
 	template<typename T, int Size> MemoryStream(T (&buffer)[Size], bool writable = true)
 		: _first(reinterpret_cast<unsigned char*>(buffer)), _last(_first + sizeof(buffer)), _end(_last), _current(_first), _allocatable(false), _writable(writable) {}
-	/// ŒÅ’è’·‚Ìƒƒ‚ƒŠƒoƒbƒtƒ@‚©‚çì¬B
+	/// å›ºå®šé•·ã®ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ•ã‚¡ã‹ã‚‰ä½œæˆã€‚
 	MemoryStream(void* buffer, int offset, int bufferSize, bool writable = true);
 	MemoryStream(MemoryStream&& stream);
 	virtual ~MemoryStream();
@@ -37,10 +37,10 @@ public:
 	MemoryStream& operator=(MemoryStream&& stream);
 
 public:
-	/// ƒƒ‚ƒŠƒoƒbƒtƒ@‚Ìæ“ª‚Ìƒ|ƒCƒ“ƒ^B
+	/// ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ•ã‚¡ã®å…ˆé ­ã®ãƒã‚¤ãƒ³ã‚¿ã€‚
 	void* buffer();
 	const void* buffer() const;
-	/// ƒoƒbƒtƒ@‚Ì‘å‚«‚³B‘å‚«‚­‚È‚é‚±‚Æ‚Í‚ ‚Á‚Ä‚à¬‚³‚­‚È‚é‚±‚Æ‚Í‚È‚¢B
+	/// ãƒãƒƒãƒ•ã‚¡ã®å¤§ãã•ã€‚å¤§ãããªã‚‹ã“ã¨ã¯ã‚ã£ã¦ã‚‚å°ã•ããªã‚‹ã“ã¨ã¯ãªã„ã€‚
 	int capacity() const;
 	virtual void flush();
 	virtual __int64 length() const;
