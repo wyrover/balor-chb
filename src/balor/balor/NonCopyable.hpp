@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -6,12 +6,12 @@ namespace balor {
 
 
 /**
- * ���̃N���X���p������N���X�̃R�s?����?����B
+ * このクラスを継承するクラスのコピ?を禁?する。
  *
- * boost::noncopyable �Ɠ����Bbalor ���C�u�����ł̓R�s?����?���Ă���N���X�ł��E�Ӓl�Q�Ƃ������Ɏ��R���X�g���N?�A���ԉ��Z�q����������̂�
- * �R�s?����邱�ƂȂ��֐��̖߂�l�ɂ��邱�Ƃ��ł��A�r�s�k�R���e�i�Ɋi?���邱�Ƃ��ł��A�C�ӂ�?�C?���O�ňꎞ�I�u�W�F�N�g������Ĵ��Ԃ��ď��������ł���B
+ * boost::noncopyable と同じ。balor ライブラリではコピ?を禁?しているクラスでも右辺値参照を引数に取るコンストラク?、ｴ・ﾔ演算子を実装するので
+ * コピ?を作ることなく関数の戻り値にすることができ、ＳＴＬコンテナに格?することができ、任意の?イ?ングで一時オブジェクトを作ってｴ・ﾔして初期化ができる。
  *
- * ����Ȏԗւ̍Ĕ�����?���ɂ������͂Ȃ����A����o?�W������ boost �̃C���X�g?���������������Ȃ��B
+ * こんな車輪の再発明は?当にしたくはないが、特定バ?ジョンの boost のインスト?ルを強制したくない。
  */
 class NonCopyable {
 protected:

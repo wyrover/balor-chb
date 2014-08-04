@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 struct tagRECT;
@@ -12,73 +12,73 @@ class Point;
 
 
 /**
- * •½–Êã‚ÌˆÊ’u‚Æ‘å‚«‚³‚ğ‚Â—Ìˆæ‚ğ•\‚·\‘¢‘ÌB
+ * å¹³é¢ä¸Šã®ä½ç½®ã¨å¤§ãã•ã‚’æŒã¤é ˜åŸŸã‚’è¡¨ã™æ§‹é€ ä½“ã€‚
  *
- * WIN32 ‚Ì RECT \‘¢‘Ì‚Æ‘ŠŒİ•ÏŠ·‚Å‚«‚éB
- * WIN32 ‚Ì Rectangle ŠÖ”‚Æ–¼‘O‚ª‚©‚Ô‚é‚Ì‚Å windows.h ‚Æˆê‚Ég‚¤ê‡‚Í•Ê–¼‚Ì Rect ‚ğg‚¤‚Æ—Ç‚¢B
+ * WIN32 ã® RECT æ§‹é€ ä½“ã¨ç›¸äº’å¤‰æ›ã§ãã‚‹ã€‚
+ * WIN32 ã® Rectangle é–¢æ•°ã¨åå‰ãŒã‹ã¶ã‚‹ã®ã§ windows.h ã¨ä¸€ç·’ã«ä½¿ã†å ´åˆã¯åˆ¥åã® Rect ã‚’ä½¿ã†ã¨è‰¯ã„ã€‚
  */
 class Rectangle {
 public:
 	typedef ::tagRECT RECT;
 
 public:
-	/// ‰Šú‰»‚¹‚¸‚Éì¬B
+	/// åˆæœŸåŒ–ã›ãšã«ä½œæˆã€‚
 	Rectangle() {}
 	Rectangle(const Rectangle& rectangle);
-	/// RECT \‘¢‘Ì‚Å‰Šú‰»B
+	/// RECT æ§‹é€ ä½“ã§åˆæœŸåŒ–ã€‚
 	Rectangle(const RECT& rect);
-	/// ˆÊ’u‚Æ‘å‚«‚³‚Ì\‘¢‘Ì‚Å‰Šú‰»B
+	/// ä½ç½®ã¨å¤§ãã•ã®æ§‹é€ ä½“ã§åˆæœŸåŒ–ã€‚
 	Rectangle(const Point& position, const Size& size);
-	/// ˆÊ’u‚Æ‘å‚«‚³‚Å‰Šú‰»B
+	/// ä½ç½®ã¨å¤§ãã•ã§åˆæœŸåŒ–ã€‚
 	Rectangle(int x, int y, int width, int height);
 
 public:
-	/// —Ìˆæ‚Ì‰º’[À•WB
+	/// é ˜åŸŸã®ä¸‹ç«¯åº§æ¨™ã€‚
 	int bottom() const { return y + height; }
-	/// —Ìˆæ‚Ì¶‰ºÀ•WB
+	/// é ˜åŸŸã®å·¦ä¸‹åº§æ¨™ã€‚
 	Point bottomLeft() const;
-	/// —Ìˆæ‚Ì‰E‰ºÀ•WB
+	/// é ˜åŸŸã®å³ä¸‹åº§æ¨™ã€‚
 	Point bottomRight() const;
-	/// “_‚ª‚±‚Ì—Ìˆæ‚ÉŠÜ‚Ü‚ê‚é‚©‚Ç‚¤‚©B
+	/// ç‚¹ãŒã“ã®é ˜åŸŸã«å«ã¾ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	bool contains(const Point& point) const;
 	bool contains(int x, int y) const;
-	/// rect ‘S‘Ì‚ª‚±‚Ì—Ìˆæ‚ÉŠÜ‚Ü‚ê‚é‚©‚Ç‚¤‚©B
+	/// rect å…¨ä½“ãŒã“ã®é ˜åŸŸã«å«ã¾ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
 	bool contains(const Rectangle& rect) const;
-	/// left, top, right, bottom À•WŒn‚©‚çì¬‚·‚éB
+	/// left, top, right, bottom åº§æ¨™ç³»ã‹ã‚‰ä½œæˆã™ã‚‹ã€‚
 	static Rectangle fromLTRB(int left, int top, int right, int bottom);
-	/// w’è‚µ‚½‘å‚«‚³•ªAã‰º¶‰E‚ÉŠg‘å‚·‚éB
+	/// æŒ‡å®šã—ãŸå¤§ãã•åˆ†ã€ä¸Šä¸‹å·¦å³ã«æ‹¡å¤§ã™ã‚‹ã€‚
 	void grow(const Size& size);
 	void grow(int width, int height);
-	/// “ñ‚Â‚Ì—Ìˆæ‚ÌŒğ·•”•ª‚ğ•Ô‚·B
+	/// äºŒã¤ã®é ˜åŸŸã®äº¤å·®éƒ¨åˆ†ã‚’è¿”ã™ã€‚
 	static Rectangle intersection(const Rectangle& lhs, const Rectangle& rhs);
-	/// —Ìˆæ‚ªŒğ·‚·‚é‚©‚Ç‚¤‚©B
+	/// é ˜åŸŸãŒäº¤å·®ã™ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool intersects(const Rectangle& rhs) const;
-	/// —Ìˆæ‚Ì¶’[À•WB
+	/// é ˜åŸŸã®å·¦ç«¯åº§æ¨™ã€‚
 	int left() const { return x; }
-	/// “ñ‚Â‚Ì—Ìˆæ‚ÌŒ‹‡•”•ª‚ğ•Ô‚·B
+	/// äºŒã¤ã®é ˜åŸŸã®çµåˆéƒ¨åˆ†ã‚’è¿”ã™ã€‚
 	static Rectangle or(const Rectangle& lhs, const Rectangle& rhs);
-	/// —Ìˆæ‚Ì¶ãÀ•WB
+	/// é ˜åŸŸã®å·¦ä¸Šåº§æ¨™ã€‚
 	Point position() const;
 	void position(const Point& value);
 	void position(int x, int y);
-	/// —Ìˆæ‚Ì‰E’[À•WB
+	/// é ˜åŸŸã®å³ç«¯åº§æ¨™ã€‚
 	int right() const { return x + width; }
-	/// —Ìˆæ‚Ì‘å‚«‚³B
+	/// é ˜åŸŸã®å¤§ãã•ã€‚
 	Size size() const;
 	void size(const Size& value);
 	void size(int width, int height);
-	/// —Ìˆæ‚Ìã’[À•WB
+	/// é ˜åŸŸã®ä¸Šç«¯åº§æ¨™ã€‚
 	int top() const { return y; }
-	/// —Ìˆæ‚Ì¶ãÀ•WB
+	/// é ˜åŸŸã®å·¦ä¸Šåº§æ¨™ã€‚
 	Point topLeft() const;
-	/// —Ìˆæ‚Ì‰EãÀ•WB
+	/// é ˜åŸŸã®å³ä¸Šåº§æ¨™ã€‚
 	Point topRight() const;
-	/// À•W‚Ì”’l•ªˆÚ“®‚·‚éB
+	/// åº§æ¨™ã®æ•°å€¤åˆ†ç§»å‹•ã™ã‚‹ã€‚
 	void translate(const Point& point);
 	void translate(int x, int y);
 
 public:
-	/// RECT \‘¢‘Ì‚Ö‚Ì•ÏŠ·B
+	/// RECT æ§‹é€ ä½“ã¸ã®å¤‰æ›ã€‚
 	operator RECT() const;
 	bool operator == (const Rectangle& rhs) const;
 	bool operator != (const Rectangle& rhs) const;
@@ -91,7 +91,7 @@ public:
 };
 
 
-/// Rectangle ‚Í WIN32 ‚ÌŠÖ”–¼‚Æ‚©‚Ô‚é‚Ì‚Å windows.h ‚Æˆê‚Ég‚¤ê‡‚Í‚±‚Ì–¼‘O‚Å
+/// Rectangle ã¯ WIN32 ã®é–¢æ•°åã¨ã‹ã¶ã‚‹ã®ã§ windows.h ã¨ä¸€ç·’ã«ä½¿ã†å ´åˆã¯ã“ã®åå‰ã§
 typedef Rectangle Rect;
 
 

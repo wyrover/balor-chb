@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <balor/Exception.hpp>
 
@@ -7,7 +7,7 @@ namespace balor {
 
 
 
-/// �������s����O�B���̗�O�̓L���b�`���邱�ƂŏC���\�ȏꍇ�̂ݓ�������B
+/// メモリ不足例外。この例外はキャッチすることで修復可能な場合のみ投げられる。
 class OutOfMemoryException : public Exception {};
 
 

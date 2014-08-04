@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <new>
 #include <type_traits>
@@ -12,28 +12,28 @@ namespace balor {
 
 
 /**
- * Event ‚ğˆø”‚Éæ‚é•Ô’l‚Ì–³‚¢ŠÖ”‚âŠÖ”ƒIƒuƒWƒFƒNƒg‚ğ´ëÀÔA’Ç‰Á‚Å‚«‚éŠÖ”ƒIƒuƒWƒFƒNƒgB
+ * Event ã‚’å¼•æ•°ã«å–ã‚‹è¿”å€¤ã®ç„¡ã„é–¢æ•°ã‚„é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ï½´ãƒ»ï¾”ã€è¿½åŠ ã§ãã‚‹é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  *
- * std::function<void (Event)> ‚Æ‚¾‚¢‚½‚¢“¯‚¶‚¾‚ª .NET ‚ÌƒfƒŠƒQ?ƒg‚Ì‚æ‚¤‚É operator+= ‚É‚æ‚é•¡”‚ÌŠÖ”’Ç‰Á‚ğƒT??ƒg‚·‚éB
- * operator-= ‚É‚æ‚éŠÖ”‚Ìíœ‚ÍŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì”äŠr•û?‚ª–³‚¢‚½‚ß–¢À‘•‚Å operator= ‚Åã‘‚«‚·‚é‚© pop ŠÖ”‚Å––”ö‚©‚çíœ‚·‚é‚µ‚©‚È‚¢B
- * std::function “¯—lAˆø”‚ª•ÏŠ·‰Â?‚Å‚ ‚ê‚Îˆø”‚ªˆá‚¤?‚ÌŠÖ”‚à“o?‚Å‚«‚éBi—á‚¦‚ÎŒp³ŠÖŒW‚Ì‚ ‚éQÆ?“¯m‚È‚Çj
- * ƒ‰??®‚ğ´ëÀÔ‚·‚éê‡‚Í?ƒCƒ“?ˆêŒÂ•ª‚Ü‚Å‚ÌƒLƒƒƒv?ƒƒ‚È‚ç‚Îƒƒ‚ƒŠŠ„‚è“–‚Ä‚Í”­¶‚µ‚È‚¢B
+ * std::function<void (Event)> ã¨ã ã„ãŸã„åŒã˜ã ãŒ .NET ã®ãƒ‡ãƒªã‚²?ãƒˆã®ã‚ˆã†ã« operator+= ã«ã‚ˆã‚‹è¤‡æ•°ã®é–¢æ•°è¿½åŠ ã‚’ã‚µ??ãƒˆã™ã‚‹ã€‚
+ * operator-= ã«ã‚ˆã‚‹é–¢æ•°ã®å‰Šé™¤ã¯é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ¯”è¼ƒæ–¹?ãŒç„¡ã„ãŸã‚æœªå®Ÿè£…ã§ operator= ã§ä¸Šæ›¸ãã™ã‚‹ã‹ pop é–¢æ•°ã§æœ«å°¾ã‹ã‚‰å‰Šé™¤ã™ã‚‹ã—ã‹ãªã„ã€‚
+ * std::function åŒæ§˜ã€å¼•æ•°ãŒå¤‰æ›å¯?ã§ã‚ã‚Œã°å¼•æ•°ãŒé•ã†?ã®é–¢æ•°ã‚‚ç™»?ã§ãã‚‹ã€‚ï¼ˆä¾‹ãˆã°ç¶™æ‰¿é–¢ä¿‚ã®ã‚ã‚‹å‚ç…§?åŒå£«ãªã©ï¼‰
+ * ãƒ©??å¼ã‚’ï½´ãƒ»ï¾”ã™ã‚‹å ´åˆã¯?ã‚¤ãƒ³?ä¸€å€‹åˆ†ã¾ã§ã®ã‚­ãƒ£ãƒ—?ãƒ£ãªã‚‰ã°ãƒ¡ãƒ¢ãƒªå‰²ã‚Šå½“ã¦ã¯ç™ºç”Ÿã—ãªã„ã€‚
  * 
- * <h3>EŠÖ”?ƒCƒ“?‚Ì”äŠr‚ÉŠÖ‚·‚é–â‘è</h3>
- * ŠÖ”?ƒCƒ“?‚âƒƒ“ƒoŠÖ”?ƒCƒ“?‚Ì”äŠr‚ğ‚·‚éê‡ADLL ƒvƒƒWƒFƒNƒg‚ğ‚Ü‚½‚¢‚Åg‚¤‚Æ“¯‚¶ŠÖ”‚Å‚àƒAƒhƒŒƒX‚ªˆÙ‚È‚éê‡‚ª‚ ‚éB
- * SymGetSymFromAddrŠÖ”‚É‚æ‚éƒVƒ“?ƒ‹–¼‚Ìæ“¾‚ÍA•K‚¸ pdb ƒt?ƒCƒ‹‚ğ“Y•t‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢‚Ì‚Å‚ ‚Ü‚èÀ—p“I‚Å‚Í‚È‚¢B
- * ‚±‚Ì–â‘è‚Í balor ‚ğƒX?ƒeƒBƒbƒNƒ‰ƒCƒuƒ‰ƒŠ‚Å‚Í‚È‚­ DLL ‚É‚µ‚Ä‚µ‚Ü‚¦‚Î­‚È‚­‚Æ‚à balor “à•”‚Å‚Í‰ğŒˆ‚·‚é‚ª
- * ƒ†?ƒUŠÖ”‚É‚Â‚¢‚Ä‚ÍˆË‘R‚Æ‚µ‚ÄŠÖ”‚ğDLL“à‚Å’è?‚µ‚È‚¢ŒÀ‚è–â‘è‚ª”­¶‚·‚éB
+ * <h3>ãƒ»é–¢æ•°?ã‚¤ãƒ³?ã®æ¯”è¼ƒã«é–¢ã™ã‚‹å•é¡Œ</h3>
+ * é–¢æ•°?ã‚¤ãƒ³?ã‚„ãƒ¡ãƒ³ãƒé–¢æ•°?ã‚¤ãƒ³?ã®æ¯”è¼ƒã‚’ã™ã‚‹å ´åˆã€DLL ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’ã¾ãŸã„ã§ä½¿ã†ã¨åŒã˜é–¢æ•°ã§ã‚‚ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒç•°ãªã‚‹å ´åˆãŒã‚ã‚‹ã€‚
+ * SymGetSymFromAddré–¢æ•°ã«ã‚ˆã‚‹ã‚·ãƒ³?ãƒ«åã®å–å¾—ã¯ã€å¿…ãš pdb ãƒ•?ã‚¤ãƒ«ã‚’æ·»ä»˜ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„ã®ã§ã‚ã¾ã‚Šå®Ÿç”¨çš„ã§ã¯ãªã„ã€‚
+ * ã“ã®å•é¡Œã¯ balor ã‚’ã‚¹?ãƒ†ã‚£ãƒƒã‚¯ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã¯ãªã DLL ã«ã—ã¦ã—ã¾ãˆã°å°‘ãªãã¨ã‚‚ balor å†…éƒ¨ã§ã¯è§£æ±ºã™ã‚‹ãŒ
+ * ãƒ¦?ã‚¶é–¢æ•°ã«ã¤ã„ã¦ã¯ä¾ç„¶ã¨ã—ã¦é–¢æ•°ã‚’DLLå†…ã§å®š?ã—ãªã„é™ã‚Šå•é¡ŒãŒç™ºç”Ÿã™ã‚‹ã€‚
  */
 #pragma warning(push)
-#pragma warning(disable : 4521) // '::balor::Listener<Sender, Event>' : •¡”‚ÌƒRƒs? ƒRƒ“ƒXƒgƒ‰ƒN??‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚·B
-#pragma warning(disable : 4522) // '::balor::Listener<Sender, Event>' : •¡”‚Ì´ëÀÔ‰‰Zq‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚·B
+#pragma warning(disable : 4521) // '::balor::Listener<Sender, Event>' : è¤‡æ•°ã®ã‚³ãƒ”? ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯??ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
+#pragma warning(disable : 4522) // '::balor::Listener<Sender, Event>' : è¤‡æ•°ã®ï½´ãƒ»ï¾”æ¼”ç®—å­ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã™ã€‚
 template<typename Event>
 class Listener {
 public:
-	/// ŠÖ”“o?–³‚µ‚Å‰Šú‰»B
+	/// é–¢æ•°ç™»?ç„¡ã—ã§åˆæœŸåŒ–ã€‚
 	Listener() { new (function()) Function(); }
-	/// ŠÖ”?ƒCƒ“?‚Å‰Šú‰»B
+	/// é–¢æ•°?ã‚¤ãƒ³?ã§åˆæœŸåŒ–ã€‚
 	template<typename EventType>
 	Listener(void (*pointer)(EventType)) {
 #if !defined(NDEBUG)
@@ -41,11 +41,11 @@ public:
 #endif
 		new (function()) FunctionPointer<EventType>(pointer);
 	}
-	/// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Å‰Šú‰»B
+	/// é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§åˆæœŸåŒ–ã€‚
 	template<typename T>
 	Listener(T&& functionObject) {
 #pragma warning(push)
-#pragma warning(disable : 4127) // ğŒ®‚ª’è”‚Å‚·B
+#pragma warning(disable : 4127) // æ¡ä»¶å¼ãŒå®šæ•°ã§ã™ã€‚
 		if (sizeof(FunctionObject<std::remove_reference<T>::type>) <= sizeof(data)) {
 #pragma warning(pop)
 			new (function()) FunctionObject<std::remove_reference<T>::type>(std::forward<T>(functionObject));
@@ -53,20 +53,20 @@ public:
 			new (function()) AllocatedFunctionObject<std::remove_reference<T>::type>(std::forward<T>(functionObject));
 		}
 	}
-	Listener(Listener& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
+	Listener(Listener& value) { value.function()->clone(*function()); } // T&&ç‰ˆã®å‘¼ã³å‡ºã—é˜²?
 	Listener(const Listener& value) { value.function()->clone(*function()); }
 	Listener(Listener&& value) { value.function()->moveTo(*function()); }
-	Listener(const Listener&& value) { value.function()->clone(*function()); } // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
+	Listener(const Listener&& value) { value.function()->clone(*function()); } // T&&ç‰ˆã®å‘¼ã³å‡ºã—é˜²?
 	~Listener() { function()->~Function(); }
 
-	/// ŠÖ”ƒIƒuƒWƒFƒNƒg‚Ì´ëÀÔB
+	/// é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ï½´ãƒ»ï¾”ã€‚
 	template<typename T>
 	Listener& operator=(T&& functionObject) {
 		this->~Listener();
 		new (this) Listener(std::forward<T>(functionObject));
 		return *this;
 	}
-	Listener& operator=(Listener& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
+	Listener& operator=(Listener& value) { // T&&ç‰ˆã®å‘¼ã³å‡ºã—é˜²?
 		if (&value != this) {
 			function()->~Function();
 			value.function()->clone(*function());
@@ -87,7 +87,7 @@ public:
 		}
 		return *this;
 	}
-	Listener& operator=(const Listener&& value) { // T&&”Å‚ÌŒÄ‚Ño‚µ–h?
+	Listener& operator=(const Listener&& value) { // T&&ç‰ˆã®å‘¼ã³å‡ºã—é˜²?
 		if (&value != this) {
 			function()->~Function();
 			value.function()->clone(*function());
@@ -96,7 +96,7 @@ public:
 	}
 
 public:
-	/// ÅŒã‚É’Ç‰Á‚µ‚½ŠÖ”‚ğíœ‚·‚éB
+	/// æœ€å¾Œã«è¿½åŠ ã—ãŸé–¢æ•°ã‚’å‰Šé™¤ã™ã‚‹ã€‚
 	void pop() {
 		FunctionType type = function()->type();
 		if (type == otherFunctionType) {
@@ -120,11 +120,11 @@ private:
 	typedef void (Listener::*SafeBool)();
 	void safeBoolTrueValue() {}
 public:
-	/// ŠÖ”‚ª“o?‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+	/// é–¢æ•°ãŒç™»?ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
 	operator SafeBool() const { return function()->type() != nullFunctionType ? &Listener::safeBoolTrueValue : nullptr; }
-	/// ŠÖ”ŒÄ‚Ño‚µBŠÖ”‚ª“o?‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢B
+	/// é–¢æ•°å‘¼ã³å‡ºã—ã€‚é–¢æ•°ãŒç™»?ã•ã‚Œã¦ã„ãªã„å ´åˆã¯ä½•ã‚‚ã—ãªã„ã€‚
 	void operator() (Event event) const { (*function())(event); }
-	/// ŠÖ”‚Ì’Ç‰ÁB
+	/// é–¢æ•°ã®è¿½åŠ ã€‚
 	template<typename T>
 	void operator+=(T&& anyFunction) {
 		FunctionType type = function()->type();
@@ -204,7 +204,7 @@ private:
 				delete [] pointer;
 				pointer = nullptr;
 			}
-			Listener* pointer; // vector ‚ğg‚¤‚Æ ListenerChain ‚ª‘å‚«‚·‚¬‚Äƒƒ‚ƒŠŠ„‚è“–‚Ä‚ª”­¶‚·‚é
+			Listener* pointer; // vector ã‚’ä½¿ã†ã¨ ListenerChain ãŒå¤§ãã™ãã¦ãƒ¡ãƒ¢ãƒªå‰²ã‚Šå½“ã¦ãŒç™ºç”Ÿã™ã‚‹
 		};
 		template<typename T>
 		explicit ListenerChain(Listener&& listener, T&& function) {
@@ -253,7 +253,7 @@ private:
 		}
 		int size() const {
 			int i = 0;
-			for (; listeners.pointer[i]; ++i) {} // ––”ö‚Ì nullFunctionType ‚ª”ÔlB
+			for (; listeners.pointer[i]; ++i) {} // æœ«å°¾ã® nullFunctionType ãŒç•ªäººã€‚
 			return i;
 		}
 		Listeners listeners;

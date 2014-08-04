@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -6,31 +6,31 @@ namespace balor {
 
 
 /**
- * ƒrƒbƒg‰‰Z‚ğ bool ’l‚ğg‚Á‚Ä‚í‚©‚è‚â‚·‚­‚·‚éB
+ * ãƒ“ãƒƒãƒˆæ¼”ç®—ã‚’ bool å€¤ã‚’ä½¿ã£ã¦ã‚ã‹ã‚Šã‚„ã™ãã™ã‚‹ã€‚
  * 
- * WIN32 API ‚É‘½”‘¶İ‚·‚éƒtƒ‰ƒO’è”‚Ì?ì‚Ég—p‚·‚éB
- * std::bitset ‚ÍƒrƒbƒgˆÊ’u‚ğ?ƒXƒN‚Å‚Í‚È‚­®”ˆÊ’u‚Åw’è‚¹‚Ë‚Î‚È‚ç‚¸AŒ³‚Ì?‚Æ‚Ì‘ŠŒİ•ÏŠ·‚àŠÈ’P‚Å‚Í‚È‚¢B
+ * WIN32 API ã«å¤šæ•°å­˜åœ¨ã™ã‚‹ãƒ•ãƒ©ã‚°å®šæ•°ã®?ä½œã«ä½¿ç”¨ã™ã‚‹ã€‚
+ * std::bitset ã¯ãƒ“ãƒƒãƒˆä½ç½®ã‚’?ã‚¹ã‚¯ã§ã¯ãªãæ•´æ•°ä½ç½®ã§æŒ‡å®šã›ã­ã°ãªã‚‰ãšã€å…ƒã®?ã¨ã®ç›¸äº’å¤‰æ›ã‚‚ç°¡å˜ã§ã¯ãªã„ã€‚
  */
 template<typename T>
 class Flag {
 public:
-	/// ‰Šú‰»‚¹‚¸‚Éì¬B
+	/// åˆæœŸåŒ–ã›ãšã«ä½œæˆã€‚
 	Flag() {}
-	/// ’l‚©‚çì¬B
+	/// å€¤ã‹ã‚‰ä½œæˆã€‚
 	Flag(T value) : _value(value) {}
 	Flag(const Flag& value) : _value(value._value) {}
 
-	/// ’l‚ğ´ëÀÔB
+	/// å€¤ã‚’ï½´ãƒ»ï¾”ã€‚
 	Flag& operator=(T value) { _value = value; return *this; }
 
 public:
-	/// w’è‚µ‚½ƒrƒbƒg?ƒXƒN‚Ìƒrƒbƒg‚ğƒIƒ“‚Ü‚½ƒIƒt‚É‚·‚éB
+	/// æŒ‡å®šã—ãŸãƒ“ãƒƒãƒˆ?ã‚¹ã‚¯ã®ãƒ“ãƒƒãƒˆã‚’ã‚ªãƒ³ã¾ãŸã‚ªãƒ•ã«ã™ã‚‹ã€‚
 	Flag& set(T mask, bool on = true) { _value = on ? (_value | mask) : (_value & ~mask); return *this; }
 
 public:
-	/// ’l‚É•ÏŠ·B
+	/// å€¤ã«å¤‰æ›ã€‚
 	operator T() const { return _value; }
-	/// w’è‚µ‚½ƒrƒbƒg?ƒXƒN‚Ìƒrƒbƒg‚ª‚·‚×‚ÄƒIƒ“‚©‚Ç‚¤‚©B
+	/// æŒ‡å®šã—ãŸãƒ“ãƒƒãƒˆ?ã‚¹ã‚¯ã®ãƒ“ãƒƒãƒˆãŒã™ã¹ã¦ã‚ªãƒ³ã‹ã©ã†ã‹ã€‚
 	bool operator [] (T mask) const { return (_value & mask) == mask; }
 
 private:
@@ -38,7 +38,7 @@ private:
 };
 
 
-/// ”CˆÓ?‚©‚çƒtƒ‰ƒO‚Ö‚Ì•ÏŠ·ŠÖ”
+/// ä»»æ„?ã‹ã‚‰ãƒ•ãƒ©ã‚°ã¸ã®å¤‰æ›é–¢æ•°
 template<typename T>
 Flag<T> toFlag(T value) { return Flag<T>(value); }
 

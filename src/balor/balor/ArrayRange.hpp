@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/test/noMacroAssert.hpp>
 
@@ -21,28 +21,28 @@ namespace balor {
 
 
 /**
- * ”z—ñ‚Ìn“_‚ÆI“_‚ğ‚¿Astd::vectorAstd::arrayAŒÅ’è’·”z—ñAƒ|ƒCƒ“ƒ^‚©‚ç•ÏŠ·‚Å‚«‚éB—lX‚È”z—ñ•\Œ»‚ğ‹¤’Ê‚ÌŠÖ”ƒCƒ“ƒ^[ƒtƒF[ƒX‚ÅÀ‘•‚Å‚«‚é‚æ‚¤‚É‚·‚éB
+ * é…åˆ—ã®å§‹ç‚¹ã¨çµ‚ç‚¹ã‚’æŒã¡ã€std::vectorã€std::arrayã€å›ºå®šé•·é…åˆ—ã€ãƒã‚¤ãƒ³ã‚¿ã‹ã‚‰å¤‰æ›ã§ãã‚‹ã€‚æ§˜ã€…ãªé…åˆ—è¡¨ç¾ã‚’å…±é€šã®é–¢æ•°ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§å®Ÿè£…ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
  *
- * ‚±‚ÌƒNƒ‰ƒX‚ÍŠÖ”‚Ìˆø”‚Ég‚¤–‚ğ‘z’è‚µ‚Ä‚¢‚é‚Ì‚ÅAƒ[ƒJƒ‹•Ï”‚âƒNƒ‰ƒX•Ï”‚Å‚Ìg—p‚Í‚µ‚È‚¢‚±‚ÆB
- * —á‚¦‚ÎƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É vector ‚Ìƒeƒ“ƒ|ƒ‰ƒŠƒIƒuƒWƒFƒNƒg‚ğ“n‚µ‚Ä ArrayRange ‚Ìƒ[ƒJƒ‹•Ï”‚ğì¬‚·‚é‚Æ
- * ArrayRange ‚ÍŠù‚É”j‰ó‚³‚ê‚½ƒƒ‚ƒŠ“à—e‚ğQÆ‚µ‚Ä‚¢‚é‚Ì‚ÅƒAƒNƒZƒX‚·‚ê‚ÎƒvƒƒOƒ‰ƒ€‚ÍƒNƒ‰ƒbƒVƒ…‚·‚éB
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯é–¢æ•°ã®å¼•æ•°ã«ä½¿ã†äº‹ã‚’æƒ³å®šã—ã¦ã„ã‚‹ã®ã§ã€ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚„ã‚¯ãƒ©ã‚¹å¤‰æ•°ã§ã®ä½¿ç”¨ã¯ã—ãªã„ã“ã¨ã€‚
+ * ä¾‹ãˆã°ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã« vector ã®ãƒ†ãƒ³ãƒãƒ©ãƒªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¸¡ã—ã¦ ArrayRange ã®ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’ä½œæˆã™ã‚‹ã¨
+ * ArrayRange ã¯æ—¢ã«ç ´å£Šã•ã‚ŒãŸãƒ¡ãƒ¢ãƒªå†…å®¹ã‚’å‚ç…§ã—ã¦ã„ã‚‹ã®ã§ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚Œã°ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ã‚¯ãƒ©ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
 	Bitmap bitmap(100, 100, Bitmap::Format::palette8bpp);
 
-	// ArrayRange ˆø”‚ÉŒÅ’è’·”z—ñ‚ğ“n‚·B
+	// ArrayRange å¼•æ•°ã«å›ºå®šé•·é…åˆ—ã‚’æ¸¡ã™ã€‚
 	Color staticArray[] = {Color::red(), Color::green(), Color::blue()};
 	bitmap.palette(staticArray);
 
-	// ArrayRange ˆø”‚É vector ‚ğ“n‚·B
+	// ArrayRange å¼•æ•°ã« vector ã‚’æ¸¡ã™ã€‚
 	std::vector<Color> stdVector;
 	stdVector.push_back(Color::red());
 	stdVector.push_back(Color::green());
 	stdVector.push_back(Color::blue());
 	bitmap.palette(stdVector);
 
-	// ArrayRange ˆø”‚Éƒ|ƒCƒ“ƒ^[‚Æ”z—ñƒTƒCƒY‚ğ“n‚·B
+	// ArrayRange å¼•æ•°ã«ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã¨é…åˆ—ã‚µã‚¤ã‚ºã‚’æ¸¡ã™ã€‚
 	Color* pointer = staticArray;
 	bitmap.palette(ArrayRange<const Color>(pointer, 3));
  * </code></pre>
@@ -55,21 +55,21 @@ private:
 	typedef typename removeConst<T>::type PureT;
 
 public:
-	/// ŒÅ’è’·”z—ñ‚Å‰Šú‰»B
+	/// å›ºå®šé•·é…åˆ—ã§åˆæœŸåŒ–ã€‚
 	template<int Size> ArrayRange(T (&array)[Size]) : _begin(array), _length(Size) {}
-	/// ƒ|ƒCƒ“ƒ^‚Æ’·‚³‚Å‰Šú‰»B
+	/// ãƒã‚¤ãƒ³ã‚¿ã¨é•·ã•ã§åˆæœŸåŒ–ã€‚
 	ArrayRange(T* begin, int length) : _begin(begin), _length(length) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= length);
 #endif
 	}
-	/// vector ‚Å‰Šú‰»B
+	/// vector ã§åˆæœŸåŒ–ã€‚
 	template<typename Allocator> ArrayRange(std::vector<PureT, Allocator>& array) : _begin(array.data()), _length(array.size()) {}
-	/// const vector ‚Å‰Šú‰»B
+	/// const vector ã§åˆæœŸåŒ–ã€‚
 	template<typename Allocator> ArrayRange(const std::vector<PureT, Allocator>& array) : _begin(array.data()), _length(array.size()) {}
-	/// array ‚Å‰Šú‰»B
+	/// array ã§åˆæœŸåŒ–ã€‚
 	template<int Size> ArrayRange(std::tr1::array<PureT, Size>& array) : _begin(array.data()), _length(Size) {}
-	/// const array ‚Å‰Šú‰»B
+	/// const array ã§åˆæœŸåŒ–ã€‚
 	template<int Size> ArrayRange(const std::tr1::array<PureT, Size >& array) : _begin(array.data()), _length(Size) {}
 
 public:
@@ -77,13 +77,13 @@ public:
 	T* end() { return _begin + _length; }
 	const T* begin() const { return _begin; }
 	const T* end() const { return _begin + _length; }
-	/// ”z—ñƒTƒCƒY‚ª‚O‚Å‚ ‚é‚©‚Ç‚¤‚©B
+	/// é…åˆ—ã‚µã‚¤ã‚ºãŒï¼ã§ã‚ã‚‹ã‹ã©ã†ã‹ã€‚
 	bool empty() const { return !_length; }
 	int length() const { return _length; }
 	int size() const { return _length; }
 
 public:
-	/// ”z—ñ—v‘f‚Ö‚ÌƒAƒNƒZƒX
+	/// é…åˆ—è¦ç´ ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹
 	T& operator[](int index) {
 #if !defined(NDEBUG)
 		::balor::test::noMacroAssert(0 <= index);

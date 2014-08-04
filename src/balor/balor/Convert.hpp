@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/Exception.hpp>
 #include <balor/StringRange.hpp>
@@ -19,47 +19,47 @@ class StringBuffer;
 
 
 /**
- * Šî–{ƒf[ƒ^Œ^‚Æ String ‚ğ‘ŠŒİ‚É•ÏŠ·‚·‚éƒeƒ“ƒvƒŒ[ƒgŠÖ”ŒQB
+ * åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¨ String ã‚’ç›¸äº’ã«å¤‰æ›ã™ã‚‹ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆé–¢æ•°ç¾¤ã€‚
  *
- * Šî”‚âAprintf ‚Æ“¯—l‚Ì‘®‚ğw’è‚µ‚½•ÏŠ·‚àƒTƒ|[ƒg‚·‚éBƒƒP[ƒ‹w’è‚Ì•ÏŠ·‚Í–¢À‘•B‘S‚Ä"C"ƒƒP[ƒ‹‚Åˆ—‚³‚ê‚éB
- * Šî–{ƒf[ƒ^Œ^“¯m‚Ì•ÏŠ·‚ÍƒTƒ|[ƒg‚µ‚È‚¢Bboost::numeric_castASafeInt ‚Ü‚½‚Í static_cast ‚ğ—˜—p‚·‚ê‚Î—Ç‚¢B
- * •‰”‚ğ•\‚·•¶š—ñ‚©‚ç unsigned Œ^‚É•ÏŠ·‚µ‚½ê‡Asigned Œ^‚ÌƒoƒCƒiƒŠ•\Œ»‚É‚È‚é‚© OverflowException ‚ğ”­¶‚³‚¹‚é‚©‚ÍŒ^‚É‚æ‚Á‚Ä•s’èB
- * 1.#INF ‚â 1.#QNAN ‚Í•¶š—ñ‰»‚Í‚Å‚«‚é‚ª”’l‰»‚µ‚æ‚¤‚Æ‚·‚é‚Æ‚P‚É‚È‚é“_‚É’ˆÓB
- * Convert ‚Í–¼‘O‹óŠÔ‚Æ‚µ‚ÄÀ‘•‚µ‚Ä‚ ‚é‚Ì‚ÅA”CˆÓ‚ÌŒ^‚É‚Â‚¢‚ÄŠÖ”‚ğ’Ç‰Á‚µ‚½‚èAConvet::‚Æƒ^ƒCƒv‚·‚é‚Ì‚ª–Ê“|‚Èê‡‚Í using ‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+ * åŸºæ•°ã‚„ã€printf ã¨åŒæ§˜ã®æ›¸å¼ã‚’æŒ‡å®šã—ãŸå¤‰æ›ã‚‚ã‚µãƒãƒ¼ãƒˆã™ã‚‹ã€‚ãƒ­ã‚±ãƒ¼ãƒ«æŒ‡å®šã®å¤‰æ›ã¯æœªå®Ÿè£…ã€‚å…¨ã¦"C"ãƒ­ã‚±ãƒ¼ãƒ«ã§å‡¦ç†ã•ã‚Œã‚‹ã€‚
+ * åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹åŒå£«ã®å¤‰æ›ã¯ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚boost::numeric_castã€SafeInt ã¾ãŸã¯ static_cast ã‚’åˆ©ç”¨ã™ã‚Œã°è‰¯ã„ã€‚
+ * è² æ•°ã‚’è¡¨ã™æ–‡å­—åˆ—ã‹ã‚‰ unsigned å‹ã«å¤‰æ›ã—ãŸå ´åˆã€signed å‹ã®ãƒã‚¤ãƒŠãƒªè¡¨ç¾ã«ãªã‚‹ã‹ OverflowException ã‚’ç™ºç”Ÿã•ã›ã‚‹ã‹ã¯å‹ã«ã‚ˆã£ã¦ä¸å®šã€‚
+ * 1.#INF ã‚„ 1.#QNAN ã¯æ–‡å­—åˆ—åŒ–ã¯ã§ãã‚‹ãŒæ•°å€¤åŒ–ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ï¼‘ã«ãªã‚‹ç‚¹ã«æ³¨æ„ã€‚
+ * Convert ã¯åå‰ç©ºé–“ã¨ã—ã¦å®Ÿè£…ã—ã¦ã‚ã‚‹ã®ã§ã€ä»»æ„ã®å‹ã«ã¤ã„ã¦é–¢æ•°ã‚’è¿½åŠ ã—ãŸã‚Šã€Convet::ã¨ã‚¿ã‚¤ãƒ—ã™ã‚‹ã®ãŒé¢å€’ãªå ´åˆã¯ using ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR[ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h3>
  * <pre><code>
-	// ”’l‚Æ•¶š—ñ‚Ì•ÏŠ·
+	// æ•°å€¤ã¨æ–‡å­—åˆ—ã®å¤‰æ›
 	String s0 = Convert::to<String>(128);
 	String s1 = Convert::to<String>(3.1415);
 	int i0 = Convert::to<int>(L"128");
 	double i1 = Convert::to<double>(L"3.1415");
 
-	// Šî”‚â‘®w’è‚ğ‚µ‚½•ÏŠ·
+	// åŸºæ•°ã‚„æ›¸å¼æŒ‡å®šã‚’ã—ãŸå¤‰æ›
 	String s2 = Convert::to<String>(0xff, 16); // s2 == L"ff"
 	String s3 = Convert::to<String>(128, L"05"); // s3 == L"00128"
  * </code></pre>
  */
 namespace Convert {
-	/// Œ^•ÏŠ·‚ÅƒI[ƒo[ƒtƒ[‚ª”­¶‚µ‚½ê‡‚É“Š‚°‚ç‚ê‚é—áŠOB
+	/// å‹å¤‰æ›ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã«æŠ•ã’ã‚‰ã‚Œã‚‹ä¾‹å¤–ã€‚
 	class OverflowException : public Exception {};
 
-	/// •¶š—ñ‚ğ•ÏŠ·‚Å‚«‚È‚©‚Á‚½ê‡‚É“Š‚°‚ç‚ê‚é—áŠOB
+	/// æ–‡å­—åˆ—ã‚’å¤‰æ›ã§ããªã‹ã£ãŸå ´åˆã«æŠ•ã’ã‚‰ã‚Œã‚‹ä¾‹å¤–ã€‚
 	class StringFormatException : public Exception {};
 
 
-	/// ”CˆÓŒ^‚©‚ç”CˆÓŒ^‚Ö‚Ì•ÏŠ·ƒeƒ“ƒvƒŒ[ƒgŠÖ”BƒTƒ|[ƒg‚·‚é•ÏŠ·‚Ì‚İ“Áê‰»‚µ‚ÄÀ‘•‚·‚éBŠî”ˆø”‚Ì‰Šú’l‚ğ 10 ‚Éİ’è‚·‚éB
+	/// ä»»æ„å‹ã‹ã‚‰ä»»æ„å‹ã¸ã®å¤‰æ›ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆé–¢æ•°ã€‚ã‚µãƒãƒ¼ãƒˆã™ã‚‹å¤‰æ›ã®ã¿ç‰¹æ®ŠåŒ–ã—ã¦å®Ÿè£…ã™ã‚‹ã€‚åŸºæ•°å¼•æ•°ã®åˆæœŸå€¤ã‚’ 10 ã«è¨­å®šã™ã‚‹ã€‚
 	template<typename Dst, typename Src> Dst to(const Src& value, int base = 10) { static_assert(false, "Convert type unsupported"); }
 
-	/// —lX‚ÈŒ^‚Ì•¶š—ñˆø”‚ğ StringRange ˆø”‚É•ÏŠ·‚·‚éƒeƒ“ƒvƒŒ[ƒgŠÖ”B
+	/// æ§˜ã€…ãªå‹ã®æ–‡å­—åˆ—å¼•æ•°ã‚’ StringRange å¼•æ•°ã«å¤‰æ›ã™ã‚‹ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆé–¢æ•°ã€‚
 	template<typename Dst> Dst to(wchar_t* value, int base = 10) { return to<Dst>(StringRange(value), base); }
 	template<typename Dst> Dst to(const wchar_t* value, int base = 10) { return to<Dst>(StringRange(value), base); }
 	template<typename Dst> Dst to(const std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >& value, int base = 10) { return to<Dst>(StringRange(value), base); }
 	template<typename Dst> Dst to(const String& value, int base = 10) { return to<Dst>(StringRange(value), base); }
 	template<typename Dst> Dst to(const StringBuffer& value, int base = 10) { return to<Dst>(StringRange(value), base); }
 
-	/// •¶š—ñ‚©‚ç”’l‚Ö‚Ì•ÏŠ·B
-	/// base ‚ÉŠî”‚Æ‚µ‚Äw’è‚Å‚«‚é‚Ì‚Í float ‚Æ double ‚Ìê‡‚Í 10 ‚Ì‚İ‚ÅA‚»‚êˆÈŠO‚Í 2, 8, 10, 16B
+	/// æ–‡å­—åˆ—ã‹ã‚‰æ•°å€¤ã¸ã®å¤‰æ›ã€‚
+	/// base ã«åŸºæ•°ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ float ã¨ double ã®å ´åˆã¯ 10 ã®ã¿ã§ã€ãã‚Œä»¥å¤–ã¯ 2, 8, 10, 16ã€‚
 	template<> __int64 to<__int64>(const StringRange& value, int base);
 	template<> char to<char>(const StringRange& value, int base);
 	template<> double to<double>(const StringRange& value, int base);
@@ -72,8 +72,8 @@ namespace Convert {
 	template<> unsigned int to<unsigned int>(const StringRange& value, int base);
 	template<> unsigned long to<unsigned long>(const StringRange& value, int base);
 	template<> unsigned short to<unsigned short>(const StringRange& value, int base);
-	/// ”’l‚©‚ç String ‚Ö‚Ì•ÏŠ·B
-	/// base ‚ÉŠî”‚Æ‚µ‚Äw’è‚Å‚«‚é‚Ì‚Í float ‚Æ double ‚Ìê‡‚Í 10 ‚Ì‚İ‚ÅA‚»‚êˆÈŠO‚Í 2, 8, 10, 16B
+	/// æ•°å€¤ã‹ã‚‰ String ã¸ã®å¤‰æ›ã€‚
+	/// base ã«åŸºæ•°ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ float ã¨ double ã®å ´åˆã¯ 10 ã®ã¿ã§ã€ãã‚Œä»¥å¤–ã¯ 2, 8, 10, 16ã€‚
 	template<> String to<String>(const __int64& value, int base);
 	template<> String to<String>(const char& value, int base);
 	template<> String to<String>(const double& value, int base);
@@ -88,8 +88,8 @@ namespace Convert {
 	template<> String to<String>(const unsigned short& value, int base);
 	template<> String to<String>(const bool& value, int base);
 
-	/// ”’l‚ğ•¶š—ñ‰»‚µ‚Ä StringBuffer ‚Ö’Ç‰Á‚·‚éB
-	/// base ‚ÉŠî”‚Æ‚µ‚Äw’è‚Å‚«‚é‚Ì‚Í float ‚Æ double ‚Ìê‡‚Í 10 ‚Ì‚İ‚ÅA‚»‚êˆÈŠO‚Í 2, 8, 10, 16B
+	/// æ•°å€¤ã‚’æ–‡å­—åˆ—åŒ–ã—ã¦ StringBuffer ã¸è¿½åŠ ã™ã‚‹ã€‚
+	/// base ã«åŸºæ•°ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ float ã¨ double ã®å ´åˆã¯ 10 ã®ã¿ã§ã€ãã‚Œä»¥å¤–ã¯ 2, 8, 10, 16ã€‚
 	template<typename Dst, typename Src> void to(StringBuffer& stringBuffer, const Src& value, int base = 10)  { static_assert(false, "Convert type unsupported"); }
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const __int64& value, int base);
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const char& value, int base);
@@ -105,11 +105,11 @@ namespace Convert {
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const unsigned short& value, int base);
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const bool& value, int base);
 
-	/// ”’l‚©‚ç‘®w’è‚µ‚½ String ‚Ö‚Ì•ÏŠ·B
-	/// base ‚ÉŠî”‚Æ‚µ‚Äw’è‚Å‚«‚é‚Ì‚Í float ‚Æ double ‚Ìê‡‚Í 10 ‚Ì‚İ‚ÅA‚»‚êˆÈŠO‚Í 8, 10, 16B
-	/// ‘®‚Í printf ‚Ì‘®‚©‚çÅ‰‚Ì % ‚Æ ÅŒã‚ÌŒ^ƒtƒB[ƒ‹ƒh•¶š‚ğœ‚¢‚½‚à‚ÌB
-	/// ‚½‚¾‚µASrc ‚ª float ‚© double ‚Ìê‡‚Í––”ö‚ÉŒ^ƒtƒB[ƒ‹ƒh•¶šie, E, f, g, Gj‚ğw’è‚Å‚«‚éBw’è‚µ‚È‚©‚Á‚½ê‡‚Í g ‚Æ‚È‚éB
-	/// —á‚¦‚Î‰º‹L‚Í printf ‚Å "%08x" ‚Æ‘®w’è‚·‚é‚Ì‚É“™‚µ‚¢B
+	/// æ•°å€¤ã‹ã‚‰æ›¸å¼æŒ‡å®šã—ãŸ String ã¸ã®å¤‰æ›ã€‚
+	/// base ã«åŸºæ•°ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ float ã¨ double ã®å ´åˆã¯ 10 ã®ã¿ã§ã€ãã‚Œä»¥å¤–ã¯ 8, 10, 16ã€‚
+	/// æ›¸å¼ã¯ printf ã®æ›¸å¼ã‹ã‚‰æœ€åˆã® % ã¨ æœ€å¾Œã®å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ–‡å­—ã‚’é™¤ã„ãŸã‚‚ã®ã€‚
+	/// ãŸã ã—ã€Src ãŒ float ã‹ double ã®å ´åˆã¯æœ«å°¾ã«å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ–‡å­—ï¼ˆe, E, f, g, Gï¼‰ã‚’æŒ‡å®šã§ãã‚‹ã€‚æŒ‡å®šã—ãªã‹ã£ãŸå ´åˆã¯ g ã¨ãªã‚‹ã€‚
+	/// ä¾‹ãˆã°ä¸‹è¨˜ã¯ printf ã§ "%08x" ã¨æ›¸å¼æŒ‡å®šã™ã‚‹ã®ã«ç­‰ã—ã„ã€‚
 	/// <pre><code>
 	/// String s = Convert::to<String>(65535, L"08", 16);
 	/// </code></pre>
@@ -127,10 +127,10 @@ namespace Convert {
 	template<> String to<String>(const unsigned long& value, StringRange format, int base);
 	template<> String to<String>(const unsigned short& value, StringRange format, int base);
 
-	/// ”’l‚©‚ç‘®w’è‚µ‚½•¶š—ñ‚Ö•ÏŠ·‚µ‚Ä StringBuffer ‚É’Ç‰Á‚·‚éB
-	/// base ‚ÉŠî”‚Æ‚µ‚Äw’è‚Å‚«‚é‚Ì‚Í float ‚Æ double ‚Ìê‡‚Í 10 ‚Ì‚İ‚ÅA‚»‚êˆÈŠO‚Í 8, 10, 16B
-	/// ‘®‚Í printf ‚Ì‘®‚©‚çÅ‰‚Ì % ‚Æ ÅŒã‚ÌŒ^ƒtƒB[ƒ‹ƒh•¶š‚ğœ‚¢‚½‚à‚ÌB
-	/// ‚½‚¾‚µASrc ‚ª float ‚© double ‚Ìê‡‚Í––”ö‚ÉŒ^ƒtƒB[ƒ‹ƒh•¶šie, E, f, g, Gj‚ğw’è‚Å‚«‚éBw’è‚µ‚È‚©‚Á‚½ê‡‚Í g ‚Æ‚È‚éB
+	/// æ•°å€¤ã‹ã‚‰æ›¸å¼æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã¸å¤‰æ›ã—ã¦ StringBuffer ã«è¿½åŠ ã™ã‚‹ã€‚
+	/// base ã«åŸºæ•°ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ float ã¨ double ã®å ´åˆã¯ 10 ã®ã¿ã§ã€ãã‚Œä»¥å¤–ã¯ 8, 10, 16ã€‚
+	/// æ›¸å¼ã¯ printf ã®æ›¸å¼ã‹ã‚‰æœ€åˆã® % ã¨ æœ€å¾Œã®å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ–‡å­—ã‚’é™¤ã„ãŸã‚‚ã®ã€‚
+	/// ãŸã ã—ã€Src ãŒ float ã‹ double ã®å ´åˆã¯æœ«å°¾ã«å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ–‡å­—ï¼ˆe, E, f, g, Gï¼‰ã‚’æŒ‡å®šã§ãã‚‹ã€‚æŒ‡å®šã—ãªã‹ã£ãŸå ´åˆã¯ g ã¨ãªã‚‹ã€‚
 	template<typename Dst, typename Src> void to(StringBuffer& stringBuffer, const Src& value, StringRange format, int base = 10)  { static_assert(false, "Convert type unsupported"); }
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const __int64& value, StringRange format, int base);
 	template<> void to<StringBuffer>(StringBuffer& stringBuffer, const char& value, StringRange format, int base);

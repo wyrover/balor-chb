@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -6,18 +6,18 @@ namespace balor {
 
 
 /**
- * ‚·‚×‚Ä‚ÌƒCƒxƒ“ƒgƒNƒ‰ƒX‚ÌeƒNƒ‰ƒXB
+ * ã™ã¹ã¦ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚¯ãƒ©ã‚¹ã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
  *
- * Event ‚ÌQÆ‚ğˆø”‚É‚Æ‚éŠÖ”ƒIƒuƒWƒFƒNƒg‚Í Event ƒNƒ‰ƒX‚Ì”h¶ƒNƒ‰ƒX‚ÌQÆ‚ğˆø”‚É‚Æ‚é‚ ‚ç‚ä‚éƒCƒxƒ“ƒgƒŠƒXƒi?‚É“o?‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+ * Event ã®å‚ç…§ã‚’å¼•æ•°ã«ã¨ã‚‹é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ Event ã‚¯ãƒ©ã‚¹ã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã®å‚ç…§ã‚’å¼•æ•°ã«ã¨ã‚‹ã‚ã‚‰ã‚†ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆãƒªã‚¹ãƒŠ?ã«ç™»?ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
  *
- * <h3>EƒTƒ“ƒvƒ‹ƒR?ƒh</h3>
+ * <h3>ãƒ»ã‚µãƒ³ãƒ—ãƒ«ã‚³?ãƒ‰</h3>
  * <pre><code>
 	Frame frame(L"Event Sample");
 
-	Button button(frame, 20, 10, 0, 0, L"??ƒ“");
-	CheckBox check(frame, 20, 50, 0, 0, L"?ƒFƒbƒN");
+	Button button(frame, 20, 10, 0, 0, L"??ãƒ³");
+	CheckBox check(frame, 20, 50, 0, 0, L"?ã‚§ãƒƒã‚¯");
 
-	// Event& ‚ğˆø”‚Éæ‚éŠÖ”ƒIƒuƒWƒFƒNƒg‚Í‚ ‚ç‚ä‚éƒCƒxƒ“ƒg‚É´ëÀÔ‚Å‚«‚éB
+	// Event& ã‚’å¼•æ•°ã«å–ã‚‹é–¢æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã‚ã‚‰ã‚†ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã«ï½´ãƒ»ï¾”ã§ãã‚‹ã€‚
 	auto onAny = [&] (Event& ) {
 		MsgBox::show(L"something event");
 	};
@@ -31,19 +31,19 @@ class Event {
 };
 
 
-/// ƒCƒxƒ“ƒg”­¶Œ¹‚ğ”º‚¤ƒCƒxƒ“ƒgƒNƒ‰ƒXB
+/// ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæºã‚’ä¼´ã†ã‚¤ãƒ™ãƒ³ãƒˆã‚¯ãƒ©ã‚¹ã€‚
 template<typename Sender>
 class EventWithSender : public Event {
 public:
-	/// ƒCƒxƒ“ƒg”­¶Œ¹‚ğw’è‚µ‚Äì¬B
+	/// ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæºã‚’æŒ‡å®šã—ã¦ä½œæˆã€‚
 	EventWithSender(Sender& sender) : _sender(sender) {}
 
-private: // •¡»‚Ì‹Ö?B
+private: // è¤‡è£½ã®ç¦?ã€‚
 	EventWithSender(const EventWithSender& );
 	EventWithSender& operator=(const EventWithSender& );
 
 public:
-	/// ƒCƒxƒ“ƒg”­¶Œ¹B
+	/// ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæºã€‚
 	Sender& sender() { return _sender; }
 	const Sender& sender() const { return _sender; }
 
@@ -52,15 +52,15 @@ private:
 };
 
 
-/// sender ŠÖ”‚ğ”h¶ƒNƒ‰ƒX‚Åã‘‚«‚·‚éƒCƒxƒ“ƒgƒNƒ‰ƒXB
+/// sender é–¢æ•°ã‚’æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§ä¸Šæ›¸ãã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã‚¯ãƒ©ã‚¹ã€‚
 template<typename SubclassSender, typename BaseEvent>
 class EventWithSubclassSender : public BaseEvent {
 public:
-	/// ƒCƒxƒ“ƒg”­¶Œ¹‚ğw’è‚µ‚Äì¬B
+	/// ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæºã‚’æŒ‡å®šã—ã¦ä½œæˆã€‚
 	EventWithSubclassSender(SubclassSender& sender) : BaseEvent(sender) {}
 
 public:
-	/// ƒCƒxƒ“ƒg”­¶Œ¹B
+	/// ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæºã€‚
 	SubclassSender& sender() { return static_cast<SubclassSender&>(BaseEvent::sender()); }
 	const SubclassSender& sender() const { return static_cast<const SubclassSender&>(BaseEvent::sender()); }
 };

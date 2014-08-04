@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -6,10 +6,10 @@ namespace balor {
 
 
 /**
- * ���O�t�� enum �̒�`���T�|�[�g����}�N���֐��B
+ * 名前付き enum の定義をサポートするマクロ関数。
  *
- * enum �𖼑O�t�� struct �܂��� class �̒��ɓ���Ă��̃}�N���Ń����o�[�̒�`�����邱�Ƃ� enum �� struct �Ԃ̎����I�ȕϊ����s����悤�ɂ���B
- * name �� struct �����w�肷��B�񋓑̖��͕K�� _enum �Ƃ��邱�ƁB�l�̐������`�F�b�N�֐����K�v�ȏꍇ�� _validate �֐����������邱�ƁB
+ * enum を名前付き struct または class の中に入れてこのマクロでメンバーの定義をすることで enum と struct 間の自動的な変換を行えるようにする。
+ * name に struct 名を指定する。列挙体名は必ず _enum とすること。値の正当性チェック関数が必要な場合は _validate 関数を実装すること。
  */
 #define BALOR_NAMED_ENUM_MEMBERS(name) \
 	name () {}\
@@ -21,9 +21,9 @@ namespace balor {
 
 
 /**
- * �_�����Z�\�Ȗ��O�t�� enum �̒�`���T�|�[�g����}�N���֐��B
+ * 論理演算可能な名前付き enum の定義をサポートするマクロ関数。
  *
- * |�A&�A~ ���Z�q���T�|�[�g���鑼�� BALOR_NAMED_ENUM_MEMBERS �Ɠ����B
+ * |、&、~ 演算子をサポートする他は BALOR_NAMED_ENUM_MEMBERS と同じ。
  */
 #define BALOR_NAMED_LOGICAL_ENUM_MEMBERS(name) \
 	BALOR_NAMED_ENUM_MEMBERS(name)\

@@ -1,4 +1,4 @@
-#include "Convert.hpp"
+ï»¿#include "Convert.hpp"
 
 #include <cerrno>
 #include <cfloat>
@@ -92,7 +92,7 @@ template<> __int64 to<__int64>(const StringRange& value, int base) {
 		if (value == end) {
 			throw StringFormatException();
 		}
-		if (result == _I64_MIN || result == _I64_MAX) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+		if (result == _I64_MIN || result == _I64_MAX) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 			if (errno == ERANGE) {
 				_set_errno(0);
 				throw OverflowException();
@@ -126,16 +126,16 @@ template<> char to<char>(const StringRange& value, int base) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'base' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'base' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 template<> double to<double>(const StringRange& value, int base) {
 	assert("Invalid base" && base == 10);
 
 	wchar_t* end;
-	double result = _wcstod_l(value.c_str(), &end, getCLocale()); // "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	double result = _wcstod_l(value.c_str(), &end, getCLocale()); // "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	if (value == end) {
 		throw StringFormatException();
 	}
-	if (result == -HUGE_VAL || result == +HUGE_VAL) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+	if (result == -HUGE_VAL || result == +HUGE_VAL) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 		if (errno == ERANGE) {
 			_set_errno(0);
 			throw OverflowException();
@@ -147,16 +147,16 @@ template<> double to<double>(const StringRange& value, int base) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'base' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'base' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 template<> float to<float>(const StringRange& value, int base) {
 	assert("Invalid base" && base == 10);
 
 	wchar_t* end;
-	double result = _wcstod_l(value.c_str(), &end, getCLocale()); // "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	double result = _wcstod_l(value.c_str(), &end, getCLocale()); // "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	if (value == end) {
 		throw StringFormatException();
 	}
-	if (result < -FLT_MAX || FLT_MAX < result) { // ƒAƒ“ƒ_[ƒtƒ[‚Í–³‹‚·‚é‚æ‚¤‚¾
+	if (result < -FLT_MAX || FLT_MAX < result) { // ã‚¢ãƒ³ãƒ€ãƒ¼ãƒ•ãƒ­ãƒ¼ã¯ç„¡è¦–ã™ã‚‹ã‚ˆã†ã 
 		_set_errno(0);
 		throw OverflowException();
 	}
@@ -174,7 +174,7 @@ template<> int to<int>(const StringRange& value, int base) {
 		if (value == end) {
 			throw StringFormatException();
 		}
-		if (result == INT_MAX || result == INT_MIN) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+		if (result == INT_MAX || result == INT_MIN) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 			if (errno == ERANGE) {
 				_set_errno(0);
 				throw OverflowException();
@@ -196,7 +196,7 @@ template<> long to<long>(const StringRange& value, int base) {
 		if (value == end) {
 			throw StringFormatException();
 		}
-		if (result == LONG_MAX || result == LONG_MIN) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+		if (result == LONG_MAX || result == LONG_MIN) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 			if (errno == ERANGE) {
 				_set_errno(0);
 				throw OverflowException();
@@ -237,7 +237,7 @@ template<> unsigned __int64 to<unsigned __int64>(const StringRange& value, int b
 	if (value == end) {
 		throw StringFormatException();
 	}
-	if (result == _UI64_MAX) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+	if (result == _UI64_MAX) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 		if (errno == ERANGE) {
 			_set_errno(0);
 			throw OverflowException();
@@ -271,7 +271,7 @@ template<> unsigned int to<unsigned int>(const StringRange& value, int base) {
 	if (value == end) {
 		throw StringFormatException();
 	}
-	if (result == ULONG_MAX) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+	if (result == ULONG_MAX) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 		if (errno == ERANGE) {
 			_set_errno(0);
 			throw OverflowException();
@@ -289,7 +289,7 @@ template<> unsigned long to<unsigned long>(const StringRange& value, int base) {
 	if (value == end) {
 		throw StringFormatException();
 	}
-	if (result == ULONG_MAX) { // errno‚Ìæ“¾‚Í‚©‚È‚è–½—ß”‚ª‘½‚¢‚Ì‚Å–‘O‚Éƒ`ƒFƒbƒN‚·‚é
+	if (result == ULONG_MAX) { // errnoã®å–å¾—ã¯ã‹ãªã‚Šå‘½ä»¤æ•°ãŒå¤šã„ã®ã§äº‹å‰ã«ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 		if (errno == ERANGE) {
 			_set_errno(0);
 			throw OverflowException();
@@ -330,12 +330,12 @@ template<> String to<String>(const char& value, int base) {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'base' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'base' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 template<> String to<String>(const double& value, int base) {
 	assert("Invalid base" && base == 10);
 
 	wchar_t buffer[_CVTBUFSIZE];
-	// "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	// "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	verify(0 <= _swprintf_l(buffer, sizeof(buffer) / sizeof(buffer[0]), L"%.16g", getCLocale(), value));
 	return String(buffer);
 }
@@ -345,7 +345,7 @@ template<> String to<String>(const float& value, int base) {
 	assert("Invalid base" && base == 10);
 
 	wchar_t buffer[_CVTBUFSIZE];
-	// "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	// "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	verify(0 <= _swprintf_l(buffer, sizeof(buffer) / sizeof(buffer[0]), L"%.8g", getCLocale(), value));
 	return String(buffer);
 	//return to<String>(static_cast<double>(value), base);
@@ -425,12 +425,12 @@ template<> void to<StringBuffer>(StringBuffer& stringBuffer, const char& value, 
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'base' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'base' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 template<> void to<StringBuffer>(StringBuffer& stringBuffer, const double& value, int base) {
 	assert("Invalid base" && base == 10);
 
 	wchar_t buffer[_CVTBUFSIZE];
-	// "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	// "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	verify(0 <= _swprintf_l(buffer, sizeof(buffer) / sizeof(buffer[0]), L"%.16g", getCLocale(), value));
 	stringBuffer += buffer;
 }
@@ -440,7 +440,7 @@ template<> void to<StringBuffer>(StringBuffer& stringBuffer, const float& value,
 	assert("Invalid base" && base == 10);
 
 	wchar_t buffer[_CVTBUFSIZE];
-	// "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	// "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	verify(0 <= _swprintf_l(buffer, sizeof(buffer) / sizeof(buffer[0]), L"%.8g", getCLocale(), value));
 	stringBuffer += buffer;
 }
@@ -607,7 +607,7 @@ template<> void to<StringBuffer>(StringBuffer& stringBuffer, const char& value, 
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'base' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'base' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 template<> void to<StringBuffer>(StringBuffer& stringBuffer, const double& value, StringRange format, int base) {
 	assert("Invalid format" && std::regex_match(format.c_str(), std::wregex(L"[-+ #]*0?[0-9]*(\\.[0-9]*)?[eEfgG]?")));
 	assert("Invalid base" && base == 10);
@@ -623,7 +623,7 @@ template<> void to<StringBuffer>(StringBuffer& stringBuffer, const double& value
 	}
 
 	wchar_t buffer[66];
-	// "German_Germany"ƒƒP[ƒ‹“™‚Å¬”“_‚Ì•¶šƒR[ƒh‚ª•Ï‰»‚µ‚È‚¢‚æ‚¤‚É"C"ƒƒP[ƒ‹‚ğg—p‚·‚é
+	// "German_Germany"ãƒ­ã‚±ãƒ¼ãƒ«ç­‰ã§å°æ•°ç‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ãŒå¤‰åŒ–ã—ãªã„ã‚ˆã†ã«"C"ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹
 	verify(0 <= _swprintf_l(buffer, sizeof(buffer) / sizeof(buffer[0]), formatBuffer, getCLocale(), value));
 	stringBuffer += buffer;
 }

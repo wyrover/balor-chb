@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -6,7 +6,7 @@ namespace balor {
 
 
 /**
- * balor ‚Ì‘S‚Ä‚Ì—áŠOƒNƒ‰ƒX‚ÌeƒNƒ‰ƒXB
+ * balor ã®å…¨ã¦ã®ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®è¦ªã‚¯ãƒ©ã‚¹ã€‚
  */
 class Exception {};
 
