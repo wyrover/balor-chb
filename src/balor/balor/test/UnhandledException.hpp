@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -6,8 +6,8 @@ namespace balor {
 
 
 
-/// Debug::enableCrashDumpHandler �֐��Őݒ肳�ꂽ��O�n���h�����b�{�{��O�ŋN�����ꂽ�ꍇ�ɓ��������O�B
-/// �v���O�����̍Ō�ɂ��̗�O���L���b�`���邱�ƂŃf�X�g���N�^�̋N����ۏ؂���
+/// Debug::enableCrashDumpHandler 関数で設定された例外ハンドラがＣ＋＋例外で起動された場合に投げられる例外。
+/// プログラムの最後にこの例外をキャッチすることでデストラクタの起動を保証する
 class UnhandledException {
 };
 

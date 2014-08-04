@@ -1,4 +1,4 @@
-#include "Debug.hpp"
+ï»¿#include "Debug.hpp"
 
 #include <ctime>
 #define BOOST_DATE_TIME_NO_LIB
@@ -55,7 +55,7 @@ public:
 };
 
 
-bool createMiniDump(StringRange filePath, EXCEPTION_POINTERS* exceptions) { // —áŠOˆ—’†‚È‚Ì‚Åƒ‰ƒCƒ“ƒ^ƒCƒ€ƒ‰ƒCƒuƒ‰ƒŠ‚Í‹É—ÍŒÄ‚Î‚È‚¢‚æ‚¤‚É
+bool createMiniDump(StringRange filePath, EXCEPTION_POINTERS* exceptions) { // ä¾‹å¤–å‡¦ç†ä¸­ãªã®ã§ãƒ©ã‚¤ãƒ³ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯æ¥µåŠ›å‘¼ã°ãªã„ã‚ˆã†ã«
 	HANDLE file = CreateFileW(filePath.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, 0, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
 	if (file != INVALID_HANDLE_VALUE) {
 		MINIDUMP_EXCEPTION_INFORMATION info;
@@ -65,7 +65,7 @@ bool createMiniDump(StringRange filePath, EXCEPTION_POINTERS* exceptions) { // —
 			info.ClientPointers = TRUE;
 		}
 
-		// ‚±‚ÌŠÖ”‚ÍƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚Ì‚Å–{“–‚ÍƒƒbƒN‚µ‚½‚¢‚ª‹Ù‹}‚É—]Œv‚Èˆ—‚Í‚Å‚«‚é‚¾‚¯‚µ‚½‚­‚È‚¢
+		// ã“ã®é–¢æ•°ã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ã®ã§æœ¬å½“ã¯ãƒ­ãƒƒã‚¯ã—ãŸã„ãŒç·Šæ€¥æ™‚ã«ä½™è¨ˆãªå‡¦ç†ã¯ã§ãã‚‹ã ã‘ã—ãŸããªã„
 		BOOL result = MiniDumpWriteDump(GetCurrentProcess(), GetCurrentProcessId(), file
 			, static_cast<MINIDUMP_TYPE>(MiniDumpWithDataSegs | MiniDumpWithHandleData | MiniDumpWithIndirectlyReferencedMemory)
 			, exceptions ? &info : nullptr
@@ -81,16 +81,16 @@ bool createMiniDump(StringRange filePath, EXCEPTION_POINTERS* exceptions) { // —
 }
 
 
-LONG WINAPI createMiniDumpExceptionHandler(EXCEPTION_POINTERS* exceptions) { // —áŠOˆ—’†‚È‚Ì‚Åƒ‰ƒCƒ“ƒ^ƒCƒ€ƒ‰ƒCƒuƒ‰ƒŠ‚Í‹É—ÍŒÄ‚Î‚È‚¢‚æ‚¤‚É
+LONG WINAPI createMiniDumpExceptionHandler(EXCEPTION_POINTERS* exceptions) { // ä¾‹å¤–å‡¦ç†ä¸­ãªã®ã§ãƒ©ã‚¤ãƒ³ã‚¿ã‚¤ãƒ ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¯æ¥µåŠ›å‘¼ã°ãªã„ã‚ˆã†ã«
 	__try {
 		//if (exceptions != nullptr
 		// && exceptions->ExceptionRecord != nullptr
 		// && exceptions->ExceptionRecord->ExceptionCode == EXCEPTION_STACK_OVERFLOW) {
-		//	// ƒXƒ^ƒbƒNƒI[ƒo[ƒtƒ[”­¶‚Íƒ_ƒ“ƒvˆ—‚à‚¤‚Ü‚­‚¢‚­‚©‚Ç‚¤‚©‚í‚©‚ç‚È‚¢‚Ì‚ÅƒfƒoƒbƒOo—Í‚Å‚à‚µ‚Ä‚¨‚­¨ƒfƒoƒbƒKg‚Á‚Ä‚é‚Æ‚«‚Í‚±‚±‚É—ˆ‚È‚¢‚©‚ç‚â‚Á‚Ï‚è‚¢‚ç‚È‚¢
+		//	// ã‚¹ã‚¿ãƒƒã‚¯ã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ç™ºç”Ÿæ™‚ã¯ãƒ€ãƒ³ãƒ—å‡¦ç†ã‚‚ã†ã¾ãã„ãã‹ã©ã†ã‹ã‚ã‹ã‚‰ãªã„ã®ã§ãƒ‡ãƒãƒƒã‚°å‡ºåŠ›ã§ã‚‚ã—ã¦ãŠãâ†’ãƒ‡ãƒãƒƒã‚¬ä½¿ã£ã¦ã‚‹ã¨ãã¯ã“ã“ã«æ¥ãªã„ã‹ã‚‰ã‚„ã£ã±ã‚Šã„ã‚‰ãªã„
 		//	OutputDebugStringA("EXCEPTION_STACK_OVERFLOW occurred\n");
 		//}
 
-		// setCrashDumpHandler‚ªŒÄ‚Î‚ê‚È‚¯‚ê‚Î‚±‚±‚É‚Í—ˆ‚È‚¢‚Ì‚ÅSingleton<Global>‚Í‚±‚±‚Å‚Íƒq[ƒvŠ„‚è“–‚Ä‚Ís‚í‚È‚¢
+		// setCrashDumpHandlerãŒå‘¼ã°ã‚Œãªã‘ã‚Œã°ã“ã“ã«ã¯æ¥ãªã„ã®ã§Singleton<Global>ã¯ã“ã“ã§ã¯ãƒ’ãƒ¼ãƒ—å‰²ã‚Šå½“ã¦ã¯è¡Œã‚ãªã„
 		Global& global = Singleton<Global>::get();
 
 		bool dumpCreated = false;
@@ -103,18 +103,18 @@ LONG WINAPI createMiniDumpExceptionHandler(EXCEPTION_POINTERS* exceptions) { // 
 				, L"Error", MB_OK | MB_TASKMODAL, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 		}
 	} __except (EXCEPTION_EXECUTE_HANDLER) {
-		// ƒ_ƒ“ƒvo—Íˆ—’†‚Ì\‘¢‰»—áŠO‚Íˆ¬‚è’×‚·
+		// ãƒ€ãƒ³ãƒ—å‡ºåŠ›å‡¦ç†ä¸­ã®æ§‹é€ åŒ–ä¾‹å¤–ã¯æ¡ã‚Šæ½°ã™
 	}
 
 	if (exceptions
 	 && exceptions->ExceptionRecord
 	 && exceptions->ExceptionRecord->ExceptionCode == 0xE06D7363) {
-		 // ”­¶‚µ‚½‚Ì‚ª C++ —áŠO‚Å‚ ‚é‚È‚ç‚Î UnhandledException ‚ğ throw ‚µAƒLƒƒƒbƒ`‚·‚é‚±‚Æ‚ÅƒfƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚¹‚é
-		 // ¦’  C++ —áŠO‚ğƒLƒƒƒbƒ`‚µ‚È‚¢ê‡AƒfƒXƒgƒ‰ƒNƒ^‚ÍŒÄ‚Î‚ê‚é‚±‚Æ‚ª–³‚¢
+		 // ç™ºç”Ÿã—ãŸã®ãŒ C++ ä¾‹å¤–ã§ã‚ã‚‹ãªã‚‰ã° UnhandledException ã‚’ throw ã—ã€ã‚­ãƒ£ãƒƒãƒã™ã‚‹ã“ã¨ã§ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã›ã‚‹
+		 // â€»æ³¨  C++ ä¾‹å¤–ã‚’ã‚­ãƒ£ãƒƒãƒã—ãªã„å ´åˆã€ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯å‘¼ã°ã‚Œã‚‹ã“ã¨ãŒç„¡ã„
 		 throw UnhandledException();
 	}
 
-	return EXCEPTION_CONTINUE_SEARCH; // ‚±‚¿‚ç‚ğw’è‚·‚é‚ÆƒfƒoƒbƒO‚·‚é‚©‚Ç‚¤‚©‘I‘ğ‚Å‚«‚é
+	return EXCEPTION_CONTINUE_SEARCH; // ã“ã¡ã‚‰ã‚’æŒ‡å®šã™ã‚‹ã¨ãƒ‡ãƒãƒƒã‚°ã™ã‚‹ã‹ã©ã†ã‹é¸æŠã§ãã‚‹
 	//return EXCEPTION_EXECUTE_HANDLER;
 }
 } // namespace
@@ -161,7 +161,7 @@ void Debug::enableCrashDumpHandler(StringRange crashDumpFilePath, bool showMessa
 		StringBuffer buffer(global.filePath);
 		buffer += String::refer(Module::current().file());
 
-		{// ƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“•¶š—ñ‚Ìæ“¾
+		{// ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³æ–‡å­—åˆ—ã®å–å¾—
 			FileVersionInfo info(buffer);
 			if (info) {
 				auto fileVersion = info.fileVersion();
@@ -176,7 +176,7 @@ void Debug::enableCrashDumpHandler(StringRange crashDumpFilePath, bool showMessa
 			}
 		}
 
-		{// “ú•t•¶š—ñ‚Ìì¬
+		{// æ—¥ä»˜æ–‡å­—åˆ—ã®ä½œæˆ
 			wchar_t date[64];
 			date[0] = 0;
 			time_t global;
@@ -233,23 +233,23 @@ Listener<ByteStringRange>& Debug::onWrite() {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4740) // ƒCƒ“ƒ‰ƒCƒ“ asm ƒR[ƒh‚Ì“à•”‚Ü‚½‚ÍŠO•”‚Ìƒtƒ[‚ÍAƒOƒ[ƒoƒ‹‚ÈÅ“K‰»‚ğ—}§‚µ‚Ü‚·
-#pragma warning(disable : 4748) // /GS ŠÖ”‚Å‚ÌÅ“K‰»‚ª–³Œø‚É‚³‚ê‚Ä‚¢‚é‚½‚ßAƒpƒ‰ƒ[ƒ^[‚¨‚æ‚Ñƒ[ƒJƒ‹•Ï”‚ğƒ[ƒJƒ‹‚Ìƒoƒbƒtƒ@[ ƒI[ƒo[ƒ‰ƒ“‚©‚ç•ÛŒì‚Å‚«‚Ü‚¹‚ñB
+#pragma warning(disable : 4740) // ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ asm ã‚³ãƒ¼ãƒ‰ã®å†…éƒ¨ã¾ãŸã¯å¤–éƒ¨ã®ãƒ•ãƒ­ãƒ¼ã¯ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªæœ€é©åŒ–ã‚’æŠ‘åˆ¶ã—ã¾ã™
+#pragma warning(disable : 4748) // /GS é–¢æ•°ã§ã®æœ€é©åŒ–ãŒç„¡åŠ¹ã«ã•ã‚Œã¦ã„ã‚‹ãŸã‚ã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ãŠã‚ˆã³ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’ãƒ­ãƒ¼ã‚«ãƒ«ã®ãƒãƒƒãƒ•ã‚¡ãƒ¼ ã‚ªãƒ¼ãƒãƒ¼ãƒ©ãƒ³ã‹ã‚‰ä¿è­·ã§ãã¾ã›ã‚“ã€‚
 String Debug::stackTrace() {
 	struct StackTraceMutex {
 		mutex mutex;
 	};
-	mutex::scoped_lock lock(Singleton<StackTraceMutex>::get().mutex); // Dbghelpƒ‰ƒCƒuƒ‰ƒŠ‚ÌŠÖ”‚ÍƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚Ì‚ÅƒƒbƒN‚·‚é
+	mutex::scoped_lock lock(Singleton<StackTraceMutex>::get().mutex); // Dbghelpãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®é–¢æ•°ã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ã®ã§ãƒ­ãƒƒã‚¯ã™ã‚‹
 
-	// QlURL http://wiki.encom.bz/index.php/%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B
-	// ƒVƒ“ƒ{ƒ‹ƒnƒ“ƒhƒ‰‚Ì‰Šú‰»
+	// å‚è€ƒURL http://wiki.encom.bz/index.php/%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B
+	// ã‚·ãƒ³ãƒœãƒ«ãƒãƒ³ãƒ‰ãƒ©ã®åˆæœŸåŒ–
 	const HANDLE process = GetCurrentProcess();
 	verify(SymInitialize(process, nullptr, TRUE));
 	scopeExit([&] () {
 		verify(SymCleanup(process));
 	});
 
-	{// ƒ‚ƒWƒ…[ƒ‹‚Ì“Ç‚İ‚İ
+	{// ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®èª­ã¿è¾¼ã¿
 		const DWORD processId = GetCurrentProcessId();
 		const HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, processId);
 		assert(snapshot != INVALID_HANDLE_VALUE);
@@ -263,13 +263,13 @@ String Debug::stackTrace() {
 
 		if (Module32FirstW(snapshot, &entry)) {
 			do {
-				// pdbƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚ç‚È‚¯‚ê‚Î¸”s‚·‚é‚±‚Æ‚Í•’Ê‚É‚ ‚é‚Ì‚ÅƒGƒ‰[ƒ`ƒFƒbƒN‚µ‚È‚­‚Æ‚à—Ç‚¢
+				// pdbãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚‰ãªã‘ã‚Œã°å¤±æ•—ã™ã‚‹ã“ã¨ã¯æ™®é€šã«ã‚ã‚‹ã®ã§ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ã—ãªãã¨ã‚‚è‰¯ã„
 				SymLoadModuleExW(process, nullptr, entry.szExePath, entry.szModule, reinterpret_cast<DWORD64>(entry.modBaseAddr), entry.modBaseSize, nullptr, 0);
 			} while (Module32NextW(snapshot, &entry));
 		}
 	}
 
-    // Œ»ƒXƒŒƒbƒh‚ÌƒRƒ“ƒeƒLƒXƒg‚Ìæ“¾
+    // ç¾ã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®å–å¾—
 	const HANDLE thread = GetCurrentThread();
 	CONTEXT context;
 	ZeroMemory(&context, sizeof(context));
@@ -286,7 +286,7 @@ String Debug::stackTrace() {
 #endif
 
 
-	// ƒXƒ^ƒbƒNƒtƒŒ[ƒ€\‘¢‘Ì‚Ì‰Šú‰»
+	// ã‚¹ã‚¿ãƒƒã‚¯ãƒ•ãƒ¬ãƒ¼ãƒ æ§‹é€ ä½“ã®åˆæœŸåŒ–
 	STACKFRAME64 stackFrame;
 	ZeroMemory(&stackFrame, sizeof(stackFrame));
 #if defined(_M_IX86)
@@ -318,8 +318,8 @@ String Debug::stackTrace() {
 #endif
 
 
-	// ƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Ìì¬
-	if (!StackWalk64(machineType, process, thread, &stackFrame, &context, nullptr, nullptr, nullptr, nullptr)) { // ‚±‚ÌŠÖ”istackTracej‚ÌƒXƒ^ƒbƒNî•ñ‚ğ”ò‚Î‚·
+	// ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã®ä½œæˆ
+	if (!StackWalk64(machineType, process, thread, &stackFrame, &context, nullptr, nullptr, nullptr, nullptr)) { // ã“ã®é–¢æ•°ï¼ˆstackTraceï¼‰ã®ã‚¹ã‚¿ãƒƒã‚¯æƒ…å ±ã‚’é£›ã°ã™
 		return String();
 	}
 	StringBuffer result(512);
@@ -328,12 +328,12 @@ String Debug::stackTrace() {
 			break;
 		}
 
-		if ((stackFrame.AddrPC.Offset == stackFrame.AddrReturn.Offset) // ƒGƒ“ƒhƒŒƒX‚É‚È‚é‚Ì‚ÅI—¹
-		 || (stackFrame.AddrPC.Offset == 0)) { // •s³‚ÈƒXƒ^ƒbƒNƒtƒŒ[ƒ€
+		if ((stackFrame.AddrPC.Offset == stackFrame.AddrReturn.Offset) // ã‚¨ãƒ³ãƒ‰ãƒ¬ã‚¹ã«ãªã‚‹ã®ã§çµ‚äº†
+		 || (stackFrame.AddrPC.Offset == 0)) { // ä¸æ­£ãªã‚¹ã‚¿ãƒƒã‚¯ãƒ•ãƒ¬ãƒ¼ãƒ 
 			break;
 		}
 
-		{// ƒ‚ƒWƒ…[ƒ‹–¼‚Ìæ“¾
+		{// ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«åã®å–å¾—
 			IMAGEHLP_MODULEW64 module;
 			ZeroMemory(&module, sizeof(module));
 			module.SizeOfStruct = sizeof(module);
@@ -343,7 +343,7 @@ String Debug::stackTrace() {
 			}
 		}
 
-		// ŠÖ”–¼‚Ìæ“¾
+		// é–¢æ•°åã®å–å¾—
 		BYTE buffer[sizeof(SYMBOL_INFOW) + sizeof(wchar_t) * MAX_SYM_NAME];
 		ZeroMemory(buffer, sizeof(buffer));
 		SYMBOL_INFOW* symbol = reinterpret_cast<SYMBOL_INFOW*>(buffer);
@@ -370,7 +370,7 @@ String Debug::stackTrace() {
 
 		result += L"\n";
 
-		if (stackFrame.AddrReturn.Offset == 0) { // ÅŒã‚ÌƒXƒ^ƒbƒNƒtƒŒ[ƒ€
+		if (stackFrame.AddrReturn.Offset == 0) { // æœ€å¾Œã®ã‚¹ã‚¿ãƒƒã‚¯ãƒ•ãƒ¬ãƒ¼ãƒ 
 			break;
 		}
 	}

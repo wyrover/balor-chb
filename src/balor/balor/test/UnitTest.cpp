@@ -1,4 +1,4 @@
-#include "UnitTest.hpp"
+ï»¿#include "UnitTest.hpp"
 
 #include <map>
 #include <regex>
@@ -89,7 +89,7 @@ bool UnitTest::isRunning() {
 
 
 void UnitTest::registerTestCase(void (*function) (), const char* functionName, const char* fileName, int line) {
-	Singleton<Global>::get().functionMap[fileName][line] = TestCase(functionName, function); // •sv‹c‚È‚±‚Æ‚É Debug ‚Æ Release ‚Å __FILE__ ‚Ì’l‚ª¬•¶š‚Ì‚İ‚¾‚Á‚½‚è‘å•¶š‚Ü‚¶‚è‚¾‚Á‚½‚è‚·‚éB
+	Singleton<Global>::get().functionMap[fileName][line] = TestCase(functionName, function); // ä¸æ€è­°ãªã“ã¨ã« Debug ã¨ Release ã§ __FILE__ ã®å€¤ãŒå°æ–‡å­—ã®ã¿ã ã£ãŸã‚Šå¤§æ–‡å­—ã¾ã˜ã‚Šã ã£ãŸã‚Šã™ã‚‹ã€‚
 }
 
 
@@ -122,7 +122,7 @@ void UnitTest::run() {
 
 
 void UnitTest::run(const char* pettern) {
-	// assert ƒ}ƒNƒ‚ÅƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğo‚³‚¸‚É AssertionFailedException ‚ğ“Š‚°‚é‚æ‚¤‚É‚·‚é
+	// assert ãƒã‚¯ãƒ­ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’å‡ºã•ãšã« AssertionFailedException ã‚’æŠ•ã’ã‚‹ã‚ˆã†ã«ã™ã‚‹
 	_set_error_mode(_OUT_TO_STDERR);
 	_set_abort_behavior(0, _WRITE_ABORT_MSG);
 	registerSignal();

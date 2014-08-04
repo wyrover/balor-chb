@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 
 #include <cassert>
 
 
 
-/// ƒfƒoƒbƒOŽž‚Í assert ‚¾‚ªƒŠƒŠ[ƒXŽž‚àðŒŽ®‚¾‚¯‚ÍŽc‚éƒ}ƒNƒB
+/// ãƒ‡ãƒãƒƒã‚°æ™‚ã¯ assert ã ãŒãƒªãƒªãƒ¼ã‚¹æ™‚ã‚‚æ¡ä»¶å¼ã ã‘ã¯æ®‹ã‚‹ãƒžã‚¯ãƒ­ã€‚
 ///
-/// BOOST_VERIFY ‚Æ“¯‚¶BiƒIƒŠƒWƒiƒ‹‚Ì assert ‚ð‚©‚Ü‚¹‚Ä‚¢‚éj
-/// verify ‚Æ‚¢‚¤’PŒê‚Íd•¡‚·‚é‰Â”\«‚ª‚‚¢‚Ì‚ÅŒˆ‚µ‚Äƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹‚ÅŽg—p‚µ‚Ä‚Í‚È‚ç‚È‚¢B
+/// BOOST_VERIFY ã¨åŒã˜ã€‚ï¼ˆã‚ªãƒªã‚¸ãƒŠãƒ«ã® assert ã‚’ã‹ã¾ã›ã¦ã„ã‚‹ï¼‰
+/// verify ã¨ã„ã†å˜èªžã¯é‡è¤‡ã™ã‚‹å¯èƒ½æ€§ãŒé«˜ã„ã®ã§æ±ºã—ã¦ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã§ä½¿ç”¨ã—ã¦ã¯ãªã‚‰ãªã„ã€‚
 #if defined(verify)
 #	error ERROR: verify macro is already defined!
 #endif

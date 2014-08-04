@@ -1,4 +1,4 @@
-#include "HandleLeakChecker.hpp"
+﻿#include "HandleLeakChecker.hpp"
 
 #include <balor/io/File.hpp>
 #include <balor/system/Module.hpp>

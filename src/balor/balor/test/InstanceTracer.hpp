@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -7,10 +7,10 @@ namespace balor {
 
 
 /**
- * �R���X�g���N?�A�f�X�g���N?�A���ԉ��Z�q�̌Ăяo���񐔂�ǐՂ���B
+ * コンストラク?、デストラク?、ｴ・ﾔ演算子の呼び出し回数を追跡する。
  * 
- * �R���e�i�����̃N���X�̃e�X�g�ɗp����B
- * �O��?�o���ϐ����g�p���Ă���̂�?��?�X���b�h��DLL�ł̎g�p�͍l���čs�����ƁB
+ * コンテナ相当のクラスのテストに用いる。
+ * グロ?バル変数を使用しているので?ル?スレッドやDLLでの使用は考えて行うこと。
  */
 class InstanceTracer {
 public:

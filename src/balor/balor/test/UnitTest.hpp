@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace balor {
@@ -7,58 +7,58 @@ namespace balor {
 
 
 /**
- * ƒ†ƒjƒbƒgƒeƒXƒg‚Ì€”õ‚âÀs‚ğ‚·‚éÀ‘•‚ğ’ñ‹Ÿ‚·‚éB
+ * ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆã®æº–å‚™ã‚„å®Ÿè¡Œã‚’ã™ã‚‹å®Ÿè£…ã‚’æä¾›ã™ã‚‹ã€‚
  *
- * testCase ƒ}ƒNƒ‚ğg‚Á‚ÄƒeƒXƒgƒP[ƒX‚ÌŠÖ”‚ğ“o˜^‚µAŠÖ”‚Ì’†‚Å‚Í testAssert, testThrow “™‚Ìƒ}ƒNƒ‚ğg‚Á‚ÄƒeƒXƒgƒR[ƒh‚ğ‘‚­B
- * UnitTest::run() ŠÖ”‚ÅƒeƒXƒg‚ğÀs‚µAŒ‹‰Ê‚Í Debug::write() ŠÖ”‚Åo—Í‚³‚ê‚éB
+ * testCase ãƒã‚¯ãƒ­ã‚’ä½¿ã£ã¦ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®é–¢æ•°ã‚’ç™»éŒ²ã—ã€é–¢æ•°ã®ä¸­ã§ã¯ testAssert, testThrow ç­‰ã®ãƒã‚¯ãƒ­ã‚’ä½¿ã£ã¦ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãã€‚
+ * UnitTest::run() é–¢æ•°ã§ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã—ã€çµæœã¯ Debug::write() é–¢æ•°ã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  *
- * <h3>E’ˆÓI</h3>
- * run ƒƒ“ƒoŠÖ”‚Å‚Í assert ƒ}ƒNƒ‚Ì¸”s‚ğƒeƒXƒg‚·‚éˆ×‚É‚bƒ‰ƒ“ƒ^ƒCƒ€‚Ì abort ŠÖ”‚ªŒÄ‚Î‚ê‚é‚Æ balor::test::UnitTest::AssertionFailedException —áŠO‚ğ“Š‚°‚é‚æ‚¤‚É‚µ‚Ä‚¢‚éB
- * abort ŠÖ”‚ğg—p‚·‚éƒvƒƒOƒ‰ƒ€‚ÌƒeƒXƒg‚Å‚Í‚±‚ê‚ğl—¶‚·‚é•K—v‚ª‚ ‚éB
+ * <h3>ãƒ»æ³¨æ„ï¼</h3>
+ * run ãƒ¡ãƒ³ãƒé–¢æ•°ã§ã¯ assert ãƒã‚¯ãƒ­ã®å¤±æ•—ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ç‚ºã«ï¼£ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã® abort é–¢æ•°ãŒå‘¼ã°ã‚Œã‚‹ã¨ balor::test::UnitTest::AssertionFailedException ä¾‹å¤–ã‚’æŠ•ã’ã‚‹ã‚ˆã†ã«ã—ã¦ã„ã‚‹ã€‚
+ * abort é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®ãƒ†ã‚¹ãƒˆã§ã¯ã“ã‚Œã‚’è€ƒæ…®ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
  */
 class UnitTest {
 public:
-	/// registerTestCase‚ğŒÄ‚Ô‚½‚ß‚¾‚¯‚ÌƒNƒ‰ƒXBtestCaseƒ}ƒNƒ“à‚Åg‚í‚ê‚éB
+	/// registerTestCaseã‚’å‘¼ã¶ãŸã‚ã ã‘ã®ã‚¯ãƒ©ã‚¹ã€‚testCaseãƒã‚¯ãƒ­å†…ã§ä½¿ã‚ã‚Œã‚‹ã€‚
 	class FunctionRegister {
 	public:
 		FunctionRegister(void (*function) (), const char* functionName, const char* fileName, int line);
 	};
 
-	/// ƒ†ƒjƒbƒgƒeƒXƒg’†‚É assert ‚É¸”s‚·‚é‚ÆƒXƒ[‚³‚ê‚é—áŠO.
+	/// ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆä¸­ã« assert ã«å¤±æ•—ã™ã‚‹ã¨ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–.
 	struct AssertionFailedException {
 	};
 
 public:
-	/// Œ»İ‚ÌƒeƒXƒgƒP[ƒX‚Å‚Íƒnƒ“ƒhƒ‹ƒŠ[ƒN‚Ìƒ`ƒFƒbƒN‚ª•K—v‚È‚¢‚±‚Æ‚ğ’Ê’m‚·‚éB
+	/// ç¾åœ¨ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã§ã¯ãƒãƒ³ãƒ‰ãƒ«ãƒªãƒ¼ã‚¯ã®ãƒã‚§ãƒƒã‚¯ãŒå¿…è¦ãªã„ã“ã¨ã‚’é€šçŸ¥ã™ã‚‹ã€‚
 	static void ignoreHandleLeakCheck();
-	/// ƒeƒXƒg‚ªÀs’†‚Å‚ ‚é‚©”Û‚©‚ğ•Ô‚·B
+	/// ãƒ†ã‚¹ãƒˆãŒå®Ÿè¡Œä¸­ã§ã‚ã‚‹ã‹å¦ã‹ã‚’è¿”ã™ã€‚
 	static bool isRunning();
-	/// ƒeƒXƒgƒP[ƒX‚ÌŠÖ”‚ğ“o˜^‚·‚éBtestCaseƒ}ƒNƒ“à‚Åg‚í‚ê‚éB
+	/// ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®é–¢æ•°ã‚’ç™»éŒ²ã™ã‚‹ã€‚testCaseãƒã‚¯ãƒ­å†…ã§ä½¿ã‚ã‚Œã‚‹ã€‚
 	static void registerTestCase(void (*function) (), const char* functionName, const char* fileName, int line);
-	/// ƒeƒXƒgŒ‹‰Ê‚ğƒŒƒ|[ƒg‚·‚éBtestAssertAtestThrowAtstAssertƒ}ƒNƒ“à‚Åg‚í‚ê‚éB
+	/// ãƒ†ã‚¹ãƒˆçµæœã‚’ãƒ¬ãƒãƒ¼ãƒˆã™ã‚‹ã€‚testAssertã€testThrowã€tstAssertãƒã‚¯ãƒ­å†…ã§ä½¿ã‚ã‚Œã‚‹ã€‚
 	static void report(bool result, const char* expression, int line);
-	/// “o˜^‚³‚ê‚½ƒeƒXƒgƒP[ƒX‚ğ‘S‚ÄÀs‚·‚éB
+	/// ç™»éŒ²ã•ã‚ŒãŸãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å…¨ã¦å®Ÿè¡Œã™ã‚‹ã€‚
 	static void run();
-	/// “o˜^‚³‚ê‚½ƒeƒXƒgƒP[ƒX‚Ì‚¤‚¿Aƒtƒ@ƒCƒ‹–¼‚ªpettern‚Å¦‚³‚ê‚é³‹K•\Œ»‚Éˆê’v‚·‚é‚à‚Ì‚¾‚¯‚ğÀs‚·‚éB
+	/// ç™»éŒ²ã•ã‚ŒãŸãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®ã†ã¡ã€ãƒ•ã‚¡ã‚¤ãƒ«åãŒpetternã§ç¤ºã•ã‚Œã‚‹æ­£è¦è¡¨ç¾ã«ä¸€è‡´ã™ã‚‹ã‚‚ã®ã ã‘ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
 	static void run(const char* pettern);
 };
 
 
-// ƒ†ƒjƒbƒgƒeƒXƒgƒR[ƒh‚Åg—p‚·‚éƒ}ƒNƒŠÖ”ŒQB
+// ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã§ä½¿ç”¨ã™ã‚‹ãƒã‚¯ãƒ­é–¢æ•°ç¾¤ã€‚
 
 
-/// ƒeƒXƒgƒP[ƒXŠÖ”‚ğ“o˜^‚µ‚Â‚ÂA’è‹`‚·‚éB
+/// ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹é–¢æ•°ã‚’ç™»éŒ²ã—ã¤ã¤ã€å®šç¾©ã™ã‚‹ã€‚
 #define testCase(functionName) \
 void functionName();\
 ::balor::test::UnitTest::FunctionRegister functionName##Register(functionName, #functionName, __FILE__, __LINE__);\
 void functionName()
 
 
-/// expression ‚ª true ‚©‚Ç‚¤‚©‚ğƒeƒXƒg‚·‚éB
+/// expression ãŒ true ã‹ã©ã†ã‹ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ã€‚
 #define testAssert(expression) ::balor::test::UnitTest::report((expression) ? true : false, #expression, __LINE__);
 
 
-/// expression ‚ª assert ‚É¸”s‚·‚é‚©‚Ç‚¤‚©‚ğƒeƒXƒg‚·‚éBNDEBUGƒ}ƒNƒ‚ª’è‹`‚³‚ê‚Ä‚¢‚éê‡‚ÍÀs‚·‚ç‚µ‚È‚¢‚±‚Æ‚É’ˆÓ‚·‚éB
+/// expression ãŒ assert ã«å¤±æ•—ã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ã€‚NDEBUGãƒã‚¯ãƒ­ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯å®Ÿè¡Œã™ã‚‰ã—ãªã„ã“ã¨ã«æ³¨æ„ã™ã‚‹ã€‚
 #if defined(NDEBUG)
 #define testAssertionFailed(expression) ::balor::test::UnitTest::report(true, #expression, __LINE__);
 #else
@@ -66,11 +66,11 @@ void functionName()
 #endif
 
 
-/// expression ‚ª—áŠO‚ğ throw ‚µ‚È‚¢‚©‚Ç‚¤‚©‚ğƒeƒXƒg‚·‚éB
+/// expression ãŒä¾‹å¤–ã‚’ throw ã—ãªã„ã‹ã©ã†ã‹ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ã€‚
 #define testNoThrow(expression) try { expression; ::balor::test::UnitTest::report(true, #expression, __LINE__); } catch (...) { ::balor::test::UnitTest::report(false, #expression, __LINE__); }
 
 
-/// expression ‚ª exception ‚ğ throw ‚·‚é‚©‚Ç‚¤‚©‚ğƒeƒXƒg‚·‚éB
+/// expression ãŒ exception ã‚’ throw ã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ã€‚
 #define testThrow(expression, exception) try { expression; ::balor::test::UnitTest::report(false, #expression, __LINE__); } catch (exception& ) { ::balor::test::UnitTest::report(true, #expression, __LINE__); }
 
 

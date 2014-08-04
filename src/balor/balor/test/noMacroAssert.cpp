@@ -1,4 +1,4 @@
-#include "noMacroAssert.hpp"
+ï»¿#include "noMacroAssert.hpp"
 
 #include <cassert>
 
@@ -9,7 +9,7 @@ namespace balor {
 
 
 #pragma warning(push)
-#pragma warning(disable : 4100) // 'expression' : ˆø”‚ÍŠÖ”‚Ì–{‘Ì•”‚Å 1 “x‚àQÆ‚³‚ê‚Ü‚¹‚ñB
+#pragma warning(disable : 4100) // 'expression' : å¼•æ•°ã¯é–¢æ•°ã®æœ¬ä½“éƒ¨ã§ 1 åº¦ã‚‚å‚ç…§ã•ã‚Œã¾ã›ã‚“ã€‚
 void noMacroAssert(bool expression) {
 	assert(expression);
 }

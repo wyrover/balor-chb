@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 
 //#include <functional>
 
 namespace balor {
-/// ƒ†ƒjƒbƒgƒeƒXƒg‚âƒfƒoƒbƒOŠÖ˜A‚ÌƒNƒ‰ƒXŒQ
+/// ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆã‚„ãƒ‡ãƒãƒƒã‚°é–¢é€£ã®ã‚¯ãƒ©ã‚¹ç¾¤
 namespace test {
 }
 }
@@ -13,7 +13,7 @@ namespace test {
 #include <balor/test/InstanceTracer.hpp>
 #include <balor/test/noMacroAssert.hpp>
 #include <balor/test/UnhandledException.hpp>
-//#include <balor/test/UnitTest.hpp> // ƒ}ƒNƒ‚ğŠÜ‚Ş
-//#include <balor/test/verify.hpp> // ƒ}ƒNƒ‚ğŠÜ‚Ş
+//#include <balor/test/UnitTest.hpp> // ãƒã‚¯ãƒ­ã‚’å«ã‚€
+//#include <balor/test/verify.hpp> // ãƒã‚¯ãƒ­ã‚’å«ã‚€
 
 #include <balor/link.hpp>

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <balor/system/PerformanceCounter.hpp>
 #include <balor/system/Process.hpp>
@@ -10,7 +10,7 @@ namespace balor {
 
 
 
-/// ƒtƒ@ƒCƒ‹‚È‚Ç‚ÌƒVƒXƒeƒ€‚Ìƒnƒ“ƒhƒ‹A‚f‚c‚h‚Ìƒnƒ“ƒhƒ‹AƒEƒCƒ“ƒhƒE‚È‚Ç‚Ìƒ†[ƒUƒnƒ“ƒhƒ‹‚Ì‚Rí—Ş‚Ìƒnƒ“ƒhƒ‹‚Ì”‚ğŠÄ‹‚·‚éB
+/// ãƒ•ã‚¡ã‚¤ãƒ«ãªã©ã®ã‚·ã‚¹ãƒ†ãƒ ã®ãƒãƒ³ãƒ‰ãƒ«ã€ï¼§ï¼¤ï¼©ã®ãƒãƒ³ãƒ‰ãƒ«ã€ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãªã©ã®ãƒ¦ãƒ¼ã‚¶ãƒãƒ³ãƒ‰ãƒ«ã®ï¼“ç¨®é¡ã®ãƒãƒ³ãƒ‰ãƒ«ã®æ•°ã‚’ç›£è¦–ã™ã‚‹ã€‚
 class HandleLeakChecker {
 public:
 	HandleLeakChecker(StringRange exeFileName = L"");

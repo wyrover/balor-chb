@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 namespace balor {
@@ -7,11 +7,11 @@ namespace balor {
 
 
 /**
- * �}�N�����g��Ȃ� assert�B��Ƀw�b�_�݂̂Ŏ��������e���v���[�g�N���X�Ŏg�p����B
+ * マクロを使わない assert。主にヘッダのみで実装されるテンプレートクラスで使用する。
  *
- * balor �ł͓Ǝ��� assert �}�N���͎g���Ă��Ȃ����v���W�F�N�g�ɂ���Ă͉��� assert �}�N�����g����������Ȃ��̂ł��̑΍�B
- * noMacroAssert �֐����ł͒P��assert���s�����A�\�������\�[�X�R�[�h�ʒu�͌Œ肳��Ă��܂��̂Ń��j�b�g�e�X�g���f�o�b�K�ł̎g�p���O��B
- * �����[�X�R���p�C�����ɂ��c���Ă��܂�����̊֐��Ȃ̂ōœK���ō폜����邱�Ƃ����҂���B
+ * balor では独自の assert マクロは使っていないがプロジェクトによっては改造 assert マクロを使うかもしれないのでその対策。
+ * noMacroAssert 関数内では単にassertを行うが、表示されるソースコード位置は固定されてしまうのでユニットテストかデバッガでの使用が前提。
+ * リリースコンパイル時にも残ってしまうが空の関数なので最適化で削除されることを期待する。
  */
 void noMacroAssert(bool expression);
 
