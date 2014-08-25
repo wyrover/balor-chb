@@ -1,4 +1,4 @@
-#include <Windows.h>
+ï»¿#include <Windows.h>
 #include <balor/graphics/all.hpp>
 #include <balor/gui/all.hpp>
 
@@ -6,19 +6,20 @@ using namespace balor::graphics;
 using namespace balor::gui;
 
 
-int APIENTRY WinMain(HINSTANCE , HINSTANCE , LPSTR , int ) {
+int APIENTRY WinMain(HINSTANCE , HINSTANCE , LPSTR , int ) 
+{
 	Frame frame(L"ImageViewer");
 	Bitmap bitmap;
 
 	typedef Menu::ItemInfo Item;
 	Item fileMenuItems[] = {
-		Item(L"ŠJ‚­(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
+		Item(L"ì—´ê¸°(&O)\tCtrl+O", Key::Modifier::ctrl | Key::o),
 		Item(),
-		Item(L"I—¹(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
+		Item(L"ì¢…ë£Œ(&X)\tAlt+F4", Key::Modifier::alt | Key::f4)
 	};
 	Item menuBarItems[] = {
-		Item(L"ƒtƒ@ƒCƒ‹(&F)", fileMenuItems),
-		Item(L"ƒwƒ‹ƒv(&H)", [&] (Menu::Click& ) { MsgBox::show(L"Image Viewer Ver 1.0", L"ƒo[ƒWƒ‡ƒ“î•ñ"); })
+		Item(L"íŒŒì¼(&F)", fileMenuItems),
+		Item(L"ë„ì›€ë§(&H)", [&] (Menu::Click& ) { MsgBox::show(L"Image Viewer Ver 1.0", L"ë²„ì „ ì •ë³´"); })
 	};
 	MenuBar menuBar(menuBarItems);
 	frame.menuBar(&menuBar);
@@ -27,11 +28,11 @@ int APIENTRY WinMain(HINSTANCE , HINSTANCE , LPSTR , int ) {
 		switch (e.shortcut()) {
 			case Key::Modifier::ctrl | Key::o : {
 				OpenFileDialog dialog;
-				dialog.filter(L"‰æ‘œƒtƒ@ƒCƒ‹\n*.bmp;*.gif;*.png;*.jpg;*.jpeg;*.tiff\n\n");
+				dialog.filter(L"ê·¸ë¦¼ íŒŒì¼\n*.bmp;*.gif;*.png;*.jpg;*.jpeg;*.tiff\n\n");
 				if (dialog.show(frame)) {
 					bitmap = Bitmap(dialog.filePath());
 					if (bitmap != nullptr) {
-						frame.scrollMinSize(bitmap.size()); // ƒEƒCƒ“ƒhƒEƒTƒCƒY‚ª‰æ‘œƒTƒCƒYˆÈ‰º‚È‚çƒXƒNƒ[ƒ‹‚Å‚«‚é‚æ‚¤‚É‚·‚éB
+						frame.scrollMinSize(bitmap.size()); // ìœˆë„ìš° ì‚¬ì´ì¦ˆê°€ ê·¸ë¦¼ ì‚¬ì´ì¦ˆë³´ë‹¤ ì‘ìœ¼ë©´ ìŠ¤í¬ë¡¤ í•  ìˆ˜ ìˆë„ë¡ í•œë‹¤
 						frame.invalidate();
 					}
 				}
@@ -47,7 +48,7 @@ int APIENTRY WinMain(HINSTANCE , HINSTANCE , LPSTR , int ) {
 		e.graphics().clear();
 		if (bitmap != nullptr) {
 			Graphics bitmapGraphics(bitmap);
-			e.graphics().copy(frame.scrollPosition(), bitmapGraphics); // ƒXƒNƒ[ƒ‹•ª‚¸‚ç‚µ‚Ä‰æ‘œ‚ğƒRƒs[‚·‚éB
+			e.graphics().copy(frame.scrollPosition(), bitmapGraphics); // ìŠ¤í¬ë¡¤ì„ ë¹¼ê³  ì´ë¯¸ì§€ë¥¼ ë³µì‚¬í•œë‹¤.
 		}
 	};
 
